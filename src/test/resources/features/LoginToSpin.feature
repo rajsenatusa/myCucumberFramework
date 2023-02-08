@@ -1,3 +1,5 @@
+#Author: Can Yavas
+
 Feature: Login Functionality
 
   @smoke @regression

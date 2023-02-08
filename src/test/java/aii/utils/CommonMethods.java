@@ -122,6 +122,22 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+	
+	/**
+	 * This method checks if a given index is valid for the WebElement and only then
+	 * selects an element by visible text.
+	 * 
+	 * @param element
+	 * @param text
+	 */
+	public static void selectDropdownText(WebElement element, String text) {
+		
+			Select select = new Select(element);
+			select.selectByVisibleText(text);
+			
+			}
+		 
+	
 
 	/**
 	 * This method accepts an Alert and handles NoAlertPresentException if no alert
@@ -323,11 +339,12 @@ public class CommonMethods extends PageInitializer {
 	/**
 	 * This method will move to desired element
 	 * 
-	 * @param pixel
+	 * @param element
+	 
 	 */
 	public static void moveToElement(WebElement element) {
-		Actions moveToElement= new Actions(driver);
-		moveToElement.perform();
+		Actions move= new Actions(driver);
+		move.moveToElement(element).perform();
 		
 	}
 	/**
