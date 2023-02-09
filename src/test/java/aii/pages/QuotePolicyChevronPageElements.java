@@ -20,6 +20,9 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "InsuredPhonePrimary.PhoneNumber")
 	public WebElement phoneNumber;
 	
+	@FindBy(id= "InsuredPhonePrimary.PhoneName")
+	public WebElement phoneNumberType;
+	
 	@FindBy(id= "InsuredEmail.NoEmailInd")
 	public WebElement noEmailRadio;
 	
