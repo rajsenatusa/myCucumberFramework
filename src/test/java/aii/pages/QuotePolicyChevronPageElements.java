@@ -41,6 +41,9 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "NextPage")
 	public WebElement nextButton;
 	
+	@FindBy(id= "BasicPolicy.MobileHomeInd")
+	public WebElement mobileHomeInd;
+	
 	
 	
 	public QuotePolicyChevronPageElements() {

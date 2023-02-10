@@ -98,6 +98,27 @@ public class ApplicationUwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "NextPage_Bottom")
 	public WebElement nextButtonUw;
 	
+	@FindBy(id= "Question_BusinessActivity")
+	public WebElement ho4Question12;
+	
+	@FindBy(id= "Question_PriorAIICPolicy")
+	public WebElement ho4Question14;
+	
+	@FindBy(id= "Question_SinkholeClaim")
+	public WebElement ho6Question8;
+	
+	@FindBy(id= "Question_ExoticAnimalsOnPremises")
+	public WebElement ho6Question12;
+	
+	@FindBy(id= "Question_SwimmingPool")
+	public WebElement ho6Question19;
+	
+	@FindBy(id= "Question_Business")
+	public WebElement ho6Question21;
+	
+	@FindBy(id= "Question_FloodLosses")
+	public WebElement ho6Question4;
+	
 	
 	
 	
