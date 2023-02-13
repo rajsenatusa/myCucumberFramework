@@ -20,6 +20,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.MediationArbitrationInd")
 	public WebElement mediationArbit;
 	
+	@FindBy(id= "BuildingExt.MMAInd")
+	public WebElement mediationArbitDp1;
+	
 	@FindBy(id= "Save")
 	public WebElement saveButton;
 	

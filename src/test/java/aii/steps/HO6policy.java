@@ -40,6 +40,7 @@ public class HO6policy extends CommonMethods {
 		selectDropdownText(policyChevron.insuredReside, "No");
 		wait(1);
 		click(policyChevron.nextButton);
+		wait(3);
 		
 	}
 	@When("I enter all required information on HO6 dwelling screen")

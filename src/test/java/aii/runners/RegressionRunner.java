@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		features = "src/test/resources/features/",
 
 		// we can specify where the code for the above feature files is located
-		glue = "com.neotech.steps",
+		glue = "aii.steps",
 
 		// if true, it does not run the java classes. Only checks the feature files
 		// if they are glued to some java code

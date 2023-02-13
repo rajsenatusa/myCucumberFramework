@@ -19,3 +19,4 @@ Feature: Login Functionality
     And I click on the signin button
     Then I validate that Invalid Credentials is displayed
     Then I will quit the browser
+

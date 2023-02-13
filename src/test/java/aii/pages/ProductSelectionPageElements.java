@@ -29,6 +29,12 @@ public class ProductSelectionPageElements extends CommonMethods{
 	@FindBy (xpath= "//a[normalize-space()='Voluntary Condominium Unit Owners (HO6)']")
 	public WebElement productSelectionHo6;
 	
+	@FindBy (xpath= "//a[normalize-space()='Voluntary Dwelling Property 1 (DP1)']")
+	public WebElement productSelectionDp1;
+	
+	@FindBy (xpath= "//a[normalize-space()='Voluntary Dwelling Property 3 (DP3)']")
+	public WebElement productSelectionDp3;
+	
 	
 	
 	public ProductSelectionPageElements() {

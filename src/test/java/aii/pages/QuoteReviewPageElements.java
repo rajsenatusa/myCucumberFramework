@@ -29,6 +29,9 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "Closeout")
 	public WebElement finalizeButton;
 	
+	@FindBy(id= "BasicPolicy.NCFDisclosureResponseInd")
+	public WebElement orderInsScore;
+	
 	
 	
 	public QuoteReviewPageElements() {

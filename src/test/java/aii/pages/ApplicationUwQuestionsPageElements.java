@@ -119,6 +119,9 @@ public class ApplicationUwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_FloodLosses")
 	public WebElement ho6Question4;
 	
+	@FindBy(id= "Question_SinkholeLosses")
+	public WebElement dp1Question8;
+	
 	
 	
 	

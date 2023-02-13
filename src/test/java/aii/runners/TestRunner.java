@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @CucumberOptions(
 		// we can specify which feature/features to run
-		features = "src/test/resources/features/HO6policy.feature",
+		features = "src/test/resources/features/",
 
 		// we can specify where the code for the above feature files is located
 		glue = "aii.steps",
@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 		// tags can do the same thing groups on TestNG do
-		tags = "@smoke2",
+		tags = "@dp3",
 
 		monochrome = true, 
 		

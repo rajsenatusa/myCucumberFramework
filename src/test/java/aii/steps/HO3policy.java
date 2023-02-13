@@ -93,6 +93,7 @@ public class HO3policy extends CommonMethods {
 		wait(4);
 		click(dwellingChevron.saveButton);
 		click(dwellingChevron.nextButton);
+		wait(3);
 	}
 	
 	@When("I enter all required information on review screen")
@@ -103,7 +104,7 @@ public class HO3policy extends CommonMethods {
 		click(reviewChevron.fullPaymentRadioButton);
 		wait(3);
 		click(reviewChevron.createApplication);
-		wait(2);
+		wait(4);
 		click(reviewChevron.insuranceScoreCheckBox);
 		click(reviewChevron.insuranceScoreOkButton);
 		wait(3);

@@ -44,6 +44,10 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "BasicPolicy.MobileHomeInd")
 	public WebElement mobileHomeInd;
 	
+	@FindBy(id= "ShortTermRental")
+	public WebElement shortTermRental;
+	
+	
 	
 	
 	public QuotePolicyChevronPageElements() {
