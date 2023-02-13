@@ -122,10 +122,56 @@ public class ApplicationUwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_SinkholeLosses")
 	public WebElement dp1Question8;
 	
+	@FindBy(id= "Question_UnusualLiabilityNo")
+	public WebElement mho3Question12;
 	
+	@FindBy(id= "Question_FoundationDisclosure")
+	public WebElement mho3Question16;
 	
+	@FindBy(id= "Question_VacantUnoccupiedNo")
+	public WebElement mho3Question22;
 	
+	@FindBy(id= "Question_VisibleNeighbors")
+	public WebElement mho3Question24;
 	
+	@FindBy(id= "Question_FireDeptAccessible")
+	public WebElement mho3Question25;
+	
+	@FindBy(id= "Question_Rented")
+	public WebElement mho3Question26;
+	
+	@FindBy(id= "Question_InsuredDecline1")
+	public WebElement gocQuestion1;
+	
+	@FindBy(id= "Question_Accidents")
+	public WebElement gocQuestion3;
+	
+	@FindBy(id= "Question_ViolationsAccidents")
+	public WebElement gocQuestion4;
+	
+	@FindBy(id= "Question_NegligentDriving")
+	public WebElement gocQuestion5;
+	
+	@FindBy(id= "Question_OperatorDWIDUI")
+	public WebElement gocQuestion6;
+	
+	@FindBy(id= "Question_OperatorImpairment1")
+	public WebElement gocQuestion7;
+	
+	@FindBy(id= "Question_BusinessCommercial")
+	public WebElement gocQuestion8;
+	
+	@FindBy(id= "Question_LessThan16")
+	public WebElement gocQuestion9;
+	
+	@FindBy(id= "Question_PublicRoads")
+	public WebElement gocQuestion10;
+	
+	@FindBy(id= "Question_Racing")
+	public WebElement gocQuestion11;
+	
+	@FindBy(id= "Question_LiveryConveyance")
+	public WebElement gocQuestion12;
 	
 	public ApplicationUwQuestionsPageElements() {
 		

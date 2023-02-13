@@ -2,7 +2,7 @@
 
 Feature: Login Functionality
 
-  @smoke @regression
+  @regression
   Scenario: Valid Login
     Given I navigated to the spin website
     When I enter a valid username

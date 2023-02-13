@@ -47,8 +47,17 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "ShortTermRental")
 	public WebElement shortTermRental;
 	
+	@FindBy(id= "BasicPolicy.MHPropertyTypeCd_2")
+	public WebElement propertyTypePri;
 	
+	@FindBy(id= "BasicPolicy.Coverage6MonthsInd")
+	public WebElement coverage6MonthsInd;
 	
+	@FindBy(id= "BasicPolicy.Garaged6MonthsInd")
+	public WebElement garaged6MonthsInd;
+	
+	@FindBy(id= "Wizard_Policy")
+	public WebElement policyChevronLink;
 	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
