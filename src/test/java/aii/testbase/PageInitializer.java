@@ -1,4 +1,5 @@
 package aii.testbase;
+import aii.pages.AIBPageElements;
 import aii.pages.ApplicationUwQuestionsPageElements;
 import aii.pages.CloseOutChevronPageElements;
 import aii.pages.DashboardPageElements;
@@ -23,6 +24,7 @@ public class PageInitializer extends BaseClass {
 	public static ApplicationUwQuestionsPageElements uwquestionsChevron;
 	public static CloseOutChevronPageElements closeoutChevron;
 	public static GolfcartChevronPageElements golfcartChevron;
+	public static AIBPageElements aibChevron;
 	
 	
 
@@ -37,6 +39,7 @@ public class PageInitializer extends BaseClass {
 		uwquestionsChevron= new ApplicationUwQuestionsPageElements();
 		closeoutChevron= new CloseOutChevronPageElements();
 		golfcartChevron= new GolfcartChevronPageElements();
+		aibChevron= new AIBPageElements();
 		
 	}
 

@@ -41,6 +41,11 @@ public class ProductSelectionPageElements extends CommonMethods{
 	@FindBy (xpath= "//a[normalize-space()='Golf Cart (GOC)']")
 	public WebElement productSelectionGoc;
 	
+	@FindBy(xpath= "//a[normalize-space()='Voluntary Boat Owners (AIB)']")
+	public WebElement productSelectionAib;
+	
+	
+	
 	public ProductSelectionPageElements() {
 		PageFactory.initElements(driver, this);
 	}

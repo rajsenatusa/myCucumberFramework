@@ -44,10 +44,12 @@ public class GOCpolicy extends CommonMethods {
 		selectDropdownText(golfcartChevron.liabilityCovType, ConfigsReader.getProperty("liabilitycoveragetypegoc"));
 		wait(6);
 		selectDropdownText(golfcartChevron.bodilyInjuryPerson, ConfigsReader.getProperty("bodilyinjuryperson"));
-		selectDropdownText(golfcartChevron.propertyDamageLimit, ConfigsReader.getProperty("propertydamagelimit"));
 		wait(5);
+		selectDropdownText(golfcartChevron.propertyDamageLimit, ConfigsReader.getProperty("propertydamagelimit"));
+		wait(3);
 		selectDropdownText(golfcartChevron.medicalPaymentLimit, ConfigsReader.getProperty("medicalpaymentlimit"));
-		selectDropdownText(golfcartChevron.uninsuredInjury, ConfigsReader.getProperty("uninsuredinjury"));
+		wait(3);
+		click(dwellingChevron.saveButton);
 		wait(2);
 		click(dwellingChevron.saveButton);
 		click(dwellingChevron.nextButton);

@@ -173,6 +173,55 @@ public class ApplicationUwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_LiveryConveyance")
 	public WebElement gocQuestion12;
 	
+	@FindBy(id= "Question_InsuredDecline1")
+	public WebElement aibQuestion1;
+	
+	@FindBy(id= "Question_DriverAge")
+	public WebElement aibQuestion5;
+	
+	@FindBy(id= "Question_OperatorDWIDUI2")
+	public WebElement aibQuestion7;
+	
+	@FindBy(id= "Question_CorporateEntity")
+	public WebElement aibQuestion10;
+	
+	@FindBy(id= "Question_Charter")
+	public WebElement aibQuestion11;
+	
+	@FindBy(id= "Question_Navigable")
+	public WebElement aibQuestion12;
+	
+	@FindBy(id= "Question_Racing")
+	public WebElement aibQuestion13;
+	
+	@FindBy(id= "Question_Engine")
+	public WebElement aibQuestion14;
+	
+	@FindBy(id= "Question_PaidCrew")
+	public WebElement aibQuestion15;
+	
+	@FindBy(id= "Question_SleepingBoat")
+	public WebElement aibQuestion16;
+	
+	@FindBy(id= "Question_ExistingDamage")
+	public WebElement aibQuestion17;
+	
+	@FindBy(id= "Question_ResidenceBoat")
+	public WebElement aibQuestion18;
+	
+	@FindBy(id= "Question_AdditionalOwners")
+	public WebElement aibQuestion19;
+	
+	@FindBy(id= "Question_ForSale")
+	public WebElement aibQuestion20;
+	
+	@FindBy(id= "Question_TotalLoss")
+	public WebElement aibQuestion21;
+	
+	@FindBy(id= "Question_LiveryConveyance")
+	public WebElement aibQuestion22;
+	
+	
 	public ApplicationUwQuestionsPageElements() {
 		
 		PageFactory.initElements(driver, this);
