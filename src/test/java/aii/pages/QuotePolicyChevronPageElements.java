@@ -59,6 +59,10 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "Wizard_Policy")
 	public WebElement policyChevronLink;
 	
+	@FindBy(id= "ProviderNumber")
+	public WebElement producerCodeSel;
+	
+	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
 		

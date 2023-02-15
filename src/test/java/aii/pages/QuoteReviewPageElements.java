@@ -14,6 +14,9 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "BasicPolicy.PayPlanCd_7")
 	public WebElement fullPaymentRadioButton;
 	
+	@FindBy(id= "BasicPolicy.PayPlanCd_8")
+	public WebElement fullPaymentRadioTOButton;
+	
 	@FindBy(id= "Bind")
 	public WebElement createApplication;
 	
@@ -31,8 +34,7 @@ public class QuoteReviewPageElements extends CommonMethods {
 	
 	@FindBy(id= "BasicPolicy.NCFDisclosureResponseInd")
 	public WebElement orderInsScore;
-	
-	
+
 	
 	public QuoteReviewPageElements() {
 		PageFactory.initElements(driver, this);

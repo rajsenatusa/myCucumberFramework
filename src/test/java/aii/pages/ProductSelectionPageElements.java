@@ -44,6 +44,8 @@ public class ProductSelectionPageElements extends CommonMethods{
 	@FindBy(xpath= "//a[normalize-space()='Voluntary Boat Owners (AIB)']")
 	public WebElement productSelectionAib;
 	
+	@FindBy(xpath= "//a[normalize-space()='Takeout Homeowners (HO3)']")
+	public WebElement productSelectionToho3;
 	
 	
 	public ProductSelectionPageElements() {

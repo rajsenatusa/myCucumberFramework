@@ -13,9 +13,7 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "Process")
 	public WebElement issueNBButton;
-	
-	
-	
+		
 	
 	
 	public CloseOutChevronPageElements() {
