@@ -3,7 +3,7 @@ Feature: Issuing AIB policy
 
   @aib
   Scenario: Valid AIB policy creation
-    Given I signin Spin as Standard Agent
+    Given I signin Spin as Admin Agent
     When I start transaction as a new customer
     And I enter all required information on customer information screen
     And I enter AIB product selection information and effective date
@@ -14,3 +14,4 @@ Feature: Issuing AIB policy
     And I enter all required information on AIB review screen
     And I create AIB application
     Then I validate the AIB policy has been created successfully
+		##user changed to admin when executing this test for ignoring mvr scoring

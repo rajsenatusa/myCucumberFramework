@@ -28,7 +28,7 @@ public class HO3policy extends CommonMethods {
 		wait(1);
 		dashboard.newQuote.click();
 		WebElement element= driver.findElement(By.id("Customer.EntityTypeCd"));
-		selectDropdown(element, "Individual");
+		selectDropdownText(element, "Individual");
 		
 	}
 	@When("I enter all required information on customer information screen")

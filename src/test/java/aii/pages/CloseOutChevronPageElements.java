@@ -13,7 +13,15 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "Process")
 	public WebElement issueNBButton;
-		
+	
+	@FindBy(id= "SubmitForApproval")
+	public WebElement submitApproval;
+	
+	@FindBy(id= "WorkflowComments")
+	public WebElement workflowComments;	
+	
+	@FindBy(id= "QuoteAppSummary_QuoteAppNumber")
+	public WebElement applicationNumber;
 	
 	
 	public CloseOutChevronPageElements() {

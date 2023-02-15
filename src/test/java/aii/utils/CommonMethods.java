@@ -75,32 +75,6 @@ public class CommonMethods extends PageInitializer {
 
 	}
 
-	/**
-	 * This method checks whether a visible text is found in a dropdown and selects
-	 * it.
-	 * 
-	 * 
-	 * @param element
-	 * @param visibleText
-	 */
-	public static void selectDropdown(WebElement element, String visibleText) {
-
-		try {
-			Select sl = new Select(element);
-
-			List<WebElement> options = sl.getOptions();
-
-			for (WebElement el : options) {
-				if (el.getText().equals(visibleText)) {
-					sl.selectByVisibleText(visibleText);
-					break;
-				}
-			}
-		} catch (UnexpectedTagNameException e) {
-			e.printStackTrace();
-		}
-
-	}
 
 	/**
 	 * This method checks if a given index is valid for the WebElement and only then
@@ -132,12 +106,15 @@ public class CommonMethods extends PageInitializer {
 	 * @param text
 	 */
 	public static void selectDropdownText(WebElement element, String text) {
-		
+		try {
 			Select select = new Select(element);
 			select.selectByVisibleText(text);
 			
 			}
-		 
+		catch (UnexpectedTagNameException e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 	/**

@@ -74,6 +74,17 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.HurricaneDeductible")
 	public WebElement hurricaneDeductible;
 	
+	@FindBy(id= "Building.DistToFireHydrant")
+	public WebElement distanceToHydrant;
+	
+	@FindBy(id= "Building.ProtectionClass")
+	public WebElement protectionClass;
+	
+	@FindBy(id= "Building.NumberOfUnits")
+	public WebElement numberofUnits;
+	
+	@FindBy(id= "Building.AttachedStructures")
+	public WebElement attachedStructures;
 	
 	public QuoteDwellingChevronPageElements() {
 		

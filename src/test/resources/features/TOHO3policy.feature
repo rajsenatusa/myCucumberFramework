@@ -5,7 +5,7 @@ Feature: Issuing TOHO3 policy
 
   @toho3
   Scenario: Valid TOHO3 policy creation
-    Given I signin Spin as Standard Agent
+    Given I signin Spin as Admin Agent
     When I start transaction as a new customer
     And I enter all required information on customer information screen
     And I enter product selection information for TOHO3 and effective date

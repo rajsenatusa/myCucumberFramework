@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 
 public class AIBpolicy extends CommonMethods {
 
+	
 	@When("I enter AIB product selection information and effective date")
 	public void i_enter_aib_product_selection_information_and_effective_date() {
 		
@@ -26,8 +27,11 @@ public class AIBpolicy extends CommonMethods {
 	@When("I enter all required information on AIB quote screen")
 	public void i_enter_all_required_information_on_aib_quote_screen() {
 	   
-		selectDropdownText(policyChevron.previousCarrier, ConfigsReader.getProperty("previouscarrieraib"));
+		selectDropdownText(policyChevron.previousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
 		sendText(policyChevron.previousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
+		sendText(policyChevron.producerCodeSel, ConfigsReader.getProperty("producerselection"));
+		click(dwellingChevron.saveButton);
+		wait(5);
 		selectDropdownText(policyChevron.coverage6MonthsInd, "Yes");
 		selectDropdownText(policyChevron.garaged6MonthsInd, "Yes");
 		selectDropdown(policyChevron.insuranceScoreDd,3);
@@ -171,13 +175,11 @@ public class AIBpolicy extends CommonMethods {
 		
 		selectDropdownText(closeoutChevron.paymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
-		
-		//after this, it needs modification. It goes along way to underwriter approval. Modify test like this.
 		click(closeoutChevron.issueNBButton);
-		
-		
-		
+	
 	}
+	
+
 	@Then("I validate the AIB policy has been created successfully")
 	public void i_validate_the_aib_policy_has_been_created_successfully() {
 	   
