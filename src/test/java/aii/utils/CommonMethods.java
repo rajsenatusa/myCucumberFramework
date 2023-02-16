@@ -12,6 +12,7 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.OutputType;
@@ -280,7 +281,28 @@ public class CommonMethods extends PageInitializer {
 		waitForClickability(element);
 		element.click();
 	}
-
+	
+	/**
+	 * This method waits for an element to be clickable and then clicks TAB button on it.
+	 * 
+	 * @param element
+	 */
+	public static void clickTab(WebElement element) {
+		waitForClickability(element);
+		element.sendKeys(Keys.TAB);
+	}
+	
+	/**
+	 * This method waits for an element to be clickable and then clicks button on it and clears written text.
+	 * 
+	 * @param element
+	 */
+	public static void clearText(WebElement element) {
+		waitForClickability(element);
+		element.sendKeys(Keys.CLEAR);
+	}
+	
+	
 	/**
 	 * This method casts the driver to JavascriptExecutor and returns it
 	 * 

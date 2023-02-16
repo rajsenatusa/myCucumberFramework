@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 		// tags can do the same thing groups on TestNG do
-		tags = "@tomho",
+		tags = "@umb",
 
 		monochrome = true, 
 		

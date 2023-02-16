@@ -11,7 +11,7 @@ public class LoginPageElements extends CommonMethods {
 
 	@FindBy(id = "j_username")
 	public WebElement username;
-
+	
 	@FindBy(id = "j_password")
 	public WebElement password;
 

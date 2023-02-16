@@ -221,6 +221,59 @@ public class ApplicationUwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_LiveryConveyance")
 	public WebElement aibQuestion22;
 	
+	@FindBy(id= "Question_MemberAircraft")
+	public WebElement umbQuestion1;
+	
+	@FindBy(id= "Question_MemberBite")
+	public WebElement umbQuestion2;
+	
+	@FindBy(id= "Question_MemberPitBull")
+	public WebElement umbQuestion3;
+	
+	@FindBy(id= "Question_MemberBusiness")
+	public WebElement umbQuestion4;
+	
+	@FindBy(id= "Question_MemberDecline1")
+	public WebElement umbQuestion5;
+	
+	@FindBy(id= "Question_MemberDUI")
+	public WebElement umbQuestion6;
+	
+	@FindBy(id= "Question_MemberEntertainer")
+	public WebElement umbQuestion7;
+	
+	@FindBy(id= "Question_MemberFraud")
+	public WebElement umbQuestion8;
+	
+	@FindBy(id= "Question_MemberImpairment1")
+	public WebElement umbQuestion9;
+	
+	@FindBy(id= "Question_MemberLiability1")
+	public WebElement umbQuestion10;
+	
+	@FindBy(id= "Question_MemberRacing")
+	public WebElement umbQuestion11;
+	
+	@FindBy(id= "Question_MemberViolations")
+	public WebElement umbQuestion12;
+	
+	@FindBy(id= "Question_RoomingHouses")
+	public WebElement umbQuestion13;
+	
+	@FindBy(id= "Question_SwimmingPool")
+	public WebElement umbQuestion14;
+	
+	@FindBy(id= "Question_Trampoline")
+	public WebElement umbQuestion15;
+	
+	@FindBy(id= "Question_UnderlyingInsurance")
+	public WebElement umbQuestion16;
+	
+	@FindBy(id= "Question_VehicleLivery")
+	public WebElement umbQuestion17;
+	
+	@FindBy(id= "Question_VehicleSpeed")
+	public WebElement umbQuestion18;
 	
 	public ApplicationUwQuestionsPageElements() {
 		

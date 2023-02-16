@@ -11,6 +11,7 @@ import aii.pages.QuotePageElements;
 import aii.pages.QuotePolicyChevronPageElements;
 import aii.pages.QuoteReviewPageElements;
 import aii.pages.SpecialOptionsPageElements;
+import aii.pages.UmbrellaLiabilityPageElements;
 
 
 public class PageInitializer extends BaseClass {
@@ -27,6 +28,7 @@ public class PageInitializer extends BaseClass {
 	public static GolfcartChevronPageElements golfcartChevron;
 	public static AIBPageElements aibChevron;
 	public static SpecialOptionsPageElements specialChevron;
+	public static UmbrellaLiabilityPageElements umbrellaChevron;
 	
 	
 
@@ -43,6 +45,7 @@ public class PageInitializer extends BaseClass {
 		golfcartChevron= new GolfcartChevronPageElements();
 		aibChevron= new AIBPageElements();
 		specialChevron= new SpecialOptionsPageElements();
+		umbrellaChevron= new UmbrellaLiabilityPageElements();
 		
 	}
 

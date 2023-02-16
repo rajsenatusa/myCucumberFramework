@@ -50,8 +50,9 @@ public class TOMHOpolicy extends CommonMethods {
 		sendText(dwellingChevron.yearConstruction, ConfigsReader.getProperty("yearconstruction"));
 		selectDropdownText(dwellingChevron.buildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
 		selectDropdownText(dwellingChevron.attachedStructures, "No");
-		sendText(dwellingChevron.coverageA, ConfigsReader.getProperty("tocoverageA"));
 		wait(2);
+		sendText(dwellingChevron.coverageA, ConfigsReader.getProperty("tocoverageA"));
+		wait(3);
 		click(dwellingChevron.saveButton);
 		wait(3);
 		click(dwellingChevron.nextButton);

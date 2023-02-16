@@ -86,6 +86,8 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.AttachedStructures")
 	public WebElement attachedStructures;
 	
+	
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);
