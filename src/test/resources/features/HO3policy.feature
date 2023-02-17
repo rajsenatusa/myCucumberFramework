@@ -1,6 +1,4 @@
 #Author: Can Yavas
-
-
 Feature: Issuing HO3 policy
 
   @ho3
@@ -14,6 +12,10 @@ Feature: Issuing HO3 policy
     And I enter all required information on review screen
     And I create HO3 application
     Then I validate the HO3 policy has been created successfully
+
+  @exceldatatable
+  Scenario: HO3 policy creation with multiple customers
+    Given I signin Spin as Standard Agent
+    When I start transaction as a new customer
+    Then I create HO3 policy with passing information from excel "customerInfo" sheet
     
-
-
