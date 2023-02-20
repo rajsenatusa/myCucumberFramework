@@ -20,11 +20,12 @@ import io.cucumber.junit.CucumberOptions;
 
 		// tags can do the same thing groups on TestNG do
 		tags = "@exceldatatable",
-
+		
+		//it provides the output console to more readable
 		monochrome = true, 
 		
 		plugin = {
-				// prints the ghergin steps into the console
+				// prints the gherkin steps into the console
 				"pretty",
 				// creates a basic html report in the target folder
 				"html:target/cucumber-default-report.html",
