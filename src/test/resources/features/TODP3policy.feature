@@ -3,7 +3,7 @@
 
 Feature: Issuing TODP3 policy
 
-  @todp3
+  @smoke
   Scenario: Valid TODP3 policy creation
     Given I signin Spin as Admin Agent
     When I start transaction as a new customer

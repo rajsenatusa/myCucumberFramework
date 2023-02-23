@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = true,
 
 		// tags can do the same thing groups on TestNG do
-		tags = "@api",
+		tags = "@apimaster",
 		
 		//it provides the output console to more readable
 		monochrome = true, 

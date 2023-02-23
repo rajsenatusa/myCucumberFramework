@@ -3,7 +3,7 @@
 
 Feature: Issuing TOMHPD policy
 
-  @tomhpd
+  @smoke1
   Scenario: Valid TOMHPD policy creation
     Given I signin Spin as Admin Agent
     When I start transaction as a new customer

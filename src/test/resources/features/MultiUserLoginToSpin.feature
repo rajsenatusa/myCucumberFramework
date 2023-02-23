@@ -1,7 +1,7 @@
 #Author: Can Yavas
 Feature: Valid Login to Spin with different Users
 
-  @outline
+  @smoke
   Scenario Outline: 
     Given I navigated to the spin website
     When Login with valid "<username>" and "<password>"

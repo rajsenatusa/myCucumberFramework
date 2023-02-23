@@ -1,7 +1,7 @@
 #Author: Can Yavas
 Feature: Issuing HO4 policy
 
-  @smoke1
+  @ho4
   Scenario: Valid HO4 policy creation
     Given I signin Spin as Standard Agent
     When I start transaction as a new customer

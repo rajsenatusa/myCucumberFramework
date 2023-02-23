@@ -3,7 +3,7 @@
 
 Feature: Issuing TOMHO policy
 
-  @tomho
+  @smoke1
   Scenario: Valid TOMHO policy creation
     Given I signin Spin as Admin Agent
     When I start transaction as a new customer

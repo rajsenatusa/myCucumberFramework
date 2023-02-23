@@ -3,7 +3,7 @@
 
 Feature: Issuing TOHO3 policy
 
-  @toho3
+  @smoke
   Scenario: Valid TOHO3 policy creation
     Given I signin Spin as Admin Agent
     When I start transaction as a new customer

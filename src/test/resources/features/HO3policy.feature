@@ -1,7 +1,7 @@
 #Author: Can Yavas
 Feature: Issuing HO3 policy
 
-  @ho3
+  @smoke
   Scenario: Valid HO3 policy creation
     Given I signin Spin as Standard Agent
     When I start transaction as a new customer

@@ -3,7 +3,7 @@
 
 Feature: Issuing UMB policy
 
-  @umb
+  @smoke
   Scenario: Valid UMB policy creation
     Given I signin Spin as Admin Agent
     When I start transaction as a new customer
