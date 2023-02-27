@@ -1,7 +1,7 @@
 #Author: Can Yavas
 Feature: Issuing HO6 policy
 
-  @smoke
+  @ho6
   Scenario: Valid HO6 policy creation
     Given I signin Spin as Standard Agent
     When I start transaction as a new customer
