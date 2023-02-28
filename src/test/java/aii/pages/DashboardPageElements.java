@@ -38,6 +38,26 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "ToolbarSearchText")
 	public WebElement searchBar;
 	
+	@FindBy(id= "ToolbarSearch")
+	public WebElement search;
+	
+	@FindBy(id= "MoreActionsDropdownButton")
+	public WebElement moreOptions;
+	
+	@FindBy(id= "Transaction")
+	public WebElement startTransaction;
+	
+	@FindBy(id= "TransactionCd")
+	public WebElement selectTransaction;
+	
+	@FindBy(id= "Select")
+	public WebElement selectButton;
+		
+	@FindBy(id= "TransactionEffectiveDt")
+	public WebElement selectDate;
+	
+	@FindBy(id= "Start")
+	public WebElement startButton;
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);

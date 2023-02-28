@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -444,6 +446,74 @@ public class CommonMethods extends PageInitializer {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 
 		return sdf.format(date);
+	}
+	
+	
+	/**
+	 * This method switches focus between windows
+	 * 
+	 */
+	public static String mainWindow;
+	public static void switchWindows(WebDriver driver) {
+		
+		try {
+			Set<String> set =driver.getWindowHandles();
+			Iterator<String> itr= set.iterator();
+		while (itr.hasNext()) {
+			String childWindow=itr.next();
+	    
+			if(!mainWindow.equals(childWindow)) {
+				driver.switchTo().window(childWindow);
+			}
+		}
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Switch to a perticular window using Url
+	 * 
+	 */
+	
+	public static void switchToWindow(WebDriver driver, String text) {
+		 
+		try {
+			mainWindow = driver.getWindowHandle();
+			WebDriver popup = null;
+		    Iterator<String> windowIterator = driver.getWindowHandles()
+		            .iterator();
+		    while (windowIterator.hasNext()) {
+		        String windowHandle = windowIterator.next();
+		        popup = driver.switchTo().window(windowHandle);
+		        String title = popup.getCurrentUrl();
+		        if (title.contains(text)) {
+		            break;
+		        }
+		    }
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * This method replaces a string with another string
+	 * 
+	 */
+	
+	public static String replaceMethod(String str, String from, String to) {
+	    String[] arr = str.split(from);
+	    StringBuilder output = new StringBuilder();
+
+	    int i = 0;
+	    for (i = 0; i < arr.length - 1; i++)
+	    output.append(arr[i]).append(to);
+
+	    output.append(arr[i]);
+	    if (str.substring(str.lastIndexOf("")).equalsIgnoreCase("" + from))
+	        output.append(to);
+
+	    return output.toString();
 	}
 
 }

@@ -2,24 +2,14 @@
 <classpath>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="test" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-9">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -29,5 +19,25 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-9">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/config-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/fontbox-2.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/logback-classic-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/logback-core-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/pdfbox-2.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/pdfcomparator1.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/workspace/jar files/smartPDFcomparator2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

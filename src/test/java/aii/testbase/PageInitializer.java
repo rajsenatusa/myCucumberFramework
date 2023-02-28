@@ -5,6 +5,7 @@ import aii.pages.CloseOutChevronPageElements;
 import aii.pages.DashboardPageElements;
 import aii.pages.GolfcartChevronPageElements;
 import aii.pages.LoginPageElements;
+import aii.pages.PolicyFilePageElements;
 import aii.pages.ProductSelectionPageElements;
 import aii.pages.QuoteDwellingChevronPageElements;
 import aii.pages.QuotePageElements;
@@ -29,6 +30,7 @@ public class PageInitializer extends BaseClass {
 	public static AIBPageElements aibChevron;
 	public static SpecialOptionsPageElements specialChevron;
 	public static UmbrellaLiabilityPageElements umbrellaChevron;
+	public static PolicyFilePageElements policyFileChevron;
 	
 	
 
@@ -46,6 +48,7 @@ public class PageInitializer extends BaseClass {
 		aibChevron= new AIBPageElements();
 		specialChevron= new SpecialOptionsPageElements();
 		umbrellaChevron= new UmbrellaLiabilityPageElements();
+		policyFileChevron= new PolicyFilePageElements();
 		
 	}
 
