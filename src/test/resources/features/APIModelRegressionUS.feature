@@ -34,7 +34,8 @@ Scenario: Validation of User Story-8583 UI Arbitration
 Scenario: Validation of User Story-7119 Animal Liability
 		When I enter required body information for required scenarios <US7119> and I validate response body status code is ok
 		
-
+Scenario: Validation of User Story-8830 DP3 Owner Cov-C Default
+		When I enter required body information for required scenarios <US8830> and I validate response body status code is ok
 
 
 
