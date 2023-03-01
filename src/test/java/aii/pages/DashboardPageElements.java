@@ -59,6 +59,21 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Start")
 	public WebElement startButton;
 	
+	@FindBy(id="Menu_Admin_ChangeDate")
+	public WebElement changeDate;
+	
+	@FindBy(id="NewDate")
+	public WebElement newDate;
+	
+	@FindBy(id="NewBookDate")
+	public WebElement newBookDate;
+	
+	@FindBy(id="ChangeDate")
+	public WebElement changeNewDate;
+	
+	@FindBy(id="ChangeBookDate")
+	public WebElement changeBookDate;
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 	}
