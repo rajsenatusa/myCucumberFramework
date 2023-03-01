@@ -40,75 +40,75 @@ public class HO3Excel extends CommonMethods {
 			String quality=dataMap.get("Quality");
 		
 						
-			sendText(quote.firstName, firstName);
-			sendText(quote.lastName, lastName);
+			sendText(quote.txtFirstName, firstName);
+			sendText(quote.txtLastName, lastName);
 			wait(2);
-			sendText(quote.birthDate, birthDate);
+			sendText(quote.txtBirthDate, birthDate);
 			wait(2);
-			click(quote.searchName);
-			sendText(quote.address, address);
-			sendText(quote.zipCode, zipcode);
+			click(quote.txtSearchName);
+			sendText(quote.txtAddress, address);
+			sendText(quote.txtZipCode, zipcode);
 			wait(2);
-			click(quote.verifyAddress);
+			click(quote.btnVerifyAddress);
 			wait(2);
-			click(quote.copyToMailAddress);
-			click(quote.copyToBillAddress);
-			click(quote.saveAndQuote);
+			click(quote.btnCopyToMailAddress);
+			click(quote.btnCopyToBillAddress);
+			click(quote.btnSaveAndQuote);
 			wait(2);
 			
 			//productSelection
-			sendText(product.effectiveDate,effDate);
-			selectDropdownText(product.stateDropdown,state);
-			selectDropdown(product.carrierDropdown, 1);
+			sendText(product.txtEffectiveDate,effDate);
+			selectDropdownText(product.ddStateSelection,state);
+			selectDropdown(product.ddCarrierSelection, 1);
 			wait(2);
-			click(product.continueButton);
-			click(product.productSelectionHo3);
+			click(product.btnContinue);
+			click(product.btnProductSelectionHo3);
 			
 			//quote
-			selectDropdownText(policyChevron.previousCarrier, previousCarr);
-			sendText(policyChevron.previousPolicyExpDate, previousExp);
-			selectDropdown(policyChevron.insuranceScoreDd,3);
-			sendText(policyChevron.phoneNumber, phone);
-			selectDropdownText(policyChevron.phoneNumberType, ConfigsReader.getProperty("phonetype"));
+			selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
+			sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
+			selectDropdown(policyChevron.ddInsuranceScoreDd,3);
+			sendText(policyChevron.txtPhoneNumber, phone);
+			selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 			wait(2);
-			click(policyChevron.noEmailRadio);
-			selectDropdownText(policyChevron.constructionTypeDd, constructtype);
-			selectDropdownText(policyChevron.occupancyDd, occupancytype);
-			selectDropdownText(policyChevron.monthsOccupied, monthsoccp);
-			selectDropdownText(policyChevron.insuredReside, "No");
+			click(policyChevron.btnNoEmailRadio);
+			selectDropdownText(policyChevron.ddConstructionType, constructtype);
+			selectDropdownText(policyChevron.ddOccupancy, occupancytype);
+			selectDropdownText(policyChevron.ddMonthsOccupied, monthsoccp);
+			selectDropdownText(policyChevron.ddInsuredReside, "No");
 			wait(1);
-			click(policyChevron.nextButton);
+			click(policyChevron.btnNext);
 			
 			//dwelling
-			sendText(dwellingChevron.yearConstruction, yearcons);
-			sendText(dwellingChevron.squareFeet, "1600");
+			sendText(dwellingChevron.txtYearConstruction, yearcons);
+			sendText(dwellingChevron.txtSquareFeet, "1600");
 			wait(3);
-			selectDropdownText(dwellingChevron.roofMetarial, roof);
-			selectDropdownText(dwellingChevron.mediationArbit,ConfigsReader.getProperty("mediation"));
+			selectDropdownText(dwellingChevron.ddRoofMetarial, roof);
+			selectDropdownText(dwellingChevron.ddMediationArbit,ConfigsReader.getProperty("mediation"));
 			wait(2);
-			click(dwellingChevron.saveButton);
+			click(dwellingChevron.btnSave);
 			wait(3);
-			selectDropdownText(dwellingChevron.qualityGrade, quality);
-			click(dwellingChevron.calculateButton);
+			selectDropdownText(dwellingChevron.ddQualityGrade, quality);
+			click(dwellingChevron.btnCalculate);
 			wait(4);
-			click(dwellingChevron.saveButton);
-			click(dwellingChevron.nextButton);
+			click(dwellingChevron.btnSave);
+			click(dwellingChevron.btnNext);
 			wait(3);
 			
 			//Quote Review Chevron information was filled here
-			selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+			selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 			wait(2);
-			click(reviewChevron.fullPaymentRadioButton);
+			click(reviewChevron.btnFullPaymentRadio);
 			wait(3);
-			click(reviewChevron.createApplication);
+			click(reviewChevron.btnCreateApplication);
 			wait(4);
-			click(reviewChevron.insuranceScoreCheckBox);
-			click(reviewChevron.insuranceScoreOkButton);
+			click(reviewChevron.btnInsuranceScoreBox);
+			click(reviewChevron.btnInsuranceScoreOk);
 			wait(3);
 			
 			//Application Policy Chevron information was filled here(all information was filled previously, just clicking next button)
 			
-			click(dwellingChevron.nextButton);
+			click(dwellingChevron.btnNext);
 			
 			//Application Underwriting Questions Chevron was filled here
 			
@@ -146,19 +146,19 @@ public class HO3Excel extends CommonMethods {
 			
 			//Application Dwelling information was filled here
 			
-			selectDropdownText(dwellingChevron.dwellingType, ConfigsReader.getProperty("dwellingtype"));
+			selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
 			wait(2);
-			click(dwellingChevron.saveButton);
-			click(reviewChevron.reviewButton);
+			click(dwellingChevron.btnSave);
+			click(reviewChevron.btnReview);
 			wait(2);
-			click(reviewChevron.finalizeButton);
+			click(reviewChevron.btnFinalize);
 			wait(2);
 			
 			//Closeout Chevron information was filled here
 			
-			selectDropdownText(closeoutChevron.paymentType, ConfigsReader.getProperty("paymenttype"));
+			selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 			wait(4);
-			click(closeoutChevron.issueNBButton);
+			click(closeoutChevron.btnIssueNB);
 			WebElement validate= driver.findElement(By.id("History_1_1_TransactionCd"));
 			
 			if(validate.getText().equalsIgnoreCase("New Business")) {
@@ -170,16 +170,16 @@ public class HO3Excel extends CommonMethods {
 			
 				wait(5);
 				driver.switchTo().defaultContent();
-				click(dashboard.userMenu);
-				click(dashboard.signOut);
+				click(dashboard.btnUserMenu);
+				click(dashboard.btnSignOut);
 				
 				sendText(login.username, ConfigsReader.getProperty("username"));
 				sendText(login.password, ConfigsReader.getProperty("password"));
-				click(login.signInButton);
+				click(login.btnSignIn);
 				wait(3);
 				moveToElement(driver.findElement(By.id("Menu_Policy")));
 				wait(1);
-				dashboard.newQuote.click();
+				dashboard.btnNewQuote.click();
 				WebElement element= driver.findElement(By.id("Customer.EntityTypeCd"));
 				selectDropdownText(element, "Individual");
 		

@@ -32,14 +32,14 @@ public class LoginSteps extends CommonMethods {
 
 	@When("I click on the signin button")
 	public void i_click_on_the_signin_button() {
-		click(login.signInButton);
+		click(login.btnSignIn);
 	}
 
 	@Then("I validate that I am logged in")
 	public void i_validate_that_i_am_logged_in() {
 
 		String expected = "Home";
-		String actual = dashboard.home.getText();
+		String actual = dashboard.btnHome.getText();
 
 		if (actual.equals(expected)) {
 			System.out.println("Test passed");

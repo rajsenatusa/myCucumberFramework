@@ -9,34 +9,34 @@ import aii.utils.CommonMethods;
 public class QuotePageElements extends CommonMethods {
 	
 	@FindBy (id= "CustomerName.GivenName")
-	public WebElement firstName;
+	public WebElement txtFirstName;
 	
 	@FindBy (id= "CustomerName.Surname")
-	public WebElement lastName;
+	public WebElement txtLastName;
 	
 	@FindBy (id= "CustomerPersonal.BirthDt")
-	public WebElement birthDate;
+	public WebElement txtBirthDate;
 	
 	@FindBy (id= "CustomerName.CommercialName")
-	public WebElement searchName;
+	public WebElement txtSearchName;
 	
 	@FindBy (id= "CustomerLookupAddr.PrimaryNumber")
-	public WebElement address;
+	public WebElement txtAddress;
 	
 	@FindBy (id= "CustomerLookupAddr.PostalCode")
-	public WebElement zipCode;
+	public WebElement txtZipCode;
 	
 	@FindBy (id= "CustomerLookupAddr.addrVerifyImg")
-	public WebElement verifyAddress;
+	public WebElement btnVerifyAddress;
 	
 	@FindBy (id= "DefaultAddress")
-	public WebElement copyToMailAddress;
+	public WebElement btnCopyToMailAddress;
 	
 	@FindBy (id= "CopyAddress")
-	public WebElement copyToBillAddress;
+	public WebElement btnCopyToBillAddress;
 	
 	@FindBy (id= "SaveAndQuote")
-	public WebElement saveAndQuote;
+	public WebElement btnSaveAndQuote;
 	
 	
 	public QuotePageElements() {

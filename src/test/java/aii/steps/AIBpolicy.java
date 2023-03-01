@@ -15,124 +15,124 @@ public class AIBpolicy extends CommonMethods {
 	public void i_enter_aib_product_selection_information_and_effective_date() {
 		
 		//product selection information was filled here
-		sendText(product.effectiveDate,ConfigsReader.getProperty("effectivedate"));
-		selectDropdown(product.stateDropdown, 1);
-		selectDropdown(product.carrierDropdown, 1);
+		sendText(product.txtEffectiveDate,ConfigsReader.getProperty("effectivedate"));
+		selectDropdown(product.ddStateSelection, 1);
+		selectDropdown(product.ddCarrierSelection, 1);
 		wait(2);
-		click(product.continueButton);
-		click(product.productSelectionAib);
+		click(product.btnContinue);
+		click(product.btnProductSelectionAib);
 		
 	}
 	
 	@When("I enter all required information on AIB quote screen")
 	public void i_enter_all_required_information_on_aib_quote_screen() {
 	   
-		selectDropdownText(policyChevron.previousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
-		sendText(policyChevron.previousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
-		sendText(policyChevron.producerCodeSel, ConfigsReader.getProperty("producerselection"));
-		click(dwellingChevron.saveButton);
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
+		sendText(policyChevron.txtPreviousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
+		sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
+		click(dwellingChevron.btnSave);
 		wait(5);
-		selectDropdownText(policyChevron.coverage6MonthsInd, "Yes");
-		selectDropdownText(policyChevron.garaged6MonthsInd, "Yes");
-		selectDropdown(policyChevron.insuranceScoreDd,3);
-		sendText(policyChevron.phoneNumber, ConfigsReader.getProperty("phonenumber"));
-		selectDropdownText(policyChevron.phoneNumberType, ConfigsReader.getProperty("phonetype"));
+		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
+		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
+		selectDropdown(policyChevron.ddInsuranceScoreDd,3);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
-		click(policyChevron.noEmailRadio);
-		selectDropdownText(policyChevron.insuredReside, "No");
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddInsuredReside, "No");
 		wait(1);
-		click(policyChevron.nextButton);
+		click(policyChevron.btnNext);
 		wait(3);
 	}
 
 	@When("I select liability coverage on quote screen")
 	public void i_select_liability_coverage_on_quote_screen() {
 	  
-		selectDropdownText(golfcartChevron.liabilityCovType, ConfigsReader.getProperty("boatingliability"));
+		selectDropdownText(golfcartChevron.ddLiabilityCovType, ConfigsReader.getProperty("boatingliability"));
 		wait(6);
-		selectDropdownText(golfcartChevron.bodilyInjuryPerson, ConfigsReader.getProperty("bodilyinjuryboat"));
+		selectDropdownText(golfcartChevron.ddBodilyInjuryPerson, ConfigsReader.getProperty("bodilyinjuryboat"));
 		wait(3);
-		click(dwellingChevron.saveButton);
+		click(dwellingChevron.btnSave);
 		wait(4);
-		click(dwellingChevron.saveButton);
+		click(dwellingChevron.btnSave);
 		wait(3);
-		click(dwellingChevron.nextButton);
+		click(dwellingChevron.btnNext);
 		
 	}
 	@When("I added operator information on quote screen")
 	public void i_added_operator_information_on_quote_screen() {
-	    click(aibChevron.addOperator);
+	    click(aibChevron.btnAddOperator);
 	    wait(3);
-	    selectDropdownText(golfcartChevron.driverMaritalStatus, ConfigsReader.getProperty("drivermaritalstatus"));
-	    selectDropdownText(golfcartChevron.driverLicenseInd, "Yes");
-		selectDropdownText(aibChevron.licenseState, ConfigsReader.getProperty("licensestate"));
-		sendText(aibChevron.licenseNumber, ConfigsReader.getProperty("licensenumber"));
-		selectDropdownText(aibChevron.boatExperience, ConfigsReader.getProperty("boatexperience"));
-		selectDropdownText(golfcartChevron.driverTrainingInd, "No");
+	    selectDropdownText(golfcartChevron.ddDriverMaritalStatus, ConfigsReader.getProperty("drivermaritalstatus"));
+	    selectDropdownText(golfcartChevron.ddDriverLicenseInd, "Yes");
+		selectDropdownText(aibChevron.ddLicenseState, ConfigsReader.getProperty("licensestate"));
+		sendText(aibChevron.txtLicenseNumber, ConfigsReader.getProperty("licensenumber"));
+		selectDropdownText(aibChevron.ddBoatExperience, ConfigsReader.getProperty("boatexperience"));
+		selectDropdownText(golfcartChevron.ddDriverTrainingInd, "No");
 		wait(3);
-	    click(golfcartChevron.nextGocScreen);
+	    click(golfcartChevron.btnNextGocScreen);
 		
 		
 	}
 	@When("I enter all required information on AIB boat dwelling screen")
 	public void i_enter_all_required_information_on_aib_boat_dwelling_screen() {
 	    
-		click(aibChevron.addBoat);
+		click(aibChevron.btnAddBoat);
 	    wait(3);
-	    sendText(aibChevron.boatYear, ConfigsReader.getProperty("boatyear"));
-	    sendText(aibChevron.boatHinNumber, ConfigsReader.getProperty("boathinnumber"));
-	    selectDropdownText(aibChevron.boatMake, ConfigsReader.getProperty("boatmake"));
-	    sendText(aibChevron.boatModel, ConfigsReader.getProperty("boatmodel"));
-	    sendText(aibChevron.boatPurchDate, ConfigsReader.getProperty("boatpurchasedate"));
-		selectDropdownText(aibChevron.boatFinanced, ConfigsReader.getProperty("boatfinanced"));
+	    sendText(aibChevron.txtBoatYear, ConfigsReader.getProperty("boatyear"));
+	    sendText(aibChevron.txtBoatHinNumber, ConfigsReader.getProperty("boathinnumber"));
+	    selectDropdownText(aibChevron.ddBoatMake, ConfigsReader.getProperty("boatmake"));
+	    sendText(aibChevron.txtBoatModel, ConfigsReader.getProperty("boatmodel"));
+	    sendText(aibChevron.txtBoatPurchDate, ConfigsReader.getProperty("boatpurchasedate"));
+		selectDropdownText(aibChevron.ddBoatFinanced, ConfigsReader.getProperty("boatfinanced"));
 		wait(3);
-		sendText(aibChevron.boatPurchPrice, ConfigsReader.getProperty("boatpurchaseprice"));
-		selectDropdownText(aibChevron.boatHullType, ConfigsReader.getProperty("boathulltype"));
-		selectDropdownText(aibChevron.boatHullMat, ConfigsReader.getProperty("boathullmat"));
-		selectDropdownText(aibChevron.hullLength, ConfigsReader.getProperty("hulllength"));
+		sendText(aibChevron.txtBoatPurchPrice, ConfigsReader.getProperty("boatpurchaseprice"));
+		selectDropdownText(aibChevron.ddBoatHullType, ConfigsReader.getProperty("boathulltype"));
+		selectDropdownText(aibChevron.ddBoatHullMat, ConfigsReader.getProperty("boathullmat"));
+		selectDropdownText(aibChevron.ddHullLength, ConfigsReader.getProperty("hulllength"));
 		wait(3);
-		selectDropdownText(aibChevron.boatDriveSystem, ConfigsReader.getProperty("boatdrivesystem"));
-		selectDropdownText(aibChevron.boatMaxSpeed, ConfigsReader.getProperty("boatmaxspeed"));
-		selectDropdownText(aibChevron.boatHullSettle, ConfigsReader.getProperty("boathullsettle"));
-		selectDropdownText(aibChevron.numberOfEngines, ConfigsReader.getProperty("numberofengines"));
+		selectDropdownText(aibChevron.ddBoatDriveSystem, ConfigsReader.getProperty("boatdrivesystem"));
+		selectDropdownText(aibChevron.ddBoatMaxSpeed, ConfigsReader.getProperty("boatmaxspeed"));
+		selectDropdownText(aibChevron.ddBoatHullSettle, ConfigsReader.getProperty("boathullsettle"));
+		selectDropdownText(aibChevron.ddNumberOfEngines, ConfigsReader.getProperty("numberofengines"));
 		wait(2);
-		selectDropdownText(aibChevron.boatHp, ConfigsReader.getProperty("boathp"));
-		sendText(aibChevron.boatEngine1Year, ConfigsReader.getProperty("boatengine1year"));
-		sendText(aibChevron.boatEngineMake, ConfigsReader.getProperty("boatenginemake"));
-		sendText(aibChevron.boatEngine1Hp, ConfigsReader.getProperty("boatengine1hp"));
-		selectDropdownText(aibChevron.trailerCoverage, ConfigsReader.getProperty("trailercoverage"));
-		selectDropdownText(aibChevron.boatStorageType, ConfigsReader.getProperty("boatstoragetype"));
+		selectDropdownText(aibChevron.ddBoatHp, ConfigsReader.getProperty("boathp"));
+		sendText(aibChevron.txtBoatEngine1Year, ConfigsReader.getProperty("boatengine1year"));
+		sendText(aibChevron.txtBoatEngineMake, ConfigsReader.getProperty("boatenginemake"));
+		sendText(aibChevron.txtBoatEngine1Hp, ConfigsReader.getProperty("boatengine1hp"));
+		selectDropdownText(aibChevron.ddTrailerCoverage, ConfigsReader.getProperty("trailercoverage"));
+		selectDropdownText(aibChevron.ddBoatStorageType, ConfigsReader.getProperty("boatstoragetype"));
 		
-		selectDropdownText(aibChevron.boatExistingDamage, "No");
+		selectDropdownText(aibChevron.ddBoatExistingDamage, "No");
 		wait(3);
-		click(dwellingChevron.nextButton);
+		click(dwellingChevron.btnNext);
 		wait(3);
-		click(reviewChevron.reviewButton);
+		click(reviewChevron.btnReview);
 		wait(3);
 		
 	}
 	@When("I enter all required information on AIB review screen")
 	public void i_enter_all_required_information_on_aib_review_screen() {
 	    
-		selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(4);
-		click(reviewChevron.fullPaymentRadioButton);
+		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
-		selectDropdownText(reviewChevron.orderInsScore, "No");
+		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
 		wait(3);
-		click(reviewChevron.createApplication);
+		click(reviewChevron.btnCreateApplication);
 		wait(4);
 		
 	}
 	@When("I create AIB application")
 	public void i_create_aib_application() {
 	    
-		click(policyChevron.policyChevronLink);
+		click(policyChevron.btnPolicyChevronLink);
 		wait(2);
 		
 		//Application Policy Chevron information was filled here(all information was filled previously, just clicking next button)
 		
-		click(dwellingChevron.nextButton);
+		click(dwellingChevron.btnNext);
 		
 		//Application Underwriting Questions Chevron was filled here
 		
@@ -165,17 +165,17 @@ public class AIBpolicy extends CommonMethods {
 		
 		//Application Dwelling information was filled here
 		
-		click(dwellingChevron.saveButton);
-		click(reviewChevron.reviewButton);
+		click(dwellingChevron.btnSave);
+		click(reviewChevron.btnReview);
 		wait(2);
-		click(reviewChevron.finalizeButton);
+		click(reviewChevron.btnFinalize);
 		wait(2);
 		
 		//Closeout Chevron information was filled here
 		
-		selectDropdownText(closeoutChevron.paymentType, ConfigsReader.getProperty("paymenttype"));
+		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
-		click(closeoutChevron.issueNBButton);
+		click(closeoutChevron.btnIssueNB);
 	
 	}
 	

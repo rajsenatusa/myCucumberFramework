@@ -9,58 +9,58 @@ import aii.utils.CommonMethods;
 public class ProductSelectionPageElements extends CommonMethods{
 	
 	@FindBy (id= "BasicPolicy.EffectiveDt")
-	public WebElement effectiveDate;
+	public WebElement txtEffectiveDate;
 	
 	@FindBy (id= "BasicPolicy.ControllingStateCd")
-	public WebElement stateDropdown;
+	public WebElement ddStateSelection;
 	
 	@FindBy (id= "BasicPolicy.CarrierGroupCd")
-	public WebElement carrierDropdown;
+	public WebElement ddCarrierSelection;
 	
 	@FindBy (id= "Continue")
-	public WebElement continueButton; 
+	public WebElement btnContinue; 
 	
 	@FindBy (xpath= "//a[normalize-space()='Voluntary Homeowners (HO3)']")
-	public WebElement productSelectionHo3;
+	public WebElement btnProductSelectionHo3;
 	
 	@FindBy (xpath= "//a[normalize-space()='Voluntary Renters (HO4)']")
-	public WebElement productSelectionHo4;
+	public WebElement btnProductSelectionHo4;
 	
 	@FindBy (xpath= "//a[normalize-space()='Voluntary Condominium Unit Owners (HO6)']")
-	public WebElement productSelectionHo6;
+	public WebElement btnProductSelectionHo6;
 	
 	@FindBy (xpath= "//a[normalize-space()='Voluntary Dwelling Property 1 (DP1)']")
-	public WebElement productSelectionDp1;
+	public WebElement btnProductSelectionDp1;
 	
 	@FindBy (xpath= "//a[normalize-space()='Voluntary Dwelling Property 3 (DP3)']")
-	public WebElement productSelectionDp3;
+	public WebElement btnProductSelectionDp3;
 	
 	@FindBy (xpath= "//a[normalize-space()='Voluntary Mobile Homeowners 3 (MHO3)']")
-	public WebElement productSelectionMho3;
+	public WebElement btnProductSelectionMho3;
 	
 	@FindBy (xpath= "//a[normalize-space()='Golf Cart (GOC)']")
-	public WebElement productSelectionGoc;
+	public WebElement btnProductSelectionGoc;
 	
 	@FindBy(xpath= "//a[normalize-space()='Voluntary Boat Owners (AIB)']")
-	public WebElement productSelectionAib;
+	public WebElement btnProductSelectionAib;
 	
 	@FindBy(xpath= "//a[normalize-space()='Takeout Homeowners (HO3)']")
-	public WebElement productSelectionToho3;
+	public WebElement btnProductSelectionToho3;
 	
 	@FindBy(xpath= "//a[normalize-space()='Takeout Dwelling Property 1 (DP1)']")
-	public WebElement productSelectionTodp1;
+	public WebElement btnProductSelectionTodp1;
 	
 	@FindBy(xpath= "//a[normalize-space()='Takeout Dwelling Property 3 (DP3)']")
-	public WebElement productSelectionTodp3;
+	public WebElement btnProductSelectionTodp3;
 	
 	@FindBy(xpath= "//a[normalize-space()='Takeout Mobile Homeowners (MHO)']")
-	public WebElement productSelectionTomho;
+	public WebElement btnProductSelectionTomho;
 	
 	@FindBy(xpath= "//a[normalize-space()='Takeout Manufactured Physical Damage (MHPD)']")
-	public WebElement productSelectionTomhpd;
+	public WebElement btnProductSelectionTomhpd;
 	
 	@FindBy(xpath= "//a[normalize-space()='Voluntary Umbrella (UMB)']")
-	public WebElement productSelectionUmb;
+	public WebElement btnProductSelectionUmb;
 	
 	
 	public ProductSelectionPageElements() {

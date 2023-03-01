@@ -9,13 +9,13 @@ import aii.utils.CommonMethods;
 public class PolicyFilePageElements extends CommonMethods {
 	
 	@FindBy(id= "Tab_Documents")
-	public WebElement policyFilePage;
+	public WebElement btnPolicyFilePage;
 
 	@FindBy(linkText= "Application")
-	public WebElement applicationForm;
+	public WebElement btnApplicationForm;
 	
 	@FindBy(linkText= "Endorsement Package")
-	public WebElement endorsementPackageForm;
+	public WebElement btnEndorsementPackageForm;
 	
 
 	public PolicyFilePageElements() {

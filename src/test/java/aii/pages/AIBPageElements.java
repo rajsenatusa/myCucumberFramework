@@ -9,82 +9,82 @@ import aii.utils.CommonMethods;
 public class AIBPageElements extends CommonMethods {
 
 	@FindBy(id= "AddOperator")
-	public WebElement addOperator;
+	public WebElement btnAddOperator;
 	
 	@FindBy(id= "DriverInfo.LicensedStateProvCd")
-	public WebElement licenseState;
+	public WebElement ddLicenseState;
 	
 	@FindBy(id= "DriverInfo.LicenseNumber")
-	public WebElement licenseNumber;
+	public WebElement txtLicenseNumber;
 	
 	@FindBy(id= "DriverInfo.BoatExp")
-	public WebElement boatExperience;
+	public WebElement ddBoatExperience;
 	
 	@FindBy(id= "AddBoat")
-	public WebElement addBoat;
+	public WebElement btnAddBoat;
 	
 	@FindBy(id= "Vehicle.ModelYr")
-	public WebElement boatYear;
+	public WebElement txtBoatYear;
 	
 	@FindBy(id= "Vehicle.VehIdentificationNumber")
-	public WebElement boatHinNumber;
+	public WebElement txtBoatHinNumber;
 	
 	@FindBy(id= "Vehicle.Manufacturer")
-	public WebElement boatMake;
+	public WebElement ddBoatMake;
 	
 	@FindBy(id= "Vehicle.Model")
-	public WebElement boatModel;
+	public WebElement txtBoatModel;
 	
 	@FindBy(id= "Vehicle.BoatPurchaseDate")
-	public WebElement boatPurchDate;
+	public WebElement txtBoatPurchDate;
 	
 	@FindBy(id= "Vehicle.BoatFinanced")
-	public WebElement boatFinanced;
+	public WebElement ddBoatFinanced;
 	
 	@FindBy(id= "Vehicle.BoatPurchasePrice")
-	public WebElement boatPurchPrice;
+	public WebElement txtBoatPurchPrice;
 	
 	@FindBy(id= "Vehicle.HullType")
-	public WebElement boatHullType;
+	public WebElement ddBoatHullType;
 	
 	@FindBy(id= "Vehicle.HullMaterial")
-	public WebElement boatHullMat;
+	public WebElement ddBoatHullMat;
 	
 	@FindBy(id= "Vehicle.HullLength")
-	public WebElement hullLength;
+	public WebElement ddHullLength;
 	
 	@FindBy(id= "Vehicle.DriveSystem")
-	public WebElement boatDriveSystem;
+	public WebElement ddBoatDriveSystem;
 	
 	@FindBy(id= "Vehicle.MaxSpeed")
-	public WebElement boatMaxSpeed;
+	public WebElement ddBoatMaxSpeed;
 	
 	@FindBy(id= "Vehicle.NumberOfEngines")
-	public WebElement numberOfEngines;
+	public WebElement ddNumberOfEngines;
 	
 	@FindBy(id= "Vehicle.BoatHp")
-	public WebElement boatHp;
+	public WebElement ddBoatHp;
 	
 	@FindBy(id= "Vehicle.Engine1Year")
-	public WebElement boatEngine1Year;
+	public WebElement txtBoatEngine1Year;
 	
 	@FindBy(id= "Vehicle.Engine1Make")
-	public WebElement boatEngineMake;
+	public WebElement txtBoatEngineMake;
 	
 	@FindBy(id= "Vehicle.Engine1Hp")
-	public WebElement boatEngine1Hp;
+	public WebElement txtBoatEngine1Hp;
 	
 	@FindBy(id= "Vehicle.TrailerCoverage")
-	public WebElement trailerCoverage;
+	public WebElement ddTrailerCoverage;
 	
 	@FindBy(id= "Question_VehicleExistingDamage")
-	public WebElement boatExistingDamage;
+	public WebElement ddBoatExistingDamage;
 	
 	@FindBy(id= "Vehicle.HullSettlement")
-	public WebElement boatHullSettle;
+	public WebElement ddBoatHullSettle;
 	
 	@FindBy(id= "Vehicle.BoatStorageType")
-	public WebElement boatStorageType;
+	public WebElement ddBoatStorageType;
 	
 	public AIBPageElements() {
 		

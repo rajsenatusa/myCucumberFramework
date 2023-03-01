@@ -9,73 +9,73 @@ import aii.utils.CommonMethods;
 public class GolfcartChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "Line.LimitType")
-	public WebElement liabilityCovType;
+	public WebElement ddLiabilityCovType;
 	
 	@FindBy(id= "Line.BILimit")
-	public WebElement bodilyInjuryPerson;
+	public WebElement ddBodilyInjuryPerson;
 	
 	@FindBy(id= "Line.PDLimit")
-	public WebElement propertyDamageLimit;
+	public WebElement ddPropertyDamageLimit;
 	
 	@FindBy(id= "Line.MedPayLimit")
-	public WebElement medicalPaymentLimit;
+	public WebElement ddMedicalPaymentLimit;
 	
 	@FindBy(id= "Line.UMBILimit")
-	public WebElement uninsuredInjury;
+	public WebElement ddUninsuredInjury;
 	
 	@FindBy(id= "AddDriver")
-	public WebElement addDriver;
+	public WebElement btnAddDriver;
 	
 	@FindBy(id= "PersonInfo.MaritalStatusCd")
-	public WebElement driverMaritalStatus;
+	public WebElement ddDriverMaritalStatus;
 	
 	@FindBy(id= "DriverInfo.LicenseInd")
-	public WebElement driverLicenseInd;
+	public WebElement ddDriverLicenseInd;
 	
 	@FindBy(id= "DriverInfo.GolfCartExp")
-	public WebElement driverGcExp;
+	public WebElement ddDriverGcExp;
 	
 	@FindBy(id= "DriverInfo.DriverTrainingInd")
-	public WebElement driverTrainingInd;
+	public WebElement ddDriverTrainingInd;
 	
 	@FindBy(id= "NextPage_Bottom")
-	public WebElement nextGocScreen;
+	public WebElement btnNextGocScreen;
 	
 	@FindBy(id= "AddGolfCart")
-	public WebElement addGolfcart;
+	public WebElement btnAddGolfcart;
 	
 	@FindBy(id= "Vehicle.ModelYr")
-	public WebElement modelYear;
+	public WebElement txtModelYear;
 	
 	@FindBy(id= "Vehicle.Manufacturer")
-	public WebElement gcMake;
+	public WebElement txtGcMake;
 	
 	@FindBy(id= "Vehicle.Model")
-	public WebElement gcModel;
+	public WebElement txtGcModel;
 	
 	@FindBy(id= "Vehicle.PowerTypeCd")
-	public WebElement gcPowerType;
+	public WebElement ddGcPowerType;
 	
 	@FindBy(id= "Vehicle.MaxSpeed")
-	public WebElement gcMaxSpeed;
+	public WebElement ddGcMaxSpeed;
 	
 	@FindBy(id= "Vehicle.SeatbeltsInd")
-	public WebElement vehicleSeatbelts;
+	public WebElement ddVehicleSeatbelts;
 	
 	@FindBy(id= "Vehicle.ComprehensiveDed")
-	public WebElement otherCollisionDed;
+	public WebElement ddOtherCollisionDed;
 	
 	@FindBy(id= "Vehicle.CollisionDed")
-	public WebElement collisionDed;
+	public WebElement ddCollisionDed;
 	
 	@FindBy(id= "Question_VehicleExistingDamage")
-	public WebElement gcExistingDamage;
+	public WebElement ddGcExistingDamage;
 	
 	@FindBy(id= "Vehicle.CostNewAmt")
-	public WebElement gcMarketValue;
+	public WebElement txtGcMarketValue;
 	
 	@FindBy(id= "Vehicle.VehIdentificationNumber")
-	public WebElement gcVinNumber;
+	public WebElement txtGcVinNumber;
 	
 	public GolfcartChevronPageElements() {
 		

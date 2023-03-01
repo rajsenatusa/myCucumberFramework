@@ -9,82 +9,83 @@ import aii.utils.CommonMethods;
 public class QuoteDwellingChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "Building.YearBuilt")
-	public WebElement yearConstruction;
+	public WebElement txtYearConstruction;
 	
 	@FindBy(id= "Building.SqFt")
-	public WebElement squareFeet;
+	public WebElement txtSquareFeet;
 	
 	@FindBy(id= "Building.RoofMaterial")
-	public WebElement roofMetarial;
+	public WebElement ddRoofMetarial;
 	
 	@FindBy(id= "Building.MediationArbitrationInd")
-	public WebElement mediationArbit;
+	public WebElement ddMediationArbit;
 	
 	@FindBy(id= "BuildingExt.MMAInd")
-	public WebElement mediationArbitDp1;
+	public WebElement ddMediationArbitDp1;
 	
 	@FindBy(id= "Save")
-	public WebElement saveButton;
+	public WebElement btnSave;
 	
 	@FindBy(id= "Building.QualityGrade")
-	public WebElement qualityGrade;
+	public WebElement ddQualityGrade;
 	
 	@FindBy(id= "CalculateRCE")
-	public WebElement calculateButton;
+	public WebElement btnCalculate;
 	
 	@FindBy(id= "NextPage")
-	public WebElement nextButton;
+	public WebElement btnNext;
 	
 	@FindBy(id= "Building.DwellingType")
-	public WebElement dwellingType;
+	public WebElement ddDwellingType;
 	
 	@FindBy(id= "Building.CovCLimit")
-	public WebElement coverageC;
+	public WebElement txtCoverageC;
 	
 	@FindBy(id= "Building.NumberOfStories")
-	public WebElement numberOfStories;
+	public WebElement ddNumberOfStories;
 	
 	@FindBy(id= "Building.StoryUnit")
-	public WebElement storyOfUnit;
+	public WebElement ddStoryOfUnit;
 	
 	@FindBy(id= "Building.CovALimit")
-	public WebElement coverageA;
+	public WebElement txtCoverageA;
 	
 	@FindBy(id= "Building.LengthMHO")
-	public WebElement buildingLength;
+	public WebElement ddBuildingLength;
 	
 	@FindBy(id= "Building.MakeMHO")
-	public WebElement buildingMake;
+	public WebElement ddBuildingMake;
 	
 	@FindBy(id= "Building.WidthMHO")
-	public WebElement buildingWidth;
+	public WebElement ddBuildingWidth;
 	
 	@FindBy(id= "Building.SkirtedTDRails")
-	public WebElement buildingSkirtedRails;
+	public WebElement ddBuildingSkirtedRails;
 	
 	@FindBy(id= "Building.SerialNumber")
-	public WebElement buildingSerialNumber;
+	public WebElement txtBuildingSerialNumber;
 	
 	@FindBy(id= "Building.TerritoryList")
-	public WebElement buildingTerritoryList;
+	public WebElement ddBuildingTerritoryList;
 	
 	@FindBy(id= "Building.StructuresRentedOthers")
-	public WebElement structureRentedOthers;
+	public WebElement ddStructureRentedOthers;
 	
 	@FindBy(id= "Building.HurricaneDeductible")
-	public WebElement hurricaneDeductible;
+	public WebElement ddHurricaneDeductible;
 	
 	@FindBy(id= "Building.DistToFireHydrant")
-	public WebElement distanceToHydrant;
+	public WebElement ddDistanceToHydrant;
 	
 	@FindBy(id= "Building.ProtectionClass")
-	public WebElement protectionClass;
+	public WebElement ddProtectionClass;
 	
 	@FindBy(id= "Building.NumberOfUnits")
-	public WebElement numberofUnits;
+	public WebElement ddNumberofUnits;
 	
 	@FindBy(id= "Building.AttachedStructures")
-	public WebElement attachedStructures;
+	public WebElement ddAttachedStructures;
+	
 	
 	
 	

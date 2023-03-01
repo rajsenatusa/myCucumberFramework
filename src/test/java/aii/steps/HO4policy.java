@@ -14,12 +14,12 @@ public class HO4policy extends CommonMethods {
 	public void i_enter_ho4_product_selection_information_and_effective_date() {
 		//product selection information was filled here
 		
-				sendText(product.effectiveDate,ConfigsReader.getProperty("effectivedate"));
-				selectDropdown(product.stateDropdown, 1);
-				selectDropdown(product.carrierDropdown, 1);
+				sendText(product.txtEffectiveDate,ConfigsReader.getProperty("effectivedate"));
+				selectDropdown(product.ddStateSelection, 1);
+				selectDropdown(product.ddCarrierSelection, 1);
 				wait(2);
-				click(product.continueButton);
-				click(product.productSelectionHo4); 
+				click(product.btnContinue);
+				click(product.btnProductSelectionHo4); 
 		
 		
 	}
@@ -27,40 +27,40 @@ public class HO4policy extends CommonMethods {
 	public void i_enter_all_required_information_on_ho4_quote_screen() {
 		//Quote Policy Chevron information was filled here
 		
-				selectDropdownText(policyChevron.previousCarrier, ConfigsReader.getProperty("previouscarrier"));
-				sendText(policyChevron.previousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
-				selectDropdownText(policyChevron.mobileHomeInd, ConfigsReader.getProperty("mobilehomeind"));
-				sendText(policyChevron.phoneNumber, ConfigsReader.getProperty("phonenumber"));
-				selectDropdownText(policyChevron.phoneNumberType, ConfigsReader.getProperty("phonetype"));
+				selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+				sendText(policyChevron.txtPreviousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
+				selectDropdownText(policyChevron.ddMobileHomeInd, ConfigsReader.getProperty("mobilehomeind"));
+				sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 				wait(2);
-				click(policyChevron.noEmailRadio);
-				selectDropdownText(policyChevron.constructionTypeDd, ConfigsReader.getProperty("constructiontype"));
-				selectDropdownText(policyChevron.occupancyDd, ConfigsReader.getProperty("occupancytype"));
-				selectDropdownText(policyChevron.monthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
+				click(policyChevron.btnNoEmailRadio);
+				selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
+				selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
+				selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
 				wait(1);
-				click(policyChevron.nextButton);
+				click(policyChevron.btnNext);
 	}
 	@When("I enter all required information on HO4 dwelling screen")
 	public void i_enter_all_required_information_on_ho4_dwelling_screen() {
 		
-		sendText(dwellingChevron.yearConstruction, ConfigsReader.getProperty("yearconstruction"));
+		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
 		wait(2);
-		selectDropdownText(dwellingChevron.dwellingType, ConfigsReader.getProperty("dwellingtype"));
-		sendText(dwellingChevron.coverageC, ConfigsReader.getProperty("coveragec"));
-		click(dwellingChevron.saveButton);
+		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
+		sendText(dwellingChevron.txtCoverageC, ConfigsReader.getProperty("coveragec"));
+		click(dwellingChevron.btnSave);
 		wait(3);
-		click(dwellingChevron.nextButton);
+		click(dwellingChevron.btnNext);
 		
 	}
 	
 	@When("I enter all required information on HO4 review screen")
 	public void i_enter_all_required_information_on_ho4_review_screen() {
 		
-		selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(2);
-		click(reviewChevron.fullPaymentRadioButton);
+		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
-		click(reviewChevron.createApplication);
+		click(reviewChevron.btnCreateApplication);
 		wait(2);
 
 	}
@@ -70,7 +70,7 @@ public class HO4policy extends CommonMethods {
 	public void i_create_ho4_application() {
 	//Application Policy Chevron information was filled here(all information was filled previously, just clicking next button)
 		
-		click(dwellingChevron.nextButton);
+		click(dwellingChevron.btnNext);
 		
 		//Application Underwriting Questions Chevron was filled here
 		
@@ -94,21 +94,21 @@ public class HO4policy extends CommonMethods {
 		
 		//Application Dwelling information was filled here
 		
-				selectDropdownText(dwellingChevron.dwellingType, ConfigsReader.getProperty("dwellingtype"));
-				selectDropdownText(dwellingChevron.numberOfStories, ConfigsReader.getProperty("numberofstories"));
-				selectDropdownText(dwellingChevron.storyOfUnit, ConfigsReader.getProperty("storyofunit"));
+				selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
+				selectDropdownText(dwellingChevron.ddNumberOfStories, ConfigsReader.getProperty("numberofstories"));
+				selectDropdownText(dwellingChevron.ddStoryOfUnit, ConfigsReader.getProperty("storyofunit"));
 				wait(2);
-				click(dwellingChevron.saveButton);
-				click(reviewChevron.reviewButton);
+				click(dwellingChevron.btnSave);
+				click(reviewChevron.btnReview);
 				wait(2);
-				click(reviewChevron.finalizeButton);
+				click(reviewChevron.btnFinalize);
 				wait(2);
 				
 				//Closeout Chevron information was filled here
 				
-				selectDropdownText(closeoutChevron.paymentType, ConfigsReader.getProperty("paymenttype"));
+				selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 				wait(3);
-				click(closeoutChevron.issueNBButton);
+				click(closeoutChevron.btnIssueNB);
 		
 	}
 	@Then("I validate the HO4 policy has been created successfully")

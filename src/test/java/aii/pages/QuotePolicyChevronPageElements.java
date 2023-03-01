@@ -9,64 +9,64 @@ import aii.utils.CommonMethods;
 public class QuotePolicyChevronPageElements extends CommonMethods {
 
 	@FindBy(id= "BasicPolicy.PreviousCarrierCd")
-	public WebElement previousCarrier;
+	public WebElement ddPreviousCarrier;
 	
 	@FindBy(id= "BasicPolicy.PreviousExpirationDt")
-	public WebElement previousPolicyExpDate;
+	public WebElement txtPreviousPolicyExpDate;
 	
 	@FindBy(id= "Insured.InsuranceScoreEstimate")
-	public WebElement insuranceScoreDd;
+	public WebElement ddInsuranceScoreDd;
 	
 	@FindBy(id= "InsuredPhonePrimary.PhoneNumber")
-	public WebElement phoneNumber;
+	public WebElement txtPhoneNumber;
 	
 	@FindBy(id= "InsuredPhonePrimary.PhoneName")
-	public WebElement phoneNumberType;
+	public WebElement ddPhoneNumberType;
 	
 	@FindBy(id= "InsuredEmail.NoEmailInd")
-	public WebElement noEmailRadio;
+	public WebElement btnNoEmailRadio;
 	
 	@FindBy(id= "ConstructionCd")
-	public WebElement constructionTypeDd;
+	public WebElement ddConstructionType;
 	
 	@FindBy(id= "OccupancyCd")
-	public WebElement occupancyDd;
+	public WebElement ddOccupancy;
 	
 	@FindBy(id="MonthsOccupied")
-	public WebElement monthsOccupied;
+	public WebElement ddMonthsOccupied;
 	
 	@FindBy(id= "Insured.PriorAddressInd")
-	public WebElement insuredReside;
+	public WebElement ddInsuredReside;
 	
 	@FindBy(id= "NextPage")
-	public WebElement nextButton;
+	public WebElement btnNext;
 	
 	@FindBy(id= "BasicPolicy.MobileHomeInd")
-	public WebElement mobileHomeInd;
+	public WebElement ddMobileHomeInd;
 	
 	@FindBy(id= "ShortTermRental")
-	public WebElement shortTermRental;
+	public WebElement ddShortTermRental;
 	
 	@FindBy(id= "BasicPolicy.MHPropertyTypeCd_2")
-	public WebElement propertyTypePri;
+	public WebElement btnPropertyTypePri;
 	
 	@FindBy(id= "BasicPolicy.Coverage6MonthsInd")
-	public WebElement coverage6MonthsInd;
+	public WebElement ddCoverage6MonthsInd;
 	
 	@FindBy(id= "BasicPolicy.Garaged6MonthsInd")
-	public WebElement garaged6MonthsInd;
+	public WebElement ddGaraged6MonthsInd;
 	
 	@FindBy(id= "Wizard_Policy")
-	public WebElement policyChevronLink;
+	public WebElement btnPolicyChevronLink;
 	
 	@FindBy(id= "ProviderNumber")
-	public WebElement producerCodeSel;
+	public WebElement txtProducerCodeSel;
 	
 	@FindBy(id= "BasicPolicy.HOWithAIIGInd")
-	public WebElement policyWrittenAiig;
+	public WebElement ddPolicyWrittenAiig;
 	
 	@FindBy(id= "BasicPolicy.AutoWithAgentInd")
-	public WebElement autoPolicy;
+	public WebElement ddAutoPolicy;
 	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);

@@ -10,16 +10,16 @@ public class SpecialOptionsPageElements extends CommonMethods {
 
 	
 	@FindBy(id= "Wizard_SpecialOptions")  
-	public WebElement specialOptionsWiz;
+	public WebElement btnSpecialOptionsWiz;
 	
 	@FindBy(id= "TreatAsRenewal")  
-	public WebElement treatAsRenewal;
+	public WebElement btnTreatAsRenewal;
 	
 	@FindBy(id= "dialogOK")  
-	public WebElement dialogOk;
+	public WebElement btnDialogOk;
 	
 	@FindBy(id= "Wizard_Risks")
-	public WebElement dwellingWiz;
+	public WebElement btnDwellingWiz;
 	
 	public SpecialOptionsPageElements() {
 		PageFactory.initElements(driver, this);

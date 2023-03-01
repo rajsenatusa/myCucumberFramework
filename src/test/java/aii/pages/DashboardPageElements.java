@@ -9,70 +9,70 @@ import aii.utils.CommonMethods;
 public class DashboardPageElements extends CommonMethods {
 
 	@FindBy(id = "Menu_Workflow")
-	public WebElement home;
+	public WebElement btnHome;
 
 	@FindBy(id = "Menu_Policy")
-	public WebElement quotePolicyButton;
+	public WebElement btnQuotePolicy;
 
 	@FindBy(id = "Menu_Claims")
-	public WebElement claimsButton;
+	public WebElement btnClaims;
 
 	@FindBy(id = "Menu_Cabinets")
-	public WebElement cabinetsButton;
+	public WebElement btnCabinets;
 
 	@FindBy(id = "Menu_Utility")
-	public WebElement supportButton;
+	public WebElement btnSupport;
 
 	@FindBy(id = "Menu_Admin")
-	public WebElement adminButton;
+	public WebElement btnAdmin;
 	
 	@FindBy(id= "Menu_Policy_NewCustomerAndQuote")
-	public WebElement newQuote;
+	public WebElement btnNewQuote;
 	
 	@FindBy(id= "UserMenu")
-	public WebElement userMenu;
+	public WebElement btnUserMenu;
 	
 	@FindBy(id= "SignOutInMenu")
-	public WebElement signOut;
+	public WebElement btnSignOut;
 	
 	@FindBy(id= "ToolbarSearchText")
-	public WebElement searchBar;
+	public WebElement txtSearchBar;
 	
 	@FindBy(id= "ToolbarSearch")
 	public WebElement search;
 	
 	@FindBy(id= "MoreActionsDropdownButton")
-	public WebElement moreOptions;
+	public WebElement ddMoreOptions;
 	
 	@FindBy(id= "Transaction")
-	public WebElement startTransaction;
+	public WebElement btnStartTransaction;
 	
 	@FindBy(id= "TransactionCd")
-	public WebElement selectTransaction;
+	public WebElement ddSelectTransaction;
 	
 	@FindBy(id= "Select")
-	public WebElement selectButton;
+	public WebElement btnSelect;
 		
 	@FindBy(id= "TransactionEffectiveDt")
-	public WebElement selectDate;
+	public WebElement txtSelectDate;
 	
 	@FindBy(id= "Start")
-	public WebElement startButton;
+	public WebElement btnStart;
 	
 	@FindBy(id="Menu_Admin_ChangeDate")
-	public WebElement changeDate;
+	public WebElement btnChangeDate;
 	
 	@FindBy(id="NewDate")
-	public WebElement newDate;
+	public WebElement txtNewDate;
 	
 	@FindBy(id="NewBookDate")
-	public WebElement newBookDate;
+	public WebElement txtNewBookDate;
 	
 	@FindBy(id="ChangeDate")
-	public WebElement changeNewDate;
+	public WebElement btnChangeNewDate;
 	
 	@FindBy(id="ChangeBookDate")
-	public WebElement changeBookDate;
+	public WebElement btnChangeBookDate;
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);

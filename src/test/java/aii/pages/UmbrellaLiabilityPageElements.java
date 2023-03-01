@@ -9,13 +9,13 @@ import aii.utils.CommonMethods;
 public class UmbrellaLiabilityPageElements extends CommonMethods {
 	
 	@FindBy(id= "Line.PersonalLiabilityLimit")
-	public WebElement umbLimitCov;
+	public WebElement ddUmbLimitCov;
 
 	@FindBy(id= "Line.ExcessUMUIMLimit")
-	public WebElement uninsuredLimit;
+	public WebElement ddUninsuredLimit;
 	
 	@FindBy(id= "Question_NumAutomobiles")
-	public WebElement numberOfAuto;
+	public WebElement txtNumberOfAuto;
 	
 
 	public UmbrellaLiabilityPageElements() {

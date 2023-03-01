@@ -16,7 +16,7 @@ public class LoginPageElements extends CommonMethods {
 	public WebElement password;
 
 	@FindBy(id = "SignIn")
-	public WebElement signInButton;
+	public WebElement btnSignIn;
 
 	@FindBy(xpath = "//div[@class='error_content_right']")
 	public WebElement passwordError;
@@ -31,7 +31,7 @@ public class LoginPageElements extends CommonMethods {
 	public void signIn() {
 		sendText(username, ConfigsReader.getProperty("username"));
 		sendText(password, ConfigsReader.getProperty("password"));
-		click(signInButton);
+		click(btnSignIn);
 	}
 
 }

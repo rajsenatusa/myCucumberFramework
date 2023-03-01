@@ -14,83 +14,83 @@ public class TODP3policy extends CommonMethods {
 	public void i_enter_product_selection_information_for_todp3_and_effective_date() {
 			//login with admin for issuing TO policy
 			//product selection information was filled here
-				sendText(product.effectiveDate,ConfigsReader.getProperty("effectivedate"));
-				selectDropdown(product.stateDropdown, 1);
-				selectDropdown(product.carrierDropdown, 1);
+				sendText(product.txtEffectiveDate,ConfigsReader.getProperty("effectivedate"));
+				selectDropdown(product.ddStateSelection, 1);
+				selectDropdown(product.ddCarrierSelection, 1);
 				wait(2);
-				click(product.continueButton);
-				click(product.productSelectionTodp3);	
+				click(product.btnContinue);
+				click(product.btnProductSelectionTodp3);	
 	}
 	@When("I enter all required information on TODP3 quote screen")
 	public void i_enter_all_required_information_on_todp3_quote_screen() {
 			//Quote Policy Chevron information was filled here
-				sendText(policyChevron.producerCodeSel, ConfigsReader.getProperty("producerselection"));
+				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
 				wait(3);
-				sendText(policyChevron.phoneNumber, ConfigsReader.getProperty("phonenumber"));
-				selectDropdownText(policyChevron.phoneNumberType, ConfigsReader.getProperty("phonetype"));
+				sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 				wait(2);
-				click(policyChevron.noEmailRadio);
-				selectDropdownText(policyChevron.constructionTypeDd, ConfigsReader.getProperty("constructiontype"));
-				selectDropdownText(policyChevron.occupancyDd, ConfigsReader.getProperty("occupancytype"));
-				selectDropdownText(policyChevron.monthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
+				click(policyChevron.btnNoEmailRadio);
+				selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
+				selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
+				selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
 				wait(1);
-				click(policyChevron.nextButton);
+				click(policyChevron.btnNext);
 	}
 	@When("I enter all required information on TODP3 dwelling screen")
 	public void i_enter_all_required_information_on_todp3_dwelling_screen() {
 			//Quote Dwelling information was filled here
-				sendText(dwellingChevron.yearConstruction, ConfigsReader.getProperty("yearconstruction"));
-				sendText(dwellingChevron.squareFeet, ConfigsReader.getProperty("squarefeet"));
-				selectDropdownText(dwellingChevron.distanceToHydrant, ConfigsReader.getProperty("distancetohydrant"));
-				selectDropdownText(dwellingChevron.protectionClass, ConfigsReader.getProperty("protectionclass"));
-				selectDropdownText(dwellingChevron.dwellingType, ConfigsReader.getProperty("dwellingtype"));
-				selectDropdownText(dwellingChevron.numberofUnits, ConfigsReader.getProperty("numberofunits"));
-				selectDropdownText(dwellingChevron.buildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
+				sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
+				sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
+				selectDropdownText(dwellingChevron.ddDistanceToHydrant, ConfigsReader.getProperty("distancetohydrant"));
+				selectDropdownText(dwellingChevron.ddProtectionClass, ConfigsReader.getProperty("protectionclass"));
+				selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
+				selectDropdownText(dwellingChevron.ddNumberofUnits, ConfigsReader.getProperty("numberofunits"));
+				selectDropdownText(dwellingChevron.ddBuildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
 				wait(2);
-				click(dwellingChevron.saveButton);
+				click(dwellingChevron.btnSave);
 				wait(3);
-				selectDropdownText(dwellingChevron.qualityGrade, ConfigsReader.getProperty("qualitygrade"));
-				click(dwellingChevron.calculateButton);
+				selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
+				click(dwellingChevron.btnCalculate);
 				wait(4);
-				click(dwellingChevron.saveButton);
-				click(dwellingChevron.nextButton);
+				click(dwellingChevron.btnSave);
+				click(dwellingChevron.btnNext);
 				wait(3);
 	}
 	@When("I enter all required information on TODP3 review screen")
 	public void i_enter_all_required_information_on_todp3_review_screen() {
 			//Quote Review Chevron information was filled here
-				selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 				wait(2);
-				click(reviewChevron.fullPaymentRadioButton);
+				click(reviewChevron.btnFullPaymentRadio);
 				wait(3);
-				click(reviewChevron.createApplication);
+				click(reviewChevron.btnCreateApplication);
 				wait(4);
 	}
 	@When("I create TODP3 application")
 	public void i_create_todp3_application() {
 			//Special Options Chevron was filled here
-				click(specialChevron.specialOptionsWiz);
+				click(specialChevron.btnSpecialOptionsWiz);
 				wait(3);	
-				click(specialChevron.treatAsRenewal);
+				click(specialChevron.btnTreatAsRenewal);
 				wait(3);
-				click(specialChevron.dialogOk);
+				click(specialChevron.btnDialogOk);
 				wait(3);
-				click(specialChevron.dwellingWiz);
+				click(specialChevron.btnDwellingWiz);
 				wait(2);
-				selectDropdownText(dwellingChevron.roofMetarial, ConfigsReader.getProperty("roofmetarial"));
+				selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
 				wait(2);
-				click(dwellingChevron.saveButton);
-				click(reviewChevron.reviewButton);
+				click(dwellingChevron.btnSave);
+				click(reviewChevron.btnReview);
 				wait(2);
-				selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 				wait(2);
-				click(reviewChevron.fullPaymentRadioTOButton);
-				click(reviewChevron.finalizeButton);
+				click(reviewChevron.btnFullPaymentRadioTO);
+				click(reviewChevron.btnFinalize);
 				wait(2);
 				
 				//Closeout Chevron information was filled here
 				
-				click(closeoutChevron.issueNBButton);
+				click(closeoutChevron.btnIssueNB);
 				wait(5);
 	}
 	@Then("I validate the TODP3 policy has been created successfully")

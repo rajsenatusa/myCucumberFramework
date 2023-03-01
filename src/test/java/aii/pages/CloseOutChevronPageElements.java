@@ -9,16 +9,16 @@ import aii.utils.CommonMethods;
 public class CloseOutChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "TransactionInfo.PaymentTypeCd")
-	public WebElement paymentType;
+	public WebElement ddPaymentType;
 	
 	@FindBy(id= "Process")
-	public WebElement issueNBButton;
+	public WebElement btnIssueNB;
 	
 	@FindBy(id= "SubmitForApproval")
-	public WebElement submitApproval;
+	public WebElement btnSubmitApproval;
 	
 	@FindBy(id= "WorkflowComments")
-	public WebElement workflowComments;	
+	public WebElement txtWorkflowComments;	
 	
 	@FindBy(id= "QuoteAppSummary_QuoteAppNumber")
 	public WebElement applicationNumber;

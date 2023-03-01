@@ -14,79 +14,79 @@ public class TOMHPDpolicy extends CommonMethods {
 @When("I enter product selection information for TOMHPD and effective date")
 public void i_enter_product_selection_information_for_tomhpd_and_effective_date() {
 	//product selection information was filled here
-			sendText(product.effectiveDate,ConfigsReader.getProperty("effectivedate"));
-			selectDropdown(product.stateDropdown, 1);
-			selectDropdown(product.carrierDropdown, 1);
+			sendText(product.txtEffectiveDate,ConfigsReader.getProperty("effectivedate"));
+			selectDropdown(product.ddStateSelection, 1);
+			selectDropdown(product.ddCarrierSelection, 1);
 			wait(2);
-			click(product.continueButton);
-			click(product.productSelectionTomhpd);
+			click(product.btnContinue);
+			click(product.btnProductSelectionTomhpd);
 	
 }
 @When("I enter all required information on TOMHPD quote screen")
 public void i_enter_all_required_information_on_tomhpd_quote_screen() {
 	//Quote Policy Chevron information was filled here
-			sendText(policyChevron.producerCodeSel, ConfigsReader.getProperty("producerselection"));
+			sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
 			wait(3);
-			sendText(policyChevron.phoneNumber, ConfigsReader.getProperty("phonenumber"));
-			selectDropdownText(policyChevron.phoneNumberType, ConfigsReader.getProperty("phonetype"));
+			sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+			selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 			wait(2);
-			click(policyChevron.noEmailRadio);
-			selectDropdownText(policyChevron.occupancyDd, ConfigsReader.getProperty("occupancytype"));
+			click(policyChevron.btnNoEmailRadio);
+			selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
 			wait(1);
-			selectDropdownText(policyChevron.monthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
+			selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
 			wait(1);
-			click(policyChevron.nextButton);
+			click(policyChevron.btnNext);
 }
 @When("I enter all required information on TOMHPD dwelling screen")
 public void i_enter_all_required_information_on_tomhpd_dwelling_screen() {
 	//Quote Dwelling information was filled here
-			sendText(dwellingChevron.yearConstruction, ConfigsReader.getProperty("yearconstruction"));
-			selectDropdownText(dwellingChevron.buildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
+			sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
+			selectDropdownText(dwellingChevron.ddBuildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
 			getWaitObject();
-			scrollToElement(dwellingChevron.coverageA);
+			scrollToElement(dwellingChevron.txtCoverageA);
 			wait(2);
-			waitForVisibility(dwellingChevron.coverageA);
-			clickTab(dwellingChevron.coverageA);
-			clearText(dwellingChevron.coverageA);
+			waitForVisibility(dwellingChevron.txtCoverageA);
+			clickTab(dwellingChevron.txtCoverageA);
+			clearText(dwellingChevron.txtCoverageA);
 			wait(2);
 			driver.findElement(By.id("Building.CovALimit")).sendKeys("120000");  //did hard coding due to element is hidden inside dom
-			selectDropdownText(dwellingChevron.attachedStructures, "No");
+			selectDropdownText(dwellingChevron.ddAttachedStructures, "No");
 			wait(2);
-			click(dwellingChevron.saveButton);
+			click(dwellingChevron.btnSave);
 			wait(3);
-			click(dwellingChevron.nextButton);
+			click(dwellingChevron.btnNext);
 			wait(3);
 }
 @When("I enter all required information on TOMHPD review screen")
 public void i_enter_all_required_information_on_tomhpd_review_screen() {
 	//Quote Review Chevron information was filled here
-			selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+			selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 			wait(2);
-			click(reviewChevron.fullPaymentRadioButton);
+			click(reviewChevron.btnFullPaymentRadio);
 			wait(3);
-			click(reviewChevron.createApplication);
+			click(reviewChevron.btnCreateApplication);
 			wait(4);
 }
 @When("I create TOMHPD application")
 public void i_create_tomhpd_application() {
 	//Special Options Chevron was filled here
-			click(specialChevron.specialOptionsWiz);
+			click(specialChevron.btnSpecialOptionsWiz);
 			wait(3);	
-			click(specialChevron.treatAsRenewal);
+			click(specialChevron.btnTreatAsRenewal);
 			wait(3);
-			click(specialChevron.dialogOk);
+			click(specialChevron.btnDialogOk);
 			wait(3);
-			click(reviewChevron.reviewButton);
+			click(reviewChevron.btnReview);
 			wait(2);
-			selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+			selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 			wait(2);
-			click(reviewChevron.fullPaymentRadioTOButton);
-			click(reviewChevron.finalizeButton);
+			click(reviewChevron.btnFullPaymentRadioTO);
+			click(reviewChevron.btnFinalize);
 			wait(2);
 			
 			//Closeout Chevron information was filled here
 			
-			click(closeoutChevron.issueNBButton);
+			click(closeoutChevron.btnIssueNB);
 			wait(5);
 }
 @Then("I validate the TOMHPD policy has been created successfully")

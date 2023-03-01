@@ -9,31 +9,31 @@ import aii.utils.CommonMethods;
 public class QuoteReviewPageElements extends CommonMethods {
 	
 	@FindBy(id= "BasicPolicy.PayPlanFilterTypeCd")
-	public WebElement payPlan;
+	public WebElement ddPayPlan;
 	
 	@FindBy(id= "BasicPolicy.PayPlanCd_7")
-	public WebElement fullPaymentRadioButton;
+	public WebElement btnFullPaymentRadio;
 	
 	@FindBy(id= "BasicPolicy.PayPlanCd_8")
-	public WebElement fullPaymentRadioTOButton;
+	public WebElement btnFullPaymentRadioTO;
 	
 	@FindBy(id= "Bind")
-	public WebElement createApplication;
+	public WebElement btnCreateApplication;
 	
 	@FindBy(id= "InsuranceScorePromptCheckBox")
-	public WebElement insuranceScoreCheckBox;
+	public WebElement btnInsuranceScoreBox;
 	
 	@FindBy(id= "InsuranceScorePromptOk")
-	public WebElement insuranceScoreOkButton;
+	public WebElement btnInsuranceScoreOk;
 	
 	@FindBy(id= "Wizard_Review")
-	public WebElement reviewButton;
+	public WebElement btnReview;
 	
 	@FindBy(id= "Closeout")
-	public WebElement finalizeButton;
+	public WebElement btnFinalize;
 	
 	@FindBy(id= "BasicPolicy.NCFDisclosureResponseInd")
-	public WebElement orderInsScore;
+	public WebElement ddOrderInsScore;
 
 	
 	public QuoteReviewPageElements() {

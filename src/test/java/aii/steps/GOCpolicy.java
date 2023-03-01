@@ -14,45 +14,45 @@ public class GOCpolicy extends CommonMethods {
 	public void i_enter_goc_product_selection_information_and_effective_date() {
 		
 		//product selection information was filled here
-				sendText(product.effectiveDate,ConfigsReader.getProperty("effectivedate"));
-				selectDropdown(product.stateDropdown, 1);
-				selectDropdown(product.carrierDropdown, 1);
+				sendText(product.txtEffectiveDate,ConfigsReader.getProperty("effectivedate"));
+				selectDropdown(product.ddStateSelection, 1);
+				selectDropdown(product.ddCarrierSelection, 1);
 				wait(2);
-				click(product.continueButton);
-				click(product.productSelectionGoc);
+				click(product.btnContinue);
+				click(product.btnProductSelectionGoc);
 	}
 	@When("I enter all required information on GOC quote screen")
 	public void i_enter_all_required_information_on_goc_quote_screen() {
 		//Quote Policy Chevron information was filled here
 		
-				selectDropdownText(policyChevron.coverage6MonthsInd, "Yes");
-				selectDropdownText(policyChevron.garaged6MonthsInd, "Yes");
-				selectDropdown(policyChevron.insuranceScoreDd,3);
-				sendText(policyChevron.phoneNumber, ConfigsReader.getProperty("phonenumber"));
-				selectDropdownText(policyChevron.phoneNumberType, ConfigsReader.getProperty("phonetype"));
+				selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
+				selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
+				selectDropdown(policyChevron.ddInsuranceScoreDd,3);
+				sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 				wait(2);
-				click(policyChevron.noEmailRadio);
-				selectDropdownText(policyChevron.insuredReside, "No");
+				click(policyChevron.btnNoEmailRadio);
+				selectDropdownText(policyChevron.ddInsuredReside, "No");
 				wait(1);
-				click(policyChevron.nextButton);
+				click(policyChevron.btnNext);
 				wait(3);
 				
 	}
 	@When("I enter all required information on GOC golfcart screen")
 	public void i_enter_all_required_information_on_goc_golfcart_screen() {
 		
-		selectDropdownText(golfcartChevron.liabilityCovType, ConfigsReader.getProperty("liabilitycoveragetypegoc"));
+		selectDropdownText(golfcartChevron.ddLiabilityCovType, ConfigsReader.getProperty("liabilitycoveragetypegoc"));
 		wait(6);
-		selectDropdownText(golfcartChevron.bodilyInjuryPerson, ConfigsReader.getProperty("bodilyinjuryperson"));
+		selectDropdownText(golfcartChevron.ddBodilyInjuryPerson, ConfigsReader.getProperty("bodilyinjuryperson"));
 		wait(5);
-		selectDropdownText(golfcartChevron.propertyDamageLimit, ConfigsReader.getProperty("propertydamagelimit"));
+		selectDropdownText(golfcartChevron.ddPropertyDamageLimit, ConfigsReader.getProperty("propertydamagelimit"));
 		wait(3);
-		selectDropdownText(golfcartChevron.medicalPaymentLimit, ConfigsReader.getProperty("medicalpaymentlimit"));
+		selectDropdownText(golfcartChevron.ddMedicalPaymentLimit, ConfigsReader.getProperty("medicalpaymentlimit"));
 		wait(3);
-		click(dwellingChevron.saveButton);
+		click(dwellingChevron.btnSave);
 		wait(2);
-		click(dwellingChevron.saveButton);
-		click(dwellingChevron.nextButton);
+		click(dwellingChevron.btnSave);
+		click(dwellingChevron.btnNext);
 		
 	}
 	
@@ -60,36 +60,36 @@ public class GOCpolicy extends CommonMethods {
 	@When("I enter driver information on driver screen")
 	public void i_enter_driver_information_on_driver_screen() {
 	    
-		click(golfcartChevron.addDriver);
-	    selectDropdownText(golfcartChevron.driverMaritalStatus, ConfigsReader.getProperty("drivermaritalstatus"));
-	    selectDropdownText(golfcartChevron.driverLicenseInd, "No");
-	    selectDropdownText(golfcartChevron.driverGcExp, ConfigsReader.getProperty("driverexperience"));
-	    selectDropdownText(golfcartChevron.driverTrainingInd, "No");
+		click(golfcartChevron.btnAddDriver);
+	    selectDropdownText(golfcartChevron.ddDriverMaritalStatus, ConfigsReader.getProperty("drivermaritalstatus"));
+	    selectDropdownText(golfcartChevron.ddDriverLicenseInd, "No");
+	    selectDropdownText(golfcartChevron.ddDriverGcExp, ConfigsReader.getProperty("driverexperience"));
+	    selectDropdownText(golfcartChevron.ddDriverTrainingInd, "No");
 	    wait(3);
-	    click(golfcartChevron.nextGocScreen);
+	    click(golfcartChevron.btnNextGocScreen);
 
 	}
 	@When("I enter vehicles information on vehicles screen")
 	public void i_enter_vehicles_information_on_vehicles_screen() {
 	   
-		click(golfcartChevron.addGolfcart);
+		click(golfcartChevron.btnAddGolfcart);
 	   	wait(2);
-		sendText(golfcartChevron.modelYear, ConfigsReader.getProperty("golfcartmodelyear"));
-		sendText(golfcartChevron.gcVinNumber, ConfigsReader.getProperty("gcvinnumber"));
-		sendText(golfcartChevron.gcMake, ConfigsReader.getProperty("gcmake"));
-		sendText(golfcartChevron.gcModel, ConfigsReader.getProperty("gcmodel"));
-		selectDropdownText(golfcartChevron.gcPowerType, ConfigsReader.getProperty("gcpowertype"));
+		sendText(golfcartChevron.txtModelYear, ConfigsReader.getProperty("golfcartmodelyear"));
+		sendText(golfcartChevron.txtGcVinNumber, ConfigsReader.getProperty("gcvinnumber"));
+		sendText(golfcartChevron.txtGcMake, ConfigsReader.getProperty("gcmake"));
+		sendText(golfcartChevron.txtGcModel, ConfigsReader.getProperty("gcmodel"));
+		selectDropdownText(golfcartChevron.ddGcPowerType, ConfigsReader.getProperty("gcpowertype"));
 		wait(2);
-		selectDropdownText(golfcartChevron.gcMaxSpeed, ConfigsReader.getProperty("gcmaxspeed"));
-		selectDropdownText(golfcartChevron.vehicleSeatbelts, "Yes");
-		sendText(golfcartChevron.gcMarketValue, ConfigsReader.getProperty("gcmarketvalue"));
-		selectDropdownText(golfcartChevron.otherCollisionDed, ConfigsReader.getProperty("othercollisiondeductible"));
-		selectDropdownText(golfcartChevron.collisionDed, ConfigsReader.getProperty("collisiondeductible"));
+		selectDropdownText(golfcartChevron.ddGcMaxSpeed, ConfigsReader.getProperty("gcmaxspeed"));
+		selectDropdownText(golfcartChevron.ddVehicleSeatbelts, "Yes");
+		sendText(golfcartChevron.txtGcMarketValue, ConfigsReader.getProperty("gcmarketvalue"));
+		selectDropdownText(golfcartChevron.ddOtherCollisionDed, ConfigsReader.getProperty("othercollisiondeductible"));
+		selectDropdownText(golfcartChevron.ddCollisionDed, ConfigsReader.getProperty("collisiondeductible"));
 		wait(2);
-		selectDropdownText(golfcartChevron.gcExistingDamage, "No");
-		click(dwellingChevron.saveButton);
+		selectDropdownText(golfcartChevron.ddGcExistingDamage, "No");
+		click(dwellingChevron.btnSave);
 		wait(2);
-		click(reviewChevron.reviewButton);
+		click(reviewChevron.btnReview);
 		wait(3);
 	}
 
@@ -97,13 +97,13 @@ public class GOCpolicy extends CommonMethods {
 	@When("I enter all required information on GOC review screen")
 	public void i_enter_all_required_information_on_goc_review_screen() {
 		
-		selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(4);
-		click(reviewChevron.fullPaymentRadioButton);
+		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
-		selectDropdownText(reviewChevron.orderInsScore, "No");
+		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
 		wait(3);
-		click(reviewChevron.createApplication);
+		click(reviewChevron.btnCreateApplication);
 		wait(4);
 		
 		
@@ -112,11 +112,11 @@ public class GOCpolicy extends CommonMethods {
 	@When("I create GOC application")
 	public void i_create_goc_application() {
 	    
-		click(policyChevron.policyChevronLink);
+		click(policyChevron.btnPolicyChevronLink);
 		wait(2);
 		//Application Policy Chevron information was filled here(all information was filled previously, just clicking next button)
 		
-		click(dwellingChevron.nextButton);
+		click(dwellingChevron.btnNext);
 		
 		//Application Underwriting Questions Chevron was filled here
 		
@@ -138,17 +138,17 @@ public class GOCpolicy extends CommonMethods {
 		
 		//Application Dwelling information was filled here
 		
-		click(dwellingChevron.saveButton);
-		click(reviewChevron.reviewButton);
+		click(dwellingChevron.btnSave);
+		click(reviewChevron.btnReview);
 		wait(2);
-		click(reviewChevron.finalizeButton);
+		click(reviewChevron.btnFinalize);
 		wait(2);
 		
 		//Closeout Chevron information was filled here
 		
-		selectDropdownText(closeoutChevron.paymentType, ConfigsReader.getProperty("paymenttype"));
+		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
-		click(closeoutChevron.issueNBButton);
+		click(closeoutChevron.btnIssueNB);
 		
 		
 		

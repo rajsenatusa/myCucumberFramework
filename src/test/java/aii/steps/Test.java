@@ -21,7 +21,7 @@ public class Test extends CommonMethods{
 	public void i_signin_spin_as_underwriter() {
 		sendText(login.username, ConfigsReader.getProperty("uw_username"));
 		 sendText(login.password, ConfigsReader.getProperty("password"));
-		 click(login.signInButton);
+		 click(login.btnSignIn);
 		 wait(3);
 	}
 
@@ -29,7 +29,7 @@ public class Test extends CommonMethods{
 	public void i_signin_spin_as_agent() {
 		sendText(login.username, ConfigsReader.getProperty("username"));
 		 sendText(login.password, ConfigsReader.getProperty("username"));
-		 click(login.signInButton);
+		 click(login.btnSignIn);
 		 wait(3);
 	}
 	
@@ -37,27 +37,27 @@ public class Test extends CommonMethods{
 	@When("I enter all the information on review screen")
 	public void i_enter_all_information_on_review_screen() {
 		//Quote Review Chevron information was filled here
-		selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(2);
-		click(reviewChevron.fullPaymentRadioButton);
+		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
 		
 	}
 	
 	@Given("I create application of HO3")
 	public void create_HO3_app() {
-		click(reviewChevron.createApplication);
+		click(reviewChevron.btnCreateApplication);
 		wait(4);
-		click(reviewChevron.insuranceScoreCheckBox);
-		click(reviewChevron.insuranceScoreOkButton);
+		click(reviewChevron.btnInsuranceScoreBox);
+		click(reviewChevron.btnInsuranceScoreOk);
 		wait(3);
-		click(dwellingChevron.saveButton);
+		click(dwellingChevron.btnSave);
 	}
 	
 	@Given("I fill all the uw questions")
 	public void i_fill_uwQuestions() throws InterruptedException {
 		Thread.sleep(3000);
-		click(dwellingChevron.nextButton);
+		click(dwellingChevron.btnNext);
 		wait(1);
 		selectDropdownText(uwquestionsChevron.ho3Question1, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question2, "No");
@@ -94,43 +94,43 @@ public class Test extends CommonMethods{
 
 	@Given("I select MMA as Yes on dwelling screen")
 	public void i_select_mma_as_yes() {
-		selectDropdownText(dwellingChevron.dwellingType, ConfigsReader.getProperty("dwellingtype"));
+		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
 		wait(2);
-		selectDropdownText(dwellingChevron.mediationArbit, "Yes");
+		selectDropdownText(dwellingChevron.ddMediationArbit, "Yes");
 	}
 	
 
 	@Given("I finalize and issue new business")
 	public void finalize_issueNB() {
-		click(reviewChevron.finalizeButton);
+		click(reviewChevron.btnFinalize);
 		wait(2);
 		
 		//Closeout Chevron information was filled here
 		
-		selectDropdownText(closeoutChevron.paymentType, ConfigsReader.getProperty("paymenttype"));
+		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
-		click(closeoutChevron.issueNBButton);
+		click(closeoutChevron.btnIssueNB);
 	}
 	
 	@Given("I finalize and process")
 	public void finalize_process() {
-		click(reviewChevron.finalizeButton);
+		click(reviewChevron.btnFinalize);
 		wait(2);
 				
-		click(closeoutChevron.issueNBButton);
+		click(closeoutChevron.btnIssueNB);
 	}
 
 
 	@Given("I navigate to policyfile screen")
 	public void i_navigate_to_policyfile_screen() {
-		click(policyFileChevron.policyFilePage);
+		click(policyFileChevron.btnPolicyFilePage);
 	}
 
 	@Given("I click on on the application and validate the MMA acknowledge form {string} attached in the application form")
 	public void i_click_on_on_the_application_and_validate_the_mma_acknowledge_form_attached_in_the_application_form(String HO3_MMA_version) throws Exception {
 		
 		
-		click(policyFileChevron.applicationForm);
+		click(policyFileChevron.btnApplicationForm);
 		wait(2);
 		switchToWindow(driver, "STFile&File");
 		String application_Form = PdfComparator.makePdf(driver, "Application.pdf");
@@ -138,7 +138,7 @@ public class Test extends CommonMethods{
 		//Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation+application_Form);
 			
-		Thread.sleep(500);
+		wait(5);
 		
 		String MMA_NBApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+application_Form, 10, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version1, HO3_MMA_version);
@@ -158,7 +158,7 @@ public class Test extends CommonMethods{
 	@Given("User search for {string}")
 	public void user_with_logged_in_and_search_for(String policy) {
 				 wait(3);
-		 sendText(dashboard.searchBar, policy);
+		 sendText(dashboard.txtSearchBar, policy);
 		 click(dashboard.search);
 		 wait(3);
 	}
@@ -166,26 +166,26 @@ public class Test extends CommonMethods{
 	
 	@And("I start transaction on policy")
 	public void i_start_transaction() {
-	    click(policyChevron.policyChevronLink);
+	    click(policyChevron.btnPolicyChevronLink);
 	    wait(1);
-	    click(dashboard.moreOptions);
-	    click(dashboard.startTransaction);
+	    click(dashboard.ddMoreOptions);
+	    click(dashboard.btnStartTransaction);
 	    
 	}
 
 	@Given("I select endorsement transaction on {string}")
 	public void i_select_an_endorsement_transaction(String date) {
-	    selectDropdownText(dashboard.selectTransaction, "Endorsement");
-	    click(dashboard.selectButton);
-	    sendText(dashboard.selectDate, date);
-	    click(dashboard.startButton);
-	    click(dashboard.startButton);
+	    selectDropdownText(dashboard.ddSelectTransaction, "Endorsement");
+	    click(dashboard.btnSelect);
+	    sendText(dashboard.txtSelectDate, date);
+	    click(dashboard.btnStart);
+	    click(dashboard.btnStart);
 	    
 	}
 
 	@Then("I click on on the application and validate HO3 MMA acknowledge form not attached in the endorsement package")
 	public void i_validate_ho3_mma_acknowledge_form_not_attached_in_the_endorsement_package() throws Exception {
-		click(policyFileChevron.applicationForm);
+		click(policyFileChevron.btnApplicationForm);
 		wait(2);
 		switchToWindow(driver, "STFile&File");
 		EndPackage_Form = PdfComparator.makePdf(driver, "EndorsementPackage.pdf");
@@ -195,15 +195,15 @@ public class Test extends CommonMethods{
 		
 		PdfComparator.verifyPDFText_NotVisible(driver, EndPackage_Form, "AIIC HO3 MMAA 03 22");
 			
-		Thread.sleep(500);
+		wait(5);
 	}
 	
 	@And("I Change date of system {string}")
 	public void i_validate_change_Date(String date) throws Exception {
-		click(dashboard.changeDate);
-		 sendText(dashboard.newDate, date);
-		 click(dashboard.changeNewDate);
-		 sendText(dashboard.newBookDate, date);
-		 click(dashboard.changeBookDate);
+		 click(dashboard.btnChangeDate);
+		 sendText(dashboard.txtNewDate, date);
+		 click(dashboard.btnChangeNewDate);
+		 sendText(dashboard.txtNewBookDate, date);
+		 click(dashboard.btnChangeBookDate);
 	}
 }
