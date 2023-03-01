@@ -11,10 +11,11 @@ import io.cucumber.java.en.When;
 
 public class Test extends CommonMethods{
 	
-	private static String LOB = "HO3";
+//	private static String LOB = "HO3";
 	private static String FileLocation = System.getProperty("user.dir") + "\\target\\";
 	String application_Form = null;
 	String EndPackage_Form = null;
+	
 	
 	@Given("I signin Spin as Underwriter")
 	public void i_signin_spin_as_underwriter() {
@@ -32,13 +33,7 @@ public class Test extends CommonMethods{
 		 wait(3);
 	}
 	
-	
-	@Given("I validate MMA should default to Select on dwelling screen")
-	public void i_validate_mma_should_default_to_select_on_dwelling_screen() {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	}
-	
+		
 	@When("I enter all required information on review screen")
 	public void i_enter_all_required_information_on_review_screen() {
 		//Quote Review Chevron information was filled here

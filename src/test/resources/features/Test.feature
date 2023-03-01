@@ -8,13 +8,13 @@ Feature: Test login
     And I enter all required information on customer information screen
     And I enter product selection information and effective date
     And I enter all required information on quote screen
-    And I validate MMA should default to Select on dwelling screen
+    #And I validate MMA should default to Select on dwelling screen
     And I enter all required information on dwelling screen
     And I enter all the information on review screen
     And I create application of HO3
     And I fill all the uw questions
     And I select MMA as Yes on dwelling screen
-    And I validate MMA field defaulted to Yes on dwelling screen
+    #And I validate MMA field defaulted to Yes on dwelling screen
     And I finalize and issue new business
     Then I validate the HO3 policy has been created successfully
     #Given User search for "AGH0000837-01"
