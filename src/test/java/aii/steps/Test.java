@@ -35,7 +35,7 @@ public class Test extends CommonMethods{
 	
 		
 	@When("I enter all the information on review screen")
-	public void i_enter_all_required_information_on_review_screen() {
+	public void i_enter_all_information_on_review_screen() {
 		//Quote Review Chevron information was filled here
 		selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
 		wait(2);
