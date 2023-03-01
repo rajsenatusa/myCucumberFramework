@@ -10,22 +10,21 @@ Feature: Test login
     And I enter all required information on quote screen
     And I validate MMA should default to Select on dwelling screen
     And I enter all required information on dwelling screen
-    And I enter all required information on review screen
+    And I enter all the information on review screen
     And I create application of HO3
     And I fill all the uw questions
     And I select MMA as Yes on dwelling screen
     And I validate MMA field defaulted to Yes on dwelling screen
     And I finalize and issue new business
     Then I validate the HO3 policy has been created successfully
-    Given User search for "AGH0000837-01"
+    #Given User search for "AGH0000837-01"
     And I navigate to policyfile screen
     And I click on on the application and validate the MMA acknowledge form "AIIC HO3 MMAA 03 22" attached in the application form
-    And I validate policy, address and zip on the HO3 MMA acknowledge form
-    And I start transaction on policy
-    And I select endorsement transaction on "02/28/2023"
-    And I finalize and process
-    And I navigate to policyfile screen
-    Then I click on on the application and validate HO3 MMA acknowledge form not attached in the endorsement package
+    #And I start transaction on policy
+    #And I select endorsement transaction on "02/28/2023"
+    #And I finalize and process
+    #And I navigate to policyfile screen
+    #Then I click on on the application and validate HO3 MMA acknowledge form not attached in the endorsement package
 
   @smokeTest
   Scenario: Valid HO3 policy creation

@@ -39,6 +39,20 @@ public class Test extends CommonMethods{
 	    
 	}
 	
+	@When("I enter all required information on review screen")
+	public void i_enter_all_required_information_on_review_screen() {
+		//Quote Review Chevron information was filled here
+		selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
+		wait(2);
+		click(reviewChevron.fullPaymentRadioButton);
+		wait(3);
+		click(reviewChevron.createApplication);
+		wait(4);
+		click(reviewChevron.insuranceScoreCheckBox);
+		click(reviewChevron.insuranceScoreOkButton);
+		wait(3);
+	}
+	
 	@Given("I create application of HO3")
 	public void create_HO3_app() {
 		click(reviewChevron.createApplication);
@@ -163,13 +177,6 @@ public class Test extends CommonMethods{
 		 wait(3);
 	}
 	
-	
-	@Given("I validate policy, address and zip on the HO3 MMA acknowledge form")
-	public void i_validate_policy_address_and_zip_on_the_ho3_mma_acknowledge_form() throws Exception {
-
-//		String policyNum = 
-		
-	}
 	
 	@And("I start transaction on policy")
 	public void i_start_transaction() {
