@@ -99,11 +99,6 @@ public class Test extends CommonMethods{
 		selectDropdownText(dwellingChevron.mediationArbit, "Yes");
 	}
 	
-	@Given("I validate MMA field defaulted to Yes on dwelling screen")
-	public void i_validate_mma_field_defaulted_to_yes_on_dwelling_screen() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
 
 	@Given("I finalize and issue new business")
 	public void finalize_issueNB() {

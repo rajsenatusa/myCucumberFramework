@@ -1,5 +1,5 @@
 #Author: Kalesha
-Feature: Test login
+Feature: HO3 MMA scenario
 
   @smokeTest @regression12
   Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
