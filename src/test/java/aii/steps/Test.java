@@ -198,4 +198,12 @@ public class Test extends CommonMethods{
 		Thread.sleep(500);
 	}
 	
+	@And("I Change date of system {string}")
+	public void i_validate_change_Date(String date) throws Exception {
+		click(dashboard.changeDate);
+		 sendText(dashboard.newDate, date);
+		 click(dashboard.changeNewDate);
+		 sendText(dashboard.newBookDate, date);
+		 click(dashboard.changeBookDate);
+	}
 }
