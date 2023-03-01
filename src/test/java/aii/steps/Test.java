@@ -34,18 +34,14 @@ public class Test extends CommonMethods{
 	}
 	
 		
-	@When("I enter all required information on review screen")
+	@When("I enter all the information on review screen")
 	public void i_enter_all_required_information_on_review_screen() {
 		//Quote Review Chevron information was filled here
 		selectDropdownText(reviewChevron.payPlan, ConfigsReader.getProperty("payplan"));
 		wait(2);
 		click(reviewChevron.fullPaymentRadioButton);
 		wait(3);
-		click(reviewChevron.createApplication);
-		wait(4);
-		click(reviewChevron.insuranceScoreCheckBox);
-		click(reviewChevron.insuranceScoreOkButton);
-		wait(3);
+		
 	}
 	
 	@Given("I create application of HO3")
