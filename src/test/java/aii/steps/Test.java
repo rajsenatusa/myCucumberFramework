@@ -198,8 +198,9 @@ public class Test extends CommonMethods{
 		wait(5);
 	}
 	
-	@And("I Change date of system {string}")
+	@And("I change date of system {string}")
 	public void i_validate_change_Date(String date) throws Exception {
+		 click(dashboard.btnAdmin);
 		 click(dashboard.btnChangeDate);
 		 sendText(dashboard.txtNewDate, date);
 		 click(dashboard.btnChangeNewDate);
