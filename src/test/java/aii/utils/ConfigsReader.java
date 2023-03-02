@@ -39,4 +39,5 @@ public class ConfigsReader {
 		return prop.getProperty(key);
 	}
 
+	
 }

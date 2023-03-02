@@ -16,10 +16,10 @@ import io.cucumber.junit.CucumberOptions;
 
 		// if true, it does not run the java classes. Only checks the feature files
 		// if they are glued to some java code
-		dryRun = true,
+		dryRun = false,
 
 		// tags can do the same thing groups on TestNG do
-		tags = "@apimodelregression",
+		tags = "@Regression15",
 		
 		//it provides the output console to more readable
 		monochrome = true, 
@@ -36,5 +36,6 @@ import io.cucumber.junit.CucumberOptions;
 )
 
 public class TestRunner {
+	
 
 }

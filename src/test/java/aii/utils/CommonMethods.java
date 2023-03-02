@@ -37,10 +37,10 @@ public class CommonMethods extends PageInitializer {
 	 * @param text
 	 */
 	public static void sendText(WebElement element, String text) {
-		element.clear();
+		element.clear();		
 		element.sendKeys(text);
 	}
-
+	
 	/**
 	 * This method checks if radio/checkbox is enabled and then clicks on the
 	 * element that has the value attribute we are looking for.
