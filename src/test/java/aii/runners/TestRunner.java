@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 		// tags can do the same thing groups on TestNG do
-		tags = "@ho3",
+		tags = "@regression12",
 		
 		//it provides the output console to more readable
 		monochrome = true, 
@@ -29,8 +29,10 @@ import io.cucumber.junit.CucumberOptions;
 				"pretty",
 				// creates a basic html report in the target folder
 				"html:target/cucumber-default-report.html",
-				//store every step of execution into this json file
-				"json:target/cucumber.json"
+				// store every step of execution into this json file
+				"json:target/cucumber.json",
+				// creates an extent report in target/SparkReport folder
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 				}
 
 )
