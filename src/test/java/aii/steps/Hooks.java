@@ -7,15 +7,22 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
 public class Hooks {
-
+	
 	@Before
-	public void start() {
+	public void start(Scenario scenario) {
 		BaseClass.setUp();
+		
+		scenario.log("****LAUNCH BROWSER****");
+		scenario.log("-----------------------");
+		scenario.log(""+scenario.getName()+Thread.currentThread().getId()+"");
+		scenario.log("-----------------------");
+
 	}
 
 	@After
 	public void end(Scenario scenario) {
 		
+	
 		//add information to the scenario
 		
 		byte[] picture;
