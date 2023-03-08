@@ -18,8 +18,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 //import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.testng.asserts.SoftAssert;
-import org.junit.rules.Verifier;
+
 import aii.steps.Hooks;
 
 
