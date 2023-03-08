@@ -8,14 +8,12 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
 	
+	public static Scenario scenario;
 	@Before
 	public void start(Scenario scenario) {
 		BaseClass.setUp();
-		
+		Hooks.scenario= scenario;
 		scenario.log("****LAUNCH BROWSER****");
-		scenario.log("-----------------------");
-		scenario.log(""+scenario.getName()+Thread.currentThread().getId()+"");
-		scenario.log("-----------------------");
 
 	}
 
@@ -26,6 +24,7 @@ public class Hooks {
 		//add information to the scenario
 		
 		byte[] picture;
+		Hooks.scenario= scenario;
 		
 		//we want to store the screenshots in different locations if the scenario fails/passes
 
@@ -42,6 +41,7 @@ public class Hooks {
 		scenario.attach(picture, "image/png", scenario.getName());
 		
 		BaseClass.tearDown();
+		
 	}
 
 }

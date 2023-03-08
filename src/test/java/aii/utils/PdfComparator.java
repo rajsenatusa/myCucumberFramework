@@ -1,5 +1,7 @@
 package aii.utils;
 
+//import static org.junit.Assert.assertEquals;
+
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
@@ -14,12 +16,26 @@ import org.apache.pdfbox.io.RandomAccessFile;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+//import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.testng.asserts.SoftAssert;
+import org.junit.rules.Verifier;
+import aii.steps.Hooks;
 
+
+
+//import io.cucumber.java.Scenario;
+
+
+//import io.cucumber.java.Scenario;
 
 public class PdfComparator extends CommonMethods{
 	
 	public static WebDriver driver;
+	
+//	public Scenario scenario;
+	
+	
 	
 	
 	public static String getPdfName(WebDriver driver) throws Exception 
@@ -60,16 +76,33 @@ public class PdfComparator extends CommonMethods{
 	public static void verifyFormData(WebDriver driver, String actual, String expected) throws Exception 
 	{
 		
+
+		
 		if(actual.contains(expected.trim()))
-		{
+		{   
+		
 			System.out.println("PDF Text available for Actual:  "+actual+"Expected:  "+expected);
+			Hooks.scenario.log(" Passed- PDF Text available for Actual:  "+actual+"Expected:  "+expected);
+
+
 		}
-		else
+		else			
 		{
+			
+			Hooks.scenario.log("PDF Text Not available for Actual:  "+actual+"Expected:  "+expected);
 			System.out.println("PDF Text not available for Actual:  "+actual+"Expected:  "+expected);
+
+		
+			
 		}
 		
+		
+			
 	}
+	
+
+		
+
 	
 	
 	public static void verifyPDFText(WebDriver driver, String actual, String expected) throws Exception 
