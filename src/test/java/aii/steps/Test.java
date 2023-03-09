@@ -1,7 +1,7 @@
 package aii.steps;
 
 
-import org.testng.asserts.SoftAssert;
+//import org.testng.asserts.SoftAssert;
 
 //import aii.testbase.BaseClass;
 import aii.utils.CommonMethods;
@@ -15,16 +15,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Test extends CommonMethods{
-//    BaseClass base;
+
     Scenario scenario;
-	
-//    public Test(BaseClass base)
-//    {
-//        this.base = base;
-////        this.driver = base.getDriver();
-//        this.scenario = base.getScenario();
-//    }
-	
+		
 //	private static String LOB = "HO3";
 	private static String FileLocation = System.getProperty("user.dir") + "\\target\\";
 	String application_Form = null;
