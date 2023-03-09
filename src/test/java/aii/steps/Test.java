@@ -1,15 +1,29 @@
 package aii.steps;
 
+
+import org.testng.asserts.SoftAssert;
+
+//import aii.testbase.BaseClass;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Test extends CommonMethods{
+//    BaseClass base;
+    Scenario scenario;
+	
+//    public Test(BaseClass base)
+//    {
+//        this.base = base;
+////        this.driver = base.getDriver();
+//        this.scenario = base.getScenario();
+//    }
 	
 //	private static String LOB = "HO3";
 	private static String FileLocation = System.getProperty("user.dir") + "\\target\\";
@@ -123,13 +137,14 @@ public class Test extends CommonMethods{
 
 	@Given("I navigate to policyfile screen")
 	public void i_navigate_to_policyfile_screen() {
+	
+		Hooks.scenario.log("Scenairo Statement");
 		click(policyFileChevron.btnPolicyFilePage);
 	}
 
 	@Given("I click on on the application and validate the MMA acknowledge form {string} attached in the application form")
 	public void i_click_on_on_the_application_and_validate_the_mma_acknowledge_form_attached_in_the_application_form(String HO3_MMA_version) throws Exception {
-		
-		
+							
 		click(policyFileChevron.btnApplicationForm);
 		wait(2);
 		switchToWindow(driver, "STFile&File");
@@ -142,16 +157,21 @@ public class Test extends CommonMethods{
 		
 		String MMA_NBApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+application_Form, 10, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version1, HO3_MMA_version);
+		
 		String MMA_NBApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+application_Form, 9, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version, HO3_MMA_version);
+		
 		
 		String PolicyNumberSuffix = replaceMethod("AGH0000837-01", "-01", "");
 		
 		
 		String MMA_NBApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+application_Form, 10, 70, 300, 500, 500);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, PolicyNumberSuffix);
+		
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "11216 SW Pembroke DR");
+		
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "Port Saint Lucie, FL 34987-1953");
+		
 		
 	}
 	
@@ -160,6 +180,7 @@ public class Test extends CommonMethods{
 				 wait(3);
 		 sendText(dashboard.txtSearchBar, policy);
 		 click(dashboard.search);
+
 		 wait(3);
 	}
 	
