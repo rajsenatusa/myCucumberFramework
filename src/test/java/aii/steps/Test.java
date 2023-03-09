@@ -1,9 +1,6 @@
 package aii.steps;
 
 
-//import org.testng.asserts.SoftAssert;
-
-//import aii.testbase.BaseClass;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import aii.utils.PdfComparator;
