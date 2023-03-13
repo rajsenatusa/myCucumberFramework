@@ -74,6 +74,9 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id="ChangeBookDate")
 	public WebElement btnChangeBookDate;
 	
+	@FindBy(id="QuickAction_NewQuote_Holder")
+	public WebElement lnkNewQuote;
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 	}
