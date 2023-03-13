@@ -77,6 +77,19 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id="QuickAction_NewQuote_Holder")
 	public WebElement lnkNewQuote;
 	
+	@FindBy(id="QuickAction_EffectiveDt")
+	public WebElement txtEffectiveDate;
+	
+	@FindBy(id="QuickAction_StateCd")
+	public WebElement ddState;
+	
+	@FindBy(id="QuickAction_CarrierGroupCd")
+	public WebElement ddCarrierGroup;
+	
+	@FindBy(id= "QuickAction_NewQuote")
+	public WebElement btnNewQuoteStart;
+
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 	}
