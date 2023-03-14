@@ -14,6 +14,18 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "BasicPolicy.PreviousExpirationDt")
 	public WebElement txtPreviousPolicyExpDate;
 	
+	@FindBy (id= "Insured.EntityTypeCd")
+	public WebElement ddEntity;
+	
+	@FindBy (id= "InsuredName.GivenName")
+	public WebElement txtInsuredFirstName;
+	
+	@FindBy (id= "InsuredName.Surname")
+	public WebElement txtInsuredLastName;
+	
+	@FindBy (id= "InsuredPersonal.BirthDt")
+	public WebElement txtInsuredBirthDt;
+	
 	@FindBy(id= "Insured.InsuranceScoreEstimate")
 	public WebElement ddInsuranceScoreDd;
 	
@@ -67,6 +79,21 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "BasicPolicy.AutoWithAgentInd")
 	public WebElement ddAutoPolicy;
+	
+	@FindBy (id= "InsuredResidentAddr.StreetName")
+	public WebElement txtStreet;
+	
+	@FindBy (id= "InsuredResidentAddr.PostalCode")
+	public WebElement txtPostalCode;
+	
+	@FindBy (id= "ResetCommercialName")
+	public WebElement btnResetName;
+	
+	@FindBy (id= "InsuredResidentAddr.addrVerifyImg")
+	public WebElement btnVerifyAddress;
+	
+	@FindBy(id= "Save")
+	public WebElement btnSave;
 	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);

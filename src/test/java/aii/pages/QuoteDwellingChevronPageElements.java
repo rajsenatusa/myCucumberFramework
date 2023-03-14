@@ -86,7 +86,11 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.AttachedStructures")
 	public WebElement ddAttachedStructures;
 	
+	@FindBy(id= "Building.PackageCoverageInd_1")
+	public WebElement radioBasicPackage;
 	
+	@FindBy(id= "Building.PackageCoverageInd_2")
+	public WebElement radioIntegritySelectPackage;
 	
 	
 	public QuoteDwellingChevronPageElements() {

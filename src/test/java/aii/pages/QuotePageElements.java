@@ -22,7 +22,7 @@ public class QuotePageElements extends CommonMethods {
 	
 	@FindBy (id= "CustomerLookupAddr.PrimaryNumber")
 	public WebElement txtAddress;
-	
+		
 	@FindBy (id= "CustomerLookupAddr.PostalCode")
 	public WebElement txtZipCode;
 	
@@ -38,7 +38,7 @@ public class QuotePageElements extends CommonMethods {
 	@FindBy (id= "SaveAndQuote")
 	public WebElement btnSaveAndQuote;
 	
-	
+		
 	public QuotePageElements() {
 		PageFactory.initElements(driver, this);
 	}

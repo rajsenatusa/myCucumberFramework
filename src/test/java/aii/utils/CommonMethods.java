@@ -12,6 +12,7 @@ import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
@@ -26,6 +27,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.relevantcodes.extentreports.LogStatus;
+
+import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
 public class CommonMethods extends PageInitializer {
@@ -514,6 +518,31 @@ public class CommonMethods extends PageInitializer {
 	        output.append(to);
 
 	    return output.toString();
+	}
+	
+	/**
+	 * This method checks the default value of a dropdown element based on visible text.
+	 * 
+	 * @param element
+	 * @param text
+	 */
+	public static void verifyAnyDropdownDefaultValue(WebElement element, String expectedValue) {
+		String value=null;
+		try {
+			Select select = new Select(element);			
+			   value = select.getFirstSelectedOption().getText().toString();
+	          Hooks.scenario.log(element+" defaulted with "+value); 
+	           
+	           if(value.equals(expectedValue)){
+	        	   Hooks.scenario.log("Actual defaulted value : "+value +" Expected value : "+expectedValue+" are matching");
+	           } else  {
+	        	   Hooks.scenario.log("Actual defaulted value : "+value +" Expected value : "+expectedValue+" are not matching");
+	           } 
+			
+			}
+		catch (UnexpectedTagNameException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
