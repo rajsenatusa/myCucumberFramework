@@ -5,24 +5,15 @@ import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class CommonSteps extends CommonMethods {
 
-	@Given("I signin Spin as Standard Agent")
-	public void i_signin_spin_as_standard_agent_common() {
-
-	 sendText(login.username, ConfigsReader.getProperty("username"));
-	 sendText(login.password, ConfigsReader.getProperty("password"));
-	 click(login.btnSignIn);
-	 wait(3);		
-	}
-	
 	@Given("I start transaction as a New Customer")
 	public void i_start_transaction_as_a_new_customer_common() {
 			   
@@ -93,11 +84,60 @@ public class CommonSteps extends CommonMethods {
 		wait(2);
 		click(dashboard.btnNewQuoteStart);
 		
-
-			
-		
-		
 	}
+	
+	@Given("I select the entiry as {string}")
+	public void i_select_the_entiry_as(String entity) {
+		
+		selectDropdownText(policyChevron.ddEntity, entity);
+	}
+	
+	@And("I enter all required information on Insured information section")
+	public void i_enter_all_required_information_on_customer_information_screen() {
+	   
+		//quote level information was filled here
+		sendText(policyChevron.txtInsuredFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(policyChevron.txtInsuredLastName, ConfigsReader.getProperty("lastname"));
+		sendText(policyChevron.txtInsuredBirthDt, ConfigsReader.getProperty("birthdate"));
+		click(policyChevron.btnResetName);
+		wait(2);
+		}
+	
+	@Given("I fill the address details of {string} and {string}")
+	public void i_fill_the_address_details_of(String address, String zip) {
+//		sendText(quote.txtAddress, ));
+		sendText(policyChevron.txtStreet, address);
+		sendText(policyChevron.txtPostalCode, zip);
+		wait(2);
+		click(policyChevron.btnVerifyAddress);
+		wait(2);
+		click(policyChevron.btnSave);
+		wait(2);
+	}
+	
+	@And("I select {string} package")
+	public void i_select_coverage(String typackage) {
+	
+	switch(typackage.toUpperCase()) {
+	case "BASIC":
+		click(dwellingChevron.radioBasicPackage);
+		Hooks.scenario.log("Basic Package selected");
+		break;
+	case "INTEGRITY SELECT":
+		click(dwellingChevron.radioIntegritySelectPackage);
+		Hooks.scenario.log("Integrity Package selected");
+		break;
+	}
+	}
+		
+	@Given("I validate the default value of {string} as {string}")
+	public void i_validate_the_default_value_of_as(String coverage, String expectedValue) {
+	    // Write code here that turns the phrase above into concrete actions
+		CommonMethods.verifyAnyDropdownDefaultValue(dwellingChevron.ddCovCLimit, coverage, expectedValue);
+	}
+	
+	
+	
 
 
 
