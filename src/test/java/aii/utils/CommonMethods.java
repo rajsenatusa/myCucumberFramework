@@ -525,7 +525,9 @@ public class CommonMethods extends PageInitializer {
 	 */
 	public static void verifyAnyDropdownDefaultValue(WebElement element, String coverage, String expectedValue) {
 		String value=null;
+		
 		try {
+			
 			Select select = new Select(element);			
 			   value = select.getFirstSelectedOption().getText().toString();
 	          Hooks.scenario.log(coverage+" "+element+" defaulted with "+value); 
