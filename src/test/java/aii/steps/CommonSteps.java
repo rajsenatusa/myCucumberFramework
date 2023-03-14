@@ -13,6 +13,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
 public class CommonSteps extends CommonMethods {
+	
+	@Given("I signin Spin as Standard Agent")
+	public void i_signin_spin_as_standard_agent() throws Throwable {
+//		myTest("my", "my123");
+	 sendText(login.username, ConfigsReader.getProperty("username"));
+	 sendText(login.password, ConfigsReader.getProperty("password"));
+	 click(login.btnSignIn);
+	 wait(3);
+	
+		
+	}
 
 	@Given("I start transaction as a New Customer")
 	public void i_start_transaction_as_a_new_customer_common() {

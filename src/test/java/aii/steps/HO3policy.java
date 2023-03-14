@@ -10,16 +10,7 @@ import io.cucumber.java.en.When;
 
 public class HO3policy extends CommonMethods {
 
-	@Given("I signin Spin as Standard Agent")
-	public void i_signin_spin_as_standard_agent() throws Throwable {
-//		myTest("my", "my123");
-	 sendText(login.username, ConfigsReader.getProperty("username"));
-	 sendText(login.password, ConfigsReader.getProperty("password"));
-	 click(login.btnSignIn);
-	 wait(3);
 	
-		
-	}
 	@Given("I start transaction as a new customer")
 	public void i_start_transaction_as_a_new_customer() {
 		
