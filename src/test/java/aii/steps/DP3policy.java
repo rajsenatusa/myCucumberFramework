@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -53,11 +54,14 @@ public class DP3policy extends CommonMethods {
 		click(dwellingChevron.btnCalculate);
 		wait(4);
 		click(dwellingChevron.btnSave);
-		click(dwellingChevron.btnNext);
+		
 	}
+	
+	
 	@When("I enter all required information on DP3 review screen")
 	public void i_enter_all_required_information_on_dp3_review_screen() {
 		
+		click(dwellingChevron.btnNext);
 		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
 		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(3);

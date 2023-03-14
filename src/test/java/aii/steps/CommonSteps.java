@@ -141,10 +141,15 @@ public class CommonSteps extends CommonMethods {
 	}
 	}
 		
-	@Given("I validate the default value of {string} as {string}")
-	public void i_validate_the_default_value_of_as(String coverage, String expectedValue) {
-	    // Write code here that turns the phrase above into concrete actions
-		CommonMethods.verifyAnyDropdownDefaultValue(dwellingChevron.ddCovCLimit, coverage, expectedValue);
+	@Given("I validate the default value of {string} {string} as {string}")
+	public void i_validate_the_default_value_of_as(String coverage, String element, String expectedValue) {
+	    
+		CommonMethods.verifyAnyDropdownDefaultValue(coverage, element, expectedValue);
+	}
+	
+	@Given("Navigate to Policy tab")
+	public void navigate_to_policy_tab() {
+		click(policyChevron.btnPolicyChevronLink);
 	}
 	
 	

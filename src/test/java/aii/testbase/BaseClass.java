@@ -6,13 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import aii.steps.Hooks;
 import aii.utils.ConfigsReader;
 import aii.utils.Constants;
+import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
 	public static WebDriver driver;
+	public  Scenario scenario;
 
 	/**
 	 * This method will create the driver
@@ -46,7 +49,6 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
 		driver.manage().window().maximize();
 		driver.get(ConfigsReader.getProperty("url"));
-		
 		PageInitializer.initialize();
 	}
 

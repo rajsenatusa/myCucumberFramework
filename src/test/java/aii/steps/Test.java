@@ -165,14 +165,6 @@ public class Test extends CommonMethods{
 		
 	}
 	
-	@Given("User search for {string}")
-	public void user_with_logged_in_and_search_for(String policy) {
-				 wait(3);
-		 sendText(dashboard.txtSearchBar, policy);
-		 click(dashboard.search);
-
-		 wait(3);
-	}
 	
 	
 	@And("I start transaction on policy")
@@ -209,13 +201,13 @@ public class Test extends CommonMethods{
 		wait(5);
 	}
 	
-	@And("I change date of system {string}")
-	public void i_validate_change_Date(String date) throws Exception {
-		 click(dashboard.btnAdmin);
-		 click(dashboard.btnChangeDate);
-		 sendText(dashboard.txtNewDate, date);
-		 click(dashboard.btnChangeNewDate);
-		 sendText(dashboard.txtNewBookDate, date);
-		 click(dashboard.btnChangeBookDate);
-	}
+//	@And("I change date of system {string}")
+//	public void i_validate_change_Date(String date) throws Exception {
+//		 click(dashboard.btnAdmin);
+//		 click(dashboard.btnChangeDate);
+//		 sendText(dashboard.txtNewDate, date);
+//		 click(dashboard.btnChangeNewDate);
+//		 sendText(dashboard.txtNewBookDate, date);
+//		 click(dashboard.btnChangeBookDate);
+//	}
 }

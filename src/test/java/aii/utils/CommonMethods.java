@@ -12,6 +12,7 @@ import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
@@ -523,12 +524,12 @@ public class CommonMethods extends PageInitializer {
 	 * @param element
 	 * @param text
 	 */
-	public static void verifyAnyDropdownDefaultValue(WebElement element, String coverage, String expectedValue) {
+	public static void verifyAnyDropdownDefaultValue(String coverage, String element, String expectedValue) {
 		String value=null;
 		
 		try {
 			
-			Select select = new Select(element);			
+			Select select = new Select (driver.findElement(By.id(""+element+""))); 	
 			   value = select.getFirstSelectedOption().getText().toString();
 	          Hooks.scenario.log(coverage+" "+element+" defaulted with "+value); 
 	           
@@ -542,6 +543,27 @@ public class CommonMethods extends PageInitializer {
 		catch (UnexpectedTagNameException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void clickNewCustomer(WebDriver driver) throws Exception {
+		
+		try {
+				List<WebElement> oCheckBox = driver.findElements(By.name("QuoteCustomerClearingRef"));
+				int size = oCheckBox.size();
+		
+				for(int i = 0; i < size; i++ )	{
+				String value = oCheckBox.get(i).getAttribute("value");
+		 
+					if (value.equalsIgnoreCase("New")){
+						oCheckBox.get(i).click();
+						 Hooks.scenario.log("New customer option selected");
+						break;
+						}	
+					}	
+				} catch (Exception e) {
+					 Hooks.scenario.log("New customer option not selected");
+					 e.printStackTrace();
+				}
 	}
 
 }

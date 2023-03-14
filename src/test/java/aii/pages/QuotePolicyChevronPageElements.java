@@ -47,6 +47,9 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id="MonthsOccupied")
 	public WebElement ddMonthsOccupied;
 	
+	@FindBy(id="PropertyManagedInd")
+	public WebElement ddPropertyManaged;
+	
 	@FindBy(id= "Insured.PriorAddressInd")
 	public WebElement ddInsuredReside;
 	
