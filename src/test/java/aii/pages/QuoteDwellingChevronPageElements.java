@@ -92,6 +92,15 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.PackageCoverageInd_2")
 	public WebElement radioIntegritySelectPackage;
 	
+	@FindBy(id= "Building.CovCLimitIncluded")
+	public WebElement ddCovCLimit;
+	
+	@FindBy(id= "Building.CovLLimit")
+	public WebElement ddCovLLimit;
+	
+	@FindBy(id= "Building.CovHCCLimit")
+	public WebElement ddHomeComputerLimit;
+	
 	
 	public QuoteDwellingChevronPageElements() {
 		
