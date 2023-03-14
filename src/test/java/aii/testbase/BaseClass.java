@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import aii.steps.Hooks;
 import aii.utils.ConfigsReader;
 import aii.utils.Constants;
 import io.cucumber.java.Scenario;
