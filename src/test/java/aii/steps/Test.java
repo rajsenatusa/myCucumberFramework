@@ -122,19 +122,6 @@ public class Test extends CommonMethods{
 		
 	}
 	
-	
-	
-	@And("I start transaction on policy")
-	public void i_start_transaction() {
-	    click(policyChevron.btnPolicyChevronLink);
-	    wait(1);
-	    click(dashboard.ddMoreOptions);
-	    click(dashboard.btnStartTransaction);
-	    
-	}
-
-	
-
 	@Then("I click on on the application and validate HO3 MMA acknowledge form not attached in the endorsement package")
 	public void i_validate_ho3_mma_acknowledge_form_not_attached_in_the_endorsement_package() throws Exception {
 		click(policyFileChevron.btnApplicationForm);
@@ -149,14 +136,5 @@ public class Test extends CommonMethods{
 			
 		wait(5);
 	}
-	
-//	@And("I change date of system {string}")
-//	public void i_validate_change_Date(String date) throws Exception {
-//		 click(dashboard.btnAdmin);
-//		 click(dashboard.btnChangeDate);
-//		 sendText(dashboard.txtNewDate, date);
-//		 click(dashboard.btnChangeNewDate);
-//		 sendText(dashboard.txtNewBookDate, date);
-//		 click(dashboard.btnChangeBookDate);
-//	}
+
 }

@@ -15,6 +15,9 @@ import io.cucumber.java.en.When;
 
 public class CommonSteps extends CommonMethods {
 	
+	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+	static LocalDateTime currentDate = LocalDateTime.now();
+	
 	 
 	@Given("I signin Spin as Standard Agent")
 	public void i_signin_spin_as_standard_agent() throws Throwable {
@@ -36,18 +39,31 @@ public class CommonSteps extends CommonMethods {
 		 wait(1);
 	}
 	
+	@And("I start transaction on policy")
+	public void i_start_transaction() {
+		startTransaction();
+	    
+	}
+	
 	@Given("I select endorsement transaction on {string}")
-	public void i_select_an_endorsement_transaction(String Days) {
+	public void i_select_an_endorsement_transaction(String Days) throws Exception {
+						 
+		String date =  dtf.format(currentDate.plusDays(Integer.parseInt(Days)));
 		
-		String date = changeDate(Days);
+		String policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		
+		 sendText(dashboard.txtSearchBar, policy);
+		 click(dashboard.search);
+		 wait(1);
+		 
+		startTransaction();
 		
 	    selectDropdownText(dashboard.ddSelectTransaction, "Endorsement");
 	    click(dashboard.btnSelect);
 	    sendText(dashboard.txtSelectDate, date);
 	    click(dashboard.btnStart);
 	    click(dashboard.btnStart);
-	    
-	   
+	      
 	    
 	}
 	
@@ -141,7 +157,7 @@ public class CommonSteps extends CommonMethods {
 	}
 	
 	@Given("I select the entity as {string}")
-	public void i_select_the_entity_as(String entity) {
+	public void i_select_the_entiry_as(String entity) {
 		
 		selectDropdownText(policyChevron.ddEntity, entity);
 	}
@@ -317,6 +333,20 @@ public class CommonSteps extends CommonMethods {
 		wait(2);
 		
 	}
+	
+	
+	@Given("I add {string} {string} {string} coverage")
+	public void i_add_coverage(String coverage, String locator, String value) {
+		addNewCoverage(coverage, locator, value);
+	}
+
+	@Given("I modify {string} {string} coverage")
+	public void i_modify_coverage(String string, String string2) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+
 	
 
 

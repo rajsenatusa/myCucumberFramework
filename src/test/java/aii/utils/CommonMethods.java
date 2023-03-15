@@ -630,8 +630,21 @@ public class CommonMethods extends PageInitializer {
 		
 	}
 	
+	public static void startTransaction() {
+		
+		 click(policyChevron.btnPolicyChevronLink);
+		    wait(1);
+		    click(dashboard.ddMoreOptions);
+		    click(dashboard.btnStartTransaction);
+	}
 	
 	
+	public static void addNewCoverage(String coverage, String element, String coverageValue) {
+		String value=null;
+		
+		String searchBox = driver.findElement(By.id(""+element+"")).getTagName();
+		Hooks.scenario.log("Tag name: "+searchBox);
+	}
 	
 
 }
