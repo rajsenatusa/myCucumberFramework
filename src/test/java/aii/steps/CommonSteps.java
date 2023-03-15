@@ -140,8 +140,8 @@ public class CommonSteps extends CommonMethods {
 		
 	}
 	
-	@Given("I select the entiry as {string}")
-	public void i_select_the_entiry_as(String entity) {
+	@Given("I select the entity as {string}")
+	public void i_select_the_entity_as(String entity) {
 		
 		selectDropdownText(policyChevron.ddEntity, entity);
 	}
