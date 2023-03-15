@@ -33,7 +33,8 @@ public class PageInitializer extends BaseClass {
 	public static UmbrellaLiabilityPageElements umbrellaChevron;
 	public static PolicyFilePageElements policyFileChevron;
 	public static HistoryPageElements historyChevron;
-		
+	
+	
 	public static void initialize() {
 		login = new LoginPageElements();
 		dashboard = new DashboardPageElements();
