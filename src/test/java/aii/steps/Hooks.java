@@ -15,12 +15,11 @@ public class Hooks {
 		BaseClass.setUp();
 		Hooks.scenario= scenario;
 		scenario.log("****LAUNCH BROWSER****");
-		Hooks.scenario.log("URL: "+ConfigsReader.getProperty("url"));
-
+		Hooks.scenario.log("URL: "+ConfigsReader.getProperty("url"));		
 	}
 
 	@After
-	public void end(Scenario scenario) {
+	public void end(Scenario scenario)  {
 		
 	
 		//add information to the scenario
