@@ -96,12 +96,16 @@ public class CommonSteps extends CommonMethods {
 		switch (Product) {
 		case "HO3":
 			click(product.btnProductSelectionHo3); 
+			break;
 		case "GOC":	
 			click(product.btnProductSelectionGoc);
+			break;
 		case "DP1":	
 			click(product.btnProductSelectionDp1);	
+			break;
 		case "DP3":	
-			click(product.btnProductSelectionDp3);				
+			click(product.btnProductSelectionDp3);	
+			break;
 			
 		}
 		
@@ -117,19 +121,8 @@ public class CommonSteps extends CommonMethods {
 	@And("I enter Quote Information as effective date with {string} days difference and state {string} and {string} Insurance Carrier group")
 	public void i_enter_quote_Information(String Days, String State, String CarrierGroup) throws Exception {
 		
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
-		LocalDateTime currentDate = LocalDateTime.now();
-		
 		String effectiveDate = changeDate(Days);	
-		
-		// Change system date to effective date
-		 click(dashboard.btnAdmin);
-		 click(dashboard.btnChangeDate);
-		 sendText(dashboard.txtNewDate, effectiveDate);
-		 click(dashboard.btnChangeNewDate);
-		 sendText(dashboard.txtNewBookDate, effectiveDate);
-		 click(dashboard.btnChangeBookDate);
-		
+					
 		click(dashboard.lnkNewQuote);
 		
 		sendText(dashboard.txtEffectiveDate,effectiveDate);
