@@ -21,12 +21,10 @@ public class CommonSteps extends CommonMethods {
 	 
 	@Given("I signin Spin as Standard Agent")
 	public void i_signin_spin_as_standard_agent() throws Throwable {
-//		myTest("my", "my123");
 	 sendText(login.username, ConfigsReader.getProperty("username"));
 	 sendText(login.password, ConfigsReader.getProperty("password"));
 	 click(login.btnSignIn);
-	 wait(1);
-	
+	 wait(1);	
 		
 	}
 	
