@@ -7,3 +7,6 @@ Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
       Given User search for "policyNumber"
       And I navigate to policyfile screen
       And I navigate to dwellings screen
+      And I start transaction on policy
+      And I select endorsement transaction on "03/09/2023"
+    And I finalize and process

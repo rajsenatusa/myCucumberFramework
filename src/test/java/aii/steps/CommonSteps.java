@@ -2,6 +2,7 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,15 +15,68 @@ import io.cucumber.java.en.When;
 
 public class CommonSteps extends CommonMethods {
 	
+	 
 	@Given("I signin Spin as Standard Agent")
-	public void i_signin_spin_as_standard_agent(){
+	public void i_signin_spin_as_standard_agent() throws Throwable {
+//		myTest("my", "my123");
 	 sendText(login.username, ConfigsReader.getProperty("username"));
 	 sendText(login.password, ConfigsReader.getProperty("password"));
 	 click(login.btnSignIn);
-	 wait(3);
+	 wait(1);
 	
 		
 	}
+	
+	@Given("User search for {string}")
+	public void user_with_logged_in_and_search_for(String policy) {
+				 wait(1);
+		 sendText(dashboard.txtSearchBar, policy);
+		 click(dashboard.search);
+
+		 wait(1);
+	}
+	
+	@Given("I select endorsement transaction on {string}")
+	public void i_select_an_endorsement_transaction(String Days) {
+		
+		String date = changeDate(Days);
+		
+	    selectDropdownText(dashboard.ddSelectTransaction, "Endorsement");
+	    click(dashboard.btnSelect);
+	    sendText(dashboard.txtSelectDate, date);
+	    click(dashboard.btnStart);
+	    click(dashboard.btnStart);
+	    
+	   
+	    
+	}
+	
+	@Given("I finalize and process")
+	public void finalize_process() {
+		click(reviewChevron.btnFinalize);
+		wait(2);
+				
+		click(closeoutChevron.btnIssueNB);
+	}
+
+
+	@Given("I navigate to policyfile screen")
+	public void i_navigate_to_policyfile_screen() {
+	
+		click(policyFileChevron.btnPolicyFilePage);
+		Hooks.scenario.log("Policyfile tab selected");
+		
+	}
+	
+	
+	@Given("I navigate to dwelling screen")
+	public void i_navigate_to_dwelling_screen() {
+	
+		click(specialChevron.btnDwellingWiz);
+		Hooks.scenario.log("Dwelling tab selected");
+		
+	}
+	
 
 	@Given("I start transaction as a New Customer")
 	public void i_start_transaction_as_a_new_customer_common() {
@@ -54,22 +108,19 @@ public class CommonSteps extends CommonMethods {
 		}
 	
 	@And("I change date of system {string}")
-	public void i_validate_change_Date(String date)  {
-		 click(dashboard.btnAdmin);
-		 click(dashboard.btnChangeDate);
-		 sendText(dashboard.txtNewDate, date);
-		 click(dashboard.btnChangeNewDate);
-		 sendText(dashboard.txtNewBookDate, date);
-		 click(dashboard.btnChangeBookDate);
+	public void i_validate_change_Date(String Days) throws Exception {
+			
+		changeDate(Days);
+			 
 	}
 	
 	@And("I enter Quote Information as effective date with {string} days difference and state {string} and {string} Insurance Carrier group")
-	public void i_enter_quote_Information(String Days, String State, String CarrierGroup)  {
+	public void i_enter_quote_Information(String Days, String State, String CarrierGroup) throws Exception {
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 		LocalDateTime currentDate = LocalDateTime.now();
 		
-		String effectiveDate = dtf.format(currentDate.plusDays(Integer.parseInt(Days)));	
+		String effectiveDate = changeDate(Days);	
 		
 		// Change system date to effective date
 		 click(dashboard.btnAdmin);
@@ -152,6 +203,127 @@ public class CommonSteps extends CommonMethods {
 	}
 	
 	
+	@Given("I validate the following message should display {string}")
+	public boolean i_validate_the_following_message_should_display(String text) {
+		String value = "";
+		try {
+			
+			List<WebElement> oCheckBox = driver.findElements(By.id("WarningIssues"));
+			int size = oCheckBox.size();
+	
+			for(int i = 0; i < size; i++ )	{
+			String msg = oCheckBox.get(i).getText();
+			value = value.concat(msg);
+			//Hooks.scenario.log(value+" concat is visible ");
+				 
+				if (value.contains(text)){
+					 Hooks.scenario.log("Is visible : "+text);
+					break;
+					}	
+			}
+    		return true;   	
+
+            } catch (Exception e) {
+            	Hooks.scenario.log("Is not visible: " +  text);
+            	e.printStackTrace();
+            	return false;
+            	
+            }
+	}
+	
+	
+	@Given("I fill all the DP3 uw questions")
+	public void i_fill_DP3uwQuestions() throws InterruptedException {
+		Thread.sleep(3000);
+		click(dwellingChevron.btnNext);
+		wait(1);
+		selectDropdownText(uwquestionsChevron.ho3Question1, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question2, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question3, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question4, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question5, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question6, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question7, "No");
+		selectDropdownText(uwquestionsChevron.dp1Question8, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question9, "Yes");
+		selectDropdownText(uwquestionsChevron.ho3Question10, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question11, "No");
+		selectDropdownText(uwquestionsChevron.ho6Question12, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question13, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question14, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question15, "Yes");
+		selectDropdownText(uwquestionsChevron.ho3Question16, "No");  
+		selectDropdownText(uwquestionsChevron.ho3Question17, "No");  
+		selectDropdownText(uwquestionsChevron.ho3Question18, "No");  
+		selectDropdownText(uwquestionsChevron.ho3Question19, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question20, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question21, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question22, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question23, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question24, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question25, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question26, "No");	 
+		selectDropdownText(uwquestionsChevron.ho3Question27, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question28, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question29, "No");	
+		wait(1);
+		click(uwquestionsChevron.nextButtonUw);
+	}
+	
+	
+	@Given("I fill all the HO3 uw questions")
+	public void i_fill_HO3uwQuestions() throws InterruptedException {
+		Thread.sleep(3000);
+		click(dwellingChevron.btnNext);
+		wait(1);
+		selectDropdownText(uwquestionsChevron.ho3Question1, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question2, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question3, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question4, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question5, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question6, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question7, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question8, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question9, "Yes");
+		selectDropdownText(uwquestionsChevron.ho3Question10, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question11, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question12, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question13, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question14, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question15, "Yes");
+		selectDropdownText(uwquestionsChevron.ho3Question16, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question17, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question18, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question19, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question20, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question21, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question22, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question23, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question24, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question25, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question26, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question27, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question28, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question29, "No");
+		wait(1);
+		click(uwquestionsChevron.nextButtonUw);
+	}
+
+	
+	@When("I enter all the information on DP3 review screen")
+	public void i_enter_all_required_information_on_dp3_review_screen() throws Exception {
+		
+		click(dwellingChevron.btnNext);
+		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+		wait(2);
+		click(reviewChevron.btnFullPaymentRadio);
+		wait(2);
+		clickNewCustomer(driver);
+		click(dwellingChevron.btnSave);
+		wait(2);
+		
+	}
 	
 
 

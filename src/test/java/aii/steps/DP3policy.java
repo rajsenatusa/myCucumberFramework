@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -129,16 +130,46 @@ public class DP3policy extends CommonMethods {
 		
 	}
 	@Then("I validate the DP3 policy has been created successfully")
-	public void i_validate_the_dp3_policy_has_been_created_successfully() {
+	public void i_validate_the_dp3_policy_has_been_created_successfully() throws Exception {
+			
+		
 		WebElement validate= driver.findElement(By.id("History_1_1_TransactionCd"));
 		
 		if(validate.getText().equalsIgnoreCase("New Business")) {
 			System.out.println("Test passed, DP3 NB policy has been created successfully");
+			getPolicyNumber(driver);
+			getInForcePremium(driver);
+			getInForcePremiumFees(driver);
+			
 		}
 		else {
 			System.out.println("Test failed!");
+					
 	}
 
+	}
+	
+	
+	@Given("I select Tenent occupied and navigate to dwelling page")
+	public void i_select_tenent_occupied_and_navigate_to_dwelling_page() {
+		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
+		wait(1);
+		Hooks.scenario.log("Tenant occupied is selected");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
+		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		click(dwellingChevron.btnNext);
+	    
+	}
+	
+	@Given("I select Owner occupied and navigate to dwelling page")
+	public void i_select_owner_occupied_and_navigate_to_dwelling_page() {
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		wait(1);
+		Hooks.scenario.log("Owner occupied is selected");
+		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		click(dwellingChevron.btnNext);
 	}
 
 }
