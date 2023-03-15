@@ -15,8 +15,7 @@ import io.cucumber.java.en.When;
 public class CommonSteps extends CommonMethods {
 	
 	@Given("I signin Spin as Standard Agent")
-	public void i_signin_spin_as_standard_agent() throws Throwable {
-//		myTest("my", "my123");
+	public void i_signin_spin_as_standard_agent(){
 	 sendText(login.username, ConfigsReader.getProperty("username"));
 	 sendText(login.password, ConfigsReader.getProperty("password"));
 	 click(login.btnSignIn);
@@ -55,7 +54,7 @@ public class CommonSteps extends CommonMethods {
 		}
 	
 	@And("I change date of system {string}")
-	public void i_validate_change_Date(String date) throws Exception {
+	public void i_validate_change_Date(String date)  {
 		 click(dashboard.btnAdmin);
 		 click(dashboard.btnChangeDate);
 		 sendText(dashboard.txtNewDate, date);
@@ -65,7 +64,7 @@ public class CommonSteps extends CommonMethods {
 	}
 	
 	@And("I enter Quote Information as effective date with {string} days difference and state {string} and {string} Insurance Carrier group")
-	public void i_enter_quote_Information(String Days, String State, String CarrierGroup) throws Exception {
+	public void i_enter_quote_Information(String Days, String State, String CarrierGroup)  {
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 		LocalDateTime currentDate = LocalDateTime.now();
