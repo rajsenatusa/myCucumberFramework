@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -31,6 +33,9 @@ import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
 public class CommonMethods extends PageInitializer {
+	
+	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+	static LocalDateTime currentDate = LocalDateTime.now();
 
 	/**
 	 * This method clears a textbox and sends another text.
@@ -565,5 +570,67 @@ public class CommonMethods extends PageInitializer {
 					 e.printStackTrace();
 				}
 	}
+	
+	
+	public static String getPolicyNumber(WebDriver driver) throws Exception {
+		
+		String policyNum = null;
+		try {
+			policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+			Hooks.scenario.log("Policy Number: "+policyNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return policyNum.toString();
+		
+	}	
+	
+	public static String getInForcePremium(WebDriver driver) throws Exception {
+		String PremiumNoFees = null;
+		
+		click(historyChevron.btnsummaryTab);
+			try {
+				PremiumNoFees = driver.findElement(By.id("Full_PolicySummary_Premium")).getText().toString();
+				Hooks.scenario.log("Policy Premium is: "+PremiumNoFees);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+		return PremiumNoFees.toString();
+	}	
+	
+	public static String getInForcePremiumFees(WebDriver driver) throws Exception {
+		String PremiumFees = null;
+		
+		try {
+			PremiumFees = driver.findElement(By.id("Full_PolicySummary_PremWithTaxesFeesAmt")).getText().toString();
+			Hooks.scenario.log("Policy Premium is: "+PremiumFees);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		click(historyChevron.btnsummaryTab);
+		
+		return PremiumFees.toString();
+	}	
+	
+	public static String changeDate(String days){
+		
+		String effectiveDate = dtf.format(currentDate.plusDays(Integer.parseInt(days)));	
+		
+		// Change system date to effective date
+		 click(dashboard.btnAdmin);
+		 click(dashboard.btnChangeDate);
+		 sendText(dashboard.txtNewDate, effectiveDate);
+		 click(dashboard.btnChangeNewDate);
+		 sendText(dashboard.txtNewBookDate, effectiveDate);
+		 click(dashboard.btnChangeBookDate);
+		 
+		return effectiveDate;
+		
+	}
+	
+	
+	
+	
 
 }
