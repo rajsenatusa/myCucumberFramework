@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import aii.utils.ConfigsReader;
@@ -20,13 +21,16 @@ public class BaseClass {
 	 * This method will create the driver
 	 */
 	public static void setUp() {
-		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
-
+		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);	
+		
 		switch (ConfigsReader.getProperty("browser").toLowerCase()) {
 		
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			ChromeOptions option = new ChromeOptions();
+            option.addArguments("--remote-allow-origins=*");
+
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver(option);			
 			break;
 		case "firefox":
 			WebDriverManager.firefoxdriver().setup();
