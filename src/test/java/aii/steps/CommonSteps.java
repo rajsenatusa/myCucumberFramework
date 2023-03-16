@@ -171,7 +171,7 @@ public class CommonSteps extends CommonMethods {
 		wait(2);
 		}
 	
-	@Given("I fill the address details of {string} and {string}")
+	@Given("I fill the address details with {string} and zip {string}")
 	public void i_fill_the_address_details_of(String address, String zip) {
 //		sendText(quote.txtAddress, ));
 		sendText(policyChevron.txtStreet, address);
@@ -333,16 +333,36 @@ public class CommonSteps extends CommonMethods {
 	}
 	
 	
-	@Given("I add {string} {string} {string} coverage")
-	public void i_add_coverage(String coverage, String locator, String value) {
-		addNewCoverage(coverage, locator, value);
-	}
-
-	@Given("I modify {string} {string} coverage")
-	public void i_modify_coverage(String string, String string2) {
+		
+	@Given("I fill all the details on Review screen for {string} product")
+	public void i_fill_all_the_details_on_review_screen_for_product(String string) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
+
+//	@Given("I create application for {string} product")
+//	public void i_create_application_for_product(String string) {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+//
+//	@Given("I fill all the {string} product UW questions")
+//	public void i_fill_all_the_product_uw_questions(String string) {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+//
+//	@Given("I finalize the application")
+//	public void i_finalize_the_application() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+//
+//	@Given("I Issue new business with payment type {string}")
+//	public void i_issue_new_business_with_payment_type(String string) {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
 
 
 	
