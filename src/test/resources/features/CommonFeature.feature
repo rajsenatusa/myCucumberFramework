@@ -12,3 +12,4 @@ Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
     And I finalize and process
     
     And I fill all the details on Review screen for "LOB" product
+    And I create application for "DP3" product

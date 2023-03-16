@@ -6,17 +6,12 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
-import aii.utils.Constants;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CommonSteps extends CommonMethods {
 	
@@ -367,6 +362,10 @@ public class CommonSteps extends CommonMethods {
 			select_Direct_FullPayplanType();
 			break;
 			
+		case "MHO":
+			select_Direct_FullPayplanType();
+			break;
+			
 		case "GOC":
 			selectDropdownText(reviewChevron.ddOrderInsScore, "No");
 			select_Direct_FullPayplanType();
@@ -405,12 +404,31 @@ public class CommonSteps extends CommonMethods {
 		}
 	}
 
-//	@Given("I create application for {string} product")
-//	public void i_create_application_for_product(String string) {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
-//	}
-//
+	@Given("I create application for {string} product")
+	public void i_create_application_for_product(String LOB) {
+				
+		if(LOB.equalsIgnoreCase("HO4") || LOB.equalsIgnoreCase("DP1") || LOB.equalsIgnoreCase("DP3") || 
+				LOB.equalsIgnoreCase("GOC") || LOB.equalsIgnoreCase("AIB") || LOB.equalsIgnoreCase("UMB") || 
+				LOB.equalsIgnoreCase("TO DP1") || LOB.equalsIgnoreCase("TO DP3") || LOB.equalsIgnoreCase("TO MHO") || 
+				LOB.equalsIgnoreCase("TO HO3") || LOB.equalsIgnoreCase("TO MHPD") || LOB.equalsIgnoreCase("MHO")) {
+				
+			click(reviewChevron.btnCreateApplication);
+			wait(3);
+		
+		}
+		
+		else
+		{
+			click(reviewChevron.btnCreateApplication);
+			wait(4);
+			click(reviewChevron.btnInsuranceScoreBox);
+			click(reviewChevron.btnInsuranceScoreOk);
+			wait(3);
+			
+		}
+	    
+	}
+
 //	@Given("I fill all the {string} product UW questions")
 //	public void i_fill_all_the_product_uw_questions(String string) {
 //	    // Write code here that turns the phrase above into concrete actions
