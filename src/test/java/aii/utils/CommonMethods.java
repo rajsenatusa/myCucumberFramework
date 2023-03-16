@@ -12,7 +12,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -639,11 +638,16 @@ public class CommonMethods extends PageInitializer {
 	}
 	
 	
-	public static void addNewCoverage(String coverage, String element, String coverageValue) {
-		String value=null;
+	
+	public static void select_Direct_FullPayplanType() throws Exception {
 		
-		String searchBox = driver.findElement(By.id(""+element+"")).getTagName();
-		Hooks.scenario.log("Tag name: "+searchBox);
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+		wait(2);
+		click(reviewChevron.btnFullPaymentRadio);
+		wait(1);
+		clickNewCustomer(driver);
+		click(dwellingChevron.btnSave);
+		wait(1);
 	}
 	
 

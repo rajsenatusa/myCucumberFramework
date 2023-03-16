@@ -6,12 +6,17 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import aii.utils.Constants;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CommonSteps extends CommonMethods {
 	
@@ -335,9 +340,69 @@ public class CommonSteps extends CommonMethods {
 	
 		
 	@Given("I fill all the details on Review screen for {string} product")
-	public void i_fill_all_the_details_on_review_screen_for_product(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void i_fill_all_the_details_on_review_screen_for_product(String LOB) throws Exception {
+	    
+		click(dwellingChevron.btnNext);
+		
+		switch (LOB) {
+				
+		case "HO3":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "DP3":
+			selectDropdownText(reviewChevron.ddOrderInsScore, "No");
+			select_Direct_FullPayplanType();		
+			break;		
+			
+		case "DP1":
+			select_Direct_FullPayplanType();	
+			break;		
+			
+		case "HO6":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "HO4":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "GOC":
+			selectDropdownText(reviewChevron.ddOrderInsScore, "No");
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "AIB":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "UMB":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "TO HO3":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "TO DP1":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "TO DP3":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "TO MHO":
+			select_Direct_FullPayplanType();
+			break;
+			
+		case "TO MHPD":
+			select_Direct_FullPayplanType();
+			break;
+			
+		default:
+			throw new RuntimeException("Unable to find LOB");
+		}
 	}
 
 //	@Given("I create application for {string} product")
