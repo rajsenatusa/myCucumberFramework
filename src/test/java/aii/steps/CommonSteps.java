@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
-import aii.utils.UnderwritingQuestions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -438,39 +437,39 @@ public class CommonSteps extends CommonMethods {
 		switch (LOB) {
 		
 		case "HO3":
-			UnderwritingQuestions.fillHO3_UWQuestions();
+			fillHO3_UWQuestions();
 			break;
 			
 		case "DP3":
-			UnderwritingQuestions.fillDP3_UWQuestions();	
+			fillDP3_UWQuestions();	
 			break;		
 			
 		case "DP1":
-			UnderwritingQuestions.fillDP1_UWQuestions();
+			fillDP1_UWQuestions();
 			break;		
 			
 		case "HO6":
-			UnderwritingQuestions.fillHO6_UWQuestions();
+			fillHO6_UWQuestions();
 			break;
 			
 		case "HO4":
-			UnderwritingQuestions.fillHO4_UWQuestions();
+			fillHO4_UWQuestions();
 			break;
 			
 		case "MHO":
-			UnderwritingQuestions.fillMHO_UWQuestions();
+			fillMHO_UWQuestions();
 			break;
 			
 		case "GOC":
-			UnderwritingQuestions.fillGOC_UWQuestions();
+			fillGOC_UWQuestions();
 			break;
 			
 		case "AIB":
-			UnderwritingQuestions.fillBoat_UWQuestions();
+			fillBoat_UWQuestions();
 			break;
 			
 		case "UMB":
-			UnderwritingQuestions.fillUMB_UWQuestions();
+			fillUMB_UWQuestions();
 			break;
 					
 		default:
