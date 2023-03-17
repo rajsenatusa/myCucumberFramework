@@ -490,7 +490,11 @@ public class CommonSteps extends CommonMethods {
 //	}
 
 
-	
+	@And("I enter Policy General detail with Producer Code {string}")
+	public void i_fill_all_the_details_on_PolicyGeneral(String producerCode) {
+		sendText(policyChevron.txtProducerCodeSel, producerCode);
+	    
+	}	
 
 
 
