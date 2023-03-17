@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import aii.utils.UnderwritingQuestions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -17,6 +18,8 @@ public class CommonSteps extends CommonMethods {
 	
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
+	static String policy;
+	static String date;
 	
 	 
 	@Given("I signin Spin as Standard Agent")
@@ -46,9 +49,9 @@ public class CommonSteps extends CommonMethods {
 	@Given("I select endorsement transaction on {string}")
 	public void i_select_an_endorsement_transaction(String Days) throws Exception {
 						 
-		String date =  dtf.format(currentDate.plusDays(Integer.parseInt(Days)));
+		date =  dtf.format(currentDate.plusDays(Integer.parseInt(Days)));
 		
-		String policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
 		
 		 sendText(dashboard.txtSearchBar, policy);
 		 click(dashboard.search);
@@ -429,12 +432,52 @@ public class CommonSteps extends CommonMethods {
 	    
 	}
 
-//	@Given("I fill all the {string} product UW questions")
-//	public void i_fill_all_the_product_uw_questions(String string) {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
-//	}
-//
+	@Given("I fill all the {string} product UW questions")
+	public void i_fill_all_the_product_uw_questions(String LOB) throws Exception {
+				
+		switch (LOB) {
+		
+		case "HO3":
+			UnderwritingQuestions.fillHO3_UWQuestions();
+			break;
+			
+		case "DP3":
+			UnderwritingQuestions.fillDP3_UWQuestions();	
+			break;		
+			
+		case "DP1":
+			UnderwritingQuestions.fillDP1_UWQuestions();
+			break;		
+			
+		case "HO6":
+			UnderwritingQuestions.fillHO6_UWQuestions();
+			break;
+			
+		case "HO4":
+			UnderwritingQuestions.fillHO4_UWQuestions();
+			break;
+			
+		case "MHO":
+			UnderwritingQuestions.fillMHO_UWQuestions();
+			break;
+			
+		case "GOC":
+			UnderwritingQuestions.fillGOC_UWQuestions();
+			break;
+			
+		case "AIB":
+			UnderwritingQuestions.fillBoat_UWQuestions();
+			break;
+			
+		case "UMB":
+			UnderwritingQuestions.fillUMB_UWQuestions();
+			break;
+					
+		default:
+			throw new RuntimeException("Unable to find LOB");
+		}
+	}
+
 //	@Given("I finalize the application")
 //	public void i_finalize_the_application() {
 //	    // Write code here that turns the phrase above into concrete actions
