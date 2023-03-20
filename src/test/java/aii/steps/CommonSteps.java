@@ -477,7 +477,7 @@ public class CommonSteps extends CommonMethods {
 		}
 	}
 	
-	@Given("I renew policy {string} to next term")
+	@Given("I renew policy {string} to next term through manual transaction")
 	public void i_renew_policy_to_next_term(String policy) {
 		 
 			 wait(1);
@@ -496,7 +496,7 @@ public class CommonSteps extends CommonMethods {
 		 
 	}
 	
-	@Given("I renew policy to next term - as per global variable variable policy")
+	@Given("I renew policy to next term through manual transaction")
 	public void i_renew_policy_to_next_term_as_per_global_variable_variable_policy() {
 	   
 		 policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
