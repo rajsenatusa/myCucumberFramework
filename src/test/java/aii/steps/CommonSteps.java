@@ -67,12 +67,13 @@ public class CommonSteps extends CommonMethods {
 	    
 	}
 	
-	@Given("I finalize and process")
+	@Given("I finalize and process the transaction")
 	public void finalize_process() {
 		click(reviewChevron.btnFinalize);
 		wait(2);
 				
 		click(closeoutChevron.btnIssueNB);
+		wait(5);
 	}
 
 
@@ -571,20 +572,18 @@ public class CommonSteps extends CommonMethods {
 		switch (paymentType.toLowerCase()) {
 		
 		case "none":
-			selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+			selectDropdownText(closeoutChevron.ddPaymentType, "None");
 			break;
 			
-		case "credit Card":
-			check_CCDisclosure();
-			driver.switchTo().frame("iframeAuthorizeNet");
-			Hooks.scenario.log("Switched to credit card details frame");
-			
-			
+		case "credit card":
+			selectDropdownText(closeoutChevron.ddPaymentType, "Credit Card");
+			makeCCPayment();			
 			break;		
 									
 		default:
 			throw new RuntimeException("Unable to find Payment type");
 		}
+		
 		wait(1); 
 		    click(closeoutChevron.btnIssueNB);
 		    wait(4);
@@ -603,6 +602,19 @@ public class CommonSteps extends CommonMethods {
 	 sendText(login.password, Pwd);
 	 click(login.btnSignIn);
 	 wait(1);		
+	}
+	
+	
+	@Given("I submit the application for UW approval")
+	public void i_submit_the_application_for_uw_approval() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Given("I submit the application for UW manager approval")
+	public void i_submit_the_application_for_uw_manager_approval() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 
 
