@@ -28,10 +28,8 @@ Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
     And I renew policy to next term through manual transaction
     And I reinstate  policy "policyNumber"
     And I cancel  policy "policyNumber"
+    And I cancel policy through manual transaction
+    And I reinstate policy through manual transaction
     
     
-    
-    
-
-		#I reinstate policy  - as per global variable variable policy
-		#I cancel policy  - as per global variable variable policy
+   
