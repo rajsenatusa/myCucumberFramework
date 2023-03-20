@@ -557,17 +557,36 @@ public class CommonSteps extends CommonMethods {
 
 	
 
-//	@Given("I finalize the application")
-//	public void i_finalize_the_application() {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
-//	}
-//
-//	@Given("I Issue new business with payment type {string}")
-//	public void i_issue_new_business_with_payment_type(String string) {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
-//	}
+	@Given("I finalize the application or transaction")
+	public void i_finalize_the_application() {
+		click(reviewChevron.btnFinalize);
+		Hooks.scenario.log("Finalize button clicked");
+		wait(2);
+	}
+
+	@Given("I Issue new business with payment type {string}")
+	public void i_issue_new_business_with_payment_type(String paymentType) {
+		
+		
+		switch (paymentType.toLowerCase()) {
+		
+		case "none":
+			selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+			break;
+			
+		case "credit Card":
+			check_CCDisclosure();
+			driver.switchTo().frame("iframeAuthorizeNet");
+			
+			break;		
+									
+		default:
+			throw new RuntimeException("Unable to find Payment type");
+		}
+		wait(1); 
+		    click(closeoutChevron.btnIssueNB);
+		    wait(4);
+	}
 
 
 	@And("I enter Policy General detail with Producer Code {string}")

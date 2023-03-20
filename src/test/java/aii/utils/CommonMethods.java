@@ -966,6 +966,16 @@ public static void fillHO3_UWQuestions() throws Exception {
 		CommonMethods.wait(1);
 		CommonMethods.click(uwquestionsChevron.nextButtonUw);
 	}
+	
+	
+	public static void check_CCDisclosure() {
+		
+		wait(1);
+		 click(closeoutChevron.chkCCPromopt);
+		    wait(1);
+		    click(closeoutChevron.btnPromptOK);
+		    wait(2);
+	}
 		
 	
 
