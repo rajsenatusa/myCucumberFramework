@@ -593,8 +593,15 @@ public class CommonSteps extends CommonMethods {
 	public void i_fill_all_the_details_on_PolicyGeneral(String producerCode) {
 		sendText(policyChevron.txtProducerCodeSel, producerCode);
 	    
-	}	
-
+	}
+	
+	@Given("I signin Spin as user {string} and password {string}")
+	public void i_signin_spin_as_userfrom_featurefiles(String user, String Pwd) {
+	 sendText(login.username, user);
+	 sendText(login.password, Pwd);
+	 click(login.btnSignIn);
+	 wait(1);		
+	}
 
 
 }
