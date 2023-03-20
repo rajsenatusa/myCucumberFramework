@@ -21,6 +21,7 @@ Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
 
    And I submit the application for UW approval
    And I submit the application for UW manager approval
+   And I sign out
     
     
     And I renew policy "policyNum" to next term through manual transaction

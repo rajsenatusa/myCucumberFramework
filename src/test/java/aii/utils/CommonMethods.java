@@ -998,10 +998,29 @@ public static void fillHO3_UWQuestions() throws Exception {
 		wait(3);
 		click(makePayment.btnSaveButton);
 		driver.switchTo().defaultContent();
-		wait(2);	
-		
+		wait(2);			
 		
 	}
+	
+	public static void submitForApprovalWithDialog()
+	{
+		wait(2);
+		click(closeoutChevron.btnSubmitApproval);
+		Hooks.scenario.log("SubmitForApproval was clicked");
+		click(specialChevron.btnDialogOk);
+		wait(2);
+		Hooks.scenario.log("Submission Confirmation OK was clicked");
+	}
+	
+	public static void submitForApproval()
+	{
+		wait(2);
+		click(closeoutChevron.btnSubmitApproval);
+		Hooks.scenario.log("SubmitForApproval was clicked");
+	}
+	
+	
+	
 		
 	
 

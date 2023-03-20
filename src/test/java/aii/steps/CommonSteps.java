@@ -19,6 +19,7 @@ public class CommonSteps extends CommonMethods {
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policy;
 	static String date;
+	static String appNum;
 	
 	 
 	@Given("I signin Spin as Standard Agent")
@@ -607,14 +608,27 @@ public class CommonSteps extends CommonMethods {
 	
 	@Given("I submit the application for UW approval")
 	public void i_submit_the_application_for_uw_approval() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+		
+		sendText(closeoutChevron.txtWorkflowComments, "Underwriting approval required for "+appNum);
+		submitForApprovalWithDialog();
 	}
 
 	@Given("I submit the application for UW manager approval")
 	public void i_submit_the_application_for_uw_manager_approval() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+		
+		submitForApprovalWithDialog();
+	}
+	
+	
+	@Given("I sign out")
+	public void i_sign_out() {
+		click(dashboard.btnUserMenu);
+		wait(1);
+		click(dashboard.btnSignOut);
+		wait(2);
+		Hooks.scenario.log("Sign out was clicked");
 	}
 
 
