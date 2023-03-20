@@ -976,6 +976,52 @@ public static void fillHO3_UWQuestions() throws Exception {
 		    click(closeoutChevron.btnPromptOK);
 		    wait(2);
 	}
+	
+	public static void makeCCPayment()
+	{
+		click(closeoutChevron.btnEnterCCDetails);
+		wait(2);
+		check_CCDisclosure();
+		driver.switchTo().frame("iframeAuthorizeNet");
+		Hooks.scenario.log("Switched to credit card details frame");
+		sendText(makePayment.txtCardNumber,"5424000000000015");
+		sendText(makePayment.txtExpiryDate,"1224");
+		sendText(makePayment.txtCVV,"123");
+		sendText(makePayment.txtFirstName,"First Name");
+		sendText(makePayment.txtLastName,"Last Name");
+		sendText(makePayment.txtZip,"123456");
+		sendText(makePayment.txtAddress,"1234 Street");
+		sendText(makePayment.txtCity,"City");
+		sendText(makePayment.txtState,"State");
+		sendText(makePayment.txtPhoneNumber,"123-456-7895");
+		sendText(makePayment.txtCompanyNameID,"Company");
+		wait(3);
+		click(makePayment.btnSaveButton);
+		driver.switchTo().defaultContent();
+		wait(2);			
+		
+	}
+	
+	public static void submitForApprovalWithDialog()
+	{
+		wait(2);
+		click(closeoutChevron.btnSubmitApproval);
+		Hooks.scenario.log("SubmitForApproval was clicked");
+		click(specialChevron.btnDialogOk);
+		wait(2);
+		Hooks.scenario.log("Submission Confirmation OK was clicked");
+	}
+	
+	public static void submitForApproval()
+	{
+		wait(2);
+		click(closeoutChevron.btnSubmitApproval);
+		Hooks.scenario.log("SubmitForApproval was clicked");
+	}
+	
+	
+	
+	
 		
 	
 

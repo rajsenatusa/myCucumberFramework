@@ -19,6 +19,7 @@ public class CommonSteps extends CommonMethods {
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policy;
 	static String date;
+	static String appNum;
 	
 	 
 	@Given("I signin Spin as Standard Agent")
@@ -27,6 +28,7 @@ public class CommonSteps extends CommonMethods {
 	 sendText(login.password, ConfigsReader.getProperty("password"));
 	 click(login.btnSignIn);
 	 wait(1);	
+	 
 		
 	}
 	
@@ -67,12 +69,13 @@ public class CommonSteps extends CommonMethods {
 	    
 	}
 	
-	@Given("I finalize and process")
+	@Given("I finalize and process the transaction")
 	public void finalize_process() {
 		click(reviewChevron.btnFinalize);
 		wait(2);
 				
 		click(closeoutChevron.btnIssueNB);
+		wait(5);
 	}
 
 
@@ -571,20 +574,18 @@ public class CommonSteps extends CommonMethods {
 		switch (paymentType.toLowerCase()) {
 		
 		case "none":
-			selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+			selectDropdownText(closeoutChevron.ddPaymentType, "None");
 			break;
 			
-		case "credit Card":
-			check_CCDisclosure();
-			driver.switchTo().frame("iframeAuthorizeNet");
-			Hooks.scenario.log("Switched to credit card details frame");
-			
-			
+		case "credit card":
+			selectDropdownText(closeoutChevron.ddPaymentType, "Credit Card");
+			makeCCPayment();			
 			break;		
 									
 		default:
 			throw new RuntimeException("Unable to find Payment type");
 		}
+		
 		wait(1); 
 		    click(closeoutChevron.btnIssueNB);
 		    wait(4);
@@ -605,16 +606,31 @@ public class CommonSteps extends CommonMethods {
 	 wait(1);		
 	}
 	
-	@Given("I enter Prior Carrier details with Carrier {string} and Prior Policy Expiration Date {string}")
-	public void i_enter_PriorCarrier_Details(String carrierName, String ExpirationDate) {
-	 selectDropdownText(policyChevron.ddPreviousCarrier, carrierName);
-	 
-	 if (ExpirationDate.contains("/")) {
-		 sendText(policyChevron.txtPreviousPolicyExpDate, ExpirationDate);
-	 }
-	 sendText(policyChevron.txtPreviousPolicyExpDate, ExpirationDate);		
+	
+	@Given("I submit the application for UW approval")
+	public void i_submit_the_application_for_uw_approval() {
+		appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+		
+		sendText(closeoutChevron.txtWorkflowComments, "Underwriting approval required for "+appNum);
+		submitForApprovalWithDialog();
 	}
 
+	@Given("I submit the application for UW manager approval")
+	public void i_submit_the_application_for_uw_manager_approval() {
+		appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+		
+		submitForApprovalWithDialog();
+	}
 	
+	
+	@Given("I sign out")
+	public void i_sign_out() {
+		click(dashboard.btnUserMenu);
+		wait(1);
+		click(dashboard.btnSignOut);
+		wait(2);
+		Hooks.scenario.log("Sign out was clicked");
+	}
+
 
 }
