@@ -476,6 +476,86 @@ public class CommonSteps extends CommonMethods {
 			throw new RuntimeException("Unable to find LOB");
 		}
 	}
+	
+	@Given("I renew policy {string} to next term")
+	public void i_renew_policy_to_next_term(String policy) {
+		 
+			 wait(1);
+			 sendText(dashboard.txtSearchBar, policy);
+			 click(dashboard.search);
+			 wait(1);
+			 
+			startTransaction();
+			
+		    selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
+		    click(dashboard.btnSelect);
+		    click(dashboard.btnStart);
+		    wait(1);
+		    click(reviewChevron.btnFinalize);
+		    click(closeoutChevron.btnIssueNB);
+		 
+	}
+	
+	@Given("I renew policy to next term - as per global variable variable policy")
+	public void i_renew_policy_to_next_term_as_per_global_variable_variable_policy() {
+	   
+		 policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		
+		 sendText(dashboard.txtSearchBar, policy);
+		 click(dashboard.search);
+		 wait(1);
+		 
+		 startTransaction();
+			
+	     selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
+   	     click(dashboard.btnSelect);
+	     click(dashboard.btnStart);
+         wait(1);
+	     click(reviewChevron.btnFinalize);
+	     click(closeoutChevron.btnIssueNB);
+		
+	}
+	
+	@Given("I reinstate  policy {string}")
+	public void i_reinstate_policy(String policy) {
+	    
+		 wait(1);
+		 sendText(dashboard.txtSearchBar, policy);
+		 click(dashboard.search);
+		 wait(1);
+		 
+		startTransaction();
+		
+	    selectDropdownText(dashboard.ddSelectTransaction, "Reinstatement");
+	    click(dashboard.btnSelect);
+	    click(dashboard.btnStart);
+	    wait(1);
+	    click(closeoutChevron.btnIssueNB);
+	}
+	
+	@Given("I cancel  policy {string}")
+	public void i_cancel_policy(String policy) {
+		 wait(1);
+		 sendText(dashboard.txtSearchBar, policy);
+		 click(dashboard.search);
+		 wait(1);
+		 
+		startTransaction();
+		
+	    selectDropdownText(dashboard.ddSelectTransaction, "Cancellation");
+	    click(dashboard.btnSelect);
+	    selectDropdownText(policyChevron.ddCancellationType, "Company");
+	    wait(1);
+	    selectDropdownText(policyChevron.ddReasonType, "ABC Insured declined policy");
+	    wait(1);
+	    click(policyChevron.btnAdd);
+	    wait(1);
+	    click(dashboard.btnStart);
+	    wait(1);
+	    click(closeoutChevron.btnIssueNB);
+	}
+
+	
 
 //	@Given("I finalize the application")
 //	public void i_finalize_the_application() {

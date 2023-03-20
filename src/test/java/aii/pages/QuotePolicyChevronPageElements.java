@@ -98,6 +98,15 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "Save")
 	public WebElement btnSave;
 	
+	@FindBy (id= "CancelRequestedByCd")
+	public WebElement ddCancellationType;
+	
+	@FindBy (id= "ReasonCd")
+	public WebElement ddReasonType;
+	
+	@FindBy (id= "Add")
+	public WebElement btnAdd;
+	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
 		
