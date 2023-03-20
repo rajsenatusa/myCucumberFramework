@@ -556,6 +556,49 @@ public class CommonSteps extends CommonMethods {
 	    wait(1);
 	    click(closeoutChevron.btnIssueNB);
 	}
+	
+	@Given("I cancel policy through manual transaction")
+	public void i_cancel_policy_through_manual_transaction() {
+		
+		 policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+			
+		 sendText(dashboard.txtSearchBar, policy);
+		 click(dashboard.search);
+		 wait(1); 
+		 
+		 startTransaction();
+			
+	      selectDropdownText(dashboard.ddSelectTransaction, "Cancellation");
+   	      click(dashboard.btnSelect);
+		  selectDropdownText(policyChevron.ddCancellationType, "Company");
+		  wait(1);
+		  selectDropdownText(policyChevron.ddReasonType, "ABC Insured declined policy");
+		  wait(1);
+		  click(policyChevron.btnAdd);
+		  wait(1);
+		  click(dashboard.btnStart);
+		  wait(1);
+		  click(closeoutChevron.btnIssueNB);
+		
+	}
+	@Given("I reinstate policy through manual transaction")
+	public void i_reinstate_policy_through_manual_transaction() {
+		
+		 policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+			
+		 sendText(dashboard.txtSearchBar, policy);
+		 click(dashboard.search);
+		 wait(1); 
+		 
+		 startTransaction();
+		 
+		 selectDropdownText(dashboard.ddSelectTransaction, "Reinstatement");
+		 click(dashboard.btnSelect);
+		 click(dashboard.btnStart);
+		 wait(1);
+		 click(closeoutChevron.btnIssueNB);
+		
+	}
 
 	
 
@@ -578,7 +621,7 @@ public class CommonSteps extends CommonMethods {
 			
 		case "credit card":
 			selectDropdownText(closeoutChevron.ddPaymentType, "Credit Card");
-			makeCCPayment();			
+			makeCCPayment();
 			break;		
 									
 		default:
