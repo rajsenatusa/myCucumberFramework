@@ -604,6 +604,17 @@ public class CommonSteps extends CommonMethods {
 	 click(login.btnSignIn);
 	 wait(1);		
 	}
+	
+	@Given("I enter Prior Carrier details with Carrier {string} and Prior Policy Expiration Date {string}")
+	public void i_enter_PriorCarrier_Details(String carrierName, String ExpirationDate) {
+	 selectDropdownText(policyChevron.ddPreviousCarrier, carrierName);
+	 
+	 if (ExpirationDate.contains("/")) {
+		 sendText(policyChevron.txtPreviousPolicyExpDate, ExpirationDate);
+	 }
+	 sendText(policyChevron.txtPreviousPolicyExpDate, ExpirationDate);		
+	}
 
+	
 
 }
