@@ -577,6 +577,8 @@ public class CommonSteps extends CommonMethods {
 		case "credit Card":
 			check_CCDisclosure();
 			driver.switchTo().frame("iframeAuthorizeNet");
+			Hooks.scenario.log("Switched to credit card details frame");
+			
 			
 			break;		
 									

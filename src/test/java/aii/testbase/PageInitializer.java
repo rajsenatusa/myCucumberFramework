@@ -6,6 +6,7 @@ import aii.pages.DashboardPageElements;
 import aii.pages.GolfcartChevronPageElements;
 import aii.pages.HistoryPageElements;
 import aii.pages.LoginPageElements;
+import aii.pages.MakePaymentElement;
 import aii.pages.PolicyFilePageElements;
 import aii.pages.ProductSelectionPageElements;
 import aii.pages.QuoteDwellingChevronPageElements;
@@ -33,6 +34,7 @@ public class PageInitializer extends BaseClass {
 	public static UmbrellaLiabilityPageElements umbrellaChevron;
 	public static PolicyFilePageElements policyFileChevron;
 	public static HistoryPageElements historyChevron;
+	public static MakePaymentElement makePayment;
 	
 	
 	public static void initialize() {
@@ -51,6 +53,7 @@ public class PageInitializer extends BaseClass {
 		umbrellaChevron= new UmbrellaLiabilityPageElements();
 		policyFileChevron= new PolicyFilePageElements();
 		historyChevron= new HistoryPageElements();
+		makePayment= new MakePaymentElement();
 		
 	}
 
