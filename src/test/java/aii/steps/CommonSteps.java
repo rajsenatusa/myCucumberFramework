@@ -622,6 +622,7 @@ public class CommonSteps extends CommonMethods {
 		case "credit card":
 			selectDropdownText(closeoutChevron.ddPaymentType, "Credit Card");
 			makeCCPayment();
+			
 			break;		
 									
 		default:
