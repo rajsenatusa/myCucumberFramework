@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import com.relevantcodes.extentreports.LogStatus;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
@@ -124,6 +127,9 @@ public class CommonSteps extends CommonMethods {
 		case "DP3":	
 			click(product.btnProductSelectionDp3);	
 			break;
+			
+		default:
+			throw new RuntimeException("Unable to select LOB");
 			
 		}
 		
@@ -699,7 +705,7 @@ public class CommonSteps extends CommonMethods {
 	}
 	
 	
-	@Given("Report loss on policy with effective of {String}")
+	@Given("Report loss on policy with effective of {string}")
 	public void report_loss_policy(String days) {
 		changeDate(days);
 		
@@ -712,10 +718,82 @@ public class CommonSteps extends CommonMethods {
 		 click(holder.btnReportLoss);
 		 wait(1);
 		 click(holder.btnReport);
-		 wait(2);
-		 
+		 wait(2);		 
 		
 	}
+	
+	@Given("I select only loss cause as {string}")
+	public void select_loss_cause(String lossCause) {
+		
+		selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
+			
+	}
+	
+	
+	@Given("I select loss cause as {string} and other related questions")
+	public void select_loss_cause_and_questions(String lossCause) {
+		
+		Select entityType = new Select (driver.findElement(By.id("Claim.LossCauseCd"))); 
+        String value = entityType.getFirstSelectedOption().getText().toString();
+        Hooks.scenario.log("Loss Cause defaulted with "+value);
+		
+        if(lossCause.equalsIgnoreCase("Collapse") || lossCause.equalsIgnoreCase("Cracking/Rupture") || 
+        		lossCause.equalsIgnoreCase("Explosion") || lossCause.equalsIgnoreCase("Falling Objects") || 
+        		lossCause.equalsIgnoreCase("Freezing") || lossCause.equalsIgnoreCase("Lightning") || 
+        		lossCause.equalsIgnoreCase("Smoke") || lossCause.equalsIgnoreCase("All Other Property")){
+        	
+        	selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
+        	wait(1);
+        	selectDropdownText(lossNoticeInfo.lstCQHomeHabitable, "Yes");        	        	
+	
+		}
+        
+        else if(lossCause.equalsIgnoreCase("Home Cyber Protection") || lossCause.equalsIgnoreCase("ID Recovery") || 
+        		lossCause.equalsIgnoreCase("Mysterious Disappearance") || lossCause.equalsIgnoreCase("Liability PD - Non-Pollution") || 
+        		lossCause.equalsIgnoreCase("Medical Payments")) {
+        	
+        	selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
+        	wait(1);
+        	
+        }
+		
+        else {
+		switch(lossCause.toLowerCase())	{
+		
+		case "Fire":
+			selectDropdownText(lossNoticeInfo.lstLossCause, "Fire");
+			wait(1);
+			selectDropdownText(lossNoticeInfo.lstCQHomeHabitable, "Yes"); 
+			selectDropdownText(lossNoticeInfo.lstAuthorityContacted, "Fire Department");
+			wait(1);
+			 sendText(lossNoticeInfo.lstAuthorityName, "Officer Richards");
+			 sendText(lossNoticeInfo.lstCaseNumber, "CaseFire1234");
+			selectDropdownText(lossNoticeInfo.lstFireRoomsAffected, "25%-50%");
+			sendText(lossNoticeInfo.lstFireOriginate, "Kitchen caught on Fire");			
+			break;
+			
+		case "GOC":	
+			click(product.btnProductSelectionGoc);
+			break;
+		case "DP1":	
+			click(product.btnProductSelectionDp1);	
+			break;
+		case "DP3":	
+			click(product.btnProductSelectionDp3);	
+			break;
+			
+		default:
+			throw new RuntimeException("Unable to select LOB");
+		
+			}
+        }
+			
+	}
+	
+	
+	
+	
+	
 	
 	
 

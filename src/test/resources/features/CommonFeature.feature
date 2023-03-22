@@ -33,7 +33,8 @@ Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
     
     
     And Report loss on policy with effective of "days"
-    And I submit the Claim transaction for approval
+    And I select only loss cause as "Loss cause"
+    And I submit the claim transaction for approval
     And User search for the app or transaction or policy
     And I approve the application or transaction
     

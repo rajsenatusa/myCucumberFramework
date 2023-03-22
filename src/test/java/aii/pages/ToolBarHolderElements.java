@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import aii.utils.CommonMethods;
 
-public class ToolBarHolder extends CommonMethods {
+public class ToolBarHolderElements extends CommonMethods {
 
 	@FindBy(id= "QuickAction_ReportLoss_Holder")
 	public WebElement btnReportLoss;
@@ -16,7 +16,7 @@ public class ToolBarHolder extends CommonMethods {
 	
 	
 	
-	public ToolBarHolder() {
+	public ToolBarHolderElements() {
 		
 		PageFactory.initElements(driver, this);
 	}
