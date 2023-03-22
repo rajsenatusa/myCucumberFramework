@@ -662,7 +662,7 @@ public class CommonSteps extends CommonMethods {
 	public void i_submit_the_application_for_uw_manager_approval() {
 		appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
 		
-		submitForApprovalWithDialog();
+		submitForApproval();
 	}
 	
 	
