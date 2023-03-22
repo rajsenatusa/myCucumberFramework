@@ -51,9 +51,9 @@ public class CommonSteps extends CommonMethods {
 						 
 		date =  dtf.format(currentDate.plusDays(Integer.parseInt(Days)));
 		
-		policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
 		
-		 sendText(dashboard.txtSearchBar, policy);
+		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
 		 click(dashboard.search);
 		 wait(1);
 		 
@@ -697,6 +697,27 @@ public class CommonSteps extends CommonMethods {
 
 		 wait(1);
 	}
+	
+	
+	@Given("Report loss on policy with effective of {String}")
+	public void report_loss_policy(String days) {
+		changeDate(days);
+		
+		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		
+		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		 click(dashboard.search);
+		 wait(1);
+		 
+		 click(holder.btnReportLoss);
+		 wait(1);
+		 click(holder.btnReport);
+		 wait(2);
+		 
+		
+	}
+	
+	
 
 
 }

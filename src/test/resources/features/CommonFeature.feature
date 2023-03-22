@@ -32,6 +32,7 @@ Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
     And I reinstate policy through manual transaction
     
     
+    And Report loss on policy with effective of "days"
     And I submit the Claim transaction for approval
     And User search for the app or transaction or policy
     And I approve the application or transaction

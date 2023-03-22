@@ -14,6 +14,7 @@ import aii.pages.QuotePageElements;
 import aii.pages.QuotePolicyChevronPageElements;
 import aii.pages.QuoteReviewPageElements;
 import aii.pages.SpecialOptionsPageElements;
+import aii.pages.ToolBarHolder;
 import aii.pages.UmbrellaLiabilityPageElements;
 
 
@@ -35,6 +36,7 @@ public class PageInitializer extends BaseClass {
 	public static PolicyFilePageElements policyFileChevron;
 	public static HistoryPageElements historyChevron;
 	public static MakePaymentElement makePayment;
+	public static ToolBarHolder holder;
 	
 	
 	public static void initialize() {
@@ -54,6 +56,7 @@ public class PageInitializer extends BaseClass {
 		policyFileChevron= new PolicyFilePageElements();
 		historyChevron= new HistoryPageElements();
 		makePayment= new MakePaymentElement();
+		holder= new ToolBarHolder();
 		
 	}
 
