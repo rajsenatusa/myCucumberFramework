@@ -6,6 +6,7 @@ import aii.pages.DashboardPageElements;
 import aii.pages.GolfcartChevronPageElements;
 import aii.pages.HistoryPageElements;
 import aii.pages.LoginPageElements;
+import aii.pages.LossNoticeInformationPageElements;
 import aii.pages.MakePaymentElement;
 import aii.pages.PolicyFilePageElements;
 import aii.pages.ProductSelectionPageElements;
@@ -14,7 +15,7 @@ import aii.pages.QuotePageElements;
 import aii.pages.QuotePolicyChevronPageElements;
 import aii.pages.QuoteReviewPageElements;
 import aii.pages.SpecialOptionsPageElements;
-import aii.pages.ToolBarHolder;
+import aii.pages.ToolBarHolderElements;
 import aii.pages.UmbrellaLiabilityPageElements;
 
 
@@ -36,7 +37,8 @@ public class PageInitializer extends BaseClass {
 	public static PolicyFilePageElements policyFileChevron;
 	public static HistoryPageElements historyChevron;
 	public static MakePaymentElement makePayment;
-	public static ToolBarHolder holder;
+	public static ToolBarHolderElements holder;
+	public static LossNoticeInformationPageElements lossNoticeInfo;
 	
 	
 	public static void initialize() {
@@ -56,7 +58,8 @@ public class PageInitializer extends BaseClass {
 		policyFileChevron= new PolicyFilePageElements();
 		historyChevron= new HistoryPageElements();
 		makePayment= new MakePaymentElement();
-		holder= new ToolBarHolder();
+		holder= new ToolBarHolderElements();
+		lossNoticeInfo= new LossNoticeInformationPageElements();
 		
 	}
 
