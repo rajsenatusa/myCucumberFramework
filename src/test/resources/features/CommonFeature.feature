@@ -8,7 +8,7 @@ Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
       And I navigate to policyfile screen
       And I navigate to dwellings screen
       And I start transaction on policy
-      And I select endorsement transaction on "03/09/2023"
+      And I select endorsement transaction on "days"
     And I finalize and process the transaction
     And I finalize the application or transaction
     And I Issue new business with payment type "None"
@@ -30,6 +30,12 @@ Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END
     And I cancel  policy "policyNumber"
     And I cancel policy through manual transaction
     And I reinstate policy through manual transaction
+    
+    
+    And I submit the Claim transaction for approval
+    And User search for the app or transaction or policy
+    And I approve the application or transaction
+    
     
     
    

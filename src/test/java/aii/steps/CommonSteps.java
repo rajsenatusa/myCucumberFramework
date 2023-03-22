@@ -17,9 +17,8 @@ public class CommonSteps extends CommonMethods {
 	
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
-	static String policy;
+	static String app_Tx_Policy_Claim_Num;
 	static String date;
-	static String appNum;
 	
 	 
 	@Given("I signin Spin as Standard Agent")
@@ -502,9 +501,9 @@ public class CommonSteps extends CommonMethods {
 	@Given("I renew policy to next term through manual transaction")
 	public void i_renew_policy_to_next_term_as_per_global_variable_variable_policy() {
 	   
-		 policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
 		
-		 sendText(dashboard.txtSearchBar, policy);
+		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
 		 click(dashboard.search);
 		 wait(1);
 		 
@@ -561,9 +560,9 @@ public class CommonSteps extends CommonMethods {
 	@Given("I cancel policy through manual transaction")
 	public void i_cancel_policy_through_manual_transaction() {
 	   
-		 policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
 			
-		 sendText(dashboard.txtSearchBar, policy);
+		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
 		 click(dashboard.search);
 		 wait(1);
 		 
@@ -585,9 +584,9 @@ public class CommonSteps extends CommonMethods {
 	@Given("I reinstate policy through manual transaction")
 	public void i_reinstate_policy_through_manual_transaction() {
 	  
-		 policy = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
 			
-		 sendText(dashboard.txtSearchBar, policy);
+		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
 		 click(dashboard.search);
 		 wait(1);
 		 
@@ -651,16 +650,16 @@ public class CommonSteps extends CommonMethods {
 	
 	
 	@Given("I submit the application for UW approval")
-	public void i_submit_the_application_for_uw_approval() {
-		appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+	public void i_submit_the_application_for_uw_approval() throws Exception {
+		app_Tx_Policy_Claim_Num = getApplicationNumber(driver);
 		
-		sendText(closeoutChevron.txtWorkflowComments, "Underwriting approval required for "+appNum);
+		sendText(closeoutChevron.txtWorkflowComments, "Underwriting approval required for "+app_Tx_Policy_Claim_Num);
 		submitForApprovalWithDialog();
 	}
 
 	@Given("I submit the application for UW manager approval")
-	public void i_submit_the_application_for_uw_manager_approval() {
-		appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+	public void i_submit_the_application_for_uw_manager_approval() throws Exception {
+		app_Tx_Policy_Claim_Num = getApplicationNumber(driver);
 		
 		submitForApproval();
 	}
@@ -673,6 +672,30 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.btnSignOut);
 		wait(2);
 		Hooks.scenario.log("Sign out was clicked");
+	}
+	
+	
+	@Given("I submit the claim transaction for approval")
+	public void i_submit_the_claim_for_approval() throws Exception {
+		app_Tx_Policy_Claim_Num = getClaimTransactionNumber(driver);
+		
+		submitForApproval();
+	}
+	
+	
+	@Given("I approve the application or transaction")
+	public void i_approve_the_app_tx() throws Exception {
+		
+		click(closeoutChevron.btnApprove);
+	}
+	
+	@Given("User search for the app or transaction or policy")
+	public void user_search_for_app_tx_policy() {
+				 wait(1);
+		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		 click(dashboard.search);
+
+		 wait(1);
 	}
 
 

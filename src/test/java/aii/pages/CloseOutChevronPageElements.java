@@ -32,6 +32,12 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(id= "CreditCardPromptDivOk")
 	public WebElement btnPromptOK;
 	
+	@FindBy(id= "ClaimSummary_ClaimTransactionNumber")
+	public WebElement transactionNumber;
+	
+	@FindBy(id= "Approve")
+	public WebElement btnApprove;	
+	
 	
 	public CloseOutChevronPageElements() {
 		

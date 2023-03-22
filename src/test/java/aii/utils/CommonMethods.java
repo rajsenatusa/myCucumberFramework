@@ -613,6 +613,34 @@ public class CommonMethods extends PageInitializer {
 		return PremiumFees.toString();
 	}	
 	
+	
+	public static String getClaimTransactionNumber(WebDriver driver) throws Exception {
+		
+		String txNum = null;
+		try {
+			txNum = driver.findElement(By.id("ClaimSummary_ClaimTransactionNumber")).getText().toString();
+			Hooks.scenario.log("Policy Number: "+txNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return txNum.toString();
+		
+	}	
+	
+	
+	public static String getApplicationNumber(WebDriver driver) throws Exception {
+		
+		String appNum = null;
+		try {
+			appNum = driver.findElement(By.id("ClaimSummary_ClaimTransactionNumber")).getText().toString();
+			Hooks.scenario.log("Policy Number: "+appNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return appNum.toString();
+		
+	}	
+	
 	public static String changeDate(String days){
 		
 		String effectiveDate = dtf.format(currentDate.plusDays(Integer.parseInt(days)));	
