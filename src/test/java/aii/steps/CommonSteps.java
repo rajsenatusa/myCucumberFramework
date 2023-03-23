@@ -8,8 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import com.relevantcodes.extentreports.LogStatus;
-
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
