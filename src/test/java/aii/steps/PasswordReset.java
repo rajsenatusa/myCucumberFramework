@@ -63,6 +63,7 @@ public class PasswordReset extends CommonMethods {
 		click(userLookup.btnSearch);
 		wait(3);
 		click(userLookup.lnkResetPassword);
+		
 //		System.out.println(listofUsers[j][0].toString());
 //		System.out.println(listofUsers[j][1].toString());
 		
