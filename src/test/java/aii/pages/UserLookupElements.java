@@ -6,40 +6,36 @@ import org.openqa.selenium.support.PageFactory;
 
 import aii.utils.CommonMethods;
 
-public class UserLookup extends CommonMethods {
+public class UserLookupElements extends CommonMethods {
 	
-	@FindBy (id= "CustomerName.GivenName")
-	public WebElement txtFirstName;
+	@FindBy (id= "SearchBy")
+	public WebElement ddSearchBy;
 	
-	@FindBy (id= "CustomerName.Surname")
-	public WebElement txtLastName;
+	@FindBy (id= "SearchText")
+	public WebElement txtSearchText;
 	
-	@FindBy (id= "CustomerPersonal.BirthDt")
-	public WebElement txtBirthDate;
+	@FindBy (id= "Search")
+	public WebElement btnSearch;
 	
-	@FindBy (id= "CustomerName.CommercialName")
-	public WebElement txtSearchName;
+	@FindBy (id= "MatchType")
+	public WebElement ddStartWith;
 	
-	@FindBy (id= "CustomerLookupAddr.PrimaryNumber")
-	public WebElement txtAddress;
-		
-	@FindBy (id= "CustomerLookupAddr.PostalCode")
-	public WebElement txtZipCode;
+	@FindBy (id= "ResetPassword_*")
+	public WebElement lnkResetPassword;
 	
-	@FindBy (id= "CustomerLookupAddr.addrVerifyImg")
-	public WebElement btnVerifyAddress;
+	@FindBy (id= "NewPassword")
+	public WebElement txtPassword;
 	
-	@FindBy (id= "DefaultAddress")
-	public WebElement btnCopyToMailAddress;
+	@FindBy (id= "ConfirmNewPassword")
+	public WebElement txtConfirmPassword;
 	
-	@FindBy (id= "CopyAddress")
-	public WebElement btnCopyToBillAddress;
+	@FindBy (id= "UserInfo.PasswordMustChangeInd")
+	public WebElement chkPasswordChangeNextLogin;
 	
-	@FindBy (id= "SaveAndQuote")
-	public WebElement btnSaveAndQuote;
+	@FindBy (id= "ResetPassword")
+	public WebElement btnChangePassword;
 	
-		
-	public UserLookup() {
+	public UserLookupElements() {
 		PageFactory.initElements(driver, this);
 	}
 	
