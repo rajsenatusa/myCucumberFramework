@@ -17,6 +17,8 @@ import aii.pages.QuoteReviewPageElements;
 import aii.pages.SpecialOptionsPageElements;
 import aii.pages.ToolBarHolderElements;
 import aii.pages.UmbrellaLiabilityPageElements;
+import aii.pages.UserLookupElements;
+
 
 
 public class PageInitializer extends BaseClass {
@@ -39,6 +41,8 @@ public class PageInitializer extends BaseClass {
 	public static MakePaymentElement makePayment;
 	public static ToolBarHolderElements holder;
 	public static LossNoticeInformationPageElements lossNoticeInfo;
+	public static UserLookupElements userLookup;
+	
 	
 	
 	public static void initialize() {
@@ -60,7 +64,7 @@ public class PageInitializer extends BaseClass {
 		makePayment= new MakePaymentElement();
 		holder= new ToolBarHolderElements();
 		lossNoticeInfo= new LossNoticeInformationPageElements();
-		
+		userLookup= new UserLookupElements();
 	}
 
 }
