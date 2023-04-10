@@ -89,6 +89,8 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "QuickAction_NewQuote")
 	public WebElement btnNewQuoteStart;
 
+	@FindBy(id= "Menu_Admin_UserManagement")
+	public WebElement btnUserManagement;
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
