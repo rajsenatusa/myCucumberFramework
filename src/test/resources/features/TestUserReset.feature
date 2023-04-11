@@ -23,5 +23,5 @@ Feature: Reset Users
  Scenario: Reset Password for Test user
 Given Login with valid "pvispute" and "April@2023!"
 When I click on the signin button
-Then I given all test user list to reset the password
+And I given all test user list to reset the password
     

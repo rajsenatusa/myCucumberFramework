@@ -3,8 +3,6 @@ package aii.steps;
 import aii.utils.CommonMethods;
 import aii.utils.ExcelUtility;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 
 
@@ -18,7 +16,7 @@ public class PasswordReset extends CommonMethods {
 	String FileLocation = System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\UserList_ToRest.xlsx";
 	
 	
-	@Then ("I given all test user list to reset the password")
+	@And ("I given all test user list to reset the password")
 	public void i_given_all_test_user_list_to_reset_the_password_to() {
 		String user="test user";
 		Object[][] listofUsers;
@@ -26,12 +24,14 @@ public class PasswordReset extends CommonMethods {
 		try {
 		listofUsers = ExcelUtility.excelIntoArray(FileLocation, "Users");
 		
+		click(dashboard.btnUserManagement);
+		wait(1);
+		
 		for (int j=0;j<=listofUsers.length-1;j++) {
 			user = listofUsers[j][0].toString();
 		click(dashboard.btnAdmin);
 		wait(1);
-		click(dashboard.btnUserManagement);
-		wait(1);
+		
 		selectDropdownText(userLookup.ddSearchBy,"User Code");
 		selectDropdownText(userLookup.ddStartWith,"Equals");
 		sendText(userLookup.txtSearchText,listofUsers[j][0].toString());
