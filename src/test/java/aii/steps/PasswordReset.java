@@ -17,6 +17,7 @@ import io.cucumber.java.en.When;
 public class PasswordReset extends CommonMethods {
 	String FileLocation = System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\UserList_ToRest.xlsx";
 	
+	
 	@Then ("I given all test user list to reset the password")
 	public void i_given_all_test_user_list_to_reset_the_password_to() {
 		String user="test user";
