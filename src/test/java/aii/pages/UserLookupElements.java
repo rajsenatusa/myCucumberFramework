@@ -20,7 +20,7 @@ public class UserLookupElements extends CommonMethods {
 	@FindBy (id= "MatchType")
 	public WebElement ddStartWith;
 	
-	@FindBy (id= "ResetPassword_*")
+	@FindBy (linkText= "Reset Password")
 	public WebElement lnkResetPassword;
 	
 	@FindBy (id= "NewPassword")
@@ -34,6 +34,9 @@ public class UserLookupElements extends CommonMethods {
 	
 	@FindBy (id= "ResetPassword")
 	public WebElement btnChangePassword;
+	
+	@FindBy (id= "Return")
+	public WebElement btnReturn;
 	
 	public UserLookupElements() {
 		PageFactory.initElements(driver, this);
