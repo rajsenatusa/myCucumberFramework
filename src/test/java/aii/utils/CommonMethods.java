@@ -288,8 +288,24 @@ public class CommonMethods extends PageInitializer {
 	 */
 	public static void click(WebElement element) {
 		waitForClickability(element);
-		element.click();
+		element.click();		
 	}
+	
+	/**
+	 * This method waits for an element is visible and then return true.
+	 * 
+	 * @param element
+	 */
+	public static boolean IsVisible(WebElement element) {
+		boolean visible = false;
+		
+		if (element.isDisplayed())
+		{
+			visible = true;
+		}
+		return  visible;
+	}
+	
 	
 	/**
 	 * This method waits for an element to be clickable and then clicks TAB button on it.

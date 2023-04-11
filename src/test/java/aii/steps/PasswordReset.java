@@ -23,14 +23,15 @@ public class PasswordReset extends CommonMethods {
 		
 		try {
 		listofUsers = ExcelUtility.excelIntoArray(FileLocation, "Users");
-		
+		click(dashboard.btnAdmin);
+		wait(1);
 		click(dashboard.btnUserManagement);
 		wait(1);
+
 		
 		for (int j=0;j<=listofUsers.length-1;j++) {
 			user = listofUsers[j][0].toString();
-		click(dashboard.btnAdmin);
-		wait(1);
+		
 		
 		selectDropdownText(userLookup.ddSearchBy,"User Code");
 		selectDropdownText(userLookup.ddStartWith,"Equals");
@@ -46,10 +47,14 @@ public class PasswordReset extends CommonMethods {
 		sendText(userLookup.txtConfirmPassword,listofUsers[j][1].toString());
 		click(userLookup.chkPasswordChangeNextLogin);
 		click(userLookup.btnChangePassword);
-		System.out.println("Password Changed Successfully for user -" + listofUsers[j][0].toString());
+		if (IsVisible(userLookup.btnReturn)) {
+			click(userLookup.btnReturn);
+		}
+		
+		System.out.println("Password Changed Successfully for user - " + listofUsers[j][0].toString());
 		}
 		} catch (Exception  e) {
-			System.out.println("Password Not Changed for user -" +user);
+			System.out.println("Password Not Changed for user - " +user);
 		}
 }
 }
