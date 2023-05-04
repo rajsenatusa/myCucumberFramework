@@ -26,9 +26,7 @@ Feature: HO3 MMA scenario
     #And I navigate to policyfile screen
     #Then I click on on the application and validate HO3 MMA acknowledge form not attached in the endorsement package
 
-    
-#demo
-
+#demo    
   @smokeTest1444
   Scenario: Valid Credentials
     Given I signin Spin as Underwriter
