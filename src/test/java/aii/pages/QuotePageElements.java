@@ -38,7 +38,9 @@ public class QuotePageElements extends CommonMethods {
 	@FindBy (id= "SaveAndQuote")
 	public WebElement btnSaveAndQuote;
 	
-		
+	@FindBy(id = "Menu_Policy")
+	public WebElement quoteAndPolicy;
+	
 	public QuotePageElements() {
 		PageFactory.initElements(driver, this);
 	}
