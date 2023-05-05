@@ -92,6 +92,12 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Menu_Admin_UserManagement")
 	public WebElement btnUserManagement;
 	
+	@FindBy(id= "Customer.EntityTypeCd")
+	public WebElement customerEntityType;
+	
+	
+	
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 	}

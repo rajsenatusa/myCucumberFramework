@@ -107,6 +107,10 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy (id= "Add")
 	public WebElement btnAdd;
 	
+	@FindBy (id= "InsuredEmail.EmailAddr")
+	public WebElement emailAddr;
+	
+	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
 		

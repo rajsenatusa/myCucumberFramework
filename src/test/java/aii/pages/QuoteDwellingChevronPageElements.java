@@ -101,6 +101,89 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.CovHCCLimit")
 	public WebElement ddHomeComputerLimit;
 	
+	@FindBy(id= "Building.BCEGCd")
+	public WebElement bCEG;
+	
+	@FindBy(id= "Building.NumberOfStories")
+	public WebElement numberOfStories;
+	
+	@FindBy(id = "Building.FireplaceInd")
+	public WebElement firePlace;
+	
+	@FindBy(id = "Building.ExteriorWalls")
+	public WebElement exteriorWalls;
+	
+	@FindBy(id = "Building.PackageCoverageInd_2")
+	public WebElement silverReserve;
+	
+	@FindBy(id = "Building.CovALimit")
+	public WebElement covALimit;
+	
+	@FindBy(id = "Building.AnimalLiability")
+	public WebElement animalLiability;
+	
+	@FindBy(id = "Building.FireAlarmCd")
+	public WebElement fireAlarm;
+	
+	@FindBy(id = "Building.SprinklerSystemCd")
+	public WebElement sprinklerSystem; 
+	
+	@FindBy(id = "Building.BurglarAlarmCd")
+	public WebElement burglarAlarm; 
+	
+	@FindBy(id = "Building.SecuredCommunityCd")
+	public WebElement securedCommunity; 
+	
+	@FindBy(id = "Building.MilitaryDiscountInd")
+	public WebElement militaryDiscount; 
+	
+	@FindBy(id = "Building.OpeningProtectionCd")
+	public WebElement openingProtection; 
+	
+	@FindBy(id = "Building.RoofShapeCd")
+	public WebElement roofShape; 
+	
+	@FindBy(id = "Building.SecondaryWaterResistanceInd")
+	public WebElement secondaryWaterResistance; 
+	
+	@FindBy(id = "Building.FloodCoverage")
+	public WebElement floodCoverage; 
+	
+	@FindBy(id = "Building.FloodCovALimit")
+	public WebElement floodDwelling; 
+	
+	@FindBy(id = "Building.FloodCovBLimit")
+	public WebElement floodPersonalProperty; 
+
+	@FindBy(id = "Building.FloodFoundationType")
+	public WebElement floodFoundationType;
+	
+	@FindBy(id = "Building.FloodZoneOverride")
+	public WebElement floodZoneOverride;
+	 
+	@FindBy(id = "Building.FloodPreferredStatus")
+	public WebElement floodPreferredStatus;
+	
+	@FindBy(id = "Building.FloodSFHAOverride")
+	public WebElement floodSFHAOverride;
+	
+	@FindBy(id = "Building.ElevatedRiskDiscount")
+	public WebElement elevatedRiskDiscount;
+	
+	@FindBy(id = "Building.FloodCovADed")
+	public WebElement floodCovADed;
+	
+	@FindBy(id = "Building.BaseFloodElevationOverride")
+	public WebElement baseFloodElevationOverride;
+	
+	@FindBy(id = "Wizard_Worksheets")
+	public WebElement worksheets; 
+	
+	@FindBy(id = "Wizard_Risks")
+	public WebElement dwelling; 
+	
+	
+	
 	
 	public QuoteDwellingChevronPageElements() {
 		

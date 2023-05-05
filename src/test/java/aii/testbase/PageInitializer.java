@@ -18,6 +18,8 @@ import aii.pages.SpecialOptionsPageElements;
 import aii.pages.ToolBarHolderElements;
 import aii.pages.UmbrellaLiabilityPageElements;
 import aii.pages.UserLookupElements;
+import aii.pages.WorksheetsChevronPageElements;
+
 
 
 
@@ -42,7 +44,7 @@ public class PageInitializer extends BaseClass {
 	public static ToolBarHolderElements holder;
 	public static LossNoticeInformationPageElements lossNoticeInfo;
 	public static UserLookupElements userLookup;
-	
+	public static WorksheetsChevronPageElements worksheetsChevron;
 	
 	
 	public static void initialize() {
@@ -65,6 +67,7 @@ public class PageInitializer extends BaseClass {
 		holder= new ToolBarHolderElements();
 		lossNoticeInfo= new LossNoticeInformationPageElements();
 		userLookup= new UserLookupElements();
+		worksheetsChevron= new WorksheetsChevronPageElements();
 	}
 
 }
