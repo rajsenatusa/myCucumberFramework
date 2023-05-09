@@ -14,7 +14,7 @@ Feature: Login to QA7
   @LoginToQA7-2
   Scenario Outline: Login with valid credentials
     Given User navigates to QA7
-    And User enters a valid user name "<username>"
+    And User enters a valid user name"<username>"
     And User enters a valid password "<password>"
     And User clicks on the login button
     Then User verifies that User logged in
