@@ -1,5 +1,7 @@
 package aii.steps;
 
+import org.junit.Assert;
+
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.Given;
@@ -70,8 +72,5 @@ public class LoginSteps extends CommonMethods {
 		} else {
 			System.out.println("Test Failed!");
 		}
-	}
-
-	
-
+	}	
 }
