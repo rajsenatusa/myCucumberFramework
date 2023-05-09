@@ -17,7 +17,7 @@ import io.cucumber.java.en.When;
 
 public class VOLHO3_NB_Policy extends CommonMethods {
 
-	@And("User enters a valid user name{string}")
+	@And("User enters a valid user name {string}")
 	public void User_enters_a_valid_user_name(String username) {
 		sendText(login.username, username);			
 	}
