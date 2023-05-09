@@ -28,11 +28,6 @@ import io.cucumber.java.en.When;
 
 public class VOLHO6RateChange extends CommonMethods {
 		
-	@And("User enters NB HO6 New Product Version effective date")
-	public void User_enters_NB_HO6_New_Product_Version_effective_date() {	    	   		
-		SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy"); 		
-		product.txtEffectiveDate.sendKeys(ConfigsReader.getProperty("NBHO6NewProductVersioneffectivedate"));	
-	}
 	@And("User enters Construction Type")
 	public void User_enters_Construction_Type() {	    	   				
 		selectDropdownText(policyChevron.ddConstructionType, "Frame");

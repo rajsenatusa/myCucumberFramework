@@ -12,7 +12,7 @@ Feature: 2023 Rate Changes- FL Annual Filings: VOL HO6
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters NB HO6 New Product Version effective date
+    And User enters HO6 New Product Version effective date
     And User enters state
     And User clicks VOL HO6 policy
     And User enters Producer Code
@@ -101,7 +101,6 @@ Feature: 2023 Rate Changes- FL Annual Filings: VOL HO6
     Then User verifies HO6 Personal Property Flood Rate Zone C and Foundation Elevated
     And User clicks Finalize button
     
-
     Examples: Test Data
       | FloodCoverage | FloodPersonalProperty | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount | RoofMaterial                      |
       | Yes           | $10,000               | $500                    | Elevated            | C                 | No                  | No           | No                   | Architectural Composition Shingle |
@@ -183,7 +182,6 @@ Feature: 2023 Rate Changes- FL Annual Filings: VOL HO6
     And User clicks Worksheets chevron
    Then User verifies HO6 Building Flood Rate Zone D and Foundation Slab
    Then User verifies HO6 Personal Property Flood Rate Zone D and Foundation Slab
-
 
     Examples: Test Data
       | FloodCoverage | FloodPersonalProperty | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount | RoofMaterial                      |

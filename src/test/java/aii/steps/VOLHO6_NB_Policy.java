@@ -17,6 +17,11 @@ import io.cucumber.java.en.When;
 
 public class VOLHO6_NB_Policy extends CommonMethods {
 
+	@And("User enters HO6 New Product Version effective date")
+	public void User_enters_NB_HO6_New_Product_Version_effective_date() {	    	   		
+		SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy"); 		
+		product.txtEffectiveDate.sendKeys(ConfigsReader.getProperty("NBHO6NewProductVersioneffectivedate"));	
+	}	
 	@And("User clicks VOL HO6 policy")
 	public void User_clicks_VOL_HO3_policy() {	    	   				
 		click(product.btnProductSelectionHo6);		
