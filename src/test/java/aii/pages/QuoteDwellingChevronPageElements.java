@@ -182,8 +182,11 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id = "Wizard_Risks")
 	public WebElement dwelling; 
 	
+	@FindBy(id = "Building.StoryUnit")
+	public WebElement storyUnit; 
 	
-	
+	@FindBy(id = "Building.CovCLimit")
+	public WebElement cPersonalProperty; 
 	
 	public QuoteDwellingChevronPageElements() {
 		
