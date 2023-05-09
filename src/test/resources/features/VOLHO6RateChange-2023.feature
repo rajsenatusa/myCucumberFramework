@@ -100,6 +100,7 @@ Feature: 2023 Rate Changes- FL Annual Filings: VOL HO6
     Then User verifies HO6 Building Flood Rate Zone C and Foundation Elevated
     Then User verifies HO6 Personal Property Flood Rate Zone C and Foundation Elevated
     And User clicks Finalize button
+    
 
     Examples: Test Data
       | FloodCoverage | FloodPersonalProperty | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount | RoofMaterial                      |
