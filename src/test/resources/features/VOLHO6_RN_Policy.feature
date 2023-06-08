@@ -3,7 +3,7 @@
 Feature: Renewal Policy VOL HO6
 
   @RN_Policy_VOLHO6-1
-  Scenario Outline: Rate Change-2023 HO6-Flood Rate Zone X and Foundation Basement
+  Scenario Outline: RN VOL HO6
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -21,7 +21,7 @@ Feature: Renewal Policy VOL HO6
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -47,7 +47,7 @@ Feature: Renewal Policy VOL HO6
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks Transaction Selection
+    And User clicks RN Transaction Selection
     And User clicks Finalize
     Then User verifies RN HO6 policy has been created successfully
 

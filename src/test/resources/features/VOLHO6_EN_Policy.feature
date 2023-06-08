@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
-@NB_Policy_VOLHO6
-Feature: New Business Policy VOL HO6
+@EN_Policy_VOLHO6
+Feature: Endorsement Policy VOL HO6
 
-  @NB_Policy_VOLHO6-1
-  Scenario Outline: Rate Change-2023 HO6-Flood Rate Zone X and Foundation Basement
+  @EN_Policy_VOLHO6-1
+  Scenario Outline: EN VOL HO6
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -45,7 +45,13 @@ Feature: New Business Policy VOL HO6
     And User enters Roof Material "<RoofMaterial>"
     And User calculates replacement cost
     And User clicks Finalize button
-	 Then User verifies NB HO6 policy has been created successfully
+    And User returns to main page
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Endorse Policy button
+    Then User verifies EN HO6 policy has been created successfully
+
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 05/05/2023                     | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password | NewProductVersionEffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 05/05/2023                     | 05/10/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |

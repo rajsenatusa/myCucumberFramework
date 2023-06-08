@@ -38,6 +38,9 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(id= "Approve")
 	public WebElement btnApprove;	
 	
+	@FindBy(xpath= "//span[normalize-space()='Endorse Policy']")
+	public WebElement btnEndorsePolicy;
+	
 	
 	public CloseOutChevronPageElements() {
 		

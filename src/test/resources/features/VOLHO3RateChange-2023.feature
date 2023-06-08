@@ -21,7 +21,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -89,7 +89,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -157,7 +157,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -225,7 +225,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -293,7 +293,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -362,7 +362,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -430,7 +430,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -498,7 +498,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -566,7 +566,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -634,7 +634,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -702,7 +702,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -770,7 +770,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -839,7 +839,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -908,7 +908,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -946,7 +946,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks Transaction Selection
+    And User clicks RN Transaction Selection
     And User clicks Finalize
     And User returns to main page
     And User clicks Worksheets chevron
@@ -981,7 +981,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -1019,7 +1019,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks Transaction Selection
+    And User clicks RN Transaction Selection
     And User clicks Finalize
     And User returns to main page
     And User clicks Worksheets chevron
@@ -1055,7 +1055,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -1093,7 +1093,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks Transaction Selection
+    And User clicks RN Transaction Selection
     And User clicks Finalize
     And User returns to main page
     And User clicks Worksheets chevron
@@ -1128,7 +1128,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -1166,7 +1166,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks Transaction Selection
+    And User clicks RN Transaction Selection
     And User clicks Finalize
     And User returns to main page
     And User clicks Worksheets chevron
@@ -1201,7 +1201,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -1240,7 +1240,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks Transaction Selection
+    And User clicks RN Transaction Selection
     And User clicks Finalize
     And User returns to main page
     And User clicks Worksheets chevron
@@ -1275,7 +1275,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -1313,7 +1313,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks Transaction Selection
+    And User clicks RN Transaction Selection
     And User clicks Finalize
     And User returns to main page
     And User clicks Worksheets chevron
@@ -1348,7 +1348,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User enters Prior Policy Expiration Date
     And User enters Insurance Score
     And User enters Primary Phone
-    And User enters Email
+    And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -1386,7 +1386,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks Transaction Selection
+    And User clicks RN Transaction Selection
     And User clicks Finalize
     And User returns to main page
     And User clicks Worksheets chevron

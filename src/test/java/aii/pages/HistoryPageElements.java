@@ -17,6 +17,9 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "History_2_1_Description")
 	public WebElement renewal;
 	
+	@FindBy(id= "History_1_2_Description")
+	public WebElement endorsemt;
+	
 	public HistoryPageElements() {
 		
 		PageFactory.initElements(driver, this);
