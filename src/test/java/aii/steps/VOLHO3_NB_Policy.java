@@ -52,7 +52,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	}
 	@And("User enters Dwelling Address")
 	public void User_enters_Dwelling_Address() {	     
+		wait(1);
 		sendText(quote.txtAddress, ConfigsReader.getProperty("address"));
+		wait(1);
 		sendText(quote.txtZipCode, ConfigsReader.getProperty("zipcode"));
 		wait(2);
 		click(quote.btnVerifyAddress);
@@ -104,9 +106,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		policyChevron.txtPhoneNumber.sendKeys(ConfigsReader.getProperty("phoneNumber")); 
 		selectDropdownText(policyChevron.ddPhoneNumberType,"Mobile");			
 	}
-	@And("User enters Email")
-	public void User_enters_Email() {	    	   				
-		policyChevron.emailAddr.sendKeys(ConfigsReader.getProperty("EmailAddr")); 			
+	@And("User clicks No Email")
+	public void User_clicks_No_Email() {	    	   				
+		policyChevron.btnNoEmailRadio.click(); 			
 		wait(1);
 	}	
 	@And("User enters Construction Type {string}")
@@ -252,6 +254,11 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		dwellingChevron.btnSave.click();
 		dwellingChevron.btnNext.click();
 		wait(1);
+	}	
+	@And("User clicks next page button")
+	public void User_clicks_next_page_button () {	    	   						
+		dwellingChevron.btnNext.click();
+		wait(1);	
 	}	
 	@And("User enters Pay Plan Type")
 	public void User_enters_Pay_Plan_Type() {	    	   						

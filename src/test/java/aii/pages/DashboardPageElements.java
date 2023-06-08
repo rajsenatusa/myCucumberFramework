@@ -95,9 +95,6 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Customer.EntityTypeCd")
 	public WebElement customerEntityType;
 	
-	
-	
-	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 	}

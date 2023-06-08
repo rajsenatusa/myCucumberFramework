@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
-@RN_Policy_VOLHO3
-Feature: Renewal Policy VOL HO3
+@EN_Policy_VOLHO3
+Feature: Endorsement Policy VOL HO3
 
-  @RN_Policy_VOLHO3-1
-  Scenario Outline: RN VOL HO3
+  @EN_Policy_VOLHO3-1
+  Scenario Outline: EN VOL HO3
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -59,13 +59,11 @@ Feature: Renewal Policy VOL HO3
     And User clicks Finalize button
     And User returns to main page
     And User clicks Start Transaction
-    And User clicks RN Transaction Selection
-    And User clicks Finalize
-    Then User verifies RN HO3 policy has been created successfully
-    
+    And User clicks EN Transaction Selection
+    And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Endorse Policy button
+    Then User verifies EN HO3 policy has been created successfully
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 06/18/2022                     | Masonry          | Owner Occupied | 4 to 8 Months  |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | A-Hurricane Impact | Gable     | No  | Yes           | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |
-
-  
+      | username | password | NewProductVersionEffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 05/18/2023                     | 05/18/2023               | Masonry          | Owner Occupied | 4 to 8 Months  |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | A-Hurricane Impact | Gable     | No  | Yes           | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |

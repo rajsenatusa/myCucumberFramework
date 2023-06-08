@@ -26,8 +26,8 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 		public void User_clicks_Start_Transaction() {	    	   						
 			click(dashboard.btnStartTransaction);		
 		}
-		@And("User clicks Transaction Selection")
-		public void User_clicks_Transaction_Selection() {	    	   						
+		@And("User clicks RN Transaction Selection")
+		public void User_clicks_RN_Transaction_Selection() {	    	   						
 			selectDropdownText(dashboard.ddSelectTransaction, "Renewal");	
 			 wait(1);	
 			 click(dashboard.btnSelect);	

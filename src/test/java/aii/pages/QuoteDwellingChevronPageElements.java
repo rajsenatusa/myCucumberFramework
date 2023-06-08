@@ -21,6 +21,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	public WebElement ddMediationArbit;
 	
 	@FindBy(id= "BuildingExt.MMAInd")
+	public WebElement d1MediationArbit;
+	
+	@FindBy(id= "BuildingExt.MMAInd")
 	public WebElement ddMediationArbitDp1;
 	
 	@FindBy(id= "Save")
