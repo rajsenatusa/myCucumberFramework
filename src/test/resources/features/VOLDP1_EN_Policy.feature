@@ -55,6 +55,7 @@ Feature: Endorsement Policy VOL DP1
     And User enters EN Effective Date "<EndorsementEffectiveDate>"
     And User clicks Endorse Policy button
     Then User verifies EN DP1 policy has been created successfully
+    
 
     Examples: Test Data
       | username | password | NewProductVersionEffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |

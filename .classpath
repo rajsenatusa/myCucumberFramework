@@ -30,24 +30,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/commons-cli-1.5.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/config-1.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/config-1.4.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/fontbox-2.0.20.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/fontbox-2.0.25.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/logback-classic-1.2.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/logback-classic-1.2.10.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/logback-core-1.2.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/logback-core-1.2.10.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/pdfbox-2.0.20.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/pdfbox-2.0.25.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/pdfcompare-1.1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/pdfcompare-1.1.61.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/slf4j-api-1.7.30.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars/slf4j-api-1.7.35.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars from Prafull/pdfcomparator1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars from Prafull/slf4j-api-1.7.30.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/jars from Prafull/smartPDFcomparator2.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/config-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/fontbox-2.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/logback-classic-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/logback-core-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/pdfbox-2.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/pdfcomparator1.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/smartPDFcomparator2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
