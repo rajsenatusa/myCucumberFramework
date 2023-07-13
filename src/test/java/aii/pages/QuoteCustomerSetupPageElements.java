@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import aii.utils.CommonMethods;
 
-public class QuotePageElements extends CommonMethods {
+public class QuoteCustomerSetupPageElements extends CommonMethods {
 	
 	@FindBy (id= "CustomerName.GivenName")
 	public WebElement txtFirstName;
@@ -41,7 +41,7 @@ public class QuotePageElements extends CommonMethods {
 	@FindBy(id = "Menu_Policy")
 	public WebElement quoteAndPolicy;
 	
-	public QuotePageElements() {
+	public QuoteCustomerSetupPageElements() {
 		PageFactory.initElements(driver, this);
 	}
 	

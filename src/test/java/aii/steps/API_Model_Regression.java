@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
-public class APIModelRegression {
+public class API_Model_Regression {
 
 //Validation of User Story-5965
 @Test	

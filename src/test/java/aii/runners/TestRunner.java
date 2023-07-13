@@ -20,7 +20,7 @@ import io.cucumber.junit.CucumberOptions;
 		
 
 		// tags can do the same thing groups on TestNG do
-				tags = "@NB_Policy_VOLDP3-1",
+				tags = "@RN_Policy_VOLHO3-1",
 		
 		//it provides the output console to more readable
 		monochrome = true, 

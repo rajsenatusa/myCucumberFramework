@@ -1,6 +1,5 @@
 package aii.testbase;
 import aii.pages.AIBPageElements;
-import aii.pages.ApplicationUwQuestionsPageElements;
 import aii.pages.CloseOutChevronPageElements;
 import aii.pages.DashboardPageElements;
 import aii.pages.GolfcartChevronPageElements;
@@ -9,30 +8,28 @@ import aii.pages.LoginPageElements;
 import aii.pages.LossNoticeInformationPageElements;
 import aii.pages.MakePaymentElement;
 import aii.pages.PolicyFilePageElements;
-import aii.pages.ProductSelectionPageElements;
+import aii.pages.QuoteCustomerSetupPageElements;
 import aii.pages.QuoteDwellingChevronPageElements;
-import aii.pages.QuotePageElements;
 import aii.pages.QuotePolicyChevronPageElements;
+import aii.pages.QuoteProductSelectionPageElements;
 import aii.pages.QuoteReviewPageElements;
 import aii.pages.SpecialOptionsPageElements;
 import aii.pages.ToolBarHolderElements;
 import aii.pages.UmbrellaLiabilityPageElements;
 import aii.pages.UserLookupElements;
+import aii.pages.UwQuestionsPageElements;
 import aii.pages.WorksheetsChevronPageElements;
-
-
-
 
 public class PageInitializer extends BaseClass {
 
 	public static LoginPageElements login;
 	public static DashboardPageElements dashboard;
-	public static QuotePageElements quote;
-	public static ProductSelectionPageElements product;
+	public static QuoteCustomerSetupPageElements quote;
+	public static QuoteProductSelectionPageElements product;
 	public static QuotePolicyChevronPageElements policyChevron;
 	public static QuoteDwellingChevronPageElements dwellingChevron;
 	public static QuoteReviewPageElements reviewChevron;
-	public static ApplicationUwQuestionsPageElements uwquestionsChevron;
+	public static UwQuestionsPageElements uwquestionsChevron;
 	public static CloseOutChevronPageElements closeoutChevron;
 	public static GolfcartChevronPageElements golfcartChevron;
 	public static AIBPageElements aibChevron;
@@ -50,12 +47,12 @@ public class PageInitializer extends BaseClass {
 	public static void initialize() {
 		login = new LoginPageElements();
 		dashboard = new DashboardPageElements();
-		quote= new QuotePageElements();
-		product= new ProductSelectionPageElements();
+		quote= new QuoteCustomerSetupPageElements();
+		product= new QuoteProductSelectionPageElements();
 		policyChevron= new QuotePolicyChevronPageElements();
 		dwellingChevron= new QuoteDwellingChevronPageElements();
 		reviewChevron= new QuoteReviewPageElements();
-		uwquestionsChevron= new ApplicationUwQuestionsPageElements();
+		uwquestionsChevron= new UwQuestionsPageElements();
 		closeoutChevron= new CloseOutChevronPageElements();
 		golfcartChevron= new GolfcartChevronPageElements();
 		aibChevron= new AIBPageElements();

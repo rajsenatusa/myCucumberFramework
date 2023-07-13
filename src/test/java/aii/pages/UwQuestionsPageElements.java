@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import aii.utils.CommonMethods;
 
-public class ApplicationUwQuestionsPageElements extends CommonMethods {
+public class UwQuestionsPageElements extends CommonMethods {
 	
 	@FindBy(id= "Question_Conviction")
 	public WebElement ho3Question1;
@@ -275,7 +275,7 @@ public class ApplicationUwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_VehicleSpeed")
 	public WebElement umbQuestion18;
 	
-	public ApplicationUwQuestionsPageElements() {
+	public UwQuestionsPageElements() {
 		
 		PageFactory.initElements(driver, this);
 		
