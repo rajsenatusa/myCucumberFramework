@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import aii.utils.CommonMethods;
 
-public class ProductSelectionPageElements extends CommonMethods{
+public class QuoteProductSelectionPageElements extends CommonMethods{
 	
 	@FindBy (id= "BasicPolicy.EffectiveDt")
 	public WebElement txtEffectiveDate;

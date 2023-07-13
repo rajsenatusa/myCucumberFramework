@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import aii.utils.CommonMethods;
 
-public class ApplicationUwQuestionsPageElements extends CommonMethods {
+public class UwQuestionsPageElements extends CommonMethods {
 	
 	@FindBy(id= "Question_Conviction")
 	public WebElement ho3Question1;
