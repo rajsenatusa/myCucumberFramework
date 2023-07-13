@@ -8,7 +8,7 @@ import aii.utils.ConfigsReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AIBpolicy extends CommonMethods {
+public class VOLAIB_NBpolicy extends CommonMethods {
 
 	
 	@When("I enter AIB product selection information and effective date")

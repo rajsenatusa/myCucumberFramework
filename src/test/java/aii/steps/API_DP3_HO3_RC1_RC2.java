@@ -10,7 +10,7 @@ import io.restassured.http.ContentType;
 import static org.hamcrest.Matchers.*;
 
 
-public class API {
+public class API_DP3_HO3_RC1_RC2 {
 	
 	//Scenario: Validation DP3 Quote Process
 	@Test
