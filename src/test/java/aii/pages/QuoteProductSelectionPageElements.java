@@ -63,7 +63,7 @@ public class QuoteProductSelectionPageElements extends CommonMethods{
 	public WebElement btnProductSelectionUmb;
 	
 	
-	public ProductSelectionPageElements() {
+	public QuoteProductSelectionPageElements() {
 		PageFactory.initElements(driver, this);
 	}
 
