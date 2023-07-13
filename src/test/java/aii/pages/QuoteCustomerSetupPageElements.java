@@ -41,7 +41,7 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy(id = "Menu_Policy")
 	public WebElement quoteAndPolicy;
 	
-	public QuotePageElements() {
+	public QuoteCustomerSetupPageElements() {
 		PageFactory.initElements(driver, this);
 	}
 	
