@@ -5,7 +5,9 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import aii.utils.ConfigsReader;
 import aii.utils.Constants;
@@ -38,22 +40,79 @@ public class BaseClass {
 			break;		
 		case "edgedriver":
 			WebDriverManager.edgedriver().setup();
-			driver = new FirefoxDriver();
+			driver = new EdgeDriver();
 			break;		
 		case "safari":
 			WebDriverManager.safaridriver().setup();
-			driver = new FirefoxDriver();
+			driver = new SafariDriver();
 			break;
 			
 		default:
 			throw new RuntimeException("Browser is not supported!!!");
 		}
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
-		driver.manage().window().maximize();
-		driver.get(ConfigsReader.getProperty("url"));
-		PageInitializer.initialize();
-	}
+		
+		
+		 String environment = ConfigsReader.getProperty("environment").toLowerCase();
+	        System.out.println("Environment: " + environment);
+
+	        switch (environment) {
+
+	            case "model":
+	                System.out.println("Opening Model environment...");
+	                driver.get(ConfigsReader.getProperty("urlmodel"));
+	                break;
+	                
+	            case "model2":
+	                System.out.println("Opening Model2 environment...");
+	                driver.get(ConfigsReader.getProperty("urlmodel2"));
+	                break;
+
+	            case "qa1":
+	                System.out.println("Opening QA1 environment...");
+	                driver.get(ConfigsReader.getProperty("urlqa1"));
+	                break;
+
+	            case "qa2":
+	                System.out.println("Opening QA2 environment...");
+	                driver.get(ConfigsReader.getProperty("urlqa2"));
+	                break;
+
+	            case "qa3":
+	                System.out.println("Opening QA3 environment...");
+	                driver.get(ConfigsReader.getProperty("urlqa3"));
+	                break;
+
+	            case "qa4":
+	                System.out.println("Opening QA4 environment...");
+	                driver.get(ConfigsReader.getProperty("urlqa4"));
+	                break;
+
+	            case "qa5":
+	                System.out.println("Opening QA5 environment...");
+	                driver.get(ConfigsReader.getProperty("urlqa5"));
+	                break;
+
+	            case "qa6":
+	                System.out.println("Opening QA6 environment...");
+	                driver.get(ConfigsReader.getProperty("urlqa6"));
+	                break;
+
+	            case "qa7":
+	                System.out.println("Opening QA7 environment...");
+	                driver.get(ConfigsReader.getProperty("urlqa7"));
+	                break;
+
+	            default:
+	                throw new RuntimeException("Environment has not been found!!! Environment: " + environment);
+	        }
+
+	        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
+	        driver.manage().window().maximize();
+	        PageInitializer.initialize();
+	    }
+		
+		
 
 	/**
 	 * This method will quit the browser

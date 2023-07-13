@@ -1011,11 +1011,43 @@ public static void fillHO3_UWQuestions() throws Exception {
 		CommonMethods.click(uwquestionsChevron.nextButtonUw);
 	}
 	
+public static void fillAIB_UWQuestions() throws Exception {
+		
+		CommonMethods.click(dwellingChevron.btnNext);
+		
+		//AIB Underwriting Questions Chevron was filled here
+		
+		selectDropdownText(uwquestionsChevron.aibQuestion1, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question1, "No");
+		selectDropdownText(uwquestionsChevron.gocQuestion3, "No");
+		selectDropdownText(uwquestionsChevron.gocQuestion4, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion5, "No");
+		selectDropdownText(uwquestionsChevron.gocQuestion6, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion7, "No");
+		selectDropdownText(uwquestionsChevron.gocQuestion7, "No");
+		selectDropdownText(uwquestionsChevron.gocQuestion8, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion10, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion11, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion12, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion13, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion14, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion15, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion16, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion17, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion18, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion19, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion20, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion21, "No");
+		selectDropdownText(uwquestionsChevron.aibQuestion22, "No");
+		
+		CommonMethods.wait(1);
+		CommonMethods.click(uwquestionsChevron.nextButtonUw);
+	}
 	
 	public static void check_CCDisclosure() {
 		
 		wait(1);
-		 click(closeoutChevron.chkCCPromopt);
+		 click(closeoutChevron.rbCCPrompt);
 		    wait(1);
 		    click(closeoutChevron.btnPromptOK);
 		    wait(2);

@@ -90,10 +90,10 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	public WebElement ddAttachedStructures;
 	
 	@FindBy(id= "Building.PackageCoverageInd_1")
-	public WebElement radioBasicPackage;
+	public WebElement rbBasicPackage;
 	
 	@FindBy(id= "Building.PackageCoverageInd_2")
-	public WebElement radioIntegritySelectPackage;
+	public WebElement rbIntegritySelectPackage;
 	
 	@FindBy(id= "Building.CovCLimitIncluded")
 	public WebElement ddCovCLimit;
@@ -107,89 +107,86 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.BCEGCd")
 	public WebElement bCEG;
 	
-	@FindBy(id= "Building.NumberOfStories")
-	public WebElement numberOfStories;
-	
 	@FindBy(id = "Building.FireplaceInd")
-	public WebElement firePlace;
+	public WebElement ddFirePlace;
 	
 	@FindBy(id = "Building.ExteriorWalls")
-	public WebElement exteriorWalls;
+	public WebElement ddExteriorWalls;
 	
 	@FindBy(id = "Building.PackageCoverageInd_2")
-	public WebElement silverReserve;
+	public WebElement rbSilverReserve;
 	
 	@FindBy(id = "Building.CovALimit")
-	public WebElement covALimit;
+	public WebElement txtCovALimit;
 	
 	@FindBy(id = "Building.AnimalLiability")
-	public WebElement animalLiability;
+	public WebElement ddAnimalLiability;
 	
 	@FindBy(id = "Building.FireAlarmCd")
-	public WebElement fireAlarm;
+	public WebElement ddFireAlarm;
 	
 	@FindBy(id = "Building.SprinklerSystemCd")
-	public WebElement sprinklerSystem; 
+	public WebElement ddSprinklerSystem; 
 	
 	@FindBy(id = "Building.BurglarAlarmCd")
-	public WebElement burglarAlarm; 
+	public WebElement ddBurglarAlarm; 
 	
 	@FindBy(id = "Building.SecuredCommunityCd")
-	public WebElement securedCommunity; 
+	public WebElement ddSecuredCommunity; 
 	
 	@FindBy(id = "Building.MilitaryDiscountInd")
-	public WebElement militaryDiscount; 
+	public WebElement ddMilitaryDiscount; 
 	
 	@FindBy(id = "Building.OpeningProtectionCd")
-	public WebElement openingProtection; 
+	public WebElement ddOpeningProtection; 
 	
 	@FindBy(id = "Building.RoofShapeCd")
-	public WebElement roofShape; 
+	public WebElement ddRoofShape; 
 	
 	@FindBy(id = "Building.SecondaryWaterResistanceInd")
-	public WebElement secondaryWaterResistance; 
+	public WebElement ddSecondaryWaterResistance; 
 	
 	@FindBy(id = "Building.FloodCoverage")
-	public WebElement floodCoverage; 
+	public WebElement ddFloodCoverage; 
 	
 	@FindBy(id = "Building.FloodCovALimit")
-	public WebElement floodDwelling; 
+	public WebElement txtFloodDwellingCovA; 
 	
 	@FindBy(id = "Building.FloodCovBLimit")
-	public WebElement floodPersonalProperty; 
+	public WebElement txtFloodPersonalProperty; 
 
 	@FindBy(id = "Building.FloodFoundationType")
-	public WebElement floodFoundationType;
+	public WebElement ddFloodFoundationType;
 	
 	@FindBy(id = "Building.FloodZoneOverride")
-	public WebElement floodZoneOverride;
+	public WebElement ddFloodZoneOverride;
 	 
 	@FindBy(id = "Building.FloodPreferredStatus")
-	public WebElement floodPreferredStatus;
+	public WebElement txtFloodPreferredStatus;
 	
 	@FindBy(id = "Building.FloodSFHAOverride")
-	public WebElement floodSFHAOverride;
+	public WebElement ddFloodSFHAOverride;
 	
 	@FindBy(id = "Building.ElevatedRiskDiscount")
-	public WebElement elevatedRiskDiscount;
+	public WebElement ddElevatedRiskDiscount;
 	
 	@FindBy(id = "Building.FloodCovADed")
-	public WebElement floodCovADed;
+	public WebElement ddFloodCovADed;
 	
 	@FindBy(id = "Building.BaseFloodElevationOverride")
-	public WebElement baseFloodElevationOverride;
+	public WebElement txtBaseFloodElevationOverride;
 	
 	@FindBy(id = "Wizard_Worksheets")
-	public WebElement worksheets; 
+	public WebElement btnWorksheets; 
 	
 	@FindBy(id = "Wizard_Risks")
-	public WebElement dwelling; 
+	public WebElement btnDwelling; 
 	
 	@FindBy(id = "Building.StoryUnit")
-	public WebElement storyUnit; 
+	public WebElement ddStoryUnit; 
 	
 	@FindBy(id = "Building.CovCLimit")
-	public WebElement cPersonalProperty; 
+	public WebElement txtPersonalPropertyC; 
 	
 	public QuoteDwellingChevronPageElements() {
 		

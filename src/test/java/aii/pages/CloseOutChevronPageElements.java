@@ -21,19 +21,19 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	public WebElement txtWorkflowComments;	
 	
 	@FindBy(id= "QuoteAppSummary_QuoteAppNumber")
-	public WebElement applicationNumber;	
+	public WebElement txtApplicationNumber;	
 
 	@FindBy(id= "EnterCreditCardDetails")
 	public WebElement btnEnterCCDetails;
 	
 	@FindBy(id= "CreditCardPrompCheckBox")
-	public WebElement chkCCPromopt;
+	public WebElement rbCCPrompt;
 	
 	@FindBy(id= "CreditCardPromptDivOk")
 	public WebElement btnPromptOK;
 	
 	@FindBy(id= "ClaimSummary_ClaimTransactionNumber")
-	public WebElement transactionNumber;
+	public WebElement txtTransactionNumber;
 	
 	@FindBy(id= "Approve")
 	public WebElement btnApprove;	

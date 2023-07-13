@@ -5,19 +5,12 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TOMHOpolicy extends CommonMethods {
 
-	@Given("I signin Spin as Admin Agent")
-	public void i_signin_spin_as_admin_agent() {
-		 sendText(login.username, ConfigsReader.getProperty("adminusername"));
-		 sendText(login.password, ConfigsReader.getProperty("password"));
-		 click(login.btnSignIn);
-		 wait(3);
-	}
+	
 	@When("I enter product selection information for TOMHO and effective date")
 	public void i_enter_product_selection_information_for_tomho_and_effective_date() {
 		//product selection information was filled here

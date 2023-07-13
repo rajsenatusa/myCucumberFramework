@@ -93,7 +93,7 @@ public class DashboardPageElements extends CommonMethods {
 	public WebElement btnUserManagement;
 	
 	@FindBy(id= "Customer.EntityTypeCd")
-	public WebElement customerEntityType;
+	public WebElement ddCustomerEntityType;
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
