@@ -12,13 +12,13 @@ public class HistoryPageElements extends CommonMethods {
 	public WebElement btnsummaryTab;
 		
 	@FindBy(id= "History_1_1_TransactionCd")
-	public WebElement newBusiness;
+	public WebElement txtNewBusiness;
 	
 	@FindBy(id= "History_2_1_Description")
-	public WebElement renewal;
+	public WebElement txtRenewal;
 	
 	@FindBy(id= "History_1_2_Description")
-	public WebElement endorsemt;
+	public WebElement txtEndorsement;
 	
 	public HistoryPageElements() {
 		

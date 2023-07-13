@@ -4,43 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class HO3policy extends CommonMethods {
 
 	
-	@Given("I start transaction as a new customer")
-	public void i_start_transaction_as_a_new_customer() {
-		
-	   
-		wait(1);
-		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(1);
-		dashboard.btnNewQuote.click();
-		WebElement element= driver.findElement(By.id("Customer.EntityTypeCd"));
-		selectDropdownText(element, "Individual");
-		
-	}
-	@When("I enter all required information on customer information screen")
-	public void i_enter_all_required_information_on_customer_information_screen() {
-	   
-		//quote level information was filled here
-		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
-		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
-		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
-		click(quote.txtSearchName);
-		sendText(quote.txtAddress, ConfigsReader.getProperty("address"));
-		sendText(quote.txtZipCode, ConfigsReader.getProperty("zipcode"));
-		wait(2);
-		click(quote.btnVerifyAddress);
-		wait(2);
-		click(quote.btnCopyToMailAddress);
-		click(quote.btnCopyToBillAddress);
-		click(quote.btnSaveAndQuote);
-		wait(2);
-		}
+
+	
 	@When("I enter product selection information and effective date")
 	public void i_enter_product_selection_information_and_effective_date() {
 		//product selection information was filled here

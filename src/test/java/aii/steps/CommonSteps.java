@@ -1,3 +1,5 @@
+//updated on 07/12/2023 by Can Yavas
+
 package aii.steps;
 
 import java.time.LocalDateTime;
@@ -12,6 +14,7 @@ import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class CommonSteps extends CommonMethods {
@@ -22,14 +25,93 @@ public class CommonSteps extends CommonMethods {
 	static String date;
 	
 	 
-	@Given("I signin Spin as Standard Agent")
-	public void i_signin_spin_as_standard_agent() throws Throwable {
+	@Given("User login to Spin as Standard Agent")
+	public void user_login_to_spin_as_standard_agent() throws Throwable {
 	 sendText(login.username, ConfigsReader.getProperty("username"));
 	 sendText(login.password, ConfigsReader.getProperty("password"));
 	 click(login.btnSignIn);
 	 wait(1);	
 	 
 		
+	}
+	
+	@Given("User login to Spin as Admin Agent")
+	public void user_login_to_spin_as_admin_agent() throws Throwable {
+	 sendText(login.username, ConfigsReader.getProperty("adminusername"));
+	 sendText(login.password, ConfigsReader.getProperty("adminpassword"));
+	 click(login.btnSignIn);
+	 wait(1);	
+	 
+		
+	}
+	
+	@Given("User starts transaction as a new customer")
+	public void user_starts_transaction_as_a_new_customer() {
+		
+	   
+		wait(1);
+		moveToElement(driver.findElement(By.id("Menu_Policy")));
+		wait(1);
+		dashboard.btnNewQuote.click();
+		WebElement element= driver.findElement(By.id("Customer.EntityTypeCd"));
+		selectDropdownText(element, "Individual");
+		
+	}
+	
+	@Given("User navigates to the spin model website")
+	public void user_navigates_to_the_spin_model_website() {
+		// commented this out because we have Hooks.java
+		//	setUp();
+		//		login = new LoginPageElements();
+		//		dashboard = new DashboardPageElements();
+		
+	}
+
+	@When("User enters a valid username")
+	public void user_enters_a_valid_username() {
+		sendText(login.username, ConfigsReader.getProperty("username"));
+	}
+
+	@When("User enters a valid password")
+	public void user_enters_a_valid_password() {
+		sendText(login.password, ConfigsReader.getProperty("password"));
+	}
+
+	@When("User clicks on the signin button")
+	public void user_clicks_on_the_signin_button() {
+		click(login.btnSignIn);
+	}
+	
+	@Then("User quits the browser")
+	public void user_quits_the_browser() {
+	// commented this out in lesson because we have Hooks.java
+	//	tearDown();
+	}
+	@When("User enters all required information on policy information screen")
+	public void user_enters_all_required_information_on_policy_information_screen() {
+	   
+		//quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, ConfigsReader.getProperty("address"));
+		sendText(quote.txtZipCode, ConfigsReader.getProperty("zipcode"));
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+		}
+	
+	@Given("User issues policy")
+	public void user_issues_policy() {
+		
+		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+		wait(4);
+		click(closeoutChevron.btnIssueNB);
 	}
 	
 	@Given("User search for {string}")
@@ -196,11 +278,11 @@ public class CommonSteps extends CommonMethods {
 	
 	switch(typackage.toUpperCase()) {
 	case "BASIC":
-		click(dwellingChevron.radioBasicPackage);
+		click(dwellingChevron.rbBasicPackage);
 		Hooks.scenario.log("Basic Package selected");
 		break;
 	case "INTEGRITY SELECT":
-		click(dwellingChevron.radioIntegritySelectPackage);
+		click(dwellingChevron.rbIntegritySelectPackage);
 		Hooks.scenario.log("Integrity Package selected");
 		break;
 	}

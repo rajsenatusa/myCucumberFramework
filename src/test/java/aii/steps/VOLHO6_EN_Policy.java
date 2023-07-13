@@ -20,7 +20,7 @@ public class VOLHO6_EN_Policy extends CommonMethods {
 		@Then("User verifies EN HO6 policy has been created successfully")
 		public void User_verifies_EN_HO6_policy_has_been_created_successfully() {	    	   						
 			String expected = "Endorsement";
-			String actual = historyChevron.endorsemt.getText();
+			String actual = historyChevron.txtEndorsement.getText();
 			Assert.assertEquals("Test failed!", expected, actual);
 		}
 }

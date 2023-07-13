@@ -64,70 +64,70 @@ public class VOLHO6RateChange extends CommonMethods {
 	}
 	@And("User enters Number of stories")
 	public void User_enters_Number_of_stories() {	    	   				
-		selectDropdownText(dwellingChevron.numberOfStories, "3");
+		selectDropdownText(dwellingChevron.ddNumberOfStories, "3");
 		wait(1);
 	}	
 	@And("User enters Floor number of unit location")
 	public void User_enters_Floor_number_of_unit_location() {	    	   				
-		selectDropdown(dwellingChevron.storyUnit, 2);
+		selectDropdown(dwellingChevron.ddStoryUnit, 2);
 		wait(1);	
 	}
 	@And("User enters C Personal Property")
 	public void User_enters_C_Personal_Property() {	
 		
-		dwellingChevron.cPersonalProperty.clear();
-		dwellingChevron.cPersonalProperty.sendKeys("$25,000");
+		dwellingChevron.txtPersonalPropertyC.clear();
+		dwellingChevron.txtPersonalPropertyC.sendKeys("$25,000");
 	}
 	@Then("User verifies HO6 Building Flood Rate Zone X and Foundation Basement")
 	public void User_verifies_HO6_Building_Flood_Rate_Zone_X_and_Foundation_Basement() {
 	String expected = "0.17";
-	String actual = worksheetsChevron.buildingFloodRate.getText();
+	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	
 	}
 	@Then("User verifies HO6 Personal Property Flood Rate Zone X and Foundation Basement")
 	public void User_verifies_HO6_Personal_Property_Flood_Rate_Zone_X_and_Foundation_Basement() {
 	String expected = "0.17";
-	String actual = worksheetsChevron.hO6personalPropertyFloodRate.getText();
+	String actual = worksheetsChevron.txtHO6personalPropertyFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User verifies HO6 Building Flood Rate Zone D and Foundation Slab")
 	public void User_verifies_HO6_Building_Flood_Rate_Zone_D_and_Foundation_Slab() {
 	String expected = "0.65";
-	String actual =  worksheetsChevron.buildingFloodRate.getText();
+	String actual =  worksheetsChevron.txtBuildingFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	wait(1);
 	}		
 	@Then("User verifies HO6 Personal Property Flood Rate Zone D and Foundation Slab")
 	public void User_verifies_HO6_Personal_Property_Flood_Rate_Zone_D_and_Foundation_Slab() {
 	String expected = "0.70";
-	String actual =  worksheetsChevron.hO6personalPropertyFloodRate.getText();
+	String actual =  worksheetsChevron.txtHO6personalPropertyFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User verifies HO6 Building Flood Rate Zone C and Foundation Elevated")
 	public void User_verifies_HO6_Building_Flood_Rate_Zone_C_and_Foundation_Elevated() {
 	String expected = "0.15";
-	String actual = worksheetsChevron.buildingFloodRate.getText();
+	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	wait(1);
 	}		
 	@Then("User verifies HO6 Personal Property Flood Rate Zone C and Foundation Elevated")
 	public void User_verifies_HO6_Personal_Property_Flood_Rate_Zone_C_and_Foundation_Elevated() {
 	String expected = "0.15";
-	String actual = worksheetsChevron.hO6personalPropertyFloodRate.getText();
+	String actual = worksheetsChevron.txtHO6personalPropertyFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User verifies HO6 Building Flood Rate Zone AR and Foundation Slab")
 	public void User_verifies_HO6_Building_Flood_Rate_Zone_AR_and_Foundation_Slab() {
 	String expected = "0.15";
-	String actual = worksheetsChevron.buildingFloodRate.getText();
+	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	wait(1);
 	}		
 	@Then("User verifies HO6 Personal Property Flood Rate Zone AR and Foundation Slab")
 	public void User_verifies_HO6_Personal_Property_Flood_Rate_Zone_AR_and_Foundation_Slab() {
 	String expected = "0.15";
-	String actual = worksheetsChevron.hO6personalPropertyFloodRate.getText();
+	String actual = worksheetsChevron.txtHO6personalPropertyFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}		
 }	

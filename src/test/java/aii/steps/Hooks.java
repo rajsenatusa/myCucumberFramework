@@ -15,7 +15,7 @@ public class Hooks {
 		BaseClass.setUp();
 		Hooks.scenario= scenario;
 		scenario.log("****LAUNCH BROWSER****");
-		Hooks.scenario.log("URL: "+ConfigsReader.getProperty("url"));		
+		//Hooks.scenario.log("URL: "+ConfigsReader.getProperty("url"));		
 	}
 
 	@After

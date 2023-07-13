@@ -87,7 +87,7 @@ public class VOLDP3_NB_Policy extends CommonMethods {
 	@Then("User verifies NB DP3 policy has been created successfully")
 	public void User_verifies_NB_DP3_policy_has_been_created_successfully() {	    	   						
 		String expected = "New Business";
-		String actual = historyChevron.newBusiness.getText();
+		String actual = historyChevron.txtNewBusiness.getText();
 		Assert.assertEquals("Test failed!", expected, actual);
 	}
 }
