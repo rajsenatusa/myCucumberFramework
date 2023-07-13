@@ -14,8 +14,8 @@ public class API_DP3_HO3_RC1_RC2 {
 	
 	//Scenario: Validation DP3 Quote Process
 	@Test
-	@When("I enter required information when creating quote and I validate response body for Quote Creation Confirmation")
-	public void i_enter_required_information_when_creating_quote_and_i_validate_response_body_for_quote_creation_confirmation() {
+	@When("User enters required information when creating quote and I validate response body for Quote Creation Confirmation")
+	public void user_enters_required_information_when_creating_quote_and_i_validate_response_body_for_quote_creation_confirmation() {
 		
 		String payload= "{\r\n"
 				+ "  \"customerId\": \"TEST\",\r\n"
