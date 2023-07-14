@@ -1,3 +1,5 @@
+//updated on 07/14/2023 by Can Yavas
+
 package aii.steps;
 
 import org.openqa.selenium.By;
@@ -5,14 +7,15 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class VOLAIB_NBpolicy extends CommonMethods {
 
 	
-	@When("I enter AIB product selection information and effective date")
-	public void i_enter_aib_product_selection_information_and_effective_date() {
+	@When("User enters AIB product selection information and effective date")
+	public void user_enters_aib_product_selection_information_and_effective_date() {
 		
 		//product selection information was filled here
 		sendText(product.txtEffectiveDate,ConfigsReader.getProperty("effectivedate"));
@@ -24,8 +27,8 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		
 	}
 	
-	@When("I enter all required information on AIB quote screen")
-	public void i_enter_all_required_information_on_aib_quote_screen() {
+	@When("User enters all required information on AIB quote screen")
+	public void user_enters_all_required_information_on_aib_quote_screen() {
 	   
 		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
 		sendText(policyChevron.txtPreviousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
@@ -45,8 +48,8 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		wait(3);
 	}
 
-	@When("I select liability coverage on quote screen")
-	public void i_select_liability_coverage_on_quote_screen() {
+	@When("User selects liability coverage on quote screen")
+	public void user_selects_liability_coverage_on_quote_screen() {
 	  
 		selectDropdownText(golfcartChevron.ddLiabilityCovType, ConfigsReader.getProperty("boatingliability"));
 		wait(6);
@@ -59,8 +62,8 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		click(dwellingChevron.btnNext);
 		
 	}
-	@When("I added operator information on quote screen")
-	public void i_added_operator_information_on_quote_screen() {
+	@When("User adds operator information on quote screen")
+	public void user_adds_operator_information_on_quote_screen() {
 	    click(aibChevron.btnAddOperator);
 	    wait(3);
 	    selectDropdownText(golfcartChevron.ddDriverMaritalStatus, ConfigsReader.getProperty("drivermaritalstatus"));
@@ -74,8 +77,8 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		
 		
 	}
-	@When("I enter all required information on AIB boat dwelling screen")
-	public void i_enter_all_required_information_on_aib_boat_dwelling_screen() {
+	@When("User enters all required information on AIB boat dwelling screen")
+	public void user_enters_all_required_information_on_aib_boat_dwelling_screen() {
 	    
 		click(aibChevron.btnAddBoat);
 	    wait(3);
@@ -111,8 +114,8 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		wait(3);
 		
 	}
-	@When("I enter all required information on AIB review screen")
-	public void i_enter_all_required_information_on_aib_review_screen() {
+	@When("User enters all required information on AIB review screen")
+	public void user_enters_all_required_information_on_aib_review_screen() {
 	    
 		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(4);
@@ -120,69 +123,40 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		wait(3);
 		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
 		wait(3);
-		click(reviewChevron.btnCreateApplication);
-		wait(4);
+		
 		
 	}
-	@When("I create AIB application")
-	public void i_create_aib_application() {
+	@When("User creates AIB application")
+	public void user_creates_aib_application() {
 	    
+		click(reviewChevron.btnCreateApplication);
+		wait(4);
 		click(policyChevron.btnPolicyChevronLink);
 		wait(2);
 		
 		//Application Policy Chevron information was filled here(all information was filled previously, just clicking next button)
 		
 		click(dwellingChevron.btnNext);
-		
-		//Application Underwriting Questions Chevron was filled here
-		
-		selectDropdownText(uwquestionsChevron.aibQuestion1, "No");
-		selectDropdownText(uwquestionsChevron.ho3Question1, "No");
-		selectDropdownText(uwquestionsChevron.gocQuestion3, "No");
-		selectDropdownText(uwquestionsChevron.gocQuestion4, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion5, "No");
-		selectDropdownText(uwquestionsChevron.gocQuestion6, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion7, "No");
-		selectDropdownText(uwquestionsChevron.gocQuestion7, "No");
-		selectDropdownText(uwquestionsChevron.gocQuestion8, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion10, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion11, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion12, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion13, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion14, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion15, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion16, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion17, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion18, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion19, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion20, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion21, "No");
-		selectDropdownText(uwquestionsChevron.aibQuestion22, "No");
-
-
 		wait(1);
-		click(uwquestionsChevron.nextButtonUw);
 		
-		//Application Dwelling information was filled here
 		
-		click(dwellingChevron.btnSave);
-		click(reviewChevron.btnReview);
-		wait(2);
-		click(reviewChevron.btnFinalize);
-		wait(2);
-		
-		//Closeout Chevron information was filled here
-		
-		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
-		wait(4);
-		click(closeoutChevron.btnIssueNB);
 	
 	}
 	
+	@And("User answers all underwriting questions for AIB")
+	public void user_answers_all_underwriting_questions_for_aib() throws Exception {
+	    
+		//Application Underwriting Questions Chevron was filled here (with the help of commonmethods.java class)
+		wait(2);
+		fillBoat_UWQuestions();
+		wait(2);
+		click(uwquestionsChevron.nextButtonUw);
+	}
 
-	@Then("I validate the AIB policy has been created successfully")
-	public void i_validate_the_aib_policy_has_been_created_successfully() {
+	@Then("User validates that AIB policy has been created successfully")
+	public void user_validates_that_aib_policy_has_been_created_successfully() {
 	   
+		wait(3);
 		WebElement validate= driver.findElement(By.id("History_1_1_TransactionCd"));
 		
 		if(validate.getText().equalsIgnoreCase("New Business")) {
