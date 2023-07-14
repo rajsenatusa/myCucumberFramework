@@ -34,6 +34,10 @@ public class QuoteReviewPageElements extends CommonMethods {
 	
 	@FindBy(id= "BasicPolicy.NCFDisclosureResponseInd")
 	public WebElement ddOrderInsScore;
+	
+	@FindBy(id= "Process")
+	public WebElement btnProcess;
+	
 
 	
 	public QuoteReviewPageElements() {

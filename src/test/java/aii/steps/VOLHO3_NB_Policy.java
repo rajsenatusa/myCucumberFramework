@@ -316,6 +316,12 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		closeoutChevron.btnIssueNB.click();	 
 		wait(20);
 	}
+	@And("User clicks Process")
+	public void User_clicks_Process() {	    	   						
+		reviewChevron.btnFinalize.click();
+			
+		
+	}
 	@And("User clicks Finalize button")
 	public void User_clicks_Finalize_button() {	    	   						
 		dwellingChevron.btnSave.click();
@@ -331,5 +337,10 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		String expected = "New Business";
 		String actual = historyChevron.txtNewBusiness.getText();
 		Assert.assertEquals("Test failed!", expected, actual);
+		
+	}
+	@And("User clicks button Finalize")
+	public void User_clicks_button_Finalize() {	    	   						
+		reviewChevron.btnFinalize.click();	
 	}
 }

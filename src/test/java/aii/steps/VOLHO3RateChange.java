@@ -32,6 +32,10 @@ public class VOLHO3RateChange extends CommonMethods {
 	public void User_clicks_Worksheets_chevron() {	    	   						
 		click(dwellingChevron.btnWorksheets);		
 	}
+	@And("User clicks Underwriting Questions chevron")
+	public void User_clicks_Underwriting_Questions_chevron() {	    	   						
+		click(dwellingChevron.btnUnderwriting);		
+	}
 	@Then("User verifies Water NonWeather Base Rate")
     public void User_verifies_Water_NonWeather_Base_Rate() {
 	String expected = "Initial Base Rate: 353.71<br> - Water Non-Weather Territory Code: 3<br> - Territory Factor: 1.630";
@@ -242,4 +246,5 @@ public class VOLHO3RateChange extends CommonMethods {
 	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}	 	
+	
 }
