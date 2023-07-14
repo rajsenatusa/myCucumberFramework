@@ -57,11 +57,6 @@ public class VOLHO6RateChange extends CommonMethods {
 		selectDropdownText(dwellingChevron.bCEG, "4");
 		wait(1);
 	}
-	@And("User enters Distance to Hydrant_Accredited Water Source")
-	public void User_enters_Distance_to_Hydrant_Accredited_Water_Source() {	    	   				
-		selectDropdown(dwellingChevron.ddDistanceToHydrant, 1);
-		wait(1);			
-	}
 	@And("User enters Number of stories")
 	public void User_enters_Number_of_stories() {	    	   				
 		selectDropdownText(dwellingChevron.ddNumberOfStories, "3");

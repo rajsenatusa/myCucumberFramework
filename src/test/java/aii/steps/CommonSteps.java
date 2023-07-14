@@ -87,6 +87,18 @@ public class CommonSteps extends CommonMethods {
 	// commented this out in lesson because we have Hooks.java
 	//	tearDown();
 	}
+	
+	@And("User checks application dwelling screen and finalizes transaction")
+	public void user_checks_application_dwelling_screen_and_finalizes_transaction() {
+		//Application Dwelling information was filled here
+		
+				click(dwellingChevron.btnSave);
+				click(reviewChevron.btnReview);
+				wait(2);
+				click(reviewChevron.btnFinalize);
+				wait(2);
+		
+	}
 	@When("User enters all required information on policy information screen")
 	public void user_enters_all_required_information_on_policy_information_screen() {
 	   
@@ -112,6 +124,7 @@ public class CommonSteps extends CommonMethods {
 		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
+		wait(5);
 	}
 	
 	@Given("User search for {string}")
@@ -422,8 +435,13 @@ public class CommonSteps extends CommonMethods {
 		
 	}
 	
-	
+	@Given("User enters Order Insurance Score")
+	public void User_enters_Order_Insurance_Score() throws Exception {
 		
+		click(dwellingChevron.btnNext);
+		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
+		
+	}	
 	@Given("I fill all the details on Review screen for {string} product")
 	public void i_fill_all_the_details_on_review_screen_for_product(String LOB) throws Exception {
 	    
@@ -809,6 +827,19 @@ public class CommonSteps extends CommonMethods {
 			
 	}
 	
+
+	@And("User enters Distance to Hydrant_Accredited Water Source")
+	public void User_enters_Distance_to_Hydrant_Accredited_Water_Source() {	    	   				
+		selectDropdown(dwellingChevron.ddDistanceToHydrant, 1);
+		wait(1);			
+	}
+	
+	
+	@And("User enters Roof Material")
+	public void User_enters_Roof_Material() {	    	   						
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");											
+	}
+	
 	
 	@Given("I select loss cause as {string} and other related questions")
 	public void select_loss_cause_and_questions(String lossCause) {
@@ -866,6 +897,11 @@ public class CommonSteps extends CommonMethods {
 			throw new RuntimeException("Unable to select LOB");
 		
 			}
+		
+		
+		
+		
+		
         }
 			
 	}
