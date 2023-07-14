@@ -697,7 +697,6 @@ public class CommonMethods extends PageInitializer {
 	
 public static void fillHO3_UWQuestions() throws Exception {
 		
-		CommonMethods.click(dwellingChevron.btnNext);
 		
 		//HO3 Underwriting Questions Chevron was filled here
 		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question1, "No");
@@ -738,7 +737,6 @@ public static void fillHO3_UWQuestions() throws Exception {
 	
 	public static void fillDP3_UWQuestions() throws Exception {
 		
-		CommonMethods.click(dwellingChevron.btnNext);
 		
 		//DP3 Underwriting Questions Chevron was filled here
 		
@@ -780,8 +778,6 @@ public static void fillHO3_UWQuestions() throws Exception {
 	
 	public static void fillDP1_UWQuestions() throws Exception {
 		
-		CommonMethods.click(dwellingChevron.btnNext);
-		
 		//DP1 Underwriting Questions Chevron was filled here
 		
 		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question1, "No");
@@ -819,8 +815,6 @@ public static void fillHO3_UWQuestions() throws Exception {
 	
 	
 	public static void fillHO6_UWQuestions() throws Exception {
-		
-		CommonMethods.click(dwellingChevron.btnNext);
 		
 		//HO6 Underwriting Questions Chevron was filled here
 		
@@ -860,8 +854,6 @@ public static void fillHO3_UWQuestions() throws Exception {
 	
 	public static void fillHO4_UWQuestions() throws Exception {
 		
-		CommonMethods.click(dwellingChevron.btnNext);
-		
 		//HO4 Underwriting Questions Chevron was filled here
 		
 		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question1, "No");
@@ -885,8 +877,6 @@ public static void fillHO3_UWQuestions() throws Exception {
 	
 	public static void fillGOC_UWQuestions() throws Exception {
 		
-		CommonMethods.click(dwellingChevron.btnNext);
-		
 		//GOC Underwriting Questions Chevron was filled here
 		
 		CommonMethods.selectDropdownText(uwquestionsChevron.gocQuestion1, "No");
@@ -908,7 +898,6 @@ public static void fillHO3_UWQuestions() throws Exception {
 	
 	public static void fillBoat_UWQuestions() throws Exception {
 		
-		CommonMethods.click(dwellingChevron.btnNext);
 		
 		//Boat Underwriting Questions Chevron was filled here
 		
@@ -941,8 +930,7 @@ public static void fillHO3_UWQuestions() throws Exception {
 	
 	
 	public static void fillUMB_UWQuestions() throws Exception {
-		
-		CommonMethods.click(dwellingChevron.btnNext);
+	
 		
 		//UMB Underwriting Questions Chevron was filled here
 		
@@ -971,8 +959,6 @@ public static void fillHO3_UWQuestions() throws Exception {
 	
 	
 	public static void fillMHO_UWQuestions() throws Exception {
-		
-		CommonMethods.click(dwellingChevron.btnNext);
 		
 		//MHO Underwriting Questions Chevron was filled here
 		
