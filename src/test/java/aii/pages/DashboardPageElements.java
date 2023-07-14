@@ -95,7 +95,18 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Customer.EntityTypeCd")
 	public WebElement ddCustomerEntityType;
 	
+	@FindBy(xpath="//td[normalize-space()='0.0170']")
+	public WebElement fIGADP3New;
+	
+	@FindBy(xpath="//td[normalize-space()='0.0070']")
+	public WebElement fIGADP3Old;
+	
+
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
+		
+		
+		
 	}
 }

@@ -179,6 +179,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id = "Wizard_Worksheets")
 	public WebElement btnWorksheets; 
 	
+	@FindBy(id = "Wizard_Underwriting")
+	public WebElement btnUnderwriting; 
+	
 	@FindBy(id = "Wizard_Risks")
 	public WebElement btnDwelling; 
 	
