@@ -87,6 +87,18 @@ public class CommonSteps extends CommonMethods {
 	// commented this out in lesson because we have Hooks.java
 	//	tearDown();
 	}
+	
+	@And("User checks application dwelling screen and finalizes transaction")
+	public void user_checks_application_dwelling_screen_and_finalizes_transaction() {
+		//Application Dwelling information was filled here
+		
+				click(dwellingChevron.btnSave);
+				click(reviewChevron.btnReview);
+				wait(2);
+				click(reviewChevron.btnFinalize);
+				wait(2);
+		
+	}
 	@When("User enters all required information on policy information screen")
 	public void user_enters_all_required_information_on_policy_information_screen() {
 	   
@@ -112,6 +124,7 @@ public class CommonSteps extends CommonMethods {
 		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
+		wait(5);
 	}
 	
 	@Given("User search for {string}")
