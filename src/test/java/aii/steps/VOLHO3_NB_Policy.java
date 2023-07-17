@@ -13,15 +13,7 @@ import io.cucumber.java.en.Then;
 
 public class VOLHO3_NB_Policy extends CommonMethods {
 
-	@And("User enters a valid user name {string}")
-	public void User_enters_a_valid_user_name(String username) {
-		sendText(login.username, username);			
-	}
-	@And("User enters a valid password {string}")
-	public void User_enters_a_valid_user_password(String password) {
-		sendText(login.password, password);		
-		wait(1);	
-	}
+	
 	@And("User hovers over quote and policy")
 	public void User_hovers_over_quote_and_policy() {	     
 		wait(1);

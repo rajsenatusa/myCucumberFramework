@@ -19,6 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 				tags = "@FIGA-VOLDP3-2",
+
 		
 		//it provides the output console to more readable
 		monochrome = true, 

@@ -9,9 +9,6 @@ import io.cucumber.java.en.When;
 
 public class VOLHO3policy extends CommonMethods {
 
-	
-
-	
 	@When("User enters HO3 product selection information and effective date")
 	public void user_enters_ho3_product_selection_information_and_effective_date() {
 		//product selection information was filled here
