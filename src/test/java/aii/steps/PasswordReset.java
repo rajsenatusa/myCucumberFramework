@@ -16,8 +16,8 @@ public class PasswordReset extends CommonMethods {
 	String FileLocation = System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\UserList_ToRest.xlsx";
 	
 	
-	@And ("I given all test user list to reset the password")
-	public void i_given_all_test_user_list_to_reset_the_password_to() {
+	@And ("User processes all test user list to reset the password")
+	public void user_processes_all_test_user_list_to_reset_the_password_to() {
 		String user="test user";
 		Object[][] listofUsers;
 		
