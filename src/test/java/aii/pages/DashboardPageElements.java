@@ -101,7 +101,16 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(xpath="//td[normalize-space()='0.0070']")
 	public WebElement fIGADP3Old;
 	
-
+	@FindBy(xpath="//td[normalize-space()='0.0170']")
+	public WebElement fIGAHO3New;
+	
+	@FindBy(xpath="//td[normalize-space()='0.0070']")
+	public WebElement fIGAHO3Old;
+	
+	
+	
+	
+	
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);

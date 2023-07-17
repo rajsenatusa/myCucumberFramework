@@ -30,7 +30,7 @@ public class QuoteReviewPageElements extends CommonMethods {
 	public WebElement btnReview;
 	
 	@FindBy(id= "Closeout")
-	public WebElement btnFinalize;
+	public WebElement btnFinalize; 
 	
 	@FindBy(id= "BasicPolicy.NCFDisclosureResponseInd")
 	public WebElement ddOrderInsScore;
@@ -38,7 +38,13 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "Process")
 	public WebElement btnProcess;
 	
-
+	@FindBy(id= "Save")
+	public WebElement btnSave;
+	
+	@FindBy(id= "TransactionInfo.PaymentTypeCd")
+	public WebElement ddPaymentType;
+	
+	
 	
 	public QuoteReviewPageElements() {
 		PageFactory.initElements(driver, this);

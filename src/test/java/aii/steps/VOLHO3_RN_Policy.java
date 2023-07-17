@@ -18,9 +18,11 @@ import io.cucumber.java.en.When;
 public class VOLHO3_RN_Policy extends CommonMethods {
 
 		@And("User returns to main page")
+		
 		public void User_returns_to_main_page() {			
-		driver.switchTo().window(driver.getWindowHandle());		
-		wait(5);	
+		wait(4);
+			driver.switchTo().window(driver.getWindowHandle());		
+		wait(4);	
 		}
 		@And("User clicks Start Transaction")
 		public void User_clicks_Start_Transaction() {	    	   						
