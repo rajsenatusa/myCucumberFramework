@@ -2,7 +2,6 @@ package aii.steps;
 
 import aii.testbase.BaseClass;
 import aii.utils.CommonMethods;
-import aii.utils.ConfigsReader;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
