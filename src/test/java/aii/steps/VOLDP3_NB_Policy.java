@@ -48,7 +48,18 @@ public class VOLDP3_NB_Policy extends CommonMethods {
 		wait(1);
 		click(reviewChevron.btnCreateApplication);
 		wait(2);
-		click(dwellingChevron.btnNext);
+		click(dwellingChevron.btnNext);		
+	}	
+	@And("User selects Payment Type")
+	public void User_selects_Payment_Type() {	
+		wait(2);
+		selectDropdownText(reviewChevron.ddPaymentType, "None");
+		wait(1);
+	}	
+	@And("User clicks Issue New Business")
+	public void User_clicks_Issue_New_Business() {	
+		closeoutChevron.btnIssueNB.click();
+		
 	}		
 	@And("User enters DP3 Underwritting Questions")
 	public void User_enters_dp1_Underwritting_Questions () {	
@@ -82,7 +93,7 @@ public class VOLDP3_NB_Policy extends CommonMethods {
 		selectDropdownText(uwquestionsChevron.ho3Question28, "No");	
 		selectDropdownText(uwquestionsChevron.ho3Question29, "No");	
 		wait(1);
-		click(uwquestionsChevron.nextButtonUw);	
+		
 	}
 	@Then("User verifies NB DP3 policy has been created successfully")
 	public void User_verifies_NB_DP3_policy_has_been_created_successfully() {	    	   						

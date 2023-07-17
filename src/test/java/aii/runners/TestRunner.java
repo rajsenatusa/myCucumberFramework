@@ -17,10 +17,9 @@ import io.cucumber.junit.CucumberOptions;
 		// if true, it does not run the java classes. Only checks the feature files
 		// if they are glued to some java code
 		dryRun = false,
-		
 
-		// tags can do the same thing groups on TestNG do
-		tags = "@ho3mma",
+				tags = "@FIGA-VOLDP3-2",
+
 		
 		//it provides the output console to more readable
 		monochrome = true, 

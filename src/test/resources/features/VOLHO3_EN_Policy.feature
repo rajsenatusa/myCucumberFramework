@@ -53,6 +53,7 @@ Feature: Endorsement Policy VOL HO3
     And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
     And User clicks save and next page button
     And User enters Pay Plan Type
+    
     And User enters HO3 Underwritting Questions
     And User enters Dwelling Type
     And User clicks Dwelling chevron

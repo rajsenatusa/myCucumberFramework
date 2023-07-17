@@ -51,13 +51,17 @@ Feature: New Business Policy VOL HO3
     And User selects Preferred Risk Status "<PreferredRiskStatus>"
     And User selects SFHA Override "<SFHAOverride>"
     And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
-    And User clicks save and next page button
+    And User clicks Save
+    And User clicks Review button
     And User enters Pay Plan Type
+    And User clicks Next Page
     And User enters HO3 Underwritting Questions
     And User enters Dwelling Type
-    And User clicks Dwelling chevron
+    And User enters Number of stories
     And User clicks Finalize button
-    Then User verifies NB HO3 policy has been created successfully
+    And User selects Payment Type
+    And User clicks Issue New Business
+   Then User verifies NB HO3 policy has been created successfully
 
     Examples: Test Data
       | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |

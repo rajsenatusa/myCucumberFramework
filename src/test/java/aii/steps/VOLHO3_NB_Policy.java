@@ -246,7 +246,13 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	@And("User clicks next page button")
 	public void User_clicks_next_page_button () {	    	   						
 		dwellingChevron.btnNext.click();
-		wait(1);	
+		wait(1);		
+	}	
+	@And("User clicks Create Application button")
+	public void User_clicks_Create_Application_button () {	    	   						
+		  reviewChevron.btnCreateApplication.click();
+		  reviewChevron.btnInsuranceScoreBox.click();
+		  reviewChevron.btnInsuranceScoreOk.click();      
 	}	
 	@And("User enters Pay Plan Type")
 	public void User_enters_Pay_Plan_Type() {	    	   						
@@ -259,7 +265,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	}	
 	@And("User enters HO3 Underwritting Questions")
 	public void User_enters_HO3_Underwritting_Questions () {
-	click(dwellingChevron.btnNext);
+//	click(dwellingChevron.btnNext);
 	selectDropdownText(uwquestionsChevron.ho3Question1, "No");
 	selectDropdownText(uwquestionsChevron.ho3Question2, "No");
 	selectDropdownText(uwquestionsChevron.ho3Question3, "No");
@@ -306,23 +312,31 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_clicks_Finalize() {	    	   						
 		reviewChevron.btnFinalize.click();
 		closeoutChevron.btnIssueNB.click();	 
-		wait(20);
+		wait(2);
 	}
 	@And("User clicks Process")
 	public void User_clicks_Process() {	    	   						
-		reviewChevron.btnFinalize.click();
+		reviewChevron.btnProcess.click();
 			
-		
+	}
+	@And("User clicks Review button")
+	public void User_clicks_Review_button() {	    	   						
+		reviewChevron.btnReview.click();
+	    
 	}
 	@And("User clicks Finalize button")
 	public void User_clicks_Finalize_button() {	    	   						
-		dwellingChevron.btnSave.click();
-		uwquestionsChevron.nextButtonUw.click();
-		reviewChevron.btnFinalize.click();		
-		selectDropdownText(closeoutChevron.ddPaymentType, "None");
-		wait(2);
-		closeoutChevron.btnIssueNB.click();
-		wait(20);
+//		dwellingChevron.btnSave.click();
+//		uwquestionsChevron.nextButtonUw.click();
+//		reviewChevron.btnFinalize.click();		
+//		selectDropdownText(closeoutChevron.ddPaymentType, "None");
+//		wait(2);
+//		closeoutChevron.btnIssueNB.click();
+//		wait(2);
+		
+		wait(1);
+		click(reviewChevron.btnFinalize);
+		wait(1);
 	}
 	@Then("User verifies NB HO3 policy has been created successfully")
 	public void User_verifies_NB_HO3_policy_has_been_created_successfully() {	    	   						
@@ -333,6 +347,20 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	}
 	@And("User clicks button Finalize")
 	public void User_clicks_button_Finalize() {	    	   						
-		reviewChevron.btnFinalize.click();	
+		wait(1);
+		click(reviewChevron.btnFinalize);
+		wait(1);		
+	}
+	@And("User clicks Save")
+	public void User_clicks_Save() {	    	   						
+		wait(2);
+		click(dwellingChevron.btnSave);
+		wait(2);
+	}
+	@And("User clicks Next Page")
+	public void User_clicks_Next_Page() {	    	   						
+		click(uwquestionsChevron.nextButtonUw);	
+		wait(1);	
+		
 	}
 }

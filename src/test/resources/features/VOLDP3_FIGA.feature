@@ -1,5 +1,5 @@
 #Author:Mustafa Cemek
-@FIGA
+@FIGA-VOLDP3
 Feature: FIGA VOL DP3-2023 (RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023)
 
   @FIGA-VOLDP3-1
@@ -39,6 +39,8 @@ Feature: FIGA VOL DP3-2023 (RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/202
     And User enters DP3 Pay Plan Type
     And User enters DP3 Underwritting Questions
     And User clicks Finalize button
+    And User selects Payment Type
+    And User clicks Issue New Business
     And User returns to main page
     And User clicks Worksheets chevron
     Then User validates New FIGA DP3 rate
@@ -86,6 +88,8 @@ Feature: FIGA VOL DP3-2023 (RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/202
     And User enters DP3 Pay Plan Type
     And User enters DP3 Underwritting Questions
     And User clicks Finalize button
+    And User selects Payment Type
+    And User clicks Issue New Business
     And User returns to main page
     And User clicks Worksheets chevron
     Then User validates Previous FIGA DP3 rate
@@ -132,15 +136,19 @@ Feature: FIGA VOL DP3-2023 (RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/202
     And User calculates replacement cost
     And User enters DP3 Pay Plan Type
     And User enters DP3 Underwritting Questions
+    And User clicks Next Page
     And User clicks Finalize button
+    And User selects Payment Type
+    And User clicks Issue New Business  
     And User returns to main page
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
     And User clicks Underwriting Questions chevron
     And User enters DP3 Underwritting Questions
-    And User clicks button Finalize 
+    And User clicks Save
+    And User clicks Finalize button
     And User clicks Process
-    #And User returns to main page
+    And User returns to main page
     And User clicks Worksheets chevron
     Then User validates New FIGA DP3 rate
     
