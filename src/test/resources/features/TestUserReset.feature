@@ -1,27 +1,9 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
-
+##updated on 07/17/2023 by Can Yavas
 
 Feature: Reset Users
  @TestUser_Reset
  Scenario: Reset Password for Test user
-Given Login with valid "pvispute" and "April@2023!"
-When I click on the signin button
-And I given all test user list to reset the password
+Given User logins with valid "pvispute" and "April@2023!"
+When User clicks on the login button
+And User processes all test user list to reset the password
     

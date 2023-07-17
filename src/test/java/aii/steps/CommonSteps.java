@@ -18,53 +18,53 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class CommonSteps extends CommonMethods {
-	
+
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String app_Tx_Policy_Claim_Num;
 	static String date;
-	
-	 
+
 	@Given("User login to Spin as Standard Agent")
 	public void user_login_to_spin_as_standard_agent() throws Throwable {
-	 sendText(login.username, ConfigsReader.getProperty("username"));
-	 sendText(login.password, ConfigsReader.getProperty("password"));
-	 click(login.btnSignIn);
-	 wait(1);	
-	 
-		
+		sendText(login.username, ConfigsReader.getProperty("username"));
+		sendText(login.password, ConfigsReader.getProperty("password"));
+		click(login.btnSignIn);
+		wait(1);
 	}
-	
+
 	@Given("User login to Spin as Admin Agent")
 	public void user_login_to_spin_as_admin_agent() throws Throwable {
-	 sendText(login.username, ConfigsReader.getProperty("adminusername"));
-	 sendText(login.password, ConfigsReader.getProperty("adminpassword"));
-	 click(login.btnSignIn);
-	 wait(1);	
-	 
-		
+		sendText(login.username, ConfigsReader.getProperty("adminusername"));
+		sendText(login.password, ConfigsReader.getProperty("adminpassword"));
+		click(login.btnSignIn);
+		wait(1);
 	}
-	
+
+	@Given("User login to Spin as Underwriter")
+	public void user_login_to_spin_as_underwriter() {
+		sendText(login.username, ConfigsReader.getProperty("uw_username"));
+		sendText(login.password, ConfigsReader.getProperty("password"));
+		click(login.btnSignIn);
+		wait(3);
+	}
+
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
-		
-	   
+
 		wait(1);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
 		wait(1);
 		dashboard.btnNewQuote.click();
-		WebElement element= driver.findElement(By.id("Customer.EntityTypeCd"));
+		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
 		selectDropdownText(element, "Individual");
-		
 	}
-	
-	@Given("User navigates to the spin model website")
-	public void user_navigates_to_the_spin_model_website() {
+
+	@Given("User navigates to the spin website")
+	public void user_navigates_to_the_spin_website() {
 		// commented this out because we have Hooks.java
-		//	setUp();
-		//		login = new LoginPageElements();
-		//		dashboard = new DashboardPageElements();
-		
+		// setUp();
+		// login = new LoginPageElements();
+		// dashboard = new DashboardPageElements();
 	}
 
 	@When("User enters a valid username")
@@ -72,37 +72,40 @@ public class CommonSteps extends CommonMethods {
 		sendText(login.username, ConfigsReader.getProperty("username"));
 	}
 
+	@When("User searches policy number before starting transaction")
+	public void user_searches_policy_number_before_starting_transaction() {
+		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+
+		sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		click(dashboard.search);
+		wait(1);
+	}
 	@When("User enters a valid password")
 	public void user_enters_a_valid_password() {
 		sendText(login.password, ConfigsReader.getProperty("password"));
 	}
-
 	@When("User clicks on the signin button")
 	public void user_clicks_on_the_signin_button() {
 		click(login.btnSignIn);
 	}
-	
 	@Then("User quits the browser")
 	public void user_quits_the_browser() {
-	// commented this out in lesson because we have Hooks.java
-	//	tearDown();
+		// commented this out in lesson because we have Hooks.java
+		// tearDown();
 	}
-	
 	@And("User checks application dwelling screen and finalizes transaction")
 	public void user_checks_application_dwelling_screen_and_finalizes_transaction() {
-		//Application Dwelling information was filled here
-		
-				click(dwellingChevron.btnSave);
-				click(reviewChevron.btnReview);
-				wait(2);
-				click(reviewChevron.btnFinalize);
-				wait(2);
-		
+		// Application Dwelling information was filled here
+		click(dwellingChevron.btnSave);
+		click(reviewChevron.btnReview);
+		wait(2);
+		click(reviewChevron.btnFinalize);
+		wait(2);
 	}
 	@When("User enters all required information on policy information screen")
 	public void user_enters_all_required_information_on_policy_information_screen() {
-	   
-		//quote level information was filled here
+
+		// quote level information was filled here
 		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
 		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
@@ -116,166 +119,149 @@ public class CommonSteps extends CommonMethods {
 		click(quote.btnCopyToBillAddress);
 		click(quote.btnSaveAndQuote);
 		wait(2);
-		}
-	
+	}
+
 	@Given("User issues policy")
 	public void user_issues_policy() {
-		
+
 		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
 		wait(5);
 	}
-	
+
 	@Given("User search for {string}")
 	public void user_with_logged_in_and_search_for(String policy) {
-				 wait(1);
-		 sendText(dashboard.txtSearchBar, policy);
-		 click(dashboard.search);
+		wait(1);
+		sendText(dashboard.txtSearchBar, policy);
+		click(dashboard.search);
+		wait(1);
+	}
 
-		 wait(1);
-	}
-	
-	@And("I start transaction on policy")
-	public void i_start_transaction() {
+	@And("User starts transaction on policy")
+	public void user_starts_transaction() {
 		startTransaction();
-	    
 	}
-	
-	@Given("I select endorsement transaction on {string}")
-	public void i_select_an_endorsement_transaction(String Days) throws Exception {
-						 
-		date =  dtf.format(currentDate.plusDays(Integer.parseInt(Days)));
-		
+
+	@Given("User selects endorsement transaction on {string}")
+	public void user_selects_an_endorsement_transaction(String Days) throws Exception {
+
+		date = dtf.format(currentDate.plusDays(Integer.parseInt(Days)));
+
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
-		
-		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
-		 click(dashboard.search);
-		 wait(1);
-		 
+
+		sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		click(dashboard.search);
+		wait(1);
+
 		startTransaction();
-		
-	    selectDropdownText(dashboard.ddSelectTransaction, "Endorsement");
-	    click(dashboard.btnSelect);
-	    sendText(dashboard.txtSelectDate, date);
-	    click(dashboard.btnStart);
-	    click(dashboard.btnStart);
-	      
-	    
+
+		selectDropdownText(dashboard.ddSelectTransaction, "Endorsement");
+		click(dashboard.btnSelect);
+		sendText(dashboard.txtSelectDate, date);
+		click(dashboard.btnStart);
+		click(dashboard.btnStart);
+
 	}
-	
-	@Given("I finalize and process the transaction")
-	public void finalize_process() {
+
+	@Given("User finalizes and process the transaction")
+	public void user_finalizes_and_process_the_transaction() {
 		click(reviewChevron.btnFinalize);
 		wait(2);
-				
+
 		click(closeoutChevron.btnIssueNB);
 		wait(5);
 	}
 
+	@Given("User navigates to policyfile screen")
+	public void user_navigates_to_policyfile_screen() {
 
-	@Given("I navigate to policyfile screen")
-	public void i_navigate_to_policyfile_screen() {
-	
 		click(policyFileChevron.btnPolicyFilePage);
 		Hooks.scenario.log("Policyfile tab selected");
-		
+
 	}
-	
-	
-	@Given("I navigate to dwelling screen")
-	public void i_navigate_to_dwelling_screen() {
-	
+
+	@Given("User navigates to dwelling screen")
+	public void user_navigates_to_dwelling_screen() {
+
 		click(specialChevron.btnDwellingWiz);
 		Hooks.scenario.log("Dwelling tab selected");
-		
-	}
-	
 
-	@Given("I start transaction as a New Customer")
-	public void i_start_transaction_as_a_new_customer_common() {
-			   
-		wait(1);
-		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(1);
-		dashboard.btnNewQuote.click();
-		WebElement element= driver.findElement(By.id("Customer.EntityTypeCd"));
-		selectDropdownText(element, "Individual");
-		
 	}
-	
-	@When("I select the product from Product Selection List as {string}")
-	public void i_enter_prod_selection_information_common(String Product) {
-		//product selection information
+
+	@When("User selects the product from Product Selection List as {string}")
+	public void user_enters_prod_selection_information_common(String Product) {
+		// product selection information
 		switch (Product) {
 		case "HO3":
-			click(product.btnProductSelectionHo3); 
+			click(product.btnProductSelectionHo3);
 			break;
-		case "GOC":	
+		case "GOC":
 			click(product.btnProductSelectionGoc);
 			break;
-		case "DP1":	
-			click(product.btnProductSelectionDp1);	
+		case "DP1":
+			click(product.btnProductSelectionDp1);
 			break;
-		case "DP3":	
-			click(product.btnProductSelectionDp3);	
+		case "DP3":
+			click(product.btnProductSelectionDp3);
 			break;
-			
+
 		default:
 			throw new RuntimeException("Unable to select LOB");
-			
+
 		}
-		
-		}
-	
-	@And("I change date of system {string}")
-	public void i_validate_change_Date(String Days) throws Exception {
-			
-		changeDate(Days);
-			 
+
 	}
-	
-	@And("I enter Quote Information as effective date with {string} days difference and state {string} and {string} Insurance Carrier group")
-	public void i_enter_quote_Information(String Days, String State, String CarrierGroup) throws Exception {
-		
-		String effectiveDate = changeDate(Days);	
-					
+
+	@And("User changes date of system {string}")
+	public void user_validates_change_Date(String Days) throws Exception {
+
+		changeDate(Days);
+
+	}
+
+	@And("User enters Quote Information as effective date with {string} days difference and state {string} and {string} Insurance Carrier group")
+	public void user_enters_quote_Information_as_effective_date_with(String Days, String State, String CarrierGroup) throws Exception {
+
+		String effectiveDate = changeDate(Days);
+
 		click(dashboard.lnkNewQuote);
-		
-		sendText(dashboard.txtEffectiveDate,effectiveDate);
-		
-		if (State.toUpperCase().contains("FL") || State.toUpperCase().contains("FLORIDA") ) {
+
+		sendText(dashboard.txtEffectiveDate, effectiveDate);
+
+		if (State.toUpperCase().contains("FL") || State.toUpperCase().contains("FLORIDA")) {
 			selectDropdown(dashboard.ddState, 1);
 		}
-		
-		if (CarrierGroup.toUpperCase().contains("AI") || State.toUpperCase().contains("AMERICAN INTEGRITY INSURANCE GROUP") ) {
+
+		if (CarrierGroup.toUpperCase().contains("AI")
+				|| State.toUpperCase().contains("AMERICAN INTEGRITY INSURANCE GROUP")) {
 			selectDropdown(dashboard.ddCarrierGroup, 1);
 		}
-				
+
 		wait(2);
 		click(dashboard.btnNewQuoteStart);
-		
+
 	}
-	
-	@Given("I select the entity as {string}")
-	public void i_select_the_entiry_as(String entity) {
-		
+
+	@Given("User selects the entity as {string}")
+	public void user_selects_the_entity_as(String entity) {
+
 		selectDropdownText(policyChevron.ddEntity, entity);
 	}
-	
-	@And("I enter all required information on Insured information section")
-	public void i_enter_all_required_information_on_customer_information_screen() {
-	   
-		//quote level information was filled here
+
+	@And("User enters all required information on Insured information section")
+	public void user_enters_all_required_information_on_customer_information_screen() {
+
+		// quote level information was filled here
 		sendText(policyChevron.txtInsuredFirstName, ConfigsReader.getProperty("firstname"));
 		sendText(policyChevron.txtInsuredLastName, ConfigsReader.getProperty("lastname"));
 		sendText(policyChevron.txtInsuredBirthDt, ConfigsReader.getProperty("birthdate"));
 		click(policyChevron.btnResetName);
 		wait(2);
-		}
-	
-	@Given("I fill the address details with {string} and zip {string}")
-	public void i_fill_the_address_details_of(String address, String zip) {
+	}
+
+	@Given("User fills the address details with {string} and zip {string}")
+	public void user_fills_the_address_details_of(String address, String zip) {
 //		sendText(quote.txtAddress, ));
 		sendText(policyChevron.txtStreet, address);
 		sendText(policyChevron.txtPostalCode, zip);
@@ -285,68 +271,62 @@ public class CommonSteps extends CommonMethods {
 		click(policyChevron.btnSave);
 		wait(2);
 	}
-	
-	@And("I select {string} package")
-	public void i_select_coverage(String typackage) {
-	
-	switch(typackage.toUpperCase()) {
-	case "BASIC":
-		click(dwellingChevron.rbBasicPackage);
-		Hooks.scenario.log("Basic Package selected");
-		break;
-	case "INTEGRITY SELECT":
-		click(dwellingChevron.rbIntegritySelectPackage);
-		Hooks.scenario.log("Integrity Package selected");
-		break;
+
+	@And("User selects {string} package")
+	public void user_selects_package(String typackage) {
+
+		switch (typackage.toUpperCase()) {
+		case "BASIC":
+			click(dwellingChevron.rbBasicPackage);
+			Hooks.scenario.log("Basic Package selected");
+			break;
+		case "INTEGRITY SELECT":
+			click(dwellingChevron.rbIntegritySelectPackage);
+			Hooks.scenario.log("Integrity Package selected");
+			break;
+		}
 	}
-	}
-		
-	@Given("I validate the default value of {string} {string} as {string}")
-	public void i_validate_the_default_value_of_as(String coverage, String element, String expectedValue) {
-	    
+
+	@Given("User validates the default value of {string} {string} as {string}")
+	public void user_validates_the_default_value_of_as(String coverage, String element, String expectedValue) {
+
 		CommonMethods.verifyAnyDropdownDefaultValue(coverage, element, expectedValue);
 	}
-	
-	@Given("Navigate to Policy tab")
-	public void navigate_to_policy_tab() {
+
+	@Given("User navigates to Policy tab")
+	public void user_navigates_to_policy_tab() {
 		click(policyChevron.btnPolicyChevronLink);
 	}
-	
-	
-	@Given("I validate the following message should display {string}")
-	public boolean i_validate_the_following_message_should_display(String text) {
+
+	@Given("User validates the following message should display {string}")
+	public boolean user_validates_the_following_message_should_display(String text) {
 		String value = "";
 		try {
-			
+
 			List<WebElement> oCheckBox = driver.findElements(By.id("WarningIssues"));
 			int size = oCheckBox.size();
-	
-			for(int i = 0; i < size; i++ )	{
-			String msg = oCheckBox.get(i).getText();
-			value = value.concat(msg);
-			//Hooks.scenario.log(value+" concat is visible ");
-				 
-				if (value.contains(text)){
-					 Hooks.scenario.log("Is visible : "+text);
-					break;
-					}	
-			}
-    		return true;   	
 
-            } catch (Exception e) {
-            	Hooks.scenario.log("Is not visible: " +  text);
-            	e.printStackTrace();
-            	return false;
-            	
-            }
+			for (int i = 0; i < size; i++) {
+				String msg = oCheckBox.get(i).getText();
+				value = value.concat(msg);
+				// Hooks.scenario.log(value+" concat is visible ");
+
+				if (value.contains(text)) {
+					Hooks.scenario.log("Is visible : " + text);
+					break;
+				}
+			}
+			return true;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is not visible: " + text);
+			e.printStackTrace();
+			return false;
+		}
 	}
-	
-	
-	@Given("I fill all the DP3 uw questions")
-	public void i_fill_DP3uwQuestions() throws InterruptedException {
-		Thread.sleep(3000);
-		click(dwellingChevron.btnNext);
-		wait(1);
+	@Given("User fills all the DP3 UW questions")
+	public void user_fills_all_DP3_uw_Questions() throws InterruptedException {
+		wait(3);
 		selectDropdownText(uwquestionsChevron.ho3Question1, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question2, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question3, "No");
@@ -362,30 +342,27 @@ public class CommonSteps extends CommonMethods {
 		selectDropdownText(uwquestionsChevron.ho3Question13, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question14, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question15, "Yes");
-		selectDropdownText(uwquestionsChevron.ho3Question16, "No");  
-		selectDropdownText(uwquestionsChevron.ho3Question17, "No");  
-		selectDropdownText(uwquestionsChevron.ho3Question18, "No");  
-		selectDropdownText(uwquestionsChevron.ho3Question19, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question20, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question21, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question22, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question23, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question24, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question25, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question26, "No");	 
-		selectDropdownText(uwquestionsChevron.ho3Question27, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question28, "No");	
-		selectDropdownText(uwquestionsChevron.ho3Question29, "No");	
+		selectDropdownText(uwquestionsChevron.ho3Question16, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question17, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question18, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question19, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question20, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question21, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question22, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question23, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question24, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question25, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question26, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question27, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question28, "No");
+		selectDropdownText(uwquestionsChevron.ho3Question29, "No");
 		wait(1);
 		click(uwquestionsChevron.nextButtonUw);
 	}
-	
-	
-	@Given("I fill all the HO3 uw questions")
-	public void i_fill_HO3uwQuestions() throws InterruptedException {
-		Thread.sleep(3000);
-		click(dwellingChevron.btnNext);
-		wait(1);
+
+	@Given("User fills all the HO3 UW questions")
+	public void user_fills_all_HO3_uw_questions() throws InterruptedException {
+		wait(3);
 		selectDropdownText(uwquestionsChevron.ho3Question1, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question2, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question3, "No");
@@ -418,11 +395,9 @@ public class CommonSteps extends CommonMethods {
 		wait(1);
 		click(uwquestionsChevron.nextButtonUw);
 	}
+	@When("User enters all the information on DP3 review screen")
+	public void user_enters_all_required_information_on_dp3_review_screen() throws Exception {
 
-	
-	@When("I enter all the information on DP3 review screen")
-	public void i_enter_all_required_information_on_dp3_review_screen() throws Exception {
-		
 		click(dwellingChevron.btnNext);
 		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
 		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
@@ -432,486 +407,363 @@ public class CommonSteps extends CommonMethods {
 		clickNewCustomer(driver);
 		click(dwellingChevron.btnSave);
 		wait(2);
-		
 	}
-	
 	@Given("User enters Order Insurance Score")
 	public void User_enters_Order_Insurance_Score() throws Exception {
-		
+
 		click(dwellingChevron.btnNext);
 		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
-		
-	}	
-	@Given("I fill all the details on Review screen for {string} product")
-	public void i_fill_all_the_details_on_review_screen_for_product(String LOB) throws Exception {
-	    
+	}
+	@Given("User fills all the details on Review screen for {string} product")
+	public void user_fills_all_the_details_on_review_screen_for_product(String LOB) throws Exception {
 		click(dwellingChevron.btnNext);
 		
 		switch (LOB) {
-				
 		case "HO3":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "DP3":
 			selectDropdownText(reviewChevron.ddOrderInsScore, "No");
-			select_Direct_FullPayplanType();		
-			break;		
-			
+			select_Direct_FullPayplanType();
+			break;
 		case "DP1":
-			select_Direct_FullPayplanType();	
-			break;		
-			
+			select_Direct_FullPayplanType();
+			break;
 		case "HO6":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "HO4":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "MHO":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "GOC":
 			selectDropdownText(reviewChevron.ddOrderInsScore, "No");
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "AIB":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "UMB":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "TO HO3":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "TO DP1":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "TO DP3":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "TO MHO":
 			select_Direct_FullPayplanType();
 			break;
-			
 		case "TO MHPD":
 			select_Direct_FullPayplanType();
 			break;
-			
 		default:
 			throw new RuntimeException("Unable to find LOB");
 		}
 	}
+	@Given("User creates application for {string} product")
+	public void user_creates_application_for_product(String LOB) {
+		if (LOB.equalsIgnoreCase("HO4") || LOB.equalsIgnoreCase("DP1") || LOB.equalsIgnoreCase("DP3")
+				|| LOB.equalsIgnoreCase("GOC") || LOB.equalsIgnoreCase("AIB") || LOB.equalsIgnoreCase("UMB")
+				|| LOB.equalsIgnoreCase("TO DP1") || LOB.equalsIgnoreCase("TO DP3") || LOB.equalsIgnoreCase("TO MHO")
+				|| LOB.equalsIgnoreCase("TO HO3") || LOB.equalsIgnoreCase("TO MHPD") || LOB.equalsIgnoreCase("MHO")) {
 
-	@Given("I create application for {string} product")
-	public void i_create_application_for_product(String LOB) {
-				
-		if(LOB.equalsIgnoreCase("HO4") || LOB.equalsIgnoreCase("DP1") || LOB.equalsIgnoreCase("DP3") || 
-				LOB.equalsIgnoreCase("GOC") || LOB.equalsIgnoreCase("AIB") || LOB.equalsIgnoreCase("UMB") || 
-				LOB.equalsIgnoreCase("TO DP1") || LOB.equalsIgnoreCase("TO DP3") || LOB.equalsIgnoreCase("TO MHO") || 
-				LOB.equalsIgnoreCase("TO HO3") || LOB.equalsIgnoreCase("TO MHPD") || LOB.equalsIgnoreCase("MHO")) {
-				
 			click(reviewChevron.btnCreateApplication);
 			wait(3);
-		
 		}
-		
-		else
-		{
+		else {
 			click(reviewChevron.btnCreateApplication);
 			wait(4);
 			click(reviewChevron.btnInsuranceScoreBox);
 			click(reviewChevron.btnInsuranceScoreOk);
 			wait(3);
-			
 		}
-	    
 	}
-
-	@Given("I fill all the {string} product UW questions")
-	public void i_fill_all_the_product_uw_questions(String LOB) throws Exception {
-				
-		switch (LOB) {
+	@Given("User fills all the {string} product UW questions")
+	public void user_fills_all_the_product_uw_questions(String LOB) throws Exception {
 		
+		switch (LOB) {
 		case "HO3":
 			fillHO3_UWQuestions();
 			break;
-			
 		case "DP3":
-			fillDP3_UWQuestions();	
-			break;		
-			
+			fillDP3_UWQuestions();
+			break;
 		case "DP1":
 			fillDP1_UWQuestions();
-			break;		
-			
+			break;
 		case "HO6":
 			fillHO6_UWQuestions();
 			break;
-			
 		case "HO4":
 			fillHO4_UWQuestions();
 			break;
-			
 		case "MHO":
 			fillMHO_UWQuestions();
 			break;
-			
 		case "GOC":
 			fillGOC_UWQuestions();
 			break;
-			
 		case "AIB":
 			fillBoat_UWQuestions();
 			break;
-			
 		case "UMB":
 			fillUMB_UWQuestions();
 			break;
-					
 		default:
 			throw new RuntimeException("Unable to find LOB");
 		}
 	}
-	
-	@Given("I renew policy {string} to next term through manual transaction")
-	public void i_renew_policy_to_next_term(String policy) {
-		 
-			 wait(1);
-			 sendText(dashboard.txtSearchBar, policy);
-			 click(dashboard.search);
-			 wait(1);
-			 
-			startTransaction();
-			
-		    selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
-		    click(dashboard.btnSelect);
-		    click(dashboard.btnStart);
-		    wait(1);
-		    click(reviewChevron.btnFinalize);
-		    click(closeoutChevron.btnIssueNB);
-		 
-	}
-	
-	@Given("I renew policy to next term through manual transaction")
-	public void i_renew_policy_to_next_term_as_per_global_variable_variable_policy() {
-	   
-		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+	@Given("User renews policy {string} to next term through manual transaction")
+	public void user_renews_policy_to_next_term(String policy) {
 		
-		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
-		 click(dashboard.search);
-		 wait(1);
-		 
-		 startTransaction();
-			
-	     selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
-   	     click(dashboard.btnSelect);
-	     click(dashboard.btnStart);
-         wait(1);
-	     click(reviewChevron.btnFinalize);
-	     click(closeoutChevron.btnIssueNB);
-		
-	}
-	
-	@Given("I reinstate  policy {string}")
-	public void i_reinstate_policy(String policy) {
-	    
-		 wait(1);
-		 sendText(dashboard.txtSearchBar, policy);
-		 click(dashboard.search);
-		 wait(1);
-		 
+		wait(1);
+		sendText(dashboard.txtSearchBar, policy);
+		click(dashboard.search);
+		wait(1);
 		startTransaction();
-		
-	    selectDropdownText(dashboard.ddSelectTransaction, "Reinstatement");
-	    click(dashboard.btnSelect);
-	    click(dashboard.btnStart);
-	    wait(1);
-	    click(closeoutChevron.btnIssueNB);
+		selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
+		click(dashboard.btnSelect);
+		click(dashboard.btnStart);
+		wait(1);
+		click(reviewChevron.btnFinalize);
+		click(closeoutChevron.btnIssueNB);
 	}
-	
-	@Given("I cancel  policy {string}")
-	public void i_cancel_policy(String policy) {
-		 wait(1);
-		 sendText(dashboard.txtSearchBar, policy);
-		 click(dashboard.search);
-		 wait(1);
-		 
-		startTransaction();
-		
-	    selectDropdownText(dashboard.ddSelectTransaction, "Cancellation");
-	    click(dashboard.btnSelect);
-	    selectDropdownText(policyChevron.ddCancellationType, "Company");
-	    wait(1);
-	    selectDropdownText(policyChevron.ddReasonType, "ABC Insured declined policy");
-	    wait(1);
-	    click(policyChevron.btnAdd);
-	    wait(1);
-	    click(dashboard.btnStart);
-	    wait(1);
-	    click(closeoutChevron.btnIssueNB);
-	}
-	
-	@Given("I cancel policy through manual transaction")
-	public void i_cancel_policy_through_manual_transaction() {
-	   
+	@Given("User renews policy to next term through manual transaction")
+	public void user_renews_policy_to_next_term_as_per_global_variable_variable_policy() {
+
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
-			
-		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
-		 click(dashboard.search);
-		 wait(1);
-		 
+		sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		click(dashboard.search);
+		wait(1);
 		startTransaction();
-		
-	    selectDropdownText(dashboard.ddSelectTransaction, "Cancellation");
-	    click(dashboard.btnSelect);
-	    selectDropdownText(policyChevron.ddCancellationType, "Company");
-	    wait(1);
-	    selectDropdownText(policyChevron.ddReasonType, "ABC Insured declined policy");
-	    wait(1);
-	    click(policyChevron.btnAdd);
-	    wait(1);
-	    click(dashboard.btnStart);
-	    wait(1);
-	    click(closeoutChevron.btnIssueNB);
-		
+		selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
+		click(dashboard.btnSelect);
+		click(dashboard.btnStart);
+		wait(1);
+		click(reviewChevron.btnFinalize);
+		click(closeoutChevron.btnIssueNB);
 	}
-	@Given("I reinstate policy through manual transaction")
-	public void i_reinstate_policy_through_manual_transaction() {
-	  
+	@Given("User reinstates  policy {string}")
+	public void user_reinstates_policy(String policy) {
+
+		wait(1);
+		sendText(dashboard.txtSearchBar, policy);
+		click(dashboard.search);
+		wait(1);
+		startTransaction();
+		selectDropdownText(dashboard.ddSelectTransaction, "Reinstatement");
+		click(dashboard.btnSelect);
+		click(dashboard.btnStart);
+		wait(1);
+		click(closeoutChevron.btnIssueNB);
+	}
+	@Given("User cancels policy {string}")
+	public void user_cancels_policy(String policy) {
+		wait(1);
+		sendText(dashboard.txtSearchBar, policy);
+		click(dashboard.search);
+		wait(1);
+		startTransaction();
+		selectDropdownText(dashboard.ddSelectTransaction, "Cancellation");
+		click(dashboard.btnSelect);
+		selectDropdownText(policyChevron.ddCancellationType, "Company");
+		wait(1);
+		selectDropdownText(policyChevron.ddReasonType, "ABC Insured declined policy");
+		wait(1);
+		click(policyChevron.btnAdd);
+		wait(1);
+		click(dashboard.btnStart);
+		wait(1);
+		click(closeoutChevron.btnIssueNB);
+	}
+	@Given("User cancels policy through manual transaction")
+	public void user_cancels_policy_through_manual_transaction() {
+
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
-			
-		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
-		 click(dashboard.search);
-		 wait(1);
-		 
-		 startTransaction();
-			
-		    selectDropdownText(dashboard.ddSelectTransaction, "Reinstatement");
-		    click(dashboard.btnSelect);
-		    click(dashboard.btnStart);
-		    wait(1);
-		    click(closeoutChevron.btnIssueNB);
-		 
+		sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		click(dashboard.search);
+		wait(1);
+		startTransaction();
+		selectDropdownText(dashboard.ddSelectTransaction, "Cancellation");
+		click(dashboard.btnSelect);
+		selectDropdownText(policyChevron.ddCancellationType, "Company");
+		wait(1);
+		selectDropdownText(policyChevron.ddReasonType, "ABC Insured declined policy");
+		wait(1);
+		click(policyChevron.btnAdd);
+		wait(1);
+		click(dashboard.btnStart);
+		wait(1);
+		click(closeoutChevron.btnIssueNB);
 	}
 
-	
+	@Given("User reinstates policy through manual transaction")
+	public void user_reinstates_policy_through_manual_transaction() {
 
-	@Given("I finalize the application or transaction")
-	public void i_finalize_the_application() {
+		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		click(dashboard.search);
+		wait(1);
+		startTransaction();
+		selectDropdownText(dashboard.ddSelectTransaction, "Reinstatement");
+		click(dashboard.btnSelect);
+		click(dashboard.btnStart);
+		wait(1);
+		click(closeoutChevron.btnIssueNB);
+	}
+
+	@Given("User finalizes the application or transaction")
+	public void user_finalizes_the_application() {
 		click(reviewChevron.btnFinalize);
 		Hooks.scenario.log("Finalize button clicked");
 		wait(2);
 	}
 
-	@Given("I Issue new business with payment type {string}")
-	public void i_issue_new_business_with_payment_type(String paymentType) {
-		
-		
+	@Given("User issues new business with payment type {string}")
+	public void user_issue_new_business_with_payment_type(String paymentType) {
+
 		switch (paymentType.toLowerCase()) {
-		
 		case "none":
 			selectDropdownText(closeoutChevron.ddPaymentType, "None");
 			break;
-			
 		case "credit card":
 			selectDropdownText(closeoutChevron.ddPaymentType, "Credit Card");
-			makeCCPayment();			
-			break;		
-									
+			makeCCPayment();
+			break;
 		default:
 			throw new RuntimeException("Unable to find Payment type");
 		}
-		
-		wait(1); 
-		    click(closeoutChevron.btnIssueNB);
-		    wait(4);
+		wait(1);
+		click(closeoutChevron.btnIssueNB);
+		wait(4);
 	}
-
-
-	@And("I enter Policy General detail with Producer Code {string}")
-	public void i_fill_all_the_details_on_PolicyGeneral(String producerCode) {
+	@And("User enters Policy General detail with Producer Code {string}")
+	public void user_enters_policy_general_detail_with_producer_code(String producerCode) {
 		sendText(policyChevron.txtProducerCodeSel, producerCode);
-	    
 	}
-	
-	@Given("I signin Spin as user {string} and password {string}")
-	public void i_signin_spin_as_userfrom_featurefiles(String user, String Pwd) {
-	 sendText(login.username, user);
-	 sendText(login.password, Pwd);
-	 click(login.btnSignIn);
-	 wait(1);		
+	@Given("User signin Spin with username {string} and password {string}")
+	public void user_signin_spin_with_username_and_password(String user, String Pwd) {
+		sendText(login.username, user);
+		sendText(login.password, Pwd);
+		click(login.btnSignIn);
+		wait(1);
 	}
-	
-	
-	@Given("I submit the application for UW approval")
-	public void i_submit_the_application_for_uw_approval() throws Exception {
+	@Given("User submits the application for UW approval")
+	public void user_submits_the_application_for_uw_approval() throws Exception {
 		app_Tx_Policy_Claim_Num = getApplicationNumber(driver);
-		
-		sendText(closeoutChevron.txtWorkflowComments, "Underwriting approval required for "+app_Tx_Policy_Claim_Num);
+		sendText(closeoutChevron.txtWorkflowComments, "Underwriting approval required for " + app_Tx_Policy_Claim_Num);
 		submitForApprovalWithDialog();
 	}
-
-	@Given("I submit the application for UW manager approval")
-	public void i_submit_the_application_for_uw_manager_approval() throws Exception {
+	@Given("User submits the application for UW manager approval")
+	public void user_submits_the_application_for_uw_manager_approval() throws Exception {
 		app_Tx_Policy_Claim_Num = getApplicationNumber(driver);
-		
 		submitForApproval();
 	}
-	
-	
-	@Given("I sign out")
-	public void i_sign_out() {
+	@Given("User signs out")
+	public void user_signs_out() {
 		click(dashboard.btnUserMenu);
 		wait(1);
 		click(dashboard.btnSignOut);
 		wait(2);
 		Hooks.scenario.log("Sign out was clicked");
 	}
-	
-	
-	@Given("I submit the claim transaction for approval")
-	public void i_submit_the_claim_for_approval() throws Exception {
+	@Given("User submits the claim transaction for approval")
+	public void user_submits_the_claim_for_approval() throws Exception {
 		app_Tx_Policy_Claim_Num = getClaimTransactionNumber(driver);
-		
 		submitForApproval();
 	}
-	
-	
-	@Given("I approve the application or transaction")
-	public void i_approve_the_app_tx() throws Exception {
-		
+	@Given("User approves the application or transaction")
+	public void user_approves_the_app_tx() throws Exception {
 		click(closeoutChevron.btnApprove);
 	}
-	
 	@Given("User search for the app or transaction or policy")
 	public void user_search_for_app_tx_policy() {
-				 wait(1);
-		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
-		 click(dashboard.search);
-
-		 wait(1);
+		wait(1);
+		sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		click(dashboard.search);
+		wait(1);
 	}
-	
-	
-	@Given("Report loss on policy with effective of {string}")
-	public void report_loss_policy(String days) {
+	@Given("User reports loss on policy with effective of {string}")
+	public void user_reports_loss_policy_with_effective_of(String days) {
 		changeDate(days);
-		
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
-		
-		 sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
-		 click(dashboard.search);
-		 wait(1);
-		 
-		 click(holder.btnReportLoss);
-		 wait(1);
-		 click(holder.btnReport);
-		 wait(2);		 
-		
+		sendText(dashboard.txtSearchBar, app_Tx_Policy_Claim_Num);
+		click(dashboard.search);
+		wait(1);
+		click(holder.btnReportLoss);
+		wait(1);
+		click(holder.btnReport);
+		wait(2);
 	}
-	
-	@Given("I select only loss cause as {string}")
-	public void select_loss_cause(String lossCause) {
-		
+	@Given("User selects only loss cause as {string}")
+	public void user_selects_loss_cause_as(String lossCause) {
 		selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
-			
-	}
-	
-
+	}	
 	@And("User enters Distance to Hydrant_Accredited Water Source")
-	public void User_enters_Distance_to_Hydrant_Accredited_Water_Source() {	    	   				
+	public void User_enters_Distance_to_Hydrant_Accredited_Water_Source() {
 		selectDropdown(dwellingChevron.ddDistanceToHydrant, 1);
-		wait(1);			
+		wait(1);
 	}
-	
-	
 	@And("User enters Roof Material")
-	public void User_enters_Roof_Material() {	    	   						
-		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");											
+	public void User_enters_Roof_Material() {
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");
 	}
-	
-	
-	@Given("I select loss cause as {string} and other related questions")
-	public void select_loss_cause_and_questions(String lossCause) {
-		
-		Select entityType = new Select (driver.findElement(By.id("Claim.LossCauseCd"))); 
-        String value = entityType.getFirstSelectedOption().getText().toString();
-        Hooks.scenario.log("Loss Cause defaulted with "+value);
-		
-        if(lossCause.equalsIgnoreCase("Collapse") || lossCause.equalsIgnoreCase("Cracking/Rupture") || 
-        		lossCause.equalsIgnoreCase("Explosion") || lossCause.equalsIgnoreCase("Falling Objects") || 
-        		lossCause.equalsIgnoreCase("Freezing") || lossCause.equalsIgnoreCase("Lightning") || 
-        		lossCause.equalsIgnoreCase("Smoke") || lossCause.equalsIgnoreCase("All Other Property")){
-        	
-        	selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
-        	wait(1);
-        	selectDropdownText(lossNoticeInfo.lstCQHomeHabitable, "Yes");        	        	
-	
+	@Given("User selects loss cause as {string} and other related questions")
+	public void user_selects_loss_cause_and_questions(String lossCause) {
+
+		Select entityType = new Select(driver.findElement(By.id("Claim.LossCauseCd")));
+		String value = entityType.getFirstSelectedOption().getText().toString();
+		Hooks.scenario.log("Loss Cause defaulted with " + value);
+
+		if (lossCause.equalsIgnoreCase("Collapse") || lossCause.equalsIgnoreCase("Cracking/Rupture")
+				|| lossCause.equalsIgnoreCase("Explosion") || lossCause.equalsIgnoreCase("Falling Objects")
+				|| lossCause.equalsIgnoreCase("Freezing") || lossCause.equalsIgnoreCase("Lightning")
+				|| lossCause.equalsIgnoreCase("Smoke") || lossCause.equalsIgnoreCase("All Other Property")) {
+
+			selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
+			wait(1);
+			selectDropdownText(lossNoticeInfo.lstCQHomeHabitable, "Yes");
 		}
-        
-        else if(lossCause.equalsIgnoreCase("Home Cyber Protection") || lossCause.equalsIgnoreCase("ID Recovery") || 
-        		lossCause.equalsIgnoreCase("Mysterious Disappearance") || lossCause.equalsIgnoreCase("Liability PD - Non-Pollution") || 
-        		lossCause.equalsIgnoreCase("Medical Payments")) {
-        	
-        	selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
-        	wait(1);
-        	
-        }
-		
-        else {
-		switch(lossCause.toLowerCase())	{
-		
-		case "Fire":
-			selectDropdownText(lossNoticeInfo.lstLossCause, "Fire");
+		else if (lossCause.equalsIgnoreCase("Home Cyber Protection") || lossCause.equalsIgnoreCase("ID Recovery")
+				|| lossCause.equalsIgnoreCase("Mysterious Disappearance")
+				|| lossCause.equalsIgnoreCase("Liability PD - Non-Pollution")
+				|| lossCause.equalsIgnoreCase("Medical Payments")) {
+
+			selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
 			wait(1);
-			selectDropdownText(lossNoticeInfo.lstCQHomeHabitable, "Yes"); 
-			selectDropdownText(lossNoticeInfo.lstAuthorityContacted, "Fire Department");
-			wait(1);
-			 sendText(lossNoticeInfo.lstAuthorityName, "Officer Richards");
-			 sendText(lossNoticeInfo.lstCaseNumber, "CaseFire1234");
-			selectDropdownText(lossNoticeInfo.lstFireRoomsAffected, "25%-50%");
-			sendText(lossNoticeInfo.lstFireOriginate, "Kitchen caught on Fire");			
-			break;
-			
-		case "GOC":	
-			click(product.btnProductSelectionGoc);
-			break;
-		case "DP1":	
-			click(product.btnProductSelectionDp1);	
-			break;
-		case "DP3":	
-			click(product.btnProductSelectionDp3);	
-			break;
-			
-		default:
-			throw new RuntimeException("Unable to select LOB");
-		
+		}
+		else {
+			switch (lossCause.toLowerCase()) {
+			case "Fire":
+				selectDropdownText(lossNoticeInfo.lstLossCause, "Fire");
+				wait(1);
+				selectDropdownText(lossNoticeInfo.lstCQHomeHabitable, "Yes");
+				selectDropdownText(lossNoticeInfo.lstAuthorityContacted, "Fire Department");
+				wait(1);
+				sendText(lossNoticeInfo.lstAuthorityName, "Officer Richards");
+				sendText(lossNoticeInfo.lstCaseNumber, "CaseFire1234");
+				selectDropdownText(lossNoticeInfo.lstFireRoomsAffected, "25%-50%");
+				sendText(lossNoticeInfo.lstFireOriginate, "Kitchen caught on Fire");
+				break;
+			case "GOC":
+				click(product.btnProductSelectionGoc);
+				break;
+			case "DP1":
+				click(product.btnProductSelectionDp1);
+				break;
+			case "DP3":
+				click(product.btnProductSelectionDp3);
+				break;
+			default:
+				throw new RuntimeException("Unable to select LOB");
 			}
-		
-		
-		
-		
-		
-        }
-			
+		}
 	}
-	
-	
-	
-	
-	
-	
-	
-
-
 }

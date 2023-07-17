@@ -10,7 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Test extends CommonMethods{
+public class VOLHO3_Mma_Forms_Validation extends CommonMethods{
 
     Scenario scenario;
 		
@@ -20,76 +20,35 @@ public class Test extends CommonMethods{
 	String EndPackage_Form = null;
 	
 	
-	@Given("I signin Spin as Underwriter")
-	public void i_signin_spin_as_underwriter() {
-		sendText(login.username, ConfigsReader.getProperty("uw_username"));
-		 sendText(login.password, ConfigsReader.getProperty("password"));
-		 click(login.btnSignIn);
-		 wait(3);
-	}
 
-	@Given("I signin Spin as Agent")
-	public void i_signin_spin_as_agent() {
-		sendText(login.username, ConfigsReader.getProperty("username"));
-		 sendText(login.password, ConfigsReader.getProperty("username"));
-		 click(login.btnSignIn);
-		 wait(3);
-	}
-	
-		
-	@When("I enter all the information on review screen")
-	public void i_enter_all_information_on_review_screen() {
-		//Quote Review Chevron information was filled here
-		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+
+	@When("User enters all required information on HO3 dwelling screen with MMA")
+	public void user_enters_all_required_information_on_ho3_dwelling_screen_with_mma() {
+		//Quote Dwelling information was filled here
+		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
+		sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
+		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
+		selectDropdownText(dwellingChevron.ddMediationArbit,"Yes");
 		wait(2);
-		click(reviewChevron.btnFullPaymentRadio);
+		click(dwellingChevron.btnSave);
 		wait(3);
-		
-	}
-	
-	@Given("I create application of HO3")
-	public void create_HO3_app() {
-		click(reviewChevron.btnCreateApplication);
+		selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
+		click(dwellingChevron.btnCalculate);
 		wait(4);
-		click(reviewChevron.btnInsuranceScoreBox);
-		click(reviewChevron.btnInsuranceScoreOk);
+		click(dwellingChevron.btnSave);
+		click(dwellingChevron.btnNext);
 		wait(3);
-		click(dwellingChevron.btnSave);
 	}
 	
-	@Given("I create application of DP3")
-	public void create_DP3_app() {
-		click(reviewChevron.btnCreateApplication);
-		wait(2);
-		click(dwellingChevron.btnSave);
-	}
-	
-	
-
-	@Given("I select MMA as Yes on dwelling screen")
-	public void i_select_mma_as_yes() {
+	@Given("User selects MMA as Yes on dwelling screen")
+	public void user_selects_mma_as_yes() {
 		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
 		wait(2);
 		selectDropdownText(dwellingChevron.ddMediationArbit, "Yes");
 	}
 	
-
-	@Given("I finalize and issue new business")
-	public void finalize_issueNB() {
-		click(reviewChevron.btnFinalize);
-		wait(2);
-		
-		//Closeout Chevron information was filled here
-		
-		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
-		wait(4);
-		click(closeoutChevron.btnIssueNB);
-	}
-	
-	
-
-	@Given("I click on on the application and validate the MMA acknowledge form {string} attached in the application form")
-	public void i_click_on_on_the_application_and_validate_the_mma_acknowledge_form_attached_in_the_application_form(String HO3_MMA_version) throws Exception {
+	@Given("User clicks on on the application and validate the MMA acknowledge form {string} attached in the application form")
+	public void user_clicks_on_on_the_application_and_validate_the_mma_acknowledge_form_attached_in_the_application_form(String HO3_MMA_version) throws Exception {
 							
 		click(policyFileChevron.btnApplicationForm);
 		wait(2);
@@ -114,14 +73,14 @@ public class Test extends CommonMethods{
 		String MMA_NBApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+application_Form, 10, 70, 300, 500, 500);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, PolicyNumberSuffix);
 		
-		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "11216 SW Pembroke DR");
+		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "1163 Oak Bluff Dr");
 		
-		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "Port Saint Lucie, FL 34987-1953");
+		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "Davenport, FL 33837-3688");
 		
 		
 	}
 	
-	@Then("I click on on the application and validate HO3 MMA acknowledge form not attached in the endorsement package")
+	@Then("User clicks on the application and validate HO3 MMA acknowledge form not attached in the endorsement package")
 	public void i_validate_ho3_mma_acknowledge_form_not_attached_in_the_endorsement_package() throws Exception {
 		click(policyFileChevron.btnApplicationForm);
 		wait(2);
