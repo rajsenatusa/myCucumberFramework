@@ -49,10 +49,14 @@ Feature: Renewal Policy VOL DP1
     And User enters DP1 Underwritting Questions
     And User clicks Dwelling chevron
     And User clicks Finalize button
+    And User selects Payment Type
+    And User clicks Issue New Business 
     And User returns to main page
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
-    And User clicks Finalize
+    And User clicks Save
+    And User clicks Finalize button
+    And User clicks Process
     Then User verifies RN DP1 policy has been created successfully
     
     

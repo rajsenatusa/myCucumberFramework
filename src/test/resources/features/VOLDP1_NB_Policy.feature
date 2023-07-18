@@ -23,7 +23,6 @@ Feature: New Business Policy VOL DP1
     And User clicks No Email
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
-    And User enters Months Occupied "<MonthsOccupied>"
     And User clicks next page button
     And User enters Year of Construction "<YearOfConstruction>"
     And User enters Square Feet "<SquareFeet>"
@@ -49,8 +48,10 @@ Feature: New Business Policy VOL DP1
     And User enters DP1 Underwritting Questions
     And User clicks Dwelling chevron
     And User clicks Finalize button
+    And User selects Payment Type
+    And User clicks Issue New Business
     Then User verifies NB DP1 policy has been created successfully
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | password | 08/21/2023                     | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $5,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mkoziel  | password | 08/21/2023                     | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $5,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |

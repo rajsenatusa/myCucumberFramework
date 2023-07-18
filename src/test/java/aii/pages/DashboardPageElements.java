@@ -107,7 +107,11 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(xpath="//td[normalize-space()='0.0070']")
 	public WebElement fIGAHO3Old;
 	
+	@FindBy(xpath="//td[normalize-space()='0.0170']")
+	public WebElement fIGADP1New;
 	
+	@FindBy(xpath="//td[normalize-space()='0.0070']")
+	public WebElement fIGADP1Old;
 	
 	
 	

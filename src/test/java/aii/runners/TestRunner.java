@@ -18,7 +18,9 @@ import io.cucumber.junit.CucumberOptions;
 		// if they are glued to some java code
 		dryRun = false,
 
-				tags = "@tomhoso",
+
+				tags = "@FIGA-VOLHO3",
+
 
 		
 		//it provides the output console to more readable
