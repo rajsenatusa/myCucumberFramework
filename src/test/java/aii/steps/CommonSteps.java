@@ -93,6 +93,15 @@ public class CommonSteps extends CommonMethods {
 		// commented this out in lesson because we have Hooks.java
 		// tearDown();
 	}
+	@Then("User clicks Calculate Button")
+	public void user_clicks_calculate_button() {
+		click(dwellingChevron.btnCalculate);
+		wait(4);
+	}
+	@Then("User selects Number of Units {string}")
+	public void user_selects_number_of_unit (String NumberOfUnits) {
+		selectDropdownText(dwellingChevron.ddNumberofUnits, NumberOfUnits);
+	}
 	@And("User checks application dwelling screen and finalizes transaction")
 	public void user_checks_application_dwelling_screen_and_finalizes_transaction() {
 		// Application Dwelling information was filled here
@@ -711,9 +720,21 @@ public class CommonSteps extends CommonMethods {
 		selectDropdown(dwellingChevron.ddDistanceToHydrant, 1);
 		wait(1);
 	}
+	
 	@And("User enters Roof Material")
 	public void User_enters_Roof_Material() {
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");
+	}
+	@When("User finalizes transaction and issues takeout policy")
+	public void user_finalizes_transaction_and_issues_takeout_policy() {
+		
+		click(reviewChevron.btnFinalize);
+		wait(2);
+		
+		//Closeout Chevron information was filled here
+		
+		click(closeoutChevron.btnIssueNB);
+		wait(5);
 	}
 	@Given("User selects loss cause as {string} and other related questions")
 	public void user_selects_loss_cause_and_questions(String lossCause) {

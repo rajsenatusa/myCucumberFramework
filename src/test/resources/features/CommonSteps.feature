@@ -60,3 +60,6 @@ Feature: Common Transactions and Steps
     And User enters Distance to Hydrant_Accredited Water Source
     And User enters Roof Material
     And User selects loss cause as "losscause" and other related questions
+    And User finalizes transaction and issues takeout policy
+    And User clicks Calculate Button
+    #And User selects Number of Units {string}
