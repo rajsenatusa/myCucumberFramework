@@ -10,22 +10,32 @@ import io.cucumber.java.en.When;
 
 public class TOMHOpolicy extends CommonMethods {
 
-	
-	@When("I enter product selection information for TOMHO and effective date")
-	public void i_enter_product_selection_information_for_tomho_and_effective_date() {
-		//product selection information was filled here
-		sendText(product.txtEffectiveDate,ConfigsReader.getProperty("effectivedate"));
+	@When("User enters product selection information for TOMHO and effective date")
+	public void user_enters_product_selection_information_for_tomho_and_effective_date() {
+		// product selection information was filled here
+		sendText(product.txtEffectiveDate, ConfigsReader.getProperty("effectivedate"));
 		selectDropdown(product.ddStateSelection, 1);
 		selectDropdown(product.ddCarrierSelection, 1);
 		wait(2);
 		click(product.btnContinue);
 		click(product.btnProductSelectionTomho);
 	}
-	
-	@When("I enter all required information on TOMHO quote screen")
-	public void i_enter_all_required_information_on_tomho_quote_screen() {
-		//Quote Policy Chevron information was filled here
+	@When("User enters product selection information for TOMHO and {string}")
+	public void user_enters_product_selection_information_for_tomho_and (String EffectiveDate) {
+		// product selection information was filled here
+		sendText(product.txtEffectiveDate, EffectiveDate);
+		selectDropdown(product.ddStateSelection, 1);
+		selectDropdown(product.ddCarrierSelection, 1);
+		wait(2);
+		click(product.btnContinue);
+		click(product.btnProductSelectionTomho);
+	}
+	@When("User enters all required information on TOMHO quote screen")
+	public void user_enters_all_required_information_on_tomho_quote_screen() {
+		// Quote Policy Chevron information was filled here
 		sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
+		wait(3);
+		click(dwellingChevron.btnSave);
 		wait(3);
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
@@ -37,9 +47,10 @@ public class TOMHOpolicy extends CommonMethods {
 		wait(1);
 		click(policyChevron.btnNext);
 	}
-	@When("I enter all required information on TOMHO dwelling screen")
-	public void i_enter_all_required_information_on_tomho_dwelling_screen() {
-		//Quote Dwelling information was filled here
+
+	@When("User enters all required information on TOMHO dwelling screen")
+	public void user_enters_all_required_information_on_tomho_dwelling_screen() {
+		// Quote Dwelling information was filled here
 		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
 		selectDropdownText(dwellingChevron.ddAttachedStructures, "No");
@@ -51,48 +62,40 @@ public class TOMHOpolicy extends CommonMethods {
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
-	@When("I enter all required information on TOMHO review screen")
-	public void i_enter_all_required_information_on_tomho_review_screen() {
-		//Quote Review Chevron information was filled here
+
+	@When("User enters all required information on TOMHO review screen")
+	public void user_enters_all_required_information_on_tomho_review_screen() {
+		// Quote Review Chevron information was filled here
 		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(2);
 		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
+	}
+
+	@When("User creates TOMHO application")
+	public void user_creates_tomho_application() {
 		click(reviewChevron.btnCreateApplication);
 		wait(4);
 	}
-	@When("I create TOMHO application")
-	public void i_create_tomho_application() {
-		//Special Options Chevron was filled here
-		click(specialChevron.btnSpecialOptionsWiz);
-		wait(3);	
-		click(specialChevron.btnTreatAsRenewal);
-		wait(3);
-		click(specialChevron.btnDialogOk);
-		wait(3);
-		click(reviewChevron.btnReview);
+	@When("User selects Attached Structures {string}")
+	public void user_selects_attached_structures (String AttachedStructures) {
+		selectDropdownText(dwellingChevron.ddAttachedStructures, AttachedStructures);
 		wait(2);
-		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
-		wait(2);
-		click(reviewChevron.btnFullPaymentRadioTO);
-		click(reviewChevron.btnFinalize);
-		wait(2);
-		
-		//Closeout Chevron information was filled here
-		
-		click(closeoutChevron.btnIssueNB);
-		wait(5);
 	}
-	@Then("I validate the TOMHO policy has been created successfully")
-	public void i_validate_the_tomho_policy_has_been_created_successfully() {
-		WebElement validate= driver.findElement(By.id("History_1_1_TransactionCd"));
-		
-		if(validate.getText().equalsIgnoreCase("Renewal")) {
+	@When("User enters Coverage A value {string}")
+	public void user_enters_coverage_a_value (String CoverageA) {
+		sendText(dwellingChevron.txtCoverageA, CoverageA);
+		wait(3);
+	}
+	@Then("User validates that TOMHO policy has been created successfully")
+	public void user_validates_that_tomho_policy_has_been_created_successfully() {
+		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
+
+		if (validate.getText().equalsIgnoreCase("Renewal")) {
 			System.out.println("Test passed, TakeOut MHO policy has been created successfully");
-		}
-		else {
+		} else {
 			System.out.println("Test failed!");
-	}
+		}
 
 	}
 }

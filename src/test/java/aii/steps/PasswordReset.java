@@ -4,14 +4,6 @@ import aii.utils.CommonMethods;
 import aii.utils.ExcelUtility;
 import io.cucumber.java.en.And;
 
-
-
-
-//import org.openqa.selenium.support.FindBy;
-//import org.openqa.selenium.support.PageFactory;
-
-
-
 public class PasswordReset extends CommonMethods {
 	String FileLocation = System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\UserList_ToRest.xlsx";
 	

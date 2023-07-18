@@ -19,15 +19,12 @@ public class Hooks {
 
 	@After
 	public void end(Scenario scenario)  {
-		
 	
-		//add information to the scenario
-		
+		//add information to the scenario	
 		byte[] picture;
 		Hooks.scenario= scenario;
 		
 		//we want to store the screenshots in different locations if the scenario fails/passes
-
 		if(scenario.isFailed())
 		{
 			//get the screenshot using the takeScreenshot method
@@ -41,7 +38,5 @@ public class Hooks {
 		scenario.attach(picture, "image/png", scenario.getName());
 		
 		BaseClass.tearDown();
-		
 	}
-
 }

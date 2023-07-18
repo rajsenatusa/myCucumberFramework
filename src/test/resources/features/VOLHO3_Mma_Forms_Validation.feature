@@ -1,4 +1,4 @@
-#Author: Kalesha
+
 ##updated on 07/17/2023 by Can Yavas
 Feature: HO3 MMA scenario
 
