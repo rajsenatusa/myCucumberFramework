@@ -37,9 +37,11 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 		}
 		@Then("User verifies RN HO3 policy has been created successfully")
 		public void User_verifies_RN_HO3_policy_has_been_created_successfully() {	    	   						
+			 wait(1);
 			String expected = "Renewal";
 			String actual = historyChevron.txtRenewal.getText();
 			Assert.assertEquals("Test failed!", expected, actual);
+			 wait(1);
 		}
 		@Then("User verifies HO3 RN Water NonWeather Base Rate")
 		public void User_verifies_HO3_RN_Water_NonWeather_Base_Rate() {

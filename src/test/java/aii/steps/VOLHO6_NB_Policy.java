@@ -77,8 +77,10 @@ public class VOLHO6_NB_Policy extends CommonMethods {
 	}
 	@Then("User verifies NB HO6 policy has been created successfully")
 	public void User_verifies_NB_HO3_policy_has_been_created_successfully() {	    	   						
+		wait(1);
 		String expected = "New Business";
 		String actual = historyChevron.txtNewBusiness.getText();
 		Assert.assertEquals("Test failed!", expected, actual);
+		wait(1);
 	}
 }

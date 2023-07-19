@@ -13,7 +13,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -67,8 +67,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 0 to 3 Months  |               2015 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 0 to 3 Months  |               2015 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
 
   @RateChangeHO3-2
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone D and Foundation Slab
@@ -81,7 +81,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -135,8 +135,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Masonry          | Owner Occupied | 4 to 8 Months  |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | A-Hurricane Impact | Gable     | No  | Yes           | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Masonry          | Owner Occupied | 4 to 8 Months  |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | A-Hurricane Impact | Gable     | No  | Yes           | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-3
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone B and Foundation Elevated
@@ -149,7 +149,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -203,8 +203,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 9 to 12 Months |               2017 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Unknown | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Elevated            | B                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2017 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Unknown | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Elevated            | B                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-4
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone C and Foundation Basement
@@ -217,7 +217,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -271,8 +271,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 0 to 3 Months  |               2018 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | No      | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | C                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 0 to 3 Months  |               2018 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | No      | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | C                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-5
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone A and Foundation Slab
@@ -285,7 +285,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -340,8 +340,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 0 to 3 Months  |               2018 |       3500 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | A                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 0 to 3 Months  |               2018 |       3500 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | A                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-6
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone AE and Foundation Basement
@@ -354,7 +354,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -408,8 +408,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 0 to 3 Months  |               2019 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | AE                | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 0 to 3 Months  |               2019 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | AE                | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-7
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone AH and Foundation Slab
@@ -422,7 +422,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -476,8 +476,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 0 to 3 Months  |               2020 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | AH                | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 0 to 3 Months  |               2020 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | AH                | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-8
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone AO and Foundation Basement
@@ -490,7 +490,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -544,8 +544,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 4 to 8 Months  |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | AO                | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 4 to 8 Months  |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | AO                | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-9
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone A99 and Foundation Basement
@@ -558,7 +558,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -612,8 +612,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | A99               | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | A99               | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-10
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone X and Foundation Slab
@@ -626,7 +626,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -680,8 +680,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 9 to 12 Months |               2020 |       3050 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | X                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2020 |       3050 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | X                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-11
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone D and Foundation Basement
@@ -694,7 +694,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -748,8 +748,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Masonry          | Owner Occupied | 9 to 12 Months |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | Gable     | No  | Yes           | $5,000                  | Basement            | D                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Masonry          | Owner Occupied | 9 to 12 Months |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | Gable     | No  | Yes           | $5,000                  | Basement            | D                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-12
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone A30 and Foundation Elaveted
@@ -762,7 +762,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -817,8 +817,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 4 to 8 Months  |               2019 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Elevated            | A30               | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 4 to 8 Months  |               2019 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Elevated            | A30               | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-13
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone A1 and Foundation Basement
@@ -831,7 +831,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -886,8 +886,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023                     | Frame            | Owner Occupied | 9 to 12 Months |               2018 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | A1                | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2018 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | A1                | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-14
   Scenario Outline: Rate Change-2023 HO3-RN-Flood Rate Zone X and Foundation Basement
@@ -900,7 +900,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -959,9 +959,9 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     Then User verifies Personal Property Flood Rate Zone X and Foundation Basement
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 06/18/2022                     | Frame            | Owner Occupied | 0 to 3 Months  |               2018 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | A-Hurricane Impact | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | Yes          | Yes                  |
-    
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 06/18/2022    | Frame            | Owner Occupied | 0 to 3 Months  |               2018 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | A-Hurricane Impact | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | Yes          | Yes                  |
+
   @RateChangeHO3-15
   Scenario Outline: Rate Change-2023 HO3-RN-Flood Rate Zone D and Foundation Slab
     Given User navigates to QA7
@@ -973,7 +973,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -1030,11 +1030,10 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     Then User verifies HO3 RN Hurricane Base Rate
     Then User verifies Building Flood Rate Zone D and Foundation Slab
     Then User verifies Personal Property Flood Rate Zone D and Foundation Slab
-    
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 06/18/2022                     | Masonry          | Owner Occupied | 4 to 8 Months  |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | A-Hurricane Impact | Gable     | No  | Yes           | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 06/18/2022    | Masonry          | Owner Occupied | 4 to 8 Months  |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | A-Hurricane Impact | Gable     | No  | Yes           | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-16
   Scenario Outline: Rate Change-2023 HO3-RN-Flood Rate Zone B and Foundation Elevated
@@ -1047,7 +1046,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -1085,7 +1084,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User selects Preferred Risk Status "<PreferredRiskStatus>"
     And User selects SFHA Override "<SFHAOverride>"
     And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
-   And User clicks save and next page button
+    And User clicks save and next page button
     And User enters Pay Plan Type
     And User enters HO3 Underwritting Questions
     And User enters Dwelling Type
@@ -1106,8 +1105,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     Then User verifies Personal Property Flood Rate Zone B and Foundation Elevated
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 06/18/2022                     | Frame            | Owner Occupied | 9 to 12 Months |               2017 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Unknown | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Elevated            | B                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 06/18/2022    | Frame            | Owner Occupied | 9 to 12 Months |               2017 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Unknown | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Elevated            | B                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-17
   Scenario Outline: Rate Change-2023 HO3-RN-Flood Rate Zone C and Foundation Basement
@@ -1120,7 +1119,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -1179,8 +1178,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     Then User verifies Personal Property Flood Rate Zone C and Foundation Basement
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 06/18/2022                     | Frame            | Owner Occupied | 4 to 8 Months  |               2018 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | No      | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | C                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 06/18/2022    | Frame            | Owner Occupied | 4 to 8 Months  |               2018 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | No      | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | C                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-18
   Scenario Outline: Rate Change-2023 HO3-RN-Flood Rate Zone A and Foundation Slab
@@ -1193,7 +1192,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -1253,8 +1252,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     Then User verifies Personal Property Flood Rate Zone A and Foundation Slab
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 06/18/2022                     | Frame            | Owner Occupied | 0 to 3 Months  |               2018 |       3500 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | A                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 06/18/2022    | Frame            | Owner Occupied | 0 to 3 Months  |               2018 |       3500 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | A                 | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-19
   Scenario Outline: Rate Change-2023 HO3-RN-Flood Rate Zone AE and Foundation Basement
@@ -1267,7 +1266,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -1326,8 +1325,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     Then User verifies Personal Property Flood Rate Zone AE and Foundation Basement
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 06/18/2022                     | Frame            | Owner Occupied | 9 to 12 Months |               2019 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | AE                | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 06/18/2022    | Frame            | Owner Occupied | 9 to 12 Months |               2019 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | AE                | Yes                 | Yes          | Yes                  |
 
   @RateChangeHO3-20
   Scenario Outline: Rate Change-2023 HO3-RN-Flood Rate Zone AH and Foundation Slab
@@ -1340,7 +1339,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
     And User enters Producer Code
@@ -1399,7 +1398,5 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     Then User verifies Personal Property Flood Rate Zone AH and Foundation Slab
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 06/18/2022                     | Frame            | Owner Occupied | 0 to 3 Months  |               2020 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | AH                | Yes                 | Yes          | Yes                  |
-
-  
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | Jlowe    | password | 06/18/2022    | Frame            | Owner Occupied | 0 to 3 Months  |               2020 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Slab                | AH                | Yes                 | Yes          | Yes                  |

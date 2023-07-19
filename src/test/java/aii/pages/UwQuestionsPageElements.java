@@ -95,7 +95,7 @@ public class UwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_AssignmentOfBenefits")
 	public WebElement ho3Question29;
 	
-	@FindBy(id= "NextPage_Bottom")
+	@FindBy(id= "NextPage")
 	public WebElement nextButtonUw;
 	
 	@FindBy(id= "Question_BusinessActivity")
