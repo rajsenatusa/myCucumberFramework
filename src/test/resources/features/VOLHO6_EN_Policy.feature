@@ -13,7 +13,7 @@ Feature: Endorsement Policy VOL HO6
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO6 policy
     And User enters Producer Code
@@ -45,13 +45,16 @@ Feature: Endorsement Policy VOL HO6
     And User enters Roof Material "<RoofMaterial>"
     And User calculates replacement cost
     And User clicks Finalize button
+    And User selects Payment Type
+    And User clicks Issue New Business
     And User returns to main page
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
     And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Finalize button
     And User clicks Endorse Policy button
     Then User verifies EN HO6 policy has been created successfully
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 05/05/2023                     | 05/10/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mkoziel  | password | 08/05/2023    | 08/10/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |

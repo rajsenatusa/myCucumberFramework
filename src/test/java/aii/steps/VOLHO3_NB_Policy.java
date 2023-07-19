@@ -52,9 +52,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		click(quote.btnSaveAndQuote);
 		wait(1);
 	}
-	@And("User enters New Product Version effective date {string}")
-	public void User_enters_New_Product_Version_effective_date(String NewProductVersionEffectiveDate) {
-		sendText(product.txtEffectiveDate, NewProductVersionEffectiveDate);
+	@And("User enters effective date {string}")
+	public void User_enters_effective_date(String EffectiveDate) {
+		sendText(product.txtEffectiveDate, EffectiveDate);
 	}
 	@And("User enters state")
 	public void I_enters_state() {	    	   	
@@ -105,10 +105,12 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	}					 	
 	@And("User enters Occupancy {string}")
 	public void User_enters_Occupancy(String Occupancy) {
+		wait(1);
 		selectDropdownText(policyChevron.ddOccupancy, Occupancy);									
 	}					
 	@And("User enters Months Occupied {string}")
 	public void User_enters_Months_Occupied(String MonthsOccupied) {
+		wait(1);
 		selectDropdownText(policyChevron.ddMonthsOccupied, MonthsOccupied);					 				
 	}
 	@And("User enters Has Insured resided at the risk address")

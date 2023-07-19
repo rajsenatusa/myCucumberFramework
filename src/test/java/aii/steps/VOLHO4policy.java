@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -100,4 +101,31 @@ public class VOLHO4policy extends CommonMethods {
 	}
 
 	}
+	@And("User clicks VOL HO4 policy")
+	public void User_clicks_VOL_HO4_policy() {
+
+		click(product.btnProductSelectionHo4); 
+	}
+	@And("User selects Mobile Home")
+	public void User_selects_Mobile_Home() {
+		selectDropdownText(policyChevron.ddMobileHome, "No");
+		wait(1);
+	}
+	
+	@And("User enters Personal Property")
+	public void User_enters_Personal_Property() {
+		sendText(dwellingChevron.txtCoverageC, ConfigsReader.getProperty("coveragec"));
+		wait(1);
+	}
+	@And("User enters Pay Plan Type for HO4")
+	public void User_enters_Pay_Plan_Type_for_HO4() {
+		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");			 
+		reviewChevron.btnFullPaymentRadio.click();
+		reviewChevron.btnCreateApplication.click();
+		click(dwellingChevron.btnNext);
+	}
+	
+	
+	
+	
 }
