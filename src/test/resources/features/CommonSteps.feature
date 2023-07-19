@@ -63,3 +63,5 @@ Feature: Common Transactions and Steps
     And User finalizes transaction and issues takeout policy
     And User clicks Calculate Button
     #And User selects Number of Units {string}
+    And User clicks Next on Policy Chevron
+    And User clicks Review Chevron

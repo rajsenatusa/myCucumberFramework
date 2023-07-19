@@ -1,5 +1,6 @@
 #Author: Can Yavas
 #updated on 07/14/2023 by Can Yavas
+#added datatable excel on 07/19/2023 by C.Yavas
 Feature: Issuing HO6 policy
 
   @ho6 @smoke
@@ -16,3 +17,11 @@ Feature: Issuing HO6 policy
     And User checks application dwelling screen and finalizes transaction
     And User issues policy
     Then User validates that HO6 policy has been created successfully
+
+  @ho6datatable
+  Scenario: VOL HO6 policy creation with multiple customers
+    Given User login to Spin as Standard Agent
+    When User starts transaction as a new customer
+    Then User creates HO6 policy with passing information from excel "ho6customerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from VOLHO6.xlsx
+		##Do not change coloumn names or coloumn types 
