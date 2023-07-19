@@ -71,7 +71,11 @@ public class CommonSteps extends CommonMethods {
 	public void user_enters_a_valid_username() {
 		sendText(login.username, ConfigsReader.getProperty("username"));
 	}
-
+	@When("User clicks Review Chevron")
+	public void user_clicks_review_chevron() {
+		click(reviewChevron.btnReview);
+		wait(3);
+	}
 	@When("User searches policy number before starting transaction")
 	public void user_searches_policy_number_before_starting_transaction() {
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
@@ -151,7 +155,10 @@ public class CommonSteps extends CommonMethods {
 	public void user_starts_transaction() {
 		startTransaction();
 	}
-
+	@And("User clicks Next on Policy Chevron")
+	public void user_clicks_next_on_policy_chevron() {
+		click(policyChevron.btnNext);
+	}
 	@Given("User selects endorsement transaction on {string}")
 	public void user_selects_an_endorsement_transaction(String Days) throws Exception {
 
