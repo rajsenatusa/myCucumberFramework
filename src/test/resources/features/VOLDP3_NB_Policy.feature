@@ -13,7 +13,7 @@ Feature: New Business Policy VOL DP3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL DP3 policy
     And User enters Producer Code
@@ -51,8 +51,10 @@ Feature: New Business Policy VOL DP3
     And User enters DP3 Underwritting Questions
     And User clicks Dwelling chevron
     And User clicks Finalize button
+    And User selects Payment Type
+    And User clicks Issue New Business
     Then User verifies NB DP3 policy has been created successfully
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | password | 08/25/2020                     | Frame            | Owner Occupied | 9 to 12 Months |               2015 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $1000                   |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mkoziel  | password | 08/25/2023    | Frame            | Owner Accupied | 9 to 12 Months |               2015 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $2000                   |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |

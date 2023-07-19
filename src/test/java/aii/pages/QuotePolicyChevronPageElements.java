@@ -110,6 +110,13 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy (id= "InsuredEmail.EmailAddr")
 	public WebElement emailAddr;
 	
+	@FindBy (id= "BasicPolicy.MobileHomeInd")
+	public WebElement ddMobileHome;
+	
+	
+	
+	
+	
 	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
