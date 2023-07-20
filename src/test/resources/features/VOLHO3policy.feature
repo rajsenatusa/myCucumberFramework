@@ -21,5 +21,5 @@ Feature: Issuing HO3 policy
   Scenario: HO3 policy creation with multiple customers
     Given User login to Spin as Standard Agent
     When User starts transaction as a new customer
-    Then User creates HO3 policy with passing information from excel "customerInfo" sheet
-    ##User can change excel data table contents from /testdata folder from excel.xlsx
+    Then User creates HO3 policy with passing information from excel "ho3customerInfo" sheet
+    ##User can change excel data table contents from /testdata folder from VOLHO3.xlsx

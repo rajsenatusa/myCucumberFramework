@@ -1,5 +1,6 @@
 #Author: Can Yavas
 #updated on 07/14/2023 by Can Yavas
+#added datatable on 07/20/2023 by C.Yavas
 Feature: Issuing DP1 policy
 
   @dp1 @smoke
@@ -17,4 +18,10 @@ Feature: Issuing DP1 policy
     And User issues policy
     Then User validates that DP1 policy has been created successfully
 
-    
+  @dp1datatable
+  Scenario: VOL DP1 policy creation with multiple customers
+    Given User login to Spin as Standard Agent
+    When User starts transaction as a new customer
+    Then User creates DP1 policy with passing information from excel "dp1customerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from VOLDP1.xlsx
+		##Do not change coloum

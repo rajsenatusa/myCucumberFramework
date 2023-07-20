@@ -15,10 +15,10 @@ import io.cucumber.java.en.Then;
 public class VOLHO3DataTable extends CommonMethods {
 
 	@Then("User creates HO3 policy with passing information from excel {string} sheet")
-	public void User_creates_ho3_policy_with_passing_information_from_excel_sheet(String customerInfo) {
-		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/Excel.xlsx";
+	public void User_creates_ho3_policy_with_passing_information_from_excel_sheet(String ho3customerInfo) {
+		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLHO3.xlsx";
 
-		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, customerInfo);
+		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, ho3customerInfo);
 
 		for (Map<String, String> dataMap : excelList) {
 

@@ -1,5 +1,6 @@
 #Author: Can Yavas
 #updated on 07/14/2023
+#added datatable on 07/20/2023 by C.Yavas
 Feature: Issuing DP3 policy
 
   @dp3 @smoke
@@ -17,6 +18,13 @@ Feature: Issuing DP3 policy
     And User issues policy
     Then User validates that DP3 policy has been created successfully
     
+   @dp3datatable
+   Scenario: VOL DP3 policy creation with multiple customers
+    Given User login to Spin as Standard Agent
+    When User starts transaction as a new customer
+    Then User creates DP3 policy with passing information from excel "dp3customerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from VOLDP3.xlsx
+		##Do not change coloum
     
     @Regression @MTR537
 	Scenario: MTR-537 Validate Owner Occupied NB Endorsement- NB INTEGRITY SELECT Text Builder

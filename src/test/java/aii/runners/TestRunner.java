@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 
-				tags = "@EN_Policy_VOLHO4-1",
+				tags = "@NB_Policy_GOC-1",
 
 
 		
