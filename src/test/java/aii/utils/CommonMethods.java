@@ -245,6 +245,21 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+	/**
+	 * This method switches focus back to a main window.
+	 * 
+	 */
+	public static void switchToMainWindow() {
+		String Window = driver.getWindowHandle();
+		Set<String> windows = driver.getWindowHandles();
+
+		for (String window : windows) {
+			if (!window.equals(Window)) {
+				driver.switchTo().window(window);
+			}
+		}
+
+	}
 
 	/**
 	 * This method creates a WebDriverWait object and returns it.
