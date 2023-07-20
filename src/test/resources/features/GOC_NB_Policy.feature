@@ -4,6 +4,7 @@ Feature: New Business Policy GOC
 
   @NB_Policy_GOC-1
   Scenario Outline: NB GOC
+    
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
