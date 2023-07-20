@@ -2,11 +2,13 @@
 
 package aii.steps;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -92,8 +94,37 @@ public class VOLMHO3policy extends CommonMethods {
 		else {
 			System.out.println("Test failed!");
 	}
-
-
 	}
-
+	@And("User clicks VOL MHO3 policy")
+	public void User_clicks_VOL_MHO3_policy() {
+		click(product.btnProductSelectionMho3);
+	}
+	@And("User clicks Property Type as Private Property")
+	public void User_clicks_Property_Type_as_Private_Property () {
+		click(policyChevron.btnPropertyTypePri);
+	}
+	@And("User enters MHO3 Pay Plan Type")
+	public void User_enters_MHO3_Pay_Plan_Type () {
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+		wait(2);
+		click(reviewChevron.btnFullPaymentRadio);
+		wait(1);
+		click(reviewChevron.btnCreateApplication);
+		wait(2);
+		click(dwellingChevron.btnNext);
+	}
+	@And("User verifies NB MHO3 policy has been created successfully")
+	public void User_verifies_NB_MHO3_policy_has_been_created_successfully() {
+		String expected = "New Business";
+		String actual = historyChevron.txtNewBusiness.getText();
+		Assert.assertEquals("Test failed!", expected, actual);
+	}
+	@And("User clicks MHO3 Prior Carrier")
+	public void User_clicks_MHO3_Prior_Carrier() {
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
+ 		click(dwellingChevron.btnSave);
+		wait(1);
+	}	  
+	
 }
+

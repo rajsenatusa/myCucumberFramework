@@ -1,5 +1,5 @@
 #Author:Mustafa Cemek
-@RN_Policy_VOLDP1
+@EN_Policy_VOLDP1
 Feature: Endorsement Policy VOL DP1
 
   @EN_Policy_VOLDP1-1

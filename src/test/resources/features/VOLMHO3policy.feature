@@ -16,4 +16,4 @@ Feature: Issuing MHO3 policy
     And User answers all underwriting questions for MHO3
     And User checks application dwelling screen and finalizes transaction
     And User issues policy
-    Then User validates that MHO3 policy has been created successfully
+    Then User verifies NB MHO3 policy has been created successfully
