@@ -4,7 +4,7 @@ Feature: Renewal Policy VOL DP3
 
   @RN_Policy_VOLDP3-1
   Scenario Outline: RN VOL DP3
-   Given User navigates to QA7
+    Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
     And User clicks on the login button
@@ -13,7 +13,7 @@ Feature: Renewal Policy VOL DP3
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<NewProductVersionEffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL DP3 policy
     And User enters Producer Code
@@ -52,24 +52,15 @@ Feature: Renewal Policy VOL DP3
     And User clicks Next Page
     And User clicks Finalize button
     And User selects Payment Type
-    And User clicks Issue New Business   
+    And User clicks Issue New Business
     And User returns to main page
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
-    And User clicks Underwriting Questions chevron
-    And User enters DP3 Underwritting Questions
     And User clicks Save
     And User clicks Finalize button
-     And User clicks Process
+    And User clicks Process
     Then User verifies RN DP3 policy has been created successfully
 
     Examples: Test Data
-      | username | password | NewProductVersionEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | password | 08/20/2023                     | Frame            | Owner Occupied | 9 to 12 Months |               2018 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $5,000                  |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |
-   
-   
-   
-   
-   
-   
-   
+      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mkoziel  | password | 08/20/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2018 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $500                  |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |

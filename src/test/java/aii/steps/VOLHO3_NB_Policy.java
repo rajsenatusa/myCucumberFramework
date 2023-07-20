@@ -92,7 +92,8 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	@And("User enters Primary Phone")
 	public void User_enters_Primary_Phone() {	 
 		policyChevron.txtPhoneNumber.sendKeys(ConfigsReader.getProperty("phoneNumber")); 
-		selectDropdownText(policyChevron.ddPhoneNumberType,"Mobile");			
+		selectDropdownText(policyChevron.ddPhoneNumberType,"Mobile");	
+		wait(1);
 	}
 	@And("User clicks No Email")
 	public void User_clicks_No_Email() {	    	   				
@@ -212,7 +213,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	}	
 	@And("User selects Flood Coverage Deductible {string}")
 	public void User_selects_Flood_Coverage_Deductible(String FloodCoverageDeductible) {	    	   						
+		wait(1);
 		selectDropdownText(dwellingChevron.ddFloodCovADed, FloodCoverageDeductible);	
+		wait(1);
 	}	
 	@And("User selects Flood Foundation Type {string}")
 	public void User_selects_Flood_Foundation_Type(String FloodFoundationType) {	    	   						

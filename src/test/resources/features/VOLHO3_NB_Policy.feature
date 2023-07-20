@@ -53,7 +53,10 @@ Feature: New Business Policy VOL HO3
     And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
     And User clicks Save
     And User clicks Review button
-    And User enters Pay Plan Type
+    
+    
+    
+    And User enters MHO3 Pay Plan Type
     And User clicks Next Page
     And User enters HO3 Underwritting Questions
     And User enters Dwelling Type
