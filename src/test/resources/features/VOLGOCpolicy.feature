@@ -1,5 +1,6 @@
 #Author:Can Yavas
 #updated on 07/14/2023 by Can Yavas
+#added datatable on 07/21/2023 by C.Yavas
 
 Feature: Issuing Golf Cart policy
 
@@ -20,6 +21,12 @@ Feature: Issuing Golf Cart policy
     And User issues policy
     Then User validates that GOC policy has been created successfully
 
+	@gocdatatable
+  Scenario: GOC policy creation with multiple customers
+    Given User login to Spin as Standard Agent
+    When User starts transaction as a new customer
+    Then User creates GOC policy with passing information from excel "goccustomerInfo" sheet
+    ##User can change excel data table contents from /testdata folder from GOC.xlsx
 
 @GOC_TC16801
 Scenario: Valid GOC policy date transaction in future for 61 days and sent for approval

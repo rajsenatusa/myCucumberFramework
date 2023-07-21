@@ -1,10 +1,14 @@
 package aii.steps;
 
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import aii.utils.ExcelUtility;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -253,7 +257,178 @@ public class GOCpolicy extends CommonMethods {
 		click(dwellingChevron.btnNext);
 		}
 	
-	
+	@Then("User creates GOC policy with passing information from excel {string} sheet")
+	public void User_creates_goc_policy_with_passing_information_from_excel_sheet(String goccustomerInfo) throws Exception {
+		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/GOC.xlsx";
+
+		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, goccustomerInfo);
+
+		for (Map<String, String> dataMap : excelList) {
+
+			if (!dataMap.containsValue("")) {
+				String firstName = dataMap.get("FirstName");
+				String lastName = dataMap.get("LastName");
+				String birthDate = dataMap.get("BirthDate");
+				String address = dataMap.get("Address");
+				String zipcode = dataMap.get("Zipcode");
+				String effDate = dataMap.get("EffectiveDate");
+				String state = dataMap.get("State");
+				String phone = dataMap.get("Phone");
+				String liabilitycoveragetypegoc = dataMap.get("LiabilityCoverage");
+				String bodilyinjuryperson = dataMap.get("BodilyInjury");
+				String propertydamagelimit = dataMap.get("PropertyDamage");
+				String medicalpaymentlimit = dataMap.get("MedicalPayment");
+
+				sendText(quote.txtFirstName, firstName);
+				sendText(quote.txtLastName, lastName);
+				wait(2);
+				sendText(quote.txtBirthDate, birthDate);
+				wait(2);
+				click(quote.txtSearchName);
+				sendText(quote.txtAddress, address);
+				sendText(quote.txtZipCode, zipcode);
+				wait(2);
+				click(quote.btnVerifyAddress);
+				wait(2);
+				click(quote.btnCopyToMailAddress);
+				click(quote.btnCopyToBillAddress);
+				click(quote.btnSaveAndQuote);
+				wait(2);
+
+				// productSelection
+				sendText(product.txtEffectiveDate, effDate);
+				selectDropdownText(product.ddStateSelection, state);
+				selectDropdown(product.ddCarrierSelection, 1);
+				wait(2);
+				click(product.btnContinue);
+				click(product.btnProductSelectionGoc);
+
+				// quote
+				selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
+				selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
+				selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+				sendText(policyChevron.txtPhoneNumber, phone);
+				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+				wait(2);
+				click(policyChevron.btnNoEmailRadio);
+				selectDropdownText(policyChevron.ddInsuredReside, "No");
+				wait(1);
+				click(policyChevron.btnNext);
+				wait(3);
+
+				//golf cart dwelling
+				selectDropdownText(golfcartChevron.ddLiabilityCovType, liabilitycoveragetypegoc);
+				wait(6);
+				selectDropdownText(golfcartChevron.ddBodilyInjuryPerson, bodilyinjuryperson);
+				wait(5);
+				selectDropdownText(golfcartChevron.ddPropertyDamageLimit, propertydamagelimit);
+				wait(3);
+				selectDropdownText(golfcartChevron.ddMedicalPaymentLimit, medicalpaymentlimit);
+				wait(3);
+				click(dwellingChevron.btnSave);
+				wait(2);
+				click(dwellingChevron.btnSave);
+				click(dwellingChevron.btnNext);
+				
+				//adding driver
+				click(golfcartChevron.btnAddDriver);
+			    selectDropdownText(golfcartChevron.ddDriverMaritalStatus, ConfigsReader.getProperty("drivermaritalstatus"));
+			    selectDropdownText(golfcartChevron.ddDriverLicenseInd, "No");
+			    selectDropdownText(golfcartChevron.ddDriverGcExp, ConfigsReader.getProperty("driverexperience"));
+			    selectDropdownText(golfcartChevron.ddDriverTrainingInd, "No");
+			    wait(3);
+			    click(golfcartChevron.btnNextGocScreen);
+			    
+			    //adding golf cart information
+			    click(golfcartChevron.btnAddGolfcart);
+			   	wait(2);
+				sendText(golfcartChevron.txtModelYear, ConfigsReader.getProperty("golfcartmodelyear"));
+				sendText(golfcartChevron.txtGcVinNumber, ConfigsReader.getProperty("gcvinnumber"));
+				sendText(golfcartChevron.txtGcMake, ConfigsReader.getProperty("gcmake"));
+				sendText(golfcartChevron.txtGcModel, ConfigsReader.getProperty("gcmodel"));
+				selectDropdownText(golfcartChevron.ddGcPowerType, ConfigsReader.getProperty("gcpowertype"));
+				wait(2);
+				selectDropdownText(golfcartChevron.ddGcMaxSpeed, ConfigsReader.getProperty("gcmaxspeed"));
+				selectDropdownText(golfcartChevron.ddVehicleSeatbelts, "Yes");
+				sendText(golfcartChevron.txtGcMarketValue, ConfigsReader.getProperty("gcmarketvalue"));
+				selectDropdownText(golfcartChevron.ddOtherCollisionDed, ConfigsReader.getProperty("othercollisiondeductible"));
+				selectDropdownText(golfcartChevron.ddCollisionDed, ConfigsReader.getProperty("collisiondeductible"));
+				wait(2);
+				selectDropdownText(golfcartChevron.ddGcExistingDamage, "No");
+				click(dwellingChevron.btnSave);
+				wait(2);
+				click(reviewChevron.btnReview);
+				wait(3);
+
+				// Quote Review Chevron information was filled here
+				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+				wait(4);
+				click(reviewChevron.btnFullPaymentRadio);
+				wait(3);
+				selectDropdownText(reviewChevron.ddOrderInsScore, "No");
+				wait(3);
+				click(reviewChevron.btnCreateApplication);
+				wait(4);
+				click(policyChevron.btnPolicyChevronLink);
+				wait(2);	
+
+				// Application Policy Chevron information was filled here(all information was
+				// filled previously, just clicking next button)
+
+				click(dwellingChevron.btnNext);
+
+				// Application Underwriting Questions Chevron was filled here
+
+				fillGOC_UWQuestions();
+				wait(1);
+				
+
+				// Application Dwelling information was filled here
+				
+				click(dwellingChevron.btnSave);
+				click(reviewChevron.btnReview);
+				wait(2);
+				click(reviewChevron.btnFinalize);
+				wait(2);
+
+				// Closeout Chevron information was filled here
+
+				selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+				wait(4);
+				click(closeoutChevron.btnIssueNB);
+				WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
+
+				if (validate.getText().equalsIgnoreCase("New Business")) {
+					System.out.println("Test passed, GOC NB policy has been created successfully");
+				} else {
+					System.out.println("Test failed!");
+				}
+
+				wait(5);
+				// driver.switchTo().defaultContent();
+				String policyNumber = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText();
+				Hooks.scenario.log(policyNumber);
+
+				click(dashboard.btnUserMenu);
+				click(dashboard.btnSignOut);
+
+				sendText(login.username, ConfigsReader.getProperty("username"));
+				sendText(login.password, ConfigsReader.getProperty("password"));
+				click(login.btnSignIn);
+				wait(3);
+				moveToElement(driver.findElement(By.id("Menu_Policy")));
+				wait(1);
+				dashboard.btnNewQuote.click();
+				WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
+				selectDropdownText(element, "Individual");
+
+			} else {
+				break;
+			}
+
+		}
+
+	}
 	
 	
 	
