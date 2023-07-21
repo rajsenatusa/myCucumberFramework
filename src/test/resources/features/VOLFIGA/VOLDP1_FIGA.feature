@@ -14,7 +14,7 @@ Feature: FIGA VOL DP1-2023 (RC-1102: 2023 Rate Changes- FIGA: VOL DP1- 10/01/202
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<FIGADP1EffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL DP1 policy
     And User enters Producer Code
@@ -70,7 +70,7 @@ Feature: FIGA VOL DP1-2023 (RC-1102: 2023 Rate Changes- FIGA: VOL DP1- 10/01/202
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<FIGADP1EffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL DP1 policy
     And User enters Producer Code
@@ -126,7 +126,7 @@ Feature: FIGA VOL DP1-2023 (RC-1102: 2023 Rate Changes- FIGA: VOL DP1- 10/01/202
     And User clicks Entity Type
     And User enters Customer Informations
     And User enters Dwelling Address
-    And User enters New Product Version effective date "<FIGADP1EffectiveDate>"
+    And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL DP1 policy
     And User enters Producer Code
