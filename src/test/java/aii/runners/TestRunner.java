@@ -19,7 +19,10 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 
-				tags = "@mho3datatable",
+
+				tags = "@RN_Policy_GOC-1",
+
+				
 
 
 		

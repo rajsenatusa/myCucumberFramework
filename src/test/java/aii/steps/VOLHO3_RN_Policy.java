@@ -20,9 +20,9 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 		@And("User returns to main page")
 		
 		public void User_returns_to_main_page() {			
-		wait(4);
+		wait(5);
 			driver.switchTo().window(driver.getWindowHandle());		
-		wait(4);	
+		wait(5);	
 		}
 		@And("User clicks Start Transaction")
 		public void User_clicks_Start_Transaction() {	    	   						
