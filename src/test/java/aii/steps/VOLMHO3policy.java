@@ -2,12 +2,16 @@
 
 package aii.steps;
 
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import aii.utils.ExcelUtility;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -125,6 +129,150 @@ public class VOLMHO3policy extends CommonMethods {
  		click(dwellingChevron.btnSave);
 		wait(1);
 	}	  
+	@Then("User creates MHO3 policy with passing information from excel {string} sheet")
+	public void User_creates_mho3_policy_with_passing_information_from_excel_sheet(String mho3customerInfo) throws Exception {
+		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLMHO3.xlsx";
+
+		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, mho3customerInfo);
+
+		for (Map<String, String> dataMap : excelList) {
+
+			if (!dataMap.containsValue("")) {
+				String firstName = dataMap.get("FirstName");
+				String lastName = dataMap.get("LastName");
+				String birthDate = dataMap.get("BirthDate");
+				String address = dataMap.get("Address");
+				String zipcode = dataMap.get("Zipcode");
+				String effDate = dataMap.get("EffectiveDate");
+				String state = dataMap.get("State");
+				String previousCarr = dataMap.get("PreviousCarrier");
+				String previousExp = dataMap.get("PreviousExpDate");
+				String phone = dataMap.get("Phone");
+				String occupancytype = dataMap.get("Occupancy");
+				String monthsoccp = dataMap.get("Months");
+				String yearcons = dataMap.get("ConstYear");
+				String roof = dataMap.get("RoofMat");
+				String coveragea=dataMap.get("CoverageA");
+
+				sendText(quote.txtFirstName, firstName);
+				sendText(quote.txtLastName, lastName);
+				wait(2);
+				sendText(quote.txtBirthDate, birthDate);
+				wait(2);
+				click(quote.txtSearchName);
+				sendText(quote.txtAddress, address);
+				sendText(quote.txtZipCode, zipcode);
+				wait(2);
+				click(quote.btnVerifyAddress);
+				wait(2);
+				click(quote.btnCopyToMailAddress);
+				click(quote.btnCopyToBillAddress);
+				click(quote.btnSaveAndQuote);
+				wait(2);
+
+				// productSelection
+				sendText(product.txtEffectiveDate, effDate);
+				selectDropdownText(product.ddStateSelection, state);
+				selectDropdown(product.ddCarrierSelection, 1);
+				wait(2);
+				click(product.btnContinue);
+				click(product.btnProductSelectionMho3);
+
+				// quote
+				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
+				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
+				click(policyChevron.btnPropertyTypePri);
+				sendText(policyChevron.txtPhoneNumber, phone);
+				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+				wait(2);
+				click(policyChevron.btnNoEmailRadio);
+				selectDropdownText(policyChevron.ddOccupancy, occupancytype);
+				selectDropdownText(policyChevron.ddMonthsOccupied, monthsoccp);
+				wait(1);
+				click(policyChevron.btnNext);
+				wait(3);
+
+				//dwelling
+				sendText(dwellingChevron.txtYearConstruction, yearcons);
+				wait(2);
+				sendText(dwellingChevron.txtCoverageA, coveragea);
+				wait(2);
+				click(dwellingChevron.btnSave);
+				click(dwellingChevron.btnNext);
+				
+
+				// Quote Review Chevron information was filled here
+				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+				wait(3);
+				click(reviewChevron.btnFullPaymentRadio);
+				wait(3);
+				click(reviewChevron.btnCreateApplication);
+				wait(4);
+
+				// Application Policy Chevron information was filled here(all information was
+				// filled previously, just clicking next button)
+
+				click(dwellingChevron.btnNext);
+
+				// Application Underwriting Questions Chevron was filled here
+
+				fillMHO_UWQuestions();
+				wait(1);
+				
+
+				// Application Dwelling information was filled here
+				
+				selectDropdownText(dwellingChevron.ddBuildingLength, ConfigsReader.getProperty("buildinglength"));
+				selectDropdownText(dwellingChevron.ddRoofMetarial, roof);
+				selectDropdownText(dwellingChevron.ddBuildingMake, ConfigsReader.getProperty("buildingmake"));
+				selectDropdownText(dwellingChevron.ddBuildingWidth, ConfigsReader.getProperty("buildingwidth"));
+				selectDropdownText(dwellingChevron.ddBuildingSkirtedRails, "Yes");
+				sendText(dwellingChevron.txtBuildingSerialNumber, ConfigsReader.getProperty("buildingserialnumber"));
+
+				// Closeout Chevron information was filled here
+
+				click(dwellingChevron.btnSave);
+				click(reviewChevron.btnReview);
+				wait(2);
+				click(reviewChevron.btnFinalize);
+				wait(2);
+				selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+				wait(4);
+				click(closeoutChevron.btnIssueNB);
+				wait(5);
+				WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
+
+				if (validate.getText().equalsIgnoreCase("New Business")) {
+					System.out.println("Test passed, MHO3 NB policy has been created successfully");
+				} else {
+					System.out.println("Test failed!");
+				}
+
+				wait(5);
+				// driver.switchTo().defaultContent();
+				String policyNumber = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText();
+				Hooks.scenario.log(policyNumber);
+
+				click(dashboard.btnUserMenu);
+				click(dashboard.btnSignOut);
+
+				sendText(login.username, ConfigsReader.getProperty("username"));
+				sendText(login.password, ConfigsReader.getProperty("password"));
+				click(login.btnSignIn);
+				wait(3);
+				moveToElement(driver.findElement(By.id("Menu_Policy")));
+				wait(1);
+				dashboard.btnNewQuote.click();
+				WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
+				selectDropdownText(element, "Individual");
+
+			} else {
+				break;
+			}
+
+		}
+
+	}
 	
 }
 
