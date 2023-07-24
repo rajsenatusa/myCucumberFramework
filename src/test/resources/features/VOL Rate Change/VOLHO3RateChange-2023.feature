@@ -4,6 +4,7 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
 
   @RateChangeHO3-1
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone X and Foundation Basement
+    
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"

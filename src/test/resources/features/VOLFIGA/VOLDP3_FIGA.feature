@@ -4,6 +4,7 @@ Feature: FIGA VOL DP3-2023 (RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/202
 
   @FIGA-VOLDP3-1
   Scenario Outline: FIGA VOL DP3-10/01/2023: NB on Effective Date
+    
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"

@@ -1,5 +1,6 @@
 #Author: Can Yavas
 #updated on 07/18/2023
+#datatable added on 07/24/2023 by C.Yavas
 Feature: Issuing TODP1 policy
 
   @todp1 @smoke
@@ -54,3 +55,11 @@ Feature: Issuing TODP1 policy
       | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | DistanceHydrant | ProtectionClass | DwellingType  | TerritoryList | QualityGrade | 
       | 07/25/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 | <= 1,000 Feet   |              04 | Single Family | 5             | Economy      | 
     
+
+    @todp1datatable
+   Scenario: TO DP1 policy creation with multiple customers
+    Given User login to Spin as Admin Agent
+    When User starts transaction as a new customer
+    Then User creates TODP1 policy with passing information from excel "todp1customerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from TODP1.xlsx
+		##Do not change coloumn

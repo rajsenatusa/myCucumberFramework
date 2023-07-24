@@ -1,10 +1,14 @@
 package aii.steps;
 
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import aii.utils.ExcelUtility;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -130,6 +134,139 @@ public class VOLUMBpolicy extends CommonMethods {
 		} else {
 			System.out.println("Test failed!");
 		}
+	}
+	
+	@Then("User creates UMB policy with passing information from excel {string} sheet")
+	public void User_creates_umb_policy_with_passing_information_from_excel_sheet(String umbcustomerInfo)
+			throws Exception {
+		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLUMB.xlsx";
+
+		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, umbcustomerInfo);
+
+		for (Map<String, String> dataMap : excelList) {
+
+			if (!dataMap.containsValue("")) {
+				String firstName = dataMap.get("FirstName");
+				String lastName = dataMap.get("LastName");
+				String birthDate = dataMap.get("BirthDate");
+				String address = dataMap.get("Address");
+				String zipcode = dataMap.get("Zipcode");
+				String effDate = dataMap.get("EffectiveDate");
+				String state = dataMap.get("State");
+				String umbliabilitycoverage = dataMap.get("LiabilityCoverage");
+				String uninsuredlimit = dataMap.get("UninsuredLimit");
+				String numberofauto = dataMap.get("NumberOfAuto");
+
+				sendText(quote.txtFirstName, firstName);
+				sendText(quote.txtLastName, lastName);
+				wait(2);
+				sendText(quote.txtBirthDate, birthDate);
+				wait(2);
+				click(quote.txtSearchName);
+				sendText(quote.txtAddress, address);
+				sendText(quote.txtZipCode, zipcode);
+				wait(2);
+				click(quote.btnVerifyAddress);
+				wait(2);
+				click(quote.btnCopyToMailAddress);
+				click(quote.btnCopyToBillAddress);
+				click(quote.btnSaveAndQuote);
+				wait(2);
+
+				// productSelection
+				sendText(product.txtEffectiveDate, effDate);
+				selectDropdownText(product.ddStateSelection, state);
+				selectDropdown(product.ddCarrierSelection, 1);
+				wait(2);
+				click(product.btnContinue);
+				click(product.btnProductSelectionUmb);
+
+				// Quote Policy Chevron information was filled here
+				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
+				wait(5);
+				click(dwellingChevron.btnSave);
+				wait(3);
+				clickTab(policyChevron.ddPolicyWrittenAiig);
+				selectDropdownText(policyChevron.ddPolicyWrittenAiig, "Yes");
+				selectDropdownText(policyChevron.ddAutoPolicy, "Yes");
+				sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+				wait(2);
+				click(policyChevron.btnNoEmailRadio);
+				click(policyChevron.btnNext);
+
+				// liability coverage on quote screen
+				selectDropdownText(umbrellaChevron.ddUmbLimitCov, umbliabilitycoverage);
+				wait(2);
+				selectDropdownText(umbrellaChevron.ddUninsuredLimit, uninsuredlimit);
+				sendText(umbrellaChevron.txtNumberOfAuto, numberofauto);
+				click(dwellingChevron.btnSave);
+				wait(3);
+				click(reviewChevron.btnReview);
+				wait(3);
+
+				// Quote Review Chevron information was filled here
+				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+				wait(2);
+				click(reviewChevron.btnFullPaymentRadio);
+				wait(3);
+				click(reviewChevron.btnCreateApplication);
+				wait(4);
+				click(dwellingChevron.btnNext);
+		
+				// Application Underwriting Questions Chevron was filled here
+				fillUMB_UWQuestions();
+				wait(1);
+				click(uwquestionsChevron.nextButtonUw);
+				
+				// Application Dwelling information was filled here
+				
+				click(dwellingChevron.btnSave);
+				click(reviewChevron.btnReview);
+				wait(2);
+				click(reviewChevron.btnFinalize);
+				wait(2);
+
+				// Closeout Chevron information was filled here
+
+				selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+				wait(4);
+				click(closeoutChevron.btnIssueNB);
+
+				// Validation
+
+				WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
+
+				if (validate.getText().equalsIgnoreCase("New Business")) {
+					System.out.println("Test passed, VOL UMB policy has been created successfully");
+				} else {
+					System.out.println("Test failed!");
+				}
+
+				wait(5);
+				// driver.switchTo().defaultContent();
+				String policyNumber = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText();
+				Hooks.scenario.log(policyNumber);
+
+				click(dashboard.btnUserMenu);
+				click(dashboard.btnSignOut);
+
+				sendText(login.username, ConfigsReader.getProperty("adminusername"));
+				sendText(login.password, ConfigsReader.getProperty("adminpassword"));
+				click(login.btnSignIn);
+				wait(3);
+				moveToElement(driver.findElement(By.id("Menu_Policy")));
+				wait(1);
+				dashboard.btnNewQuote.click();
+				WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
+				selectDropdownText(element, "Individual");
+
+			} else {
+				break;
+			}
+
+		}
+
 	}
 
 }
