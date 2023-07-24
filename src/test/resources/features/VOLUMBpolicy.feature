@@ -1,5 +1,6 @@
 #Author: Can Yavas
 #updated on 07/19/2023 by C.Yavas
+#datatable added on 07/24/2023 by C.Yavas
 
 Feature: Issuing UMB policy
 
@@ -45,3 +46,10 @@ Feature: Issuing UMB policy
       | EffectiveDate | LiabilityCoverage | UninsuredLimit | NumberOfAuto | 
       | 07/25/2023    |     1,000,000     |       0        |      2       |           
     
+    @umbdatatable
+   Scenario: VOL UMB policy creation with multiple customers
+    Given User login to Spin as Admin Agent
+    When User starts transaction as a new customer
+    Then User creates UMB policy with passing information from excel "umbcustomerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from VOLUMB.xlsx
+		##Do not change coloumn

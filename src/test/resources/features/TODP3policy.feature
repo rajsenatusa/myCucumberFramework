@@ -1,6 +1,6 @@
 #Author: CanYavas
 #updated on 07/18/2023 by C.Yavas
-
+#added datatable on 07/24/2023 by C.Yavas
 Feature: Issuing TODP3 policy
 
   @smoke @todp3
@@ -58,4 +58,10 @@ Feature: Issuing TODP3 policy
       | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | DistanceHydrant | ProtectionClass | DwellingType  | NumberOfUnits |TerritoryList | QualityGrade | 
       | 07/25/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 | <= 1,000 Feet   |              04 | Single Family | 2             |5             | Economy      | 
     
-    
+     @todp3datatable
+   Scenario: TO DP3 policy creation with multiple customers
+    Given User login to Spin as Admin Agent
+    When User starts transaction as a new customer
+    Then User creates TODP3 policy with passing information from excel "todp3customerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from TODP3.xlsx
+		##Do not change coloumn

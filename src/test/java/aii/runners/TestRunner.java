@@ -20,7 +20,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@RN_Policy_GOC-1",
+				tags = "@todp3datatable",
 
 				
 
