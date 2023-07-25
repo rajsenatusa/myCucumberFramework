@@ -1,5 +1,6 @@
 #Author: Can Yavas
 #updated on 07/19/2023 by C.Yavas
+#added datatable on 07/25/2023 by C.Yavas
 Feature: Issuing TOMHPD policy
 
   @smoke @tomhpd
@@ -47,3 +48,11 @@ Feature: Issuing TOMHPD policy
     Examples: Test Data
       | EffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction | TerritoryList | AttachedStructures | CoverageA |
       | 07/25/2023    | Owner Occupied | 9 to 12 Months |               2021 |             5 | No                 |    120000 |
+
+   @tomhpddatatable
+   Scenario: TO MHPD policy creation with multiple customers
+    Given User login to Spin as Admin Agent
+    When User starts transaction as a new customer
+    Then User creates TOMHPD policy with passing information from excel "tomhpdcustomerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from TOMHPD.xlsx
+		##Do not change coloumn

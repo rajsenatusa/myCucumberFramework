@@ -1,5 +1,6 @@
 #Author: Can Yavas
 #updated on 07/18/2023 by C.Yavas
+#added datatable on 07/25/2023 by C.Yavas
 
 Feature: Issuing TOHO3 policy
 
@@ -58,4 +59,10 @@ Feature: Issuing TOHO3 policy
       | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | TerritoryList | StructureRentedOthers| QualityGrade | HurricaneDeductible|
       | 07/25/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |  5            |        No            | Economy      |     2%             |
     
-    
+     @toho3datatable
+   Scenario: TO HO3 policy creation with multiple customers
+    Given User login to Spin as Admin Agent
+    When User starts transaction as a new customer
+    Then User creates TOHO3 policy with passing information from excel "toho3customerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from TOHO3.xlsx
+		##Do not change coloumn
