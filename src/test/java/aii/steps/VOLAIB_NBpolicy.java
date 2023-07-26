@@ -130,7 +130,26 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		wait(3);
 
 	}
-
+	@And("User clicks VOL AIB policy")
+	public void User_clicks_VOL_AIB_policy() {	     
+		click(product.btnProductSelectionAib);	
+	}
+	@And("User selects Have you had 6 months of continuous boat insurance")
+	public void User_selects_Have_you_had_6_months_of_continuous_boat_insurance() {	     
+		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
+	}
+	@And("User selects Are all boats stored in Florida at least 6 months of the year")
+	public void User_selects_Are_all_boats_stored_in_Florida_at_least_6_months_of_the_year() {	     
+		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
+	}
+	@And("User selects Boating Liability")
+	public void User_selects_Boating_Liability() {	     
+		selectDropdownText(golfcartChevron.ddLiabilityCovType, "No Coverage");
+	}
+	
+	 
+	
+	
 	@When("User creates AIB application")
 	public void user_creates_aib_application() {
 

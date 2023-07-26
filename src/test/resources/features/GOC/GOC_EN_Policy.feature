@@ -1,10 +1,9 @@
 #Author:Mustafa Cemek
-@NB_Policy_GOC
-Feature: New Business Policy GOC
+@EN_Policy_GOC
+Feature: Endorsement Policy GOC
 
-  @NB_Policy_GOC-1
-  Scenario Outline: NB GOC
-    
+  @EN_Policy_GOC-1
+  Scenario Outline: EN GOC
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -17,7 +16,7 @@ Feature: New Business Policy GOC
     And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks GOC policy
-    #And User enters Producer Code
+    And User enters Producer Code
     And User selects Have you had 6 months of continuous Golf Cart Insurance Coverage
     And User selects Are all golf carts garaged in Florida at least 6 months of the year
     And User enters Primary Phone
@@ -54,8 +53,13 @@ Feature: New Business Policy GOC
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
-    Then User verifies NB MHO3 policy has been created successfully
+    And User returns to main page
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Endorse Policy button
+    Then User verifies EN GOC policy has been created successfully
 
     Examples: Test Data
-      | username | password | EffectiveDate |
-      | AG1171  | password | 08/05/2023    |
+      | username | password   | EffectiveDate | EndorsementEffectiveDate |
+      | JLOWE    | July@2023! | 08/05/2023    | 08/07/2023               |
