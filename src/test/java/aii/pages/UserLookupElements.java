@@ -17,6 +17,9 @@ public class UserLookupElements extends CommonMethods {
 	@FindBy (id= "Search")
 	public WebElement btnSearch;
 	
+	@FindBy (id= "SearchUser")
+	public WebElement btnUserSearch;
+	
 	@FindBy (id= "MatchType")
 	public WebElement ddStartWith;
 	
@@ -37,6 +40,30 @@ public class UserLookupElements extends CommonMethods {
 	
 	@FindBy (id= "Return")
 	public WebElement btnReturn;
+	
+	@FindBy (id= "LoginId")
+	public WebElement txtUserId;
+	
+	@FindBy (id= "UserRolesList")
+	public WebElement txtUserRolesList;
+	
+	@FindBy (id= "OverrideRole_0")
+	public WebElement lnkOverride;
+	
+	@FindBy (id= "UserRoleAttrValue_2_1")
+	public WebElement txtDaysAllowedPayPlan;
+	
+	@FindBy (id= "UserRoleAttrValue_2_2")
+	public WebElement txtNumberAllowedPayPlan;
+	
+	@FindBy (id= "Save")
+	public WebElement btnSave;
+	
+	@FindBy (xpath= "//td[@title='Allow Pay Plan Change from Policy without transaction']")
+	public WebElement txtAllowPayPlanChange;
+	
+	@FindBy (xpath= "//tbody/tr[755]/td[2]")
+	public WebElement txtAllowPayPlanChangeAnswer;
 	
 	public UserLookupElements() {
 		PageFactory.initElements(driver, this);

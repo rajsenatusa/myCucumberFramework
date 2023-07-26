@@ -51,7 +51,6 @@ Feature: Common Transactions and Steps
     And User cancels policy "policyNumber"
     And User cancels policy through manual transaction
     And User reinstates policy through manual transaction
-    And User reports loss on policy with effective of "days"
     And User selects only loss cause as "Loss cause"
     And User submits the claim transaction for approval
     And User search for the app or transaction or policy
