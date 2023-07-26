@@ -20,6 +20,9 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "History_1_2_Description")
 	public WebElement txtEndorsement;
 	
+	@FindBy(id= "PolicySummary_PolicyNumber")
+	public WebElement txtPolicyNo;
+	
 	public HistoryPageElements() {
 		
 		PageFactory.initElements(driver, this);
