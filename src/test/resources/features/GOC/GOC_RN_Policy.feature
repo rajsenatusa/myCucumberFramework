@@ -1,7 +1,7 @@
 #Author:Mustafa Cemek
 @RN_Policy_GOC
 Feature: Renewal Policy GOC
-
+ 
   @RN_Policy_GOC-1
   Scenario Outline: RN GOC
     Given User navigates to QA7
@@ -16,7 +16,7 @@ Feature: Renewal Policy GOC
     And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks GOC policy
-    #And User enters Producer Code
+    And User enters Producer Code
     And User selects Have you had 6 months of continuous Golf Cart Insurance Coverage
     And User selects Are all golf carts garaged in Florida at least 6 months of the year
     And User enters Primary Phone
@@ -59,8 +59,8 @@ Feature: Renewal Policy GOC
     And User clicks Save
     And User clicks Finalize button
     And User clicks Process
-    Then User verifies RN MHO3 policy has been created successfully
+    Then User verifies RN GOC policy has been created successfully
 
     Examples: Test Data
-      | username | password | EffectiveDate |
-      | AG1171   | password | 08/05/2023    |
+      | username | password   | EffectiveDate |
+      | JLOWE    | July@2023! | 08/05/2022    |

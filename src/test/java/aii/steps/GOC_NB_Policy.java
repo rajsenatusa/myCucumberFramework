@@ -3,6 +3,7 @@ package aii.steps;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,7 +14,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class GOCpolicy extends CommonMethods {
+public class GOC_NB_Policy extends CommonMethods {
 	
 	@When("User enters GOC product selection information and effective date")
 	public void user_enters_goc_product_selection_information_and_effective_date() {
@@ -256,7 +257,12 @@ public class GOCpolicy extends CommonMethods {
 		wait(2);		
 		click(dwellingChevron.btnNext);
 		}
-	
+	@And("User verifies NB GOC policy has been created successfully")
+	public void User_verifies_NB_GOC_policy_has_been_created_successfully() {
+		String expected = "New Business";
+		String actual = historyChevron.txtNewBusiness.getText();
+		Assert.assertEquals("Test failed!", expected, actual);
+	}
 	@Then("User creates GOC policy with passing information from excel {string} sheet")
 	public void User_creates_goc_policy_with_passing_information_from_excel_sheet(String goccustomerInfo) throws Exception {
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/GOC.xlsx";

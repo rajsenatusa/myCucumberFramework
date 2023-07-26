@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
-@RN_Policy_GOC
-Feature: Renewal Policy GOC
-
-  @RN_Policy_GOC-1
-  Scenario Outline: RN GOC
+@NB_Policy_GOC
+Feature: New Business Policy GOC
+ 
+  @NB_Policy_GOC-1
+  Scenario Outline: NB GOC
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -53,8 +53,8 @@ Feature: Renewal Policy GOC
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
-    Then User verifies NB MHO3 policy has been created successfully
+    Then User verifies NB GOC policy has been created successfully
 
     Examples: Test Data
-      | username | password | EffectiveDate |
-      | mkoziel  | password | 08/05/2023    |
+      | username | password   | EffectiveDate |
+      | JLOWE    | July@2023! | 08/05/2023    |
