@@ -1,5 +1,6 @@
 package aii.testbase;
 import aii.pages.AIBPageElements;
+import aii.pages.BillingChevronPageElements;
 import aii.pages.CloseOutChevronPageElements;
 import aii.pages.DashboardPageElements;
 import aii.pages.GolfcartChevronPageElements;
@@ -42,6 +43,7 @@ public class PageInitializer extends BaseClass {
 	public static LossNoticeInformationPageElements lossNoticeInfo;
 	public static UserLookupElements userLookup;
 	public static WorksheetsChevronPageElements worksheetsChevron;
+	public static BillingChevronPageElements billingChevron;
 	
 	
 	public static void initialize() {
@@ -65,6 +67,7 @@ public class PageInitializer extends BaseClass {
 		lossNoticeInfo= new LossNoticeInformationPageElements();
 		userLookup= new UserLookupElements();
 		worksheetsChevron= new WorksheetsChevronPageElements();
+		billingChevron= new BillingChevronPageElements();
 	}
 
 }

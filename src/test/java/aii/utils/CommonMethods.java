@@ -687,6 +687,21 @@ public class CommonMethods extends PageInitializer {
 		return effectiveDate;
 		
 	}
+public static String changeDateToDesiredEffDate(String effDate){
+		
+		String effectiveDate = null;	
+		
+		// Change system date to effective date
+		 click(dashboard.btnAdmin);
+		 click(dashboard.btnChangeDate);
+		 sendText(dashboard.txtNewDate, effectiveDate);
+		 click(dashboard.btnChangeNewDate);
+		 sendText(dashboard.txtNewBookDate, effectiveDate);
+		 click(dashboard.btnChangeBookDate);
+		 
+		return effectiveDate;
+		
+	}
 	
 	public static void startTransaction() {
 		
@@ -1096,10 +1111,25 @@ public static void fillAIB_UWQuestions() throws Exception {
 		Hooks.scenario.log("SubmitForApproval was clicked");
 	}
 	
-	
+	public static String getNextActionDate() throws Exception
+	{
+		String num=null;
+		try {
+			String action = driver.findElement(By.id("Description_text")).getText().toString();
+			num = action.substring(action.indexOf("on") + 3 , action.length()).toString();
+			wait(4);
+			Hooks.scenario.log(action+" next action Date : "+num);
+	} catch (Exception e) {
+		e.printStackTrace();	
+	}
+		return num.toString();	
+	}	
+		
+		
+	}
 	
 	
 		
 	
 
-}
+

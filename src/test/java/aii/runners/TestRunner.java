@@ -20,7 +20,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@tomhpddatatable",
+				tags = "@aib",
 
 				
 
