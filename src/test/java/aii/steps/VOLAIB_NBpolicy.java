@@ -5,6 +5,7 @@ package aii.steps;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -146,10 +147,18 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 	public void User_selects_Boating_Liability() {	     
 		selectDropdownText(golfcartChevron.ddLiabilityCovType, "No Coverage");
 	}
-	
-	 
-	
-	
+	@Then("User verifies NB AIB policy has been created successfully")
+	public void User_verifies_NB_AIB_policy_has_been_created_successfully() {	    	   								 	   						
+		String expected = "New Business";
+		String actual = historyChevron.txtNewBusiness.getText();
+		Assert.assertEquals("Test failed!", expected, actual);	
+	}
+	@And("User clicks AIB Prior Carrier")
+ 	public void User_clicks_AIB_Prior_Carrier() {	    	   				
+ 		selectDropdownText(policyChevron.ddPreviousCarrier, "Geico");
+ 		click(dwellingChevron.btnSave);
+		wait(1);
+	}
 	@When("User creates AIB application")
 	public void user_creates_aib_application() {
 
