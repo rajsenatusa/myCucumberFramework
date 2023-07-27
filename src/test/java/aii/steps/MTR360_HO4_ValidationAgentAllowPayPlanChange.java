@@ -5,12 +5,16 @@ import aii.utils.PdfComparator;
 import io.cucumber.java.en.When;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods {
 
+	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+	static LocalDateTime currentDate = LocalDateTime.now();
+	static String app_Tx_Policy_Claim_Num;
+	static String date;
+	
 	@When("User clicks Admin Tab")
 	public void user_clicks_admin_tab() {
 		
@@ -25,9 +29,10 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 		click(dashboard.btnUserManagement);
 		wait(2);
 	}
-	@When("User searches Agent {string}")
-	public void user_searches_agent(String Agent) {
-		sendText(userLookup.txtUserId, Agent);
+	@When("User searches Agent")
+	public void user_searches_agent() {
+		wait(5);
+		sendText(driver.findElement(By.id("LoginId")), "AG0376");
 		wait(1);
 	}
 	
@@ -119,7 +124,94 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	@When("User searches policy")
 	public void user_searches_policy() {
 		String policyNum=historyChevron.txtPolicyNo.toString();
-		Hooks.scenario.log(policyNum);
+		wait(1);
+		sendText(dashboard.txtSearchBar, policyNum);
+		click(dashboard.search);
+		wait(1);
 	}
-	
+	@When("User changes Pay Plan to <8 Payment Plan>")
+	public void user_changes_pay_plan_to_8() {
+		click(billingChevron.lnkChangePayPlan);
+		wait(4);
+		click(reviewChevron.btn8PaymentPlan);
+		wait(3);
+		//user clicks process and do payment plan change
+		click(reviewChevron.btnProcess);
+		wait(4);
+	}
+	@When("User makes Credit Card payment")
+	public void user_makes_credit_card_payment() {
+		click(reviewChevron.btnMakePayment);
+		wait(3);
+		click(reviewChevron.btnSubmitPayment);
+		wait(3);
+		
+		//user selects new credit card radio button
+		click(closeoutChevron.rbNewCreditCard);
+		wait(1);
+		
+		//user get current due as text and enter that amount into amount box
+		String currentDue=closeoutChevron.txtCurrentDue.toString();
+		sendText(closeoutChevron.txtEnterAmountBox, currentDue);
+		wait(3);
+		
+		//user enters credit card details and complete payment
+		makeCCPayment();	
+	}
+	@When("User searches policy on Payment Tab")
+	public void user_searches_policy_on_payment_tab() {
+		String policyNum=closeoutChevron.txtAccountNumber.toString();
+		wait(1);
+		sendText(dashboard.txtSearchBar, policyNum);
+		click(dashboard.search);
+		wait(1);
+	}
+	@When("User selects endorsement date plus <4> {string} from current date")
+	public void user_selects_endorsement_date_plus_days(String Days) {
+		
+	//	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+	//	LocalDateTime currentDate = LocalDateTime.now();
+		date = dtf.format(currentDate.plusDays(Integer.parseInt(Days)));
+		
+		sendText(dashboard.txtSelectDate, date);
+		wait(2);
+		click(dashboard.btnStart);
+		dashboard.btnStart.click();
+		wait(3);
+	}
+	@When("User sets payplan to Automated ACH")
+	public void user_sets_payplan_to_automated_ach() {
+		selectDropdownText(reviewChevron.ddPayPlan,"Automated ACH");
+		wait(3);
+	}
+	@When("User selects ACH quarterly")
+	public void user_selects_ach_quarterly() {
+		click(reviewChevron.rbQuarterlyPayPlan);
+		wait(3);
+	}
+	@When("User enters required ACH information")
+	public void user_enters_required_ach_information() {
+		selectDropdownText(reviewChevron.ddBankAccountType,"Checking");
+		wait(1);
+		sendText(reviewChevron.txtRoutingNumber, "021000018");
+		sendText(reviewChevron.txtAccountingNumber, "123456789");
+		sendText(reviewChevron.txtPaymentDay, "1");
+		sendText(reviewChevron.txtVerifyAccountNumber, "123456789");
+		wait(2);
+	}
+	@When("User completes endorsement transaction")
+	public void user_completes_endorsement_transaction() {
+		closeoutChevron.btnEndorsePolicy.click();
+		wait(3);
+		click(reviewChevron.btnDialogOk);
+		wait(5);
+		PdfComparator.switchWindows(driver);
+	}
+	@When("User changes system date <35> days forward from current date")
+	public void user_changes_system_date_35_days_forward_from_current_date() {
+		LocalDateTime newDate = currentDate.plusDays(35);
+		wait(2);
+		changeDate(dtf.format(newDate));
+		wait(2);
+	}
 }

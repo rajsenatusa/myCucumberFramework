@@ -17,6 +17,9 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "BasicPolicy.PayPlanCd_8")
 	public WebElement btnFullPaymentRadioTO;
 	
+	@FindBy(id= "BasicPolicy.PayPlanCd_9")
+	public WebElement btn8PaymentPlan;
+	
 	@FindBy(id= "Bind")
 	public WebElement btnCreateApplication;
 	
@@ -44,7 +47,32 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "TransactionInfo.PaymentTypeCd")
 	public WebElement ddPaymentType;
 	
+	@FindBy(id= "QuickAction_MakePayment_Holder")
+	public WebElement btnMakePayment;
 	
+	@FindBy(id= "QuickAction_SubmitPayment")
+	public WebElement btnSubmitPayment;
+	
+	@FindBy(id= "BasicPolicy.PayPlanCd_22")
+	public WebElement rbQuarterlyPayPlan;
+	
+	@FindBy(id= "InstallmentSource.ACHBankAccountTypeCd")
+	public WebElement ddBankAccountType;
+	
+	@FindBy(id= "InstallmentSource.ACHRoutingNumber")
+	public WebElement txtRoutingNumber;
+	
+	@FindBy(id= "InstallmentSource.ACHBankAccountNumber")
+	public WebElement txtAccountingNumber;
+	
+	@FindBy(id= "BasicPolicy.PaymentDay")
+	public WebElement txtPaymentDay;
+	
+	@FindBy(id= "InstallmentSource.VerifyBankAccountNumber")
+	public WebElement txtVerifyAccountNumber;
+	
+	@FindBy(id= "dialogOK")
+	public WebElement btnDialogOk;
 	
 	public QuoteReviewPageElements() {
 		PageFactory.initElements(driver, this);

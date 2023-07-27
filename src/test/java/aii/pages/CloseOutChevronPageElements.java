@@ -41,6 +41,17 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(xpath= "//span[normalize-space()='Endorse Policy']")
 	public WebElement btnEndorsePolicy;
 	
+	@FindBy(id= "AccountSummary_CurrentDue")
+	public WebElement txtCurrentDue;
+	
+	@FindBy(id= "PaymentTypeCd_2")
+	public WebElement rbNewCreditCard;
+	
+	@FindBy(id= "ReceiptAmt")
+	public WebElement txtEnterAmountBox;
+	
+	@FindBy(id= "ARSummary_PolicyNumber")
+	public WebElement txtAccountNumber;
 	
 	public CloseOutChevronPageElements() {
 		
