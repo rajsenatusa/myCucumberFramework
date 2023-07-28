@@ -21,7 +21,8 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@FIGA-VOLDP1-1",
+				tags = "@tc35179",
+
 
 
 				

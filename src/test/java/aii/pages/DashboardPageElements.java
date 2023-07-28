@@ -113,8 +113,8 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(xpath="//td[normalize-space()='0.0070']")
 	public WebElement fIGADP1Old;
 	
-	
-	
+	@FindBy(id= "Delete")
+	public WebElement btnDelete;
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);

@@ -1,23 +1,24 @@
 #Author: Can Yavas
 ##created on 07/26/2023 
+##steps in the original user story needs to be clarified. After clarification; code will be updated
 
 @regression @tc16851
 Feature: TC 16851--HO4 Agent AllowPayPlanChange
 
   
   Scenario Outline: Validate Agent is able to change bill plan within 5 days of policy effective date up to maximum 2 times
-    Given User login to Spin as Admin Agent
-    And User clicks Admin Tab 
-    And User clicks User Management Tab
-    And User searches Agent
-    And User clicks Search button
-    And User scrolls to User Roles List 
-    And User clicks Override Link on Policy Agent Standard
-    And User sets Number Days From Effective Date Allowed Pay Plan to <30> days
-		And User sets Number of Allowed Pay Plan to <3>
-		And User verifies allow pay plan change from policy switched to Yes
-		And User clicks save
-		And User signs out
+    #Given User login to Spin as Admin Agent
+    #And User clicks Admin Tab 
+    #And User clicks User Management Tab
+    #And User searches Agent
+    #And User clicks Search button
+    #And User scrolls to User Roles List 
+    #And User clicks Override Link on Policy Agent Standard
+    #And User sets Number Days From Effective Date Allowed Pay Plan to <30> days
+		#And User sets Number of Allowed Pay Plan to <3>
+		#And User verifies allow pay plan change from policy switched to Yes
+		#And User clicks save
+		#And User signs out
 		When User signin Spin with username "<user>" and password "<Pwd>"
 		And User starts transaction as a new customer
 		And User enters all required information on policy information screen

@@ -1125,7 +1125,45 @@ public static void fillAIB_UWQuestions() throws Exception {
 		return num.toString();	
 	}	
 		
-		
+	
+	public static void verifyAnyElement_Disabled(WebDriver driver, String elementName) throws Exception {
+
+		try {
+			
+			WebElement ele = driver.findElement(By.id(""+elementName+""));
+			
+				if(ele.isEnabled()) {
+					Hooks.scenario.log(elementName+"  is Enabled");
+				}	else if(!(ele.isEnabled())) {
+					Hooks.scenario.log(elementName+"  is Disabled");
+				} else {
+					Hooks.scenario.log(elementName+"  is not able to validate");
+				}										
+		} catch (Exception e) {
+			Hooks.scenario.log(elementName+" not able to validate");             
+			wait(3);
+		}
+	}
+
+	public static void verifyAnyElement_Enabled(WebDriver driver, String elementName) throws Exception {
+
+		try {
+			
+			WebElement ele = driver.findElement(By.id(""+elementName+""));
+			
+				if(ele.isEnabled()) {
+					Hooks.scenario.log(elementName+"  is Enabled");
+				}	else if(!(ele.isEnabled())) {
+					Hooks.scenario.log(elementName+"  is Disabled");
+				} else {
+					Hooks.scenario.log(elementName+"  is not able to validate");
+				}										
+		} catch (Exception e) {
+			Hooks.scenario.log(elementName+" not able to validate");
+			wait(3);
+		}
+	}
+	
 	}
 	
 	

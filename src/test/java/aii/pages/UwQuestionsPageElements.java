@@ -8,6 +8,9 @@ import aii.utils.CommonMethods;
 
 public class UwQuestionsPageElements extends CommonMethods {
 	
+	@FindBy(id= "Wizard_Underwriting")
+	public WebElement lnkUwQuestionsTab;
+	
 	@FindBy(id= "Question_Conviction")
 	public WebElement ho3Question1;
 	
