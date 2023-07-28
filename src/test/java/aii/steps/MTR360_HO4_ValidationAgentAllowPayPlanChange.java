@@ -20,8 +20,6 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 		
 		click(dashboard.btnAdmin);
 		wait(2);
-		click(dashboard.btnUserManagement);
-		wait(2);
 	}
 	@When("User clicks User Management Tab")
 	public void user_clicks_user_management_tab() {
@@ -81,8 +79,8 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	@When("User enters HO4 product selection information and current day as effective date")
 	public void user_enters_ho4_product_selection_information_and_current_day_as_effective_date() {
 		// product selection information was filled here
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
-		LocalDateTime currentDate = LocalDateTime.now();
+		//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+		//LocalDateTime currentDate = LocalDateTime.now();
 		sendText(product.txtEffectiveDate, dtf.format(currentDate));
 		selectDropdown(product.ddStateSelection, 1);
 		selectDropdown(product.ddCarrierSelection, 1);
@@ -99,15 +97,16 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 		} else {
 			System.out.println("HO4 NB Policy Creation has been failed!");
 		}
+		wait(2);
 		String policyNum=historyChevron.txtPolicyNo.toString();
-		Hooks.scenario.log(policyNum);
+		wait(2);
 		PdfComparator.switchWindows(driver);
-		
+		wait(3);
 		//searching policy
-		wait(1);
+		wait(2);
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
-		wait(1);
+		wait(10);
 	}
 	@When("User clicks Billing Tab")
 	public void user_clicks_billing_tab() {

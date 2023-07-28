@@ -42,8 +42,8 @@ public class CommonSteps extends CommonMethods {
 
 	@Given("User login to Spin as Underwriter")
 	public void user_login_to_spin_as_underwriter() {
-		sendText(login.username, ConfigsReader.getProperty("uw_username"));
-		sendText(login.password, ConfigsReader.getProperty("password"));
+		sendText(login.username, ConfigsReader.getProperty("uwusername"));
+		sendText(login.password, ConfigsReader.getProperty("uwpassword"));
 		click(login.btnSignIn);
 		wait(3);
 	}
