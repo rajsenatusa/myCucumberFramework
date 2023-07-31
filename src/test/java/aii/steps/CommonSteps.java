@@ -133,6 +133,24 @@ public class CommonSteps extends CommonMethods {
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+	@When("User enters all required information on SC policy information screen")
+	public void user_enters_all_required_information_on_sc_policy_information_screen() {
+
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, ConfigsReader.getProperty("scaddress"));
+		sendText(quote.txtZipCode, ConfigsReader.getProperty("sczipcode"));
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
 
 	@Given("User issues policy")
 	public void user_issues_policy() {

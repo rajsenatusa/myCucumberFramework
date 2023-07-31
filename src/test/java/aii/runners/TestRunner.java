@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@tc35179",
+				tags = "@scho3datatable",
 
 
 
