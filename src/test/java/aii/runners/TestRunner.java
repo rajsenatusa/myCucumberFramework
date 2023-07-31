@@ -21,7 +21,9 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@UnderwritingChanges-AddAgencyState",
+
+				tags = "@scho3datatable",
+
 
 
 
