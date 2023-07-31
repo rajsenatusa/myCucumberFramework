@@ -41,6 +41,40 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy(id = "Menu_Policy")
 	public WebElement quoteAndPolicy;
 	
+	@FindBy(id = "MoreActionsDropdownButton")
+	public WebElement btnMoreActionsDropdownButton;
+	
+	@FindBy(id = "MyInboxViews")
+	public WebElement myInboxViews;
+	
+	@FindBy(id = "AddInboxView")
+	public WebElement btnAddInboxView;
+	
+	@FindBy(id = "InboxView.Name")
+	public WebElement inboxViewName;
+	
+	@FindBy(xpath = "//option[@value='AgencyStateProvCd']")
+	public WebElement agencyState;
+	
+	@FindBy(id = "AddChosen")
+	public WebElement addChosenArrow;
+	
+	@FindBy(id = "Return")
+	public WebElement btnReturn;
+	
+	@FindBy(id = "InboxView.FilterWorkDate")
+	public WebElement inboxViewFilterWorkDate;
+	
+	@FindBy(id = "InboxSelectOptionCd")
+	public WebElement inboxSelectOptionCd;
+	
+	@FindBy(id = "InboxSelectionSearch")
+	public WebElement btnRefreshInbox;
+	
+	@FindBy(id = "headerAgencyStateProvCd")
+	public WebElement headerAgencyState;
+	
+	
 	public QuoteCustomerSetupPageElements() {
 		PageFactory.initElements(driver, this);
 	}

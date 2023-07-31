@@ -763,6 +763,38 @@ public static void fillHO3_UWQuestions() throws Exception {
 		CommonMethods.click(dwellingChevron.btnNext);
 		
 	}
+public static void fillSCHO3_UWQuestions() throws Exception {
+	
+	
+	//SC HO3 Underwriting Questions Chevron was filled here
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question1, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question2, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question3, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question5, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question6, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.scHo3Question6, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question11, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question12, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question10, "Yes");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question13, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question14, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question17, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question18, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question20, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question15, "Yes");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question21, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho6Question21, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question23, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question25, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question26, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question27, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question28, "No");
+	CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question29, "No");
+	
+	CommonMethods.wait(1);
+	CommonMethods.click(dwellingChevron.btnNext);
+	
+}
 	
 	
 	public static void fillDP3_UWQuestions() throws Exception {

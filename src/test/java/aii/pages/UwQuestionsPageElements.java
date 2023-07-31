@@ -278,6 +278,13 @@ public class UwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_VehicleSpeed")
 	public WebElement umbQuestion18;
 	
+	@FindBy(id= "Question_LapseInCoverage")
+	public WebElement scHo3Question6;
+	
+	@FindBy(id= "Question_PriorInsurance")
+	public WebElement scHo3Question9;
+	
+	
 	public UwQuestionsPageElements() {
 		
 		PageFactory.initElements(driver, this);

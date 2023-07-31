@@ -91,7 +91,7 @@ public class VOLHO3policy extends CommonMethods {
 		
 	}
 	@Then("User validates that HO3 policy has been created successfully")
-	public void user_validates_that_ho3_policy_has_been_created_successfully() {
+	public void user_validates_that_ho3_policy_has_been_created_successfully() throws Exception {
 	
 		WebElement validate= driver.findElement(By.id("History_1_1_TransactionCd"));
 		
@@ -101,7 +101,8 @@ public class VOLHO3policy extends CommonMethods {
 		else {
 			System.out.println("Test failed!");
 		}
-		
+		getPolicyNumber(driver);
+		getInForcePremium(driver);
 		
 	}
 
