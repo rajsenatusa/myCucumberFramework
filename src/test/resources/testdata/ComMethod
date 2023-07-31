@@ -1,0 +1,2152 @@
+package Member.CommonFunctions;
+
+
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import scr.ExtentReport;
+
+public class PageUtility {
+	
+	private static XSSFWorkbook workbook;
+	private static XSSFSheet sheet;
+	
+	public static String createFile(String FILEPATH, String dataToWrite, ExtentTest logger) throws Exception {
+		
+		Files.write(Paths.get(System.getProperty("user.dir") + FILEPATH), dataToWrite.getBytes());
+		
+		System.out.println("File Path: " + FILEPATH);
+		System.out.println("File Contents: " + dataToWrite);
+		logger.log(LogStatus.INFO, "File Path: " + FILEPATH.toString()); 
+		logger.log(LogStatus.INFO, "File Contents: " + dataToWrite.toString()); 
+
+		return dataToWrite;
+		}	
+	
+	public static String readFile(String FILEPATH, ExtentTest logger) throws Exception {
+		
+	  	byte [] bs = Files.readAllBytes(Paths.get(System.getProperty("user.dir") + FILEPATH));
+	
+	  	System.out.println("Read bytes: " + new String(bs));
+	  	logger.log(LogStatus.INFO, "Read bytes: " + new String(bs)); 
+	  	passByte(new String(bs), logger);
+	  
+	  	return new String(bs);
+		}	
+	
+	public static void writeExcel(String filePath, String sheetName, String dataToWrite, int Cell, ExtentTest logger) throws Exception {
+        try { 
+        File file = new File (System.getProperty("user.dir") + filePath);
+               FileInputStream fis = new FileInputStream(file);
+               workbook = new XSSFWorkbook(fis);
+               sheet = workbook.getSheet(sheetName);
+        
+               sheet.createRow(sheet.getLastRowNum() + 1).createCell(Cell).setCellValue(dataToWrite);
+
+               fis.close();
+               FileOutputStream fout = new FileOutputStream(file);
+               workbook.write(fout);
+               fout.close();
+               logger.log(LogStatus.INFO, "Excel File: " + file);
+        }
+        catch(Exception e) {
+               logger.log(LogStatus.FAIL, e);
+               }      
+        } 
+	
+	public static void writeExcelColumnData(String filePath, String sheetName, Integer iColm, String col2Data, ExtentTest logger) throws Exception {
+        try { 
+        File file = new File (System.getProperty("user.dir") + filePath);
+               FileInputStream fis = new FileInputStream(file);
+               
+               workbook = new XSSFWorkbook(fis);
+               sheet = workbook.getSheet(sheetName);
+                                                                
+               sheet.getRow(sheet.getLastRowNum()).createCell(iColm).setCellValue(col2Data);
+               
+               fis.close();
+               FileOutputStream fout = new FileOutputStream(file);
+               
+               workbook.write(fout);              
+               fout.close();
+
+               logger.log(LogStatus.INFO, "Excel File: " + file);
+        }
+        catch(Exception e) {
+               logger.log(LogStatus.FAIL, e);
+               }      
+        } 
+	
+		
+	
+	public static String passByte(String string, ExtentTest logger)  {	
+		System.out.println("Data in file: " + string);
+	  	logger.log(LogStatus.INFO, "Data in file: " + string); 
+
+		return string;
+		}
+		
+	public static String getApplicationNumber(WebDriver driver, ExtentTest logger) throws Exception {
+		String AppNumb = null;
+		
+		try {
+			driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+			AppNumb = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+			logger.log(LogStatus.PASS, "Application Number: " + AppNumb); 
+			return AppNumb;
+
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Application Number: " + AppNumb); 
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Application Number - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+		return AppNumb;	
+	}
+
+	public static void clickDwellingCheveron(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Wizard_Risks")).click();
+			logger.log(LogStatus.PASS, "Dwelling tab selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Dwelling tab selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Dwelling tab- ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+	
+	public static void clickCustomer_addToProfile(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("GoToCustomer")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Add To Profile was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Add To Profile was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Add To Profile - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static void scrollToAnyField(WebDriver driver, String fieldName, ExtentTest logger) throws Exception {
+		try {
+			WebElement e= driver.findElement(By.xpath("//*[contains(text(),'"+fieldName+"')]"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
+							
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Scrolling not performed");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "ScrollToElement - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}  
+	}
+	
+	public static void verifyAnyCoverageCheckbox_EnabledAndNotSelected(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+		try {
+			WebElement elePolicyDist = driver.findElement(By.id("Building."+elementName+"Ind"));
+				if(elePolicyDist.isEnabled() && !(elePolicyDist.isSelected()))	{
+					logger.log(LogStatus.PASS, elementName + "  is Editable and not selected");
+				
+				} else {
+					logger.log(LogStatus.FAIL, elementName + "  is not able to validate");
+				}	
+				
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, elementName + " not able to validate");
+			String screenShotPath = ExtentReport.getScreenShot(driver, elementName + "screenshot - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);           
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static void verifyAnyCoverageCheckbox_EnabledAndSelected(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+		try {
+			WebElement elePolicyDist = driver.findElement(By.id("Building."+elementName+"Ind"));
+				if(elePolicyDist.isEnabled() && (elePolicyDist.isSelected()))	{
+					logger.log(LogStatus.PASS, elementName+"  is Editable and selected");
+			}	else	{
+					logger.log(LogStatus.FAIL, elementName+"  is not able to validate");
+				}
+													
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, elementName+" not able to validate");
+			String screenShotPath = ExtentReport.getScreenShot(driver, elementName+"screenshot - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);           
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static void setDataToAnyTextboxField(WebDriver driver, String field, String element, String value, ExtentTest logger) throws Exception {
+        try {
+               WebElement toClear = driver.findElement(By.id(""+element+""));
+               toClear.click();
+               toClear.sendKeys(Keys.CONTROL + "a");
+               toClear.sendKeys(Keys.DELETE);
+                Thread.sleep(500);
+                toClear.sendKeys(value.toString());
+                logger.log(LogStatus.PASS, field +" set to : "+ value);
+        } catch (Exception e) {
+               logger.log(LogStatus.PASS, field +" set to : "+ value);
+                String screenShotPath = ExtentReport.getScreenShot(driver, field);
+                logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+                logger.log(LogStatus.FAIL, e);              
+                driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+        }
+     }
+	
+	public static void verifyAnyCoverageCheckbox_EnabledSelected(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+		try {
+			
+			WebElement elePolicyDist = driver.findElement(By.name(""+elementName+""));
+				if((elePolicyDist.isEnabled()) && (elePolicyDist.isSelected()))	{
+					logger.log(LogStatus.PASS, elementName+"  is editable and selected");
+				} else {
+					logger.log(LogStatus.FAIL, elementName+"  is not able to validate");
+				}
+													
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, elementName+" not able to validate");
+			String screenShotPath = ExtentReport.getScreenShot(driver, elementName+"screenshot - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);             
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}		
+	}
+	
+	public static void verifyAnyCoverageCheckbox_NotEnabledSelected(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+		try {
+			
+			WebElement elePolicyDist = driver.findElement(By.name(""+elementName+""));
+			
+				if(!(elePolicyDist.isEnabled()) && (elePolicyDist.isSelected()))	{
+					logger.log(LogStatus.PASS, elementName + "  is not Editable and selected");
+				
+				} else {
+					logger.log(LogStatus.FAIL, elementName + "  is not able to validate");
+				}
+													
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, elementName + " not able to validate");
+			String screenShotPath = ExtentReport.getScreenShot(driver, elementName + "screenshot - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);             
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}		
+	}
+	
+	
+	public static void verifyAnyCoverageCheckbox_NotEnabledNotSelected(WebDriver driver, String fieldName, String element, ExtentTest logger) throws Exception {
+		try {
+			
+			WebElement elePolicyDist = driver.findElement(By.id(""+element+""));
+			
+				if(!(elePolicyDist.isEnabled()) && !(elePolicyDist.isSelected()))	{
+					logger.log(LogStatus.PASS, fieldName + " Checkbox is not Editable and not selected");
+				
+				} else {
+					logger.log(LogStatus.FAIL, fieldName + "  Checkbox is not Editable and not selected");
+				}
+													
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, fieldName + " not able to validate");
+			String screenShotPath = ExtentReport.getScreenShot(driver, fieldName + "screenshot - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);             
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}		
+	}
+	
+	
+	/*
+	public static void clickNewCustomer(WebDriver driver, ExtentTest logger) throws Exception {
+				
+		
+			try {
+				if (driver.findElement(By.name("QuoteCustomerClearingRef")).isDisplayed() == true) {
+					List<WebElement> oCheckBox = driver.findElements(By.name("QuoteCustomerClearingRef"));
+					int size = oCheckBox.size();
+
+					for(int i = 0; i < size; i++ )	{
+					String value = oCheckBox.get(i).getAttribute("value");
+ 
+						if (value.equalsIgnoreCase("New")){
+							oCheckBox.get(i).click();
+							logger.log(LogStatus.INFO, "New customer option selected");
+							break;
+							}	
+						}	
+					} else {
+						 if (driver.findElement(By.name("QuoteCustomerClearingRef")).isDisplayed() == false) {
+								logger.log(LogStatus.INFO, "New customer option is not see");
+					}			 
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		} 
+	*/
+
+
+public static void clickNewCustomer(WebDriver driver, ExtentTest logger) throws Exception {
+	
+		try {
+				driver.manage().timeouts().implicitlyWait(05, TimeUnit.SECONDS);
+				List<WebElement> oCheckBox = driver.findElements(By.name("QuoteCustomerClearingRef"));
+				int size = oCheckBox.size();
+		
+				for(int i = 0; i < size; i++ )	{
+				String value = oCheckBox.get(i).getAttribute("value");
+		 
+					if (value.equalsIgnoreCase("New")){
+						oCheckBox.get(i).click();
+						logger.log(LogStatus.PASS, "New customer option selected");
+						break;
+						}	
+					}	
+				} catch (Exception e) {
+					logger.log(LogStatus.FAIL, "New customer option selected");
+					String screenShotPath = ExtentReport.getScreenShot(driver, "New customer option selected - ");
+					logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+					logger.log(LogStatus.FAIL, e);               
+					driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+				}
+	}
+
+	public static boolean expectedValue_foundValue(WebDriver driver, String expectedValue, String foundValue, ExtentTest logger) throws Exception {
+		
+		try {
+			if (foundValue.contains(expectedValue)) {
+				logger.log(LogStatus.INFO, "Expected Value: " +  expectedValue);
+				logger.log(LogStatus.PASS, "Found Value: " +  foundValue);
+				return true;
+			}
+			
+			else if (!foundValue.contains(expectedValue)) {
+				logger.log(LogStatus.INFO, "Expected Value: " +  expectedValue);
+				logger.log(LogStatus.FAIL, "Found Value: " +  foundValue);
+				return false;
+			}
+			attachScreenShot(driver, logger);
+
+			return true;
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Expected Value: " +  expectedValue);
+			logger.log(LogStatus.FAIL, "Found Value: " +  foundValue);
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Expect Value Not Found- " );
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+
+			return false;
+		}
+	}
+	
+	public static void clickPolicyTab( WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Tab_Policy")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Policy Tab was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Policy Tab was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Policy Tab - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static void clickPolicyCheveron( WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Wizard_Policy")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Policy cheveron was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Policy cheveron was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Policy Chevron - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+
+	
+	public static void clickAdditionalInterstCheveron( WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Wizard_AdditionalInterst")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Additional Interst cheveron cheveron was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Additional Interst cheveron was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Additional Interest - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static void clickUnderwritingCheveron( WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Wizard_Underwriting")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Underwriting cheveron cheveron was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Underwriting cheveron was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Underwriting Chevron - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public void clickCommissionCheveron( WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Wizard_Commission")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Commission cheveron cheveron was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Comission cheveron was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Commission Chevron - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static void clickSelectedQuote(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("policyLink0")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS); 
+			logger.log(LogStatus.PASS, "Quote selected");	
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Quote not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Quote link- ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			}
+	}
+
+	public static boolean verifyIssueNewBusinessNotVisible(WebDriver driver, ExtentTest logger) throws Exception {
+		
+		 try {
+           if(driver.findElement(By.id("Process")).isDisplayed()) {  
+           	logger.log(LogStatus.FAIL, "Issue New Business button is visible");
+           	String screenShotPath = ExtentReport.getScreenShot(driver, "Issue NB button- ");
+   			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+           	return false;
+           	}
+           return false;
+        } catch(Exception e) {
+        	logger.log(LogStatus.PASS, "Issue New Business button not visible");
+            return true;	
+        	}
+        }
+	
+	public void clickPreviewOutput(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("PreviewOutput")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Preview Output button was clicked");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Preview Output button was not clicked");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Preview Output selection- ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static boolean verifySubmitForApprovalNotBtnVisible(WebDriver driver, ExtentTest logger) {
+		 try {
+	           if(driver.findElement(By.id("SubmitForApproval")).isDisplayed()) {  
+	           	logger.log(LogStatus.FAIL, "SubmitForApproval button is visible");
+	           	String screenShotPath = ExtentReport.getScreenShot(driver, "SubmitForApproval button- ");
+	   			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+	           	return false;
+	           	}
+	           return false;
+	        } catch(Exception e) {
+	        	logger.log(LogStatus.PASS, "SubmitForApproval button not visible");
+	            return true;	
+	        	}
+	}
+	
+	public static void verifySubmitForApprovalBtnVisible(WebDriver driver, ExtentTest logger) throws Exception {
+		
+		try {
+			driver.findElement(By.id("SubmitForApproval")).isDisplayed(); 
+			logger.log(LogStatus.PASS, "Submit For Approval button is visible");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Submit For Approval button is visible");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Submit For Approval button- ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+
+	public static void verifyModifyAppBtnVisible(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("MakeChanges")).isDisplayed(); 
+			logger.log(LogStatus.PASS, "Modify Application button is visible");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Modify Application button is visible");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Modify Application button- ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+
+	public static boolean verifyEndorseBtnNotVisible(WebDriver driver, ExtentTest logger) throws Exception {
+		
+		 try {
+          if(driver.findElement(By.id("Process")).isDisplayed()) {  
+          	logger.log(LogStatus.FAIL, "Endorse button is visible");
+          	String screenShotPath = ExtentReport.getScreenShot(driver, "Endorse button- ");
+  			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+          	return false;
+          	}
+          return false;
+       } catch(Exception e) {
+       	logger.log(LogStatus.PASS, "Endorse button not visible");
+           return true;	
+       	}
+       }
+	
+	public static boolean verify_IssueNewBtnVisible(WebDriver driver, ExtentTest logger) throws Exception {
+		
+		try {
+			if (driver.findElement(By.id("Process")).isDisplayed()) {
+			logger.log(LogStatus.PASS, "Issue New Business button is visible");
+			return true;
+			}
+			
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Issue New Business button is visible");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Issue NB button- ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			return false;	
+		}
+		return false;	
+	}
+	
+	public static void clickSubmitForApproval(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("SubmitForApproval")).click();
+			driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "SubmitForApproval was clicked");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "SubmitForApproval was not clicked");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "SubmitForApproval- ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static void clickIssueNewBusiness(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Process")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Issue New Business button was clicked");
+	
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Issue New Business button was not clicked");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Issue New Business Selection- ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+	
+	public static void clickEndorse(WebDriver driver, ExtentTest logger) throws Exception {
+		 driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
+		 try {
+			 driver.findElement(By.id("Process")).click();
+			 logger.log(LogStatus.PASS, "Process button was clicked");
+		 } catch (Exception e) {
+			 logger.log(LogStatus.FAIL, "Process button was not clicked");
+			 String screenShotPath = ExtentReport.getScreenShot(driver, "Endorse Selection- ");
+			 logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			 logger.log(LogStatus.FAIL, e);
+	}	
+}
+
+	public static void clickNextPageButton(WebDriver driver, ExtentTest logger) throws Exception {
+		
+		Thread.sleep(1000);
+		try {
+			driver.findElement(By.id("NextPage")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "NEXT PAGE button clicked");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "NEXT PAGE button not clicked");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Next Page - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+		attachScreenShot(driver, logger);
+
+		Thread.sleep(1000);
+	}
+
+	public static void clickSignOut(WebDriver driver, ExtentTest logger) throws Exception {
+	
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("UserMenu")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "User Menu clicked");
+			try {
+				driver.findElement(By.id("SignOut")).click();
+				driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+				logger.log(LogStatus.PASS, "Sign Out button clicked");
+			} catch (Exception e) {
+				logger.log(LogStatus.FAIL, "Sign Out button not clicked");
+				String screenShotPath = ExtentReport.getScreenShot(driver, "Sign Out - ");
+				logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+				logger.log(LogStatus.FAIL, e);              
+				driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			}
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "User Menu not clicked");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "User Menu - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+
+	public static void clickReturnInbox(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("Return")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Return to Inbox was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Return to Inbox was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Return to Inbox - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+	
+	public static void clickSave(WebDriver driver, ExtentTest logger) throws Exception {
+		Thread.sleep(1000);
+		attachScreenShot(driver, logger);
+
+		
+		try {
+			driver.findElement(By.id("Save")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS,"SAVE was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL,"SAVE was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Save - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+		Thread.sleep(1000);
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+
+	}
+
+	public static void clickReturnPolicy(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+		
+		try {
+			driver.findElement(By.id("Return")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Return to Policy was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Return to Policy was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Return to Policy - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickOperatorCheveron(WebDriver driver, ExtentTest logger) throws Exception {
+	
+		try {
+			driver.findElement(By.id("Wizard_Operators")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Operators chevron was clicked");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Operators chevron was not clicked");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Operators chevron - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickReturnRisk(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+		
+		try {
+			driver.findElement(By.id("Return")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Return to Risk was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Return to Risk was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Return to Risk - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickEndorsePolicy(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Process")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Endorse Policy was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Endorse Policy was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Endorse Policy - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickRejectApplication(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Reject")).click();
+			 driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Reject was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Reject was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Reject - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickAcceptApplication(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Approve")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Approve was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Approve was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Approve - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickApprove(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("Approve")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Approve was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Approve was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Approve - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickReturnToOperators(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("Return")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Return was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Return was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Return - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);              
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickReturnToVehicles(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("Return")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Return was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Return was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Return - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickNewDriver(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("NewDriver")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "NewDriver was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "NewDriver was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "NewDriver - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);           
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickSaveNote(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+		
+		try {
+			driver.findElement(By.id("SaveNote")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "SaveNote was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "SaveNote was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "SaveNote - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickReturnToUMBLiability(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("Return")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Return was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Return was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Return - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+logger.log(LogStatus.FAIL, e);               driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickQuoteTab(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("Tab_Policy")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Tab_Policy was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Tab_Policy was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Tab_Policy - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+logger.log(LogStatus.FAIL, e);               driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickReturn(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("Return")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Return was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Return was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Return - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+logger.log(LogStatus.FAIL, e);               driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickProcess(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+		
+		try {
+			driver.findElement(By.id("Process")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Process was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Process was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Process - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+logger.log(LogStatus.FAIL, e);               driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickMakeChanges(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("MakeChanges")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "MakeChanges was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "MakeChanges was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "MakeChanges - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+logger.log(LogStatus.FAIL, e);               driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickSave_IgnoreWarning(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+		
+		try {
+			driver.findElement(By.id("SaveIgnoreWarnings")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "SaveIgnoreWarnings was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "SaveIgnoreWarnings was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "SaveIgnoreWarnings - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+logger.log(LogStatus.FAIL, e);               driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickReturnToUserManagement(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("Return")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Return was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Return was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Return - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+logger.log(LogStatus.FAIL, e);               driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickDeny(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("Save")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "Deny was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Deny was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Deny - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+logger.log(LogStatus.FAIL, e);               driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickPostRecoveryWarning_IgnoreWarning(WebDriver driver, ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("SaveIgnoreWarnings")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "SaveIgnoreWarnings was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "SaveIgnoreWarnings was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "SaveIgnoreWarnings - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+	public static void clickMakePayment_Ignorewarning(WebDriver driver, ExtentTest logger) throws Exception {
+		
+		attachScreenShot(driver, logger);
+
+		try {
+			driver.findElement(By.id("SaveIgnoreWarnings")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "SaveIgnoreWarnings was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "SaveIgnoreWarnings was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "SaveIgnoreWarnings - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+	
+	public static boolean verify_AnyText_NotVisible(WebDriver driver, String text, ExtentTest logger) throws Exception {
+
+		try {
+            if(driver.findElement(By.xpath("//*[contains(text(), '" + text +"')]")).isDisplayed()) {  
+            	logger.log(LogStatus.FAIL, "Not visible: " +  text);
+            	String screenShotPath = ExtentReport.getScreenShot(driver, "Text not visible - ");
+    			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+            	return false;
+            	}
+            return false;
+         } catch(Exception e) {
+         	logger.log(LogStatus.PASS, "Not visible: " +  text);
+    		attachScreenShot(driver, logger);
+             return true;	
+         	}
+	}
+	
+	public static boolean verify_AnyText_NotVisibleTwice(WebDriver driver, String text, ExtentTest logger) throws Exception {
+
+		try {
+            if(driver.findElement(By.xpath("(//*[contains(text(), '" + text +"')])[2]")).isDisplayed()) {  
+            	logger.log(LogStatus.FAIL, "Not visible: " +  text);
+            	String screenShotPath = ExtentReport.getScreenShot(driver, "Text not visible - ");
+    			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+            	return false;
+            	}
+            return false;
+         } catch(Exception e) {
+         	logger.log(LogStatus.PASS, "Not visible: " +  text);
+    		attachScreenShot(driver, logger);
+             return true;	
+         	}
+	}
+
+	public static boolean verify_AnyText_IsVisible(WebDriver driver, String text, ExtentTest logger) throws Exception {
+		Thread.sleep(2000);
+
+		
+		try {
+            if(driver.findElement(By.xpath("//td[contains(text(), '" + text +"')]")).isDisplayed()) {  
+            	logger.log(LogStatus.PASS, "Is visible: " +  text);            	
+        		attachScreenShot(driver, logger);
+            	return true;
+            	}
+    		return true;   	
+
+            } catch (Exception e) {
+    			logger.log(LogStatus.FAIL, "Is NOT visible: " +  text);
+    			String screenShotPath = ExtentReport.getScreenShot(driver, "Text Is NOT visible " + text + " - ");
+    			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    			logger.log(LogStatus.FAIL, e);               
+    			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    			return false;
+            	}
+		
+	}
+	
+	
+	public static boolean verify_AnyLink_IsVisible(WebDriver driver, String text, ExtentTest logger) throws Exception {
+		Thread.sleep(2000);
+
+		
+		try {
+            if(driver.findElement(By.xpath("//a[contains(text(), '" + text +"')]")).isDisplayed()) {  
+            	logger.log(LogStatus.PASS, "Link is visible: " +  text);            	
+        		attachScreenShot(driver, logger);
+            	return true;
+            	}
+    		return true;   	
+
+            } catch (Exception e) {
+    			logger.log(LogStatus.FAIL, "Link is NOT visible: " +  text);
+    			String screenShotPath = ExtentReport.getScreenShot(driver, "Link is NOT visible " + text + " - ");
+    			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    			logger.log(LogStatus.FAIL, e);               
+    			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    			return false;
+            	}
+		
+	}
+	
+	
+	
+	public static boolean verify_AnyButton_IsVisible(WebDriver driver, String text, ExtentTest logger) throws Exception {
+		Thread.sleep(2000);
+
+		
+		try {
+            if(driver.findElement(By.xpath("//*[@id='" + text +"']")).isDisplayed()) {  
+            	logger.log(LogStatus.PASS, "Is visible: " +  text);
+        		attachScreenShot(driver, logger);
+            	return true;
+            	}
+    		return true;   	
+
+            } catch (Exception e) {
+    			logger.log(LogStatus.FAIL, "Is visible: " +  text);
+    			String screenShotPath = ExtentReport.getScreenShot(driver, "Text Is visible " + text + " - ");
+    			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    			logger.log(LogStatus.FAIL, e);               
+    			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    			return false;
+            	}
+		
+	}
+
+	public static boolean expectedReults_ExpectedValueFoundXpath(WebDriver driver, String string, String xpath,
+			ExtentTest logger) throws Exception {
+		attachScreenShot(driver, logger);
+
+        try {
+			if(driver.findElement(By.xpath(xpath)).isDisplayed()) { 
+				if (driver.findElement(By.xpath(xpath)).getText().toString().contentEquals(string)) {
+			    	logger.log(LogStatus.PASS, "Expected Value Found: " +  string);
+					return true;
+				}
+				else if (!driver.findElement(By.xpath(xpath)).getText().toString().contentEquals(string)) {
+			    	logger.log(LogStatus.FAIL, "Expected Value Not Found: " +  string);
+					return false;  		
+				}   	
+			}
+			
+			else if(!driver.findElement(By.xpath(xpath)).isDisplayed()) {  
+				logger.log(LogStatus.FAIL, "Expected Value Not Found: " +  string);
+				String screenShotPath = ExtentReport.getScreenShot(driver, "Expect Value Not Found- " );
+				logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+				return false;
+			}
+			return true; 
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Expected Value Not Found: " +  string);
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Expect Value Not Found- " );
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			e.printStackTrace();
+
+			return false;
+		}
+	}
+
+	public static void clickNewBoat(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			driver.findElement(By.id("NewVehicle")).click();
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			logger.log(LogStatus.PASS, "New Boat was selected");
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "New Boat was not selected");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "New Boat btn - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+	}
+
+public static void attachScreenShot(WebDriver driver,ExtentTest logger) throws Exception {
+		String screenShotPath = ExtentReport.getScreenShot(driver, "Screenshot - ");
+		logger.log(LogStatus.INFO, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+        driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);		
+	}
+
+public static void clickComplete(WebDriver driver, ExtentTest logger) throws Exception {
+	attachScreenShot(driver, logger);
+	
+	try {
+		driver.findElement(By.id("Complete")).click();
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		logger.log(LogStatus.PASS, "Complete Btn was selected");
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, "Complete Btn was not selected");
+		String screenShotPath = ExtentReport.getScreenShot(driver, "Complete btn - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+public static void clickInboxTasktab(WebDriver driver, ExtentTest logger) throws Exception {
+	try {
+		driver.findElement(By.id("HomePage-Inbox-Group")).click();
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		logger.log(LogStatus.PASS, "Inbox was selected");
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, "Inbox was not selected");
+		String screenShotPath = ExtentReport.getScreenShot(driver, "Inbox - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);             
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+public static String mainWindow;
+public static void switchWindows(WebDriver driver, ExtentTest logger) {
+	
+	try {
+		Set<String> set =driver.getWindowHandles();
+		Iterator<String> itr= set.iterator();
+	while (itr.hasNext()) {
+		String childWindow=itr.next();
+    
+		if(!mainWindow.equals(childWindow)) {
+			driver.switchTo().window(childWindow);
+			logger.log(LogStatus.PASS, "Switched to window-2");
+		}
+	}
+	} catch(Exception e){
+	  logger.log(LogStatus.FAIL, "Switched to window-2");
+	}
+}
+
+//Switch to a perticular window using Url
+public static void switchToWindow(WebDriver driver, String text, ExtentTest logger) {
+	 
+	try {
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+	    Iterator<String> windowIterator = driver.getWindowHandles()
+	            .iterator();
+	    while (windowIterator.hasNext()) {
+	        String windowHandle = windowIterator.next();
+	        popup = driver.switchTo().window(windowHandle);
+	        String title = popup.getCurrentUrl();
+	        if (title.contains(text)) {
+	            break;
+	        }
+	    }
+	} catch(Exception e){
+	 logger.log(LogStatus.FAIL, "Switched to window");
+	}
+}
+
+//Switch to a perticular window using title
+public static void switchToWindowTitle(WebDriver driver, String text, ExtentTest logger) {
+	
+	try{
+		mainWindow=driver.getWindowHandle();
+		WebDriver popup = null;
+	    Iterator<String> windowIterator = driver.getWindowHandles()
+	            .iterator();
+	    while (windowIterator.hasNext()) {
+	        String windowHandle = windowIterator.next();
+	        popup = driver.switchTo().window(windowHandle);
+	        String title = popup.getTitle();
+	        if (title.contains(text)) {
+	            break;
+	        }
+	    }
+	} catch(Exception e){
+	logger.log(LogStatus.FAIL, "Switched to window");
+	}
+}
+
+public static void clickOnAnyLink(WebDriver driver, String link, ExtentTest logger) throws Exception {
+	try {
+		driver.findElement(By.partialLinkText(link)).click();
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		logger.log(LogStatus.PASS, link+" was selected");
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, link+" was not selected");
+		String screenShotPath = ExtentReport.getScreenShot(driver, link);
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);              
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+public static String getTextOfElement(WebDriver driver,String element, ExtentTest logger) throws Exception {
+	String num = null;
+	
+	try {
+		num = driver.findElement(By.id(element)).getText().toString();
+		driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
+		logger.log(LogStatus.PASS, element+" text : "+num);
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, element+" text : ");
+		String screenShotPath = ExtentReport.getScreenShot(driver, element+" text : ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);
+	}
+	return num;	
+	}
+
+public static String  mouseHoverOnImageTitle(WebDriver driver, String text, ExtentTest logger) throws Exception {
+	String actualTooltip = null;
+	WebElement ele = driver.findElement(By.xpath("//*[contains(@title,'"+text+"')]"));
+	try {
+		Actions a1 = new Actions(driver);
+		a1.moveToElement(ele)
+							.build()
+		                 .perform();
+		Thread.sleep(1000L);
+		actualTooltip = ele.getAttribute("title").toString(); 
+		logger.log(LogStatus.PASS, "mouseHoverText: " +  actualTooltip);
+        } catch (Exception e) {
+			logger.log(LogStatus.FAIL, "mouseHover: " +  text);
+			String screenShotPath = ExtentReport.getScreenShot(driver, "mouseHover" + text + " - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+        	}
+	return actualTooltip;
+}
+
+public static void clickonAnyButton(WebDriver driver,String button, ExtentTest logger) throws Exception {
+	try {
+		driver.findElement(By.id(""+button+"")).click();
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		logger.log(LogStatus.PASS, button+" button was clicked");
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, button+" button was not clicked");
+		String screenShotPath = ExtentReport.getScreenShot(driver, button);
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}	
+}
+public static void clickOnBlankSpace(WebDriver driver, ExtentTest logger) throws Exception {
+	try {
+		driver.findElement(By.xpath("//html")).click();
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		logger.log(LogStatus.PASS, "Blank space was clicked");
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, "Blank space was clicked");
+		String screenShotPath = ExtentReport.getScreenShot(driver, "Blank space was clicked");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}	
+}
+public static void clickIfAlertPresent(WebDriver driver, ExtentTest logger) throws Exception {
+	try {
+		if((ExpectedConditions.alertIsPresent())==null)
+			logger.log(LogStatus.INFO,"alert was not present");
+		else {
+			logger.log(LogStatus.INFO,"alert was present");
+			String alerttext = driver.switchTo().alert().getText().toString();
+			logger.log(LogStatus.INFO, "Popup displayed: "+alerttext);
+		}
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, "Alert was not ablew to determine");
+		String screenShotPath = ExtentReport.getScreenShot(driver, "AlertPresent");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}	
+}
+
+public static void clickAnyMagnifierIcon(WebDriver driver,String Icon, ExtentTest logger) throws Exception {
+	try {
+		driver.findElement(By.xpath("//*[contains(@onclick,'"+Icon+"')]")).click();;
+		logger.log(LogStatus.PASS, "Magnifier Icon clicked");									
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, "Magnifier Icon clicked");
+		String screenShotPath = ExtentReport.getScreenShot(driver, "MagnifierScreenshot - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);              
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+
+public static void verifyAnyTextbox_EnabledDisabled(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+	attachScreenShot(driver, logger);
+
+	try {
+		
+		WebElement ele = driver.findElement(By.id(""+elementName+""));
+		
+			if(ele.isEnabled()) {
+				logger.log(LogStatus.INFO, elementName+"  is Editable");
+			}	else if(!(ele.isEnabled())) {
+				logger.log(LogStatus.INFO, elementName+"  is Disabled");
+			} else {
+				logger.log(LogStatus.FAIL, elementName+"  is not able to validate");
+			}										
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, elementName+" not able to validate");
+		String screenShotPath = ExtentReport.getScreenShot(driver, elementName+"screenshot - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+public static void verifyAnyElement_Disabled(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+	attachScreenShot(driver, logger);
+
+	try {
+		
+		WebElement ele = driver.findElement(By.id(""+elementName+""));
+		
+			if(ele.isEnabled()) {
+				logger.log(LogStatus.FAIL, elementName+"  is Enabled");
+			}	else if(!(ele.isEnabled())) {
+				logger.log(LogStatus.PASS, elementName+"  is Disabled");
+			} else {
+				logger.log(LogStatus.FAIL, elementName+"  is not able to validate");
+			}										
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, elementName+" not able to validate");
+		String screenShotPath = ExtentReport.getScreenShot(driver, elementName+"screenshot - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+public static String getDisabledDefaultValue(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+	String defaultItem = null;
+	attachScreenShot(driver, logger);
+
+	try {
+		WebElement ele = driver.findElement(By.id(""+elementName+""));
+		
+		if(!(ele.isEnabled())) {
+			Select entityType = new Select (driver.findElement(By.id(""+elementName+"")));	
+			WebElement option = entityType.getFirstSelectedOption();
+			defaultItem = option.getText();
+			
+			logger.log(LogStatus.PASS, "Default Value: " + defaultItem);
+			logger.log(LogStatus.PASS, elementName+"  is Disabled");
+			
+			return defaultItem;
+			}
+		
+		if((ele.isEnabled())) {
+			Select entityType = new Select (driver.findElement(By.id(""+elementName+"")));	
+			WebElement option = entityType.getFirstSelectedOption();
+			defaultItem = option.getText();
+			
+			logger.log(LogStatus.FAIL, "Default Value: " + defaultItem);
+			logger.log(LogStatus.FAIL, elementName+" is Enabled");
+			
+			return defaultItem;
+			}
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, elementName+" not able to validate");
+		String screenShotPath = ExtentReport.getScreenShot(driver, elementName+"screenshot - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	} 		
+	return defaultItem;	
+}
+
+public static String getEnabledDefaultValue(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+	String defaultItem = null;
+	attachScreenShot(driver, logger);
+
+	try {
+		WebElement ele = driver.findElement(By.id(""+elementName+""));
+		
+		if((ele.isEnabled())) {
+			Select entityType = new Select (driver.findElement(By.id(""+elementName+"")));	
+			WebElement option = entityType.getFirstSelectedOption();
+			defaultItem = option.getText();
+			
+			logger.log(LogStatus.PASS, "Default Value: " + defaultItem);
+			logger.log(LogStatus.PASS, elementName+"  is Enabled");
+			
+			return defaultItem;
+			}
+		
+		if(!(ele.isEnabled())) {
+			Select entityType = new Select (driver.findElement(By.id(""+elementName+"")));	
+			WebElement option = entityType.getFirstSelectedOption();
+			defaultItem = option.getText();
+			
+			logger.log(LogStatus.FAIL, "Default Value: " + defaultItem);
+			logger.log(LogStatus.FAIL, elementName+"  is not Enabled");
+			
+			return defaultItem;
+			}
+		
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, elementName+" not able to validate");
+		String screenShotPath = ExtentReport.getScreenShot(driver, elementName+"screenshot - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	} 		
+	return defaultItem;	
+}
+
+
+public static void verifyAnyElement_Enabled(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+	attachScreenShot(driver, logger);
+
+	try {
+		
+		WebElement ele = driver.findElement(By.id(""+elementName+""));
+		
+			if(ele.isEnabled()) {
+				logger.log(LogStatus.PASS, elementName+"  is Enabled");
+			}	else if(!(ele.isEnabled())) {
+				logger.log(LogStatus.FAIL, elementName+"  is Disabled");
+			} else {
+				logger.log(LogStatus.FAIL, elementName+"  is not able to validate");
+			}										
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, elementName+" not able to validate");
+		String screenShotPath = ExtentReport.getScreenShot(driver, elementName+"screenshot - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+
+public static boolean verify_SimilarLabels_Displayed(WebDriver driver, String text, ExtentTest logger) throws Exception {
+	try {
+        if(driver.findElement(By.xpath("(//*[text()='"+text+"'])[3]")).isDisplayed()) {  
+        	logger.log(LogStatus.PASS, "Label visible: " +  text);
+        	return true;
+        	}
+		return true;   	
+        } catch (Exception e) {
+			logger.log(LogStatus.FAIL, "SimilarLabel: " +  text);
+			String screenShotPath = ExtentReport.getScreenShot(driver, "SimilarLabel" + text + " - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			return false;
+        	}
+}
+
+public static void getAnyDropDownOptions(WebDriver driver, String field, ExtentTest logger) throws Exception {
+	try {
+		Select entityType = new Select (driver.findElement(By.id(""+field+"")));	
+		WebElement story_field = driver.findElement(By.id(""+field+""));
+		story_field.click();
+		List<WebElement> options = entityType.getOptions();
+					
+		logger.log(LogStatus.INFO, field+" options are:");
+		for(WebElement item:options)  { 
+        	logger.log(LogStatus.INFO, item.getText());          
+        }												
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, field+"Options:");
+		String screenShotPath = ExtentReport.getScreenShot(driver, field+"Options:");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);              
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}	
+}
+
+public static void getAnyMultiSelectDropDownOptions(WebDriver driver, String field, ExtentTest logger) throws Exception {
+	try {
+		Select entityType = new Select (driver.findElement(By.id(""+field+"")));	
+//		WebElement story_field = driver.findElement(By.id(""+field+""));
+		List<WebElement> options = entityType.getOptions();
+					
+		logger.log(LogStatus.INFO, field+" options are:");
+		for(WebElement item:options)  { 
+        	logger.log(LogStatus.INFO, item.getText());          
+        }												
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, field+"Options:");
+		String screenShotPath = ExtentReport.getScreenShot(driver, field+"Options:");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);              
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}	
+}
+
+public static void verifyAnyTextboxLossNotice_EnabledDisabled(WebDriver driver, String elementName, ExtentTest logger) throws Exception {
+	try {
+		attachScreenShot(driver, logger);
+
+		WebElement ele = driver.findElement(By.id("Claim."+elementName+""));
+		
+			if(ele.isEnabled()) {
+				logger.log(LogStatus.INFO, elementName+"  is Editable");
+			} else if(!(ele.isEnabled())) {
+				logger.log(LogStatus.INFO, elementName+"  is Disabled");
+			} else {
+				logger.log(LogStatus.FAIL, elementName+"  is not able to validate");
+			}											
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, elementName+" not able to validate");
+		String screenShotPath = ExtentReport.getScreenShot(driver, elementName+"screenshot - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);              
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+
+public static String getAnyDropdownPopulatedValue(WebDriver driver, String element, ExtentTest logger) throws Exception {
+	String value=null;
+	try {
+		Select entityType = new Select (driver.findElement(By.id(""+element+"")));	
+		value = entityType.getFirstSelectedOption().getText();
+		logger.log(LogStatus.INFO, element+" populated with "+value);	
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, element+" not populated with "+value);
+		String screenShotPath = ExtentReport.getScreenShot(driver, "DropDownPopulatedValue- ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+	return value.toString();	
+	}
+
+public static void sendDataToAnyTextBoxID(WebDriver driver, String field, String data, ExtentTest logger) throws Exception {
+	try {
+		driver.findElement(By.id(""+field+"")).clear();
+		driver.findElement(By.id(""+field+"")).sendKeys(data.toString());
+		logger.log(LogStatus.PASS, field+" : " + data);
+	
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, field+" : " + data);
+		String screenShotPath = ExtentReport.getScreenShot(driver, field+"data- ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+public static void selectAnyDropDownValue(WebDriver driver, String field, String data, ExtentTest logger) throws Exception {
+	try {
+		Select entityType = new Select (driver.findElement(By.name(""+field+"")));	
+		entityType.selectByVisibleText(data);
+		logger.log(LogStatus.PASS, field+" : " + data);
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, field+" : " + data);
+		String screenShotPath = ExtentReport.getScreenShot(driver, field+"data- ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}	
+}
+
+public static boolean verifyChangePayPlanNotVisible(WebDriver driver, ExtentTest logger) throws Exception {
+    
+    try {
+    	if(driver.findElement(By.id("_ChangePayplan_Link")).isDisplayed()) {  
+    		logger.log(LogStatus.FAIL, "ChangePayplan_Link is visible");
+    		String screenShotPath = ExtentReport.getScreenShot(driver, "ChangePayplan_Link- ");
+            logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+            return false;
+    	}
+   return false;
+    } catch(Exception e) {
+    	logger.log(LogStatus.PASS, "ChangePayplan_Link not visible");
+    	return true; 
+    }
+}
+
+public static boolean verify_AnyText_IsVisibleMultipletimes(WebDriver driver, String text, String index, ExtentTest logger) throws Exception {
+	attachScreenShot(driver, logger);
+
+	try {
+        if(driver.findElement(By.xpath("(//*[contains(text(), '"+text+"')])["+index+"]")).isDisplayed()) {  
+        	logger.log(LogStatus.PASS, "Is visible: " +  text);
+        	return true;
+        	}
+		return true;   	
+
+        } catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Is visible: " +  text);
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Is visible " + text + " - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+			return false;
+        	}
+}
+
+public static void clickQuotePolicyTab(WebDriver driver, ExtentTest logger) throws Exception {
+	try {
+		driver.findElement(By.id("Menu_Policy")).click();
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		logger.log(LogStatus.PASS, "Menu_Policy was selected");
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, "Menu_Policy was not selected");
+		String screenShotPath = ExtentReport.getScreenShot(driver, "Menu_Policy - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+public static void clickClaimsTab(WebDriver driver, ExtentTest logger) throws Exception {
+	try {
+		driver.findElement(By.id("Menu_Claims")).click();
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		logger.log(LogStatus.PASS, "Menu_Claims was selected");
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, "Menu_Claims was not selected");
+		String screenShotPath = ExtentReport.getScreenShot(driver, "Menu_Claims - ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);               
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}
+}
+
+public static String VerifyAnyDropdownDefaultedValue(WebDriver driver, String element, String expectedValue, ExtentTest logger) throws Exception {
+    String value=null;
+    try {
+           Select entityType = new Select (driver.findElement(By.id(""+element+""))); 
+           value = entityType.getFirstSelectedOption().getText().toString();
+           logger.log(LogStatus.INFO, element+" defaulted with "+value); 
+           
+           if(value.equals(expectedValue)){
+                  logger.log(LogStatus.PASS, "Actual defaulted value : "+value +" Expected value : "+expectedValue+" are matching");
+           } else  {
+                  logger.log(LogStatus.FAIL, "Actual defaulted value : "+value +" Expected value : "+expectedValue+" are not matching");
+           } 
+    } catch (Exception e) {
+           logger.log(LogStatus.FAIL, element+" not defaulted with "+expectedValue);
+           String screenShotPath = ExtentReport.getScreenShot(driver, "DropDownDefaultedValue- ");
+           logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+           logger.log(LogStatus.FAIL, e);               
+           driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    }
+    return value.toString();   
+    }
+
+public static void VerifyAnyDropdownIsNotSelected(WebDriver driver, String element, ExtentTest logger) throws Exception {
+
+    try {
+           WebElement ele = (WebElement) new Select (driver.findElement(By.id(""+element+""))); 
+                      
+           if(ele.isSelected()){
+                  
+                  logger.log(LogStatus.FAIL, element + " is selected");
+           } 
+    } 
+    catch (Exception e) {
+    	logger.log(LogStatus.PASS, element + " is not selected");
+              
+        driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+ }
+ 
+    }
+
+public static String VerifyAnyLabelDefaultedValue(WebDriver driver, String element, String expectedValue, ExtentTest logger) throws Exception {
+    String value=null;
+    try {
+           value = driver.findElement(By.id(""+element+"")).getText().toString();
+           logger.log(LogStatus.INFO, element+" defaulted with "+value); 
+           
+           if(value.equals(expectedValue)){
+                  logger.log(LogStatus.PASS, "Actual value : "+value +"Expected value : "+expectedValue+" are matching");
+           } else  {
+                  logger.log(LogStatus.FAIL, "Actual value : "+value +"Expected value : "+expectedValue+" are not matching");
+           } 
+    } catch (Exception e) {
+           logger.log(LogStatus.FAIL, element+" not Defaulted with "+expectedValue);
+           String screenShotPath = ExtentReport.getScreenShot(driver, "LabelDefaultedValue- ");
+           logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+           logger.log(LogStatus.FAIL, e);               
+           driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    }
+    return value.toString();   
+    }
+
+public static boolean verifyAnyTextboxAttributeValue(WebDriver driver, String fieldName, String expectedResults,
+		ExtentTest logger) throws Exception {
+	
+	WebElement ele = driver.findElement(By.id(""+fieldName+""));
+
+	try {
+		if (ele.getAttribute("value").contentEquals(expectedResults)){
+			logger.log(LogStatus.PASS, fieldName+" : " + ele.getAttribute("value").toString());
+			logger.log(LogStatus.PASS, "Expected value = "+expectedResults);
+			return true;
+			
+		} else {
+			logger.log(LogStatus.FAIL, fieldName+" : " + ele.getAttribute("value").toString());
+			logger.log(LogStatus.FAIL, "Expected value = "+expectedResults);
+			return true;
+		}
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, fieldName+" : " + ele.getAttribute("value").toString());
+		String screenShotPath = ExtentReport.getScreenShot(driver, fieldName);
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);              
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		return false;
+	}
+}
+
+public static void verifyAnyDropDownOptions(WebDriver driver, String[] dropdownvalue, String fieldname, ExtentTest logger) throws Exception {
+	try {
+		List<String> expList = new ArrayList<String>();
+        
+        for(int i=0;i<dropdownvalue.length;i++){
+            expList.add(dropdownvalue[i]);
+        }
+        
+        List<String> actList = new ArrayList<String>();
+        Select se = new Select(driver.findElement(By.id(""+fieldname+"")));
+        
+        List<WebElement> options = se.getOptions();
+        
+        for(WebElement dd : options){
+            actList.add(dd.getText());
+        }  
+			           
+      //sorts both lists
+        //first compares the size of both list, if true then compares each item in order,if false skips and display both are not same
+        if(expList.size()==actList.size()){
+            for(int i=0;i<expList.size();i++){
+                //comparing each item in order
+                if(expList.get(i).equals(actList.get(i))){
+                	logger.log(LogStatus.INFO, actList.get(i)+" option Matched");
+                }else{
+                	logger.log(LogStatus.FAIL, actList.get(i)+" option not Matched");
+                }
+            }
+        }else{
+        	logger.log(LogStatus.FAIL, fieldname+" Drop down options are not Matched");
+        }
+
+												
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, fieldname+"Options:");
+		String screenShotPath = ExtentReport.getScreenShot(driver, fieldname+"Options- ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);             
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}	
+}
+
+
+
+//09/15 - Kailash
+public static void verifyDropdownOptions(WebDriver driver, String[] dropdown, String fields, ExtentTest logger) throws Exception {
+	try {
+		List<String> expList = new ArrayList<String>();
+        
+        for(int i=0;i<dropdown.length;i++){
+            expList.add(dropdown[i]);
+        }
+        
+        List<String> actList = new ArrayList<String>();
+        Select se = new Select(driver.findElement(By.id(""+fields+"")));
+        
+        List<WebElement> options = se.getOptions();
+        
+        for(WebElement dd : options){
+            actList.add(dd.getText());
+        }  
+			           
+      //sorts both lists
+//        Collections.sort(expList);
+//        Collections.sort(actList);
+        //first compares the size of both list, if true then compares each item in order,if false skips and display both are not same
+        if(expList.size()==actList.size()){
+            for(int i=0;i<expList.size();i++){
+                //comparing each item in order
+                if(expList.get(i).equals(actList.get(i))){
+                	logger.log(LogStatus.INFO, actList.get(i)+" option Matched");
+                }else{
+                	logger.log(LogStatus.FAIL, actList.get(i)+" option not Matched");
+                }
+            }
+        }else{
+        	logger.log(LogStatus.FAIL, dropdown+" Drop down options are not Matched");
+        }
+
+												
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL, fields+"Options:");
+		String screenShotPath = ExtentReport.getScreenShot(driver, fields+"Options- ");
+		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+		logger.log(LogStatus.FAIL, e);             
+		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+	}	
+}
+
+
+public static void clickUserRoleAddButton(WebDriver driver, ExtentTest logger) throws Exception {
+    try {
+                    driver.findElement(By.xpath("(//*[@id='Add'])[1]")).click();
+                    logger.log(LogStatus.PASS, "Clicked on User role add button");                                                                                                                                  
+    } catch (Exception e) {
+                    logger.log(LogStatus.FAIL, "Clicked on User role add button");
+                    String screenShotPath = ExtentReport.getScreenShot(driver, "clickUserRoleAddButton - ");
+                    logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+                    logger.log(LogStatus.FAIL, e);              
+                    driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+                    }              
+    }
+    
+    public static void clickConcessionAddButton(WebDriver driver, ExtentTest logger) throws Exception {
+    try {
+                    driver.findElement(By.xpath("(//*[@id='Add'])[2]")).click();
+                    logger.log(LogStatus.PASS, "Clicked on Concession add button");                                                                                                                                             
+    } catch (Exception e) {
+                    logger.log(LogStatus.FAIL, "Clicked on Concession add button");
+                    String screenShotPath = ExtentReport.getScreenShot(driver, "clickConcessionAddButton - ");
+                    logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+                    logger.log(LogStatus.FAIL, e);              
+                    driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+                    }              
+    }
+    
+    public static boolean verifyAnyLossCauseChargeable(WebDriver driver, String losscause, String expectedResults,
+    		ExtentTest logger) throws Exception {
+    	//losscause as 'Water Damage' or Theft or Liability BI - Pollution or any loss
+    	
+    	WebElement ele = driver.findElement(By.xpath("//*[contains(text(),'"+losscause+"')]//following::*[5]"));
+    	String actual = ele.getText().toString();
+
+    	try {
+    		if (actual.contentEquals(expectedResults)){
+    			logger.log(LogStatus.PASS, losscause +" chargeable value on Renewal : " + ele.getText().toString());
+    			return true;
+    			
+    		} else {
+    			logger.log(LogStatus.FAIL, losscause +" chargeable value on Renewal : " + ele.getText().toString());
+    			return true;
+    		}
+    	} catch (Exception e) {
+    		logger.log(LogStatus.FAIL, losscause +" chargeable value on Renewal : " + ele.getText().toString());
+    		String screenShotPath = ExtentReport.getScreenShot(driver, losscause +" chargeable");
+    		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    		logger.log(LogStatus.FAIL, e);              
+    		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    		return false;
+    	}
+    }
+
+    
+    public static boolean verifyAnyClaimLossCauseChargeable(WebDriver driver, String claimNum, String expectedResults,
+    		ExtentTest logger) throws Exception {
+    	//losscause as 'Water Damage' or Theft or Liability BI - Pollution or any loss
+    	
+    	WebElement ele = driver.findElement(By.xpath("//*[contains(text(),'"+claimNum+"')]//following::*[3]"));
+    	String actual = ele.getText().toString();
+
+    	try {
+    		if (actual.contentEquals(expectedResults)){
+    			logger.log(LogStatus.PASS, claimNum +" chargeable value on Renewal : " + ele.getText().toString());
+    			return true;
+    			
+    		} else {
+    			logger.log(LogStatus.FAIL, claimNum +" chargeable value on Renewal : " + ele.getText().toString());
+    			return true;
+    		}
+    	} catch (Exception e) {
+    		logger.log(LogStatus.FAIL, claimNum +" chargeable value on Renewal : " + ele.getText().toString());
+    		String screenShotPath = ExtentReport.getScreenShot(driver, claimNum +" chargeable");
+    		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    		logger.log(LogStatus.FAIL, e);              
+    		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    		return false;
+    	}
+    }
+
+    
+    public static boolean verifyAnyLossCauseClaimStatus(WebDriver driver, String losscause, String expectedResults,
+    		ExtentTest logger) throws Exception {
+    	//losscause as 'Water Damage' or Theft or Liability BI - Pollution or any loss
+    	
+    	WebElement ele = driver.findElement(By.xpath("(//*[contains(text(),'"+losscause+"')]//following::*[3])[2]"));
+    	String actual = ele.getText().toString();
+
+    	try {
+    		if (actual.contentEquals(expectedResults)){
+    			logger.log(LogStatus.PASS, losscause +" claim status is : " + ele.getText().toString());
+    			return true;
+    			
+    		} else {
+    			logger.log(LogStatus.FAIL, losscause +" claim status is : " + ele.getText().toString());
+    			return true; 
+    		}
+    	} catch (Exception e) {
+    		logger.log(LogStatus.FAIL, losscause +" claim status is : " + ele.getText().toString());
+    		String screenShotPath = ExtentReport.getScreenShot(driver, losscause +" claimStatus ");
+    		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    		logger.log(LogStatus.FAIL, e);              
+    		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    		return false;
+    	}
+    }
+    
+    public static boolean verifyAnyDisabledFieldsValue(WebDriver driver, String fieldName, String expectedResults,
+    		ExtentTest logger) throws Exception {
+    	
+    	WebElement ele = driver.findElement(By.id(""+fieldName+""));
+
+    	try {
+    		if (ele.getText().contentEquals(expectedResults)){
+    			logger.log(LogStatus.PASS, fieldName+" : " + ele.getText().toString());
+    			return true;
+    			
+    		} else {
+    			logger.log(LogStatus.FAIL, fieldName+" : " + ele.getText().toString());
+    			return true;
+    		}
+    	} catch (Exception e) {
+    		logger.log(LogStatus.FAIL, fieldName+" : " + ele.getText().toString());
+    		String screenShotPath = ExtentReport.getScreenShot(driver, fieldName);
+    		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    		logger.log(LogStatus.FAIL, e);              
+    		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    		return false;
+    	}
+    }
+    
+  //Verifying any checkbox is checked
+    public static void verifyAnyCheckBoxIsSelected(WebDriver driver, String fieldName, String element, ExtentTest logger) throws Exception {
+
+    	WebElement e1 = driver.findElement(By.id(""+element+""));
+
+    	try {
+
+    		if(e1.isSelected()) {
+    			logger.log(LogStatus.PASS, fieldName+" is selected");
+    		} else {
+    			logger.log(LogStatus.FAIL, fieldName+" not selected");
+    		}								
+    	} catch (Exception e) {
+    			logger.log(LogStatus.FAIL, fieldName+" not selected");
+    			String screenShotPath = ExtentReport.getScreenShot(driver, fieldName+"screenshot - ");
+    			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    			logger.log(LogStatus.FAIL, e);              
+    			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    		}
+    }
+    
+    public static void acceptAlert(WebDriver driver, ExtentTest logger) throws Exception {
+		try {
+			try {
+			if(ExpectedConditions.alertIsPresent()!=null)
+			{
+				Alert alert = driver.switchTo().alert();
+				String alerttext = alert.getText().toString();
+				logger.log(LogStatus.PASS, alerttext);
+				alert.accept();
+			}
+		} catch (Exception e) {
+			logger.log(LogStatus.INFO, "Alert is not present");
+		}
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Alert not validated");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Alert not validated - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}	
+	}
+    
+    public static String getTextofAlert(WebDriver driver, ExtentTest logger) throws Exception {
+    	String alerttext = null;
+		try {
+			try {
+			if(ExpectedConditions.alertIsPresent()!=null)
+			{ Thread.sleep(10);
+				Alert alert = driver.switchTo().alert();
+				alerttext = alert.getText().toString();
+				logger.log(LogStatus.PASS, alerttext);
+				alert.accept();
+				
+			}
+		} catch (Exception e) {
+			logger.log(LogStatus.INFO, "Alert is not present");
+		}
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL, "Alert not validated");
+			String screenShotPath = ExtentReport.getScreenShot(driver, "Alert not validated - ");
+			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+			logger.log(LogStatus.FAIL, e);               
+			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+		}
+		return alerttext;	
+	}
+
+    public static void anyUserAttributeOverride(WebDriver driver, String field, String data, ExtentTest logger) throws Exception {
+    	try {
+    		driver.findElement(By.xpath("(//*[contains(text(),'"+field+"')]//following::*[5])[1]")).clear();
+    		driver.findElement(By.xpath("(//*[contains(text(),'"+field+"')]//following::*[5])[1]")).sendKeys(data.toString());
+    		logger.log(LogStatus.PASS, field+" : " + data);
+    	
+    	} catch (Exception e) {
+    		logger.log(LogStatus.FAIL, field+" : " + data);
+    		String screenShotPath = ExtentReport.getScreenShot(driver, field+"data- ");
+    		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    		logger.log(LogStatus.FAIL, e);               
+    		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    	}
+    }
+    
+    
+    public static void testcaseCompleted(WebDriver driver, ExtentTest logger) throws Exception {
+    	try {
+    		logger.log(LogStatus.PASS, "Testcase Completed Successfully");
+    	
+    	} catch (Exception e) {
+    		logger.log(LogStatus.FAIL, "Testcase NOT Completed");
+    	}
+    }
+    
+    public static void clickonAnyExpandButton(WebDriver driver,String ImageText, ExtentTest logger) throws Exception {
+    	try {
+    		
+    		driver.findElement(By.xpath("//*[contains(text(),'"+ImageText+"')]//preceding-sibling::*/i")).click();
+    		
+    		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    		logger.log(LogStatus.PASS, " Expand button was clicked");
+    	} catch (Exception e) {
+    		logger.log(LogStatus.FAIL, " Expand button was not clicked");
+    		String screenShotPath = ExtentReport.getScreenShot(driver, "Expand Button");
+    		logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    		logger.log(LogStatus.FAIL, e);               
+    		driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    	}	
+    }
+    
+    public static boolean verify_AnyLabel_IsVisible(WebDriver driver, String text, ExtentTest logger) throws Exception {
+		
+		try {
+            if(driver.findElement(By.xpath("//*[contains(text(), '" + text +"')]")).isDisplayed()) {  
+            	logger.log(LogStatus.PASS, "Is visible: " +  text);            	
+        		attachScreenShot(driver, logger);
+            	return true;
+            	}
+    		return true;   	
+
+            } catch (Exception e) {
+    			logger.log(LogStatus.FAIL, "Is NOT visible: " +  text);
+    			String screenShotPath = ExtentReport.getScreenShot(driver, "Text Is NOT visible " + text + " - ");
+    			logger.log(LogStatus.FAIL, "Snapshot: " + logger.addScreenCapture(screenShotPath));
+    			logger.log(LogStatus.FAIL, e);               
+    			driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
+    			return false;
+            	}
+		
+	}
+    
+   
+    
+    
+    }
+
+
+	
+
+	
+	
+
+
