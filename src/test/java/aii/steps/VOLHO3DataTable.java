@@ -2,6 +2,7 @@
 
 package aii.steps;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ import io.cucumber.java.en.Then;
 public class VOLHO3DataTable extends CommonMethods {
 
 	@Then("User creates HO3 policy with passing information from excel {string} sheet")
-	public void User_creates_ho3_policy_with_passing_information_from_excel_sheet(String ho3customerInfo) {
+	public void User_creates_ho3_policy_with_passing_information_from_excel_sheet(String ho3customerInfo) throws Exception {
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLHO3.xlsx";
 
 		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, ho3customerInfo);
@@ -169,10 +170,18 @@ public class VOLHO3DataTable extends CommonMethods {
 				}
 
 				wait(5);
-				// driver.switchTo().defaultContent();
-				String policyNumber = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText();
-				Hooks.scenario.log(policyNumber);
+				getPolicyNumber(driver);
 
+			     // Close unnecessary tabs
+		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+		        for (int i = tabs.size() - 1; i > 0; i--) {
+		            driver.switchTo().window(tabs.get(i));
+		            driver.close();
+		        }
+
+		        // Switch back to the main page
+		        driver.switchTo().window(tabs.get(0));
+		        
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);
 

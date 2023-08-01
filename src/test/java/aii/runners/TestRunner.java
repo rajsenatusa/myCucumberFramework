@@ -22,7 +22,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@scho3datatable",
+				tags = "@dp1datatable",
 
 
 
