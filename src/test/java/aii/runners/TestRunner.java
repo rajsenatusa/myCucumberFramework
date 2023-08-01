@@ -22,7 +22,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@scho3datatable",
+				tags = "@NB_Policy_VOLHO3-1",
 
 
 

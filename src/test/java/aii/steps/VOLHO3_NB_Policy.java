@@ -41,9 +41,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	@And("User enters Dwelling Address")
 	public void User_enters_Dwelling_Address() {	     
 		wait(1);
-		sendText(quote.txtAddress, ConfigsReader.getProperty("address"));
+		sendText(quote.txtAddress, ConfigsReader.getProperty("scaddress"));
 		wait(1);
-		sendText(quote.txtZipCode, ConfigsReader.getProperty("zipcode"));
+		sendText(quote.txtZipCode, ConfigsReader.getProperty("sczipcode"));
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(1);
