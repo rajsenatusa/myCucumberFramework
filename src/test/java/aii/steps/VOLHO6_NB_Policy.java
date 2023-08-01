@@ -65,10 +65,11 @@ public class VOLHO6_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
 		wait(1);
 		click(dwellingChevron.btnCalculate);
-		wait(14);
+		wait(4);
 		click(dwellingChevron.btnSave);
 		wait(2);
 		click(dwellingChevron.btnNext);
+		wait(1);
 	}	
 	@And("User enters Floor number of unit location {string}")
 	public void User_enters_Floor_number_of_unit_location(String FloorNumber) {	    	   						
