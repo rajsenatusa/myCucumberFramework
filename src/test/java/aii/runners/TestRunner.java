@@ -21,13 +21,8 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-
 				tags = "@dp1datatable",
 
-
-
-
-				
 
 
 		
