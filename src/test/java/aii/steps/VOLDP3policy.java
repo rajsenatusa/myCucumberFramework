@@ -1,6 +1,7 @@
 //updated on 07/14/2023 by Can Yavas
 package aii.steps;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -264,9 +265,17 @@ public class VOLDP3policy extends CommonMethods {
 				}
 
 				wait(5);
-				// driver.switchTo().defaultContent();
-				String policyNumber = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText();
-				Hooks.scenario.log(policyNumber);
+				getPolicyNumber(driver);
+				
+			     // Close unnecessary tabs
+		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+		        for (int i = tabs.size() - 1; i > 0; i--) {
+		            driver.switchTo().window(tabs.get(i));
+		            driver.close();
+		        }
+
+		        // Switch back to the main page
+		        driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);
