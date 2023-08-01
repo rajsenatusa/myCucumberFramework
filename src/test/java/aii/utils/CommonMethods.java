@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
+import java.util.ArrayList;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -1157,7 +1157,10 @@ public static void fillAIB_UWQuestions() throws Exception {
 		return num.toString();	
 	}	
 		
-	
+	/**
+	 * This method checks desired element is disabled or not in the DOM.
+	 * 
+	 */
 	public static void verifyAnyElement_Disabled(WebDriver driver, String elementName) throws Exception {
 
 		try {
@@ -1176,7 +1179,11 @@ public static void fillAIB_UWQuestions() throws Exception {
 			wait(3);
 		}
 	}
-
+	
+	/**
+	 * This method checks desired element is enabled or not in the DOM.
+	 * 
+	 */
 	public static void verifyAnyElement_Enabled(WebDriver driver, String elementName) throws Exception {
 
 		try {
@@ -1196,6 +1203,77 @@ public static void fillAIB_UWQuestions() throws Exception {
 		}
 	}
 	
+	/**
+	 * This method compares particular dropdown value with desired text
+	 * 
+	 */
+	
+	public static String verifyAnyDropdownDefaultedValue(WebDriver driver, String element, String expectedValue) throws Exception {
+	    String value=null;
+	    try {
+	           Select entityType = new Select (driver.findElement(By.id(""+element+""))); 
+	           value = entityType.getFirstSelectedOption().getText().toString();
+	           Hooks.scenario.log(element+" defaulted with "+value); 
+	           
+	           if(value.equals(expectedValue)){
+	                  Hooks.scenario.log("Actual defaulted value : "+value +" Expected value : "+expectedValue+" are matching");
+	           } else  {
+	                  Hooks.scenario.log("Actual defaulted value : "+value +" Expected value : "+expectedValue+" are not matching");
+	           } 
+	    } catch (Exception e) {
+	           Hooks.scenario.log(element+" not defaulted with "+expectedValue);
+	           wait(5);
+	    }
+	    return value.toString();   
+	    }
+	
+	/**
+	 * This method compares any dropdown value with desired text
+	 * 
+	 */
+	public static void verifyAnyDropDownOptions(WebDriver driver, String[] dropdownvalue, String fieldname) throws Exception {
+		try {
+			List<String> expList = new ArrayList<String>();
+	        
+	        for(int i=0;i<dropdownvalue.length;i++){
+	            expList.add(dropdownvalue[i]);
+	        }
+	        
+	        List<String> actList = new ArrayList<String>();
+	        Select se = new Select(driver.findElement(By.id(""+fieldname+"")));
+	        
+	        List<WebElement> options = se.getOptions();
+	        
+	        for(WebElement dd : options){
+	            actList.add(dd.getText());
+	        }  
+				           
+	      //sorts both lists
+	        //first compares the size of both list, if true then compares each item in order,if false skips and display both are not same
+	        if(expList.size()==actList.size()){
+	            for(int i=0;i<expList.size();i++){
+	                //comparing each item in order
+	                if(expList.get(i).equals(actList.get(i))){
+	                	Hooks.scenario.log(actList.get(i)+" option Matched");
+	                }else{
+	                	Hooks.scenario.log(actList.get(i)+" option not Matched");
+	                }
+	            }
+	        }else{
+	        	Hooks.scenario.log(fieldname+" Drop down options are not Matched");
+	        }
+
+													
+		} catch (Exception e) {
+			Hooks.scenario.log(fieldname+"Options:");
+			wait(5);
+		}	
+	}
+
+
+	
+	
+
 	}
 	
 	

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import aii.utils.ExcelUtility;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -69,14 +70,70 @@ public class SCHO3Policy extends CommonMethods {
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
-	@When("User creates SC HO3 application")
+	@And("User creates SC HO3 application")
 	public void user_creates_sc_ho3_application() {
-		
-		click(reviewChevron.btnCreateApplication);
-		wait(4);
-		click(dwellingChevron.btnNext);
-	
+		selectDropdown(product.ddStateSelection, 2);
 	}
+	@And("User clicks Continue button")
+	public void User_clicks_Continue_button() {
+		click(product.btnContinue); 
+	}
+	@And("User enters SC state")
+	public void User_enters_SC_state() {
+		selectDropdown(product.ddStateSelection, 2);
+	}
+	@And("User enters SC Producer Code")
+	public void User_enters_SC_Producer_Code() {
+		sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("scproducerselection"));
+	}
+	@And("User clicks SC Prior Carrier")
+	public void User_clicks_SC_Prior_Carrier() {
+		wait(1);
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("scpreviouscarrier"));		
+		wait(1);
+	}	
+	@And("User enters SC Prior Policy Expiration Date")
+	public void User_enters_SC_Prior_Policy_Expiration_Date() {
+		sendText(policyChevron.txtPreviousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));	
+	}	
+	@And("User selects New Purchase")
+	public void User_selects_New_Purchase() {
+		selectDropdownText(policyChevron.ddNewPurchase, "Yes");
+	}	
+	@And("User selects SC Marital Status")
+	public void User_selects_SC_Marital_Status() {
+		selectDropdownText(policyChevron.ddMaritalStatus, "Single");		
+	}	
+	@And("User selects Are any residents within the household smokers")
+	public void User_selects_Are_any_residents_within_the_household_smokers() {
+		selectDropdownText(policyChevron.ddResidentSmokers, "No");
+	}
+	@And("User selects Number of residents aged 18 and over")
+	public void User_selects_Number_of_residents_aged_18_and_over() {
+		selectDropdownText(policyChevron.ddNumberAdultResident, "1");		
+	}
+	@And("User selects Number of residents aged 17 and under")
+	public void User_selects_Number_of_residents_aged_17_and_under() {
+		selectDropdownText(policyChevron.ddNumberChildrenResident, "0");	
+	}
+	@And("User selects Wood Burning Stove")
+	public void User_selects_Wood_Burning_Stove() {
+		selectDropdownText(dwellingChevron.ddWoodBurningStone, "No");	
+	}
+	@And("User selects Opening Protection")
+	public void User_selects_Opening_Protection() {
+		selectDropdownText(dwellingChevron.ddOpeningProtection, "No");	
+	}
+	@And("User clicks Create Application")
+	public void User_clicks_Create_Application() {
+		reviewChevron.btnCreateApplication.click();
+	}
+	
+	
+	
+	
+	
+	
 	@When("User answers all underwriting questions for SC HO3")
 	public void user_answers_all_underwriting_questions_for_sc_ho3() throws Exception {
 		fillSCHO3_UWQuestions();

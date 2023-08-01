@@ -14,7 +14,7 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.SqFt")
 	public WebElement txtSquareFeet;
 	
-	@FindBy(id= "Building.RoofMaterial")
+	@FindBy(id= "Building.RoofMaterial")  
 	public WebElement ddRoofMetarial;
 	
 	@FindBy(id= "Building.MediationArbitrationInd")
@@ -131,7 +131,7 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id = "Building.BurglarAlarmCd")
 	public WebElement ddBurglarAlarm; 
 	
-	@FindBy(id = "Building.SecuredCommunityCd")
+	@FindBy(id = "Building.SecuredCommunityCd")  
 	public WebElement ddSecuredCommunity; 
 	
 	@FindBy(id = "Building.MilitaryDiscountInd")
