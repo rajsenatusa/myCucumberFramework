@@ -217,6 +217,7 @@ public class VOLDP1policy extends CommonMethods {
 				selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 				wait(4);
 				click(closeoutChevron.btnIssueNB);
+				wait(6);
 				WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 				if (validate.getText().equalsIgnoreCase("New Business")) {
@@ -244,9 +245,9 @@ public class VOLDP1policy extends CommonMethods {
 				sendText(login.username, ConfigsReader.getProperty("username"));
 				sendText(login.password, ConfigsReader.getProperty("password"));
 				click(login.btnSignIn);
-				wait(3);
+				wait(5);
 				moveToElement(driver.findElement(By.id("Menu_Policy")));
-				wait(1);
+				wait(4);
 				dashboard.btnNewQuote.click();
 				WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
 				selectDropdownText(element, "Individual");
