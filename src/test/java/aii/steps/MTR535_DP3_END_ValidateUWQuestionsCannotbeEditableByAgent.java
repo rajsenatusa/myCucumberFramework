@@ -97,7 +97,6 @@ public class MTR535_DP3_END_ValidateUWQuestionsCannotbeEditableByAgent extends C
 		sendText(dashboard.txtSelectDate, dtf.format(currentDate));
 		wait(2);
 		click(dashboard.btnStart);
-		dashboard.btnStart.click();
 		wait(3);
 	}
 }

@@ -194,6 +194,12 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.WoodBurningStove")
 	public WebElement ddWoodBurningStone;
 	
+	@FindBy(id= "MoreActionsDropdownButton")
+	public WebElement btnMore;
+	
+	@FindBy(id= "Transaction")
+	public WebElement btnStartTransaction;
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);
