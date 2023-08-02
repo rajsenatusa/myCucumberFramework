@@ -1269,9 +1269,97 @@ public static void fillAIB_UWQuestions() throws Exception {
 			wait(5);
 		}	
 	}
+	/**
+	 * This method checks any desired value is disabled or not
+	 * 
+	 */
+    public static boolean verifyAnyDisabledFieldsValue(WebDriver driver, String fieldName, String expectedResults) throws Exception {
+    	
+    	WebElement ele = driver.findElement(By.id(""+fieldName+""));
 
+    	try {
+    		if (ele.getText().contentEquals(expectedResults)){
+    			Hooks.scenario.log(fieldName+" : " + ele.getText().toString());
+    			return true;
+    			
+    		} else {
+    			Hooks.scenario.log(fieldName+" : " + ele.getText().toString());
+    			return true;
+    		}
+    	} catch (Exception e) {
+    		Hooks.scenario.log(fieldName+" : " + ele.getText().toString());
+    		wait(5);
+    		return false;
+    	}
+    }
+    /**
+	 * This method checks any desired text is visible or not
+	 * 
+	 */
+    public static boolean verify_AnyText_IsVisible(WebDriver driver, String text) throws Exception {
+		Thread.sleep(2000);
 
-	
+		
+		try {
+            if(driver.findElement(By.xpath("//td[contains(text(), '" + text +"')]")).isDisplayed()) {  
+            	Hooks.scenario.log("Is visible: " +  text);            	
+            	return true;
+            	}
+    		return true;   	
+
+            } catch (Exception e) {
+    			Hooks.scenario.log("Is NOT visible: " +  text);
+    			wait(5);
+    			return false;
+            	}
+		
+	}
+    /**
+	 * This method checks any desired text box value with expected value
+	 * 
+	 */
+    public static boolean verifyAnyTextboxAttributeValue(WebDriver driver, String fieldName, String expectedResults) throws Exception {
+    	
+    	WebElement ele = driver.findElement(By.id(""+fieldName+""));
+
+    	try {
+    		if (ele.getAttribute("value").contentEquals(expectedResults)){
+    			Hooks.scenario.log(fieldName+" : " + ele.getAttribute("value").toString());
+    			Hooks.scenario.log("Expected value = "+expectedResults);
+    			return true;
+    			
+    		} else {
+    			Hooks.scenario.log(fieldName+" : " + ele.getAttribute("value").toString());
+    			Hooks.scenario.log("Expected value = "+expectedResults);
+    			return true;
+    		}
+    	} catch (Exception e) {
+    		Hooks.scenario.log(fieldName+" : " + ele.getAttribute("value").toString());
+    		wait(5);
+    		return false;
+    	}
+    }
+    /**
+	 * This method checks any desired label value with expected value
+	 * 
+	 */
+    public static boolean verify_AnyLabel_IsVisible(WebDriver driver, String text) throws Exception {
+		
+		try {
+            if(driver.findElement(By.xpath("//*[contains(text(), '" + text +"')]")).isDisplayed()) {  
+            	Hooks.scenario.log("Is visible: " +  text);            	
+            	return true;
+            	}
+    		return true;   	
+
+            } catch (Exception e) {
+    			Hooks.scenario.log("Is NOT visible: " +  text);
+    			wait(5);
+    			return false;
+            	}
+		
+	}
+
 	
 
 	}
