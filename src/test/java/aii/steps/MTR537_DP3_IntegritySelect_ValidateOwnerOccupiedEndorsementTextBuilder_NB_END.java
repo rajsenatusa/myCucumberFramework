@@ -105,12 +105,14 @@ public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuil
 	@When("User clicks Dwelling Chevron and Coverage added: Animal Liability, Coverage Modified: C - Personal Property Limit Changed From $200,000 to $100,000, Coverage Modified: L - Personal Liability Limit Changed From $100,000 to $300,000, Coverage Modified: Home Computer Limit Changed From $2,500 to $7,000")
 	public void user_clicks_dwelling_chevron_and_coverage_added_Animal() throws Exception {
 		click(dwellingChevron.btnDwelling);
+		wait(5);
 		selectDropdownText(dwellingChevron.ddCovCLimit, "20%");
-		selectDropdownText(dwellingChevron.ddCovLLimit, "300000");
-		selectDropdownText(dwellingChevron.ddHomeComputerLimit, "7000");
-		selectDropdownText(dwellingChevron.ddAnimalLiability, "50000");
+		selectDropdownText(dwellingChevron.ddCovLLimit, "$300,000");
+		selectDropdownText(dwellingChevron.ddHomeComputerLimit, "$7,000");
+		selectDropdownText(dwellingChevron.ddAnimalLiability, "$50,000");
 		wait(3);
 		click(dwellingChevron.btnSave);
+		wait(5);
 	}
 
 	@When("User finalizes transaction and verifies added coverage texts have been displayed on closeout screen")
