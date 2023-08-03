@@ -120,10 +120,12 @@ public class MTR366_DP3_ValidateCovCOptionsDisplayWhenCoverageIsIntegritySelect_
 			throws Exception {
 		
 		click(dwellingChevron.btnDwelling);
-		String[] cov_C = { "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%" };
+		wait(4);
+		String[] covC = { "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%" };
 		verifyAnyDropdownDefaultedValue(driver, "Building.CovCLimitIncluded", "70%");
-		verifyAnyDropDownOptions(driver, cov_C, "Building.CovCLimitIncluded");
+		verifyAnyDropDownOptions(driver, covC, "Building.CovCLimitIncluded");
 		verifyAnyDisabledFieldsValue(driver, "CovCLimit", "$210,000");
+		wait(3);
 	}
 	@When("User endorses policy to basic policy")
 	public void user_endorses_policy_to_basic_policy() throws Exception {

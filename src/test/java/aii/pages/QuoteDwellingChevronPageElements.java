@@ -200,6 +200,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Transaction")
 	public WebElement btnStartTransaction;
 	
+	@FindBy(id= "Wizard_Forms")
+	public WebElement lnkForms;
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);

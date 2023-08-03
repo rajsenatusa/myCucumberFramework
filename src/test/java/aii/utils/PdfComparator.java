@@ -162,7 +162,7 @@ public class PdfComparator extends CommonMethods{
 			PDF.close();
 			}
 		
-		PrintWriter writer = new PrintWriter("Data/pdf.txt");
+		PrintWriter writer = new PrintWriter("target/pdf.txt");
 		writer.print(parsedText);
 		writer.close();
 		return parsedText;
