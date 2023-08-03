@@ -48,6 +48,12 @@ public class VOLHO3RateChange extends CommonMethods {
 	String actual = worksheetsChevron.txtFireLightning.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 	}
+	@Then("User verifies Fire or Lightning Base Rate 2")
+	public void User_verifies_Fire_or_Lightning_Base_Rate_2() {
+	String expected = "Initial Base Rate: 50.93<br> - Fire or Lightning Territory Code: 9<br> - Territory Factor: 0.840";
+	String actual = worksheetsChevron.txtFireLightning.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
+	}
 	@Then("User verifies Other Base Rate")
 	public void User_verifies_Other_Base_Rate() {
 	String expected = "57.93";
@@ -60,10 +66,24 @@ public class VOLHO3RateChange extends CommonMethods {
 	String actual = worksheetsChevron.txtWeatherBaseRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 	}
+	@Then("User verifies Weather Base Rate 2")
+	public void User_verifies_Weather_Base_Rate_2() {
+	wait(1);
+	String expected = "Initial Base Rate: 276.18<br> - Weather Territory Code: 3<br> - Territory Factor: 1.540";
+	String actual = worksheetsChevron.txtWeatherBaseRate2.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
+	wait(1);
+	}
 	@Then("User verifies Hurricane Base Rate")
 	public void User_verifies_Hurricane_Base_Rate() {
 	String expected = "Initial Base Rate: 2090.44<br> - Hurricane Territory Code: E4<br> - Territory Factor: 0.577";
 	String actual = worksheetsChevron.txtHurricaneBaseRate.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+	@Then("User verifies Hurricane Base Rate 2")
+	public void User_verifies_Hurricane_Base_Rate_2() {
+	String expected = "Initial Base Rate: 2803.09<br> - Hurricane Territory Code: E5<br> - Territory Factor: 0.611";
+	String actual = worksheetsChevron.txtHurricaneBaseRate2.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User verifies Building Flood Rate Zone X and Foundation Basement")

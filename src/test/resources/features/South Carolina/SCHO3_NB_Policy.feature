@@ -12,7 +12,7 @@ Feature: New Business Policy VOL SCHO3
     And User clicks new custemer and quote
     And User clicks Entity Type
     And User enters Customer Informations
-    And User enters Dwelling Address
+    And User enters Dwelling Address  
     And User enters effective date "<EffectiveDate>"
     And User enters SC state
     And User clicks Continue button
@@ -78,5 +78,5 @@ Feature: New Business Policy VOL SCHO3
     #And User clicks Issue New Business
     #Then User verifies NB HO3 policy has been created successfully
     Examples: Test Data
-      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial           | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunity        | MilitaryDiscount | RoofShape     | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | cyavas   | password | 08/05/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2023 |       3000 |                              7 |               3 | Architectural Shingles | Yes       | Brick         | Yes     | $100,000        | Smoke Alarm | Full            | Smart Alarm  | 24 Hour Security Patrol | Yes              | Hip roof only | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password   | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial           | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunity        | MilitaryDiscount | RoofShape     | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mcemek   | Aug@2023! | 08/05/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2023 |       3000 |                              7 |               3 | Architectural Shingles | Yes       | Brick         | Yes     | $100,000        | Smoke Alarm | Full            | Smart Alarm  | 24 Hour Security Patrol | Yes              | Hip roof only | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
