@@ -1359,6 +1359,23 @@ public static void fillAIB_UWQuestions() throws Exception {
             	}
 		
 	}
+    /**
+	 * This method checks any desired text value is not visible
+	 * 
+	 */
+    public static boolean verify_AnyText_NotVisible(WebDriver driver, String text) throws Exception {
+
+		try {
+            if(driver.findElement(By.xpath("//*[contains(text(), '" + text +"')]")).isDisplayed()) {  
+            	Hooks.scenario.log("Not visible: " +  text);
+            	return false;
+            	}
+            return false;
+         } catch(Exception e) {
+         	Hooks.scenario.log("Not visible: " +  text);
+             return true;	
+         	}
+	}
 
 	
 

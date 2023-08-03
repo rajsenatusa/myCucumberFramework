@@ -3,6 +3,7 @@ import aii.pages.AIBPageElements;
 import aii.pages.BillingChevronPageElements;
 import aii.pages.CloseOutChevronPageElements;
 import aii.pages.DashboardPageElements;
+import aii.pages.FormsPageElements;
 import aii.pages.GolfcartChevronPageElements;
 import aii.pages.HistoryPageElements;
 import aii.pages.LoginPageElements;
@@ -44,6 +45,7 @@ public class PageInitializer extends BaseClass {
 	public static UserLookupElements userLookup;
 	public static WorksheetsChevronPageElements worksheetsChevron;
 	public static BillingChevronPageElements billingChevron;
+	public static FormsPageElements formsChevron;
 	
 	
 	public static void initialize() {
@@ -68,6 +70,7 @@ public class PageInitializer extends BaseClass {
 		userLookup= new UserLookupElements();
 		worksheetsChevron= new WorksheetsChevronPageElements();
 		billingChevron= new BillingChevronPageElements();
+		formsChevron= new FormsPageElements();
 	}
 
 }

@@ -95,8 +95,10 @@ public class MTR535_DP3_END_ValidateUWQuestionsCannotbeEditableByAgent extends C
 	@When("User selects endorsement date as current date")
 	public void user_selects_endorsement_date_as_current_date() {
 		sendText(dashboard.txtSelectDate, dtf.format(currentDate));
-		wait(2);
+		wait(5);
 		click(dashboard.btnStart);
-		wait(3);
+		wait(5);
+		click(dashboard.btnStart);
+		wait(5);
 	}
 }
