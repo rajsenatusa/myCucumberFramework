@@ -39,7 +39,7 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	public WebElement btnSaveAndQuote;
 	
 	@FindBy(id = "Menu_Policy")
-	public WebElement quoteAndPolicy;
+	public WebElement btnQuoteAndPolicy;
 	
 	@FindBy(id = "MoreActionsDropdownButton")
 	public WebElement btnMoreActionsDropdownButton;

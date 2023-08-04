@@ -13,6 +13,7 @@ public class MTR471_DP3_ValidateMandatoryArbitrationRequireUWApproval_30days_END
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static LocalDateTime endDate = currentDate.plusDays(30);
 	static String applicationNumber;
+	static String policyNum;
 
 	@When("User selects endorsement date as current date plus <30>days")
 	public void user_selects_endorsement_date_as_current_date_plus_30_days() {
@@ -56,10 +57,10 @@ public class MTR471_DP3_ValidateMandatoryArbitrationRequireUWApproval_30days_END
 		wait(3);
 		sendText(closeoutChevron.txtWorkflowComments, "testtesttesttest");
 		wait(2);
-		click(reviewChevron.btnDialogOk);
-		wait(2);
 		click(closeoutChevron.btnSubmitApproval);
 		wait(5);
+		click(reviewChevron.btnDialogOk);
+		wait(2);
 
 //		// Close unnecessary tabs
 //		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
