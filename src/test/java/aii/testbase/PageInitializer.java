@@ -16,6 +16,7 @@ import aii.pages.QuotePolicyChevronPageElements;
 import aii.pages.QuoteProductSelectionPageElements;
 import aii.pages.QuoteReviewPageElements;
 import aii.pages.SpecialOptionsPageElements;
+import aii.pages.TasksPageElements;
 import aii.pages.ToolBarHolderElements;
 import aii.pages.UmbrellaLiabilityPageElements;
 import aii.pages.UserLookupElements;
@@ -46,6 +47,7 @@ public class PageInitializer extends BaseClass {
 	public static WorksheetsChevronPageElements worksheetsChevron;
 	public static BillingChevronPageElements billingChevron;
 	public static FormsPageElements formsChevron;
+	public static TasksPageElements tasksChevron;
 	
 	
 	public static void initialize() {
@@ -71,6 +73,7 @@ public class PageInitializer extends BaseClass {
 		worksheetsChevron= new WorksheetsChevronPageElements();
 		billingChevron= new BillingChevronPageElements();
 		formsChevron= new FormsPageElements();
+		tasksChevron= new TasksPageElements();
 	}
 
 }

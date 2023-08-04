@@ -47,6 +47,13 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+	@Given("User login to Spin as Underwriter Clerk")
+	public void user_login_to_spin_as_underwriter_clerk() {
+		sendText(login.username, ConfigsReader.getProperty("uwclerkusername"));
+		sendText(login.password, ConfigsReader.getProperty("uwclerkpassword"));
+		click(login.btnSignIn);
+		wait(3);
+	}
 
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
