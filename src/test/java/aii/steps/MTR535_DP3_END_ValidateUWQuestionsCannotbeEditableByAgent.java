@@ -28,8 +28,9 @@ public class MTR535_DP3_END_ValidateUWQuestionsCannotbeEditableByAgent extends C
 
 	@When("User clicks Underwriting Questions Chevron")
 	public void user_clicks_underwriting_questions_chevron() {
+		wait(1);
 		click(uwquestionsChevron.lnkUwQuestionsTab);
-		wait(3);
+		wait(4);
 	}
 
 	@When("User validates that UW Questions is not editable")

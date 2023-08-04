@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
-@NB_Policy_SCHO3
-Feature: New Business Policy VOL SCHO3
+@EN_Policy_SCHO3
+Feature: Endorsement Policy VOL SC HO3
 
-  @NB_Policy_SCHO3-1
-  Scenario Outline: NB VOL SCHO3
+  @EN_Policy_SCHO3-1
+  Scenario Outline: EN VOL SC HO3
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -55,8 +55,14 @@ Feature: New Business Policy VOL SCHO3
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
-    Then User verifies SC HO3 policy has been created successfully
-
+    And User returns to main page
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Finalize button
+    And User clicks Endorse Policy button
+    Then User verifies EN SC HO3 policy has been created successfully
+    
     Examples: Test Data
-      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial           | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunity        |
-      | cyavas   | password | 08/05/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2023 |       3000 |                              7 |               3 | Architectural Shingles | Yes       | Brick         | Yes     | $100,000        | Smoke Alarm | Full            | Smart Alarm  | 24 Hour Security Patrol |
+      | username | password | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial           | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunity        |
+      | cyavas   | password | 08/05/2023    | 08/08/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2023 |       3000 |                              7 |               3 | Architectural Shingles | Yes       | Brick         | Yes     | $100,000        | Smoke Alarm | Full            | Smart Alarm  | 24 Hour Security Patrol |
