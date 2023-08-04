@@ -74,6 +74,10 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "dialogOK")
 	public WebElement btnDialogOk;
 	
+	@FindBy(id= "Wizard_Underwriting")
+	public WebElement btnUnderwriting;
+	 
+	
 	public QuoteReviewPageElements() {
 		PageFactory.initElements(driver, this);
 	}
