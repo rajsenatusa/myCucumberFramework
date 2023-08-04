@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
-@NB_Policy_SCHO3
-Feature: New Business Policy VOL SCHO3
+@RN_Policy_SCHO3
+Feature: Renewal Policy VOL SC HO3
 
-  @NB_Policy_SCHO3-1
-  Scenario Outline: NB VOL SCHO3
+  @RN_Policy_SCHO3-1
+  Scenario Outline: RN VOL SC HO3
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -55,6 +55,14 @@ Feature: New Business Policy VOL SCHO3
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
+    And User returns to main page
+    And User clicks Start Transaction
+    And User clicks RN Transaction Selection
+    And User clicks Finalize
+    Then User verifies RN SC HO3 policy has been created successfully
+    
+    
+    
     Then User verifies SC HO3 policy has been created successfully
 
     Examples: Test Data

@@ -3,6 +3,7 @@ package aii.steps;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
@@ -128,12 +129,37 @@ public class SCHO3Policy extends CommonMethods {
 	public void User_clicks_Create_Application() {
 		reviewChevron.btnCreateApplication.click();
 	}
-	
-	
-	
-	
-	
-	
+	@And("User enters SC Dwelling Address")
+	public void User_enters_Dwelling_Address() {	     
+		wait(1);
+		sendText(quote.txtAddress, ConfigsReader.getProperty("scaddress"));
+		wait(1);
+		sendText(quote.txtZipCode, ConfigsReader.getProperty("sczipcode"));
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(1);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(1);
+	}
+	@And("User clicks Underwriting Chevron")
+	public void User_clicks_Underwriting_Chevron() {
+		click(reviewChevron.btnUnderwriting);
+		wait(3);
+	}
+	@And("User enters SC HO3 Pay Plan Type")
+	public void User_enters_SCHO3_Pay_Plan_Type() {
+		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");			 
+		reviewChevron.btnFullPaymentRadio.click();
+		reviewChevron.btnCreateApplication.click();
+	}
+	@And("User verifies SC HO3 policy has been created successfully")
+	public void User_verifies_SC_HO3_policy_has_been_created_successfully() {
+		String expected = "New Business";
+		String actual = historyChevron.txtNewBusiness.getText();
+		Assert.assertEquals("Test failed!", expected, actual);
+	}
 	@When("User answers all underwriting questions for SC HO3")
 	public void user_answers_all_underwriting_questions_for_sc_ho3() throws Exception {
 		fillSCHO3_UWQuestions();
