@@ -23,5 +23,8 @@ public class TODP1_RN_Policy extends CommonMethods {
 			String actual = historyChevron.txtRenewal.getText();
 			Assert.assertEquals("Test failed!", expected, actual);
 		}
-		
+		@And("User clicks History chevron")
+		public void User_clicks_History_chevron() {	    	   						
+			click(dwellingChevron.btnHistory);	
+		}
 }

@@ -17,7 +17,11 @@ public class PolicyFilePageElements extends CommonMethods {
 	@FindBy(linkText= "Endorsement Package")
 	public WebElement btnEndorsementPackageForm;
 	
+	@FindBy(linkText= "New Business Package")
+	public WebElement btnNewBusinessPackage;
 	
+	@FindBy(linkText= "Renewal Declaration")
+	public WebElement btnRenewalDeclaration;
 
 	public PolicyFilePageElements() {
 		PageFactory.initElements(driver, this);

@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
 @FIGA-VOLDP3
-Feature: FIGA VOL DP3-2023 (RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023)
+Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
 
   @FIGA-VOLDP3-1
-  Scenario Outline: FIGA VOL DP3-10/01/2023: NB on Effective Date
+  Scenario Outline: RC-1416: RC-1090 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL DP3 - NB = Eff. Date
     
     Given User navigates to QA7
     And User enters a valid user name "<username>"

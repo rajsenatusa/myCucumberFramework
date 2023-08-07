@@ -3,7 +3,7 @@
 Feature: RC-28:2 2023 Rate Changes- FL Reinsurance Recovery 2 VOL HO3
 
   @RateChange2HO3-1
-  Scenario Outline: RC-28-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO3 - NB on the Eff date (BaseRate - Construction Year greater than 1 year)
+  Scenario Outline: RC-2031: RC-28-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO3 - NB on the Eff date (BaseRate - Construction Year greater than 1 year)
     Given User navigates to QA2
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
