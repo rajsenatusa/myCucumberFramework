@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@tc38505",
+				tags = "",
 
 
 

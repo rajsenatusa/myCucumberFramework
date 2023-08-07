@@ -1,5 +1,6 @@
 package aii.testbase;
 import aii.pages.AIBPageElements;
+import aii.pages.BatchJobsPageElements;
 import aii.pages.BillingChevronPageElements;
 import aii.pages.CloseOutChevronPageElements;
 import aii.pages.DashboardPageElements;
@@ -48,7 +49,7 @@ public class PageInitializer extends BaseClass {
 	public static BillingChevronPageElements billingChevron;
 	public static FormsPageElements formsChevron;
 	public static TasksPageElements tasksChevron;
-	
+	public static BatchJobsPageElements batchjobs;
 	
 	public static void initialize() {
 		login = new LoginPageElements();
@@ -74,6 +75,7 @@ public class PageInitializer extends BaseClass {
 		billingChevron= new BillingChevronPageElements();
 		formsChevron= new FormsPageElements();
 		tasksChevron= new TasksPageElements();
+		batchjobs= new BatchJobsPageElements();
 	}
 
 }
