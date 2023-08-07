@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
 @FIGA-VOLDP1
-Feature: FIGA VOL DP1-2023 (RC-1102: 2023 Rate Changes- FIGA: VOL DP1- 10/01/2023)
+Feature: RC-1102: 2023 Rate Changes- FIGA: VOL DP1- 10/01/2023
 
   @FIGA-VOLDP1-1
-  Scenario Outline: FIGA VOL DP1-10/01/2023: NB on Effective Date
+  Scenario Outline: RC-1486: RC-1102 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL DP1 - NB = Eff. Date+ Flat Endorsement
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"

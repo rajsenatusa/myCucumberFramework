@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
 @FIGA-VOLHO3
-Feature: FIGA VOL HO3-2023 (RC-1098: 2023 Rate Changes- FIGA: VOL HO3- 10/01/2023)
+Feature: RC-1098: 2023 Rate Changes- FIGA: VOL HO3- 10/01/2023
 
   @FIGA-VOLHO3-1
-  Scenario Outline: FIGA VOL HO3-10/01/2023: NB on Effective Date
+  Scenario Outline: RC-1442: RC-1098 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL HO3 - NB = Eff. Date
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
