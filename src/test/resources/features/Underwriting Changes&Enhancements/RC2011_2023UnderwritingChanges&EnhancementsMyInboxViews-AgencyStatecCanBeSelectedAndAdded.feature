@@ -3,7 +3,7 @@
 Feature: RC-1731: 2023 Underwriting Changes/Enhancements: My Inbox Views- Add Agency State
 
   @UnderwritingChanges-AddAgencyState
-  Scenario Outline: 2023 Underwriting Changes/Enhancements: My Inbox Views- Agency State can be selected and added
+  Scenario Outline: RC-2011: 2023 Underwriting Changes/Enhancements: My Inbox Views- Agency State can be selected and added
     Given User navigates to QA2
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
