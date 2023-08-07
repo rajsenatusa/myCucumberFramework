@@ -6,11 +6,12 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.ArrayList;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -27,6 +28,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -1099,7 +1101,10 @@ public class CommonMethods extends PageInitializer {
 		click(makePayment.btnSaveButton);
 		driver.switchTo().defaultContent();
 		wait(2);
-
+		click(driver.findElement(By.id("SubmitPayment")));
+		wait(3);
+		click(driver.findElement(By.id("dialogOK")));
+		wait(1);
 	}
 
 	public static void submitForApprovalWithDialog() {
@@ -1459,6 +1464,21 @@ public class CommonMethods extends PageInitializer {
 		wait(3);
 
 	}
+	
+	public static void ChangeDate_Admin (WebDriver driver, String date) throws Exception {
+		
+		click(dashboard.btnAdmin);
+		click(dashboard.btnChangeDate);
+		wait(3);
+		sendText(dashboard.txtNewDate, date);
+		click(dashboard.btnChangeNewDate);
+		wait(3);
+		sendText(dashboard.txtNewBookDate, date);
+		click(dashboard.btnChangeBookDate);
+		wait(3);
+		driver.findElement(By.id("Return")).click();
+		wait(3);
+	}
 
 	/**
 	 * This method sets start date on task dashboard
@@ -1624,5 +1644,300 @@ public class CommonMethods extends PageInitializer {
 				Hooks.scenario.log("Click on "+task+" task edit link");
 				wait(5);
 			}
+		}
+		
+		/**
+		 * This method checks any checkbox is enabled and not been selected
+		 * 
+		 */
+		public static void verifyAnyCoverageCheckbox_EnabledAndNotSelected(WebDriver driver, String elementName) throws Exception {
+
+			try {
+				WebElement elePolicyDist = driver.findElement(By.id("Building."+elementName+"Ind"));
+
+				if (elePolicyDist.isEnabled() && !(elePolicyDist.isSelected()))	{
+					Hooks.scenario.log(elementName+"  is Editable and not selected");
+			
+					} else if (!(elePolicyDist.isEnabled()) && (elePolicyDist.isSelected())) {
+						Hooks.scenario.log(elementName+"  is Not Editable and selected");
+					} else if (!(elePolicyDist.isEnabled()) && !(elePolicyDist.isSelected())) {
+						Hooks.scenario.log(elementName+"  is neither Editable nor selected");
+			   } else {
+				  Hooks.scenario.log(elementName+"  is not able to validate");
+			   }
+												
+			} catch (Exception e) {
+				Hooks.scenario.log(elementName+" not able to validate");
+				wait(5);
+			}
+		}
+		/**
+		 * This method runs auto renewal on desired term for a desired policy with batch jobs
+		 * 
+		 */
+		public static String runAutoRenewPolicy(WebDriver driver, String PolicyNumber, String currentTerm, String newTerm) throws Exception {
+			
+//			Example format: RunBatchJobs.runAutoRenewPolicy(driver, policyNum, "01", "02", logger);--First renewal
+//							RunBatchJobs.runAutoRenewPolicy(driver, policyNum, "02", "03", logger);--Second renewal
+			
+			
+				//search and verify for policy 
+				searchForPolicy(driver, PolicyNumber);
+				
+				//Perform auto-renewal 
+				selectTaskTab(driver);
+				selectShowAll(driver);
+				checkShowSysTask(driver);
+				String preAutoDt = getPreAutoRenewDate(driver).toString();
+				String autoRenewDt = getAutoRenewDate(driver).toString();	
+				
+				//Auto-renewal
+				runAutoRenewalOnSinglePolicy(driver, PolicyNumber, preAutoDt, autoRenewDt);							
+				String temp = replaceMethod(PolicyNumber, "-"+currentTerm, "");
+				String RenewalTerm = temp + "-"+newTerm;
+				Thread.sleep(12000);
+				driver.findElement(By.id("Menu_Workflow")).click();//*[@id="Menu_Workflow"]
+				wait(3);
+				Thread.sleep(15000);
+				setPolicyNumSearch(driver, RenewalTerm);
+				clickSearchBtn(driver);	
+				Thread.sleep(500);
+				driver.findElement(By.id("Tab_Policy")).click();
+				wait(4);
+				
+				return RenewalTerm;
+			}
+		/**
+		 * This method runs batch jobs for a desired policy
+		 * 
+		 */
+		public static void runBatchJobs(WebDriver driver, String PolicyNumber) throws Exception {	
+			/*
+			 * ADMIN: run batch jobs for PreAutoRenewal
+			 * ONLY AR Cycle Action,  Task System Action and Process ACH Requests
+			 */
+			Thread.sleep(250);
+			click(batchjobs.btnOperationsTab);
+			click(batchjobs.btnSelectBatch);
+			wait(5);
+
+			click(batchjobs.btnSelectDailyJob);
+			wait(5);
+			
+			batchjobs.txtPolicyNumber.clear();
+			sendText(batchjobs.txtPolicyNumber,PolicyNumber);
+			batchjobs.txtAccountNumber.clear();
+			sendText(batchjobs.txtAccountNumber,PolicyNumber);
+			Thread.sleep(250);
+			
+			click(batchjobs.btnProcessAchExceptions);
+			click(batchjobs.btnAutomatedBatchReceiptsPost);
+			click(batchjobs.btnScheduledAutomatedBatchReceiptPost);
+			click(batchjobs.btnActionClaimScheduledPayment);
+			click(batchjobs.btnReleaseAllTheStandardACHPAymentRequest_ClaimsPersonalACH);
+			click(batchjobs.btnReleaseAllTheStandardACHRefundRequest_AccountBill);
+			click(batchjobs.btnPostingDateRollForwardAction);
+			click(batchjobs.btnDailyWrittenToReceivables);
+			click(batchjobs.btnDailyWrittenToReceivablesVerifyAction);
+			click(batchjobs.btnGLDailyGeneralLedger);
+			click(batchjobs.btnIncrementalDatamartExport);
+			click(batchjobs.btnUpdateIncrementalLastRunDate);
+			click(batchjobs.btnCompleteIndemnityPaymentReminderTask);
+			click(batchjobs.btnInitiateStatsJob);
+			click(batchjobs.btnInitiateDailyTaskAndBatchPrintJobs);
+//			BatchJobs.clickFormatDailyIvansFile(driver, logger);		
+			click(batchjobs.btnDMIFileImportAction);
+			click(batchjobs.btnCapacityToolPolicyCountUpdate);
+			click(batchjobs.btnDailyCycleCompleteionEmailNotifications);
+			click(batchjobs.btnQuoteExpirationAction);
+			click(batchjobs.btnProcessPolicyMortgageeFIRST266FileImport);
+			click(batchjobs.btnProcessPolicyMortgageeInformationUpdate);
+			click(batchjobs.btnDailyEmailNotificationOfJobsWithErrors);
+		
+			wait(5);
+			Thread.sleep(555);
+			batchjobs.txtPolicyNumber.clear();
+			sendText(batchjobs.txtPolicyNumber,PolicyNumber);
+			batchjobs.txtAccountNumber.clear();
+			sendText(batchjobs.txtAccountNumber,PolicyNumber);
+			Thread.sleep(250);
+			
+			click(batchjobs.btnStartJob);
+			wait(5);
+			Thread.sleep(4000);
+			selectAutoRefresh30sec(driver);
+			//BatchJobs.selectAutoRefresh10sec(driver, logger);
+			Thread.sleep(2000);
+			wait(2);
+		
+			
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+				
+				if (driver.findElement(By.id("Job_0_Name")).isDisplayed()) {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), "
+							+ "'Completed')]")));
+				}
+			
+			Thread.sleep(10000);	
+			
+		}
+		public static void selectAutoRefresh30sec(WebDriver driver) throws Exception {
+			try {
+				Select entityType = new Select (driver.findElement(By.name("RefreshInterval")));	
+				entityType.selectByVisibleText("Every 30 seconds".toString());
+				Hooks.scenario.log("Filter Task: Every 30 seconds");
+			} catch (Exception e) {
+				Hooks.scenario.log("Filter Task: Every 30 seconds");
+				wait(5);
+			}	
+		}
+	
+		public static void runAutoRenewalOnSinglePolicy(WebDriver driver, String PolicyNumber, String preAutoDt, String autoRenewDt) throws Exception {
+			wait(6);
+			Thread.sleep(200);
+
+			ChangeDate_Admin(driver, preAutoDt);
+			wait(6);
+			Thread.sleep(1500);
+		
+			runBatchJobs(driver, PolicyNumber);
+			wait(6);
+			Thread.sleep(1500);
+
+			ChangeDate_Admin(driver, autoRenewDt);
+			wait(6);
+			Thread.sleep(1500);
+
+			runBatchJobs(driver, PolicyNumber);
+			wait(6);
+			Thread.sleep(1500);
+
+		}
+		/**
+		 * This method searches desired policy on dashboard
+		 * 
+		 */	
+		public static void searchForPolicy (WebDriver driver, String policyNum) throws Exception {
+			
+			wait(4);
+
+			setPolicyNumSearch(driver, policyNum);
+			clickSearchBtn(driver);
+			wait(4);
+
+			Thread.sleep(500);
+			driver.navigate().refresh();
+			
+			setPolicyNumSearch(driver, policyNum);
+			Thread.sleep(100);
+			clickSearchBtn(driver);
+			wait(4);
+		}
+		/**
+		 * This method clicks Search button
+		 * 
+		 */
+		public static void clickSearchBtn(WebDriver driver) throws Exception {
+			 try {
+				driver.findElement(By.id("ToolbarSearch")).click();
+					                                                wait(3);
+				Hooks.scenario.log("Search button was clicked ");
+			} catch (Exception e) {
+				Hooks.scenario.log("Search button was not clicked");
+				wait(4);
+			}
+				Thread.sleep(500);
+		}
+		/**
+		 * This method searches desired policy
+		 * 
+		 */
+		public static void setPolicyNumSearch(WebDriver driver, String policyNum) throws Exception {
+			try {
+				driver.findElement(By.id("ToolbarSearchText")).clear();
+				driver.findElement(By.id("ToolbarSearchText")).sendKeys(policyNum.toString());
+				Hooks.scenario.log("Policy Number: " + policyNum);
+			} catch (Exception e) {
+				Hooks.scenario.log("Policy Number: " + policyNum);
+				wait(5);
+			}
+		}
+		/**
+		 * This method selects tasks tab
+		 * 
+		 */
+		public static void selectTaskTab(WebDriver driver) throws Exception {
+			try {
+				driver.findElement(By.id("Tab_Tasks")).click();
+				wait(5);
+				Hooks.scenario.log("Task tab was selected");
+			} catch (Exception e) {
+				Hooks.scenario.log("Task tab was not selected");
+				wait(5);
+			}
+		}
+		/**
+		 * This method selects show all
+		 * 
+		 */
+
+		public static void selectShowAll(WebDriver driver) throws Exception {
+			try {
+				
+				driver.findElement(By.id("ShowAll")).click();
+				wait(5);
+				Hooks.scenario.log("ShowAll was selected");
+			} catch (Exception e) {
+				Hooks.scenario.log("ShowAll was selected");
+				wait(5);
+			}	
+		}
+		/**
+		 * This method selects show system task
+		 * 
+		 */
+		public static void checkShowSysTask(WebDriver driver) throws Exception {
+			try {
+				driver.findElement(By.id("SystemTaskInd")).click();
+				wait(5);
+				Hooks.scenario.log("Show system task was selected");
+				Thread.sleep(500);
+			} catch (Exception e) {
+				Hooks.scenario.log("Show system task was not selected");
+				wait(5);
+			}
+		}
+		/**
+		 * This method gets preAuto Renewal Date for policy
+		 * 
+		 */
+		public static Object getPreAutoRenewDate(WebDriver driver) throws Exception {
+			String preAutoRenewDt = null;
+			try {
+				driver.findElement(By.xpath("//*[contains(text(), 'System')]"));
+				preAutoRenewDt = driver.findElement(By.xpath("(//*[contains(text(),'Pre-Automated Renewal Validation for Policy')])[1]//following-sibling::*[6]")).getText().toString();
+				Hooks.scenario.log("PreAutomatic Renewal Date: " + preAutoRenewDt);
+			} catch (Exception e) {
+				Hooks.scenario.log("PreAutomatic Renewal Date: " + preAutoRenewDt);
+				wait(5);
+			}
+			return preAutoRenewDt.toString();
+		}
+		/**
+		 * This method gets Automated Renewal Date for policy
+		 * 
+		 */
+		public static Object getAutoRenewDate(WebDriver driver) throws Exception {
+			String AutoRenewDt = null;
+			try {
+				driver.findElement(By.xpath("//*[contains(text(), 'System')]"));
+				AutoRenewDt = driver.findElement(By.xpath("(//*[contains(text(),'Automated Renewal for Policy')])[1]//following-sibling::*[6]")).getText().toString();
+				Hooks.scenario.log("Automatic Renewal Date: " + AutoRenewDt);
+			} catch (Exception e) {
+				Hooks.scenario.log("Automatic Renewal Date: " + AutoRenewDt);
+				wait(5);
+			}
+			
+			return AutoRenewDt.toString();
 		}
 }

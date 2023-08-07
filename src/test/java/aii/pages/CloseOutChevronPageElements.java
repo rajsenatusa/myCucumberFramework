@@ -53,6 +53,12 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(id= "ARSummary_PolicyNumber")
 	public WebElement txtAccountNumber;
 	
+	@FindBy(id= "QuickAction_MakePayment_Holder")
+	public WebElement btnMakePaymentHolder;
+	
+	@FindBy(id= "QuickAction_SubmitPayment")
+	public WebElement btnSubmitPaymentHolder;
+	
 	public CloseOutChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);
