@@ -61,6 +61,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 
 	@When("User switches that forms and validates <OIR-B1-1670> has been attached and shows Actual Cash Value for Loss Settlement Basis for Coverage C")
 	public void user_switches_that_forms_and_validates() throws Exception {
+		
 		switchToWindow(driver, "STFile&File");
 		wait(3);
 		String NBPackage_Form = PdfComparator.makePdf(driver, "NewBusinessPackage.pdf");
@@ -138,6 +139,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 
       // Switch back to the main page
       driver.switchTo().window(tabs.get(0));
+      wait(3);
 	}
 	@When("User clicks Make Payment and selects credit card and enters due amount")
 	public void user_clicks_make_payment_and_selects_cc()  {
@@ -150,11 +152,12 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		String totalDue=driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
 		wait(2);
 		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
-		wait(3);
+		wait(4);
 	}
 	@When("User does Auto Renewal for the policy with batch jobs")
 	public void user_does_auto_renewal() throws Exception {
 		
+		String policyNum=closeoutChevron.txtAccountNumber.getText().toString();
 		runAutoRenewPolicy(driver, policyNum, "01", "02");
 	}
 	@When("User clicks Renewal Decleration link")

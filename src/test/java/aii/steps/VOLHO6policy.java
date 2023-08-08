@@ -95,7 +95,7 @@ public class VOLHO6policy extends CommonMethods {
 		
 	}
 	@Then("User validates that HO6 policy has been created successfully")
-	public void user_validates_that_ho6_policy_has_been_created_successfully() {
+	public void user_validates_that_ho6_policy_has_been_created_successfully() throws Exception {
 		WebElement validate= driver.findElement(By.id("History_1_1_TransactionCd"));
 		
 		if(validate.getText().equalsIgnoreCase("New Business")) {
@@ -104,7 +104,18 @@ public class VOLHO6policy extends CommonMethods {
 		else {
 			System.out.println("Test failed!");
 	}
+		wait(5);
+		getPolicyNumber(driver);
+		
+	     // Close unnecessary tabs
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        for (int i = tabs.size() - 1; i > 0; i--) {
+            driver.switchTo().window(tabs.get(i));
+            driver.close();
+        }
 
+        // Switch back to the main page
+        driver.switchTo().window(tabs.get(0));
 	}
 
 	@Then("User creates HO6 policy with passing information from excel {string} sheet")

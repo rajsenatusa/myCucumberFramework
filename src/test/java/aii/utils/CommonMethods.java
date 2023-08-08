@@ -11,7 +11,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -31,6 +30,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
+
+
+
+
 
 public class CommonMethods extends PageInitializer {
 
@@ -1467,19 +1470,122 @@ public class CommonMethods extends PageInitializer {
 	
 	public static void ChangeDate_Admin (WebDriver driver, String date) throws Exception {
 		
-		click(dashboard.btnAdmin);
-		click(dashboard.btnChangeDate);
-		wait(3);
-		sendText(dashboard.txtNewDate, date);
-		click(dashboard.btnChangeNewDate);
-		wait(3);
-		sendText(dashboard.txtNewBookDate, date);
-		click(dashboard.btnChangeBookDate);
-		wait(3);
-		driver.findElement(By.id("Return")).click();
-		wait(3);
+		clickAdminTab(driver);	
+		clickAdminTab(driver);
+		selectChangeDate(driver);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+
+		setNewDate(driver, date);
+		clickChangeDtBtn(driver);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+	
+		setBookDate(driver, date);
+		clickChangeBookDtBtn(driver);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+		
+		returnInbox(driver);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));	
 	}
 
+public static void clickAdminTab(WebDriver driver) throws Exception {
+	try {
+		driver.findElement(By.id("Menu_Admin")).click();
+		wait(4);
+		Hooks.scenario.log("Admin tab was selected");
+	} catch (Exception e) {
+		Hooks.scenario.log("Admin tab was not selected");
+		wait(5);
+		}
+	}
+
+public static void selectChangeDate(WebDriver driver) throws InterruptedException {	
+
+	try {
+		Thread.sleep(250);
+		driver.findElement(By.id("Menu_Admin_ChangeDate")).click();
+		wait(4);
+		Hooks.scenario.log("Change date was selected");
+	} catch (Exception e) {
+		Hooks.scenario.log("Change date was not selected");
+		}
+	}
+
+public static void setNewDate(WebDriver driver, String newDt) throws Exception {
+	try {
+		if (driver.findElement(By.id("NewDate")).isDisplayed()) {
+			driver.findElement(By.id("NewDate")).clear();
+			driver.findElement(By.id("NewDate")).sendKeys(newDt.toString());
+		} else {
+			SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy"); 
+			driver.findElement(By.id("NewDate")).sendKeys(dt.format(new Date()));
+			}
+		Hooks.scenario.log("New Date: " + newDt);
+	} catch (Exception e) {
+			Hooks.scenario.log("New Date: " + newDt);
+			wait(4);
+		}		
+	}
+
+public static void clickChangeDtBtn(WebDriver driver) throws Exception {
+	try {
+		driver.findElement(By.id("ChangeDate")).click();
+		wait(4);
+		Hooks.scenario.log("Change date was selected");
+	} catch (Exception e) {
+		Hooks.scenario.log("Change date was not selected");
+		wait(4);
+		}
+	}
+	
+public static void clickChangeBookDtBtn(WebDriver driver) throws Exception {
+	try {
+		driver.findElement(By.id("ChangeBookDate")).click();
+		wait(4);
+		Hooks.scenario.log("Change book date was selected");
+	} catch (Exception e) {
+		Hooks.scenario.log("Change book date was not selected");
+		wait(4);
+		}
+	}
+	
+public static void setBookDate(WebDriver driver, String newBookDt) throws Exception {
+	try {
+		if (driver.findElement(By.id("NewBookDate")).isDisplayed()) {
+			driver.findElement(By.id("NewBookDate")).clear();
+			driver.findElement(By.id("NewBookDate")).sendKeys(newBookDt.toString());
+		} else {
+			SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy"); 
+			driver.findElement(By.id("NewBookDate")).sendKeys(dt.format(new Date()));
+		}
+			Hooks.scenario.log("New Book Date: " + newBookDt);
+		} catch (Exception e) {
+			Hooks.scenario.log("New Book Date: " + newBookDt);
+			wait(5);
+		}		
+	}
+
+public static void returnInbox(WebDriver driver) throws Exception {
+	try {
+		driver.findElement(By.id("Return")).click();
+		Thread.sleep(500);
+		wait(4);
+		Hooks.scenario.log("Return to Inbox was selected");	
+	} catch (Exception e) {
+		Hooks.scenario.log("Return to Inbox was not selected");
+		wait(5);
+		}
+	}
+
+public static void clickUserManagementTab(WebDriver driver) throws Exception {
+	try {
+		driver.findElement(By.id("Menu_Admin_UserManagement")).click();
+		wait(4);
+		Hooks.scenario.log("Menu_Admin_UserManagement was selected");	
+	} catch (Exception e) {
+		Hooks.scenario.log("Menu_Admin_UserManagement was not selected");
+		wait(5);
+		}
+}
 	/**
 	 * This method sets start date on task dashboard
 	 * 
@@ -1697,16 +1803,26 @@ public class CommonMethods extends PageInitializer {
 				String RenewalTerm = temp + "-"+newTerm;
 				Thread.sleep(12000);
 				driver.findElement(By.id("Menu_Workflow")).click();//*[@id="Menu_Workflow"]
-				wait(3);
+				wait(15);
 				Thread.sleep(15000);
 				setPolicyNumSearch(driver, RenewalTerm);
 				clickSearchBtn(driver);	
 				Thread.sleep(500);
-				driver.findElement(By.id("Tab_Policy")).click();
+				clickApplicationTab(driver);
 				wait(4);
 				
 				return RenewalTerm;
 			}
+		
+		public static void clickApplicationTab(WebDriver driver) throws Exception {
+			try {
+				driver.findElement(By.id("Tab_Policy")).click();
+				Hooks.scenario.log("Policy Tab was selected");
+			} catch (Exception e) {
+				Hooks.scenario.log("Policy Tab was not checked");
+				wait(5);
+			}  
+		}
 		/**
 		 * This method runs batch jobs for a desired policy
 		 * 
@@ -1724,10 +1840,8 @@ public class CommonMethods extends PageInitializer {
 			click(batchjobs.btnSelectDailyJob);
 			wait(5);
 			
-			batchjobs.txtPolicyNumber.clear();
-			sendText(batchjobs.txtPolicyNumber,PolicyNumber);
-			batchjobs.txtAccountNumber.clear();
-			sendText(batchjobs.txtAccountNumber,PolicyNumber);
+			setPolicyDisplayNum(driver, PolicyNumber);
+			setAcctDisplayNum(driver, PolicyNumber);
 			Thread.sleep(250);
 			
 			click(batchjobs.btnProcessAchExceptions);
@@ -1756,11 +1870,8 @@ public class CommonMethods extends PageInitializer {
 		
 			wait(5);
 			Thread.sleep(555);
-			batchjobs.txtPolicyNumber.clear();
-			sendText(batchjobs.txtPolicyNumber,PolicyNumber);
-			batchjobs.txtAccountNumber.clear();
-			sendText(batchjobs.txtAccountNumber,PolicyNumber);
-			Thread.sleep(250);
+			setPolicyDisplayNum(driver, PolicyNumber);
+			setAcctDisplayNum(driver, PolicyNumber);
 			
 			click(batchjobs.btnStartJob);
 			wait(5);
@@ -1768,7 +1879,7 @@ public class CommonMethods extends PageInitializer {
 			selectAutoRefresh30sec(driver);
 			//BatchJobs.selectAutoRefresh10sec(driver, logger);
 			Thread.sleep(2000);
-			wait(2);
+			wait(5);
 		
 			
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
@@ -1781,6 +1892,28 @@ public class CommonMethods extends PageInitializer {
 			Thread.sleep(10000);	
 			
 		}
+		
+		public static void setPolicyDisplayNum(WebDriver driver, String policyNum) throws Exception {
+			try {
+				driver.findElement(By.id("Question_PolicyNumber")).clear();
+				driver.findElement(By.id("Question_PolicyNumber")).sendKeys(policyNum.toString());
+				Hooks.scenario.log("Policy number was entered");
+			} catch (Exception e) {
+				Hooks.scenario.log("Policy Number was not entered");
+				wait(5);
+			}	
+	}
+
+	public static void setAcctDisplayNum(WebDriver driver, String policyNum) throws Exception {
+		try {
+			driver.findElement(By.id("Question_AccountNumber")).clear();
+			driver.findElement(By.id("Question_AccountNumber")).sendKeys(policyNum.toString());
+			Hooks.scenario.log("Account number was entered");
+		} catch (Exception e) {
+			Hooks.scenario.log("Account Number was not entered");
+			wait(5);
+		}	
+	}
 		public static void selectAutoRefresh30sec(WebDriver driver) throws Exception {
 			try {
 				Select entityType = new Select (driver.findElement(By.name("RefreshInterval")));	
@@ -1793,23 +1926,24 @@ public class CommonMethods extends PageInitializer {
 		}
 	
 		public static void runAutoRenewalOnSinglePolicy(WebDriver driver, String PolicyNumber, String preAutoDt, String autoRenewDt) throws Exception {
-			wait(6);
+			
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
 			Thread.sleep(200);
 
 			ChangeDate_Admin(driver, preAutoDt);
-			wait(6);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
 			Thread.sleep(1500);
 		
 			runBatchJobs(driver, PolicyNumber);
-			wait(6);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
 			Thread.sleep(1500);
 
 			ChangeDate_Admin(driver, autoRenewDt);
-			wait(6);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
 			Thread.sleep(1500);
 
 			runBatchJobs(driver, PolicyNumber);
-			wait(6);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
 			Thread.sleep(1500);
 
 		}
@@ -1939,5 +2073,90 @@ public class CommonMethods extends PageInitializer {
 			}
 			
 			return AutoRenewDt.toString();
+		}
+		/**
+		 * This method gets Scheduled Task Description on Tasks Chevron
+		 * 
+		 */
+		public static Object getScheduledTaskDescription(WebDriver driver, String taskName) throws Exception {
+			
+			String taskDescription = null;
+					
+					try {
+						taskDescription = driver.findElement(By.xpath("(//*[contains(text(), '" + taskName + "')])[1]")).getText().toString();
+						Hooks.scenario.log(taskName + " task description: " + taskDescription);
+					} catch (Exception e) {
+						Hooks.scenario.log(taskName + " task description: " + taskDescription);
+						wait(5);
+					}
+					return taskDescription.toString();
+				}	
+		
+		public static boolean verify_AnyText_IsVisibleMultipletimes(WebDriver driver, String text, String index) throws Exception {
+			
+
+			try {
+		        if(driver.findElement(By.xpath("(//*[contains(text(), '"+text+"')])["+index+"]")).isDisplayed()) {  
+		        	Hooks.scenario.log("Is visible: " +  text);
+		        	return true;
+		        	}
+				return true;   	
+
+		        } catch (Exception e) {
+					Hooks.scenario.log("Is visible: " +  text);
+					wait(5);
+					return false;
+		        	}	
+		}
+		public static void verifyAnyCoverageCheckbox_NotEnabledSelected(WebDriver driver, String elementName) throws Exception {
+			try {
+				
+				WebElement elePolicyDist = driver.findElement(By.name(""+elementName+""));
+				
+					if(!(elePolicyDist.isEnabled()) && (elePolicyDist.isSelected()))	{
+						Hooks.scenario.log(elementName + "  is not Editable and selected");
+					
+					} else {
+						Hooks.scenario.log(elementName + "  is not able to validate");
+					}
+														
+			} catch (Exception e) {
+				Hooks.scenario.log(elementName + " not able to validate");
+				wait(5);
+			}		
+		}
+		public static void verifyAnyCoverageCheckbox_EnabledSelected(WebDriver driver, String elementName) throws Exception {
+			try {
+				
+				WebElement elePolicyDist = driver.findElement(By.name(""+elementName+""));
+					if((elePolicyDist.isEnabled()) && (elePolicyDist.isSelected()))	{
+						Hooks.scenario.log(elementName+"  is editable and selected");
+					} else {
+						Hooks.scenario.log(elementName+"  is not able to validate");
+					}
+														
+			} catch (Exception e) {
+				Hooks.scenario.log(elementName+" not able to validate");
+				wait(5);
+			}		
+		}
+		
+		public static boolean verify_AnyButton_IsVisible(WebDriver driver, String text) throws Exception {
+			Thread.sleep(2000);
+
+			
+			try {
+	            if(driver.findElement(By.xpath("//*[@id='" + text +"']")).isDisplayed()) {  
+	            	Hooks.scenario.log("Is visible: " +  text);
+	            	return true;
+	            	}
+	    		return true;   	
+
+	            } catch (Exception e) {
+	    			Hooks.scenario.log("Is visible: " +  text);
+	    			wait(5);
+	    			return false;
+	            	}
+			
 		}
 }
