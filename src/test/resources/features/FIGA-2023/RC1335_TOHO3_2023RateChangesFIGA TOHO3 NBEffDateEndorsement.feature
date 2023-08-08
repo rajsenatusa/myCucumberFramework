@@ -1,5 +1,5 @@
 #Author:Mustafa Cemek
-@FIGA-TOHO3
+@FIGA-TOHO3 @FIGA
 Feature: RC-1095: 2023 Rate Changes- FIGA: TO HO3- 10/01/2023
 
   @FIGA-TOHO3-1

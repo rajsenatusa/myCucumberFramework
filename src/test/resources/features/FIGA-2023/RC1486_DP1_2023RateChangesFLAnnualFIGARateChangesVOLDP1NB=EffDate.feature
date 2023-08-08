@@ -1,10 +1,10 @@
 #Author:Mustafa Cemek
 @FIGA-VOLDP1
 Feature: RC-1102: 2023 Rate Changes- FIGA: VOL DP1- 10/01/2023
-
-  @FIGA-VOLDP1-1
+ 
+  @FIGA-VOLDP1-1 @FIGA
   Scenario Outline: RC-1486: RC-1102 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL DP1 - NB = Eff. Date+ Flat Endorsement
-    Given User navigates to QA7
+    Given User navigates to QA5
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
     And User clicks on the login button
@@ -53,10 +53,18 @@ Feature: RC-1102: 2023 Rate Changes- FIGA: VOL DP1- 10/01/2023
     And User returns to main page
     And User clicks Worksheets chevron
     Then User validates New FIGA DP1 rate
+    And User clicks History chevron
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Finalize button
+    And User clicks Endorse Policy button
+    And User clicks Worksheets chevron
+    Then User validates New FIGA DP1 rate after Endorsement
 
     Examples: Test Data
-      | username | password   | EffectiveDate | ConstructionType | Occupancy | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | July@2023! | 10/01/2023    | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $5,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mkoziel  | Aug@2023! | 10/01/2023    | 10/02/2023               | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $5,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
 
   @FIGA-VOLDP1-2
   Scenario Outline: FIGA VOL DP1-10/01/2023: NB before Effective Date
