@@ -2,7 +2,7 @@
 @FIGA-VOLDP3
 Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
 
-  @FIGA-VOLDP3-1
+  @FIGA-VOLDP3-1 @FIGA
   Scenario Outline: RC-1416: RC-1090 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL DP3 - NB = Eff. Date
     
     Given User navigates to QA7
@@ -49,7 +49,7 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
 
     Examples: Test Data
       | username | password | FIGADP3EffectiveDate |
-      |  mkoziel | password | 10/01/2023           |
+      |  mkoziel | Aug@2023! | 10/01/2023           |
 
  
   @FIGA-VOLDP3-2

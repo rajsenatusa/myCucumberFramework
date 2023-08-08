@@ -116,6 +116,9 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Delete")
 	public WebElement btnDelete;
 	
+	@FindBy(id= "HomePage-Inbox-Group")
+	public WebElement btnInbox;
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 		

@@ -1,5 +1,5 @@
 #Author:Mustafa Cemek
-@FIGA-VOLHO4
+@FIGA-VOLHO4 @FIGA
 Feature: RC-1096: 2023 Rate Changes- FIGA: VOL HO4- 10/01/2023
 
   @FIGA-VOLHO4-1
@@ -57,4 +57,4 @@ Feature: RC-1096: 2023 Rate Changes- FIGA: VOL HO4- 10/01/2023
 
     Examples: Test Data
       | username | password   | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | BuildingCodeEffectivenessGrade | NumberOfStories | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
-      | JLOWE    | July@2023! | 10/01/2023    | 10/02/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
+      | JLOWE    | Aug@2023! | 10/01/2023    | 10/02/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |

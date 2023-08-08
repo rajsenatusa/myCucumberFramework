@@ -21,9 +21,10 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "",
+				tags = "@tc17036",
 
 
+				
 
 		
 		//it provides the output console to more readable

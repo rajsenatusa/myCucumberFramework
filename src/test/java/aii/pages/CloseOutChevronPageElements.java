@@ -59,6 +59,34 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(id= "QuickAction_SubmitPayment")
 	public WebElement btnSubmitPaymentHolder;
 	
+	@FindBy(id= "eSignatureInd")
+	public WebElement ddEsignature;
+	
+	@FindBy(id= "MissingFieldError")
+	public WebElement msgMissingFieldError;
+	
+	@FindBy(id= "Signer_3_GivenName")
+	public WebElement txtAgentFirstName;
+	
+	@FindBy(id= "Signer_3_Surname")
+	public WebElement txtAgentLastName;
+	
+	@FindBy(id= "Signer_1_EmailAddr")
+	public WebElement txtInsuredEmail;
+	
+	@FindBy(id= "Signer_3_EmailAddr")
+	public WebElement txtAgentEmail;
+	
+	@FindBy(id= "Signer_3_LicenseNumber")
+	public WebElement txtAgentLicenseNumber;
+	
+	@FindBy(id= "SigningStatus_0_0")
+	public WebElement txtInsuredStatus;
+	
+	@FindBy(id= "SigningStatus_0_1")
+	public WebElement txtAgentStatus;
+	
+	
 	public CloseOutChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);

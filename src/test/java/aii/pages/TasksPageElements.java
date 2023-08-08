@@ -11,6 +11,11 @@ public class TasksPageElements extends CommonMethods{
 	@FindBy(id= "Tab_Tasks")
 	public WebElement lnkTasksTab;
 	
+	@FindBy(id= "AddTask")
+	public WebElement btnAddTask;
+	
+	@FindBy(id= "Task_TemplateId")
+	public WebElement ddTaskType;
 	
 public TasksPageElements() {
 		
