@@ -1,5 +1,5 @@
 #Author:Mustafa Cemek
-@FIGA-AIB
+@FIGA-AIB @FIGA
 Feature: RC-1093: 2023 Rate Changes- FIGA: AIB- 10/01/2023
 
   @FIGA-AIB-1
@@ -46,4 +46,4 @@ Feature: RC-1093: 2023 Rate Changes- FIGA: AIB- 10/01/2023
 
     Examples: Test Data
       | username | password   | EffectiveDate | EndorsementEffectiveDate |
-      | JLOWE    | July@2023! | 10/01/2023    | 10/02/2023               |
+      | JLOWE    | Aug@2023! | 10/01/2023    | 10/02/2023               |

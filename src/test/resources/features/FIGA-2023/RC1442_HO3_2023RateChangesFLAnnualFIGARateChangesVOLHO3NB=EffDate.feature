@@ -1,5 +1,5 @@
 #Author:Mustafa Cemek
-@FIGA-VOLHO3
+@FIGA-VOLHO3 @FIGA
 Feature: RC-1098: 2023 Rate Changes- FIGA: VOL HO3- 10/01/2023
 
   @FIGA-VOLHO3-1
@@ -67,7 +67,7 @@ Feature: RC-1098: 2023 Rate Changes- FIGA: VOL HO3- 10/01/2023
 
     Examples: Test Data
       | username | password   | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | July@2023! | 10/01/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | mkoziel  | Aug@2023! | 10/01/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
 
   @FIGA-VOLHO3-2
   Scenario Outline: FIGA VOL HO3-10/01/2023: NB before Effective Date
