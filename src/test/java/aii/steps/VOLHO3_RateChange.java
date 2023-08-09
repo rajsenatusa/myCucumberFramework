@@ -26,7 +26,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 //import junit.framework.Assert;
 
-public class VOLHO3RateChange extends CommonMethods {
+public class VOLHO3_RateChange extends CommonMethods {
 		
 	@And("User clicks Worksheets chevron")
 	public void User_clicks_Worksheets_chevron() {	    	   						
@@ -50,8 +50,8 @@ public class VOLHO3RateChange extends CommonMethods {
 	}
 	@Then("User verifies Fire or Lightning Base Rate 2")
 	public void User_verifies_Fire_or_Lightning_Base_Rate_2() {
-	String expected = "Initial Base Rate: 50.93<br> - Fire or Lightning Territory Code: 9<br> - Territory Factor: 0.840";
-	String actual = worksheetsChevron.txtFireLightning.getText();
+	String expected = "Initial Base Rate: 58.57";
+	String actual = worksheetsChevron.txtFireLightning2.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 	}
 	@Then("User verifies Other Base Rate")
@@ -69,7 +69,7 @@ public class VOLHO3RateChange extends CommonMethods {
 	@Then("User verifies Weather Base Rate 2")
 	public void User_verifies_Weather_Base_Rate_2() {
 	wait(1);
-	String expected = "Initial Base Rate: 276.18<br> - Weather Territory Code: 3<br> - Territory Factor: 1.540";
+	String expected = "Initial Base Rate: 335.56";
 	String actual = worksheetsChevron.txtWeatherBaseRate2.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 	wait(1);
@@ -82,7 +82,7 @@ public class VOLHO3RateChange extends CommonMethods {
 	}
 	@Then("User verifies Hurricane Base Rate 2")
 	public void User_verifies_Hurricane_Base_Rate_2() {
-	String expected = "Initial Base Rate: 2803.09<br> - Hurricane Territory Code: E5<br> - Territory Factor: 0.611";
+	String expected = "Initial Base Rate: 3407.55<br> - Hurricane Territory Code: E5<br> - Territory Factor: 0.611";
 	String actual = worksheetsChevron.txtHurricaneBaseRate2.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}

@@ -64,6 +64,6 @@ Feature: Common Transactions and Steps
     #And User selects Number of Units {string}
     And User clicks Next on Policy Chevron
     And User clicks Review Chevron
-    
+    And User clicks Worksheets chevron
     
     
