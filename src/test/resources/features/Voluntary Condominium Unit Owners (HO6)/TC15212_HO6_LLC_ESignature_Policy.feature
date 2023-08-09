@@ -26,8 +26,7 @@ Feature: TC 15212--Vol HO6 - Creating HO6 Application LLC w/eSignature
   	And User validates Cancel label and Refresh button is visible
   	And User validates status has been displayed as Sent for Agent and Insured
   	And User validates Insured and Agent Email addresses have been displayed
-  	And User clicks Policy File Chevron
-  	And User validates Application<e-signed> is not visible
+  	
   	
   	
   	

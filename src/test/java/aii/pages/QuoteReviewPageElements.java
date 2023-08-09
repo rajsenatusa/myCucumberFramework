@@ -20,6 +20,15 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "BasicPolicy.PayPlanCd_9")
 	public WebElement btn8PaymentPlan;
 	
+	@FindBy(id= "BasicPolicy.PayPlanCd_3")
+	public WebElement btnQuarterlyPayPlan;
+	
+	@FindBy(id= "BasicPolicy.PayPlanCd_11")
+	public WebElement btnMortgageeFullPay;
+	
+	@FindBy(id= "BasicPolicy.PayPlanCd_30")
+	public WebElement btn8ccPaymentPlan;
+	
 	@FindBy(id= "Bind")
 	public WebElement btnCreateApplication;
 	

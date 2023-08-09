@@ -35,6 +35,7 @@ import aii.testbase.PageInitializer;
 
 
 
+
 public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
@@ -1893,6 +1894,84 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 			
 		}
 		
+		public static void runBatchJobs2(WebDriver driver, String PolicyNumber) throws Exception {	
+			/*
+			 * ADMIN: run batch jobs for PreAutoRenewal
+			 * ONLY AR Cycle Action and Task System Action 
+			 */
+			Thread.sleep(250);
+			click(batchjobs.btnOperationsTab);
+			click(batchjobs.btnSelectBatch);
+			wait(5);
+			click(batchjobs.btnSelectDailyJob);
+			wait(5);
+			setPolicyDisplayNum(driver, PolicyNumber);
+			setAcctDisplayNum(driver, PolicyNumber);
+			Thread.sleep(250);
+			click(batchjobs.btnProcessAchExceptions);
+			click(batchjobs.btnAutomatedBatchReceiptsPost);
+			click(batchjobs.btnScheduledAutomatedBatchReceiptPost);
+			click(batchjobs.btnActionClaimScheduledPayment);
+			click(batchjobs.btnReleaseAllTheStandardACHPAymentRequest_ClaimsPersonalACH);
+			click(batchjobs.btnReleaseAllTheStandardACHRefundRequest_AccountBill);
+			click(batchjobs.btnProcessACHRequest);
+			click(batchjobs.btnPostingDateRollForwardAction);
+			click(batchjobs.btnDailyWrittenToReceivables);
+			click(batchjobs.btnDailyWrittenToReceivablesVerifyAction);
+			click(batchjobs.btnGLDailyGeneralLedger);
+			click(batchjobs.btnIncrementalDatamartExport);
+			click(batchjobs.btnUpdateIncrementalLastRunDate);
+			click(batchjobs.btnInitiateStatsJob);
+			click(batchjobs.btnInitiateDailyTaskAndBatchPrintJobs);		
+//			BatchJobs.clickFormatDailyIvansFile(driver, logger);
+			click(batchjobs.btnDMIFileImportAction);
+			click(batchjobs.btnCapacityToolPolicyCountUpdate);
+			click(batchjobs.btnDailyCycleCompleteionEmailNotifications);
+			click(batchjobs.btnQuoteExpirationAction);
+			click(batchjobs.btnProcessPolicyMortgageeFIRST266FileImport);
+			click(batchjobs.btnProcessPolicyMortgageeInformationUpdate);
+			click(batchjobs.btnDailyEmailNotificationOfJobsWithErrors);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+
+			setPolicyDisplayNum(driver, PolicyNumber);
+			Thread.sleep(250);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+			
+			click(batchjobs.btnStartJob);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+
+			selectAutoRefresh30sec(driver);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+			
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+			
+			if (driver.findElement(By.id("Job_0_Name")).isDisplayed()) {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), "
+						+ "'Completed')]")));
+			}
+		
+			Thread.sleep(10000);	
+		
+		}
+		public static void runDailyJobOnDate(WebDriver driver, String PolicyNumber, String preAutoDt) throws Exception {
+			
+			/*
+			 * ADMIN: run batch jobs for Mentioned Date
+			 * ONLY AR Cycle Action and Task System Action 
+			 */
+			
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+			Thread.sleep(200);
+
+			ChangeDate_Admin(driver, preAutoDt);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+			Thread.sleep(1200);
+
+			runBatchJobs2(driver, PolicyNumber);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+			Thread.sleep(1200);
+			
+		}
 		public static void setPolicyDisplayNum(WebDriver driver, String policyNum) throws Exception {
 			try {
 				driver.findElement(By.id("Question_PolicyNumber")).clear();
@@ -2159,4 +2238,18 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 	            	}
 			
 		}
+		public static String getNextActionDate(WebDriver driver) throws Exception {
+			String num=null;
+			try {
+				String action = driver.findElement(By.id("Description_text")).getText().toString();
+				num = action.substring(action.indexOf("on") + 3 , action.length()).toString();
+				wait(4);
+				Hooks.scenario.log(action+" next action Date : "+num);
+		} catch (Exception e) {
+			Hooks.scenario.log(num+" next action Date : ");
+			
+		}
+			return num;	
+		}
+		
 }

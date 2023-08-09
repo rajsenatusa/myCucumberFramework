@@ -95,6 +95,9 @@ public class BatchJobsPageElements extends CommonMethods{
 	@FindBy(name= "RefreshInterval")
 	public WebElement ddRefresh;
 	
+	@FindBy(id= "Skip_ActionACHRequests")
+	public WebElement btnProcessACHRequest;
+	
 	
 public BatchJobsPageElements() {
 		

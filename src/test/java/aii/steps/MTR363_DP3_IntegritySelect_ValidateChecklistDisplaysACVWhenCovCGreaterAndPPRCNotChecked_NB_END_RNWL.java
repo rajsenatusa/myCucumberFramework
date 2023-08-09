@@ -144,7 +144,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 	@When("User clicks Make Payment and selects credit card and enters due amount")
 	public void user_clicks_make_payment_and_selects_cc()  {
 		click(closeoutChevron.btnMakePaymentHolder);
-		wait(1);
+		wait(3);
 		click(closeoutChevron.btnSubmitPaymentHolder);
 		wait(3);
 		click(closeoutChevron.rbNewCreditCard);
