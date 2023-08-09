@@ -86,6 +86,10 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(id= "SigningStatus_0_1")
 	public WebElement txtAgentStatus;
 	
+	@FindBy(id= "BasicPolicy.PayPlanFilterTypeCd")
+	public WebElement ddPlayPlanType;
+	
+	
 	
 	public CloseOutChevronPageElements() {
 		
