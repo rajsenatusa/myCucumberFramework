@@ -17,6 +17,9 @@ public class TasksPageElements extends CommonMethods{
 	@FindBy(id= "Task_TemplateId")
 	public WebElement ddTaskType;
 	
+	@FindBy(id= "ShowAll")
+	public WebElement btnShowAll;
+	
 public TasksPageElements() {
 		
 		PageFactory.initElements(driver, this);
