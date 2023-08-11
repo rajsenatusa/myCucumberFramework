@@ -61,6 +61,13 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+	@Given("User login to Spin as Automation Test Agent")
+	public void user_login_to_spin_as_automation_test_agent() {
+		sendText(login.username, ConfigsReader.getProperty("automationtestusername"));
+		sendText(login.password, ConfigsReader.getProperty("automationtestpassword"));
+		click(login.btnSignIn);
+		wait(3);
+	}
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
 

@@ -29,6 +29,18 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "img0")
 	public WebElement btnExpand;
 	
+	@FindBy(id= "ReasonCd")
+	public WebElement ddReason;
+	
+	@FindBy(id= "SubReasonCd")
+	public WebElement ddSubReason;
+	
+	@FindBy(id= "Add")
+	public WebElement btnAdd;
+	
+	@FindBy(id= "Start")
+	public WebElement btnStart;
+	
 	public HistoryPageElements() {
 		
 		PageFactory.initElements(driver, this);
