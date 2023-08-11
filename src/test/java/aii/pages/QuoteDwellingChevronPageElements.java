@@ -173,6 +173,14 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id = "Building.FloodCovADed")
 	public WebElement ddFloodCovADed;
 	
+	@FindBy(id = "Building.FloodCovBLimit")
+	public WebElement ddBuildingFloodCovBLimit;
+	
+	@FindBy(id = "Building.ElevationDocumentation")
+	public WebElement ddBuildingElevationDocumentation;
+	
+	
+	
 	@FindBy(id = "Building.BaseFloodElevationOverride")
 	public WebElement txtBaseFloodElevationOverride;
 	

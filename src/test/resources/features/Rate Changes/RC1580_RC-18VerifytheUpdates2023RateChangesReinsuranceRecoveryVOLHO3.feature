@@ -1,10 +1,10 @@
 #Author:Mustafa Cemek
-@NB_Policy_VOLHO3
-Feature: New Business Policy VOL HO3
+@RateChangeReinsuranceRecoveryHO3
+Feature: RC-18: 2023 Rate Changes- FL Reinsurance Recovery: VOL HO3
 
-  @NB_Policy_VOLHO3-1
-  Scenario Outline: NB VOL HO3
-    Given User navigates to QA7
+  @RateChangeReinsuranceRecoveryHO3-1
+  Scenario Outline: RC-1580: RC-18-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery: VOL HO3 - NB on the Eff date
+    Given User navigates to QA5
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
     And User clicks on the login button
@@ -46,6 +46,8 @@ Feature: New Business Policy VOL HO3
     And User enters SWR "<SWR>"
     And User clicks Flood Coverage "<FloodCoverage>"
     And User selects Flood Coverage Deductible "<FloodCoverageDeductible>"
+    And User selects Flood Personal Property "<FloodPersonalProperty>"
+    And User selects Elevation Documentation "<ElevationDocumentation>"
     And User selects Flood Foundation Type "<FloodFoundationType>"
     And User selects Flood Zone Override "<FloodZoneOverride>"
     And User selects Preferred Risk Status "<PreferredRiskStatus>"
@@ -64,5 +66,5 @@ Feature: New Business Policy VOL HO3
     Then User verifies NB HO3 policy has been created successfully
 
     Examples: Test Data
-      | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | Aug@2023! | 7/21/2023     | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodPersonalProperty | ElevationDocumentation | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | jlowe    | Aug@2023! | 7/21/2023     | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $25,000               | Elevation Certificate  | $5,000                  | Slab                | AO                | Yes                 | No           | Yes                  |

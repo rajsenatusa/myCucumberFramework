@@ -64,6 +64,35 @@ Feature: Common Transactions and Steps
     #And User selects Number of Units {string}
     And User clicks Next on Policy Chevron
     And User clicks Review Chevron
-    And User clicks Worksheets chevron
-    
-    
+    And User clicks Worksheets chevron   
+    And User enters Construction Type "<ConstructionType>"
+    And User enters Occupancy "<Occupancy>"
+    And User enters Months Occupied "<MonthsOccupied>"
+    And User enters Has Insured resided at the risk address
+    And User enters Year of Construction "<YearOfConstruction>"
+    And User enters Square Feet "<SquareFeet>"
+    And User enters Building Code Effectiveness Grade "<BuildingCodeEffectivenessGrade>"
+    And User enters Number of stories "<NumberOfStories>"
+    And User enters Roof Material "<RoofMaterial>"
+    And User enters Fireplace "<Fireplace>"
+    And User enters Exterior Walls "<ExteriorWalls>"
+    And User clicks Reserve Package
+    And User enters Coverage A Dwelling
+    And User enters Animal Liability "<AnimalLiability>"
+    And User enters Mandatory Mediation Arbitration
+    And User enters Fire Alarm "<FireAlarm>"
+    And User enters Sprinkler System "<SprinklerSystem>"
+    And User enters Burglar Alarm "<BurglarAlarm>"
+    And User enters Secured Community and Bldg "<SecuredCommunityBldg>"
+    And User enters Military Discount "<MilitaryDiscount>"
+    And User enters Roof Shape "<RoofShape>"
+    And User enters SWR "<SWR>"
+    And User clicks Flood Coverage "<FloodCoverage>"
+    And User selects Flood Coverage Deductible "<FloodCoverageDeductible>"
+    And User selects Flood Personal Property "<FloodPersonalProperty>"
+    And User selects Elevation Documentation "<ElevationDocumentation>"
+    And User selects Flood Foundation Type "<FloodFoundationType>"
+    And User selects Flood Zone Override "<FloodZoneOverride>"
+    And User selects Preferred Risk Status "<PreferredRiskStatus>"
+    And User selects SFHA Override "<SFHAOverride>"
+    And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
