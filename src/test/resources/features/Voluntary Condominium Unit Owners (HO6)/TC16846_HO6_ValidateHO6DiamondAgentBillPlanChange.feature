@@ -80,7 +80,7 @@ Feature: TC 16846--HO6, Diamond Agent, BillPlanChange
     And User login to Spin as Admin Agent
     And User searches for Policy Number for <tc16846>
     And User clicks Make Payment for <tc16846> and selects credit card and enters due amount
-    And User makes payment with Credit Card
+    And User searches for Policy Number for <tc16846>
     And User clicks Task Tab
     And User clicks Show All and checks show system task and take note preautorenew and autorenew dates
     And User does auto renewal on policy

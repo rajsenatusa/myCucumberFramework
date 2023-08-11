@@ -314,7 +314,9 @@ public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMet
 		wait(3);
 		click(billingChevron.lnkChangePayPlan);
 		wait(3);
-		click(reviewChevron.btn8PaymentPlan);
+		selectDropdownText(closeoutChevron.ddPlayPlanType, "Direct Bill");
+		wait(1);
+		click(driver.findElement(By.id("BasicPolicy.PayPlanCd_10")));
 		wait(3);
 		click(reviewChevron.btnProcess);
 		wait(2);
@@ -325,13 +327,45 @@ public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMet
 		wait(3);
 		click(closeoutChevron.btnSubmitPaymentHolder);
 		wait(3);
-		click(driver.findElement(By.id("PaymentTypeCd_2")));
+		click(driver.findElement(By.id("PaymentTypeCd_4")));
 		wait(2);
 		String totalDue=driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
 		wait(2);
 		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
 		wait(4);
+		click(closeoutChevron.btnEnterCCDetails);
+		wait(2);
+		check_CCDisclosure();
+		driver.switchTo().frame("iframeAuthorizeNet");
+		Hooks.scenario.log("Switched to credit card details frame");
+		sendText(makePayment.txtCardNumber, "5424000000000015");
+		sendText(makePayment.txtExpiryDate, "1224");
+		sendText(makePayment.txtCVV, "123");
+		sendText(makePayment.txtFirstName, "First Name");
+		sendText(makePayment.txtLastName, "Last Name");
+		sendText(makePayment.txtZip, "123456");
+		sendText(makePayment.txtAddress, "1234 Street");
+		sendText(makePayment.txtCity, "City");
+		sendText(makePayment.txtState, "State");
+		sendText(makePayment.txtPhoneNumber, "123-456-7895");
+		sendText(makePayment.txtCompanyNameID, "Company");
+		wait(3);
+		click(makePayment.btnSaveButton);
+		driver.switchTo().defaultContent();
+		wait(2);
 		click(driver.findElement(By.id("SubmitPayment")));
+		click(driver.findElement(By.id("dialogOK")));
+		wait(4);
 		
+	    // Close unnecessary tabs
+	      ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+	      for (int i = tabs.size() - 1; i > 0; i--) {
+	          driver.switchTo().window(tabs.get(i));
+	          driver.close();
+	      }
+
+	      // Switch back to the main page
+	      driver.switchTo().window(tabs.get(0));
+	      wait(3);
 	}
 }

@@ -13,7 +13,7 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//tr[@class='whitebar']//td[contains(text(),'Initial Base Rate: 50.93<br> - Fire or Lightning T')]")
 	public WebElement txtFireLightning;
 	
-	@FindBy(xpath="//*[@id=\"rowCovCovArea131\"]/tbody/tr/td/div/table/tbody/tr[2]/td[2]/text()[1]")
+	@FindBy(xpath="/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[28]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]")
 	public WebElement txtFireLightning2;
 	
 	@FindBy(xpath="/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[36]/td[2]/table[1]/tbody[1]/tr[9]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[2]/td[4]")
@@ -61,6 +61,21 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	
 	@FindBy(xpath="/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[2]/td[6]")
 	public WebElement txtMHO3HurricaneBasePremium;
+	
+	
+	
+	//*[@id="imgCovStepSteps-Step-RateArea-1180561273-742792986-HurricaneBasePremium29"]
+	
+	
+	
+	
+	@FindBy(xpath="imgCovCovArea01")
+	public WebElement linkRateAreaHurricane;
+	
+	@FindBy(xpath="//tr[@id='rowCovStepSteps-Step-RateArea-1180561273-742792986-HurricaneBasePremium30']//td[4]")
+	public WebElement HurricaneBaseRate;
+	
+	
 	
 	
 	

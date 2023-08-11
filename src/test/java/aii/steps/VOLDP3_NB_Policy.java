@@ -58,6 +58,7 @@ public class VOLDP3_NB_Policy extends CommonMethods {
 	}	
 	@And("User clicks Issue New Business")
 	public void User_clicks_Issue_New_Business() {	
+		wait(1);
 		closeoutChevron.btnIssueNB.click();
 		
 	}		
