@@ -50,7 +50,9 @@ public class VOLHO3_RateChange extends CommonMethods {
 	}
 	@Then("User verifies Fire or Lightning Base Rate 2")
 	public void User_verifies_Fire_or_Lightning_Base_Rate_2() {
-	String expected = "Initial Base Rate: 58.57";
+	String expected = "Initial Base Rate: 58.57\r\n"
+			+ "- Fire or Lightning Territory Code: 9"
+			+ "\r\n- Territory Factor: 0.840";
 	String actual = worksheetsChevron.txtFireLightning2.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 	}
@@ -82,7 +84,9 @@ public class VOLHO3_RateChange extends CommonMethods {
 	}
 	@Then("User verifies Hurricane Base Rate 2")
 	public void User_verifies_Hurricane_Base_Rate_2() {
-	String expected = "Initial Base Rate: 3407.55<br> - Hurricane Territory Code: E5<br> - Territory Factor: 0.611";
+	String expected = "Initial Base Rate: 3407.55\r\n"
+			+ "- Hurricane Territory Code: E5\r\n"
+			+ "\r\n- Territory Factor: 0.611";
 	String actual = worksheetsChevron.txtHurricaneBaseRate2.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}

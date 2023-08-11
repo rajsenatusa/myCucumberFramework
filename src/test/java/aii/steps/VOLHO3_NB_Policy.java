@@ -219,6 +219,18 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddFloodCovADed, FloodCoverageDeductible);	
 		wait(1);
 	}	
+	@And("User selects Flood Personal Property {string}")
+	public void User_selects_Flood_Personal_Property(String FloodPersonalProperty) {	    	   						
+		wait(1);
+		selectDropdownText(dwellingChevron.ddBuildingFloodCovBLimit, FloodPersonalProperty);	
+		wait(1);
+	}	
+	@And("User selects Elevation Documentation {string}")
+	public void User_selects_Elevation_Documentation(String ElevationDocumentation) {	    	   						
+		wait(1);
+		selectDropdownText(dwellingChevron.ddBuildingElevationDocumentation, ElevationDocumentation);	
+		wait(1);	
+	}	
 	@And("User selects Flood Foundation Type {string}")
 	public void User_selects_Flood_Foundation_Type(String FloodFoundationType) {	    	   						
 		selectDropdownText(dwellingChevron.ddFloodFoundationType, FloodFoundationType);		
