@@ -333,13 +333,6 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	}
 	@And("User clicks Finalize button")
 	public void User_clicks_Finalize_button() {	    	   						
-//		dwellingChevron.btnSave.click();
-//		uwquestionsChevron.nextButtonUw.click();
-//		reviewChevron.btnFinalize.click();		
-//		selectDropdownText(closeoutChevron.ddPaymentType, "None");
-//		wait(2);
-//		closeoutChevron.btnIssueNB.click();
-//		wait(2);
 		
 		wait(1);
 		click(reviewChevron.btnFinalize);

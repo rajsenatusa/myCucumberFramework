@@ -34,8 +34,6 @@ import aii.testbase.PageInitializer;
 
 
 
-
-
 public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
@@ -246,7 +244,21 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+	/**
+	 * This method close unnecessary tabs.
+	 * 
+	 */
+	public static void closeUnnecessaryTabs() {
+    ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+    for (int i = tabs.size() - 1; i > 0; i--) {
+        driver.switchTo().window(tabs.get(i));
+        driver.close();
+    }
 
+    // Switch back to the main page
+    driver.switchTo().window(tabs.get(0));
+    wait(3);
+	}
 	/**
 	 * This method switches focus back to a main window.
 	 * 
@@ -2252,4 +2264,54 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 			return num;	
 		}
 		
+		public static void verifyInstallmentInvoiceForm(WebDriver driver, String invoiceName) throws Exception {
+			try {
+				driver.findElement(By.xpath("(//*[contains(text(), '"+invoiceName+"')])[2]"));	
+				Hooks.scenario.log(invoiceName+" is visible");
+			} catch (Exception e) {
+				Hooks.scenario.log(invoiceName+" is visible");
+				wait(5);
+			} 
+		}
+		public static void clickOnAnyPolicyFileTabForm(WebDriver driver, String invoiceName) throws Exception {
+			try {
+				driver.findElement(By.xpath("(//*[contains(text(), '"+invoiceName+"')])[2]")).click();	
+				Hooks.scenario.log(invoiceName+" clicked");
+			} catch (Exception e) {
+				Hooks.scenario.log(invoiceName+" clicked");
+				wait(5);
+			} 
+		}
+		public static boolean verifyChangePayPlanNotVisible(WebDriver driver) throws Exception {
+		    
+		    try {
+		    	if(driver.findElement(By.id("_ChangePayplan_Link")).isDisplayed()) {  
+		    		Hooks.scenario.log("ChangePayplan_Link is visible");
+		            return false;
+		    	}
+		   return false;
+		    } catch(Exception e) {
+		    	Hooks.scenario.log("ChangePayplan_Link not visible");
+		    	return true; 
+		    }
+		}
+		
+		public static boolean verifyPayPlanTypeIsDisabled(WebDriver driver) throws Exception {
+
+			try {
+				Boolean isEnabled = driver.findElement(By.id("BasicPolicy.PayPlanFilterTypeCd")).isEnabled();
+				if (isEnabled == true) {
+					Hooks.scenario.log("verifyPayPlanTypeIsEnabled");
+					return true;
+						}
+				else if (isEnabled == false) {
+					Hooks.scenario.log("verifyPayPlanTypeIsDisabled");
+					return false;
+						}
+			} catch (Exception e) {
+				Hooks.scenario.log("verifyPayPlanTypeIsDisabled");
+				return false;
+			}
+			return false;	
+		}
 }
