@@ -15,8 +15,9 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	static String policyNum;
 	static String nextDate;
 	static String nextDate2;
-	static String newDate;
-	static String newDate2;
+	static LocalDateTime newDate=currentDate.plusDays(35);
+	static LocalDateTime newDate2 = currentDate.plusDays(15);
+	static String currentDue;
 	
 	@When("User clicks Admin Tab")
 	public void user_clicks_admin_tab() {
@@ -100,8 +101,15 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 		wait(2);
 		getPolicyNumber(driver);
 		closeUnnecessaryTabs();
-		//searching policy
 		wait(2);
+		
+		//taking note of the issued policy
+		try {
+			policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+			Hooks.scenario.log("Policy Number: " + policyNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	@When("User searches policy for <mtr360>")
 	public void user_searches_policy_for_mtr360() {
@@ -116,24 +124,16 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	}
 	@When("User gets next action date and changes system date to next action date")
 	public void user_gets_next_action_date_and_changes_system_date_to_next_action_date() throws Exception {
-		String nextDate=getNextActionDate();
+		nextDate=getNextActionDate();
 		wait(2);
 		ChangeDate_Admin(driver, nextDate);
 		wait(1);
 	}
 	@When("User gets next action date and changes system date to second next action date")
 	public void user_gets_next_action_date_and_changes_system_date_to_second_next_action_date() throws Exception {
-		String nextDate2=getNextActionDate();
+		nextDate2=getNextActionDate();
 		wait(2);
 		ChangeDate_Admin(driver, nextDate2);
-		wait(1);
-	}
-	@When("User searches policy")
-	public void user_searches_policy() {
-		String policyNum=historyChevron.txtPolicyNo.toString();
-		wait(1);
-		sendText(dashboard.txtSearchBar, policyNum);
-		click(dashboard.search);
 		wait(1);
 	}
 	@When("User changes Pay Plan to <8 Payment Plan>")
@@ -158,7 +158,7 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 		wait(1);
 		
 		//user get current due as text and enter that amount into amount box
-		String currentDue=closeoutChevron.txtCurrentDue.toString();
+		currentDue=closeoutChevron.txtCurrentDue.getText().toString();
 		sendText(closeoutChevron.txtEnterAmountBox, currentDue);
 		wait(3);
 		
@@ -166,14 +166,7 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 		makeCCPayment();
 		closeUnnecessaryTabs();
 	}
-	@When("User searches policy on Payment Tab")
-	public void user_searches_policy_on_payment_tab() {
-		String policyNum=closeoutChevron.txtAccountNumber.toString();
-		wait(1);
-		sendText(dashboard.txtSearchBar, policyNum);
-		click(dashboard.search);
-		wait(1);
-	}
+
 	@When("User selects endorsement date as second next action date")
 	public void user_selects_endorsement_date_as_second_next_action_date() {
 
@@ -190,7 +183,7 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	}
 	@When("User selects ACH quarterly")
 	public void user_selects_ach_quarterly() {
-		click(reviewChevron.rbQuarterlyPayPlan);
+		click(driver.findElement(By.id("BasicPolicy.PayPlanCd_20")));
 		wait(3);
 	}
 	@When("User enters required ACH information")
@@ -209,10 +202,10 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 		wait(3);
 		click(reviewChevron.btnDialogOk);
 		wait(5);
+		closeUnnecessaryTabs();
 	}
 	@When("User changes system date <35> days forward from current date and changes system date to new date")
 	public void user_changes_system_date_35_days_forward_from_current_date() throws Exception {
-		LocalDateTime newDate = currentDate.plusDays(35);
 		wait(2);
 		ChangeDate_Admin(driver, dtf.format(newDate));
 		wait(2);
@@ -223,7 +216,8 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	}
 	@When("User selects endorsement eff date as new date")
 	public void user_selects_endorsement_eff_date_as_new_date() {
-		sendText(dashboard.txtSelectDate, newDate);
+		String formattedNewDate = dtf.format(newDate);
+		sendText(dashboard.txtSelectDate, formattedNewDate);
 		wait(2);
 		click(dashboard.btnStart);
 		dashboard.btnStart.click();
@@ -235,14 +229,31 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	}
 	@When("User changes system date <15> days forward from current date")
 	public void user_changes_system_date_15_days_forward_from_current_date() throws Exception {
-		LocalDateTime newDate2 = currentDate.plusDays(15);
+		
 		wait(2);
 		ChangeDate_Admin(driver, dtf.format(newDate2));
 		wait(2);
 	}
 	@When("User clicks Change Pay Plan as Direct Bill and <4> Pay Plan")
 	public void user_clicks_change_pay_plan() {
+		click(billingChevron.lnkChangePayPlan);
+		wait(4);
 		selectDropdownText(reviewChevron.ddPayPlan,"Direct Bill");
 		wait(3);
+		click(reviewChevron.btn4PaymentPlan);
+		wait(3);
+		//user clicks process and do payment plan change
+		click(reviewChevron.btnProcess);
+		wait(4);
+	}
+	@When("User clicks process")
+	public void user_clicks_process() throws Exception {
+		click(reviewChevron.btnProcess);
+		wait(2);
+	}
+	@When("User verifies Pay Plan is not visible before <30> days")
+	public void user_verifies_pay_plan_is_not_visible_before_30_days() throws Exception {
+		verifyChangePayPlanNotVisible(driver);
+		System.out.println("Test Case Completed!");
 	}
 }

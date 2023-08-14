@@ -50,7 +50,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 	@When("User clicks Policy File Chevron")
 	public void user_clicks_policy_file_chevron() throws Exception {
 		click(policyFileChevron.btnPolicyFilePage);
-		wait(3);
+		wait(5);
 	}
 
 	@When("User clicks New Business Package link")

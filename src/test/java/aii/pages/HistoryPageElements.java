@@ -41,6 +41,15 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "Start")
 	public WebElement btnStart;
 	
+	@FindBy(id= "CancelRequestedByCd")
+	public WebElement ddCancellationType;
+	
+	@FindBy(id= "TransactionEffectiveDt")
+	public WebElement txtEffectiveDate;
+	
+	@FindBy(id= "CancelTypeCd")
+	public WebElement ddCancelType;
+	
 	public HistoryPageElements() {
 		
 		PageFactory.initElements(driver, this);

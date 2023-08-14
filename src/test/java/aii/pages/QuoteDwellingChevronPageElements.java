@@ -179,8 +179,6 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id = "Building.ElevationDocumentation")
 	public WebElement ddBuildingElevationDocumentation;
 	
-	
-	
 	@FindBy(id = "Building.BaseFloodElevationOverride")
 	public WebElement txtBaseFloodElevationOverride;
 	
@@ -213,6 +211,12 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "Wizard_Forms")
 	public WebElement lnkForms;
+	
+	@FindBy(id= "Building.YearHVACUpdated")
+	public WebElement txtYearHVAC;
+	
+	@FindBy(id= "Building.YearElectricalUpdated")
+	public WebElement txtYearElectrical;
 	
 	public QuoteDwellingChevronPageElements() {
 		
