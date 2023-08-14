@@ -4,6 +4,7 @@ Feature: RC-20: 2023 Rate Changes- FL Reinsurance Recovery: VOL HO4
 
   @RateChangeReinsuranceRecoveryHO4-1
   Scenario Outline: RC-1658: RC-20-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery: VOL HO4 - NB on the Eff date
+    
     Given User navigates to QA5
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
