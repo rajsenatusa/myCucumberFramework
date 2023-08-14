@@ -22,9 +22,22 @@ public class VOLHO4_RateChange extends CommonMethods {
 		wait(1);
 		
 		
-		jsClick(driver.findElement(By.xpath("//*[@id=\"imgCovStepSteps-Step-RateArea-1180561273-742792986-HurricaneBasePremium29\"]")));
+//		jsClick(driver.findElement(By.onclick("//i[@id='imgCovStepSteps-Step-RateArea-1979122438-2141245958-HurricaneBasePremium29']")));
 		
+		
+//		jsClick(driver.findElement(By.xpath(".//[@id='imgCovStepSteps-Step-RateArea-1800334384-599209031-HurricaneBasePremium29']")));
+		
+		
+		
+		wait(3);
+		click(worksheetsChevron.HO4HurricaneBasePremium);
 		wait(1);
+		
+//		WebElement cell = driver.findElement(By.xpath("//table[@id='items']/tbody/tr[4]/td"));
+//		
+//		cell.click();
+//		
+		
 	}
 	@And("User clicks Rate Area Hurricane")
 	public void User_clicks_Rate_Area_Hurricane() {
