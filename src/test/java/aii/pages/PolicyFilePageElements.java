@@ -26,6 +26,9 @@ public class PolicyFilePageElements extends CommonMethods {
 	@FindBy(id= "imgItem0000000000")
 	public WebElement btnExpand;
 	
+	@FindBy(id= "Output_00000_7_Link")
+	public WebElement btnContinuationOfCoverage;
+	
 	public PolicyFilePageElements() {
 		PageFactory.initElements(driver, this);
 		

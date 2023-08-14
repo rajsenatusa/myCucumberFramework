@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "@RateChangeReinsuranceRecoveryHO4-1",
+				tags = "",
 
 
 				

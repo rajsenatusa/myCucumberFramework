@@ -63,12 +63,6 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	public WebElement txtMHO3HurricaneBasePremium;
 	
 	
-	
-	//*[@id="imgCovStepSteps-Step-RateArea-1180561273-742792986-HurricaneBasePremium29"]
-	
-	
-	
-	
 	@FindBy(xpath="imgCovCovArea01")
 	public WebElement linkRateAreaHurricane;
 	
@@ -76,7 +70,25 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	public WebElement HurricaneBaseRate;
 	
 	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr[1]/td/div/table/tbody/tr[2]/td/i")
+	public WebElement HO4HurricaneBasePremium;
 	
+	//input[ends-with(@id,'_name')]
+	//input[contains(@id, '_name')]
+	//button[starts-with(@id, 'save') and contains(@class,'publish')] 
+	//driver.findElements(By.xpath(//*[contains(@id, ‘submit’).get(0).click();
+	//input[@type='text'])[2]
+	
+	//id=imgCovStepSteps-Step-RateArea-277882563-223365633-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-1380412413-1319685168-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-181524148-352482475-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-1695586561-1725427771-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-784394938-630600289-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-705295589-1419944232-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-1720397402-1770554297-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-2020941308-376363097-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-1825599351-14773256-HurricaneBasePremium29
+	//id=imgCovStepSteps-Step-RateArea-714824742-287112622-HurricaneBasePremium29
 	
 	
 	
