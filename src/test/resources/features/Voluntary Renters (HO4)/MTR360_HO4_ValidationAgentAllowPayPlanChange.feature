@@ -1,8 +1,7 @@
 #Author: Can Yavas
-##created on 07/26/2023 
-##steps in the original user story needs to be clarified. After clarification; code will be updated
+##created on 08/11/2023 
 
-@regression @tc16851
+@regression @mtr360
 Feature: TC 16851--HO4 Agent AllowPayPlanChange
 
   
@@ -38,7 +37,7 @@ Feature: TC 16851--HO4 Agent AllowPayPlanChange
 		And User clicks Billing Tab
 		And User changes Pay Plan to <8 Payment Plan>
 		And User makes Credit Card payment
-		And User searches policy on Payment Tab
+		And User searches policy for <mtr360>
 		And User clicks Billing Tab
 		And User gets next action date and changes system date to second next action date
 		And User searches policy for <mtr360>
@@ -53,7 +52,7 @@ Feature: TC 16851--HO4 Agent AllowPayPlanChange
 		And User clicks Finalize button
 		And User completes endorsement transaction
 		And User changes system date <35> days forward from current date and changes system date to new date
-		And User searches policy for <mtr360>
+		And User searches policy for <mtr360>	
 		And User clicks Billing Tab
 	  And User verifies Change Pay Plan Not Visible
 	  And User searches policy for <mtr360>
@@ -67,7 +66,6 @@ Feature: TC 16851--HO4 Agent AllowPayPlanChange
 	  And User searches policy for <mtr360>
 	  And User clicks Billing Tab
 	  And User clicks Change Pay Plan as Direct Bill and <4> Pay Plan
-	  And User clicks process
-   #Then User verifies Pay Plan is not visible before <30> days
+    Then User verifies Pay Plan is not visible before <30> days
      
  

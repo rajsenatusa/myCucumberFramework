@@ -2314,4 +2314,14 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 			}
 			return false;	
 		}
+		public static void scrollToAnyField(WebDriver driver, String fieldName) throws Exception {
+			try {
+				WebElement e= driver.findElement(By.xpath("//*[contains(text(),'"+fieldName+"')]"));
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
+								
+			} catch (Exception e) {
+				Hooks.scenario.log("Scrolling not performed");
+				wait(5);
+			}  
+		}
 }

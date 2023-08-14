@@ -89,6 +89,8 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(id= "BasicPolicy.PayPlanFilterTypeCd")
 	public WebElement ddPlayPlanType;
 	
+	@FindBy(id= "dialogOK")
+	public WebElement btnDialogOk;
 	
 	
 	public CloseOutChevronPageElements() {
