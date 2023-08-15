@@ -3,7 +3,9 @@ import aii.pages.AIBPageElements;
 import aii.pages.AdditionalInterestPageElements;
 import aii.pages.BatchJobsPageElements;
 import aii.pages.BillingChevronPageElements;
+import aii.pages.ClaimPageElements;
 import aii.pages.CloseOutChevronPageElements;
+import aii.pages.CorrespondancePageElements;
 import aii.pages.DashboardPageElements;
 import aii.pages.FormsPageElements;
 import aii.pages.GolfcartChevronPageElements;
@@ -52,6 +54,8 @@ public class PageInitializer extends BaseClass {
 	public static TasksPageElements tasksChevron;
 	public static BatchJobsPageElements batchjobs;
 	public static AdditionalInterestPageElements additionalinterest;
+	public static ClaimPageElements claim;
+	public static CorrespondancePageElements correspondance;
 	
 	public static void initialize() {
 		login = new LoginPageElements();
@@ -79,6 +83,8 @@ public class PageInitializer extends BaseClass {
 		tasksChevron= new TasksPageElements();
 		batchjobs= new BatchJobsPageElements();
 		additionalinterest=new AdditionalInterestPageElements();
+		claim= new ClaimPageElements();
+		correspondance= new CorrespondancePageElements();
 	}
 
 }
