@@ -68,6 +68,13 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+	@Given("User login to Spin as Adjuster")
+	public void user_login_to_spin_as_adjuster() {
+		sendText(login.username, ConfigsReader.getProperty("adjusterusername"));
+		sendText(login.password, ConfigsReader.getProperty("adjusterpassword"));
+		click(login.btnSignIn);
+		wait(3);
+	}
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
 

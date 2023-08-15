@@ -31,9 +31,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
-
-
-
 public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
@@ -2323,5 +2320,62 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 				Hooks.scenario.log("Scrolling not performed");
 				wait(5);
 			}  
+		}
+		public static void startTransaction(WebDriver driver) throws Exception {
+			try {
+				try {
+					driver.findElement(By.id("MoreActionsDropdownButton")).click();
+					Thread.sleep(1000);
+					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35)); 
+					Hooks.scenario.log("More button was selected");	
+				} catch (Exception e) {
+					Hooks.scenario.log("More button was not selected");
+					}
+				
+				driver.findElement(By.id("Transaction")).click();
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+			} catch (Exception e) {
+				Hooks.scenario.log("START TRANSACTION was not selected");
+			}
+		}			
+		public static void clickSummaryChevron(WebDriver driver) throws Exception {
+			try {
+				driver.findElement(By.id("Wizard_Summary")).click();
+				Hooks.scenario.log("Summary chevron selected");
+			} catch (Exception e) {
+				Hooks.scenario.log("Summary chevron selected");
+				wait(5);
+			}
+		}
+		public static boolean verify_AnyfirstText_IsDisplayed(WebDriver driver, String text) throws Exception {
+			try {
+		        if(driver.findElement(By.xpath("(//*[text()='"+text+"'])[1]")).isDisplayed()) {  
+		        	Hooks.scenario.log("Is visible: " +  text);
+		        	return true;
+		        	}
+				return true;   	
+
+		        } catch (Exception e) {
+					Hooks.scenario.log("Is visible: " +  text);
+					wait(5);
+					return false;
+		        	}
+		}
+		
+		public static void getAnyDropDownOptions(WebDriver driver, String field) throws Exception {
+			try {
+				Select entityType = new Select (driver.findElement(By.id(""+field+"")));	
+				WebElement story_field = driver.findElement(By.id(""+field+""));
+				story_field.click();
+				List<WebElement> options = entityType.getOptions();
+							
+				Hooks.scenario.log(field+" options are:");
+				for(WebElement item:options)  { 
+		        	Hooks.scenario.log(item.getText());          
+		        }												
+			} catch (Exception e) {
+				Hooks.scenario.log(field+"Options:");
+				wait(5);
+			}	
 		}
 }
