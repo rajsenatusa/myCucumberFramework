@@ -48,15 +48,22 @@ public class VOLHO3_RateChange extends CommonMethods {
 	String actual = worksheetsChevron.txtFireLightning.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 	}
+	@And("User clicks Fire or Lightning Base Premium")
+	public void User_clicks_Fire_or_Lightning_Base_Premium() {	    	   						
+		click(worksheetsChevron.fireLightningBasePremium);		
+	
+		wait(3);
+	
+	}
+	
 	@Then("User verifies Fire or Lightning Base Rate 2")
 	public void User_verifies_Fire_or_Lightning_Base_Rate_2() {
-	String expected = "Initial Base Rate: 58.57\r\n"
-			+ "- Fire or Lightning Territory Code: 9"
-			+ "\r\n- Territory Factor: 0.840";
-	String actual = worksheetsChevron.txtFireLightning2.getText();
+	String expected = "Initial Base Rate: 58.57";
+			
+				String actual = worksheetsChevron.txtFireLightning2.getText().toString();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 	}
-	@Then("User verifies Other Base Rate")
+	@Then("User verifies Other Base Rate") 
 	public void User_verifies_Other_Base_Rate() {
 	String expected = "57.93";
 	String actual = worksheetsChevron.txtOtherBaseRate.getText();

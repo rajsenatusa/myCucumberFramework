@@ -119,6 +119,15 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "HomePage-Inbox-Group")
 	public WebElement btnInbox;
 	
+	@FindBy(id= "QuickAction_ReportLoss_Holder")
+	public WebElement btnReportLoss;
+	
+	@FindBy(id= "QuickAction_Report")
+	public WebElement btnReport;
+	
+	@FindBy(id= "Tab_Correspondence")
+	public WebElement btnCorrespondence;
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 		
