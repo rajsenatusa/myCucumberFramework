@@ -56,7 +56,7 @@ Feature: RC-28:2 2023 Rate Changes- FL Reinsurance Recovery 2 VOL HO3
     And User clicks Issue New Business
     And User returns to main page
     And User clicks Worksheets chevron
-    And User clicks Fire or Lightning Base Premium
+    
     Then User verifies Fire or Lightning Base Rate 2
     Then User verifies Weather Base Rate 2
     Then User verifies Hurricane Base Rate 2
