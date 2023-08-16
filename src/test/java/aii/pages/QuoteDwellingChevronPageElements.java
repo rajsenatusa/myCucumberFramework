@@ -218,6 +218,12 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.YearElectricalUpdated")
 	public WebElement txtYearElectrical;
 	
+	@FindBy(id= "Building.CovBLimitIncluded")
+	public WebElement ddCovBOtherStructures;
+	
+	@FindBy(id= "Building.WindHailExcludedInd")
+	public WebElement rbWindHailExc;
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);

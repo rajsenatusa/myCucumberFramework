@@ -2378,4 +2378,18 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 				wait(5);
 			}	
 		}
+		
+		public static String getTextOfElement(WebDriver driver,String element) throws Exception {
+			String num = null;
+			
+			try {
+				num = driver.findElement(By.id(element)).getText().toString();
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+				Hooks.scenario.log(element+" text : "+num);
+			} catch (Exception e) {
+				Hooks.scenario.log(element+" text : ");	
+			}
+			return num;	
+			}
+
 }

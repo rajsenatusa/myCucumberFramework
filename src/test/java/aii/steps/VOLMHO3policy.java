@@ -122,7 +122,7 @@ public class VOLMHO3policy extends CommonMethods {
 	public void User_verifies_NB_MHO3_policy_has_been_created_successfully() {
 		String expected = "New Business";
 		String actual = historyChevron.txtNewBusiness.getText();
-		Assert.assertEquals("Test failed!", expected, actual);
+		Assert.assertEquals("Test passed!", expected, actual);
 	}
 	@And("User clicks MHO3 Prior Carrier")
 	public void User_clicks_MHO3_Prior_Carrier() {
