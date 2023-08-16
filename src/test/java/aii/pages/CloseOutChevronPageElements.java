@@ -92,6 +92,9 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(id= "dialogOK")
 	public WebElement btnDialogOk;
 	
+	@FindBy(id= "MakeChanges")
+	public WebElement btnModifyApplication;
+	
 	
 	public CloseOutChevronPageElements() {
 		
