@@ -50,6 +50,9 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "CancelTypeCd")
 	public WebElement ddCancelType;
 	
+	@FindBy(id= "NewPolicyEffectiveDt")
+	public WebElement txtNewEffectiveDate;
+	
 	public HistoryPageElements() {
 		
 		PageFactory.initElements(driver, this);
