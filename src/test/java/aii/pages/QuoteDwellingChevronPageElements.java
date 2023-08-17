@@ -224,6 +224,15 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.WindHailExcludedInd")
 	public WebElement rbWindHailExc;
 	
+	@FindBy(id= "Building.AllPerilDed")
+	public WebElement ddDeductibleAllPerils;
+	
+	@FindBy(id= "Closeout")
+	public WebElement btnFinalize;
+	
+	@FindBy(id= "Building.CovELimit")
+	public WebElement ddCovELimit;
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);
