@@ -100,7 +100,7 @@ public class MTR1413_MHO_MHOAgentChangeDateTransaction30DAYS extends CommonMetho
 	@When("User clicks process and close unnecessary tabs")
 	public void user_clicks_process_and_close_unnecessary_tabs() throws Exception {
 		click(reviewChevron.btnProcess);
-		wait(2);
+		wait(7);
 		closeUnnecessaryTabs();
 	}
 	@Then("User validates Change Date text with select dates have been displayed")
