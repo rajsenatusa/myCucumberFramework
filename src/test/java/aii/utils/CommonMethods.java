@@ -2391,5 +2391,26 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 			}
 			return num;	
 			}
+		
+		public static void clickOnAnyText(WebDriver driver, String policy) throws Exception {
+			try {
+				
+				driver.findElement(By.xpath("//*[contains(text(),'"+policy+"')]")).click();
+				Hooks.scenario.log("Policy selected: "+policy);
+														
+			} catch (Exception e) {
+				Hooks.scenario.log("Policy not selected: "+policy);
+				wait(5);
+			}	
+		}
+		public static void clickMagnifierIcon(WebDriver driver,String order) throws Exception {
+			try {
+				driver.findElement(By.xpath("(//*[@id='ProducerLookup'])["+order+"]")).click();
+				Hooks.scenario.log("MagnifierGlass Icon was clicked");
+			} catch (Exception e) {
+				Hooks.scenario.log("MagnifierGlass Icon was not clicked");
+				wait(5);
+			}	
+		}
 
 }

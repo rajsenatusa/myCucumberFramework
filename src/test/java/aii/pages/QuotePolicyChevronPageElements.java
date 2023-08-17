@@ -128,6 +128,21 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy (id= "Insured.NumberOfChildrenResident")
 	public WebElement ddNumberChildrenResident;
 	
+	@FindBy(id= "ProducerLookup")
+	public WebElement btnSearchPark;
+	
+	@FindBy(id= "BasicPolicy.MHPropertyTypeCd_1")
+	public WebElement btnParkPropertyType;
+	
+	@FindBy(id= "SearchBy")
+	public WebElement ddSearchPark;
+	
+	@FindBy(id= "SearchText")
+	public WebElement txtParkName;
+	
+	@FindBy(id= "Search")
+	public WebElement btnSearch;
+	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
 		
