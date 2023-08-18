@@ -143,6 +143,18 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "Search")
 	public WebElement btnSearch;
 	
+	@FindBy(id= "InsuredNameJoint.GivenName")
+	public WebElement txtJointFirstName;
+	
+	@FindBy(id= "InsuredNameJoint.Surname")
+	public WebElement txtJointLastName;
+	
+	@FindBy(id= "InsuredPersonalJoint.BirthDt")
+	public WebElement txtJointBirthDay;
+	
+	@FindBy(id= "InsuredPersonalJoint.MaritalStatusCd")
+	public WebElement ddJointMaritalStatus;
+	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
 		
