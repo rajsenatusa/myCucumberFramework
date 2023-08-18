@@ -202,6 +202,12 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.search);
 		wait(1);
 	}
+	@And("User enters Producer")
+	public void User_enters_Producer() {	    	   				
+		policyChevron.txtProducerCodeSel.sendKeys(ConfigsReader.getProperty("Producer"));
+		click(dwellingChevron.btnSave);	
+		wait(1);
+ 	}
 
 	@And("User starts transaction on policy")
 	public void user_starts_transaction() {
