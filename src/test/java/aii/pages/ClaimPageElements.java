@@ -35,6 +35,38 @@ public class ClaimPageElements extends CommonMethods{
 	@FindBy(id= "Process")
 	public WebElement btnProcess;
 	
+	@FindBy(id= "Claim.AuthorityName")
+	public WebElement txtAuthorityName;
+	
+	@FindBy(id= "Claim.CaseNumber")
+	public WebElement txtCaseNumber;
+	
+	@FindBy(id= "Claim.RiskIdRef")
+	public WebElement ddClaimBoatSelection;
+	
+	@FindBy(id= "Claim.PurposeOfUse")
+	public WebElement ddClaimPurposeUse;
+	
+	@FindBy(id= "Claim.DriverIdRef")
+	public WebElement ddClaimOperator;
+	
+	@FindBy(id= "Claim.Roadway")
+	public WebElement txtClaimCurrentLocation;
+	
+	@FindBy(id= "Claim.LossLocationDesc")
+	public WebElement txtClaimLossDesc;
+	
+	@FindBy(id= "LossLocationAddr.City")
+	public WebElement txtClaimCity;
+	
+	@FindBy(id= "LossLocationAddr.StateProvCd")
+	public WebElement ddClaimState;
+	
+	@FindBy(id= "LossLocationAddr.PostalCode")
+	public WebElement txtClaimPostalCode;
+	
+	@FindBy(id= "Save")
+	public WebElement btnSave;
 	
 	public ClaimPageElements() {
 		PageFactory.initElements(driver, this);

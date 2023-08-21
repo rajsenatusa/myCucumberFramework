@@ -155,6 +155,21 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "InsuredPersonalJoint.MaritalStatusCd")
 	public WebElement ddJointMaritalStatus;
 	
+	@FindBy(id= "QuickEndorsement")
+	public WebElement btnEndorsement;
+	
+	@FindBy(id= "InsuredResidentAddr.PrimaryNumber")
+	public WebElement txtResidentPrimaryNumber;
+	
+	@FindBy(id= "InsuredMailingAddr.Addr1")
+	public WebElement txtMailingAddress;
+	
+	@FindBy(id= "InsuredMailingAddr.PostalCode")
+	public WebElement txtMailingAddPostalCode;
+	
+	@FindBy(id= "InsuredMailingAddr.addrVerifyImg")
+	public WebElement btnMailingAddressVerifyAddress;
+	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
 		
