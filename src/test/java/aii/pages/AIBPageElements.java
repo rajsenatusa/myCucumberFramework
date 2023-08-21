@@ -86,6 +86,21 @@ public class AIBPageElements extends CommonMethods {
 	@FindBy(id= "Vehicle.BoatStorageType")
 	public WebElement ddBoatStorageType;
 	
+	@FindBy(id= "Line.StorageSlipRental")
+	public WebElement ddStorageSlipRental;
+	
+	@FindBy(id= "Line.MedPayLimit")
+	public WebElement ddMedicalPayments;
+	
+	@FindBy(id= "Line.UMBILimit")
+	public WebElement ddUninsuredBoatCov;
+	
+	@FindBy(id= "Line.SupplementalBoatLiability")
+	public WebElement ddSupplementalLiabilityForBoats;
+	
+	@FindBy(id= "Vehicle.HullDed")
+	public WebElement ddHullDeductible;
+	
 	public AIBPageElements() {
 		
 		PageFactory.initElements(driver, this);
