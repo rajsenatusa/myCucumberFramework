@@ -2412,5 +2412,20 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 				wait(5);
 			}	
 		}
+		public static void verifyClaimsTaskStatus(WebDriver driver, String task, String text) throws Exception {
+			
+			String compare = driver.findElement(By.xpath("(//*[contains(text(),'"+task+"')])[1]//following-sibling::td[5]")).getText().toString();
+			
+			try {
+				if (compare.contentEquals(text)){
+					Hooks.scenario.log(task+" Status matched "+"Actual "+compare+" Expected "+text);
+				} else {
+					Hooks.scenario.log(task+" Status mismatch "+"Actual "+compare+", Expected "+text);
+				}		
+			} catch (Exception e) {
+				Hooks.scenario.log(task+" Status mismatch");
+				wait(5);
+				}
+		}
 
 }
