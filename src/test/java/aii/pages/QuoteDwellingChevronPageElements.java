@@ -191,6 +191,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id = "Wizard_Risks")
 	public WebElement btnDwelling; 
 	
+	@FindBy(id = "Tab_Tasks")
+	public WebElement btnTasks;
+	
 	@FindBy(id = "Tab_History")
 	public WebElement btnHistory; 
 	
