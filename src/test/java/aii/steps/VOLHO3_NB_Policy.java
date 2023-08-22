@@ -326,6 +326,11 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_clicks_Dwelling_chevron() {	    	   						
 		click(dwellingChevron.btnDwelling);
 		wait(2);
+	}			
+	@And("User clicks Tasks chevron")
+	public void User_clicks_Tasks_chevron() {	    	   						
+		click(dwellingChevron.btnTasks);
+		wait(2);	
 	}
 	@And("User clicks Finalize")
 	public void User_clicks_Finalize() {	    	   						
