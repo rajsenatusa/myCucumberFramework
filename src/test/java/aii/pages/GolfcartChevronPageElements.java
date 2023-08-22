@@ -77,6 +77,45 @@ public class GolfcartChevronPageElements extends CommonMethods {
 	@FindBy(id= "Vehicle.VehIdentificationNumber")
 	public WebElement txtGcVinNumber;
 	
+	@FindBy(id= "Line.CombinedSingleLimit")
+	public WebElement ddCombinedSingleLimit;
+	
+	@FindBy(id= "Line.ComprehensiveDedDefault")
+	public WebElement ddVehicleDefaultOtherThanCol;
+	
+	@FindBy(id= "Line.CollisionDedDefault")
+	public WebElement ddVehicleDefaultCol;
+	
+	@FindBy(id= "BasicPolicy.CoveragePackage_2")
+	public WebElement btnGoldReservePackage;
+	
+	@FindBy(id= "DriverInfo.LicensedStateProvCd")
+	public WebElement ddLicenseState;
+	
+	@FindBy(id= "DriverInfo.LicenseNumber")
+	public WebElement txtLicenseNumber;
+	
+	@FindBy(id= "Vehicle.LeasedVehInd")
+	public WebElement ddPurchasedLeasedSel;
+	
+	@FindBy(id= "VehicleGarageAddr.Addr1")
+	public WebElement txtGaragingAddress;
+	
+	@FindBy(id= "VehicleGarageAddr.PostalCode")
+	public WebElement txtGaragingZipCode;
+	
+	@FindBy(id= "VehicleGarageAddr.addrVerifyImg")
+	public WebElement btnVerifyAddress;
+	
+	@FindBy(id= "VehicleGarageAddr.City")
+	public WebElement txtGarageAddCity;
+	
+	@FindBy(id ="VehicleGarageAddrCountySelect")
+	public WebElement ddGarageAddCounty;
+	
+	@FindBy(id= "VehicleGarageAddr.StateProvCd")
+	public WebElement ddGarageAddState;
+	
 	public GolfcartChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);

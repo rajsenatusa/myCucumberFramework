@@ -96,3 +96,4 @@ Feature: Common Transactions and Steps
     And User selects Preferred Risk Status "<PreferredRiskStatus>"
     And User selects SFHA Override "<SFHAOverride>"
     And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
+    And User calculates replacement cost
