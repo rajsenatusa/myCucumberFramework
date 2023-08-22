@@ -65,6 +65,9 @@ public class UserLookupElements extends CommonMethods {
 	@FindBy (xpath= "//tbody/tr[755]/td[2]")
 	public WebElement txtAllowPayPlanChangeAnswer;
 	
+	@FindBy(id= "UserRoleAttrValue_7_302")
+	public WebElement txtAllowedToAddGolfEndorsement;
+	
 	public UserLookupElements() {
 		PageFactory.initElements(driver, this);
 	}
