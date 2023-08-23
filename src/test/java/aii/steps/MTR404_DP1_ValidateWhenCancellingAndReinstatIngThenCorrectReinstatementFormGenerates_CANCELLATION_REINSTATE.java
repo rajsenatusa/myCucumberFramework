@@ -109,7 +109,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 	public void User_completes_cancellation_transaction() {
 		click(closeoutChevron.btnIssueNB);
 		wait(5);
-		
+		Hooks.scenario.log("Policy Cancellation Completed!");
 	}
 	@And("User clicks Reinstatement Transaction Selection")
 	public void User_clicks_reinstatement_Transaction_Selection() {
