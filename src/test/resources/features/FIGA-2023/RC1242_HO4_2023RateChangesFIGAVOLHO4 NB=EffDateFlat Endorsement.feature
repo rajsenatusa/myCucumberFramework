@@ -4,7 +4,7 @@ Feature: RC-1096: 2023 Rate Changes- FIGA: VOL HO4- 10/01/2023
 
   @FIGA-VOLHO4-1
   Scenario Outline: RC-1242: 2023 Rate Changes: FIGA - VOL HO4 - NB = Eff. Date+ Flat Endorsement
-    Given User navigates to QA5
+    Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
     And User clicks on the login button

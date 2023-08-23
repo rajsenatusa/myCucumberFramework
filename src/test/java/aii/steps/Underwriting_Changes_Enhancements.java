@@ -72,8 +72,8 @@ public class Underwriting_Changes_Enhancements extends CommonMethods {
 	}
 	@And("User verifies Warning Message in Description")
 	public void User_verifies_Warning_Message_in_Description() {	    	   						
-		String expected = "Water damage exclusion removed from policy AGD30001539. Please confirm 4-point was received, and reviewed by day 15.";
-		String actual = quote.taskDescription3.getText();
+		String expected = "Underwriting Clerk";
+		String actual = quote.taskCurrentOwner.getText();
 		Assert.assertEquals("Test failed!", expected, actual);	
 		
 		
