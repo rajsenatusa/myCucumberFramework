@@ -27,7 +27,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -2427,5 +2426,14 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 				wait(5);
 				}
 		}
-
+		public static void setSubReason(WebDriver driver, String cancelSubReason) throws Exception {
+			try {
+				Select entityType = new Select (driver.findElement(By.name("SubReasonCd")));	
+				entityType.selectByVisibleText(cancelSubReason);
+				Hooks.scenario.log("Cancellation Sub-Reason: " + cancelSubReason);
+			} catch (Exception e) {
+				Hooks.scenario.log("Cancellation Sub-Reason: " + cancelSubReason);
+				wait(5);
+			}	
+		}
 }

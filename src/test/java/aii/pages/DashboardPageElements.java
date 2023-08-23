@@ -128,6 +128,9 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Tab_Correspondence")
 	public WebElement btnCorrespondence;
 	
+	@FindBy(id= "Wizard_UmbrellaLiability")
+	public WebElement lnkPersonalUmbrellaLiability;
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 		
