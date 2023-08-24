@@ -27,8 +27,9 @@ Feature: TC 16602--UMB UWMgr NB End (add Excess Uninsured and Underinsured Liabi
     And User creates HO4 application
     And User answers all underwriting questions for HO4
     And User checks application dwelling screen and finalizes transaction
-    And User issues policy
+    And User issues policy and makes payment
     And User validates that HO4 policy has been created successfully and takes note of the policy number
+    And User signs out
     And User login to Spin as Underwriter Clerk
     And User searches for the policy number <mtr1446>
     And User clicks New Quote button and selects current date as effective date
@@ -58,6 +59,49 @@ Feature: TC 16602--UMB UWMgr NB End (add Excess Uninsured and Underinsured Liabi
     And User sets new effective date as current date plus <30> days and starts endorsement
     And User clicks Personal Umbrella Liability Chevron
     And User selects Excess Uninsured Liability Limit as <1.000.000>
+    And User finalizes transaction and completes endorsement and close unnecessary tabs
+    And User clicks Forms Chevron and validates all expected forms has been displayed
+    And User clicks every link of the endorsement forms and validates all forms content have been as expected
+    And User clicks Policy File Chevron <mtr1446>
+    And User clicks Endorsement Package Link and validates form versions
+    And User signs out
+    And User login to Spin as Claim CSR
+    And User changes system date to claim date 'current date plus 60 days'
+    And User searches for the umbrella policy number <mtr1446>
+    And User clicks Report Loss
+    And User selects loss cause as 'Bodily Injury' and clicks Save
+    And User completes all required information on claim chevron <mtr1446>
+    And User clicks New Claimant And adds required information <mtr1446>
+    And User clicks More button and Starts Transaction
+    And User clicks newly added claimant and adjusts reserves
+    And User finalizes claim and process transaction
+    And User clicks Forms Chevron and validates all expected forms has been displayed
+    And User signs out
+    And User login to Spin as Admin Agent
+    And User searches for the umbrella policy number <mtr1446>
+    And User clicks Make Payment and selects credit card and enters due amount for <mtr1446>
+    And User makes payment with Credit Card for <mtr1446>
+    And User searches for the umbrella policy number <mtr1446>
+    And User clicks Start Transaction
+    And User selects Renewal
+    And User does manual renewal on the policy
+    And User searches renewed policy
+    And User clicks Forms Chevron and validates all expected forms has been displayed
+    And User clicks every link of the renewal forms and validates all forms content have been as expected
+    And User clicks Policy File Chevron <mtr1446>
+    And User clicks Renewal Declaration Link and validates form versions
+    And User clicks Make Payment and selects credit card and enters due amount for <mtr1446>
+    And User makes payment with Credit Card for <mtr1446>
+    And User searches renewed policy
+    And User clicks Start Transaction
+    And User selects Renewal
+    And User does second manual renewal on the policy
+    And User searches secondly renewed policy
+    And User clicks Forms Chevron and validates all expected forms has been displayed
+    And User clicks every link of the second renewal forms and validates all forms content have been as expected
+    And User clicks Policy File Chevron <mtr1446>
+    Then User clicks second Renewal Declaration Link and validates form versions and completes test
+    
     
     
     
