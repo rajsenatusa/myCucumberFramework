@@ -68,6 +68,63 @@ public class ClaimPageElements extends CommonMethods{
 	@FindBy(id= "Save")
 	public WebElement btnSave;
 	
+	@FindBy(id= "NewClaimant")
+	public WebElement btnNewClaimant;
+	
+	@FindBy(id= "Claimant.ClaimantTypeCd")
+	public WebElement ddClaimantType;
+	
+	@FindBy(id= "Claimant.ClaimantSubTypeCd")
+	public WebElement ddClaimantSubType;
+	
+	@FindBy(id= "ClaimantName.GivenName")
+	public WebElement txtClaimantFirstName;
+	
+	@FindBy(id= "ClaimantName.Surname")
+	public WebElement txtClaimantLastName;
+	
+	@FindBy(id= "Reset")
+	public WebElement btnReset;
+	
+	@FindBy(id= "ClaimantMailingAddr.Addr1")
+	public WebElement txtClaimantAddress;
+	
+	@FindBy(id= "ClaimantMailingAddr.City")
+	public WebElement txtClaimantCity;
+	
+	@FindBy(id= "ClaimantMailingAddr.PostalCode")
+	public WebElement txtClaimantZipCode;
+	
+	@FindBy(id= "ClaimantMailingAddr.StateProvCd")
+	public WebElement ddClaimantState;
+	
+	@FindBy(id= "ClaimantMailingAddr.addrVerifyImg")
+	public WebElement btnClaimantVerifyAddress;
+	
+	@FindBy(id= "ClaimantPhonePrimary.PhoneName")
+	public WebElement ddClaimantPhoneType;
+	
+	@FindBy(id= "ClaimantPhonePrimary.PhoneNumber")
+	public WebElement txtClaimantPhoneNumber;
+	
+	@FindBy(id= "Wizard_Notice")
+	public WebElement lnkNotice;
+	
+	@FindBy(id= "MoreActionsDropdownButton")
+	public WebElement btnMore;
+	
+	@FindBy(id= "Transaction")
+	public WebElement btnStartTransaction;
+	
+	@FindBy(id= "ClaimantActionsMenu_2")
+	public WebElement btnFinanctialActions2;
+	
+	@FindBy(id= "AdjustReserve_2")
+	public WebElement btnAdjustReserves2;
+	
+	@FindBy(id= "Reserve_PUCov_Indemnity")
+	public WebElement txtIndemnityReserve;
+	
 	public ClaimPageElements() {
 		PageFactory.initElements(driver, this);
 	}	
