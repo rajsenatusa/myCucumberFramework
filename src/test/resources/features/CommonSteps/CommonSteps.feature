@@ -97,3 +97,7 @@ Feature: Common Transactions and Steps
     And User selects SFHA Override "<SFHAOverride>"
     And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
     And User calculates replacement cost
+    And User clicks Home
+    And User clicks Inbox
+    And User hovers over Admin 
+    And User clicks Changes Date

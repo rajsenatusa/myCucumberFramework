@@ -74,7 +74,7 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy(id = "headerAgencyStateProvCd")
 	public WebElement headerAgencyState;
 	
-	@FindBy(xpath = "//*[@id=\"Task_CurrentOwner_2\"]")
+	@FindBy(xpath = "//*[@id=\"Task_OriginalOwner_2\"]")
 	public WebElement taskCurrentOwner;
 	
 	
