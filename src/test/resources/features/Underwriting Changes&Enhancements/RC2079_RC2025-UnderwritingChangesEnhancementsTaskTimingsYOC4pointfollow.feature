@@ -56,12 +56,15 @@ Feature: RC-2025: 2023 Underwriting Changes/Enhancements: Task Timings- YOC 4-po
     And User clicks Issue New Business
     And User clicks Tasks chevron
     Then User verifies Warning Message in Description
-    
-    
+    And User hovers over Admin 
+    And User clicks Changes Date
+    And User clicks Home
+    And User clicks Inbox
+    Then User clicks Ctrl+F
     
     
     
 
     Examples: Test Data
       | username | password   | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | jlowe    | July@2023! | 09/23/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2000 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $500                    |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |
+      | mkoziel    | July@2023! | 09/23/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2000 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $500                    |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |

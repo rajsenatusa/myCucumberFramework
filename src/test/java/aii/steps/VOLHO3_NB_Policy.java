@@ -56,7 +56,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	}
 	@And("User enters effective date {string}")
 	public void User_enters_effective_date(String EffectiveDate) {
+		wait(3);
 		sendText(product.txtEffectiveDate, EffectiveDate);
+		wait(1);
 	}
 	@And("User enters state")
 	public void I_enters_state() {	    	   	
