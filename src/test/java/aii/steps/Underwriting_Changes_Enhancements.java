@@ -1,26 +1,25 @@
 package aii.steps;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import aii.utils.CommonMethods;
-import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class Underwriting_Changes_Enhancements extends CommonMethods {
 
+	
+	static String policyNum;
+	
+	
 	@And("User clicks on More button")
 		public void User_clicks_on_More_button() {	    	   						
 		click(quote.btnMoreActionsDropdownButton);		
-		}
+	}
 	@And("User clicks on My Inbox Views")
 	public void User_clicks_on_My_Inbox_Views() {	    	   						
 	click(quote.myInboxViews);		
@@ -72,15 +71,81 @@ public class Underwriting_Changes_Enhancements extends CommonMethods {
 	}
 	@And("User verifies Warning Message in Description")
 	public void User_verifies_Warning_Message_in_Description() {	    	   						
+		wait(3);
 		String expected = "Underwriting Clerk";
 		String actual = quote.taskCurrentOwner.getText();
 		Assert.assertEquals("Test failed!", expected, actual);	
-		
-		
-		
-		
-		
 	}
+	@And("User clicks Changes Date")
+	public void User_clicks_Changes_Date() {	    	   						
+		click(dashboard.btnChangeDate);
+		wait(3);
+		sendText(dashboard.txtNewDate, "10/08/2023");
+		click(dashboard.btnChangeNewDate);
+		wait(3);
+		sendText(dashboard.txtNewBookDate, "10/08/2023");
+		click(dashboard.btnChangeBookDate);
+		wait(3);	
+	}
+	@And("User clicks Home")
+	public void User_clicks_Home() {	    	   						
+		click(dashboard.btnHome);	
+	}
+	@And("User clicks Inbox")
+	public void User_clicks_Inbox() {	    	   						
+		click(dashboard.btnInbox);	
+	}
+	@And("User hovers over Admin")
+	public void User_hovers_over_Admin() {	    	   						
+		wait(3);
+		Actions action = new Actions(driver);	
+		action.moveToElement(dashboard.btnAdmin).perform();	
+		wait(2);		
+	}
+//	@And("User takes issued policy number")
+//	public void User_takes_issued_policy_number() {	    	   						
+//		policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+//		Hooks.scenario.log("Policy Number: " + policyNum);
+//	}
+//	@Then("User searches for DP3 policy number")
+//	public void User_searches_for_DP3_policy_number() {	    	   							
+//		sendText(dashboard.txtSearchBar, policyNum);
+//		click(dashboard.search);
+//		wait(3);
 	
+	@And("User clicks Ctrl+F")
+	public void User_clicks_CtrlF() {	    	   						
+//		click(dashboard.btnInbox);	
+	
+	
+	WebElement element = driver.findElement(By.id("PolicySummary_PolicyNumber"));
+    
+    // Create an Actions object
+    Actions actions = new Actions(driver);
+    
+	
+    // Perform Ctrl + F using the sendKeys method
+    
+    
+    
+    actions.sendKeys(element, Keys.CONTROL, "f").perform();
+    
+    // After sending the Ctrl + F keys, you can interact with the find bar if needed
+    // For example, to type a search query into the find bar:
+   // actions.sendKeys("YourSearchQuery").perform();
+    
+
+//	@And("User clicks Ctrl+F")
+//	public void User_clicks_CtrlF() {	    	   						
+//	wait(2);
+//	Actions action = new Actions(driver);	
+//	action.sendKeys(element, Keys.CONTROL, "f").perform();
+	
+	
+	//moveToElement(dashboard.btnAdmin).perform();	
+//	wait(2);		
+
+	
+    }
 	 
-}
+	}
