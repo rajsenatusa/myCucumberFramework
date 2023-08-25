@@ -3,7 +3,7 @@
 #added datatable on 07/24/2023 by C.Yavas
 Feature: Issuing TODP3 policy
 
-  @smoke @todp3
+  @smoke @todp3 @healthcheck
   Scenario: Valid TODP3 policy creation
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

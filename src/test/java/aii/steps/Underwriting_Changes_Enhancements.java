@@ -3,12 +3,11 @@ package aii.steps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import aii.utils.CommonMethods;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
+
 
 public class Underwriting_Changes_Enhancements extends CommonMethods {
 
@@ -75,6 +74,19 @@ public class Underwriting_Changes_Enhancements extends CommonMethods {
 		String expected = "Underwriting Clerk";
 		String actual = quote.taskCurrentOwner.getText();
 		Assert.assertEquals("Test failed!", expected, actual);	
+		
+	}
+	@And("User verifies Warning Message in Inbox")
+	public void User_verifies_Warning_Message_in_Inbox() {	    	   						
+		wait(3);
+		String expected = "Current Date: 10/08/2023";
+		String actual = quote.dateFooterTile.getText();
+		Assert.assertEquals("Test failed!", expected, actual);	
+			
+		
+		
+		
+		
 	}
 	@And("User clicks Changes Date")
 	public void User_clicks_Changes_Date() {	    	   						
@@ -102,11 +114,11 @@ public class Underwriting_Changes_Enhancements extends CommonMethods {
 		action.moveToElement(dashboard.btnAdmin).perform();	
 		wait(2);		
 	}
-//	@And("User takes issued policy number")
-//	public void User_takes_issued_policy_number() {	    	   						
-//		policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
-//		Hooks.scenario.log("Policy Number: " + policyNum);
-//	}
+	@And("User takes issued policy number")
+	public void User_takes_issued_policy_number() {	    	   						
+		policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+		//Hooks.scenario.log("Policy Number: " + policyNum);
+	}
 //	@Then("User searches for DP3 policy number")
 //	public void User_searches_for_DP3_policy_number() {	    	   							
 //		sendText(dashboard.txtSearchBar, policyNum);
@@ -115,37 +127,16 @@ public class Underwriting_Changes_Enhancements extends CommonMethods {
 	
 	@And("User clicks Ctrl+F")
 	public void User_clicks_CtrlF() {	    	   						
-//		click(dashboard.btnInbox);	
-	
-	
-	WebElement element = driver.findElement(By.id("PolicySummary_PolicyNumber"));
-    
-    // Create an Actions object
     Actions actions = new Actions(driver);
     
-	
     // Perform Ctrl + F using the sendKeys method
+    actions.keyDown(Keys.CONTROL).sendKeys("f").keyUp(Keys.CONTROL).perform();
+    wait(1);
+    // search word into CtrlF
+    actions.sendKeys(policyNum).perform();
+    wait(3);
     
-    
-    
-    actions.sendKeys(element, Keys.CONTROL, "f").perform();
-    
-    // After sending the Ctrl + F keys, you can interact with the find bar if needed
-    // For example, to type a search query into the find bar:
-   // actions.sendKeys("YourSearchQuery").perform();
-    
-
-//	@And("User clicks Ctrl+F")
-//	public void User_clicks_CtrlF() {	    	   						
-//	wait(2);
-//	Actions action = new Actions(driver);	
-//	action.sendKeys(element, Keys.CONTROL, "f").perform();
-	
-	
-	//moveToElement(dashboard.btnAdmin).perform();	
-//	wait(2);		
-
-	
+     
     }
 	 
 	}

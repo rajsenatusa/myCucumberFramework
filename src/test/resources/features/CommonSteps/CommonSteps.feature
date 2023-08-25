@@ -101,3 +101,4 @@ Feature: Common Transactions and Steps
     And User clicks Inbox
     And User hovers over Admin 
     And User clicks Changes Date
+    And User clicks Ctrl+F

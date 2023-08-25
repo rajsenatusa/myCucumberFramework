@@ -4,7 +4,7 @@
 
 Feature: Issuing UMB policy
 
-  @smoke @umb
+  @smoke @umb @healthcheck
   Scenario: Valid UMB policy creation
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

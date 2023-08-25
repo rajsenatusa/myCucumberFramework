@@ -16,7 +16,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	
 	@And("User hovers over quote and policy")
 	public void User_hovers_over_quote_and_policy() {	     
-		wait(2);
+		wait(4);
 		Actions action = new Actions(driver);	
 		action.moveToElement(quote.btnQuoteAndPolicy).perform();	
 		wait(2);
@@ -56,9 +56,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	}
 	@And("User enters effective date {string}")
 	public void User_enters_effective_date(String EffectiveDate) {
-		wait(3);
+		wait(4);
 		sendText(product.txtEffectiveDate, EffectiveDate);
-		wait(1);
+		wait(2);
 	}
 	@And("User enters state")
 	public void I_enters_state() {	    	   	

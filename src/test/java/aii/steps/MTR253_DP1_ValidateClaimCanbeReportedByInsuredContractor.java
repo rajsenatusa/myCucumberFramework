@@ -128,7 +128,7 @@ public class MTR253_DP1_ValidateClaimCanbeReportedByInsuredContractor extends Co
 		}
 	}
 	@When("User clicks Complete and takes note of the claim number")
-	public void user_clicks_complete() throws Exception {
+	public void user_clicks_complete_takes_notes() throws Exception {
 		click(claim.btnComplete);
 		wait(5);
 		try {

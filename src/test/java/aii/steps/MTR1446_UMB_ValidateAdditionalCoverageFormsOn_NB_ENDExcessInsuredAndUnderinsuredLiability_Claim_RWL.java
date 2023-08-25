@@ -981,8 +981,10 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		wait(2);
 		click(claim.lnkNotice);
 		wait(2);
+
 		click(driver.findElement(By.id("Complete")));
 		wait(7);
+
 	}
 
 	@When("User clicks More button and Starts Transaction")
