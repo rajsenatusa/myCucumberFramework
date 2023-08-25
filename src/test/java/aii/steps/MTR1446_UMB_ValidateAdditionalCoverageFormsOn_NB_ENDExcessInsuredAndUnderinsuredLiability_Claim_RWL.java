@@ -983,18 +983,6 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		wait(2);
 	}
 
-	@When("User clicks Complete and takes note of the claim number")
-	public void user_clicks_complete() throws Exception {
-		click(claim.btnComplete);
-		wait(5);
-		try {
-			claimNum = driver.findElement(By.id("ClaimSummary_ClaimNumber")).getText().toString();
-			Hooks.scenario.log("Claim Number: " + claimNum);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	@When("User clicks More button and Starts Transaction")
 	public void user_clicks_more_button_and_starts_transaction() throws Exception {
 		click(claim.btnMore);

@@ -77,7 +77,8 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy(xpath = "//*[@id=\"Task_OriginalOwner_2\"]")
 	public WebElement taskCurrentOwner;
 	
-	
+	@FindBy(xpath = "/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/footer[1]/div[2]/span[4]")
+	public WebElement dateFooterTile;
 	
 	
 	

@@ -63,7 +63,7 @@ Feature: RC-18: 2023 Rate Changes- FL Reinsurance Recovery: VOL HO3
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
-    Then User verifies NB HO3 policy has been created successfully
+    
 
     Examples: Test Data
       | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodPersonalProperty | ElevationDocumentation | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |

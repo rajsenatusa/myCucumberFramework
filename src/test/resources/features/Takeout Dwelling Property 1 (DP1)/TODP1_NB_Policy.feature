@@ -3,7 +3,7 @@
 #datatable added on 07/24/2023 by C.Yavas
 Feature: Issuing TODP1 policy
 
-  @todp1 @smoke
+  @todp1 @smoke @healthcheck
   Scenario: Valid TODP1 policy creation
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
