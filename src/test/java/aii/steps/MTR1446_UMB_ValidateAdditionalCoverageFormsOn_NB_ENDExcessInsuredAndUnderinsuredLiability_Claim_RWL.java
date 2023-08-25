@@ -10,7 +10,6 @@ import aii.utils.CommonMethods;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -708,7 +707,7 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		click(reviewChevron.btnFinalize);
 		wait(3);
 		click(reviewChevron.btnProcess);
-		wait(3);
+		wait(7);
 		closeUnnecessaryTabs();
 	}
 
@@ -964,11 +963,12 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		click(claim.btnNewClaimant);
 		wait(2);
 		selectDropdownText(claim.ddClaimantType, "Third Party");
+		wait(1);
 		selectDropdownText(claim.ddClaimantSubType, "Employee");
 		sendText(claim.txtClaimantFirstName, "Insured");
 		sendText(claim.txtClaimantLastName, "Umbrella");
 		click(claim.btnReset);
-		click(claim.btnReset);
+		driver.findElement(By.xpath("(//*[@id='Reset'])[2]")).click();
 		sendText(claim.txtClaimantAddress, "11256 SW 62nd Avenue RD");
 		sendText(claim.txtClaimantCity, "Ocala");
 		selectDropdownText(claim.ddClaimantState, "Florida");
@@ -981,18 +981,8 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		wait(2);
 		click(claim.lnkNotice);
 		wait(2);
-	}
-
-	@When("User clicks Complete and takes note of the claim number")
-	public void user_clicks_complete() throws Exception {
-		click(claim.btnComplete);
-		wait(5);
-		try {
-			claimNum = driver.findElement(By.id("ClaimSummary_ClaimNumber")).getText().toString();
-			Hooks.scenario.log("Claim Number: " + claimNum);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		click(driver.findElement(By.id("Complete")));
+		wait(7);
 	}
 
 	@When("User clicks More button and Starts Transaction")
@@ -1064,7 +1054,7 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		click(dwellingChevron.btnFinalize);
 		wait(4);
 		click(reviewChevron.btnProcess);
-		wait(7);
+		wait(9);
 		closeUnnecessaryTabs();
 		// taking note of the renewal issued policy
 		try {
@@ -1075,7 +1065,7 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		}
 	}
 
-	@Given("User issues policy and makes payment")
+	@When("User issues policy and makes payment")
 	public void user_issues_policy_and_do_payment() {
 
 		// make cc payment
@@ -1634,5 +1624,34 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		PdfComparator.verifyFormData(driver, ren2_umb_um, "AIIC UMB UM 06 16");
 		
 		Hooks.scenario.log("Test Case Completed!");
+	}
+	@When("User clicks Make Payment second time and selects credit card and enters due amount for <mtr1446>")
+	public void user_clicks_make_payment_second_time_and_selects_cc_1446() {
+		click(closeoutChevron.btnMakePaymentHolder);
+		wait(3);
+		click(closeoutChevron.btnSubmitPaymentHolder);
+		wait(3);
+		click(driver.findElement(By.id("PaymentTypeCd_3")));
+		wait(1);
+		String totalDue = driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
+		wait(2);
+		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
+		wait(4);
+	}
+
+	@When("User makes payment with Credit Card second time for <mtr1446>")
+	public void user_makes_payment_with_credit_card_second_time_mtr1446() {
+		makeCCPayment();
+
+		// Close unnecessary tabs
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+		for (int i = tabs.size() - 1; i > 0; i--) {
+			driver.switchTo().window(tabs.get(i));
+			driver.close();
+		}
+
+		// Switch back to the main page
+		driver.switchTo().window(tabs.get(0));
+		wait(3);
 	}
 }

@@ -27,6 +27,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -34,6 +35,7 @@ public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
+	
 
 	/**
 	 * This method clears a textbox and sends another text.
@@ -2433,6 +2435,16 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 				Hooks.scenario.log("Cancellation Sub-Reason: " + cancelSubReason);
 			} catch (Exception e) {
 				Hooks.scenario.log("Cancellation Sub-Reason: " + cancelSubReason);
+				wait(5);
+			}	
+		}
+		public static void clickonAnyButton(WebDriver driver,String button) throws Exception {
+			try {
+				driver.findElement(By.id(""+button+"")).click();
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+				Hooks.scenario.log(button+" button was clicked");
+			} catch (Exception e) {
+				Hooks.scenario.log(button+" button was not clicked");
 				wait(5);
 			}	
 		}
