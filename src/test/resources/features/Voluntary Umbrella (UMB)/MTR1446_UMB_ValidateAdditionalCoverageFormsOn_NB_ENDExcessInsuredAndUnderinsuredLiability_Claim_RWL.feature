@@ -36,7 +36,6 @@ Feature: TC 16602--UMB UWMgr NB End (add Excess Uninsured and Underinsured Liabi
     And User enters UMB product selection information
     And User enters producer code and answers previous policy written with AIIG questions
     And User enters all required information on UMB personal liability screen <mtr1446>
-    And User enters all required information on UMB personal liability screen
     And User enters all required information on UMB review screen
     And User creates UMB application
     And User answers all underwriting questions for UMB
@@ -69,6 +68,7 @@ Feature: TC 16602--UMB UWMgr NB End (add Excess Uninsured and Underinsured Liabi
     And User changes system date to claim date 'current date plus 60 days'
     And User searches for the umbrella policy number <mtr1446>
     And User clicks Report Loss
+    And User sets loss date as claim date
     And User selects loss cause as 'Bodily Injury' and clicks Save
     And User completes all required information on claim chevron <mtr1446>
     And User clicks New Claimant And adds required information <mtr1446>
@@ -90,8 +90,8 @@ Feature: TC 16602--UMB UWMgr NB End (add Excess Uninsured and Underinsured Liabi
     And User clicks every link of the renewal forms and validates all forms content have been as expected
     And User clicks Policy File Chevron <mtr1446>
     And User clicks Renewal Declaration Link and validates form versions
-    And User clicks Make Payment and selects credit card and enters due amount for <mtr1446>
-    And User makes payment with Credit Card for <mtr1446>
+    And User clicks Make Payment second time and selects credit card and enters due amount for <mtr1446>
+    And User makes payment with Credit Card second time for <mtr1446>
     And User searches renewed policy
     And User clicks Start Transaction
     And User selects Renewal

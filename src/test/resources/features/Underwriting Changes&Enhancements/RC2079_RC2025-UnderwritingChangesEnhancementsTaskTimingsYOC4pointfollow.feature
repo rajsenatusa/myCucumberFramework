@@ -54,6 +54,7 @@ Feature: RC-2025: 2023 Underwriting Changes/Enhancements: Task Timings- YOC 4-po
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
+    And User takes issued policy number
     And User clicks Tasks chevron
     Then User verifies Warning Message in Description
     And User hovers over Admin 
@@ -61,7 +62,7 @@ Feature: RC-2025: 2023 Underwriting Changes/Enhancements: Task Timings- YOC 4-po
     And User clicks Home
     And User clicks Inbox
     Then User clicks Ctrl+F
-    
+    Then User verifies Warning Message in Inbox
     
     
 

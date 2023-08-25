@@ -125,6 +125,18 @@ public class ClaimPageElements extends CommonMethods{
 	@FindBy(id= "Reserve_PUCov_Indemnity")
 	public WebElement txtIndemnityReserve;
 	
+	@FindBy(id= "DenyTransaction_2")
+	public WebElement btnDeny2;
+	
+	@FindBy(id= "Deny_Feature_PUCov")
+	public WebElement rbReverseDenialUmbLiability;
+	
+	@FindBy(id= "ClaimantTransaction.Comment")
+	public WebElement txtTransactionComment;
+	
+	@FindBy(id= "DenyDate_Feature_PUCov")
+	public WebElement txtDenialDate;
+	
 	public ClaimPageElements() {
 		PageFactory.initElements(driver, this);
 	}	

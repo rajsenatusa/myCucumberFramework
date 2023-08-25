@@ -1,18 +1,4 @@
 package aii.steps;
-import java.text.SimpleDateFormat;
-//import java.sql.Time;
-//import java.text.SimpleDateFormat;
-//import java.time.LocalDateTime;
-//import java.time.format.DateTimeFormatter;
-import java.util.Date;
-//import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-//import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import org.junit.Assert;
@@ -20,11 +6,7 @@ import org.junit.Assert;
 //import Member.Pages.Login.LoginPage;
 //import Member.Pages.ProductSelection.ProductSelectPage;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-//import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-//import junit.framework.Assert;
 
 public class VOLHO6RateChange extends CommonMethods {
 		

@@ -2,7 +2,7 @@
 @NB_Policy_VOLDP1
 Feature: New Business Policy VOL DP1
 
-  @NB_Policy_VOLDP1-1
+  @NB_Policy_VOLDP1-1 @healthcheck
   Scenario Outline: NB VOL DP1
     Given User navigates to QA7
     And User enters a valid user name "<username>"
@@ -54,4 +54,4 @@ Feature: New Business Policy VOL DP1
 
     Examples: Test Data
       | username | password | EffectiveDate | ConstructionType | Occupancy | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | password | 08/21/2023    | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $2,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
+      | mkoziel  | July@2023! | 08/21/2023    | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $2,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |

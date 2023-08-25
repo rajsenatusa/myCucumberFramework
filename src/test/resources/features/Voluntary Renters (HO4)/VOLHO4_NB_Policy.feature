@@ -2,7 +2,7 @@
 @NB_Policy_VOLHO4
 Feature: New Business Policy VOL HO4
 
-  @NB_Policy_VOLHO4-1
+  @NB_Policy_VOLHO4-1 @healthcheck
   Scenario Outline: NB VOL HO4
     Given User navigates to QA7
     And User enters a valid user name "<username>"

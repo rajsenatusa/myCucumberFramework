@@ -2,7 +2,7 @@
 @NB_Policy_VOLMHO3
 Feature: New Business Policy VOL MHO3
 
-  @NB_Policy_VOLMHO3-1
+  @NB_Policy_VOLMHO3-1 @healthcheck
   Scenario Outline: NB VOL MHO3
     Given User navigates to QA7
     And User enters a valid user name "<username>"
