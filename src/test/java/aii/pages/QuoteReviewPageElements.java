@@ -88,7 +88,9 @@ public class QuoteReviewPageElements extends CommonMethods {
 	
 	@FindBy(id= "Wizard_Underwriting")
 	public WebElement btnUnderwriting;
-	 
+	
+	@FindBy(id= "BasicPolicy.PayPlanCd_10")
+	public WebElement btn8PaymentPayPlanTO;
 	
 	public QuoteReviewPageElements() {
 		PageFactory.initElements(driver, this);

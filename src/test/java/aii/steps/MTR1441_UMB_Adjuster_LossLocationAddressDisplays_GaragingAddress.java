@@ -10,6 +10,7 @@ import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress extends CommonMethods {
@@ -42,8 +43,8 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		wait(2);
 	}
 
-	@When("User enters GOC product selection information and current date as effective date <mtr1411>")
-	public void user_enters_goc_product_selection_information_and_currentdate_as_effective_date_mtr1411() {
+	@When("User enters GOC product selection information and current date as effective date <mtr1441>")
+	public void user_enters_goc_product_selection_information_and_currentdate_as_effective_date_mtr1441() {
 
 		// product selection information was filled here
 		sendText(product.txtEffectiveDate, dtf.format(currentDate));
@@ -54,8 +55,8 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		click(product.btnProductSelectionGoc);
 	}
 
-	@When("User enters all required information on GOC golfcart screen for <mtr1411>")
-	public void user_enters_all_required_information_on_goc_golfcart_screen_mtr1411() {
+	@When("User enters all required information on GOC golfcart screen for <mtr1441>")
+	public void user_enters_all_required_information_on_goc_golfcart_screen_mtr1441() {
 
 		selectDropdownText(golfcartChevron.ddLiabilityCovType, "Combined Single Limit");
 		wait(2);
@@ -71,8 +72,8 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		click(dwellingChevron.btnNext);
 	}
 
-	@When("User enters driver information on driver screen <mtr1411>")
-	public void user_enters_driver_information_on_driver_screen_mtr1411() {
+	@When("User enters driver information on driver screen <mtr1441>")
+	public void user_enters_driver_information_on_driver_screen_mtr1441() {
 
 		click(golfcartChevron.btnAddDriver);
 		selectDropdownText(golfcartChevron.ddDriverMaritalStatus, "Single");
@@ -86,8 +87,8 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		click(golfcartChevron.btnNextGocScreen);
 	}
 
-	@When("User enters vehicles information on vehicles screen <mtr1411>")
-	public void user_enters_vehicles_information_on_vehicles_screen_mtr1411() {
+	@When("User enters vehicles information on vehicles screen <mtr1441>")
+	public void user_enters_vehicles_information_on_vehicles_screen_mtr1441() {
 
 		click(golfcartChevron.btnAddGolfcart);
 		wait(3);
@@ -117,8 +118,8 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		wait(3);
 	}
 
-	@When("User issues policy and makes payment <mtr1411>")
-	public void user_issues_policy_and_do_payment_mtr1411() {
+	@When("User issues policy and makes payment <mtr1441>")
+	public void user_issues_policy_and_do_payment_mtr1441() {
 
 		// make cc payment
 		selectDropdownText(closeoutChevron.ddPaymentType, "Credit Card");
@@ -147,8 +148,8 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		wait(5);
 	}
 
-	@When("User validates that GOC policy has been created successfully and takes note of the policy number <mtr1411>")
-	public void user_validates_that_goc_policy_has_been_created_successfully_mtr1411() throws Exception {
+	@When("User validates that GOC policy has been created successfully and takes note of the policy number <mtr1441>")
+	public void user_validates_that_goc_policy_has_been_created_successfully_mtr1441() throws Exception {
 
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
@@ -226,8 +227,8 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		}
 	}
 
-	@When("User changes system date to loaa date 'current date plus 10 days'")
-	public void user_changes_system_date_to_loaa_date() throws Exception {
+	@When("User changes system date to loss date 'current date plus 10 days'")
+	public void user_changes_system_date_to_loss_date() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(lossDate));
 	}
 
@@ -302,8 +303,8 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		wait(5);
 	}
 
-	@When("User clicks 'Acknowledment Letter' and validates form version and completes test")
-	public void user_clicks_acknowledment_letter_and_validates_form_version_and_completes_test() throws Exception {
+	@Then("User clicks 'Acknowledment Letter' and validates form version")
+	public void user_clicks_acknowledment_letter_and_validates_form_version() throws Exception {
 		// Verify form versions in Endorsement Package
 
 		PdfComparator.switchWindows(driver);
