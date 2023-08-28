@@ -15,18 +15,18 @@ Feature: TC 35148--UMB Validate Adjuster can create Claim for loss location as '
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
 		And User enters all required information on policy information screen <mtr1441>
-    And User enters GOC product selection information and current date as effective date <mtr1411>
+    And User enters GOC product selection information and current date as effective date <mtr1441>
     And User enters Producer
     And User enters all required information on GOC quote screen
-    And User enters all required information on GOC golfcart screen for <mtr1411>
-    And User enters driver information on driver screen <mtr1411>
-    And User enters vehicles information on vehicles screen <mtr1411>
+    And User enters all required information on GOC golfcart screen for <mtr1441>
+    And User enters driver information on driver screen <mtr1441>
+    And User enters vehicles information on vehicles screen <mtr1441>
     And User enters all required information on GOC review screen
     And User creates GOC application
     And User answers all underwriting questions for GOC
     And User checks application dwelling screen and finalizes transaction
-    And User issues policy and makes payment <mtr1411>
-    And User validates that GOC policy has been created successfully and takes note of the policy number <mtr1411>
+    And User issues policy and makes payment <mtr1441>
+    And User validates that GOC policy has been created successfully and takes note of the policy number <mtr1441>
     And User clicks New Quote button and selects current date as effective date
     And User enters UMB product selection information
     And User enters producer code and answers previous policy written with AIIG questions
@@ -40,7 +40,7 @@ Feature: TC 35148--UMB Validate Adjuster can create Claim for loss location as '
     And User validates that UMB policy has been created successfully and takes note of the policy number <mtr1441>
     And User signs out
     And User login to Spin as Adjuster 2
-    And User changes system date to loaa date 'current date plus 10 days'
+    And User changes system date to loss date 'current date plus 10 days'
     And User searches for the umbrella policy number <mtr1441>
     And User clicks Report Loss
     And User sets loss date as loss date
@@ -52,7 +52,7 @@ Feature: TC 35148--UMB Validate Adjuster can create Claim for loss location as '
     And User clicks newly added claimant and adjusts reserves
     And User finalizes claim and process transaction
     And User clicks Policy File Chevron <mtr1441>
-    Then User clicks 'Acknowledment Letter' and validates form version and completes test
+    Then User clicks 'Acknowledment Letter' and validates form version
     And User clicks Claim Tab
     And User clicks More button and Starts Transaction
     And User clicks Financial Actions Button

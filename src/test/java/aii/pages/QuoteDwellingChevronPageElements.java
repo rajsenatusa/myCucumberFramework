@@ -236,6 +236,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.CovELimit")
 	public WebElement ddCovELimit;
 	
+	@FindBy(id= "TakeOwnership")
+	public WebElement btnTakeOwnership;
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);
