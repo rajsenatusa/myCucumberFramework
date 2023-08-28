@@ -38,6 +38,18 @@ public class UmbrellaLiabilityPageElements extends CommonMethods {
 	@FindBy(id= "Line.ExcessUMUIMLimit")
 	public WebElement ddExcessUninsuredLiabilityLimit;
 	
+	@FindBy(id= "Location.UnderlyingCarrierName")
+	public WebElement txtUnderlyingCarrierName;
+	
+	@FindBy(id= "Location.UnderlyingPolicyEffectiveDt")
+	public WebElement txtUnderlyingEffectiveDate;
+	
+	@FindBy(id= "Location.UnderlyingPolicyExpirationDt")
+	public WebElement txtUnderlyingExpirationDate;
+	
+	@FindBy(id= "Risk.ExposureTypeCd")
+	public WebElement ddRiskExposureType;
+	
 	public UmbrellaLiabilityPageElements() {
 		PageFactory.initElements(driver, this);
 		
