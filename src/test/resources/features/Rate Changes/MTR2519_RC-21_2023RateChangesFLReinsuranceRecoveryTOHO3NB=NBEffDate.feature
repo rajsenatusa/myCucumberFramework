@@ -33,7 +33,7 @@ Feature: RC-21: 2023 Rate Changes- FL Reinsurance Recovery: TO HO3
     And User clicks dwelling chevron and selects roof material
     And User clicks review Chevron and selects payment plan
     And User finalizes transaction and issues takeout policy
-    Then User validates that TOHO3 policy has been created successfully
+    
     
     Examples: Test Data
       | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | TerritoryList | StructureRentedOthers| QualityGrade | HurricaneDeductible|

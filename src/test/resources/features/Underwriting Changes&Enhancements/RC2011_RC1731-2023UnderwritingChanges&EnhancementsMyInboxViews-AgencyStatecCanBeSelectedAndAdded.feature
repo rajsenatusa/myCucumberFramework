@@ -23,5 +23,5 @@ Feature: RC-1731: 2023 Underwriting Changes/Enhancements: My Inbox Views- Add Ag
     Then User verifies Agency State can be selected and added
 
     Examples: Test Data
-      | username | password   |
-      | JLowe    | July@2023! |
+      | username | password  |
+      | JLowe    | Aug@2023! |
