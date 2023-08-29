@@ -247,4 +247,9 @@ public class MTR370_MHO_NB_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	@When("User changes system date to renewal date plus 1 day")
+	public void user_changes_system_date_to_renewal_date_plus_1_day() throws Exception {
+		ChangeAdminDate_NotInbox(driver, dtf.format(RnwlDate.plusDays(1)));
+		wait(1);
+	}
 }

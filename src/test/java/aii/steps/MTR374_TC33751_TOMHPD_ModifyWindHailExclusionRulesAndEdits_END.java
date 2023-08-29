@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END extends CommonMethods {
@@ -115,7 +114,7 @@ public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END exte
 		click(reviewChevron.btn8PaymentPayPlanTO);
 	}
 
-	@Then("User validates that TOMHPD policy has been created successfully and takes note of the policy number")
+	@When("User validates that TOMHPD policy has been created successfully and takes note of the policy number")
 	public void user_validates_that_tomhpd_policy_has_been_created_successfully_and_takes_note_of_the_policy_number()
 			throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
