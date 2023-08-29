@@ -79,9 +79,15 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	
 	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td/i")
 	public WebElement fireLightningBasePremium;
+		
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[3]/td[4]")
+	public WebElement DP1ExtendedCoverageBuildingHurricaneBaseRate;
 	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[5]/td[4]")
+	public WebElement DP1WindHailExclusionCreditRate;
 	
-	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td/i")
+	public WebElement eCBHP;
 	
 	
 
