@@ -30,6 +30,7 @@ Feature: MTR374--TO MHPD AF: RULES - Modify Windstorm or Hail Exclusion Rules an
     And User selects treat as renewal
     And User clicks Dwelling Chevron and completes required information
     And User clicks review Chevron and selects 8 Pay payment plan
+    And User finalizes transaction and issues takeout policy
     And User validates that TOMHPD policy has been created successfully and takes note of the policy number
     And User signs out
     And User login to Spin as Standard Agent

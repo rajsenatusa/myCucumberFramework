@@ -794,6 +794,12 @@ public class CommonSteps extends CommonMethods {
 	@Given("User selects only loss cause as {string}")
 	public void user_selects_loss_cause_as(String lossCause) {
 		selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
+	}
+	@Given("User clicks Windstorm or Hail Exclusion")
+	public void User_clicks_Windstorm_or_Hail_Exclusion() {
+		wait(1);
+		click(dwellingChevron.buildingWindHailExcludedInd);
+		wait(1);
 	}	
 	@And("User enters Distance to Hydrant_Accredited Water Source")
 	public void User_enters_Distance_to_Hydrant_Accredited_Water_Source() {
