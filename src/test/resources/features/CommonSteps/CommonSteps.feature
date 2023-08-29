@@ -102,3 +102,5 @@ Feature: Common Transactions and Steps
     And User hovers over Admin 
     And User clicks Changes Date
     And User clicks Ctrl+F
+    And User clicks Windstorm or Hail Exclusion
+    And User clicks Worksheets chevron
