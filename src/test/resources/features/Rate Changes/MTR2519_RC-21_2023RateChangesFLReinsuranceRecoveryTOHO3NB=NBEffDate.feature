@@ -33,10 +33,12 @@ Feature: RC-21: 2023 Rate Changes- FL Reinsurance Recovery: TO HO3
     And User clicks dwelling chevron and selects roof material
     And User clicks review Chevron and selects payment plan
     And User finalizes transaction and issues takeout policy
+    And User clicks Worksheets chevron
+    Then User verifies TOHO3 Base Rate premium
     
     
     Examples: Test Data
       | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | TerritoryList | StructureRentedOthers| QualityGrade | HurricaneDeductible|
-      | 07/25/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |  5            |        No            | Economy      |     2%             |
+      | 09/17/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |  5            |        No            | Economy      |     2%             |
     
     

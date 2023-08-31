@@ -89,7 +89,10 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td/i")
 	public WebElement eCBHP;
 	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[3]/td[6]")
+	public WebElement tOHO3BaseRate;
 	
+
 
 	public WorksheetsChevronPageElements() {
 		PageFactory.initElements(driver, this);

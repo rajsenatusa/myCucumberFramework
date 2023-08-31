@@ -48,11 +48,11 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		sendText(quote.txtZipCode, ConfigsReader.getProperty("zipcode"));
 		wait(2);
 		click(quote.btnVerifyAddress);
-		wait(1);
+		wait(2);
 		click(quote.btnCopyToMailAddress);
 		click(quote.btnCopyToBillAddress);
 		click(quote.btnSaveAndQuote);
-		wait(1);
+		wait(2);
 	}
 	@And("User enters effective date {string}")
 	public void User_enters_effective_date(String EffectiveDate) {
