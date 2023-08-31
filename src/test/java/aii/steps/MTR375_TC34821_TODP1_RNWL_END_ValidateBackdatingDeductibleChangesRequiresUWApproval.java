@@ -138,9 +138,9 @@ public class MTR375_TC34821_TODP1_RNWL_END_ValidateBackdatingDeductibleChangesRe
 		wait(3);
 		click(closeoutChevron.rbNewCreditCard);
 		wait(1);
-		String totalDue=driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
+		String currentDue=driver.findElement(By.id("AccountSummary_CurrentDue")).getText().toString();
 		wait(2);
-		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
+		sendText(closeoutChevron.txtEnterAmountBox, currentDue);
 		wait(4);
 	}
 	@When("User makes payment with Credit Card for <mtr375>")
@@ -206,8 +206,8 @@ public class MTR375_TC34821_TODP1_RNWL_END_ValidateBackdatingDeductibleChangesRe
 		getPolicyNumber(driver);
 		closeUnnecessaryTabs();
 	}
-	@When("User changes system date to renewal date")
-	public void user_changes_system_date_to_renewal_date() throws Exception {
+	@When("User changes system date to renewal date <mtr375>")
+	public void user_changes_system_date_to_renewal_date_mtr375() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(RnwlDate));
 		wait(1);
 	}
