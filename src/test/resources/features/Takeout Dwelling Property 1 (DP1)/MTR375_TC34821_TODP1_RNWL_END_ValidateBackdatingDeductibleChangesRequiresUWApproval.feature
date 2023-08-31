@@ -15,7 +15,7 @@
   
 ## User: AG1730
 
-@regression @mtr1414
+@regression @mtr375
 Feature: TC 34821--TO DP1: RULES - Backdating Deductible Changes Prior to, On, and After RN Effective Date
 
   Scenario: Validate a change to coverage(s) with an Effective Date in the past fires the error
@@ -51,7 +51,7 @@ Feature: TC 34821--TO DP1: RULES - Backdating Deductible Changes Prior to, On, a
 		And User clicks Dwelling Chevron for <mtr375>
 		And User decrease deductibles
 		And User finalizes transaction and verify changes are visible on closeout screen and endorses policy and close tabs
-		And User changes system date to renewal date
+		And User changes system date to renewal date <mtr375>
 		And User searches for the renewal term policy number <mtr375>
 		And User clicks Start Transaction
     And User selects Endorsement

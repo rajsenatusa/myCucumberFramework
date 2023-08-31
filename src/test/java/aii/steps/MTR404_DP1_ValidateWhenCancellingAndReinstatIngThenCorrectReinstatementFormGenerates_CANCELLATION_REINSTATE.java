@@ -94,7 +94,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		wait(2);
 	}
 	@And("User selects effective date as cancel date 'current date plus 30 days'")
-	public void User_selects_effective_date_as_cancel_date() {
+	public void User_sets_effective_date_as_cancel_date() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(cancelDate));
 		wait(2);
 	}
