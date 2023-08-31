@@ -147,9 +147,9 @@ public class MTR1414_TOMHPD_UI_Rolled_Bitumen_RoofMaterial extends CommonMethods
 		wait(3);
 		click(closeoutChevron.rbNewCreditCard);
 		wait(1);
-		String totalDue=driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
+		String currentDue=driver.findElement(By.id("AccountSummary_CurrentDue")).getText().toString();
 		wait(2);
-		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
+		sendText(closeoutChevron.txtEnterAmountBox, currentDue);
 		wait(4);
 	}
 	@When("User makes payment with Credit Card for <mtr1414>")
@@ -227,9 +227,9 @@ public class MTR1414_TOMHPD_UI_Rolled_Bitumen_RoofMaterial extends CommonMethods
 		wait(3);
 		click(driver.findElement(By.id("PaymentTypeCd_3")));
 		wait(1);
-		String totalDue=driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
+		String currentDue2=driver.findElement(By.id("AccountSummary_CurrentDue")).getText().toString();
 		wait(2);
-		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
+		sendText(closeoutChevron.txtEnterAmountBox, currentDue2);
 		wait(4);
 	}
 	@When("User does second auto renewal through batch jobs and completes test")
