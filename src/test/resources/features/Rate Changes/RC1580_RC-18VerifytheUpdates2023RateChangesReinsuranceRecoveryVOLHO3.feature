@@ -63,8 +63,11 @@ Feature: RC-18: 2023 Rate Changes- FL Reinsurance Recovery: VOL HO3
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
+    Then User verifies HO3 Elevation Certificate rate
+    
+    
     
 
     Examples: Test Data
       | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodPersonalProperty | ElevationDocumentation | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | jlowe    | Aug@2023! | 7/21/2023     | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $25,000               | Elevation Certificate  | $5,000                  | Slab                | AO                | Yes                 | No           | Yes                  |
+      | jlowe    | Sep@2023! | 7/21/2023     | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $25,000               | Elevation Certificate  | $5,000                  | Slab                | AO                | Yes                 | No           | Yes                  |
