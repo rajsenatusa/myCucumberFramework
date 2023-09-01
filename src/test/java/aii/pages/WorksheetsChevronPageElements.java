@@ -92,8 +92,16 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[3]/td[6]")
 	public WebElement tOHO3BaseRate;
 	
+	@FindBy(xpath="/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[4]/td[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[2]/td[4]")
+	public WebElement HO3elevationRate;
 
-
+	@FindBy(xpath="/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[4]/td[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[2]/td[4]")
+	public WebElement HO6elevationRate;
+	
+	
+	
+	
+	
 	public WorksheetsChevronPageElements() {
 		PageFactory.initElements(driver, this);
 	}

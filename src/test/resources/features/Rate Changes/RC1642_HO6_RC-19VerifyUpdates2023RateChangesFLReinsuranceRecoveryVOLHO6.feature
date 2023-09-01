@@ -47,7 +47,7 @@ Feature: RC-19: 2023 Rate Changes- FL Reinsurance Recovery: VOL HO6
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
-   
+   Then User verifies HO6 Elevation Certificate rate
 
     Examples: Test Data
       | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |

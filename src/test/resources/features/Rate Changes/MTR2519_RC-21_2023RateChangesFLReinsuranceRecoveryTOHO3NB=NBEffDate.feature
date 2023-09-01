@@ -3,7 +3,7 @@
 Feature: RC-21: 2023 Rate Changes- FL Reinsurance Recovery: TO HO3
 
   @RateChangeReinsuranceRecoveryTOHO3-1
-  Scenario Outline: MTR-2519: 2023 Rate Changes- FL Reinsurance Recovery: TO HO3 - NB = NB. Eff. Date
+  Scenario Outline: MTR-2519: RC-21 2023 Rate Changes- FL Reinsurance Recovery: TO HO3 - NB = NB. Eff. Date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
     And User enters all required information on policy information screen

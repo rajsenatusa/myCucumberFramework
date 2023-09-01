@@ -106,6 +106,12 @@ public class VOLHO6RateChange extends CommonMethods {
 	String expected = "0.15";
 	String actual = worksheetsChevron.txtHO6personalPropertyFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}		
+	}	
+	@Then("User verifies HO6 Elevation Certificate rate")
+	public void User_verifies_HO6_Elevation_Certificate_rate() {
+	String expected = "0.15";
+	String actual = worksheetsChevron.HO6elevationRate.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}	
 }	
 

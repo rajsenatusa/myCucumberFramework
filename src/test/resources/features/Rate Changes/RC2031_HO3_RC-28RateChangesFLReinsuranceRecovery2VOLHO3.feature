@@ -56,7 +56,6 @@ Feature: RC-28:2 2023 Rate Changes- FL Reinsurance Recovery 2 VOL HO3
     And User clicks Issue New Business
     And User returns to main page
     And User clicks Worksheets chevron
-    
     Then User verifies Fire or Lightning Base Rate 2
     Then User verifies Weather Base Rate 2
     Then User verifies Hurricane Base Rate 2
@@ -127,7 +126,7 @@ Feature: RC-28:2 2023 Rate Changes- FL Reinsurance Recovery 2 VOL HO3
       | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
       | Jlowe    | Aug@2023! | 8/25/2023     | Frame            | Owner Occupied | 0 to 3 Months  |               2023 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
 
-      @RateChange2HO3-3
+  @RateChange2HO3-3
   Scenario Outline: RC-28-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO3 - RN on the Eff date (BaseRate - Construction Year greater than 1 year)
     Given User navigates to QA2
     And User enters a valid user name "<username>"
@@ -190,5 +189,4 @@ Feature: RC-28:2 2023 Rate Changes- FL Reinsurance Recovery 2 VOL HO3
 
     Examples: Test Data
       | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
-      | mcemek    | Aug@2023! | 10/22/2022     | Frame            | Owner Occupied | 0 to 3 Months  |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
-      
+      | mcemek   | Aug@2023! | 10/22/2022    | Frame            | Owner Occupied | 0 to 3 Months  |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
