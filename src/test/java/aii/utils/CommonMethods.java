@@ -31,6 +31,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
+
 public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
@@ -2447,5 +2448,37 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 				Hooks.scenario.log(button+" button was not clicked");
 				wait(5);
 			}	
+		}
+		public static String getTransactionEffDate(WebDriver driver) throws Exception {
+
+			String termeff = null;
+
+			try {
+				clickSummary(driver);
+				
+				driver.findElement(By.id("Full_PolicySummary_TransactionEffectiveDt")).getText().toString();
+				termeff = driver.findElement(By.id("Full_PolicySummary_TransactionEffectiveDt")).getText().toString();
+				Hooks.scenario.log("Transaction effective Date is: " + termeff);	
+				
+				clickSummary(driver);
+			} catch (Exception e) {
+				Hooks.scenario.log("Transaction effective Date is: " + termeff);
+				wait(5);
+				}
+				return termeff.toString();
+			}
+		
+		public static void clickSummary(WebDriver driver) throws Exception {
+			
+			try {
+				Thread.sleep(1000);
+				driver.findElement(By.id("FullSummaryHolder")).click();
+				Thread.sleep(1000);
+				Hooks.scenario.log("Summary tab clicked ");
+				
+			} catch (Exception e) {
+				Hooks.scenario.log("Summary not clicked ");
+				wait(5);
+			}
 		}
 }

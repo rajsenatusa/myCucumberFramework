@@ -47,16 +47,13 @@ public class VOLHO3_RateChange extends CommonMethods {
 		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 58.57\r\n"
 				+ "- Fire or Lightning Territory Code: 9\r\n"
 				+ "- Territory Factor: 0.840")) {
-			System.out.println("DPwwwwwwwwwwwwwwwwwwwwww3 Endorsement has been processed successfully");
+			System.out.println("HO3 Endorsement has been processed successfully");
 
 		} else {
-			System.out.println("DPwwwwwwwwwwwwwwwwwwwwwww3 Endorsement has been failed!");
+			System.out.println("HO3 Endorsement has been failed!");
 			wait(5);
 		}
-		
-		
-		
-		
+			
 //		String expected = "Initial Base Rate: 58.57\r\n"
 //				+ "- Fire or Lightning Territory Code: 9\r\n"
 //				+ "- Territory Factor: 0.840";
@@ -85,16 +82,12 @@ public class VOLHO3_RateChange extends CommonMethods {
 	if (validate.getText().equalsIgnoreCase("Initial Base Rate: 58.57\r\n"
 			+ "- Fire or Lightning Territory Code: 9\r\n"
 			+ "- Territory Factor: 0.840")) {
-		System.out.println("DPwwwwwwwwwwwwwwwwwwwwww3 Endorsement has been processed successfully");
+		System.out.println("HO3 Endorsement has been processed successfully");
 
 	} else {
-		System.out.println("DPwwwwwwwwwwwwwwwwwwwwwww3 Endorsement has been failed!");
+		System.out.println("HO3 Endorsement has been failed!");
 		wait(5);
 	}
-	
-	
-	
-	
 	
 //	String expected = "Initial Base Rate: 335.56\r\n"
 //			+ "- Weather Territory Code: 3\r\n"
@@ -117,12 +110,11 @@ public class VOLHO3_RateChange extends CommonMethods {
 		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 3407.55\r\n"
 				+ "- Hurricane Territory Code: E5\r\n"
 				+ "- Territory Factor: 0.611")) {
-			System.out.println("DPwwwwwwwwwwwwwwwwwwwwww3 Endorsement has been processed successfully");
+			System.out.println("HO3 Endorsement has been processed successfully");
 
 		} else {
-			System.out.println("DPwwwwwwwwwwwwwwwwwwwwwww3 Endorsement has been failed!");
+			System.out.println("HO3 Endorsement has been failed!");
 			wait(5);
-		
 		
 		}
 		
@@ -312,5 +304,10 @@ public class VOLHO3_RateChange extends CommonMethods {
 	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}	 	
-	
+	@Then("User verifies HO3 Elevation Certificate rate")
+	public void User_verifies_HO3_Elevation_Certificate_rate() {
+	String expected = "0.52";
+	String actual = worksheetsChevron.HO3elevationRate.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
 }
