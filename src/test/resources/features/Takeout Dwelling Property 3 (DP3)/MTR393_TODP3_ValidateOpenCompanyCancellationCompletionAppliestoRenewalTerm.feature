@@ -36,7 +36,6 @@ Feature: TC 35243--UW, TODP3, Validate when open Company cancellation is complet
     And User selects Loss meets policy limits as subreason
     And User selects effective date as cancel date 'current date plus 30 days' <mtr393>
     And User selects pro rate as cancel type and process transaction <mtr393>
-    And User completes cancellation transaction and validates policy transaction status as cancelled
     And User takes note of the application number <mtr393>  
     And User signs out
     And User login to Spin as Admin Agent
