@@ -23,6 +23,7 @@ Feature: TC 34819--TODP3: RULES - Backdating Wind/Hail Deductible Changes Prior 
     And User enters all required information on TODP3 review screen
     And User creates TODP3 application
     And User clicks special options chevron
+    And User selects treat as renewal
     And User clicks dwelling chevron and selects roof material <tc34819>
     And User clicks review Chevron and selects 8 Pay payment plan
     And User finalizes transaction and issues takeout policy

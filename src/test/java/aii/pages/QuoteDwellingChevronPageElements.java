@@ -245,6 +245,11 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.SinkholeDeductible")
 	public WebElement ddSinkholeLossDed;
 	
+	@FindBy(id= "Building.YearRoofMaterialUpdated")
+	public WebElement txtRoofMaterialUpdate;
+	
+	@FindBy(id= "Building.WindHailDeductible")
+	public WebElement ddDeductibleWindHail;
 	
 	
 	public QuoteDwellingChevronPageElements() {
