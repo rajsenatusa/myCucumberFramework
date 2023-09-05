@@ -9,7 +9,7 @@ Feature: TC 16851--HO4 Agent AllowPayPlanChange
     Given User login to Spin as Admin Agent
     And User clicks Admin Tab 
     And User clicks User Management Tab
-    And User searches Agent
+    And User searches Agent <AG0376>
     And User clicks Search button
     And User scrolls to User Roles List 
     And User clicks Override Link on Policy Agent Standard

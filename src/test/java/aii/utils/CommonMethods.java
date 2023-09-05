@@ -31,7 +31,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
-
 public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
@@ -2480,5 +2479,29 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 				Hooks.scenario.log("Summary not clicked ");
 				wait(5);
 			}
+		}
+		public static void setDataToAnyTextboxField(WebDriver driver, String field, String element, String value) throws Exception {
+	        try {
+	               WebElement toClear = driver.findElement(By.id(""+element+""));
+	               toClear.click();
+	               toClear.sendKeys(Keys.CONTROL + "a");
+	               toClear.sendKeys(Keys.DELETE);
+	                Thread.sleep(500);
+	                toClear.sendKeys(value.toString());
+	                Hooks.scenario.log(field +" set to : "+ value);
+	        } catch (Exception e) {
+	               Hooks.scenario.log(field +" set to : "+ value);
+	                wait(5);
+	        }
+	     }
+		public static String getNextAction_Text(WebDriver driver) throws Exception {
+			try {
+				driver.findElement(By.id("Description_text")).click();
+				Hooks.scenario.log("Next Action: " + driver.findElement(By.id("Description_text")).getText().toString());
+			} catch (Exception e) {
+				Hooks.scenario.log("Next Action: " + driver.findElement(By.id("Description_text")).getText().toString());
+				wait(5);
+			}
+			return driver.findElement(By.id("Description_text")).getText();	
 		}
 }
