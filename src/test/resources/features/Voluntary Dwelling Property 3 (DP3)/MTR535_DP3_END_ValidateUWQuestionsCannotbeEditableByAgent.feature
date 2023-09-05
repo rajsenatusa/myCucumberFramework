@@ -5,8 +5,8 @@
 Feature: TC 35179--DP3, Agent, END TX Validate No Longer Allowing Underwriter Questions to be Modified by Agent in END
 
  
-  Scenario Outline: As an Agent - Validate that once the risk is bound at NB, every UW question is locked down and cannot be modified
-    Given User signin Spin with username "<username>" and password "<password>"
+  Scenario: As an Agent - Validate that once the risk is bound at NB, every UW question is locked down and cannot be modified
+    Given User login to Spin as Automation Test Agent
     When User starts transaction as a new customer
     And User enters all required information on policy information screen
     And User enters DP3 product selection information and effective date as current date
@@ -34,7 +34,3 @@ Feature: TC 35179--DP3, Agent, END TX Validate No Longer Allowing Underwriter Qu
 		And User clicks Underwriting Questions Chevron
 		And User validates that UW Questions is editable
 		
-    Examples: 
-      | username | password |
-      |  AG0376  | password |
-     

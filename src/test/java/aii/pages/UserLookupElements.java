@@ -68,6 +68,12 @@ public class UserLookupElements extends CommonMethods {
 	@FindBy(id= "UserRoleAttrValue_7_302")
 	public WebElement txtAllowedToAddGolfEndorsement;
 	
+	@FindBy(id= "UserRoleAttrValue_8_146")
+	public WebElement txtAllowUserViewConsentRateFields;
+	
+	@FindBy(id= "UserRoleAttrValue_8_147")
+	public WebElement txtAllowUserEditConsentRateFields;
+	
 	public UserLookupElements() {
 		PageFactory.initElements(driver, this);
 	}

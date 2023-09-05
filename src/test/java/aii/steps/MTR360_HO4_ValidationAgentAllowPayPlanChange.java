@@ -31,8 +31,8 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 		click(dashboard.btnUserManagement);
 		wait(2);
 	}
-	@When("User searches Agent")
-	public void user_searches_agent() {
+	@When("User searches Agent <AG0376>")
+	public void user_searches_agent_AG0376() {
 		wait(5);
 		sendText(driver.findElement(By.id("LoginId")), "AG0376");
 		wait(1);
