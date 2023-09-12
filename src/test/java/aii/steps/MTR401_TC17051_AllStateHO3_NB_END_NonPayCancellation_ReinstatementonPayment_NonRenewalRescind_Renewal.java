@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
@@ -11,6 +12,7 @@ import aii.utils.ConfigsReader;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_ReinstatementonPayment_NonRenewalRescind_Renewal extends CommonMethods{
@@ -63,6 +65,24 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	static String AgentLetter_Data2;
 	static String SinkholeDenial_Form2;
 	static String SinkholeDenial_Data2;
+	static String CancellationNotice_Form;
+	static String CancellationNotice_Data;
+	static String CancellationConfirmation_Form;
+	static String CancellationConfirmation_Data;
+	static String MinAmountForReinstatements;
+	static String PaymentConfirmation_Form;
+	static String PaymentConfirmation_Data;
+	static String Con_Coverage_Form;
+	static String Reinstatement_Data;
+	static String NonRenewalNotice_Form;
+	static String NonRenewalNotice_Data;
+	static String NonRenewalRescind_Form;
+	static String NonRenewalRescind_Data;
+	static String RwlDec_Form;
+	static String RwlDeclaration_Version;
+	static String RwlDeclaration_Data;
+	static String RwlDINST_Form;
+	static String RwlDINST_Data;
 	
 	@And("User searches Agent <AGISA002537>")
 	public void user_searches_agent_AGISA002537() {
@@ -139,7 +159,6 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		wait(4);
 		selectDropdownText(dwellingChevron.ddDeductibleWindHail, "$15,000");
 		click(dwellingChevron.btnSave);
-		click(dwellingChevron.btnNext);
 		wait(3);
 	}
 	@And("User clicks consent to rate")
@@ -154,6 +173,15 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		wait(2);
 		click(dwellingChevron.btnNext);
 		wait(2);
+	}
+	@When("User clicks review Chevron and selects 8 Pay payment plan <mtr401>")
+	public void user_clicks_review_chevron_and_selects_8_pay_payment_plan_mtr401() {
+
+		click(reviewChevron.btnReview);
+		wait(2);
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+		wait(2);
+		click(driver.findElement(By.id("BasicPolicy.PayPlanCd_9")));
 	}
 	@When("User selects 'Insurance Quote' from dropdown")
 	public void user_selects_insurance_quote_from_dd() {
@@ -210,7 +238,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	}
 	@When("User clicks Insurance Quote Link and validates form version")
 	public void user_clicks_insurance_quote_link_and_validates_form_version() throws Exception {
-		click(policyFileChevron.btnInsuranceQuote);
+		clickOnAnyPolicyFileTabForm(driver, "Insurance Quote");
 		wait(5);
 		switchToWindow(driver, "STFile&Filename");
 		PolicyQuote = PdfComparator.makePdf(driver, "InsuranceQuote.pdf");
@@ -253,7 +281,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		//Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation+AppForm);
 			
-		wait(8);
+		wait(10);
 		App_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm, 1, 50, 750, 120, 40);
 		PdfComparator.verifyFormData(driver, App_Version, "AIIC HO3 APP 04 22");
 		
@@ -396,7 +424,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	public void User_clicks_finalize_and_Endorse_Policy_button_mtr401_() {	    
 		reviewChevron.btnFinalize.click();
 		closeoutChevron.btnEndorsePolicy.click();	 
-		wait(5);	
+		wait(10);	
 		closeUnnecessaryTabs();
 	}
 	@And("User clicks Endorsement Package Link and validates information in the form")
@@ -497,7 +525,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		SinkholeDenial_Form = PdfComparator.makePdf(driver, "SinkholeDenial.pdf");
 		//Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation+SinkholeDenial_Form);
-		wait(8);
+		wait(10);
 		
 		SinkholeDenial_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+SinkholeDenial_Form, 1, 0, 0, 620, 790);
 		
@@ -565,5 +593,261 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 			
 		ChangeDate_Admin(driver, NextActionDate2);
 		wait(1);
+	}
+	@When("User clicks Cancellation Notice Link and validates information in the form")
+	public void user_clicks_cancellation_notice_link_and_validates_information_in_the_form() throws Exception {
+		clickOnAnyPolicyFileTabForm(driver, "Cancellation Notice");
+		wait(7);
+		switchToWindow(driver, "STFile&File");
+		
+		CancellationNotice_Form = PdfComparator.makePdf(driver, "CancellationNotice.pdf");
+		//Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation+CancellationNotice_Form);
+		wait(8);
+		
+		CancellationNotice_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+CancellationNotice_Form, 1, 0, 0, 620, 790);
+		PdfComparator.verifyPDFText(driver, CancellationNotice_Data, "AIIC NPC 09 15");
+		PdfComparator.verifyPDFText(driver, CancellationNotice_Data, AgentName);
+		PdfComparator.verifyPDFText(driver, CancellationNotice_Data, AgentStreetAddress);
+		PdfComparator.verifyPDFText(driver, CancellationNotice_Data, AgentCityStateZip);
+		PdfComparator.verifyPDFText(driver, CancellationNotice_Data, AgentPhone);
+		clickApplicationTab(driver);
+	}
+	@When("User clicks Cancellation Confirmation Link and validates information in the form")
+	public void user_clicks_cancellation_confirmation_link_and_validates_information_in_the_form() throws Exception {
+		clickOnAnyPolicyFileTabForm(driver, "Cancellation Confirmation");
+		wait(7);
+		switchToWindow(driver, "STFile&File");
+		
+		CancellationConfirmation_Form = PdfComparator.makePdf(driver, "CancellationConfirmation.pdf");
+		//Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation+CancellationConfirmation_Form);
+		wait(8);
+		
+		CancellationConfirmation_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+CancellationConfirmation_Form, 1, 0, 0, 620, 790);
+		PdfComparator.verifyPDFText(driver, CancellationConfirmation_Data, "AIIC CX 11 14");
+		PdfComparator.verifyPDFText(driver, CancellationConfirmation_Data, AgentName);
+		PdfComparator.verifyPDFText(driver, CancellationConfirmation_Data, AgentStreetAddress);
+		PdfComparator.verifyPDFText(driver, CancellationConfirmation_Data, AgentCityStateZip);
+		PdfComparator.verifyPDFText(driver, CancellationConfirmation_Data, AgentPhone);
+	}
+	@When("User gets minimum amount for reinstatements")
+	public void user_gets_minimum_amount_for_reinstatements() throws Exception {
+		MinAmountForReinstatements=driver.findElement(By.id("MinAmountToReinstate_text")).getText().toString();
+		System.out.println(MinAmountForReinstatements);
+	}
+	@When("User clicks Make Payment and selects credit card and enters minimum amount for reinstatements")
+	public void user_clicks_make_payment_and_selects_cc_401() {
+		click(closeoutChevron.btnMakePaymentHolder);
+		wait(3);
+		click(closeoutChevron.btnSubmitPaymentHolder);
+		wait(3);
+		click(closeoutChevron.rbNewCreditCard);
+		wait(1);
+	}
+	@When("User makes payment with Credit Card for <mtr401>")
+	public void user_makes_payment_with_credit_card_mtr401() throws Exception {
+		makePaymentCCPayment_Amount(driver, MinAmountForReinstatements);
+		wait(1);
+	}
+	@When("User validates Payment Confirmation form")
+	public void user_validates_payment_confirmation_form() throws Exception {
+		switchToWindow(driver, "STFile&File");
+		
+		PaymentConfirmation_Form = PdfComparator.makePdf(driver, "PaymentConfirmation.pdf");
+		//Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation+PaymentConfirmation_Form);
+		wait(8);
+		
+		PaymentConfirmation_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+PaymentConfirmation_Form, 1, 0, 0, 620, 790);
+		PdfComparator.verifyPDFText(driver, PaymentConfirmation_Data, "AIIC PMT 02 18");
+		PdfComparator.verifyPDFText(driver, PaymentConfirmation_Data, AgentName);
+		PdfComparator.verifyPDFText(driver, PaymentConfirmation_Data, AgentStreetAddress);
+		PdfComparator.verifyPDFText(driver, PaymentConfirmation_Data, AgentCityStateZip);
+		PdfComparator.verifyPDFText(driver, PaymentConfirmation_Data, AgentPhone);
+	}
+	@When("User validates 'Active' 'Reinstatement' 'Reinstated' 'Cancellation' 'Cancellation Notice' labels are visible")
+	public void user_validates_all_expected_labels_are_visible() throws Exception {
+		verify_AnyLabel_IsVisible(driver, "Active");
+		verify_AnyLabel_IsVisible(driver, "Reinstatement");
+		verify_AnyLabel_IsVisible(driver, "Reinstated");
+		verify_AnyLabel_IsVisible(driver, "Cancellation");
+		verify_AnyLabel_IsVisible(driver, "Cancellation Notice");
+	}
+	@When("User clicks Continuation of Coverage Link and validates information in the form")
+	public void user_clicks_Continuation_of_Coverage_link_and_validates_information_in_the_form() throws Exception {
+		clickOnAnyPolicyFileTabForm(driver, "Continuation of Coverage");
+		wait(7);
+		switchToWindow(driver, "STFile&Filename");
+		wait(1);
+		Con_Coverage_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Con_Coverage");
+		PdfComparator.SavePdfForm(driver, FileLocation+Con_Coverage_Form);
+		wait(8);
+		
+		Reinstatement_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+Con_Coverage_Form, 1, 0, 0, 620, 790);
+		PdfComparator.verifyPDFText(driver, Reinstatement_Data, "AIIC RI 11 14");
+		PdfComparator.verifyPDFText(driver, Reinstatement_Data, AgentName);
+		PdfComparator.verifyPDFText(driver, Reinstatement_Data, AgentStreetAddress);
+		PdfComparator.verifyPDFText(driver, Reinstatement_Data, AgentCityStateZip);
+		PdfComparator.verifyPDFText(driver, Reinstatement_Data, AgentPhone);
+					
+		clickApplicationTab(driver);
+		wait(1);
+	}
+	@And("User clicks Non Renewal Transaction Selection")
+	public void User_clicks_non_renewal_Transaction_Selection() {	    	   						
+		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal");	
+		 wait(1);	
+		 click(dashboard.btnSelect);	
+	}
+	@And("User selects 'Failure to comply with underwriting requirements' as reason <mtr401>")
+	public void User_selects_reason_mtr401() throws Exception {	    	   						
+		setReason(driver, "Failure to comply with underwriting requirements");
+		wait(1);
+	}
+	@And("User selects 'Additional information required for underwriting review not provided' as subreason")
+	public void User_selects_subreason_mtr401() throws Exception {	    	   						
+		setSubReason(driver, "Additional information required for underwriting review not provided");
+		wait(1);
+	}
+	@And("User clicks add button and starts and process transaction")
+	public void User_clicks_add_button_and_starts_and_processes_transaction() throws Exception {	    	   						
+		click(historyChevron.btnAdd);
+		wait(2);
+		click(historyChevron.btnStart);
+		wait(4);
+		click(reviewChevron.btnProcess);
+		wait(5);
+	}
+	@When("User clicks Non-Renewal Notice Link and validates information in the form")
+	public void user_clicks_Non_Renewal_Notice_link_and_validates_information_in_the_form() throws Exception {
+		clickOnAnyPolicyFileTabForm(driver, "Non-Renewal Notice");
+		wait(7);
+		switchToWindow(driver, "STFile&Filename");
+		wait(1);
+		NonRenewalNotice_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Non-Renewal_Notice");
+		PdfComparator.SavePdfForm(driver, FileLocation+NonRenewalNotice_Form);
+		wait(8);
+		
+		NonRenewalNotice_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+NonRenewalNotice_Form, 1, 0, 0, 620, 790);
+		PdfComparator.verifyPDFText(driver, NonRenewalNotice_Data, "AIIC NRN 11 14");
+		PdfComparator.verifyPDFText(driver, NonRenewalNotice_Data, AgentName);
+		PdfComparator.verifyPDFText(driver, NonRenewalNotice_Data, AgentStreetAddress);
+		PdfComparator.verifyPDFText(driver, NonRenewalNotice_Data, AgentCityStateZip);
+		PdfComparator.verifyPDFText(driver, NonRenewalNotice_Data, AgentPhone);
+		
+		clickApplicationTab(driver);
+	}
+	@And("User clicks Non Renewal Rescind Transaction Selection")
+	public void User_clicks_non_renewal_rescind_Transaction_Selection() {	    	   						
+		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal Rescind");	
+		 wait(1);	
+		 click(dashboard.btnSelect);	
+	}
+	@When("User clicks Rescission of Non-Renewal Notice Link and validates information in the form")
+	public void user_clicks_Rescission_of_NonRenewal_Notice_link_and_validates_information_in_the_form() throws Exception {
+		clickOnAnyPolicyFileTabForm(driver, "Rescission of Non-Renewal Notice");
+		wait(7);
+		switchToWindow(driver, "STFile&Filename");
+		wait(1);
+		NonRenewalRescind_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Non-Renewal_Rescission");
+		PdfComparator.SavePdfForm(driver, FileLocation+NonRenewalRescind_Form);
+		wait(8);
+		
+		NonRenewalRescind_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+NonRenewalRescind_Form, 1, 0, 0, 620, 790);
+		PdfComparator.verifyPDFText(driver, NonRenewalRescind_Data, "AIIC REC 11 14");
+		PdfComparator.verifyPDFText(driver, NonRenewalRescind_Data, AgentName);
+		PdfComparator.verifyPDFText(driver, NonRenewalRescind_Data, AgentStreetAddress);
+		PdfComparator.verifyPDFText(driver, NonRenewalRescind_Data, AgentCityStateZip);
+		PdfComparator.verifyPDFText(driver, NonRenewalRescind_Data, AgentPhone);
+		Thread.sleep(2000);
+		
+		clickApplicationTab(driver);
+	}
+	@And("User clicks Additional Interests Chevron")
+	public void User_clicks_additional_interests_chevron() {	    	   						
+		click(additionalinterest.lnkAdditionalInterestChevron);
+		wait(1);
+		click(additionalinterest.btnAdditionalInterest);
+		wait(2);
+	}
+	@And("User completes required information on add additional interests screen")
+	public void User_completes_required_information_on_add_additional_interests_screen() throws Exception {	    	   						
+		sendText(additionalinterest.txtMortgageeCode, "10006");
+		wait(1);
+		additionalinterest.txtMortgageeCode.sendKeys(Keys.TAB);
+		wait(1);
+		selectDropdownText(additionalinterest.ddInterestType, "First Mortgagee");
+		wait(3);
+		click(dwellingChevron.btnSave);
+		wait(3);
+		verify_AnyLabel_IsVisible(driver, "First Mortgagee");
+		click(dwellingChevron.btnSave);
+		wait(3);
+		
+	}
+	@And("User changes pay plan to Mortgagee")
+	public void User_changes_pay_plan_to_mortgagee() {	    	   						
+		selectDropdownText(reviewChevron.ddPayPlan, "Mortgagee Bill");
+		wait(1);
+		click(reviewChevron.btnMortgageeFullPay);
+		wait(3);
+		click(dwellingChevron.btnSave);
+		wait(3);
+	}
+	@And("User clicks Renewal Transaction Selection")
+	public void User_clicks_renewal_Transaction_Selection() {	    	   						
+		selectDropdownText(dashboard.ddSelectTransaction, "Renewal");	
+		 wait(1);	
+		 click(dashboard.btnSelect);	
+		 click(dashboard.btnStart);
+	}
+	@When("User clicks Renewal Declaration Link and validates information in the form")
+	public void user_clicks_Renewal_Declaration_link_and_validates_information_in_the_form() throws Exception {
+		clickOnAnyPolicyFileTabForm(driver, "Renewal Declaration");
+		wait(7);
+		switchToWindow(driver, "STFile&File");
+		
+		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+		
+		//Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation+RwlDec_Form);
+		wait(8);
+		
+		RwlDeclaration_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 9, 70, 740, 100, 50);
+		PdfComparator.verifyFormData(driver, RwlDeclaration_Version, "AIIC DEC 04 23");
+		RwlDeclaration_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 9, 0, 0, 600, 290);
+		PdfComparator.verifyPDFText(driver, RwlDeclaration_Data, AgentName);
+		PdfComparator.verifyPDFText(driver, RwlDeclaration_Data, AgentStreetAddress);
+		PdfComparator.verifyPDFText(driver, RwlDeclaration_Data, AgentCityStateZip);
+		PdfComparator.verifyPDFText(driver, RwlDeclaration_Data, AgentPhone);
+	}
+	@Then("User clicks Renewal Invoice Link and validates information in the form and completes test")
+	public void user_clicks_Renewal_Invoice_link_and_validates_information_in_the_form() throws Exception {
+		clickOnAnyPolicyFileTabForm(driver, "Renewal Invoice");
+		wait(1);
+		switchToWindow(driver, "STFile&Filename");
+		RwlDINST_Form = PdfComparator.makePdf(driver, "HO3_DINST.pdf");
+		
+		//Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation+RwlDINST_Form);
+		wait(8);
+		
+		RwlDINST_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDINST_Form, 1, 0, 0, 620, 790);
+		PdfComparator.verifyPDFText(driver, RwlDINST_Data, "AIIC DINST 08 22");
+		PdfComparator.verifyPDFText(driver, RwlDINST_Data, AgentName);
+		PdfComparator.verifyPDFText(driver, RwlDINST_Data, AgentStreetAddress);
+		PdfComparator.verifyPDFText(driver, RwlDINST_Data, AgentCityStateZip);
+		PdfComparator.verifyPDFText(driver, RwlDINST_Data, AgentPhone);
+	}
+	@When("User clicks Finalize button and completes renewal <mtr401>")
+	public void user_clicks_finalize_button_and_completes_renewal_mtr401() {
+		wait(3);
+		click(dwellingChevron.btnFinalize);
+		wait(4);
+		click(reviewChevron.btnProcess);
+		wait(9);
+		closeUnnecessaryTabs();
+		// taking note of the renewal issued policy
 	}
 }

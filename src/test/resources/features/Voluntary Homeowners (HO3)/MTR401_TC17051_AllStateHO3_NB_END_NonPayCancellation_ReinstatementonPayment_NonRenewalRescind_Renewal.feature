@@ -35,7 +35,7 @@ Feature: TC 17051--Allstate Agent test case: HO3, Allstate - New Business Endors
 		And User enters all required information on HO3 dwelling screen <mtr401>
 		And User clicks consent to rate
 		And User sets consent to rate value as '$100.000'
-		And User clicks review Chevron and selects 8 Pay payment plan
+		And User clicks review Chevron and selects 8 Pay payment plan <mtr401>
 		And User clicks correspondance tab
 		And User selects 'Insurance Quote' from dropdown
 		And User validates 'Agent Name' label is visible 
@@ -59,6 +59,7 @@ Feature: TC 17051--Allstate Agent test case: HO3, Allstate - New Business Endors
 		And User clicks Application Link and validates application form version
 		And User clicks New Business Invoice Link and validates information in form
 	  And User clicks Declaration Link and validates information in the form
+	  And User searches for the policy number <mtr401>
 		And User clicks Start Transaction
     And User clicks EN Transaction Selection
     And User sets new effective date as current date and starts endorsement <mtr401>
@@ -98,10 +99,51 @@ Feature: TC 17051--Allstate Agent test case: HO3, Allstate - New Business Endors
 		And User forward policy through batch jobs
 		And User searches for the policy number <mtr401>
 		And User validates 'Cancellation Notice' label is visible
-		
-		
-		
-		
+		And User clicks Policy File Chevron <mtr401>
+		And User clicks Cancellation Notice Link and validates information in the form
+		And User clicks Policy File Chevron <mtr401>
+		And User clicks Cancellation Confirmation Link and validates information in the form
+		And User clicks Billing Tab <mtr401>
+		And User gets minimum amount for reinstatements 
+		And User clicks Make Payment and selects credit card and enters minimum amount for reinstatements
+    And User makes payment with Credit Card for <mtr401>
+		And User validates Payment Confirmation form
+		And User searches for the policy number <mtr401>
+		And User forward policy through batch jobs
+		And User searches for the policy number <mtr401>
+		And User validates 'Active' 'Reinstatement' 'Reinstated' 'Cancellation' 'Cancellation Notice' labels are visible
+		And User clicks Policy File Chevron <mtr401>
+		And User clicks Continuation of Coverage Link and validates information in the form
+		And User searches for the policy number <mtr401>
+		And User clicks Start Transaction
+    And User clicks Non Renewal Transaction Selection
+		And User selects 'Failure to comply with underwriting requirements' as reason <mtr401>
+		And User selects 'Additional information required for underwriting review not provided' as subreason
+		And User clicks add button and starts and process transaction
+		And User clicks Policy File Chevron <mtr401>
+		And User clicks Non-Renewal Notice Link and validates information in the form
+		And User searches for the policy number <mtr401>
+		And User clicks Start Transaction
+		And User clicks Non Renewal Rescind Transaction Selection
+		And User clicks Start and process transaction
+		And User clicks Policy File Chevron <mtr401>
+		And User clicks Rescission of Non-Renewal Notice Link and validates information in the form
+		And User searches for the policy number <mtr401>
+		And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User sets new effective date as current date and starts endorsement <mtr401>
+    And User clicks Additional Interests Chevron
+		And User completes required information on add additional interests screen
+		And User clicks Review Chevron
+		And User changes pay plan to Mortgagee
+		And User clicks Finalize button and Endorses Policy <mtr401>
+		And User searches for the policy number <mtr401>
+		And User clicks Start Transaction
+    And User clicks Renewal Transaction Selection
+		And User clicks Finalize button and completes renewal <mtr401>
+		And User clicks Policy File Chevron <mtr401>
+		And User clicks Renewal Declaration Link and validates information in the form
+		Then User clicks Renewal Invoice Link and validates information in the form and completes test
 		
 		
 		
