@@ -251,6 +251,20 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.WindHailDeductible")
 	public WebElement ddDeductibleWindHail;
 	
+	@FindBy(id= "Building.DistToCoastRangeName")
+	public WebElement ddDistanceToCoast;
+	
+	@FindBy(id= "Building.YearPlumbingUpdated")
+	public WebElement txtPlumbingYearUpdate;
+	
+	@FindBy(id= "Building.YearHVACUpdated")
+	public WebElement txtHvacYearUpdate;
+	
+	@FindBy(id= "Building.WaterDamageExcludedInd")
+	public WebElement rbWaterDamageExcluded;
+	
+	@FindBy(id= "Building.WaterDamageLimitedInd")
+	public WebElement rbWaterDamageLimited;
 	
 	public QuoteDwellingChevronPageElements() {
 		

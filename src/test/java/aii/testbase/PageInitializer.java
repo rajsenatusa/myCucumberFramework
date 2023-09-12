@@ -1,6 +1,7 @@
 package aii.testbase;
 import aii.pages.AIBPageElements;
 import aii.pages.AdditionalInterestPageElements;
+import aii.pages.AttachmentsPageElements;
 import aii.pages.BatchJobsPageElements;
 import aii.pages.BillingChevronPageElements;
 import aii.pages.ClaimPageElements;
@@ -56,6 +57,7 @@ public class PageInitializer extends BaseClass {
 	public static AdditionalInterestPageElements additionalinterest;
 	public static ClaimPageElements claim;
 	public static CorrespondancePageElements correspondance;
+	public static AttachmentsPageElements attachmentsChevron;
 	
 	public static void initialize() {
 		login = new LoginPageElements();
@@ -85,6 +87,7 @@ public class PageInitializer extends BaseClass {
 		additionalinterest=new AdditionalInterestPageElements();
 		claim= new ClaimPageElements();
 		correspondance= new CorrespondancePageElements();
+		attachmentsChevron= new AttachmentsPageElements();
 	}
 
 }

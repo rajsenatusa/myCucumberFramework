@@ -119,7 +119,7 @@ public class MTR557_TC16891_HO4_ValidateNonRenewalsRescindNonRenewalContinuation
 		click(historyChevron.btnStart);	
 		wait(4);
 		click(reviewChevron.btnProcess);
-		wait(5);
+		wait(8);
 		closeUnnecessaryTabs();
 	}
 	@And("User clicks Expand Button for Rescission of Non-Renewal Notice")
