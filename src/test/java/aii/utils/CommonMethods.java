@@ -1,5 +1,10 @@
 package aii.utils;
 
+
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -11,6 +16,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -2504,4 +2510,203 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 			}
 			return driver.findElement(By.id("Description_text")).getText();	
 		}
+		public static void setReason(WebDriver driver, String cancelReason) throws Exception {
+			try {
+				Select entityType = new Select (driver.findElement(By.name("ReasonCd")));	
+				entityType.selectByVisibleText(cancelReason);
+				Hooks.scenario.log("Cancellation Reason: " + cancelReason);
+			} catch (Exception e) {
+				Hooks.scenario.log("Cancellation Reason: " + cancelReason);
+				wait(5);
+			}	
+		}
+		public static void makePaymentCCPayment_Amount(WebDriver driver, String AmountPaid) throws Exception {
+			
+			click(closeoutChevron.btnEnterCCDetails);
+			clickonAnyButton(driver, "CreditCardPrompCheckBox");
+			Thread.sleep(1000);
+			clickonAnyButton(driver, "CreditCardPromptDivOk");
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+			
+			driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+			Hooks.scenario.log("Switched to credit card details frame");
+			sendText(makePayment.txtCardNumber, "5424000000000015");
+			sendText(makePayment.txtExpiryDate, "1224");
+			sendText(makePayment.txtCVV, "123");
+			sendText(makePayment.txtFirstName, "First Name");
+			sendText(makePayment.txtLastName, "Last Name");
+			sendText(makePayment.txtZip, "123456");
+			sendText(makePayment.txtAddress, "1234 Street");
+			sendText(makePayment.txtCity, "City");
+			sendText(makePayment.txtState, "State");
+			sendText(makePayment.txtPhoneNumber, "123-456-7895");
+			sendText(makePayment.txtCompanyNameID, "Company");
+			wait(3);
+			click(makePayment.btnSaveButton);
+			driver.switchTo().defaultContent();
+			wait(2);
+			
+			sendText(driver.findElement(By.id("ReceiptAmt")), AmountPaid);
+			Thread.sleep(3000);
+			click(driver.findElement(By.id("SubmitPayment")));
+			wait(3);
+			acceptAlert();
+			click(driver.findElement(By.id("dialogOK")));
+			wait(1);
+			Thread.sleep(2000);
+			
+			Set <String> DriverFocus2 = driver.getWindowHandles();
+			Iterator<String> IteratorDriverFocus2 = DriverFocus2.iterator();
+			String ParentWindow2 =  IteratorDriverFocus2.next();
+
+			driver.switchTo().window(ParentWindow2);
+			Thread.sleep(200);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		}	
+		public static void addSamplePDF(WebDriver driver) throws Exception {
+			try {
+				Thread.sleep(12000);
+				StringSelection ss = new StringSelection(System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\TestingPDF.pdf");
+			    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+				
+			    Robot robot = new Robot();
+			    Thread.sleep(1000);
+			    robot.keyPress(KeyEvent.VK_ENTER);
+			    robot.keyRelease(KeyEvent.VK_ENTER);
+			    Thread.sleep(3000);
+			    robot.keyPress(KeyEvent.VK_CONTROL);
+			    robot.keyPress(KeyEvent.VK_V);
+			    robot.keyRelease(KeyEvent.VK_V);
+			    robot.keyRelease(KeyEvent.VK_CONTROL);
+			    Thread.sleep(5000);
+			    robot.keyPress(KeyEvent.VK_ENTER);
+			    robot.keyRelease(KeyEvent.VK_ENTER);
+			    Thread.sleep(15000);
+			    click(attachmentsChevron.btnAddAttachment);
+			    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));;
+				} catch (Exception e) {
+				Hooks.scenario.log("AddAttachment was not clicked");
+				wait(5);
+			}  
+		}	public static boolean verify_AnyLink_IsVisible(WebDriver driver, String text) throws Exception {
+			Thread.sleep(2000);
+
+			
+			try {
+	            if(driver.findElement(By.xpath("//a[contains(text(), '" + text +"')]")).isDisplayed()) {  
+	            	Hooks.scenario.log("Link is visible: " +  text);            	
+	            	return true;
+	            	}
+	    		return true;   	
+
+	            } catch (Exception e) {
+	    			Hooks.scenario.log("Link is NOT visible: " +  text);
+	    			wait(5);
+	    			return false;
+	            	}	
+		}
+		   public static void clickonAnyExpandButton(WebDriver driver,String ImageText) throws Exception {
+		    	try {
+		    		
+		    		driver.findElement(By.xpath("//*[contains(text(),'"+ImageText+"')]//preceding-sibling::*/i")).click();
+		    		
+		    		wait(1);
+		    		Hooks.scenario.log(" Expand button was clicked");
+		    	} catch (Exception e) {
+		    		Hooks.scenario.log(" Expand button was not clicked");
+		    		wait(5);
+		    	}	
+		    }
+		   public static String getArbitrationTaskStatus(WebDriver driver, String task) throws Exception {
+				String status = null;
+				try {
+					
+					status = driver.findElement(By.xpath("//*[contains(text(),'"+task+"')]//following::*[5]")).getText().toString();
+					Hooks.scenario.log("Status: " + status);
+				} catch (Exception e) {
+					Hooks.scenario.log("Status: " + status);
+					wait(5);
+				}
+				return status.toString();
+				}
+
+			public static String getArbitrationTaskWorkDate(WebDriver driver, String task) throws Exception {
+				String workDate = null;
+				try {
+					workDate = driver.findElement(By.xpath("//*[contains(text(),'"+task+"')]//following::*[6]")).getText().toString();
+					Hooks.scenario.log("Work Date: " + workDate);
+				} catch (Exception e) {
+					Hooks.scenario.log("Work Date: " + workDate);
+					wait(5);
+				}
+				return workDate.toString();
+			}
+			public static String editDescriptionTask(WebDriver driver, String description) throws Exception {
+				
+				try {
+					driver.findElement(By.id("Attachment.Description")).clear();
+					driver.findElement(By.id("Attachment.Description")).sendKeys(description);
+					Hooks.scenario.log(description+" is added added in Description field");
+				} catch (Exception e) {
+					Hooks.scenario.log(description+" was not added in description field");
+					wait(4);
+				}
+				return driver.findElement(By.id("Attachment.Description")).getAttribute("value").toString();  
+			}
+			public static String getScreenShot(WebDriver driver, String screenshotName) throws Exception {
+			    String time = new SimpleDateFormat("hh_mm_ss a").format(new Date());
+			    String monthYearName = new SimpleDateFormat("MMM yyyy").format(new Date());
+			    TakesScreenshot ts = (TakesScreenshot) driver;
+			    File source = ts.getScreenshotAs(OutputType.FILE);
+
+			    String destination = System.getProperty("user.dir") + "/Tests Screenshots/" +
+			            "/" + monthYearName + "/" +
+			            screenshotName + time + ".png";
+			    
+			    File finalDestination = new File(destination);
+			    FileUtils.copyFile(source, finalDestination);
+			    
+			    return destination;
+			}
+			/**
+			 * This method taking screenshot and attaching to the step
+			 * 
+			 */
+			public static void attachScreenShot(WebDriver driver) throws Exception {
+			    String screenShotPath = getScreenShot(driver, "Screenshot - ");
+			    
+			    // Read the image file as a byte array
+			    byte[] fileContent = FileUtils.readFileToByteArray(new File(screenShotPath));
+			    
+			    // Encode the byte array to base64
+			    String base64Encoded = Base64.encodeBase64String(fileContent);
+			    
+			    // Embed the base64 encoded image using HTML or Markdown syntax
+			    String embedHtml = "<img src='data:image/png;base64," + base64Encoded + "'/>";
+			    
+			    // Log the message with the screenshot path and embedded image
+			    Hooks.scenario.log("Snapshot: " + screenShotPath + "\n" + embedHtml);
+			    
+			    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+			}
+			
+			public static void verifyAnyTextbox_EnabledDisabled(WebDriver driver, String elementName) throws Exception {
+				attachScreenShot(driver);
+
+				try {
+					
+					WebElement ele = driver.findElement(By.id(""+elementName+""));
+					
+						if(ele.isEnabled()) {
+							Hooks.scenario.log(elementName+"  is Editable");
+						}	else if(!(ele.isEnabled())) {
+							Hooks.scenario.log(elementName+"  is Disabled");
+						} else {
+							Hooks.scenario.log(elementName+"  is not able to validate");
+						}										
+				} catch (Exception e) {
+					Hooks.scenario.log(elementName+" not able to validate");
+					wait(5);
+				}
+			}
 }
