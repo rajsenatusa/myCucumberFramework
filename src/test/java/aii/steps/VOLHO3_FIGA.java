@@ -28,7 +28,13 @@ public class VOLHO3_FIGA extends CommonMethods {
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	wait(1);
 	}
-	
+	@Then("User validates 2024 FIGA HO3 rate")
+	public void User_validates_2024_FIGA_HO3_rate() {
+	String expected = "0.0100";
+	String actual = dashboard.fIGA2024HO3.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	wait(1);
+	}
 	
 	
 	

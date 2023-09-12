@@ -4,7 +4,7 @@ import org.junit.Assert;
 import aii.utils.CommonMethods;
 import io.cucumber.java.en.Then;
 
-public class VOLH06_FIGA extends CommonMethods {
+public class VOLHO6_FIGA extends CommonMethods {
 		
 	@Then("User validates New FIGA VOL HO6 rate")
 	public void User_validates_New_FIGA_VOL_H06_rate() {
