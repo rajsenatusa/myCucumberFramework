@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
-@NB_Policy_VOLHO3
-Feature: New Business Policy VOL HO3
+@FIGA-VOLHO3 
+Feature: RC-1098: 2023 Rate Changes- FIGA: VOL HO3- 10/01/2023
 
-  @NB_Policy_VOLHO3-11 @healthcheck11
-  Scenario Outline: NB VOL HO3
+  @FIGA-VOLHO3-11 @FIGA
+  Scenario Outline: RC-1442: RC-1098 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL HO3 - NB = Eff. Date
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -61,8 +61,12 @@ Feature: New Business Policy VOL HO3
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
-    Then User verifies NB HO3 policy has been created successfully
+    And User returns to main page
+    And User clicks Worksheets chevron
+    Then User validates 2024 FIGA HO3 rate
 
     Examples: Test Data
       | username | password   | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | Sep@2023! | 09/11/2023     | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      |  mcemek  | Sep@2023! | 01/01/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+
+  

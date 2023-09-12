@@ -34,7 +34,7 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User enters Distance to Hydrant_Accredited Water Source
     And User enters Dwelling Type
     And User enters Number of stories
-    And User enters Roof Material   
+    And User enters Roof Material
     And User enters DP3 Mandatory Mediation Arbitration
     And User calculates replacement cost
     And User enters DP3 Pay Plan Type
@@ -45,13 +45,11 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User returns to main page
     And User clicks Worksheets chevron
     Then User validates New FIGA DP3 rate
-    
 
     Examples: Test Data
-      | username | password | FIGADP3EffectiveDate |
-      |  mkoziel | Aug@2023! | 10/01/2023           |
+      | username | password  | FIGADP3EffectiveDate |
+      | mcemek   | Sep@2023! | 01/01/2024           |
 
- 
   @FIGA-VOLDP3-2
   Scenario Outline: FIGA VOL DP3-09/30/2023: NB before Effective Date
     Given User navigates to QA7
@@ -83,7 +81,7 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User enters Distance to Hydrant_Accredited Water Source
     And User enters Dwelling Type
     And User enters Number of stories
-    And User enters Roof Material   
+    And User enters Roof Material
     And User enters DP3 Mandatory Mediation Arbitration
     And User calculates replacement cost
     And User enters DP3 Pay Plan Type
@@ -94,14 +92,12 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User returns to main page
     And User clicks Worksheets chevron
     Then User validates Previous FIGA DP3 rate
-    
 
     Examples: Test Data
       | username | password | FIGADP3EffectiveDate |
-      |  mkoziel | password | 09/30/2023           |
+      | mkoziel  | password | 09/30/2023           |
 
-
-	@FIGA-VOLDP3-3
+  @FIGA-VOLDP3-3
   Scenario Outline: FIGA VOL DP3-10/01/2023: RN on Effective Date
     Given User navigates to QA7
     And User enters a valid user name "<username>"
@@ -132,7 +128,7 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User enters Distance to Hydrant_Accredited Water Source
     And User enters Dwelling Type
     And User enters Number of stories
-    And User enters Roof Material   
+    And User enters Roof Material
     And User enters DP3 Mandatory Mediation Arbitration
     And User calculates replacement cost
     And User enters DP3 Pay Plan Type
@@ -140,7 +136,7 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User clicks Next Page
     And User clicks Finalize button
     And User selects Payment Type
-    And User clicks Issue New Business  
+    And User clicks Issue New Business
     And User returns to main page
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
@@ -152,35 +148,7 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User returns to main page
     And User clicks Worksheets chevron
     Then User validates New FIGA DP3 rate
-    
 
     Examples: Test Data
       | username | password | FIGADP3EffectiveDate |
-      |  mkoziel | password | 10/01/2022           |
-
-
-
-
-
-
- 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
+      | mkoziel  | password | 10/01/2022           |
