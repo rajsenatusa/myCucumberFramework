@@ -1,6 +1,5 @@
 package aii.utils;
 
-
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
@@ -41,7 +40,6 @@ public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
-	
 
 	/**
 	 * This method clears a textbox and sends another text.
@@ -248,21 +246,23 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+
 	/**
 	 * This method close unnecessary tabs.
 	 * 
 	 */
 	public static void closeUnnecessaryTabs() {
-    ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-    for (int i = tabs.size() - 1; i > 0; i--) {
-        driver.switchTo().window(tabs.get(i));
-        driver.close();
-    }
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+		for (int i = tabs.size() - 1; i > 0; i--) {
+			driver.switchTo().window(tabs.get(i));
+			driver.close();
+		}
 
-    // Switch back to the main page
-    driver.switchTo().window(tabs.get(0));
-    wait(3);
+		// Switch back to the main page
+		driver.switchTo().window(tabs.get(0));
+		wait(3);
 	}
+
 	/**
 	 * This method switches focus back to a main window.
 	 * 
@@ -1484,10 +1484,10 @@ public class CommonMethods extends PageInitializer {
 		wait(3);
 
 	}
-	
-	public static void ChangeDate_Admin (WebDriver driver, String date) throws Exception {
-		
-		clickAdminTab(driver);	
+
+	public static void ChangeDate_Admin(WebDriver driver, String date) throws Exception {
+
+		clickAdminTab(driver);
 		clickAdminTab(driver);
 		selectChangeDate(driver);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
@@ -1495,114 +1495,115 @@ public class CommonMethods extends PageInitializer {
 		setNewDate(driver, date);
 		clickChangeDtBtn(driver);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
-	
+
 		setBookDate(driver, date);
 		clickChangeBookDtBtn(driver);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
-		
+
 		returnInbox(driver);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));	
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
 	}
 
-public static void clickAdminTab(WebDriver driver) throws Exception {
-	try {
-		driver.findElement(By.id("Menu_Admin")).click();
-		wait(4);
-		Hooks.scenario.log("Admin tab was selected");
-	} catch (Exception e) {
-		Hooks.scenario.log("Admin tab was not selected");
-		wait(5);
+	public static void clickAdminTab(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("Menu_Admin")).click();
+			wait(4);
+			Hooks.scenario.log("Admin tab was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Admin tab was not selected");
+			wait(5);
 		}
 	}
 
-public static void selectChangeDate(WebDriver driver) throws InterruptedException {	
+	public static void selectChangeDate(WebDriver driver) throws InterruptedException {
 
-	try {
-		Thread.sleep(250);
-		driver.findElement(By.id("Menu_Admin_ChangeDate")).click();
-		wait(4);
-		Hooks.scenario.log("Change date was selected");
-	} catch (Exception e) {
-		Hooks.scenario.log("Change date was not selected");
+		try {
+			Thread.sleep(250);
+			driver.findElement(By.id("Menu_Admin_ChangeDate")).click();
+			wait(4);
+			Hooks.scenario.log("Change date was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Change date was not selected");
 		}
 	}
 
-public static void setNewDate(WebDriver driver, String newDt) throws Exception {
-	try {
-		if (driver.findElement(By.id("NewDate")).isDisplayed()) {
-			driver.findElement(By.id("NewDate")).clear();
-			driver.findElement(By.id("NewDate")).sendKeys(newDt.toString());
-		} else {
-			SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy"); 
-			driver.findElement(By.id("NewDate")).sendKeys(dt.format(new Date()));
+	public static void setNewDate(WebDriver driver, String newDt) throws Exception {
+		try {
+			if (driver.findElement(By.id("NewDate")).isDisplayed()) {
+				driver.findElement(By.id("NewDate")).clear();
+				driver.findElement(By.id("NewDate")).sendKeys(newDt.toString());
+			} else {
+				SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+				driver.findElement(By.id("NewDate")).sendKeys(dt.format(new Date()));
 			}
-		Hooks.scenario.log("New Date: " + newDt);
-	} catch (Exception e) {
+			Hooks.scenario.log("New Date: " + newDt);
+		} catch (Exception e) {
 			Hooks.scenario.log("New Date: " + newDt);
 			wait(4);
-		}		
+		}
 	}
 
-public static void clickChangeDtBtn(WebDriver driver) throws Exception {
-	try {
-		driver.findElement(By.id("ChangeDate")).click();
-		wait(4);
-		Hooks.scenario.log("Change date was selected");
-	} catch (Exception e) {
-		Hooks.scenario.log("Change date was not selected");
-		wait(4);
+	public static void clickChangeDtBtn(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("ChangeDate")).click();
+			wait(4);
+			Hooks.scenario.log("Change date was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Change date was not selected");
+			wait(4);
 		}
 	}
-	
-public static void clickChangeBookDtBtn(WebDriver driver) throws Exception {
-	try {
-		driver.findElement(By.id("ChangeBookDate")).click();
-		wait(4);
-		Hooks.scenario.log("Change book date was selected");
-	} catch (Exception e) {
-		Hooks.scenario.log("Change book date was not selected");
-		wait(4);
+
+	public static void clickChangeBookDtBtn(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("ChangeBookDate")).click();
+			wait(4);
+			Hooks.scenario.log("Change book date was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Change book date was not selected");
+			wait(4);
 		}
 	}
-	
-public static void setBookDate(WebDriver driver, String newBookDt) throws Exception {
-	try {
-		if (driver.findElement(By.id("NewBookDate")).isDisplayed()) {
-			driver.findElement(By.id("NewBookDate")).clear();
-			driver.findElement(By.id("NewBookDate")).sendKeys(newBookDt.toString());
-		} else {
-			SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy"); 
-			driver.findElement(By.id("NewBookDate")).sendKeys(dt.format(new Date()));
-		}
+
+	public static void setBookDate(WebDriver driver, String newBookDt) throws Exception {
+		try {
+			if (driver.findElement(By.id("NewBookDate")).isDisplayed()) {
+				driver.findElement(By.id("NewBookDate")).clear();
+				driver.findElement(By.id("NewBookDate")).sendKeys(newBookDt.toString());
+			} else {
+				SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+				driver.findElement(By.id("NewBookDate")).sendKeys(dt.format(new Date()));
+			}
 			Hooks.scenario.log("New Book Date: " + newBookDt);
 		} catch (Exception e) {
 			Hooks.scenario.log("New Book Date: " + newBookDt);
 			wait(5);
-		}		
-	}
-
-public static void returnInbox(WebDriver driver) throws Exception {
-	try {
-		driver.findElement(By.id("Return")).click();
-		Thread.sleep(500);
-		wait(4);
-		Hooks.scenario.log("Return to Inbox was selected");	
-	} catch (Exception e) {
-		Hooks.scenario.log("Return to Inbox was not selected");
-		wait(5);
 		}
 	}
 
-public static void clickUserManagementTab(WebDriver driver) throws Exception {
-	try {
-		driver.findElement(By.id("Menu_Admin_UserManagement")).click();
-		wait(4);
-		Hooks.scenario.log("Menu_Admin_UserManagement was selected");	
-	} catch (Exception e) {
-		Hooks.scenario.log("Menu_Admin_UserManagement was not selected");
-		wait(5);
+	public static void returnInbox(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("Return")).click();
+			Thread.sleep(500);
+			wait(4);
+			Hooks.scenario.log("Return to Inbox was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Return to Inbox was not selected");
+			wait(5);
 		}
-}
+	}
+
+	public static void clickUserManagementTab(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("Menu_Admin_UserManagement")).click();
+			wait(4);
+			Hooks.scenario.log("Menu_Admin_UserManagement was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Menu_Admin_UserManagement was not selected");
+			wait(5);
+		}
+	}
+
 	/**
 	 * This method sets start date on task dashboard
 	 * 
@@ -1696,11 +1697,13 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 			wait(5);
 		}
 	}
+
 	/**
 	 * This method click arrow to work on multi select task
 	 * 
 	 */
-	public static void clickArrowToWorkonMultiSelectTask(WebDriver driver, String policy, String task) throws Exception {
+	public static void clickArrowToWorkonMultiSelectTask(WebDriver driver, String policy, String task)
+			throws Exception {
 
 		try {
 			driver.findElement(By.xpath("(//*[contains(text(),'" + policy + "')])[1]//following::*[8]")).click();
@@ -1711,6 +1714,7 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 			wait(5);
 		}
 	}
+
 	/**
 	 * This method sets suspend date
 	 * 
@@ -1720,283 +1724,292 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 			driver.findElement(By.id("SuspendUntil")).clear();
 			driver.findElement(By.id("SuspendUntil")).sendKeys(SuspendUntil.toString());
 			Hooks.scenario.log("SuspendUntil: " + SuspendUntil);
-		
+
 		} catch (Exception e) {
 			Hooks.scenario.log("SuspendUntil: " + SuspendUntil);
 			wait(5);
-		}		
+		}
 	}
+
 	/**
 	 * This method sets suspend comments
 	 * 
 	 */
-		public static void setSuspendComments(WebDriver driver, String SuspendComments) throws Exception {
+	public static void setSuspendComments(WebDriver driver, String SuspendComments) throws Exception {
 		try {
 			driver.findElement(By.id("SuspendComments")).clear();
 			driver.findElement(By.id("SuspendComments")).sendKeys(SuspendComments.toString());
 			Hooks.scenario.log("SuspendComments: " + SuspendComments);
-		
+
 		} catch (Exception e) {
 			Hooks.scenario.log("SuspendComments: " + SuspendComments);
 			wait(5);
-		}		
+		}
 	}
-		/**
-		 * This method clicks suspend
-		 * 
-		 */
-		public static void clickSuspend(WebDriver driver) throws Exception {
+
+	/**
+	 * This method clicks suspend
+	 * 
+	 */
+	public static void clickSuspend(WebDriver driver) throws Exception {
 		try {
 			driver.findElement(By.id("Suspend")).click();
 			Hooks.scenario.log("Clicked on Suspend button");
-		
+
 		} catch (Exception e) {
 			Hooks.scenario.log("Clicked on Suspend button");
 			wait(5);
-		}		
+		}
 	}
-		/**
-		 * This method clicks task edit link
-		 * 
-		 */
-		public static void clickGeneratedTaskEditLink(WebDriver driver, String task) throws Exception {
-			try {
-				driver.findElement(By.xpath("(//*[contains(text(),'"+task+"')])[1]//following::*[2]")).click();;
-				Hooks.scenario.log("Click on "+task+" task edit link");
-			} catch (Exception e) {
-				Hooks.scenario.log("Click on "+task+" task edit link");
-				wait(5);
-			}
-		}
-		
-		/**
-		 * This method checks any checkbox is enabled and not been selected
-		 * 
-		 */
-		public static void verifyAnyCoverageCheckbox_EnabledAndNotSelected(WebDriver driver, String elementName) throws Exception {
 
-			try {
-				WebElement elePolicyDist = driver.findElement(By.id("Building."+elementName+"Ind"));
-
-				if (elePolicyDist.isEnabled() && !(elePolicyDist.isSelected()))	{
-					Hooks.scenario.log(elementName+"  is Editable and not selected");
-			
-					} else if (!(elePolicyDist.isEnabled()) && (elePolicyDist.isSelected())) {
-						Hooks.scenario.log(elementName+"  is Not Editable and selected");
-					} else if (!(elePolicyDist.isEnabled()) && !(elePolicyDist.isSelected())) {
-						Hooks.scenario.log(elementName+"  is neither Editable nor selected");
-			   } else {
-				  Hooks.scenario.log(elementName+"  is not able to validate");
-			   }
-												
-			} catch (Exception e) {
-				Hooks.scenario.log(elementName+" not able to validate");
-				wait(5);
-			}
+	/**
+	 * This method clicks task edit link
+	 * 
+	 */
+	public static void clickGeneratedTaskEditLink(WebDriver driver, String task) throws Exception {
+		try {
+			driver.findElement(By.xpath("(//*[contains(text(),'" + task + "')])[1]//following::*[2]")).click();
+			;
+			Hooks.scenario.log("Click on " + task + " task edit link");
+		} catch (Exception e) {
+			Hooks.scenario.log("Click on " + task + " task edit link");
+			wait(5);
 		}
-		/**
-		 * This method runs auto renewal on desired term for a desired policy with batch jobs
-		 * 
-		 */
-		public static String runAutoRenewPolicy(WebDriver driver, String PolicyNumber, String currentTerm, String newTerm) throws Exception {
-			
+	}
+
+	/**
+	 * This method checks any checkbox is enabled and not been selected
+	 * 
+	 */
+	public static void verifyAnyCoverageCheckbox_EnabledAndNotSelected(WebDriver driver, String elementName)
+			throws Exception {
+
+		try {
+			WebElement elePolicyDist = driver.findElement(By.id("Building." + elementName + "Ind"));
+
+			if (elePolicyDist.isEnabled() && !(elePolicyDist.isSelected())) {
+				Hooks.scenario.log(elementName + "  is Editable and not selected");
+
+			} else if (!(elePolicyDist.isEnabled()) && (elePolicyDist.isSelected())) {
+				Hooks.scenario.log(elementName + "  is Not Editable and selected");
+			} else if (!(elePolicyDist.isEnabled()) && !(elePolicyDist.isSelected())) {
+				Hooks.scenario.log(elementName + "  is neither Editable nor selected");
+			} else {
+				Hooks.scenario.log(elementName + "  is not able to validate");
+			}
+
+		} catch (Exception e) {
+			Hooks.scenario.log(elementName + " not able to validate");
+			wait(5);
+		}
+	}
+
+	/**
+	 * This method runs auto renewal on desired term for a desired policy with batch
+	 * jobs
+	 * 
+	 */
+	public static String runAutoRenewPolicy(WebDriver driver, String PolicyNumber, String currentTerm, String newTerm)
+			throws Exception {
+
 //			Example format: RunBatchJobs.runAutoRenewPolicy(driver, policyNum, "01", "02", logger);--First renewal
 //							RunBatchJobs.runAutoRenewPolicy(driver, policyNum, "02", "03", logger);--Second renewal
-			
-			
-				//search and verify for policy 
-				searchForPolicy(driver, PolicyNumber);
-				
-				//Perform auto-renewal 
-				selectTaskTab(driver);
-				selectShowAll(driver);
-				checkShowSysTask(driver);
-				String preAutoDt = getPreAutoRenewDate(driver).toString();
-				String autoRenewDt = getAutoRenewDate(driver).toString();	
-				
-				//Auto-renewal
-				runAutoRenewalOnSinglePolicy(driver, PolicyNumber, preAutoDt, autoRenewDt);							
-				String temp = replaceMethod(PolicyNumber, "-"+currentTerm, "");
-				String RenewalTerm = temp + "-"+newTerm;
-				Thread.sleep(12000);
-				driver.findElement(By.id("Menu_Workflow")).click();//*[@id="Menu_Workflow"]
-				wait(15);
-				Thread.sleep(15000);
-				setPolicyNumSearch(driver, RenewalTerm);
-				clickSearchBtn(driver);	
-				Thread.sleep(500);
-				clickApplicationTab(driver);
-				wait(4);
-				
-				return RenewalTerm;
-			}
-		
-		public static void clickApplicationTab(WebDriver driver) throws Exception {
-			try {
-				driver.findElement(By.id("Tab_Policy")).click();
-				Hooks.scenario.log("Policy Tab was selected");
-			} catch (Exception e) {
-				Hooks.scenario.log("Policy Tab was not checked");
-				wait(5);
-			}  
+
+		// search and verify for policy
+		searchForPolicy(driver, PolicyNumber);
+
+		// Perform auto-renewal
+		selectTaskTab(driver);
+		selectShowAll(driver);
+		checkShowSysTask(driver);
+		String preAutoDt = getPreAutoRenewDate(driver).toString();
+		String autoRenewDt = getAutoRenewDate(driver).toString();
+
+		// Auto-renewal
+		runAutoRenewalOnSinglePolicy(driver, PolicyNumber, preAutoDt, autoRenewDt);
+		String temp = replaceMethod(PolicyNumber, "-" + currentTerm, "");
+		String RenewalTerm = temp + "-" + newTerm;
+		Thread.sleep(12000);
+		driver.findElement(By.id("Menu_Workflow")).click();// *[@id="Menu_Workflow"]
+		wait(15);
+		Thread.sleep(15000);
+		setPolicyNumSearch(driver, RenewalTerm);
+		clickSearchBtn(driver);
+		Thread.sleep(500);
+		clickApplicationTab(driver);
+		wait(4);
+
+		return RenewalTerm;
+	}
+
+	public static void clickApplicationTab(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("Tab_Policy")).click();
+			Hooks.scenario.log("Policy Tab was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Policy Tab was not checked");
+			wait(5);
 		}
-		/**
-		 * This method runs batch jobs for a desired policy
-		 * 
+	}
+
+	/**
+	 * This method runs batch jobs for a desired policy
+	 * 
+	 */
+	public static void runBatchJobs(WebDriver driver, String PolicyNumber) throws Exception {
+		/*
+		 * ADMIN: run batch jobs for PreAutoRenewal ONLY AR Cycle Action, Task System
+		 * Action and Process ACH Requests
 		 */
-		public static void runBatchJobs(WebDriver driver, String PolicyNumber) throws Exception {	
-			/*
-			 * ADMIN: run batch jobs for PreAutoRenewal
-			 * ONLY AR Cycle Action,  Task System Action and Process ACH Requests
-			 */
-			Thread.sleep(250);
-			click(batchjobs.btnOperationsTab);
-			click(batchjobs.btnSelectBatch);
-			wait(5);
+		Thread.sleep(250);
+		click(batchjobs.btnOperationsTab);
+		click(batchjobs.btnSelectBatch);
+		wait(5);
 
-			click(batchjobs.btnSelectDailyJob);
-			wait(5);
-			
-			setPolicyDisplayNum(driver, PolicyNumber);
-			setAcctDisplayNum(driver, PolicyNumber);
-			Thread.sleep(250);
-			
-			click(batchjobs.btnProcessAchExceptions);
-			click(batchjobs.btnAutomatedBatchReceiptsPost);
-			click(batchjobs.btnScheduledAutomatedBatchReceiptPost);
-			click(batchjobs.btnActionClaimScheduledPayment);
-			click(batchjobs.btnReleaseAllTheStandardACHPAymentRequest_ClaimsPersonalACH);
-			click(batchjobs.btnReleaseAllTheStandardACHRefundRequest_AccountBill);
-			click(batchjobs.btnPostingDateRollForwardAction);
-			click(batchjobs.btnDailyWrittenToReceivables);
-			click(batchjobs.btnDailyWrittenToReceivablesVerifyAction);
-			click(batchjobs.btnGLDailyGeneralLedger);
-			click(batchjobs.btnIncrementalDatamartExport);
-			click(batchjobs.btnUpdateIncrementalLastRunDate);
-			click(batchjobs.btnCompleteIndemnityPaymentReminderTask);
-			click(batchjobs.btnInitiateStatsJob);
-			click(batchjobs.btnInitiateDailyTaskAndBatchPrintJobs);
+		click(batchjobs.btnSelectDailyJob);
+		wait(5);
+
+		setPolicyDisplayNum(driver, PolicyNumber);
+		setAcctDisplayNum(driver, PolicyNumber);
+		Thread.sleep(250);
+
+		click(batchjobs.btnProcessAchExceptions);
+		click(batchjobs.btnAutomatedBatchReceiptsPost);
+		click(batchjobs.btnScheduledAutomatedBatchReceiptPost);
+		click(batchjobs.btnActionClaimScheduledPayment);
+		click(batchjobs.btnReleaseAllTheStandardACHPAymentRequest_ClaimsPersonalACH);
+		click(batchjobs.btnReleaseAllTheStandardACHRefundRequest_AccountBill);
+		click(batchjobs.btnPostingDateRollForwardAction);
+		click(batchjobs.btnDailyWrittenToReceivables);
+		click(batchjobs.btnDailyWrittenToReceivablesVerifyAction);
+		click(batchjobs.btnGLDailyGeneralLedger);
+		click(batchjobs.btnIncrementalDatamartExport);
+		click(batchjobs.btnUpdateIncrementalLastRunDate);
+		click(batchjobs.btnCompleteIndemnityPaymentReminderTask);
+		click(batchjobs.btnInitiateStatsJob);
+		click(batchjobs.btnInitiateDailyTaskAndBatchPrintJobs);
 //			BatchJobs.clickFormatDailyIvansFile(driver, logger);		
-			click(batchjobs.btnDMIFileImportAction);
-			click(batchjobs.btnCapacityToolPolicyCountUpdate);
-			click(batchjobs.btnDailyCycleCompleteionEmailNotifications);
-			click(batchjobs.btnQuoteExpirationAction);
-			click(batchjobs.btnProcessPolicyMortgageeFIRST266FileImport);
-			click(batchjobs.btnProcessPolicyMortgageeInformationUpdate);
-			click(batchjobs.btnDailyEmailNotificationOfJobsWithErrors);
-		
-			wait(5);
-			Thread.sleep(555);
-			setPolicyDisplayNum(driver, PolicyNumber);
-			setAcctDisplayNum(driver, PolicyNumber);
-			
-			click(batchjobs.btnStartJob);
-			wait(5);
-			Thread.sleep(4000);
-			selectAutoRefresh30sec(driver);
-			//BatchJobs.selectAutoRefresh10sec(driver, logger);
-			Thread.sleep(2000);
-			wait(5);
-		
-			
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-				
-				if (driver.findElement(By.id("Job_0_Name")).isDisplayed()) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), "
-							+ "'Completed')]")));
-				}
-			
-			Thread.sleep(10000);	
-			
+		click(batchjobs.btnDMIFileImportAction);
+		click(batchjobs.btnCapacityToolPolicyCountUpdate);
+		click(batchjobs.btnDailyCycleCompleteionEmailNotifications);
+		click(batchjobs.btnQuoteExpirationAction);
+		click(batchjobs.btnProcessPolicyMortgageeFIRST266FileImport);
+		click(batchjobs.btnProcessPolicyMortgageeInformationUpdate);
+		click(batchjobs.btnDailyEmailNotificationOfJobsWithErrors);
+
+		wait(5);
+		Thread.sleep(555);
+		setPolicyDisplayNum(driver, PolicyNumber);
+		setAcctDisplayNum(driver, PolicyNumber);
+
+		click(batchjobs.btnStartJob);
+		wait(5);
+		Thread.sleep(4000);
+		selectAutoRefresh30sec(driver);
+		// BatchJobs.selectAutoRefresh10sec(driver, logger);
+		Thread.sleep(2000);
+		wait(5);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+
+		if (driver.findElement(By.id("Job_0_Name")).isDisplayed()) {
+			wait.until(
+					ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), " + "'Completed')]")));
 		}
-		
-		public static void runBatchJobs2(WebDriver driver, String PolicyNumber) throws Exception {	
-			/*
-			 * ADMIN: run batch jobs for PreAutoRenewal
-			 * ONLY AR Cycle Action and Task System Action 
-			 */
-			Thread.sleep(250);
-			click(batchjobs.btnOperationsTab);
-			click(batchjobs.btnSelectBatch);
-			wait(5);
-			click(batchjobs.btnSelectDailyJob);
-			wait(5);
-			setPolicyDisplayNum(driver, PolicyNumber);
-			setAcctDisplayNum(driver, PolicyNumber);
-			Thread.sleep(250);
-			click(batchjobs.btnProcessAchExceptions);
-			click(batchjobs.btnAutomatedBatchReceiptsPost);
-			click(batchjobs.btnScheduledAutomatedBatchReceiptPost);
-			click(batchjobs.btnActionClaimScheduledPayment);
-			click(batchjobs.btnReleaseAllTheStandardACHPAymentRequest_ClaimsPersonalACH);
-			click(batchjobs.btnReleaseAllTheStandardACHRefundRequest_AccountBill);
-			click(batchjobs.btnProcessACHRequest);
-			click(batchjobs.btnPostingDateRollForwardAction);
-			click(batchjobs.btnDailyWrittenToReceivables);
-			click(batchjobs.btnDailyWrittenToReceivablesVerifyAction);
-			click(batchjobs.btnGLDailyGeneralLedger);
-			click(batchjobs.btnIncrementalDatamartExport);
-			click(batchjobs.btnUpdateIncrementalLastRunDate);
-			click(batchjobs.btnInitiateStatsJob);
-			click(batchjobs.btnInitiateDailyTaskAndBatchPrintJobs);		
+
+		Thread.sleep(10000);
+
+	}
+
+	public static void runBatchJobs2(WebDriver driver, String PolicyNumber) throws Exception {
+		/*
+		 * ADMIN: run batch jobs for PreAutoRenewal ONLY AR Cycle Action and Task System
+		 * Action
+		 */
+		Thread.sleep(250);
+		click(batchjobs.btnOperationsTab);
+		click(batchjobs.btnSelectBatch);
+		wait(5);
+		click(batchjobs.btnSelectDailyJob);
+		wait(5);
+		setPolicyDisplayNum(driver, PolicyNumber);
+		setAcctDisplayNum(driver, PolicyNumber);
+		Thread.sleep(250);
+		click(batchjobs.btnProcessAchExceptions);
+		click(batchjobs.btnAutomatedBatchReceiptsPost);
+		click(batchjobs.btnScheduledAutomatedBatchReceiptPost);
+		click(batchjobs.btnActionClaimScheduledPayment);
+		click(batchjobs.btnReleaseAllTheStandardACHPAymentRequest_ClaimsPersonalACH);
+		click(batchjobs.btnReleaseAllTheStandardACHRefundRequest_AccountBill);
+		click(batchjobs.btnProcessACHRequest);
+		click(batchjobs.btnPostingDateRollForwardAction);
+		click(batchjobs.btnDailyWrittenToReceivables);
+		click(batchjobs.btnDailyWrittenToReceivablesVerifyAction);
+		click(batchjobs.btnGLDailyGeneralLedger);
+		click(batchjobs.btnIncrementalDatamartExport);
+		click(batchjobs.btnUpdateIncrementalLastRunDate);
+		click(batchjobs.btnInitiateStatsJob);
+		click(batchjobs.btnInitiateDailyTaskAndBatchPrintJobs);
 //			BatchJobs.clickFormatDailyIvansFile(driver, logger);
-			click(batchjobs.btnDMIFileImportAction);
-			click(batchjobs.btnCapacityToolPolicyCountUpdate);
-			click(batchjobs.btnDailyCycleCompleteionEmailNotifications);
-			click(batchjobs.btnQuoteExpirationAction);
-			click(batchjobs.btnProcessPolicyMortgageeFIRST266FileImport);
-			click(batchjobs.btnProcessPolicyMortgageeInformationUpdate);
-			click(batchjobs.btnDailyEmailNotificationOfJobsWithErrors);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		click(batchjobs.btnDMIFileImportAction);
+		click(batchjobs.btnCapacityToolPolicyCountUpdate);
+		click(batchjobs.btnDailyCycleCompleteionEmailNotifications);
+		click(batchjobs.btnQuoteExpirationAction);
+		click(batchjobs.btnProcessPolicyMortgageeFIRST266FileImport);
+		click(batchjobs.btnProcessPolicyMortgageeInformationUpdate);
+		click(batchjobs.btnDailyEmailNotificationOfJobsWithErrors);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
 
-			setPolicyDisplayNum(driver, PolicyNumber);
-			Thread.sleep(250);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			
-			click(batchjobs.btnStartJob);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		setPolicyDisplayNum(driver, PolicyNumber);
+		Thread.sleep(250);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
 
-			selectAutoRefresh30sec(driver);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-			
-			if (driver.findElement(By.id("Job_0_Name")).isDisplayed()) {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), "
-						+ "'Completed')]")));
-			}
-		
-			Thread.sleep(10000);	
-		
+		click(batchjobs.btnStartJob);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+
+		selectAutoRefresh30sec(driver);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+
+		if (driver.findElement(By.id("Job_0_Name")).isDisplayed()) {
+			wait.until(
+					ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), " + "'Completed')]")));
 		}
-		public static void runDailyJobOnDate(WebDriver driver, String PolicyNumber, String preAutoDt) throws Exception {
-			
-			/*
-			 * ADMIN: run batch jobs for Mentioned Date
-			 * ONLY AR Cycle Action and Task System Action 
-			 */
-			
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
-			Thread.sleep(200);
 
-			ChangeDate_Admin(driver, preAutoDt);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			Thread.sleep(1200);
+		Thread.sleep(10000);
 
-			runBatchJobs2(driver, PolicyNumber);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			Thread.sleep(1200);
-			
+	}
+
+	public static void runDailyJobOnDate(WebDriver driver, String PolicyNumber, String preAutoDt) throws Exception {
+
+		/*
+		 * ADMIN: run batch jobs for Mentioned Date ONLY AR Cycle Action and Task System
+		 * Action
+		 */
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+		Thread.sleep(200);
+
+		ChangeDate_Admin(driver, preAutoDt);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		Thread.sleep(1200);
+
+		runBatchJobs2(driver, PolicyNumber);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		Thread.sleep(1200);
+
+	}
+
+	public static void setPolicyDisplayNum(WebDriver driver, String policyNum) throws Exception {
+		try {
+			driver.findElement(By.id("Question_PolicyNumber")).clear();
+			driver.findElement(By.id("Question_PolicyNumber")).sendKeys(policyNum.toString());
+			Hooks.scenario.log("Policy number was entered");
+		} catch (Exception e) {
+			Hooks.scenario.log("Policy Number was not entered");
+			wait(5);
 		}
-		public static void setPolicyDisplayNum(WebDriver driver, String policyNum) throws Exception {
-			try {
-				driver.findElement(By.id("Question_PolicyNumber")).clear();
-				driver.findElement(By.id("Question_PolicyNumber")).sendKeys(policyNum.toString());
-				Hooks.scenario.log("Policy number was entered");
-			} catch (Exception e) {
-				Hooks.scenario.log("Policy Number was not entered");
-				wait(5);
-			}	
 	}
 
 	public static void setAcctDisplayNum(WebDriver driver, String policyNum) throws Exception {
@@ -2007,706 +2020,814 @@ public static void clickUserManagementTab(WebDriver driver) throws Exception {
 		} catch (Exception e) {
 			Hooks.scenario.log("Account Number was not entered");
 			wait(5);
-		}	
+		}
 	}
-		public static void selectAutoRefresh30sec(WebDriver driver) throws Exception {
-			try {
-				Select entityType = new Select (driver.findElement(By.name("RefreshInterval")));	
-				entityType.selectByVisibleText("Every 30 seconds".toString());
-				Hooks.scenario.log("Filter Task: Every 30 seconds");
-			} catch (Exception e) {
-				Hooks.scenario.log("Filter Task: Every 30 seconds");
-				wait(5);
-			}	
-		}
-	
-		public static void runAutoRenewalOnSinglePolicy(WebDriver driver, String PolicyNumber, String preAutoDt, String autoRenewDt) throws Exception {
-			
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
-			Thread.sleep(200);
 
-			ChangeDate_Admin(driver, preAutoDt);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			Thread.sleep(1500);
-		
-			runBatchJobs(driver, PolicyNumber);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
-			Thread.sleep(1500);
-
-			ChangeDate_Admin(driver, autoRenewDt);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			Thread.sleep(1500);
-
-			runBatchJobs(driver, PolicyNumber);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			Thread.sleep(1500);
-
-		}
-		/**
-		 * This method searches desired policy on dashboard
-		 * 
-		 */	
-		public static void searchForPolicy (WebDriver driver, String policyNum) throws Exception {
-			
-			wait(4);
-
-			setPolicyNumSearch(driver, policyNum);
-			clickSearchBtn(driver);
-			wait(4);
-
-			Thread.sleep(500);
-			driver.navigate().refresh();
-			
-			setPolicyNumSearch(driver, policyNum);
-			Thread.sleep(100);
-			clickSearchBtn(driver);
-			wait(4);
-		}
-		/**
-		 * This method clicks Search button
-		 * 
-		 */
-		public static void clickSearchBtn(WebDriver driver) throws Exception {
-			 try {
-				driver.findElement(By.id("ToolbarSearch")).click();
-					                                                wait(3);
-				Hooks.scenario.log("Search button was clicked ");
-			} catch (Exception e) {
-				Hooks.scenario.log("Search button was not clicked");
-				wait(4);
-			}
-				Thread.sleep(500);
-		}
-		/**
-		 * This method searches desired policy
-		 * 
-		 */
-		public static void setPolicyNumSearch(WebDriver driver, String policyNum) throws Exception {
-			try {
-				driver.findElement(By.id("ToolbarSearchText")).clear();
-				driver.findElement(By.id("ToolbarSearchText")).sendKeys(policyNum.toString());
-				Hooks.scenario.log("Policy Number: " + policyNum);
-			} catch (Exception e) {
-				Hooks.scenario.log("Policy Number: " + policyNum);
-				wait(5);
-			}
-		}
-		/**
-		 * This method selects tasks tab
-		 * 
-		 */
-		public static void selectTaskTab(WebDriver driver) throws Exception {
-			try {
-				driver.findElement(By.id("Tab_Tasks")).click();
-				wait(5);
-				Hooks.scenario.log("Task tab was selected");
-			} catch (Exception e) {
-				Hooks.scenario.log("Task tab was not selected");
-				wait(5);
-			}
-		}
-		/**
-		 * This method selects show all
-		 * 
-		 */
-
-		public static void selectShowAll(WebDriver driver) throws Exception {
-			try {
-				
-				driver.findElement(By.id("ShowAll")).click();
-				wait(5);
-				Hooks.scenario.log("ShowAll was selected");
-			} catch (Exception e) {
-				Hooks.scenario.log("ShowAll was selected");
-				wait(5);
-			}	
-		}
-		/**
-		 * This method selects show system task
-		 * 
-		 */
-		public static void checkShowSysTask(WebDriver driver) throws Exception {
-			try {
-				driver.findElement(By.id("SystemTaskInd")).click();
-				wait(5);
-				Hooks.scenario.log("Show system task was selected");
-				Thread.sleep(500);
-			} catch (Exception e) {
-				Hooks.scenario.log("Show system task was not selected");
-				wait(5);
-			}
-		}
-		/**
-		 * This method gets preAuto Renewal Date for policy
-		 * 
-		 */
-		public static Object getPreAutoRenewDate(WebDriver driver) throws Exception {
-			String preAutoRenewDt = null;
-			try {
-				driver.findElement(By.xpath("//*[contains(text(), 'System')]"));
-				preAutoRenewDt = driver.findElement(By.xpath("(//*[contains(text(),'Pre-Automated Renewal Validation for Policy')])[1]//following-sibling::*[6]")).getText().toString();
-				Hooks.scenario.log("PreAutomatic Renewal Date: " + preAutoRenewDt);
-			} catch (Exception e) {
-				Hooks.scenario.log("PreAutomatic Renewal Date: " + preAutoRenewDt);
-				wait(5);
-			}
-			return preAutoRenewDt.toString();
-		}
-		/**
-		 * This method gets Automated Renewal Date for policy
-		 * 
-		 */
-		public static Object getAutoRenewDate(WebDriver driver) throws Exception {
-			String AutoRenewDt = null;
-			try {
-				driver.findElement(By.xpath("//*[contains(text(), 'System')]"));
-				AutoRenewDt = driver.findElement(By.xpath("(//*[contains(text(),'Automated Renewal for Policy')])[1]//following-sibling::*[6]")).getText().toString();
-				Hooks.scenario.log("Automatic Renewal Date: " + AutoRenewDt);
-			} catch (Exception e) {
-				Hooks.scenario.log("Automatic Renewal Date: " + AutoRenewDt);
-				wait(5);
-			}
-			
-			return AutoRenewDt.toString();
-		}
-		/**
-		 * This method gets Scheduled Task Description on Tasks Chevron
-		 * 
-		 */
-		public static Object getScheduledTaskDescription(WebDriver driver, String taskName) throws Exception {
-			
-			String taskDescription = null;
-					
-					try {
-						taskDescription = driver.findElement(By.xpath("(//*[contains(text(), '" + taskName + "')])[1]")).getText().toString();
-						Hooks.scenario.log(taskName + " task description: " + taskDescription);
-					} catch (Exception e) {
-						Hooks.scenario.log(taskName + " task description: " + taskDescription);
-						wait(5);
-					}
-					return taskDescription.toString();
-				}	
-		
-		public static boolean verify_AnyText_IsVisibleMultipletimes(WebDriver driver, String text, String index) throws Exception {
-			
-
-			try {
-		        if(driver.findElement(By.xpath("(//*[contains(text(), '"+text+"')])["+index+"]")).isDisplayed()) {  
-		        	Hooks.scenario.log("Is visible: " +  text);
-		        	return true;
-		        	}
-				return true;   	
-
-		        } catch (Exception e) {
-					Hooks.scenario.log("Is visible: " +  text);
-					wait(5);
-					return false;
-		        	}	
-		}
-		public static void verifyAnyCoverageCheckbox_NotEnabledSelected(WebDriver driver, String elementName) throws Exception {
-			try {
-				
-				WebElement elePolicyDist = driver.findElement(By.name(""+elementName+""));
-				
-					if(!(elePolicyDist.isEnabled()) && (elePolicyDist.isSelected()))	{
-						Hooks.scenario.log(elementName + "  is not Editable and selected");
-					
-					} else {
-						Hooks.scenario.log(elementName + "  is not able to validate");
-					}
-														
-			} catch (Exception e) {
-				Hooks.scenario.log(elementName + " not able to validate");
-				wait(5);
-			}		
-		}
-		public static void verifyAnyCoverageCheckbox_EnabledSelected(WebDriver driver, String elementName) throws Exception {
-			try {
-				
-				WebElement elePolicyDist = driver.findElement(By.name(""+elementName+""));
-					if((elePolicyDist.isEnabled()) && (elePolicyDist.isSelected()))	{
-						Hooks.scenario.log(elementName+"  is editable and selected");
-					} else {
-						Hooks.scenario.log(elementName+"  is not able to validate");
-					}
-														
-			} catch (Exception e) {
-				Hooks.scenario.log(elementName+" not able to validate");
-				wait(5);
-			}		
-		}
-		
-		public static boolean verify_AnyButton_IsVisible(WebDriver driver, String text) throws Exception {
-			Thread.sleep(2000);
-
-			
-			try {
-	            if(driver.findElement(By.xpath("//*[@id='" + text +"']")).isDisplayed()) {  
-	            	Hooks.scenario.log("Is visible: " +  text);
-	            	return true;
-	            	}
-	    		return true;   	
-
-	            } catch (Exception e) {
-	    			Hooks.scenario.log("Is visible: " +  text);
-	    			wait(5);
-	    			return false;
-	            	}
-			
-		}
-		public static String getNextActionDate(WebDriver driver) throws Exception {
-			String num=null;
-			try {
-				String action = driver.findElement(By.id("Description_text")).getText().toString();
-				num = action.substring(action.indexOf("on") + 3 , action.length()).toString();
-				wait(4);
-				Hooks.scenario.log(action+" next action Date : "+num);
+	public static void selectAutoRefresh30sec(WebDriver driver) throws Exception {
+		try {
+			Select entityType = new Select(driver.findElement(By.name("RefreshInterval")));
+			entityType.selectByVisibleText("Every 30 seconds".toString());
+			Hooks.scenario.log("Filter Task: Every 30 seconds");
 		} catch (Exception e) {
-			Hooks.scenario.log(num+" next action Date : ");
-			
+			Hooks.scenario.log("Filter Task: Every 30 seconds");
+			wait(5);
 		}
-			return num;	
-		}
-		
-		public static void verifyInstallmentInvoiceForm(WebDriver driver, String invoiceName) throws Exception {
-			try {
-				driver.findElement(By.xpath("(//*[contains(text(), '"+invoiceName+"')])[2]"));	
-				Hooks.scenario.log(invoiceName+" is visible");
-			} catch (Exception e) {
-				Hooks.scenario.log(invoiceName+" is visible");
-				wait(5);
-			} 
-		}
-		public static void clickOnAnyPolicyFileTabForm(WebDriver driver, String invoiceName) throws Exception {
-			try {
-				driver.findElement(By.xpath("(//*[contains(text(), '"+invoiceName+"')])[2]")).click();	
-				Hooks.scenario.log(invoiceName+" clicked");
-			} catch (Exception e) {
-				Hooks.scenario.log(invoiceName+" clicked");
-				wait(5);
-			} 
-		}
-		public static boolean verifyChangePayPlanNotVisible(WebDriver driver) throws Exception {
-		    
-		    try {
-		    	if(driver.findElement(By.id("_ChangePayplan_Link")).isDisplayed()) {  
-		    		Hooks.scenario.log("ChangePayplan_Link is visible");
-		            return false;
-		    	}
-		   return false;
-		    } catch(Exception e) {
-		    	Hooks.scenario.log("ChangePayplan_Link not visible");
-		    	return true; 
-		    }
-		}
-		
-		public static boolean verifyPayPlanTypeIsDisabled(WebDriver driver) throws Exception {
+	}
 
-			try {
-				Boolean isEnabled = driver.findElement(By.id("BasicPolicy.PayPlanFilterTypeCd")).isEnabled();
-				if (isEnabled == true) {
-					Hooks.scenario.log("verifyPayPlanTypeIsEnabled");
-					return true;
-						}
-				else if (isEnabled == false) {
-					Hooks.scenario.log("verifyPayPlanTypeIsDisabled");
-					return false;
-						}
-			} catch (Exception e) {
+	public static void runAutoRenewalOnSinglePolicy(WebDriver driver, String PolicyNumber, String preAutoDt,
+			String autoRenewDt) throws Exception {
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+		Thread.sleep(200);
+
+		ChangeDate_Admin(driver, preAutoDt);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		Thread.sleep(1500);
+
+		runBatchJobs(driver, PolicyNumber);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+		Thread.sleep(1500);
+
+		ChangeDate_Admin(driver, autoRenewDt);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		Thread.sleep(1500);
+
+		runBatchJobs(driver, PolicyNumber);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		Thread.sleep(1500);
+
+	}
+
+	/**
+	 * This method searches desired policy on dashboard
+	 * 
+	 */
+	public static void searchForPolicy(WebDriver driver, String policyNum) throws Exception {
+
+		wait(4);
+
+		setPolicyNumSearch(driver, policyNum);
+		clickSearchBtn(driver);
+		wait(4);
+
+		Thread.sleep(500);
+		driver.navigate().refresh();
+
+		setPolicyNumSearch(driver, policyNum);
+		Thread.sleep(100);
+		clickSearchBtn(driver);
+		wait(4);
+	}
+
+	/**
+	 * This method clicks Search button
+	 * 
+	 */
+	public static void clickSearchBtn(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("ToolbarSearch")).click();
+			wait(3);
+			Hooks.scenario.log("Search button was clicked ");
+		} catch (Exception e) {
+			Hooks.scenario.log("Search button was not clicked");
+			wait(4);
+		}
+		Thread.sleep(500);
+	}
+
+	/**
+	 * This method searches desired policy
+	 * 
+	 */
+	public static void setPolicyNumSearch(WebDriver driver, String policyNum) throws Exception {
+		try {
+			driver.findElement(By.id("ToolbarSearchText")).clear();
+			driver.findElement(By.id("ToolbarSearchText")).sendKeys(policyNum.toString());
+			Hooks.scenario.log("Policy Number: " + policyNum);
+		} catch (Exception e) {
+			Hooks.scenario.log("Policy Number: " + policyNum);
+			wait(5);
+		}
+	}
+
+	/**
+	 * This method selects tasks tab
+	 * 
+	 */
+	public static void selectTaskTab(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("Tab_Tasks")).click();
+			wait(5);
+			Hooks.scenario.log("Task tab was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Task tab was not selected");
+			wait(5);
+		}
+	}
+
+	/**
+	 * This method selects show all
+	 * 
+	 */
+
+	public static void selectShowAll(WebDriver driver) throws Exception {
+		try {
+
+			driver.findElement(By.id("ShowAll")).click();
+			wait(5);
+			Hooks.scenario.log("ShowAll was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("ShowAll was selected");
+			wait(5);
+		}
+	}
+
+	/**
+	 * This method selects show system task
+	 * 
+	 */
+	public static void checkShowSysTask(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("SystemTaskInd")).click();
+			wait(5);
+			Hooks.scenario.log("Show system task was selected");
+			Thread.sleep(500);
+		} catch (Exception e) {
+			Hooks.scenario.log("Show system task was not selected");
+			wait(5);
+		}
+	}
+
+	/**
+	 * This method gets preAuto Renewal Date for policy
+	 * 
+	 */
+	public static Object getPreAutoRenewDate(WebDriver driver) throws Exception {
+		String preAutoRenewDt = null;
+		try {
+			driver.findElement(By.xpath("//*[contains(text(), 'System')]"));
+			preAutoRenewDt = driver.findElement(By.xpath(
+					"(//*[contains(text(),'Pre-Automated Renewal Validation for Policy')])[1]//following-sibling::*[6]"))
+					.getText().toString();
+			Hooks.scenario.log("PreAutomatic Renewal Date: " + preAutoRenewDt);
+		} catch (Exception e) {
+			Hooks.scenario.log("PreAutomatic Renewal Date: " + preAutoRenewDt);
+			wait(5);
+		}
+		return preAutoRenewDt.toString();
+	}
+
+	/**
+	 * This method gets Automated Renewal Date for policy
+	 * 
+	 */
+	public static Object getAutoRenewDate(WebDriver driver) throws Exception {
+		String AutoRenewDt = null;
+		try {
+			driver.findElement(By.xpath("//*[contains(text(), 'System')]"));
+			AutoRenewDt = driver
+					.findElement(By.xpath(
+							"(//*[contains(text(),'Automated Renewal for Policy')])[1]//following-sibling::*[6]"))
+					.getText().toString();
+			Hooks.scenario.log("Automatic Renewal Date: " + AutoRenewDt);
+		} catch (Exception e) {
+			Hooks.scenario.log("Automatic Renewal Date: " + AutoRenewDt);
+			wait(5);
+		}
+
+		return AutoRenewDt.toString();
+	}
+
+	/**
+	 * This method gets Scheduled Task Description on Tasks Chevron
+	 * 
+	 */
+	public static Object getScheduledTaskDescription(WebDriver driver, String taskName) throws Exception {
+
+		String taskDescription = null;
+
+		try {
+			taskDescription = driver.findElement(By.xpath("(//*[contains(text(), '" + taskName + "')])[1]")).getText()
+					.toString();
+			Hooks.scenario.log(taskName + " task description: " + taskDescription);
+		} catch (Exception e) {
+			Hooks.scenario.log(taskName + " task description: " + taskDescription);
+			wait(5);
+		}
+		return taskDescription.toString();
+	}
+
+	public static boolean verify_AnyText_IsVisibleMultipletimes(WebDriver driver, String text, String index)
+			throws Exception {
+
+		try {
+			if (driver.findElement(By.xpath("(//*[contains(text(), '" + text + "')])[" + index + "]")).isDisplayed()) {
+				Hooks.scenario.log("Is visible: " + text);
+				return true;
+			}
+			return true;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is visible: " + text);
+			wait(5);
+			return false;
+		}
+	}
+
+	public static void verifyAnyCoverageCheckbox_NotEnabledSelected(WebDriver driver, String elementName)
+			throws Exception {
+		try {
+
+			WebElement elePolicyDist = driver.findElement(By.name("" + elementName + ""));
+
+			if (!(elePolicyDist.isEnabled()) && (elePolicyDist.isSelected())) {
+				Hooks.scenario.log(elementName + "  is not Editable and selected");
+
+			} else {
+				Hooks.scenario.log(elementName + "  is not able to validate");
+			}
+
+		} catch (Exception e) {
+			Hooks.scenario.log(elementName + " not able to validate");
+			wait(5);
+		}
+	}
+
+	public static void verifyAnyCoverageCheckbox_EnabledSelected(WebDriver driver, String elementName)
+			throws Exception {
+		try {
+
+			WebElement elePolicyDist = driver.findElement(By.name("" + elementName + ""));
+			if ((elePolicyDist.isEnabled()) && (elePolicyDist.isSelected())) {
+				Hooks.scenario.log(elementName + "  is editable and selected");
+			} else {
+				Hooks.scenario.log(elementName + "  is not able to validate");
+			}
+
+		} catch (Exception e) {
+			Hooks.scenario.log(elementName + " not able to validate");
+			wait(5);
+		}
+	}
+
+	public static boolean verify_AnyButton_IsVisible(WebDriver driver, String text) throws Exception {
+		Thread.sleep(2000);
+
+		try {
+			if (driver.findElement(By.xpath("//*[@id='" + text + "']")).isDisplayed()) {
+				Hooks.scenario.log("Is visible: " + text);
+				return true;
+			}
+			return true;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is visible: " + text);
+			wait(5);
+			return false;
+		}
+
+	}
+
+	public static String getNextActionDate(WebDriver driver) throws Exception {
+		String num = null;
+		try {
+			String action = driver.findElement(By.id("Description_text")).getText().toString();
+			num = action.substring(action.indexOf("on") + 3, action.length()).toString();
+			wait(4);
+			Hooks.scenario.log(action + " next action Date : " + num);
+		} catch (Exception e) {
+			Hooks.scenario.log(num + " next action Date : ");
+
+		}
+		return num;
+	}
+
+	public static void verifyInstallmentInvoiceForm(WebDriver driver, String invoiceName) throws Exception {
+		try {
+			driver.findElement(By.xpath("(//*[contains(text(), '" + invoiceName + "')])[2]"));
+			Hooks.scenario.log(invoiceName + " is visible");
+		} catch (Exception e) {
+			Hooks.scenario.log(invoiceName + " is visible");
+			wait(5);
+		}
+	}
+
+	public static void clickOnAnyPolicyFileTabForm(WebDriver driver, String invoiceName) throws Exception {
+		try {
+			driver.findElement(By.xpath("(//*[contains(text(), '" + invoiceName + "')])[2]")).click();
+			Hooks.scenario.log(invoiceName + " clicked");
+		} catch (Exception e) {
+			Hooks.scenario.log(invoiceName + " clicked");
+			wait(5);
+		}
+	}
+
+	public static boolean verifyChangePayPlanNotVisible(WebDriver driver) throws Exception {
+
+		try {
+			if (driver.findElement(By.id("_ChangePayplan_Link")).isDisplayed()) {
+				Hooks.scenario.log("ChangePayplan_Link is visible");
+				return false;
+			}
+			return false;
+		} catch (Exception e) {
+			Hooks.scenario.log("ChangePayplan_Link not visible");
+			return true;
+		}
+	}
+
+	public static boolean verifyPayPlanTypeIsDisabled(WebDriver driver) throws Exception {
+
+		try {
+			Boolean isEnabled = driver.findElement(By.id("BasicPolicy.PayPlanFilterTypeCd")).isEnabled();
+			if (isEnabled == true) {
+				Hooks.scenario.log("verifyPayPlanTypeIsEnabled");
+				return true;
+			} else if (isEnabled == false) {
 				Hooks.scenario.log("verifyPayPlanTypeIsDisabled");
 				return false;
 			}
-			return false;	
+		} catch (Exception e) {
+			Hooks.scenario.log("verifyPayPlanTypeIsDisabled");
+			return false;
 		}
-		public static void scrollToAnyField(WebDriver driver, String fieldName) throws Exception {
-			try {
-				WebElement e= driver.findElement(By.xpath("//*[contains(text(),'"+fieldName+"')]"));
-				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
-								
-			} catch (Exception e) {
-				Hooks.scenario.log("Scrolling not performed");
-				wait(5);
-			}  
-		}
-		public static void startTransaction(WebDriver driver) throws Exception {
-			try {
-				try {
-					driver.findElement(By.id("MoreActionsDropdownButton")).click();
-					Thread.sleep(1000);
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35)); 
-					Hooks.scenario.log("More button was selected");	
-				} catch (Exception e) {
-					Hooks.scenario.log("More button was not selected");
-					}
-				
-				driver.findElement(By.id("Transaction")).click();
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
-			} catch (Exception e) {
-				Hooks.scenario.log("START TRANSACTION was not selected");
-			}
-		}			
-		public static void clickSummaryChevron(WebDriver driver) throws Exception {
-			try {
-				driver.findElement(By.id("Wizard_Summary")).click();
-				Hooks.scenario.log("Summary chevron selected");
-			} catch (Exception e) {
-				Hooks.scenario.log("Summary chevron selected");
-				wait(5);
-			}
-		}
-		public static boolean verify_AnyfirstText_IsDisplayed(WebDriver driver, String text) throws Exception {
-			try {
-		        if(driver.findElement(By.xpath("(//*[text()='"+text+"'])[1]")).isDisplayed()) {  
-		        	Hooks.scenario.log("Is visible: " +  text);
-		        	return true;
-		        	}
-				return true;   	
+		return false;
+	}
 
-		        } catch (Exception e) {
-					Hooks.scenario.log("Is visible: " +  text);
-					wait(5);
-					return false;
-		        	}
-		}
-		
-		public static void getAnyDropDownOptions(WebDriver driver, String field) throws Exception {
-			try {
-				Select entityType = new Select (driver.findElement(By.id(""+field+"")));	
-				WebElement story_field = driver.findElement(By.id(""+field+""));
-				story_field.click();
-				List<WebElement> options = entityType.getOptions();
-							
-				Hooks.scenario.log(field+" options are:");
-				for(WebElement item:options)  { 
-		        	Hooks.scenario.log(item.getText());          
-		        }												
-			} catch (Exception e) {
-				Hooks.scenario.log(field+"Options:");
-				wait(5);
-			}	
-		}
-		
-		public static String getTextOfElement(WebDriver driver,String element) throws Exception {
-			String num = null;
-			
-			try {
-				num = driver.findElement(By.id(element)).getText().toString();
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
-				Hooks.scenario.log(element+" text : "+num);
-			} catch (Exception e) {
-				Hooks.scenario.log(element+" text : ");	
-			}
-			return num;	
-			}
-		
-		public static void clickOnAnyText(WebDriver driver, String policy) throws Exception {
-			try {
-				
-				driver.findElement(By.xpath("//*[contains(text(),'"+policy+"')]")).click();
-				Hooks.scenario.log("Policy selected: "+policy);
-														
-			} catch (Exception e) {
-				Hooks.scenario.log("Policy not selected: "+policy);
-				wait(5);
-			}	
-		}
-		public static void clickMagnifierIcon(WebDriver driver,String order) throws Exception {
-			try {
-				driver.findElement(By.xpath("(//*[@id='ProducerLookup'])["+order+"]")).click();
-				Hooks.scenario.log("MagnifierGlass Icon was clicked");
-			} catch (Exception e) {
-				Hooks.scenario.log("MagnifierGlass Icon was not clicked");
-				wait(5);
-			}	
-		}
-		public static void verifyClaimsTaskStatus(WebDriver driver, String task, String text) throws Exception {
-			
-			String compare = driver.findElement(By.xpath("(//*[contains(text(),'"+task+"')])[1]//following-sibling::td[5]")).getText().toString();
-			
-			try {
-				if (compare.contentEquals(text)){
-					Hooks.scenario.log(task+" Status matched "+"Actual "+compare+" Expected "+text);
-				} else {
-					Hooks.scenario.log(task+" Status mismatch "+"Actual "+compare+", Expected "+text);
-				}		
-			} catch (Exception e) {
-				Hooks.scenario.log(task+" Status mismatch");
-				wait(5);
-				}
-		}
-		public static void setSubReason(WebDriver driver, String cancelSubReason) throws Exception {
-			try {
-				Select entityType = new Select (driver.findElement(By.name("SubReasonCd")));	
-				entityType.selectByVisibleText(cancelSubReason);
-				Hooks.scenario.log("Cancellation Sub-Reason: " + cancelSubReason);
-			} catch (Exception e) {
-				Hooks.scenario.log("Cancellation Sub-Reason: " + cancelSubReason);
-				wait(5);
-			}	
-		}
-		public static void clickonAnyButton(WebDriver driver,String button) throws Exception {
-			try {
-				driver.findElement(By.id(""+button+"")).click();
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-				Hooks.scenario.log(button+" button was clicked");
-			} catch (Exception e) {
-				Hooks.scenario.log(button+" button was not clicked");
-				wait(5);
-			}	
-		}
-		public static String getTransactionEffDate(WebDriver driver) throws Exception {
+	public static void scrollToAnyField(WebDriver driver, String fieldName) throws Exception {
+		try {
+			WebElement e = driver.findElement(By.xpath("//*[contains(text(),'" + fieldName + "')]"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
 
-			String termeff = null;
+		} catch (Exception e) {
+			Hooks.scenario.log("Scrolling not performed");
+			wait(5);
+		}
+	}
 
+	public static void startTransaction(WebDriver driver) throws Exception {
+		try {
 			try {
-				clickSummary(driver);
-				
-				driver.findElement(By.id("Full_PolicySummary_TransactionEffectiveDt")).getText().toString();
-				termeff = driver.findElement(By.id("Full_PolicySummary_TransactionEffectiveDt")).getText().toString();
-				Hooks.scenario.log("Transaction effective Date is: " + termeff);	
-				
-				clickSummary(driver);
-			} catch (Exception e) {
-				Hooks.scenario.log("Transaction effective Date is: " + termeff);
-				wait(5);
-				}
-				return termeff.toString();
-			}
-		
-		public static void clickSummary(WebDriver driver) throws Exception {
-			
-			try {
+				driver.findElement(By.id("MoreActionsDropdownButton")).click();
 				Thread.sleep(1000);
-				driver.findElement(By.id("FullSummaryHolder")).click();
-				Thread.sleep(1000);
-				Hooks.scenario.log("Summary tab clicked ");
-				
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+				Hooks.scenario.log("More button was selected");
 			} catch (Exception e) {
-				Hooks.scenario.log("Summary not clicked ");
-				wait(5);
+				Hooks.scenario.log("More button was not selected");
 			}
+
+			driver.findElement(By.id("Transaction")).click();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+		} catch (Exception e) {
+			Hooks.scenario.log("START TRANSACTION was not selected");
 		}
-		public static void setDataToAnyTextboxField(WebDriver driver, String field, String element, String value) throws Exception {
-	        try {
-	               WebElement toClear = driver.findElement(By.id(""+element+""));
-	               toClear.click();
-	               toClear.sendKeys(Keys.CONTROL + "a");
-	               toClear.sendKeys(Keys.DELETE);
-	                Thread.sleep(500);
-	                toClear.sendKeys(value.toString());
-	                Hooks.scenario.log(field +" set to : "+ value);
-	        } catch (Exception e) {
-	               Hooks.scenario.log(field +" set to : "+ value);
-	                wait(5);
-	        }
-	     }
-		public static String getNextAction_Text(WebDriver driver) throws Exception {
-			try {
-				driver.findElement(By.id("Description_text")).click();
-				Hooks.scenario.log("Next Action: " + driver.findElement(By.id("Description_text")).getText().toString());
-			} catch (Exception e) {
-				Hooks.scenario.log("Next Action: " + driver.findElement(By.id("Description_text")).getText().toString());
-				wait(5);
+	}
+
+	public static void clickSummaryChevron(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("Wizard_Summary")).click();
+			Hooks.scenario.log("Summary chevron selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Summary chevron selected");
+			wait(5);
+		}
+	}
+
+	public static boolean verify_AnyfirstText_IsDisplayed(WebDriver driver, String text) throws Exception {
+		try {
+			if (driver.findElement(By.xpath("(//*[text()='" + text + "'])[1]")).isDisplayed()) {
+				Hooks.scenario.log("Is visible: " + text);
+				return true;
 			}
-			return driver.findElement(By.id("Description_text")).getText();	
+			return true;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is visible: " + text);
+			wait(5);
+			return false;
 		}
-		public static void setReason(WebDriver driver, String cancelReason) throws Exception {
-			try {
-				Select entityType = new Select (driver.findElement(By.name("ReasonCd")));	
-				entityType.selectByVisibleText(cancelReason);
-				Hooks.scenario.log("Cancellation Reason: " + cancelReason);
-			} catch (Exception e) {
-				Hooks.scenario.log("Cancellation Reason: " + cancelReason);
-				wait(5);
-			}	
+	}
+
+	public static void getAnyDropDownOptions(WebDriver driver, String field) throws Exception {
+		try {
+			Select entityType = new Select(driver.findElement(By.id("" + field + "")));
+			WebElement story_field = driver.findElement(By.id("" + field + ""));
+			story_field.click();
+			List<WebElement> options = entityType.getOptions();
+
+			Hooks.scenario.log(field + " options are:");
+			for (WebElement item : options) {
+				Hooks.scenario.log(item.getText());
+			}
+		} catch (Exception e) {
+			Hooks.scenario.log(field + "Options:");
+			wait(5);
 		}
-		public static void makePaymentCCPayment_Amount(WebDriver driver, String AmountPaid) throws Exception {
-			
-			click(closeoutChevron.btnEnterCCDetails);
-			clickonAnyButton(driver, "CreditCardPrompCheckBox");
+	}
+
+	public static String getTextOfElement(WebDriver driver, String element) throws Exception {
+		String num = null;
+
+		try {
+			num = driver.findElement(By.id(element)).getText().toString();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+			Hooks.scenario.log(element + " text : " + num);
+		} catch (Exception e) {
+			Hooks.scenario.log(element + " text : ");
+		}
+		return num;
+	}
+
+	public static void clickOnAnyText(WebDriver driver, String policy) throws Exception {
+		try {
+
+			driver.findElement(By.xpath("//*[contains(text(),'" + policy + "')]")).click();
+			Hooks.scenario.log("Policy selected: " + policy);
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Policy not selected: " + policy);
+			wait(5);
+		}
+	}
+
+	public static void clickMagnifierIcon(WebDriver driver, String order) throws Exception {
+		try {
+			driver.findElement(By.xpath("(//*[@id='ProducerLookup'])[" + order + "]")).click();
+			Hooks.scenario.log("MagnifierGlass Icon was clicked");
+		} catch (Exception e) {
+			Hooks.scenario.log("MagnifierGlass Icon was not clicked");
+			wait(5);
+		}
+	}
+
+	public static void verifyClaimsTaskStatus(WebDriver driver, String task, String text) throws Exception {
+
+		String compare = driver
+				.findElement(By.xpath("(//*[contains(text(),'" + task + "')])[1]//following-sibling::td[5]")).getText()
+				.toString();
+
+		try {
+			if (compare.contentEquals(text)) {
+				Hooks.scenario.log(task + " Status matched " + "Actual " + compare + " Expected " + text);
+			} else {
+				Hooks.scenario.log(task + " Status mismatch " + "Actual " + compare + ", Expected " + text);
+			}
+		} catch (Exception e) {
+			Hooks.scenario.log(task + " Status mismatch");
+			wait(5);
+		}
+	}
+
+	public static void setSubReason(WebDriver driver, String cancelSubReason) throws Exception {
+		try {
+			Select entityType = new Select(driver.findElement(By.name("SubReasonCd")));
+			entityType.selectByVisibleText(cancelSubReason);
+			Hooks.scenario.log("Cancellation Sub-Reason: " + cancelSubReason);
+		} catch (Exception e) {
+			Hooks.scenario.log("Cancellation Sub-Reason: " + cancelSubReason);
+			wait(5);
+		}
+	}
+
+	public static void clickonAnyButton(WebDriver driver, String button) throws Exception {
+		try {
+			driver.findElement(By.id("" + button + "")).click();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+			Hooks.scenario.log(button + " button was clicked");
+		} catch (Exception e) {
+			Hooks.scenario.log(button + " button was not clicked");
+			wait(5);
+		}
+	}
+
+	public static String getTransactionEffDate(WebDriver driver) throws Exception {
+
+		String termeff = null;
+
+		try {
+			clickSummary(driver);
+
+			driver.findElement(By.id("Full_PolicySummary_TransactionEffectiveDt")).getText().toString();
+			termeff = driver.findElement(By.id("Full_PolicySummary_TransactionEffectiveDt")).getText().toString();
+			Hooks.scenario.log("Transaction effective Date is: " + termeff);
+
+			clickSummary(driver);
+		} catch (Exception e) {
+			Hooks.scenario.log("Transaction effective Date is: " + termeff);
+			wait(5);
+		}
+		return termeff.toString();
+	}
+
+	public static void clickSummary(WebDriver driver) throws Exception {
+
+		try {
 			Thread.sleep(1000);
-			clickonAnyButton(driver, "CreditCardPromptDivOk");
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			
-			driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
-			Hooks.scenario.log("Switched to credit card details frame");
-			sendText(makePayment.txtCardNumber, "5424000000000015");
-			sendText(makePayment.txtExpiryDate, "1224");
-			sendText(makePayment.txtCVV, "123");
-			sendText(makePayment.txtFirstName, "First Name");
-			sendText(makePayment.txtLastName, "Last Name");
-			sendText(makePayment.txtZip, "123456");
-			sendText(makePayment.txtAddress, "1234 Street");
-			sendText(makePayment.txtCity, "City");
-			sendText(makePayment.txtState, "State");
-			sendText(makePayment.txtPhoneNumber, "123-456-7895");
-			sendText(makePayment.txtCompanyNameID, "Company");
-			wait(3);
-			click(makePayment.btnSaveButton);
-			driver.switchTo().defaultContent();
-			wait(2);
-			
-			sendText(driver.findElement(By.id("ReceiptAmt")), AmountPaid);
-			Thread.sleep(3000);
-			click(driver.findElement(By.id("SubmitPayment")));
-			wait(3);
-			acceptAlert();
-			click(driver.findElement(By.id("dialogOK")));
-			wait(1);
-			Thread.sleep(2000);
-			
-			Set <String> DriverFocus2 = driver.getWindowHandles();
-			Iterator<String> IteratorDriverFocus2 = DriverFocus2.iterator();
-			String ParentWindow2 =  IteratorDriverFocus2.next();
+			driver.findElement(By.id("FullSummaryHolder")).click();
+			Thread.sleep(1000);
+			Hooks.scenario.log("Summary tab clicked ");
 
-			driver.switchTo().window(ParentWindow2);
-			Thread.sleep(200);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-		}	
-		public static void addSamplePDF(WebDriver driver) throws Exception {
-			try {
-				Thread.sleep(12000);
-				StringSelection ss = new StringSelection(System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\TestingPDF.pdf");
-			    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-				
-			    Robot robot = new Robot();
-			    Thread.sleep(1000);
-			    robot.keyPress(KeyEvent.VK_ENTER);
-			    robot.keyRelease(KeyEvent.VK_ENTER);
-			    Thread.sleep(3000);
-			    robot.keyPress(KeyEvent.VK_CONTROL);
-			    robot.keyPress(KeyEvent.VK_V);
-			    robot.keyRelease(KeyEvent.VK_V);
-			    robot.keyRelease(KeyEvent.VK_CONTROL);
-			    Thread.sleep(5000);
-			    robot.keyPress(KeyEvent.VK_ENTER);
-			    robot.keyRelease(KeyEvent.VK_ENTER);
-			    Thread.sleep(15000);
-			    click(attachmentsChevron.btnAddAttachment);
-			    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));;
-				} catch (Exception e) {
-				Hooks.scenario.log("AddAttachment was not clicked");
-				wait(5);
-			}  
-		}	public static boolean verify_AnyLink_IsVisible(WebDriver driver, String text) throws Exception {
-			Thread.sleep(2000);
-
-			
-			try {
-	            if(driver.findElement(By.xpath("//a[contains(text(), '" + text +"')]")).isDisplayed()) {  
-	            	Hooks.scenario.log("Link is visible: " +  text);            	
-	            	return true;
-	            	}
-	    		return true;   	
-
-	            } catch (Exception e) {
-	    			Hooks.scenario.log("Link is NOT visible: " +  text);
-	    			wait(5);
-	    			return false;
-	            	}	
+		} catch (Exception e) {
+			Hooks.scenario.log("Summary not clicked ");
+			wait(5);
 		}
-		   public static void clickonAnyExpandButton(WebDriver driver,String ImageText) throws Exception {
-		    	try {
-		    		
-		    		driver.findElement(By.xpath("//*[contains(text(),'"+ImageText+"')]//preceding-sibling::*/i")).click();
-		    		
-		    		wait(1);
-		    		Hooks.scenario.log(" Expand button was clicked");
-		    	} catch (Exception e) {
-		    		Hooks.scenario.log(" Expand button was not clicked");
-		    		wait(5);
-		    	}	
-		    }
-		   public static String getArbitrationTaskStatus(WebDriver driver, String task) throws Exception {
-				String status = null;
-				try {
-					
-					status = driver.findElement(By.xpath("//*[contains(text(),'"+task+"')]//following::*[5]")).getText().toString();
-					Hooks.scenario.log("Status: " + status);
-				} catch (Exception e) {
-					Hooks.scenario.log("Status: " + status);
-					wait(5);
-				}
-				return status.toString();
-				}
+	}
 
-			public static String getArbitrationTaskWorkDate(WebDriver driver, String task) throws Exception {
-				String workDate = null;
-				try {
-					workDate = driver.findElement(By.xpath("//*[contains(text(),'"+task+"')]//following::*[6]")).getText().toString();
-					Hooks.scenario.log("Work Date: " + workDate);
-				} catch (Exception e) {
-					Hooks.scenario.log("Work Date: " + workDate);
-					wait(5);
-				}
-				return workDate.toString();
-			}
-			public static String editDescriptionTask(WebDriver driver, String description) throws Exception {
-				
-				try {
-					driver.findElement(By.id("Attachment.Description")).clear();
-					driver.findElement(By.id("Attachment.Description")).sendKeys(description);
-					Hooks.scenario.log(description+" is added added in Description field");
-				} catch (Exception e) {
-					Hooks.scenario.log(description+" was not added in description field");
-					wait(4);
-				}
-				return driver.findElement(By.id("Attachment.Description")).getAttribute("value").toString();  
-			}
-			public static String getScreenShot(WebDriver driver, String screenshotName) throws Exception {
-			    String time = new SimpleDateFormat("hh_mm_ss a").format(new Date());
-			    String monthYearName = new SimpleDateFormat("MMM yyyy").format(new Date());
-			    TakesScreenshot ts = (TakesScreenshot) driver;
-			    File source = ts.getScreenshotAs(OutputType.FILE);
+	public static void setDataToAnyTextboxField(WebDriver driver, String field, String element, String value)
+			throws Exception {
+		try {
+			WebElement toClear = driver.findElement(By.id("" + element + ""));
+			toClear.click();
+			toClear.sendKeys(Keys.CONTROL + "a");
+			toClear.sendKeys(Keys.DELETE);
+			Thread.sleep(500);
+			toClear.sendKeys(value.toString());
+			Hooks.scenario.log(field + " set to : " + value);
+		} catch (Exception e) {
+			Hooks.scenario.log(field + " set to : " + value);
+			wait(5);
+		}
+	}
 
-			    String destination = System.getProperty("user.dir") + "/Tests Screenshots/" +
-			            "/" + monthYearName + "/" +
-			            screenshotName + time + ".png";
-			    
-			    File finalDestination = new File(destination);
-			    FileUtils.copyFile(source, finalDestination);
-			    
-			    return destination;
-			}
-			/**
-			 * This method taking screenshot and attaching to the step
-			 * 
-			 */
-			public static void attachScreenShot(WebDriver driver) throws Exception {
-			    String screenShotPath = getScreenShot(driver, "Screenshot - ");
-			    
-			    // Read the image file as a byte array
-			    byte[] fileContent = FileUtils.readFileToByteArray(new File(screenShotPath));
-			    
-			    // Encode the byte array to base64
-			    String base64Encoded = Base64.encodeBase64String(fileContent);
-			    
-			    // Embed the base64 encoded image using HTML or Markdown syntax
-			    String embedHtml = "<img src='data:image/png;base64," + base64Encoded + "'/>";
-			    
-			    // Log the message with the screenshot path and embedded image
-			    Hooks.scenario.log("Snapshot: " + screenShotPath + "\n" + embedHtml);
-			    
-			    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
-			}
-			
-			public static void verifyAnyTextbox_EnabledDisabled(WebDriver driver, String elementName) throws Exception {
-				attachScreenShot(driver);
+	public static String getNextAction_Text(WebDriver driver) throws Exception {
+		try {
+			driver.findElement(By.id("Description_text")).click();
+			Hooks.scenario.log("Next Action: " + driver.findElement(By.id("Description_text")).getText().toString());
+		} catch (Exception e) {
+			Hooks.scenario.log("Next Action: " + driver.findElement(By.id("Description_text")).getText().toString());
+			wait(5);
+		}
+		return driver.findElement(By.id("Description_text")).getText();
+	}
 
-				try {
-					
-					WebElement ele = driver.findElement(By.id(""+elementName+""));
-					
-						if(ele.isEnabled()) {
-							Hooks.scenario.log(elementName+"  is Editable");
-						}	else if(!(ele.isEnabled())) {
-							Hooks.scenario.log(elementName+"  is Disabled");
-						} else {
-							Hooks.scenario.log(elementName+"  is not able to validate");
-						}										
-				} catch (Exception e) {
-					Hooks.scenario.log(elementName+" not able to validate");
-					wait(5);
-				}
+	public static void setReason(WebDriver driver, String cancelReason) throws Exception {
+		try {
+			Select entityType = new Select(driver.findElement(By.name("ReasonCd")));
+			entityType.selectByVisibleText(cancelReason);
+			Hooks.scenario.log("Cancellation Reason: " + cancelReason);
+		} catch (Exception e) {
+			Hooks.scenario.log("Cancellation Reason: " + cancelReason);
+			wait(5);
+		}
+	}
+
+	public static void makePaymentCCPayment_Amount(WebDriver driver, String AmountPaid) throws Exception {
+
+		click(closeoutChevron.btnEnterCCDetails);
+		clickonAnyButton(driver, "CreditCardPrompCheckBox");
+		Thread.sleep(1000);
+		clickonAnyButton(driver, "CreditCardPromptDivOk");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+
+		driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+		Hooks.scenario.log("Switched to credit card details frame");
+		sendText(makePayment.txtCardNumber, "5424000000000015");
+		sendText(makePayment.txtExpiryDate, "1224");
+		sendText(makePayment.txtCVV, "123");
+		sendText(makePayment.txtFirstName, "First Name");
+		sendText(makePayment.txtLastName, "Last Name");
+		sendText(makePayment.txtZip, "123456");
+		sendText(makePayment.txtAddress, "1234 Street");
+		sendText(makePayment.txtCity, "City");
+		sendText(makePayment.txtState, "State");
+		sendText(makePayment.txtPhoneNumber, "123-456-7895");
+		sendText(makePayment.txtCompanyNameID, "Company");
+		wait(3);
+		click(makePayment.btnSaveButton);
+		driver.switchTo().defaultContent();
+		wait(2);
+
+		sendText(driver.findElement(By.id("ReceiptAmt")), AmountPaid);
+		Thread.sleep(3000);
+		click(driver.findElement(By.id("SubmitPayment")));
+		wait(3);
+		acceptAlert();
+		click(driver.findElement(By.id("dialogOK")));
+		wait(1);
+		Thread.sleep(2000);
+
+		Set<String> DriverFocus2 = driver.getWindowHandles();
+		Iterator<String> IteratorDriverFocus2 = DriverFocus2.iterator();
+		String ParentWindow2 = IteratorDriverFocus2.next();
+
+		driver.switchTo().window(ParentWindow2);
+		Thread.sleep(200);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+	}
+
+	public static void addSamplePDF(WebDriver driver) throws Exception {
+		try {
+			Thread.sleep(12000);
+			StringSelection ss = new StringSelection(
+					System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\TestingPDF.pdf");
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+			Robot robot = new Robot();
+			Thread.sleep(1000);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(3000);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			Thread.sleep(5000);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(15000);
+			click(attachmentsChevron.btnAddAttachment);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+			;
+		} catch (Exception e) {
+			Hooks.scenario.log("AddAttachment was not clicked");
+			wait(5);
+		}
+	}
+
+	public static boolean verify_AnyLink_IsVisible(WebDriver driver, String text) throws Exception {
+		Thread.sleep(2000);
+
+		try {
+			if (driver.findElement(By.xpath("//a[contains(text(), '" + text + "')]")).isDisplayed()) {
+				Hooks.scenario.log("Link is visible: " + text);
+				return true;
 			}
+			return true;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Link is NOT visible: " + text);
+			wait(5);
+			return false;
+		}
+	}
+
+	public static void clickonAnyExpandButton(WebDriver driver, String ImageText) throws Exception {
+		try {
+
+			driver.findElement(By.xpath("//*[contains(text(),'" + ImageText + "')]//preceding-sibling::*/i")).click();
+
+			wait(1);
+			Hooks.scenario.log(" Expand button was clicked");
+		} catch (Exception e) {
+			Hooks.scenario.log(" Expand button was not clicked");
+			wait(5);
+		}
+	}
+
+	public static String getArbitrationTaskStatus(WebDriver driver, String task) throws Exception {
+		String status = null;
+		try {
+
+			status = driver.findElement(By.xpath("//*[contains(text(),'" + task + "')]//following::*[5]")).getText()
+					.toString();
+			Hooks.scenario.log("Status: " + status);
+		} catch (Exception e) {
+			Hooks.scenario.log("Status: " + status);
+			wait(5);
+		}
+		return status.toString();
+	}
+
+	public static String getArbitrationTaskWorkDate(WebDriver driver, String task) throws Exception {
+		String workDate = null;
+		try {
+			workDate = driver.findElement(By.xpath("//*[contains(text(),'" + task + "')]//following::*[6]")).getText()
+					.toString();
+			Hooks.scenario.log("Work Date: " + workDate);
+		} catch (Exception e) {
+			Hooks.scenario.log("Work Date: " + workDate);
+			wait(5);
+		}
+		return workDate.toString();
+	}
+
+	public static String editDescriptionTask(WebDriver driver, String description) throws Exception {
+
+		try {
+			driver.findElement(By.id("Attachment.Description")).clear();
+			driver.findElement(By.id("Attachment.Description")).sendKeys(description);
+			Hooks.scenario.log(description + " is added added in Description field");
+		} catch (Exception e) {
+			Hooks.scenario.log(description + " was not added in description field");
+			wait(4);
+		}
+		return driver.findElement(By.id("Attachment.Description")).getAttribute("value").toString();
+	}
+
+	public static String getScreenShot(WebDriver driver, String screenshotName) throws Exception {
+		String time = new SimpleDateFormat("hh_mm_ss a").format(new Date());
+		String monthYearName = new SimpleDateFormat("MMM yyyy").format(new Date());
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+
+		String destination = System.getProperty("user.dir") + "/Tests Screenshots/" + "/" + monthYearName + "/"
+				+ screenshotName + time + ".png";
+
+		File finalDestination = new File(destination);
+		FileUtils.copyFile(source, finalDestination);
+
+		return destination;
+	}
+
+	/**
+	 * This method taking screenshot and attaching to the step
+	 * 
+	 */
+	public static void attachScreenShot(WebDriver driver) throws Exception {
+		String screenShotPath = getScreenShot(driver, "Screenshot - ");
+
+		// Read the image file as a byte array
+		byte[] fileContent = FileUtils.readFileToByteArray(new File(screenShotPath));
+
+		// Encode the byte array to base64
+		String base64Encoded = Base64.encodeBase64String(fileContent);
+
+		// Embed the base64 encoded image using HTML or Markdown syntax
+		String embedHtml = "<img src='data:image/png;base64," + base64Encoded + "'/>";
+
+		// Log the message with the screenshot path and embedded image
+		Hooks.scenario.log("Snapshot: " + screenShotPath + "\n" + embedHtml);
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+	}
+
+	public static void verifyAnyTextbox_EnabledDisabled(WebDriver driver, String elementName) throws Exception {
+		attachScreenShot(driver);
+
+		try {
+
+			WebElement ele = driver.findElement(By.id("" + elementName + ""));
+
+			if (ele.isEnabled()) {
+				Hooks.scenario.log(elementName + "  is Editable");
+			} else if (!(ele.isEnabled())) {
+				Hooks.scenario.log(elementName + "  is Disabled");
+			} else {
+				Hooks.scenario.log(elementName + "  is not able to validate");
+			}
+		} catch (Exception e) {
+			Hooks.scenario.log(elementName + " not able to validate");
+			wait(5);
+		}
+	}
+
+	public static boolean verifyAnyLossCauseClaimStatus(WebDriver driver, String losscause, String expectedResults)
+			throws Exception {
+		// losscause as 'Water Damage' or Theft or Liability BI - Pollution or any loss
+
+		WebElement ele = driver
+				.findElement(By.xpath("(//*[contains(text(),'" + losscause + "')]//following::*[3])[2]"));
+		String actual = ele.getText().toString();
+
+		try {
+			if (actual.contentEquals(expectedResults)) {
+				Hooks.scenario.log(losscause + " claim status is : " + ele.getText().toString());
+				return true;
+
+			} else {
+				Hooks.scenario.log(losscause + " claim status is : " + ele.getText().toString());
+				return true;
+			}
+		} catch (Exception e) {
+			Hooks.scenario.log(losscause + " claim status is : " + ele.getText().toString());
+			wait(5);
+			return false;
+		}
+	}
+
+	public static void setProducerCode(WebDriver driver, String producer) throws Exception {
+		try {
+
+			WebElement inputBox = driver.findElement(By.id("ProviderNumber"));
+			String checkIfEmpty = inputBox.getAttribute("value");
+
+			if (checkIfEmpty.isEmpty()) {
+				driver.findElement(By.id("ProviderNumber")).sendKeys(producer.toString());
+				Hooks.scenario.log("Producer Code: " + producer);
+			}
+
+			else if (!checkIfEmpty.isEmpty()) {
+				driver.findElement(By.id("ProviderNumber")).getText().toString();
+				Hooks.scenario
+						.log("Producer Code: " + driver.findElement(By.id("ProviderNumber")).getText().toString());
+			}
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Producer Code: " + producer);
+			wait(5);
+		}
+	}
+	
+	/**
+	 * This method simulates pressing the "Tab" key.
+	 * 
+	 * @param element The WebElement where the "Tab" key should be sent.
+	 */
+	public static void pressTabKey(WebElement element) {
+	    try {
+	        element.sendKeys(Keys.TAB);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
 }

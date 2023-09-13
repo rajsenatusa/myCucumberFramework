@@ -170,6 +170,9 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "InsuredMailingAddr.addrVerifyImg")
 	public WebElement btnMailingAddressVerifyAddress;
 	
+	@FindBy(id= "Tab_Policy")
+	public WebElement btnTabPolicy;
+	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
 		
