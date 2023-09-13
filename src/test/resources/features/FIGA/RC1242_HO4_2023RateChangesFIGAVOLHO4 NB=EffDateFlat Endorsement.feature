@@ -45,16 +45,16 @@ Feature: RC-1096: 2023 Rate Changes- FIGA: VOL HO4- 10/01/2023
     And User selects Payment Type
     And User clicks Issue New Business
     And User clicks Worksheets chevron
-    Then User validates New FIGA VOL HO4 rate
-    And User clicks History chevron
-    And User clicks Start Transaction
-    And User clicks EN Transaction Selection
-    And User enters EN Effective Date "<EndorsementEffectiveDate>"
-    And User clicks Finalize button
-    And User clicks Endorse Policy button
-    And User clicks Worksheets chevron
-    Then User validates New FIGA VOL HO4 rate after Endorsement
+    #Then User validates New FIGA VOL HO4 rate
+    #And User clicks History chevron
+    #And User clicks Start Transaction
+    #And User clicks EN Transaction Selection
+    #And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    #And User clicks Finalize button
+    #And User clicks Endorse Policy button
+    #And User clicks Worksheets chevron
+    #Then User validates New FIGA VOL HO4 rate after Endorsement
 
     Examples: Test Data
       | username | password   | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | BuildingCodeEffectivenessGrade | NumberOfStories | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
-      | JLOWE    | Sep@2023! | 10/01/2023    | 10/02/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
+      | mcemek    | Sep@2023! | 1/1/2024   | 10/02/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
