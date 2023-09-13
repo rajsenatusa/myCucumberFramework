@@ -5,7 +5,7 @@
  ## HIGH LEVEL STEPS OF TEST SCRIPT:  Watr Damage Exlusion is required when water loss is >5,000 if not selectedd UW approval is required 
  ## EXPECTED RESULTS: Due to loss history, water damage exclusion must be applied. 
  
- ## User: AG0376
+ ## User: AG1730
   
  ## PreSetup - Remove loss cause under Capacity Maintenance for county Leon and add after execution
  
