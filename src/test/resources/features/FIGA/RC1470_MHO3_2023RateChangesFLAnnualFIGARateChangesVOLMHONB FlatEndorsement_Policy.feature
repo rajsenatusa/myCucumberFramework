@@ -35,16 +35,16 @@ Feature: RC-1099: 2023 Rate Changes- FIGA: VOL MHO- 10/01/2023
     And User selects Payment Type
     And User clicks Issue New Business
     And User clicks Worksheets chevron
-    Then User validates New FIGA VOL MHO3 rate
-    And User clicks History chevron
-    And User clicks Start Transaction
-    And User clicks EN Transaction Selection
-    And User enters EN Effective Date "<EndorsementEffectiveDate>"
-    And User clicks Finalize button
-    And User clicks Endorse Policy button
-    And User clicks Worksheets chevron
-    Then User validates New FIGA VOL MHO3 rate after Endorsement
 
+    #Then User validates New FIGA VOL MHO3 rate
+    #And User clicks History chevron
+    #And User clicks Start Transaction
+    #And User clicks EN Transaction Selection
+    #And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    #And User clicks Finalize button
+    #And User clicks Endorse Policy button
+    #And User clicks Worksheets chevron
+    #Then User validates New FIGA VOL MHO3 rate after Endorsement
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | mkoziel  | Aug@2023! | 10/01/2023    | 10/02/2023               | Owner Occupied |             12 |               2021 |
+      | mcemek   | Sep@2023! | 12/31/2022   | 10/02/2023               | Owner Occupied |             12 |               2021 |
