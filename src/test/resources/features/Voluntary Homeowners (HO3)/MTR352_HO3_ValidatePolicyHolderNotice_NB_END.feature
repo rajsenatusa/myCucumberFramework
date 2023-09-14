@@ -30,9 +30,24 @@ Feature: TC36506 : US8592 - FORM: Policyholder Notice AIIC HO3 PHN CSAU 11 21 - 
     And User validates 'AIIC HO3 PHN CSAU 11 21' form is visible
     And User clicks 'AIIC HO3 PHN CSAU 11 21' form and do validations
     And User clicks Policy File Chevron <mtr352>
-    
-    
-    
+    And User clicks Application Link and do validation of application form version
+    And User clicks Policy File Chevron <mtr352>
+    And User clicks Declaration Link and do validation of declaration form version
+    And User clicks Policy File Chevron <mtr352>
+    And User clicks New Business Package Link and do validation of NB form version
+    And User searches for the policy number <mtr352>
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User sets new effective date as current date and starts endorsement <mtr352>
+    And User clicks Dwelling Chevron <mtr352>
+    And User validates MMA defaulted to No
+    And User clicks Finalize button <mtr352>
+    And User process and completes endorsement <mtr352>
+    And User clicks Forms Chevron <mtr352>
+    And User validates 'AIIC HO3 PHN CSAU 11 21' form is visible
+    And User clicks Policy Holder Notice Endorsement form and do validations
+    And User clicks Policy File Chevron <mtr352>
+    And User clicks Endorsement Package Link and do validation of END form version
     
     
     

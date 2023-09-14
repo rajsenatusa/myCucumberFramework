@@ -195,7 +195,6 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 	public void user_process_and_completes_endorsement_and_finishes_test_mtr353() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);
 		wait(6);
-		getPolicyNumber(driver);
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}

@@ -2830,4 +2830,17 @@ public class CommonMethods extends PageInitializer {
 	        e.printStackTrace();
 	    }
 	}
+	
+	public static String getAnyDropdownPopulatedValue(WebDriver driver, String element) throws Exception {
+		String value=null;
+		try {
+			Select entityType = new Select (driver.findElement(By.id(""+element+"")));	
+			value = entityType.getFirstSelectedOption().getText();
+			Hooks.scenario.log(element+" populated with "+value);	
+		} catch (Exception e) {
+			Hooks.scenario.log(element+" not populated with "+value);
+			wait(5);
+		}
+		return value.toString();	
+		}
 }
