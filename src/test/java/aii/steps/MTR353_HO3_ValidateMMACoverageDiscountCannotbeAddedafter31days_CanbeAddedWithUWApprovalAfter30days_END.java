@@ -26,8 +26,8 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
 		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
-		sendText(quote.txtZipCode, "34987");
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);
@@ -58,13 +58,13 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 	@When("User enters all required information on HO3 dwelling screen <mtr353>")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_mtr353() {
 		// Quote Dwelling information was filled here
-		//sendText(dwellingChevron.txtYearConstruction, "2022");
+		sendText(dwellingChevron.txtYearConstruction, "2023");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		selectDropdownText(dwellingChevron.bCEG, "3");
-		sendText(dwellingChevron.txtRoofMaterialUpdate, "2022");
+		sendText(dwellingChevron.txtRoofMaterialUpdate, "2023");
 		click(dwellingChevron.rbBasicPackage);
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");
 		selectDropdownText(dwellingChevron.ddMediationArbit, "No");
@@ -73,6 +73,9 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 		wait(3);
 		click(dwellingChevron.btnCalculate);
 		wait(4);
+		sendText(dwellingChevron.txtCoverageA, "400000");
+		click(dwellingChevron.btnSave);
+		wait(4);
 		click(policyChevron.btnNext);
 		wait(1);
 	}
@@ -80,9 +83,9 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 	public void user_completes_required_information_on_dwelling_chevron_mtr353() throws Exception {
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
 		wait(1);
-		sendText(dwellingChevron.txtYearElectrical, "2022");
-		sendText(dwellingChevron.txtPlumbingYearUpdate, "2022");
-		sendText(dwellingChevron.txtHvacYearUpdate, "2022");
+		sendText(dwellingChevron.txtYearElectrical, "2023");
+		sendText(dwellingChevron.txtPlumbingYearUpdate, "2023");
+		sendText(dwellingChevron.txtHvacYearUpdate, "2023");
 		click(dwellingChevron.btnSave);
 		wait(2);
 	}

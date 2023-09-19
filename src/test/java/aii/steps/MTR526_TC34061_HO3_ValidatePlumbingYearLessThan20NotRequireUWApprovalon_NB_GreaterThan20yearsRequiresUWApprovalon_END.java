@@ -65,22 +65,30 @@ public class MTR526_TC34061_HO3_ValidatePlumbingYearLessThan20NotRequireUWApprov
 	@When("User enters all required information on HO3 dwelling screen <mtr526>")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_mtr526() {
 		// Quote Dwelling information was filled here
-		// sendText(dwellingChevron.txtYearConstruction, "2002");
-		//sendText(dwellingChevron.txtSquareFeet, "1500");
-		//selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
-		//selectDropdownText(dwellingChevron.ddProtectionClass, "03");
-		//selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
+		
 		try {
 			click(policyChevron.btnNext);
 			wait(1);	
 			click(driver.findElement(By.id("dialogOK")));
+			//sendText(dwellingChevron.txtYearConstruction, "2002");
+			sendText(dwellingChevron.txtSquareFeet, "1500");
+			selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
+			selectDropdownText(dwellingChevron.ddProtectionClass, "03");
+			selectDropdownText(dwellingChevron.bCEG, "3");
+			selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 			selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
 			selectDropdownText(dwellingChevron.ddMediationArbit, "No");
-			wait(2);
+			sendText(dwellingChevron.txtCoverageA, "400000");
 		} catch (Exception e) {
+			//sendText(dwellingChevron.txtYearConstruction, "2002");
+			sendText(dwellingChevron.txtSquareFeet, "1500");
+			selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
+			selectDropdownText(dwellingChevron.ddProtectionClass, "03");
+			selectDropdownText(dwellingChevron.bCEG, "3");
+			selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 			selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
 			selectDropdownText(dwellingChevron.ddMediationArbit, "No");
-			wait(2);
+			sendText(dwellingChevron.txtCoverageA, "400000");
 		}
 		click(dwellingChevron.btnSave);
 		wait(3);
