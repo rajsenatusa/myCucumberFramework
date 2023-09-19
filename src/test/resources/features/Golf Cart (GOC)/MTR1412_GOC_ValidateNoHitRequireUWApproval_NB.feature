@@ -7,7 +7,7 @@
 ## Agent can't Issue New Business without UW approval  
 ## User: AG1730
  
-@regression @mtr1412
+@regression @mtr1412 @gocregression
 Feature: TC 16852--Golf Agent, NB, No HIT, UW Approval needed
 
   Scenario: Validate Agent cant Issue New Business without UW approval

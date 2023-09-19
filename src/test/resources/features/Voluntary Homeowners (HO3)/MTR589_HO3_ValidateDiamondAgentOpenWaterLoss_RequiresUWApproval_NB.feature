@@ -9,6 +9,7 @@
 ## User: AG1529
   
 ## Note: Please login with gallopadmin and remove Catestropic threashold limit and add it after execution
+## TEST CASE STEPS MODIFIED ON 09/19/2023 REGARDING CAPACITY RULE CHANGE AND APLUS DATA REPORTING ISSUE 
 
 @regression @mtr589
 Feature: MTR589--HO3, Standard Agent, NB Water Loss over 5,000 , WDE, WDL, UW approval required
@@ -24,10 +25,20 @@ Feature: MTR589--HO3, Standard Agent, NB Water Loss over 5,000 , WDE, WDL, UW ap
     And User creates HO3 application
     And User answers all underwriting questions for VOL HO3
     And User completes required information on dwelling chevron <mtr589>
-    And User clicks policy tab and validates 'Risks with open losses are ineligible for coverage' message is visible
+    And User takes note of the application for <mtr589>
+    And User signs out
+    And User login to Spin as Admin Agent
+    And User searches for the application <mtr589>
+    And User takes ownership of the application 
+    And User validates losses have been displayed and attaches screenshot
+    And User clicks Dwelling Tab and updates construction year of the building <mtr589>
+    And User transfer application back to producer
+    And User signs out
+    And User login to Spin as Diamond Agent
+    And User searches for the application <mtr589>
     And User clicks Dwelling Chevron <mtr589>
     And User navigates loss history chevron and validates loss claim status labels are visible and attaches screenshot
-    And User takes note of the application for <mtr589>
+    And User clicks policy tab and validates 'Risks with open losses are ineligible for coverage' message is visible
     And User clicks Finalize button <mtr589>
     And User validates 'Risks with open losses are ineligible for coverage' text is visible
     And User clicks submit for approval button

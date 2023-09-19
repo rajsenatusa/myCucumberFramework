@@ -43,6 +43,9 @@ public class MTR591_HO3_ValidateWaterLossGreaterThan5000_WDE_WDL_RequiresUWAppro
 		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
+		click(dwellingChevron.btnSave);
+		wait(3);
 		sendText(policyChevron.txtPhoneNumber, "555-444-5555");
 		selectDropdownText(policyChevron.ddPhoneNumberType, "Mobile");
 		wait(2);
@@ -89,6 +92,7 @@ public class MTR591_HO3_ValidateWaterLossGreaterThan5000_WDE_WDL_RequiresUWAppro
 	
 	@And("User validates 'Risk is ineligible due to age of HVAC' message has been displayed")
 	public void user_validates_risk_ineligible_message_displayed() throws Exception {
+		
 		verify_AnyText_IsVisible(driver, "Risk is ineligible due to age of HVAC");
 		attachScreenShot(driver);		
 	}
