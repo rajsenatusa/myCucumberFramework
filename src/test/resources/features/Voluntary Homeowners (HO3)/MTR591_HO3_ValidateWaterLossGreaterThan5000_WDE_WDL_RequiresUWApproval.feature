@@ -9,8 +9,9 @@
   
  ## PreSetup - Remove loss cause under Capacity Maintenance for county Leon and add after execution
  
+ ## REMOVED FROM REGRESSION DUE TO NEW CAPACITY CHANGE (NOT ABLE TO BIND A POLICY WITH OLDER 5 YEARS OLD.) TEST CASE IS INEFFECTIVE. 
 
-@regression @mtr591
+@mtr591
 Feature: MTR-591--HO3, Standard Agent, NB Water Loss over than 5,000 , WDE, WDL, UW approval required
 
   Scenario: Validate Water Damage Exlusion is required when water loss is over than 5,000 if not selected UW approval is required

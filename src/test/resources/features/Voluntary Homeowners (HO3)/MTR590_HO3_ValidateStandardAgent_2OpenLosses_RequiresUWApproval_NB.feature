@@ -9,6 +9,8 @@
   
 ## User: AG0376
 
+## TEST CASE STEPS MODIFIED ON 09/19/2023 REGARDING CAPACITY RULE CHANGE AND APLUS DATA REPORTING ISSUE
+
 @regression @mtr590
 Feature: MTR-590--HO3, Standard Agent, NB 2 or more losses, UW approval required
 
@@ -23,9 +25,18 @@ Feature: MTR-590--HO3, Standard Agent, NB 2 or more losses, UW approval required
     And User creates HO3 application
     And User answers all underwriting questions for VOL HO3
     And User completes required information on dwelling chevron <mtr590>
-    And User validates loss claim status labels are visible and attaches screenshot
-    And User clicks Policy Tab and validates 'Underwriting approval required prior to binding due to loss history' 'Risks with open losses are ineligible for coverage' texts are visible
     And User takes note of the application for <mtr590>
+    And User signs out
+    And User login to Spin as Admin Agent
+    And User searches for the application <mtr590>
+    And User takes ownership of the application 
+    And User validates loss claim status labels are visible and attaches screenshot
+    And User clicks Dwelling Tab and updates construction year of the building
+    And User transfer application back to producer
+    And User signs out
+    And User login to Spin as Automation Test Agent
+    And User searches for the application <mtr590>
+    And User clicks Policy Tab and validates 'Underwriting approval required prior to binding due to loss history' 'Risks with open losses are ineligible for coverage' texts are visible
     And User clicks Finalize button <mtr590>
     And User clicks submit for approval button
     And User signs out

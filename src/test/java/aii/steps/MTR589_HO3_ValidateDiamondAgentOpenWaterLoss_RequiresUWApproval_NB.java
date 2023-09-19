@@ -141,4 +141,19 @@ public class MTR589_HO3_ValidateDiamondAgentOpenWaterLoss_RequiresUWApproval_NB 
 		getInForcePremiumFees(driver);
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	@When("User validates losses have been displayed and attaches screenshot")
+	public void user_validates_loss_have_been_displayed_attaches_screenshot() throws Exception {
+		click(dwellingChevron.btnSave);
+		wait(4);
+		click(driver.findElement(By.id("Wizard_LossHistory")));
+		wait(3);
+		attachScreenShot(driver);
+	}
+	@When("User clicks Dwelling Tab and updates construction year of the building <mtr589>")
+	public void user_clicks_dwelling_tab_and_updateS_construction_year_of_the_building_mtr589() throws Exception {
+		click(dwellingChevron.btnDwelling);
+		sendText(dwellingChevron.txtYearConstruction, "2018");
+		click(dwellingChevron.btnSave);
+		wait(4);
+	}
 }

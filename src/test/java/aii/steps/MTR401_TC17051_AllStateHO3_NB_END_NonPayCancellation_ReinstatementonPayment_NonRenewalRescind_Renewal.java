@@ -103,8 +103,8 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
 		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
-		sendText(quote.txtZipCode, "34987");
+		sendText(quote.txtAddress, "1163 Oak Bluff DR");
+		sendText(quote.txtZipCode, "33837");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);
@@ -144,18 +144,21 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	@When("User enters all required information on HO3 dwelling screen <mtr401>")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_mtr401() {
 		// Quote Dwelling information was filled here
-		// sendText(dwellingChevron.txtYearConstruction, "2002");
+		sendText(dwellingChevron.txtYearConstruction, "2023");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
-		sendText(dwellingChevron.txtRoofMaterialUpdate, "2022");
+		sendText(dwellingChevron.txtRoofMaterialUpdate, "2023");
 		selectDropdownText(dwellingChevron.ddMediationArbit, "No");
 		wait(2);
 		click(dwellingChevron.btnSave);
 		wait(3);
 		click(dwellingChevron.btnCalculate);
+		wait(4);
+		sendText(dwellingChevron.txtCoverageA, "400000");
+		click(dwellingChevron.btnSave);
 		wait(4);
 		selectDropdownText(dwellingChevron.ddDeductibleWindHail, "$15,000");
 		click(dwellingChevron.btnSave);
@@ -262,7 +265,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	public void user_sets_dwelling_type_sets_roof_update_and_roof_material() throws Exception {
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
-		sendText(dwellingChevron.txtRoofMaterialUpdate, "2017");
+		sendText(dwellingChevron.txtRoofMaterialUpdate, "2023");
 		wait(2);
 		click(dwellingChevron.btnSave);
 		wait(2);

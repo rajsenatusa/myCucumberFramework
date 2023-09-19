@@ -14,7 +14,9 @@
   
 ## User: AG1730
 
-@regression @mtr526
+## TEST REMOVED FROM REGRESSION SUITE DUE TO CAPACITY RULE CHANGE. WE ARE NOT ABLE TO ISSUE A HO3 POLICY FOR OVER 5 YEARS AGE 09/19/2023
+
+@mtr526
 Feature: TC 34061--US-1629: 'Risk is ineligible due to Age of Plumbing' message will not displays for Plumbing age over 20 years on NB and When updating to over 20 years on END requires UW approval
 
   Scenario: Validate that the message will appear on END when updating plumbing year to over 20 years and requires UW approval

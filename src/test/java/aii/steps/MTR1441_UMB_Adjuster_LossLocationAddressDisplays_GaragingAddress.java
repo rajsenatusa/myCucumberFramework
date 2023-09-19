@@ -309,13 +309,13 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 
 		PdfComparator.switchWindows(driver);
 		clickOnAnyPolicyFileTabForm(driver, "Acknowledgement Letter");
-		Thread.sleep(7000);
+		wait(10);
 		switchToWindow(driver, "STFile&File");
 
 		AcknowledgementLetter_Form = PdfComparator.makePdf(driver, "Acknowledgement_Letter.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + AcknowledgementLetter_Form);
-		Thread.sleep(500);
+		wait(10);
 
 		// Garage Location lookup address
 		AcknowledgementLetter_lookup = SmartPDFComparator2
