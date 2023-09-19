@@ -28,7 +28,7 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 	@When("User enters all required information on HO3 dwelling screen with MMA selected as Yes")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_with_mma() {
 		// Quote Dwelling information was filled here
-		// sendText(dwellingChevron.txtYearConstruction, "2002");
+		sendText(dwellingChevron.txtYearConstruction, "2023");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
@@ -40,7 +40,9 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 		wait(3);
 		click(dwellingChevron.btnCalculate);
 		wait(4);
+		sendText(dwellingChevron.txtCoverageA, "400000");
 		click(dwellingChevron.btnSave);
+		wait(4);
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
@@ -81,8 +83,8 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 		MMA_NBApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 10, 70, 300, 500,
 				500);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, PolicyNumberSuffix);
-		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "11216 SW Pembroke DR");
-		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "Port Saint Lucie, FL 34987-1953");
+		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "1163 Oak Bluff DR");
+		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "Davenport, FL 33837-3688");
 		clickApplicationTab(driver);
 		wait(1);
 	}
@@ -119,8 +121,8 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
 		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
-		sendText(quote.txtZipCode, "34987");
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);

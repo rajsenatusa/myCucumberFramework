@@ -91,8 +91,10 @@ public class MTR590_HO3_ValidateStandardAgent_2OpenLosses_RequiresUWApproval_NB 
 	}
 	@When("User validates loss claim status labels are visible and attaches screenshot")
 	public void user_validates_loss_claim_status_labels_are_visible_and_attaches_screenshot() throws Exception {
-		click(policyChevron.btnNext);
-		wait(1);
+		click(dwellingChevron.btnSave);
+		wait(4);
+		click(driver.findElement(By.id("Wizard_LossHistory")));
+		wait(3);
 		verifyAnyLossCauseClaimStatus(driver, "Smoke", "Open");
 		verifyAnyLossCauseClaimStatus(driver, "Medical Payments", "Open");
 		verifyAnyLossCauseClaimStatus(driver, "Theft", "Closed");
@@ -101,8 +103,26 @@ public class MTR590_HO3_ValidateStandardAgent_2OpenLosses_RequiresUWApproval_NB 
 	@When("User clicks Policy Tab and validates 'Underwriting approval required prior to binding due to loss history' 'Risks with open losses are ineligible for coverage' texts are visible")
 	public void user_clicks_policy_tab_and_validates_text_messages_are_visible() throws Exception {
 		click(policyChevron.btnTabPolicy);
+		wait(2);
+		click(dwellingChevron.btnSave);
+		wait(5);
 		verify_AnyText_IsVisible(driver, "Underwriting approval required prior to binding due to loss history");
 		verify_AnyText_IsVisible(driver, "Risks with open losses are ineligible for coverage");	
+	}
+	@When("User clicks Dwelling Tab and updates construction year of the building")
+	public void user_clicks_dwelling_tab_and_updateS_construction_year_of_the_building() throws Exception {
+		click(dwellingChevron.btnDwelling);
+		sendText(dwellingChevron.txtYearConstruction, "2023");
+		click(dwellingChevron.btnSave);
+		wait(4);
+	}
+	@When("User transfer application back to producer")
+	public void user_transfer_application_back_to_producer() throws Exception {
+		click(dwellingChevron.btnMore);
+		wait(1);
+		click(driver.findElement(By.id("TransferBackToProducer")));
+		click(reviewChevron.btnDialogOk);
+		wait(3);
 	}
 	@When("User takes note of the application for <mtr590>")
 	public void user_takes_note_of_the_application__number_for_mtr590() throws Exception {
@@ -112,6 +132,7 @@ public class MTR590_HO3_ValidateStandardAgent_2OpenLosses_RequiresUWApproval_NB 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		wait(2);
 	}
 	@And("User clicks Finalize button <mtr590>")
 	public void User_clicks_Finalize_button_mtr590() {	    	   						
@@ -146,5 +167,15 @@ public class MTR590_HO3_ValidateStandardAgent_2OpenLosses_RequiresUWApproval_NB 
 		getInForcePremium(driver);
 		getInForcePremiumFees(driver);
 		Hooks.scenario.log("Test Case Completed!");
+	}
+	@When("User takes ownership of the application")
+	public void user_takes_ownership_of_the_application() throws Exception {
+		click(dwellingChevron.btnMore);
+		click(dwellingChevron.btnTakeOwnership);
+		wait(2);
+		click(reviewChevron.btnDialogOk);
+		wait(3);
+		click(dwellingChevron.btnSave);
+		wait(3);
 	}
 }
