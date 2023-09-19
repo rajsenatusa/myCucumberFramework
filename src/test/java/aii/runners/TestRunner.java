@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-				tags = "",
+				tags = "@NB_Policy_VOLHO4-1",
 
 
 				
