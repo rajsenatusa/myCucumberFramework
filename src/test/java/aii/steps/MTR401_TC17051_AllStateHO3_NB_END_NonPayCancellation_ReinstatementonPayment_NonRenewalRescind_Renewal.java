@@ -249,7 +249,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		//Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation+PolicyQuote);
 			
-		Thread.sleep(500);
+		wait(10);
 		PolicyQuote_Version2 = SmartPDFComparator2.getPDFtextByArea(FileLocation+PolicyQuote, 1, 50, 750, 100, 30);
 		PdfComparator.verifyFormData(driver, PolicyQuote_Version2, "AIIC QT 07 19");
 		
@@ -305,7 +305,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		//Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation+AppForm2);
 			
-		wait(8);
+		wait(10);
 		App_Version2 = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm2, 1, 50, 750, 120, 40);
 		PdfComparator.verifyFormData(driver, App_Version2, "AIIC HO3 APP 04 22");
 		
@@ -352,7 +352,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		//Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation+PolicyAppForm);
 			
-		Thread.sleep(500);
+		wait(10);
 		PolicyApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+PolicyAppForm, 1, 50, 750, 120, 40);
 		PdfComparator.verifyFormData(driver, PolicyApp_Version, "AIIC HO3 APP 04 22");
 		
@@ -470,7 +470,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		StatementLoss_Form = PdfComparator.makePdf(driver, "StatementOfNoLoss.pdf");
 		//Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation+StatementLoss_Form);
-		Thread.sleep(500);
+		wait(10);
 		
 		SNL_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+StatementLoss_Form, 1, 0, 0, 620, 790);
 		PdfComparator.verifyPDFText(driver, SNL_Data, "AIIC SNL 11 14");
@@ -786,8 +786,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		wait(3);
 		verify_AnyLabel_IsVisible(driver, "First Mortgagee");
 		click(dwellingChevron.btnSave);
-		wait(3);
-		
+		wait(3);	
 	}
 	@And("User changes pay plan to Mortgagee")
 	public void User_changes_pay_plan_to_mortgagee() {	    	   						
@@ -842,6 +841,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		PdfComparator.verifyPDFText(driver, RwlDINST_Data, AgentStreetAddress);
 		PdfComparator.verifyPDFText(driver, RwlDINST_Data, AgentCityStateZip);
 		PdfComparator.verifyPDFText(driver, RwlDINST_Data, AgentPhone);
+		Hooks.scenario.log("Test Case Completed!");
 	}
 	@When("User clicks Finalize button and completes renewal <mtr401>")
 	public void user_clicks_finalize_button_and_completes_renewal_mtr401() {
@@ -851,6 +851,5 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		click(reviewChevron.btnProcess);
 		wait(9);
 		closeUnnecessaryTabs();
-		// taking note of the renewal issued policy
 	}
 }

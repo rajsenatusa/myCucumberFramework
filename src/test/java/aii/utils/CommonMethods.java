@@ -1154,7 +1154,7 @@ public class CommonMethods extends PageInitializer {
 		}
 		return num.toString();
 	}
-
+	
 	/**
 	 * This method checks desired element is disabled or not in the DOM.
 	 * 
