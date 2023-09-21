@@ -6,7 +6,6 @@ import java.util.Map;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import java.util.ArrayList;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import aii.utils.ExcelUtility;
@@ -324,14 +323,7 @@ public class SCHO3Policy extends CommonMethods {
 				getPolicyNumber(driver);
 				
 			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
-
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+		        closeUnnecessaryTabs();
 				
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

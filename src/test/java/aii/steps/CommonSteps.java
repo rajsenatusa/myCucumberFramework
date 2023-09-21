@@ -54,10 +54,24 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+	@Given("User login to Spin as Underwriter Team Lead")
+	public void user_login_to_spin_as_underwriter_team_lead() {
+		sendText(login.username, ConfigsReader.getProperty("uwteamleadusername"));
+		sendText(login.password, ConfigsReader.getProperty("uwteamleadpassword"));
+		click(login.btnSignIn);
+		wait(3);
+	}
 	@Given("User login to Spin as Diamond Agent")
 	public void user_login_to_spin_as_diamond_agent() {
 		sendText(login.username, ConfigsReader.getProperty("diamondusername"));
 		sendText(login.password, ConfigsReader.getProperty("diamondpassword"));
+		click(login.btnSignIn);
+		wait(3);
+	}
+	@Given("User login to Spin as Diamond Agent 2")
+	public void user_login_to_spin_as_diamond_agent_2() {
+		sendText(login.username, ConfigsReader.getProperty("diamond2username"));
+		sendText(login.password, ConfigsReader.getProperty("diamond2password"));
 		click(login.btnSignIn);
 		wait(3);
 	}

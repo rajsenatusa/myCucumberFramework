@@ -269,6 +269,18 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.HomeCyberProtection")
 	public WebElement ddHomeCyberProtection;
 	
+	@FindBy(id= "Building.CovLACLimit")
+	public WebElement ddLossAssesment;
+	
+	@FindBy(id= "Building.RefrigeratedInd")
+	public WebElement rbRefrigatedPersonalProperty;
+	
+	@FindBy(id= "Building.PersonalInjuryInd")
+	public WebElement rbPersonalInjury;
+	
+	@FindBy(id= "Building.CovWBULimit")
+	public WebElement ddWaterBackupLimit;
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);
