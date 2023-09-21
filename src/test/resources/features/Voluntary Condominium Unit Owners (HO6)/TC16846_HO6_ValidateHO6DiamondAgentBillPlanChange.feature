@@ -1,8 +1,8 @@
 #Author: Can Yavas
 ##created on 08/09/2023
 
-@regression @tc16846
-Feature: TC 16846--HO6, Diamond Agent, BillPlanChange
+@regression @tc16846 @mtr361
+Feature: TC 16846--MTR361 HO6, Diamond Agent, BillPlanChange
 
   Scenario: As an agent change bill plan several times throughout the life cycle of the policy
     Given User login to Spin as Diamond Agent
