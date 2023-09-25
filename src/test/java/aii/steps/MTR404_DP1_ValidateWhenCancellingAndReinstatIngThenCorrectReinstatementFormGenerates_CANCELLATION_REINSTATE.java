@@ -106,10 +106,11 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		wait(3);
 	}
 	@And("User completes cancellation transaction and validates policy transaction status as cancelled")
-	public void User_completes_cancellation_transaction() {
+	public void User_completes_cancellation_transaction() throws Exception {
 		click(closeoutChevron.btnIssueNB);
 		wait(5);
 		Hooks.scenario.log("Policy Cancellation Completed!");
+		attachScreenShot(driver);
 	}
 	@And("User clicks Reinstatement Transaction Selection")
 	public void User_clicks_reinstatement_Transaction_Selection() {
@@ -119,12 +120,13 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		wait(2);
 	}
 	@And("User clicks Start button and process transaction")
-	public void User_clicks_start_button_and_process_transaction() {
+	public void User_clicks_start_button_and_process_transaction() throws Exception {
 		click(historyChevron.btnStart);
 		wait(3);
 		click(closeoutChevron.btnIssueNB);
 		wait(5);
 		closeUnnecessaryTabs();
+		attachScreenShot(driver);
 	}
 	@And("User verifies AIIC RI 11 14 generated on Forms chevron")
 	public void User_verifies_rein_form_generated() throws Exception {
@@ -163,7 +165,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		wait(1);
 		Con_Coverage_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Con_Coverage");
 		PdfComparator.SavePdfForm(driver, FileLocation+Con_Coverage_Form);
-		Thread.sleep(500);
+		wait(10);
 		Con_Coverage_Form_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Con_Coverage_Form, 1, 450, 720, 100, 50);
 		PdfComparator.verifyFormData(driver, Con_Coverage_Form_Version, "AIIC RI 11 14");
 		

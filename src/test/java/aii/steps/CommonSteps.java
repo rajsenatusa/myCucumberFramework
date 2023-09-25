@@ -111,6 +111,13 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+	@Given("User login to Spin as Claims Manager")
+	public void user_login_to_spin_as_claims_manager() {
+		sendText(login.username, ConfigsReader.getProperty("claimmgrusername"));
+		sendText(login.password, ConfigsReader.getProperty("claimmgrpassword"));
+		click(login.btnSignIn);
+		wait(3);
+	}
 	@Given("User login to Spin as AllState Agent")
 	public void user_login_to_spin_as_allstateagent() {
 		sendText(login.username, ConfigsReader.getProperty("allstateagentusername"));
