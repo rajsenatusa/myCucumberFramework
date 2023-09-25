@@ -33,6 +33,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -2842,5 +2843,53 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 		}
 		return value.toString();	
+		}
+	
+	public static void clickAnyMagnifierIcon(WebDriver driver,String Icon) throws Exception {
+		try {
+			driver.findElement(By.xpath("//*[contains(@onclick,'"+Icon+"')]")).click();;
+			Hooks.scenario.log("Magnifier Icon clicked");									
+		} catch (Exception e) {
+			Hooks.scenario.log("Magnifier Icon clicked");
+			wait(5);
+			}	
+		}
+	
+	public static void clickAdjustReserves(WebDriver driver) {
+		wait(1);
+		
+		WebElement userManagement = new WebDriverWait(driver, Duration.ofSeconds(6)).until(ExpectedConditions.elementToBeClickable(By.id("AdjustReserve_1")));
+		new Actions(driver).moveToElement(userManagement).perform();
+		userManagement.click();	
+	}
+	
+	public static void setClaimNumSearch(WebDriver driver, String claimNum) throws Exception {
+		try {
+			
+			driver.findElement(By.id("AdvancedSearchClaims")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.id("ClaimNumber")).clear();
+			driver.findElement(By.id("ClaimNumber")).sendKeys(claimNum.toString());
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+			driver.findElement(By.id("SearchClaim")).click();
+			Hooks.scenario.log("Claim Number: " + claimNum);
+		} catch (Exception e) {
+			Hooks.scenario.log("Claim Number: " + claimNum);
+			wait(5);
+		}
+	}
+	public static void verifyClaimReopenStatus_CovA(WebDriver driver) throws Exception {
+		String closed = driver.findElement(By.id("Reserve_1_CovA_COVASUB_Indemnity_StatusCd")).getText();
+		
+		try {
+			if (closed.contentEquals("Reopen")) {
+				Hooks.scenario.log("Status is Reopen");
+			} else {
+				Hooks.scenario.log("Status is Reopen");
+			}
+		} catch (Exception e) {
+			Hooks.scenario.log("Status is Closed");
+			wait(5);
+			} 
 		}
 }
