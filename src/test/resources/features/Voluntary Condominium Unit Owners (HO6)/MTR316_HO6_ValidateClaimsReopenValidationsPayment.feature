@@ -39,29 +39,30 @@ Feature: MTR316--HO6 Adj I NB, Claims Reopen Validations 'Claim status change wi
     And User clicks save and takes note of the loss number <mtr316>
     And User clicks Complete and takes note of the claim number <mtr316>
     And User clicks Claim Information Link and validates expected information is visible
-    And User clicks start transaction
+    And User clicks start transaction for the claim
     And User clicks Financial Actions Tab
     And User clicks Financial Actions Link
     And User adjusts reserves and sets indemnity Dwelling A as <3000> and Indemnity Cov C as <3000>
     And User clicks Finalize Transaction
-    And User validates 'Maximum Reserve for Indemnity exceeded limit of $5,000.00' text is visible
+    And User validates 'Maximum Reserve for Indemnity exceeded limit of $10,000.00' text is visible
     And User takes note of the transaction number
     And User clicks Submit For Approval button
     And User signs out
     And User login to Spin as Claims Manager
     And User searches Claim Number
+    And User takes ownership of the claim transaction
     And User approves Claim Transaction
     And User signs out
     And User login to Spin as Adjuster
     And User searches Claim Number
     And User clicks Process button
-    And User clicks start transaction
+    And User clicks start transaction for the claim
     And User clicks Financial Actions Tab
     And User clicks Claims Icon
     And User closes Reserves
     And User clicks Finalize Transaction
     And User clicks Process button
-    And User clicks start transaction
+    And User clicks start transaction for the claim
     And User clicks Claims Icon
     And User clicks Adjust Reserves and sets Indemnity Dwelling A Item Limit
     And User clicks Finalize Transaction
@@ -69,7 +70,7 @@ Feature: MTR316--HO6 Adj I NB, Claims Reopen Validations 'Claim status change wi
     And User validates 'Reopen Reason is required for this transaction. Please select a reopen reason in order to process this transaction.' text is visible
     And User selects Reopen Reason as Other
     And User clicks Process button
-    And User clicks start transaction
+    And User clicks start transaction for the claim
     And User clicks Claims Icon
     And User makes Claim Payment
     And User clicks Finalize Transaction

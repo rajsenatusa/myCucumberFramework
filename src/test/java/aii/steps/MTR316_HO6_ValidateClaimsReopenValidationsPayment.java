@@ -140,6 +140,7 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 	public void user_completes_all_reqiured_information_on_claim_chevron_mtr316() throws Exception {
 		selectDropdownText(claim.ddHomeHabitable, "Yes");
 		wait(1);
+		selectDropdownText(claim.ddAuthorityContacted, "None");
 		sendText(claim.txtClaimDescription, "Claim verification-MTR316");
 	}
 
@@ -187,7 +188,7 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 
 	@When("User clicks Claim Information Link and validates expected information is visible")
 	public void user_clicks_claim_information_link_and_validates_expected_information_is_visible() throws Exception {
-		clickOnAnyLink(driver, "Claim Information");
+		click(driver.findElement(By.id("Wizard_Summary")));
 		verify_AnyLabel_IsVisible(driver, "Branch");
 		verify_AnyLabel_IsVisible(driver, "Examiner Phone Number");
 		verify_AnyLabel_IsVisible(driver, "Examiner E-Mail");
@@ -213,11 +214,11 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 		clickAdjustReserves(driver);
 		wait(1);
 		clickonAnyButton(driver, "ShowAvailableInd");
-		sendText(driver.findElement(By.id("Reserve_CovA_COVASUB_Indemnity")), "3000");
-		sendText(driver.findElement(By.id("Reserve_CovC_COVCSUB_Indemnity")), "3000");
+		sendText(driver.findElement(By.id("Reserve_CovA_COVASUB_Indemnity")), "6000");
+		sendText(driver.findElement(By.id("Reserve_CovC_COVCSUB_Indemnity")), "5000");
 		click(dwellingChevron.btnSave);
 		wait(1);
-		verify_AnyText_IsVisible(driver, "Maximum Reserve for Indemnity exceeded limit of $5,000.00");
+		verify_AnyText_IsVisible(driver, "Maximum Reserve for Indemnity exceeded limit of $10,000.00");
 		attachScreenShot(driver);
 		// ignore warning
 		click(driver.findElement(By.id("SaveIgnoreWarnings")));
@@ -229,9 +230,9 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 		reviewChevron.btnFinalize.click();
 	}
 
-	@When("User validates 'Maximum Reserve for Indemnity exceeded limit of $5,000.00' text is visible")
-	public void user_validates_maximum_reserve_for_indemnity_exceeded_limit_of_5000_text_is_visible() throws Exception {
-		verify_AnyText_IsVisible(driver, "Maximum Reserve for Indemnity exceeded limit of $5,000.00");
+	@When("User validates 'Maximum Reserve for Indemnity exceeded limit of $10,000.00' text is visible")
+	public void user_validates_maximum_reserve_for_indemnity_exceeded_limit_of_10000_text_is_visible() throws Exception {
+		verify_AnyText_IsVisible(driver, "Maximum Reserve for Indemnity exceeded limit of $10,000.00");
 	}
 
 	@When("User takes note of the transaction number")
@@ -261,7 +262,7 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 	@When("User clicks Process button")
 	public void user_clicks_Process_button() throws Exception {
 		driver.findElement(By.id("Process")).click();
-		wait(1);
+		waitImp(7);
 		attachScreenShot(driver);
 	}
 
@@ -337,5 +338,23 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 		//click make payment button
 		driver.findElement(By.name("Save")).click();
 		Hooks.scenario.log("Make payment btn selected");
+	}
+	@When("User clicks start transaction for the claim")
+	public void user_clicks_start_transaction_for_the_claim() throws Exception {
+		click(driver.findElement(By.id("Wizard_Summary")));
+		waitImp(3);
+		startTransaction(driver);
+		wait(4);
+	}
+	@When("User takes ownership of the claim transaction")
+	public void user_takes_ownership_of_the_claim() throws Exception {
+		click(driver.findElement(By.id("dialogOK")));
+		wait(3);
+		click(driver.findElement(By.id("MoreActionsDropdownButton")));
+		click(driver.findElement(By.id("TakeOwnership")));
+		click(driver.findElement(By.id("dialogOK")));
+		waitImp(5);
+		click(driver.findElement(By.id("Closeout")));
+		waitImp(5);
 	}
 }

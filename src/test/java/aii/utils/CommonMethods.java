@@ -89,6 +89,21 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+	/**
+	 * This method allows us to call implicit wait for any amount of seconds
+	 * specified.
+	 * 
+	 * @param seconds
+	 */
+	public static void waitImp(int seconds) {
+
+		try {
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	/**
 	 * This method checks if a given index is valid for the WebElement and only then
@@ -2892,4 +2907,19 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 			} 
 		}
+	
+	public static void setFloodCoverage_ADwelling(WebDriver driver, String FloodCovALimit) throws Exception {
+		try {
+			WebElement toClear = driver.findElement(By.id("Building.FloodCovALimit"));
+			toClear.click();
+			toClear.sendKeys(Keys.CONTROL + "a");
+			toClear.sendKeys(Keys.DELETE);
+			 Thread.sleep(500);
+			 driver.findElement(By.id("Building.FloodCovALimit")).sendKeys(FloodCovALimit.toString());
+			Hooks.scenario.log("FloodCovALimit: " + FloodCovALimit);
+		} catch (Exception e) {
+			Hooks.scenario.log("FloodCovALimit: " + FloodCovALimit);
+			 wait(5);
+		}
+	}
 }
