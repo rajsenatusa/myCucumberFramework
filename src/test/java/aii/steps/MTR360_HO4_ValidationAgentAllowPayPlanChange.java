@@ -78,7 +78,7 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	@When("User clicks save")
 	public void user_clicks_save() {
 		click(userLookup.btnSave);
-		wait(1);
+		waitImp(10);
 	}
 	@When("User enters HO4 product selection information and current day as effective date")
 	public void user_enters_ho4_product_selection_information_and_current_day_as_effective_date() {

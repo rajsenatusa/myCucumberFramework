@@ -58,7 +58,7 @@ public class MTR3173_HO4_HO4AgentChangeDateTransaction_61days extends CommonMeth
 		//driver.findElement(By.xpath("//*[@id=\"TransactionSelection\"]/table[3]/tbody/tr[1]/th[2]/label")).click();
 		wait(5);
 		click(historyChevron.btnStart);
-		wait(6);
+		wait(6);  
 		click(historyChevron.btnStart);
 		wait(6);
 	}
