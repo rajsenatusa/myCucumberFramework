@@ -23,7 +23,7 @@ public class CommonSteps extends CommonMethods {
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String app_Tx_Policy_Claim_Num;
 	static String date;
-
+ 
 	@Given("User login to Spin as Standard Agent")
 	public void user_login_to_spin_as_standard_agent() throws Throwable {
 		sendText(login.username, ConfigsReader.getProperty("username"));

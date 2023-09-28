@@ -35,3 +35,17 @@ Feature: MTR364 - U/I Mandatory Mediation-Arbitration Coverage discount on NB an
 		And User searches previously created application
 		And User completes endorsement 
 		And User validates that Endorsement transaction has been completed successfully
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
