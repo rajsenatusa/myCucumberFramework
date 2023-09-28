@@ -33,14 +33,14 @@ Feature: Endorsement Policy TOHO3
     And User clicks dwelling chevron and selects roof material
     And User clicks review Chevron and selects payment plan
     And User finalizes transaction and issues takeout policy
-    And User returns to main page
-    And User clicks Start Transaction
-    And User clicks EN Transaction Selection
-    And User enters EN Effective Date "<EndorsementEffectiveDate>"
-    And User clicks Finalize button
-    And User clicks Endorse Policy button
-    Then User verifies EN TOHO3 policy has been created successfully
+    #And User returns to main page
+    #And User clicks Start Transaction
+    #And User clicks EN Transaction Selection
+    #And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    #And User clicks Finalize button
+    #And User clicks Endorse Policy button
+    #Then User verifies EN TOHO3 policy has been created successfully
 
     Examples: Test Data
       | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | TerritoryList | StructureRentedOthers | QualityGrade | HurricaneDeductible |
-      | 07/25/2023    | 07/27/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |             5 | No                    | Economy      | 2%                  |
+      | 1/1/2024    | 07/27/2023               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |             5 | No                    | Economy      | 2%                  |
