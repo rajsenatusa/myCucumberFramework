@@ -36,5 +36,5 @@ Feature: New Business Policy VOL AIB
     Then User verifies NB AIB policy has been created successfully
 
     Examples: Test Data
-      | username | password   | EffectiveDate |
-      | JLOWE    | July@2023! | 08/05/2023    |
+      | username | password  | EffectiveDate |
+      | mcemek   | Oct@2023! | 1/1/2022   |
