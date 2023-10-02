@@ -47,7 +47,7 @@ Feature: Issuing TOMHPD policy
 
     Examples: Test Data
       | EffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction | TerritoryList | AttachedStructures | CoverageA |
-      | 07/25/2023    | Owner Occupied | 9 to 12 Months |               2021 |             5 | No                 |    120000 |
+      | 1/1/2024    | Owner Occupied | 9 to 12 Months |               2021 |             5 | No                 |    120000 |
 
    @tomhpddatatable
    Scenario: TO MHPD policy creation with multiple customers

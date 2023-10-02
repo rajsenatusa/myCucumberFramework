@@ -209,7 +209,7 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 		wait(1);
 	}
 
-	@When("User adjusts reserves and sets indemnity Dwelling A as <3000> and Indemnity Cov C as <3000>")
+	@When("User adjusts reserves and sets indemnity Dwelling A as <6000> and Indemnity Cov C as <5000>")
 	public void user_adjusts_reserves_mtr316() throws Exception {
 		clickAdjustReserves(driver);
 		wait(1);

@@ -280,9 +280,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		wait(2); 
 		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");			 
 		reviewChevron.btnFullPaymentRadio.click();
-		reviewChevron.btnCreateApplication.click();
-		reviewChevron.btnInsuranceScoreBox.click();
-		reviewChevron.btnInsuranceScoreOk.click();
+//		reviewChevron.btnCreateApplication.click();
+//		reviewChevron.btnInsuranceScoreBox.click();
+//		reviewChevron.btnInsuranceScoreOk.click();
 	}	
 	@And("User enters HO3 Underwritting Questions")
 	public void User_enters_HO3_Underwritting_Questions () {

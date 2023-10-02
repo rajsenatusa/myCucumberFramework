@@ -57,7 +57,7 @@ Feature: Issuing TOHO3 policy
     
     Examples: Test Data
       | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | TerritoryList | StructureRentedOthers| QualityGrade | HurricaneDeductible|
-      | 1/1/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |  5            |        No            | Economy      |     2%             |
+      | 1/1/2024    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |  5            |        No            | Economy      |     2%             |
     
      @toho3datatable
    Scenario: TO HO3 policy creation with multiple customers
