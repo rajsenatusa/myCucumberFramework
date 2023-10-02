@@ -1,9 +1,9 @@
 #Author:Mustafa Cemek
 @FIGA-VOLHO3 
-Feature: RC-1098: 2023 Rate Changes- FIGA: VOL HO3- 10/01/2023
+Feature: RC-1822: 2024 Rate Changes- FIGA: VOL HO3- 01/01/2024
 
-  @FIGA-VOLHO3-11 @FIGA
-  Scenario Outline: RC-1442: RC-1098 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL HO3 - NB = Eff. Date
+  @FIGA2024-VOLHO3 @FIGA
+  Scenario Outline: MTR-3045: RC-1098 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL HO3 - NB = Eff. Date
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -45,16 +45,17 @@ Feature: RC-1098: 2023 Rate Changes- FIGA: VOL HO3- 10/01/2023
     And User enters Roof Shape "<RoofShape>"
     And User enters SWR "<SWR>"
     And User clicks Flood Coverage "<FloodCoverage>"
-    And User selects Flood Coverage Deductible "<FloodCoverageDeductible>"
-    And User selects Flood Foundation Type "<FloodFoundationType>"
-    And User selects Flood Zone Override "<FloodZoneOverride>"
-    And User selects Preferred Risk Status "<PreferredRiskStatus>"
-    And User selects SFHA Override "<SFHAOverride>"
-    And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
+    #And User selects Flood Coverage Deductible "<FloodCoverageDeductible>"
+    #And User selects Flood Foundation Type "<FloodFoundationType>"
+    #And User selects Flood Zone Override "<FloodZoneOverride>"
+    #And User selects Preferred Risk Status "<PreferredRiskStatus>"
+    #And User selects SFHA Override "<SFHAOverride>"
+    #And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
     And User clicks Save
     And User clicks Review button
     And User enters Pay Plan Type
-    And User clicks Next Page
+    And User clicks save
+    And User clicks Underwritting Questions button
     And User enters HO3 Underwritting Questions
     And User enters Dwelling Type
     And User enters Number of stories
@@ -63,10 +64,10 @@ Feature: RC-1098: 2023 Rate Changes- FIGA: VOL HO3- 10/01/2023
     And User clicks Issue New Business
     And User returns to main page
     And User clicks Worksheets chevron
-    Then User validates 2024 FIGA HO3 rate
+    Then User validates 2024 FIGA VOL HO3 rate
 
     Examples: Test Data
       | username | password   | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      |  mcemek  | Sep@2023! | 01/01/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      |  mcemek  | Oct@2023! | 01/01/2024    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
 
   
