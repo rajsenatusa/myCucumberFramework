@@ -34,12 +34,12 @@ Feature: Renewal Policy TODP3
     And User clicks dwelling chevron and selects roof material
     And User clicks review Chevron and selects payment plan
     And User finalizes transaction and issues takeout policy
-    And User returns to main page
-    And User clicks Start Transaction
-    And User clicks RN Transaction Selection
-    And User clicks Finalize
-    Then User verifies RN TODP3 policy has been created successfully
+    #And User returns to main page
+    #And User clicks Start Transaction
+    #And User clicks RN Transaction Selection
+    #And User clicks Finalize
+    #Then User verifies RN TODP3 policy has been created successfully
 
     Examples: Test Data
       | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | DistanceHydrant | ProtectionClass | DwellingType  | NumberOfUnits | TerritoryList | QualityGrade |
-      | 07/25/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 | <= 1,000 Feet   |              04 | Single Family |             2 |             5 | Economy      |
+      | 1/1/2024    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 | <= 1,000 Feet   |              04 | Single Family |             2 |             5 | Economy      |

@@ -19,7 +19,7 @@ Feature: Issuing TOMHO policy
     And User finalizes transaction and issues takeout policy
     Then User validates that TOMHO policy has been created successfully
 
-  @tomhoso
+  @tomhoso 
   Scenario Outline: Valid TOMHO policy creation with Scenario Outline
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
@@ -47,7 +47,7 @@ Feature: Issuing TOMHO policy
 
     Examples: Test Data
       | EffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction | TerritoryList | AttachedStructures | CoverageA |
-      | 07/25/2023    | Owner Occupied | 9 to 12 Months |               2021 |             5 | No                 |    120000 |
+      | 1/1/2024    | Owner Occupied | 9 to 12 Months |               2021 |             5 | No                 |    120000 |
 
    @tomhodatatable
    Scenario: TO MHO policy creation with multiple customers
