@@ -6,13 +6,14 @@
 ## EXPECTED RESULTS:  Adjuster I can create a claim, can change the status of a claim from open to closed to reopen status, 
 ## can make a payment on a claim and needs approval to stop a payment on a claim.
   
-## User: rvanhorn
+## User: adjuster1
 
-##There is previously created defect for this test case. Will be observed for successful run. Upcoming steps have not been written. Left on line 372
+##There is previously created defect for this test case. Will be observed later for successful run. Upcoming steps have not been written. Left on line 372
 ##"Refer defect#1336- Perform a Payment release (Payables->Payment release) 
 ## Run the Initiate stats Job-> Update System Check Action, Start a transaction and stop the payment. Run the job Update System Check Action");
 
-@regression @mtr316
+## Has rule change. Test case ineffective. Max indemnity allowed 10.000. It is written as 5000$ on test case.
+ @mtr316
 Feature: MTR316--HO6 Adj I NB, Claims Reopen Validations 'Claim status change with void payment validation'
 
   Scenario: Validate Adjuster can create a claim, can change the status of a claim from open to closed to reopen status, can make a payment on a claim and needs approval to stop a payment on a claim. 
@@ -42,7 +43,7 @@ Feature: MTR316--HO6 Adj I NB, Claims Reopen Validations 'Claim status change wi
     And User clicks start transaction for the claim
     And User clicks Financial Actions Tab
     And User clicks Financial Actions Link
-    And User adjusts reserves and sets indemnity Dwelling A as <3000> and Indemnity Cov C as <3000>
+    And User adjusts reserves and sets indemnity Dwelling A as <6000> and Indemnity Cov C as <5000>
     And User clicks Finalize Transaction
     And User validates 'Maximum Reserve for Indemnity exceeded limit of $10,000.00' text is visible
     And User takes note of the transaction number
@@ -50,7 +51,14 @@ Feature: MTR316--HO6 Adj I NB, Claims Reopen Validations 'Claim status change wi
     And User signs out
     And User login to Spin as Claims Manager
     And User searches Claim Number
-    And User takes ownership of the claim transaction
+    And User approves Claim Transaction
+    And User signs out
+    And User login to Spin as Adjuster
+    And User searches Claim Number
+    And User clicks Submit For Approval button
+    And User signs out
+    And User login to Spin as Claims Manager
+    And User searches Claim Number
     And User approves Claim Transaction
     And User signs out
     And User login to Spin as Adjuster

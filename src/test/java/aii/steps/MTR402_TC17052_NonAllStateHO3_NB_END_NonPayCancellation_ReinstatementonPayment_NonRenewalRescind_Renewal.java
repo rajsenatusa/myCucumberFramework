@@ -507,7 +507,7 @@ public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_Reinstateme
 	}
 	@When("User gets next action date and changes system date to next action date <mtr402>")
 	public void user_gets_next_action_date_and_changes_system_date_to_next_action_date_mtr402() throws Exception {
-		NextActionDate=getNextAction_Text(driver);
+		NextActionDate=getNextActionDate(driver);
 		attachScreenShot(driver);
 		wait(2);
 		ChangeDate_Admin(driver, NextActionDate);
