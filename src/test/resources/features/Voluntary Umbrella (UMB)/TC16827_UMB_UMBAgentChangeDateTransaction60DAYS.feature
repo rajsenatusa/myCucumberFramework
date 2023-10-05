@@ -10,7 +10,7 @@
 ## 4. Submit for approval
 ## 5. Issue NB as Agent
 
-## Test ineffective due to rule change. This change date over 60 days rule is not effective anymore !!! Will not be used in regression
+## Test ineffective due to current rule. This change date over 60 days by agent rule is not effective anymore !!! Will not be used in regression
 
 @tc16827
 Feature: TC 16827 UMB, Agent, Change Date Transaction 60 days
