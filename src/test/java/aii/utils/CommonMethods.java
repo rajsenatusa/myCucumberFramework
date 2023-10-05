@@ -33,7 +33,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -2921,5 +2920,20 @@ public class CommonMethods extends PageInitializer {
 			Hooks.scenario.log("FloodCovALimit: " + FloodCovALimit);
 			 wait(5);
 		}
+	}
+	
+	public static int getCountOfText(WebDriver driver, String text) throws Exception {
+		int count=0;
+		try {
+			List<WebElement> ele = driver.findElements(By.xpath("//*[text()='"+text+"']"));
+			waitImp(3);
+			count = ele.size();
+			Hooks.scenario.log("Chargeabel '"+text+"' appeared count is "+ele.size());
+				
+		} catch (Exception e) {
+			Hooks.scenario.log("Chargeable");
+			waitImp(3);
+			}
+		return count;
 	}
 }
