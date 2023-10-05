@@ -1094,7 +1094,7 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		// issue policy
 		wait(5);
 		click(closeoutChevron.btnIssueNB);
-		wait(5);
+		wait(10);
 	}
 
 	@And("User searches renewed policy")
