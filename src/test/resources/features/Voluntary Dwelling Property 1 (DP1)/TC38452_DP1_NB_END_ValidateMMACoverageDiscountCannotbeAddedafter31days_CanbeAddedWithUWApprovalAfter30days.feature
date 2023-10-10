@@ -1,7 +1,10 @@
 #Author: Can Yavas
 ##created on 08/16/2023
 
-@regression @tc38452
+##updated due to rule change on 10/06/2023 by C.Yavas. "Select" selection removed from MMA Dropdown
+##(TH-444 HO3, DP3, DP1 - default YES to Mandatory Mediation Arbitration in SPIN and API's)
+
+@regression @tc38452 @mtr362
 Feature: TC36905: U/I Mandatory Mediation-Arbitration Coverage discount on NB 07/01/2022 and require UW Approval when adding on END with 30 days
   Precondition-Issue NB effective 07/01/2022,MMA =No
 
@@ -12,7 +15,7 @@ Feature: TC36905: U/I Mandatory Mediation-Arbitration Coverage discount on NB 07
     And User enters all required information on policy information screen
     And User enters DP1 product selection information and current date as effective date
     And User enters all required information on DP1 quote screen with current date as prior policy date
-		And User enters all required information on DP1 dwelling screen
+		And User enters all required information on DP1 dwelling screen and validates MMA dropdown includes Yes and No selections
 		And User enters all required information on DP1 review screen
     And User creates DP1 application
     And User answers all underwriting questions for DP1

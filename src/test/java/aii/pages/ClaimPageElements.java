@@ -119,6 +119,9 @@ public class ClaimPageElements extends CommonMethods{
 	@FindBy(id= "ClaimantActionsMenu_2")
 	public WebElement btnFinanctialActions2;
 	
+	@FindBy(id= "ClaimantActionsMenu_1")
+	public WebElement btnFinancialActions;
+	
 	@FindBy(id= "AdjustReserve_2")
 	public WebElement btnAdjustReserves2;
 	
@@ -136,6 +139,15 @@ public class ClaimPageElements extends CommonMethods{
 	
 	@FindBy(id= "DenyDate_Feature_PUCov")
 	public WebElement txtDenialDate;
+	
+	@FindBy(id= "Closeout")
+	public WebElement btnFinalize;
+	
+	@FindBy(id= "MakePayment_1")
+	public WebElement btnMakePayment;
+	
+	@FindBy(id= "ClaimantTransaction.PaymentTypeCd")
+	public WebElement ddPaymentType;
 	
 	public ClaimPageElements() {
 		PageFactory.initElements(driver, this);

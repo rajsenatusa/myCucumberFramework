@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
+import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
@@ -16,6 +17,7 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String applicationNumber;
+	static String[] MMA = {"Yes", "No"};
 	
 	@When("User validates that DP1 policy has been created successfully and close tabs and takes note of the policy for <tc38452>")
 	public void user_validates_that_dp1_policy_has_been_created_successfully_and_close_tabs_and_takes_note_of_the_policy_number_tc38452()
@@ -130,5 +132,23 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 	public void user_clicks_dwelling_chevron_tc38452() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
+	}
+	@When("User enters all required information on DP1 dwelling screen and validates MMA dropdown includes Yes and No selections")
+	public void user_enters_all_required_information_on_dp1_dwelling_screen() throws Exception {
+
+		sendText(dwellingChevron.txtYearConstruction, "2023");
+		wait(2);
+		sendText(dwellingChevron.txtSquareFeet, "2500");
+		
+		verifyAnyDropDownOptions(driver, MMA, "BuildingExt.MMAInd");
+		
+		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
+		selectDropdownText(dwellingChevron.ddMediationArbitDp1, ConfigsReader.getProperty("mediation"));
+		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
+		selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
+		click(dwellingChevron.btnCalculate);
+		wait(4);
+		click(dwellingChevron.btnSave);
+		click(dwellingChevron.btnNext);
 	}
 }

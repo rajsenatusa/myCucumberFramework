@@ -11,6 +11,8 @@
    
 ## User: Jbarnes
 
+##updated on 10/06/23 by CYavas due to a defect. AIIC DP DPL 07 15 form replaced with AIIC DP DPL 07 23
+
 @regression @mtr138
 Feature: TC 36013--Validate User Story 6249:Forms Matrix
 
@@ -43,7 +45,7 @@ Feature: TC 36013--Validate User Story 6249:Forms Matrix
     And User validates policy jacket form version
     And User validates AIIC DP3 IDX 07 15 form version
     And User validates DP 00 03 07 88 form version
-    And User validates AIIC DP DPL 07 15 form version
+    And User validates AIIC DP DPL 07 23 form version
     And User validates AIIC 01 DP3 SP 04 23 form version
     And User validates AIIC DP HD 07 15 form version
     And User validates actual cash value loss settlement form version

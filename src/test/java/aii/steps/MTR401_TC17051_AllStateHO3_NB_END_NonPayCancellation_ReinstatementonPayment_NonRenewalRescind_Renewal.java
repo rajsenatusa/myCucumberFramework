@@ -103,8 +103,8 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
 		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "1163 Oak Bluff DR");
-		sendText(quote.txtZipCode, "33837");
+		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
+		sendText(quote.txtZipCode, "34987");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);
@@ -127,7 +127,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	public void user_enters_all_required_information_on_ho3_quote_screen_mtr401() {
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "New Purchase");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
@@ -144,20 +144,19 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	@When("User enters all required information on HO3 dwelling screen <mtr401>")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_mtr401() {
 		// Quote Dwelling information was filled here
-		sendText(dwellingChevron.txtYearConstruction, "2023");
+		//sendText(dwellingChevron.txtYearConstruction, "2023");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
-		sendText(dwellingChevron.txtRoofMaterialUpdate, "2023");
+		sendText(dwellingChevron.txtRoofMaterialUpdate, "2020");
 		selectDropdownText(dwellingChevron.ddMediationArbit, "No");
 		wait(2);
 		click(dwellingChevron.btnSave);
 		wait(3);
 		click(dwellingChevron.btnCalculate);
 		wait(4);
-		sendText(dwellingChevron.txtCoverageA, "400000");
 		click(dwellingChevron.btnSave);
 		wait(4);
 		selectDropdownText(dwellingChevron.ddDeductibleWindHail, "$15,000");
@@ -182,7 +181,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 
 		click(reviewChevron.btnReview);
 		wait(2);
-		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");
 		wait(2);
 		click(driver.findElement(By.id("BasicPolicy.PayPlanCd_9")));
 	}
@@ -576,7 +575,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	}
 	@When("User gets next action date and changes system date to next action date <mtr401>")
 	public void user_gets_next_action_date_and_changes_system_date_to_next_action_date_mtr401() throws Exception {
-		nextDate=getNextActionDate();
+		nextDate=getNextAction_Text(driver);
 		wait(2);
 		ChangeDate_Admin(driver, nextDate);
 		wait(1);
@@ -589,11 +588,12 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	@When("User validates 'Cancellation Notice' label is visible")
 	public void user_validates_cancellation_notice_label_is_visible() throws Exception {
 		verify_AnyLabel_IsVisible(driver, "Cancellation Notice");
+		attachScreenShot(driver);
 	}
 	@When("User gets second next action date and changes system date to second next action date <mtr401>")
 	public void user_gets_second_next_action_date_and_changes_system_date_to_second_next_action_date_mtr401() throws Exception {
 		String NextActionDate2 = getNextAction_Text(driver);
-			
+		attachScreenShot(driver);	
 		ChangeDate_Admin(driver, NextActionDate2);
 		wait(1);
 	}
