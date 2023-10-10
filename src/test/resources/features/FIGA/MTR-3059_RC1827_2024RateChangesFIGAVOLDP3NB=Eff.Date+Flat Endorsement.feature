@@ -2,10 +2,10 @@
 @FIGA-VOLDP3
 Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
 
-  @FIGA-VOLDP3-1 @FIGA
-  Scenario Outline: RC-1416: RC-1090 2023 Rate Changes: FL Annual FIGA Rate Changes - VOL DP3 - NB = Eff. Date
+  @FIGA2024-VOLDP3-1 @FIGA2024
+  Scenario Outline: MTR-3059: RC-1827, 2024 Rate Changes - FIGA: VOL DP3 - NB = Eff. Date + Flat Endorsement
     
-    Given User navigates to QA7
+    Given User navigates to Model
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
     And User clicks on the login button
@@ -44,7 +44,31 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User clicks Issue New Business
     And User returns to main page
     And User clicks Worksheets chevron
-    Then User validates New FIGA DP3 rate
+    
+
+
+		
+		
+		
+		Then User validates 2024 FIGA VOL HO3 rate in Worksheets
+    And User clicks Premium Info Chevron
+    Then User validates 2024 FIGA VOL HO3 rate in Premium Info
+    And User clicks Review Chevron
+    Then User validates 2024 FIGA VOL HO3 rate in Review
+    And User clicks History Chevron
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Finalize button
+    And User clicks Endorse Policy button
+    And User returns to main page
+    And User clicks Worksheets chevron
+    Then User validates 2024 FIGA VOL HO3 rate in Worksheets
+    And User clicks Premium Info Chevron
+    Then User validates 2024 FIGA VOL HO3 rate in Premium Info
+    And User clicks Review Chevron
+    Then User validates 2024 FIGA VOL HO3 rate in Review
+
 
     Examples: Test Data
       | username | password  | FIGADP3EffectiveDate |

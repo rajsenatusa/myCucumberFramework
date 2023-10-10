@@ -57,4 +57,4 @@ Feature: RC-1096: 2023 Rate Changes- FIGA: VOL HO4- 10/01/2023
 
     Examples: Test Data
       | username | password   | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | BuildingCodeEffectivenessGrade | NumberOfStories | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
-      | mcemek    | Sep@2023! | 1/1/2024   | 10/02/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
+      | mcemek    | Oct@2023! | 1/1/2024   | 10/02/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |

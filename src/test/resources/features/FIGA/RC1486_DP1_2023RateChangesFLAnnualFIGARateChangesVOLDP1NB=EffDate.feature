@@ -64,7 +64,7 @@ Feature: RC-1102: 2023 Rate Changes- FIGA: VOL DP1- 10/01/2023
 
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Sep@2023! | 01/01/2024    | 10/02/2023               | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $5,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
+      | mcemek   | Oct@2023! | 01/01/2024    | 10/02/2023               | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $5,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
 
   @FIGA-VOLDP1-2
   Scenario Outline: FIGA VOL DP1-10/01/2023: NB before Effective Date
