@@ -465,7 +465,7 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC PJ 05 19Policy Jacket");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 IDX 07 15Dwelling Property 3 Special Form Index");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "DP 00 03 07 88Dwelling Property 3 Special Form");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP DPL 07 15");
+		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP DPL 07 23");   //changed
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC 01 DP3 SP 04 23");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP HD 07 15");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP 04 75 11 20");
@@ -564,10 +564,10 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 		DP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 17, 40, 750, 120, 30);
 		PdfComparator.verifyFormData(driver, DP3Special_Version, "DP 00 03 07 88");
 	}
-	@When("User validates AIIC DP DPL 07 15 form version")
+	@When("User validates AIIC DP DPL 07 23 form version")
 	public void user_validates_AIICDPDPL0715_form_version() throws Exception {
-		PLiab_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 26, 440, 20, 120, 30);
-		PdfComparator.verifyFormData(driver, PLiab_Version, "AIIC DP DPL 07 15");
+		PLiab_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 27, 440, 20, 120, 30);
+		PdfComparator.verifyFormData(driver, PLiab_Version, "AIIC DP DPL 07 23");
 		
 		PLiab_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
 	}

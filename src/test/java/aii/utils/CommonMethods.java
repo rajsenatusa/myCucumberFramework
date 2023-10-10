@@ -88,6 +88,7 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+
 	/**
 	 * This method allows us to call implicit wait for any amount of seconds
 	 * specified.
@@ -1169,7 +1170,7 @@ public class CommonMethods extends PageInitializer {
 		}
 		return num.toString();
 	}
-	
+
 	/**
 	 * This method checks desired element is disabled or not in the DOM.
 	 * 
@@ -2832,54 +2833,56 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 		}
 	}
-	
+
 	/**
 	 * This method simulates pressing the "Tab" key.
 	 * 
 	 * @param element The WebElement where the "Tab" key should be sent.
 	 */
 	public static void pressTabKey(WebElement element) {
-	    try {
-	        element.sendKeys(Keys.TAB);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	}
-	
-	public static String getAnyDropdownPopulatedValue(WebDriver driver, String element) throws Exception {
-		String value=null;
 		try {
-			Select entityType = new Select (driver.findElement(By.id(""+element+"")));	
-			value = entityType.getFirstSelectedOption().getText();
-			Hooks.scenario.log(element+" populated with "+value);	
+			element.sendKeys(Keys.TAB);
 		} catch (Exception e) {
-			Hooks.scenario.log(element+" not populated with "+value);
+			e.printStackTrace();
+		}
+	}
+
+	public static String getAnyDropdownPopulatedValue(WebDriver driver, String element) throws Exception {
+		String value = null;
+		try {
+			Select entityType = new Select(driver.findElement(By.id("" + element + "")));
+			value = entityType.getFirstSelectedOption().getText();
+			Hooks.scenario.log(element + " populated with " + value);
+		} catch (Exception e) {
+			Hooks.scenario.log(element + " not populated with " + value);
 			wait(5);
 		}
-		return value.toString();	
-		}
-	
-	public static void clickAnyMagnifierIcon(WebDriver driver,String Icon) throws Exception {
+		return value.toString();
+	}
+
+	public static void clickAnyMagnifierIcon(WebDriver driver, String Icon) throws Exception {
 		try {
-			driver.findElement(By.xpath("//*[contains(@onclick,'"+Icon+"')]")).click();;
-			Hooks.scenario.log("Magnifier Icon clicked");									
+			driver.findElement(By.xpath("//*[contains(@onclick,'" + Icon + "')]")).click();
+			;
+			Hooks.scenario.log("Magnifier Icon clicked");
 		} catch (Exception e) {
 			Hooks.scenario.log("Magnifier Icon clicked");
 			wait(5);
-			}	
 		}
-	
+	}
+
 	public static void clickAdjustReserves(WebDriver driver) {
 		wait(1);
-		
-		WebElement userManagement = new WebDriverWait(driver, Duration.ofSeconds(6)).until(ExpectedConditions.elementToBeClickable(By.id("AdjustReserve_1")));
+
+		WebElement userManagement = new WebDriverWait(driver, Duration.ofSeconds(6))
+				.until(ExpectedConditions.elementToBeClickable(By.id("AdjustReserve_1")));
 		new Actions(driver).moveToElement(userManagement).perform();
-		userManagement.click();	
+		userManagement.click();
 	}
-	
+
 	public static void setClaimNumSearch(WebDriver driver, String claimNum) throws Exception {
 		try {
-			
+
 			driver.findElement(By.id("AdvancedSearchClaims")).click();
 			Thread.sleep(1000);
 			driver.findElement(By.id("ClaimNumber")).clear();
@@ -2892,9 +2895,10 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 		}
 	}
+
 	public static void verifyClaimReopenStatus_CovA(WebDriver driver) throws Exception {
 		String closed = driver.findElement(By.id("Reserve_1_CovA_COVASUB_Indemnity_StatusCd")).getText();
-		
+
 		try {
 			if (closed.contentEquals("Reopen")) {
 				Hooks.scenario.log("Status is Reopen");
@@ -2904,36 +2908,53 @@ public class CommonMethods extends PageInitializer {
 		} catch (Exception e) {
 			Hooks.scenario.log("Status is Closed");
 			wait(5);
-			} 
 		}
-	
+	}
+
 	public static void setFloodCoverage_ADwelling(WebDriver driver, String FloodCovALimit) throws Exception {
 		try {
 			WebElement toClear = driver.findElement(By.id("Building.FloodCovALimit"));
 			toClear.click();
 			toClear.sendKeys(Keys.CONTROL + "a");
 			toClear.sendKeys(Keys.DELETE);
-			 Thread.sleep(500);
-			 driver.findElement(By.id("Building.FloodCovALimit")).sendKeys(FloodCovALimit.toString());
+			Thread.sleep(500);
+			driver.findElement(By.id("Building.FloodCovALimit")).sendKeys(FloodCovALimit.toString());
 			Hooks.scenario.log("FloodCovALimit: " + FloodCovALimit);
 		} catch (Exception e) {
 			Hooks.scenario.log("FloodCovALimit: " + FloodCovALimit);
-			 wait(5);
+			wait(5);
 		}
 	}
-	
+
 	public static int getCountOfText(WebDriver driver, String text) throws Exception {
-		int count=0;
+		int count = 0;
 		try {
-			List<WebElement> ele = driver.findElements(By.xpath("//*[text()='"+text+"']"));
+			List<WebElement> ele = driver.findElements(By.xpath("//*[text()='" + text + "']"));
 			waitImp(3);
 			count = ele.size();
-			Hooks.scenario.log("Chargeabel '"+text+"' appeared count is "+ele.size());
-				
+			Hooks.scenario.log("Chargeabel '" + text + "' appeared count is " + ele.size());
+
 		} catch (Exception e) {
 			Hooks.scenario.log("Chargeable");
 			waitImp(3);
-			}
+		}
 		return count;
+	}
+
+	public static void VerifyAnyDropdownIsNotSelected(WebDriver driver, String element) throws Exception {
+
+		try {
+			WebElement ele = (WebElement) new Select(driver.findElement(By.id("" + element + "")));
+
+			if (ele.isSelected()) {
+
+				Hooks.scenario.log(element + " is selected");
+			}
+		} catch (Exception e) {
+			Hooks.scenario.log(element + " is not selected");
+
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
+		}
+
 	}
 }

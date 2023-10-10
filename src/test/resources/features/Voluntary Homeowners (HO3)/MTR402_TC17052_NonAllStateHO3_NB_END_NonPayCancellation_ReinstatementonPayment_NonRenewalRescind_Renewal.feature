@@ -46,7 +46,7 @@ Feature: TC 17052--NonAllstate Agent test case: HO3, Allstate - New Business End
 		And User clicks Insurance Quote Link and validates form version <mtr402>
 		And User creates HO3 application
     And User answers all underwriting questions for VOL HO3
-		And User sets dwelling type, sets roof update and roof material
+		And User sets dwelling type, sets roof update and roof material <mtr402>
 		And User clicks correspondance tab
 		And User selects 'Application' from dropdown
 		And User clicks preview correspondance button
