@@ -33,7 +33,7 @@ public class VOLDP3_EN_Policy extends CommonMethods {
 		public void User_clicks_Endorse_Policy_button() {	    	   						
 			reviewChevron.btnFinalize.click();
 			closeoutChevron.btnEndorsePolicy.click();	 
-			wait(20);	
+			wait(2);	
 		}
 		@Then("User verifies EN DP3 policy has been created successfully")
 		public void User_verifies_EN_DP3_policy_has_been_created_successfully() {	    	   						

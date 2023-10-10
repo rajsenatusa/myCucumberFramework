@@ -29,6 +29,12 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Save")
 	public WebElement btnSave;
 	
+	@FindBy(id= "QuickEndorsement")
+	public WebElement btnEndorsement;
+	
+	@FindBy(id= "Start")
+	public WebElement btnStart;
+		
 	@FindBy(id= "Building.QualityGrade")
 	public WebElement ddQualityGrade;
 	

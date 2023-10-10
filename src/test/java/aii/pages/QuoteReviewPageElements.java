@@ -44,6 +44,12 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "Wizard_Review")
 	public WebElement btnReview;
 	
+	@FindBy(id= "Tab_History")
+	public WebElement btnHistory;
+	
+	@FindBy(id= "Wizard_PremiumInfo")
+	public WebElement btnPremiumInfo;
+	
 	@FindBy(id= "Closeout")
 	public WebElement btnFinalize; 
 	

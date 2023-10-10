@@ -11,6 +11,12 @@ public class QuoteProductSelectionPageElements extends CommonMethods{
 	@FindBy (id= "BasicPolicy.EffectiveDt")
 	public WebElement txtEffectiveDate;
 	
+	
+	
+	
+	@FindBy (id= "TransactionEffectiveDt")
+	public WebElement txtEndorsementEffectiveDate;
+	
 	@FindBy (id= "BasicPolicy.ControllingStateCd")
 	public WebElement ddStateSelection;
 	
