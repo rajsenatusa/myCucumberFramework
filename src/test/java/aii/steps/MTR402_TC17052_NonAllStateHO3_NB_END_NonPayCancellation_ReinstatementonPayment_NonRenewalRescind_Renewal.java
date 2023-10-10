@@ -94,8 +94,8 @@ public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_Reinstateme
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
 		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "1163 Oak Bluff DR");
-		sendText(quote.txtZipCode, "33837");
+		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
+		sendText(quote.txtZipCode, "34987");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);
@@ -118,9 +118,9 @@ public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_Reinstateme
 	public void user_enters_all_required_information_on_ho3_quote_screen_mtr402() {
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "New Purchase");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
-		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		selectDropdownText(policyChevron.ddInsuranceScoreDd, "Neutral");
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
@@ -135,20 +135,20 @@ public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_Reinstateme
 	@When("User enters all required information on HO3 dwelling screen <mtr402>")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_mtr402() {
 		// Quote Dwelling information was filled here
-		sendText(dwellingChevron.txtYearConstruction, "2023");
+		//sendText(dwellingChevron.txtYearConstruction, "2023");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
+		selectDropdownText(dwellingChevron.ddDistanceToCoast, "10 mi to less than 15 mi");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
-		sendText(dwellingChevron.txtRoofMaterialUpdate, "2023");
+		sendText(dwellingChevron.txtRoofMaterialUpdate, "2022");
 		selectDropdownText(dwellingChevron.ddMediationArbit, "No");
 		wait(2);
 		click(dwellingChevron.btnSave);
 		wait(3);
 		click(dwellingChevron.btnCalculate);
 		wait(4);
-		sendText(dwellingChevron.txtCoverageA, "400000");
 		click(dwellingChevron.btnSave);
 		wait(4);
 		selectDropdownText(dwellingChevron.ddDeductibleWindHail, "$15,000");
@@ -160,9 +160,18 @@ public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_Reinstateme
 
 		click(reviewChevron.btnReview);
 		wait(2);
-		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");
 		wait(2);
-		click(driver.findElement(By.id("BasicPolicy.PayPlanCd_9")));
+		click(driver.findElement(By.id("BasicPolicy.PayPlanCd_9")));  //8 pay plan
+	}
+	@When("User sets dwelling type, sets roof update and roof material <mtr402>")
+	public void user_sets_dwelling_type_sets_roof_update_and_roof_material_mtr402() throws Exception {
+		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+		sendText(dwellingChevron.txtRoofMaterialUpdate, "2017");  //Change due to $15K wind/hail
+		wait(2);
+		click(dwellingChevron.btnSave);
+		wait(2);
 	}
 	@When("User validates 'KILLINGSWORTH INSURANCE AGENCY-SPRING HILL' label is visible")
 	public void user_validates_agent_name_label_is_visible_mtr402() throws Exception {
@@ -507,7 +516,7 @@ public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_Reinstateme
 	}
 	@When("User gets next action date and changes system date to next action date <mtr402>")
 	public void user_gets_next_action_date_and_changes_system_date_to_next_action_date_mtr402() throws Exception {
-		NextActionDate=getNextActionDate(driver);
+		NextActionDate=getNextAction_Text(driver);
 		attachScreenShot(driver);
 		wait(2);
 		ChangeDate_Admin(driver, NextActionDate);
@@ -534,6 +543,7 @@ public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_Reinstateme
 	@When("User validates 'Cancellation Notice' text is visible")
 	public void user_validates_cancellation_notice_text_is_visible() throws Exception {
 		verify_AnyText_IsVisible(driver, "Cancellation Notice");
+		verify_AnyLabel_IsVisible(driver, "Cancel Notice");
 	}
 	@When("User clicks Cancellation Notice Link and validates information in the form <mtr402>")
 	public void user_clicks_cancellation_notice_link_and_validates_information_in_the_form_mtr402() throws Exception {

@@ -104,3 +104,14 @@ Feature: Common Transactions and Steps
     And User clicks Ctrl+F
     And User clicks Windstorm or Hail Exclusion
     And User clicks Worksheets chevron
+    And User clicks Entity Type
+     And User selects HO3 Pay Plan Type
+     And User clicks Endorse button
+     And User clicks Endorse Policy button
+     And User clicks Review Chevron
+     And User clicks Premium Info Chevron
+     And User clicks Start button
+     And User clicks Finalize button
+     And User returns to main page
+     And User enters EN Effective Date "<EndorsementEffectiveDate>"
+     

@@ -2,8 +2,6 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
 import org.openqa.selenium.By;
 
 import aii.utils.CommonMethods;
@@ -20,6 +18,15 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 	static String FileLocation = System.getProperty("user.dir") + "\\target\\";
 	static String cov_C = dwellingChevron.txtCoverageC.getText();
 	static String policyNum;
+	static String NBPackage_Form;
+	static String NBCheckList_Version;
+	static String NBCheckList_Name;
+	static String PPRCdata;
+	static String totalDue;
+	static String Rwl2Dec_Form;
+	static String RnwlCheckList_Version;
+	static String RnwlCheckList_Name;
+	static String RnwlPPRCdata;
 
 	@When("User validates Personal Property Replacement Cost checkbox has been enabled and not selected")
 	public void user_validates_coverage_c_defaults_to_25_on_integrity_select_package() throws Exception {
@@ -32,7 +39,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		wait(2);
 		verifyAnyCoverageCheckbox_EnabledAndNotSelected(driver, "PPReplacementCost");
 		click(dwellingChevron.btnSave);
-		
+
 	}
 
 	@When("User takes note of the Coverage C")
@@ -40,6 +47,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		String cov_C = dwellingChevron.txtCoverageC.getText();
 		Hooks.scenario.log(cov_C);
 	}
+
 	@When("User finalizes transaction for <MTR363>")
 	public void user_finalizes_transaction_for_mtr363() throws Exception {
 		click(reviewChevron.btnReview);
@@ -47,6 +55,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		click(reviewChevron.btnFinalize);
 		wait(2);
 	}
+
 	@When("User clicks Policy File Chevron")
 	public void user_clicks_policy_file_chevron() throws Exception {
 		click(policyFileChevron.btnPolicyFilePage);
@@ -61,22 +70,21 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 
 	@When("User switches that forms and validates <OIR-B1-1670> has been attached and shows Actual Cash Value for Loss Settlement Basis for Coverage C")
 	public void user_switches_that_forms_and_validates() throws Exception {
-		
+
 		switchToWindow(driver, "STFile&File");
 		wait(3);
-		String NBPackage_Form = PdfComparator.makePdf(driver, "NewBusinessPackage.pdf");
+		NBPackage_Form = PdfComparator.makePdf(driver, "NewBusinessPackage.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + NBPackage_Form);
-
+		wait(8);
 		// Checklist form
-		String NBCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 67, 25, 750,
-				70, 30);
+		NBCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 67, 25, 750, 70, 30);
 		PdfComparator.verifyFormData(driver, NBCheckList_Version, "OIR-B1-1670");
 
-		String NBCheckList_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
+		NBCheckList_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBCheckList_Name, "Checklist of Coverage");
 
-		String PPRCdata = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 67, 40, 550, 550, 100);
+		PPRCdata = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 67, 40, 550, 550, 100);
 		PdfComparator.verifyFormData(driver, PPRCdata, cov_C);
 		PdfComparator.verifyFormData(driver, PPRCdata, "Actual Cash Value");
 	}
@@ -98,11 +106,13 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		click(dashboard.btnStart);
 		wait(5);
 	}
+
 	@When("User clicks Dwelling Chevron")
 	public void user_clicks_dwelling_chevron() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 	}
+
 	@When("User takes note of the policy number for <MTR363>")
 	public void user_takes_note_of_the_policy_number_for_mtr363() throws Exception {
 		try {
@@ -112,6 +122,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 			e.printStackTrace();
 		}
 	}
+
 	@When("User changes package as Basic Package and validates Personal Property Replacement Cost checkbox has been enabled and not selected")
 	public void user_changes_package_as_basic_and_validates_ppr() throws Exception {
 		click(dwellingChevron.rbBasicPackage);
@@ -120,67 +131,66 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		wait(3);
 		verifyAnyCoverageCheckbox_EnabledAndNotSelected(driver, "PPReplacementCost");
 	}
+
 	@When("User searches for Policy Number for <MTR363>")
 	public void user_searches_for_policy_number_for_mtr363() throws Exception {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User makes payment with Credit Card")
-	public void user_makes_payment_with_credit_card()  {
+	public void user_makes_payment_with_credit_card() {
 		makeCCPayment();
 
-	     // Close unnecessary tabs
-      ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-      for (int i = tabs.size() - 1; i > 0; i--) {
-          driver.switchTo().window(tabs.get(i));
-          driver.close();
-      }
-
-      // Switch back to the main page
-      driver.switchTo().window(tabs.get(0));
-      wait(3);
+		// Close unnecessary tabs
+		closeUnnecessaryTabs();
 	}
+
 	@When("User clicks Make Payment and selects credit card and enters due amount")
-	public void user_clicks_make_payment_and_selects_cc()  {
+	public void user_clicks_make_payment_and_selects_cc() {
 		click(closeoutChevron.btnMakePaymentHolder);
 		wait(3);
 		click(closeoutChevron.btnSubmitPaymentHolder);
 		wait(3);
 		click(closeoutChevron.rbNewCreditCard);
 		wait(1);
-		String totalDue=driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
+		totalDue = driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
 		wait(2);
 		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
 		wait(4);
 	}
+
 	@When("User does Auto Renewal for the policy with batch jobs")
 	public void user_does_auto_renewal() throws Exception {
-		
-		String policyNum=closeoutChevron.txtAccountNumber.getText().toString();
+
+		policyNum = closeoutChevron.txtAccountNumber.getText().toString();
 		runAutoRenewPolicy(driver, policyNum, "01", "02");
 	}
+
 	@When("User clicks Renewal Decleration link")
 	public void user_clicks_renewal_decleration_link() throws Exception {
 		click(policyFileChevron.btnRenewalDeclaration);
 		wait(3);
 	}
+
 	@When("User switches that forms and validates <OIR-B1-1670> has been attached and shows Actual Cash Value for Loss Settlement Basis for Coverage C on renewal package")
 	public void user_validates_forms_on_renewal() throws Exception {
 		switchToWindow(driver, "STFile&File");
-		String Rwl2Dec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration2.pdf");
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+Rwl2Dec_Form);
-		Thread.sleep(500);	
-		//Checklist form
-		String RnwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 49, 25, 750, 70, 30);
+		Rwl2Dec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration2.pdf");
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + Rwl2Dec_Form);
+		wait(8);
+		// Checklist form
+		RnwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 49, 25, 750,
+				70, 30);
 		PdfComparator.verifyFormData(driver, RnwlCheckList_Version, "OIR-B1-1670");
-		
-		String RnwlCheckList_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		RnwlCheckList_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, RnwlCheckList_Name, "Checklist of Coverage");
-		
-		String RnwlPPRCdata = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 49, 40, 550, 550, 100);
+
+		RnwlPPRCdata = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 48, 40, 550, 550, 100);
 		PdfComparator.verifyFormData(driver, RnwlPPRCdata, "Excluded");
 		PdfComparator.verifyFormData(driver, RnwlPPRCdata, "Not Applicable");
 	}

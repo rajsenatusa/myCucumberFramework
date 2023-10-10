@@ -29,6 +29,12 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Save")
 	public WebElement btnSave;
 	
+	@FindBy(id= "QuickEndorsement")
+	public WebElement btnEndorsement;
+	
+	@FindBy(id= "Start")
+	public WebElement btnStart;
+		
 	@FindBy(id= "Building.QualityGrade")
 	public WebElement ddQualityGrade;
 	
@@ -280,6 +286,15 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "Building.CovWBULimit")
 	public WebElement ddWaterBackupLimit;
+	
+	@FindBy(id= "Building.CovSLPLimit")
+	public WebElement ddServiceLine;
+	
+	@FindBy(id= "Building.IncreasedReplacementCostInd")
+	public WebElement rbIncreasedDwellingReplacementCost;
+	
+	@FindBy(id= "Building.SPPInd")
+	public WebElement rbSpecialPersonalProperty;
 	
 	public QuoteDwellingChevronPageElements() {
 		

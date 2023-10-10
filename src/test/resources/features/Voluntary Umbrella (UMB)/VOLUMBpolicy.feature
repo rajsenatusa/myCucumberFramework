@@ -44,7 +44,7 @@ Feature: Issuing UMB policy
 
     Examples: Test Data
       | EffectiveDate | LiabilityCoverage | UninsuredLimit | NumberOfAuto | 
-      | 1/1/2023    |     1,000,000     |       0        |      2       |           
+      | 1/1/2024    |     1,000,000     |       0        |      2       |           
     
     @umbdatatable
    Scenario: VOL UMB policy creation with multiple customers
