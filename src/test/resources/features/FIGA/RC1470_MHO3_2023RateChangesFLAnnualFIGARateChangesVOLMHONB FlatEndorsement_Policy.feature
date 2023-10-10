@@ -47,4 +47,4 @@ Feature: RC-1099: 2023 Rate Changes- FIGA: VOL MHO- 10/01/2023
     #Then User validates New FIGA VOL MHO3 rate after Endorsement
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | mcemek   | Sep@2023! | 12/31/2022   | 10/02/2023               | Owner Occupied |             12 |               2021 |
+      | mcemek   | Oct@2023! | 1/1/2024   | 10/02/2023               | Owner Occupied |             12 |               2021 |

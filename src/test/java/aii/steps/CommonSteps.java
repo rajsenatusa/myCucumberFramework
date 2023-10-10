@@ -153,6 +153,16 @@ public class CommonSteps extends CommonMethods {
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+	@When("User clicks History Chevron")
+	public void User_clicks_History_Chevron() {
+		click(reviewChevron.btnHistory);
+		wait(3);	
+	}
+	@When("User clicks Premium Info Chevron")
+	public void user_clicks_Premium_Info_chevron() {
+		click(reviewChevron.btnPremiumInfo);
+		wait(3);
+	}
 	@When("User searches policy number before starting transaction")
 	public void user_searches_policy_number_before_starting_transaction() {
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();

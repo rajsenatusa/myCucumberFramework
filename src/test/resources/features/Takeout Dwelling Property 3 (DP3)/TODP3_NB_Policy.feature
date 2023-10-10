@@ -56,7 +56,7 @@ Feature: Issuing TODP3 policy
     
     Examples: Test Data
       | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | DistanceHydrant | ProtectionClass | DwellingType  | NumberOfUnits |TerritoryList | QualityGrade | 
-      | 07/25/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 | <= 1,000 Feet   |              04 | Single Family | 2             |5             | Economy      | 
+      | 01/01/2024    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 | <= 1,000 Feet   |              04 | Single Family | 2             |5             | Economy      | 
     
      @todp3datatable
    Scenario: TO DP3 policy creation with multiple customers

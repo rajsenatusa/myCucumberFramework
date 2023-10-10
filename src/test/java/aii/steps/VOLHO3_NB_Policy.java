@@ -278,12 +278,24 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	@And("User enters Pay Plan Type")
 	public void User_enters_Pay_Plan_Type() {	    	   						
 		wait(2); 
+		
+		reviewChevron.ddPayPlan.click();
 		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");			 
 		reviewChevron.btnFullPaymentRadio.click();
-//		reviewChevron.btnCreateApplication.click();
-//		reviewChevron.btnInsuranceScoreBox.click();
-//		reviewChevron.btnInsuranceScoreOk.click();
-	}	
+		reviewChevron.btnCreateApplication.click();
+		reviewChevron.btnInsuranceScoreBox.click();
+		reviewChevron.btnInsuranceScoreOk.click();
+	}
+	@And("User selects HO3 Pay Plan Type")
+	public void User_selects_HO3_Pay_Plan_Type() {	    	   						
+		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));		
+		reviewChevron.btnFullPaymentRadio.click();
+		reviewChevron.btnCreateApplication.click();
+		reviewChevron.btnInsuranceScoreBox.click();
+		reviewChevron.btnInsuranceScoreOk.click();
+
+		click(dwellingChevron.btnNext);	
+	}
 	@And("User enters HO3 Underwritting Questions")
 	public void User_enters_HO3_Underwritting_Questions () {
 //	click(dwellingChevron.btnNext);
@@ -380,6 +392,17 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_clicks_Next_Page() {	    	   						
 		click(uwquestionsChevron.nextButtonUw);	
 		wait(1);	
-		
+	}
+	@And("User clicks Endorse button")
+	public void User_clicks_Endorse_button() {	    	   						
+		wait(1);
+		click(dwellingChevron.btnEndorsement);
+		wait(1);
+	}
+	@And("User clicks Start button")
+	public void User_clicks_Start_button() {	    	   						
+		wait(1);
+		click(dwellingChevron.btnStart);
+		wait(1);	
 	}
 }
