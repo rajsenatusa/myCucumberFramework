@@ -37,5 +37,5 @@ Feature: New Business Policy VOL MHO3
     Then User verifies NB MHO3 policy has been created successfully
 
     Examples: Test Data
-      | username | password | EffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | mkoziel  | password | 08/05/2023    | Owner Occupied |             12 |               2021 |
+      | username | password  | EffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
+      | mcemek   | Oct@2023! | 10/27/2023    | Owner Occupied |             12 |               2021 |
