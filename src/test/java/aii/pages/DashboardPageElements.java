@@ -104,6 +104,9 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowFee3\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
 	public WebElement fIGAHO3New;
 	
+	@FindBy(xpath="//*[@id=\"rowFee4\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
+	public WebElement fIGA2024HO3;
+		
 	@FindBy(xpath="//*[@id=\"rowFee3\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
 	public WebElement fIGA2024HO3Worksheets;
 	
@@ -122,6 +125,36 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(xpath="//td[normalize-space()='0.0070']")
 	public WebElement fIGADP1Old;
 	
+	@FindBy(xpath="//*[@id=\"rowFee4\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
+	public WebElement fIGA2024DP1Worksheets;
+	
+	@FindBy(xpath="//*[@id=\"rowFee3\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
+	public WebElement fIGA2024HO4Worksheets;
+	
+	@FindBy(id= "Fee_FIGA_TermAmount")
+	public WebElement fIGA2024HO4PremiumInfo;
+	
+	@FindBy(id= "FeeFinalAmt4")
+	public WebElement fIGA2024HO4Review;
+	
+	@FindBy(xpath="//*[@id=\"rowFee4\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
+	public WebElement fIGA2024HO6Worksheets;
+	
+	@FindBy(id= "Fee_FIGA_TermAmount")
+	public WebElement fIGA2024HO6PremiumInfo;
+	
+	@FindBy(id= "FeeFinalAmt5")
+	public WebElement fIGA2024HO6Review;
+		
+	@FindBy(xpath="//*[@id=\"rowFee4\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
+	public WebElement fIGA2024MHO3Worksheets;
+	
+	@FindBy(id= "Fee_FIGA_TermAmount")
+	public WebElement fIGA2024MHO3PremiumInfo;
+	
+	@FindBy(id= "FeeFinalAmt5")
+	public WebElement fIGA2024MHO3Review;
+		
 	@FindBy(id= "Delete")
 	public WebElement btnDelete;
 	
