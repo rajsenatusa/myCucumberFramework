@@ -1,10 +1,9 @@
 #Author:Mustafa Cemek
 @FIGA-VOLDP3
-Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
+Feature: RC-1827: 2024 Rate Changes- FIGA: VOL DP3 - 1/1/2024
 
   @FIGA2024-VOLDP3-1 @FIGA2024
   Scenario Outline: MTR-3059: RC-1827, 2024 Rate Changes - FIGA: VOL DP3 - NB = Eff. Date + Flat Endorsement
-    
     Given User navigates to Model
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -44,17 +43,11 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User clicks Issue New Business
     And User returns to main page
     And User clicks Worksheets chevron
-    
-
-
-		
-		
-		
-		Then User validates 2024 FIGA VOL HO3 rate in Worksheets
+    Then User validates 2024 FIGA VOL DP3 rate in Worksheets
     And User clicks Premium Info Chevron
-    Then User validates 2024 FIGA VOL HO3 rate in Premium Info
+    Then User validates 2024 FIGA VOL DP3 rate in Premium Info
     And User clicks Review Chevron
-    Then User validates 2024 FIGA VOL HO3 rate in Review
+    Then User validates 2024 FIGA VOL DP3 rate in Review
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
@@ -63,16 +56,15 @@ Feature: RC-1090: 2023 Rate Changes- FIGA: VOL DP3- 10/01/2023
     And User clicks Endorse Policy button
     And User returns to main page
     And User clicks Worksheets chevron
-    Then User validates 2024 FIGA VOL HO3 rate in Worksheets
+    Then User validates 2024 FIGA VOL DP3 rate in Worksheets
     And User clicks Premium Info Chevron
-    Then User validates 2024 FIGA VOL HO3 rate in Premium Info
+    Then User validates 2024 FIGA VOL DP3 rate in Premium Info
     And User clicks Review Chevron
-    Then User validates 2024 FIGA VOL HO3 rate in Review
-
+    Then User validates 2024 FIGA VOL DP3 rate in Review
 
     Examples: Test Data
-      | username | password  | FIGADP3EffectiveDate |
-      | mcemek   | Oct@2023! | 01/01/2024           |
+      | username | password  | FIGADP3EffectiveDate | EndorsementEffectiveDate |
+      | mcemek   | Oct@2023! | 01/01/2024           | 01/02/2024               |
 
   @FIGA-VOLDP3-2
   Scenario Outline: FIGA VOL DP3-09/30/2023: NB before Effective Date
