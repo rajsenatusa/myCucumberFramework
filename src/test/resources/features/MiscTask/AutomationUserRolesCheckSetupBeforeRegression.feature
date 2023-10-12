@@ -31,6 +31,34 @@ Feature: Automation User Roles Check and Setup Before Each Regression
     And User clicks save
     And User clicks Admin Tab 
     And User clicks User Management Tab
+    And User searches Agent AGISA002537
+    And User clicks Search button
+    And User scrolls to User Roles List 
+    And User clicks Add Role
+    And User selects Change Date from role dropdown
+    And User clicks save
+    And User scrolls to User Roles List
+    And User clicks Override Link on Policy Agent Standard
+    And User switches Site Admin Selection from No to Yes
+    And User clicks save
+    And User clicks Admin Tab 
+    And User clicks User Management Tab
+    And User searches Agent CSRUW1
+    And User clicks Search button
+    And User scrolls to User Roles List 
+    And User clicks Add Role
+    And User selects Change Date from role dropdown
+    And User clicks save
+    And User clicks Admin Tab 
+    And User clicks User Management Tab
+    And User searches Agent Underwriter1
+    And User clicks Search button
+    And User scrolls to User Roles List 
+    And User clicks Add Role
+    And User selects Change Date from role dropdown
+    And User clicks save
+    And User clicks Admin Tab 
+    And User clicks User Management Tab
     And User searches Agent AG0376
     And User clicks Search button
     And User scrolls to User Roles List 

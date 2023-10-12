@@ -88,11 +88,11 @@ Feature: TC 16404--HO3 UW NB END (SRO & ALCC) Claim RN(2) Forms Silver Reserve w
 		And User clicks Policy File Chevron <tc16404>
 		And User clicks Renewal Declaration form and validates form versions
 		And User clicks Make Payment and do renewal payment
-		
-		
-		
-		
-		
+		And User does second Auto Renewal for the policy with batch jobs
+		And User clicks Forms Chevron <tc16404>
+		And User validates all expected forms to be listed with new added claim
+		And User clicks Policy File Chevron <tc16404>
+		And User clicks the last renewal declaration form and validates all form versions and completes test
 		
 		
 		

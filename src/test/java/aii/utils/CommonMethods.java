@@ -2957,4 +2957,15 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+	
+	public static void getInsuranceScore (WebDriver driver, String InsuranceScoreEstimate) throws Exception {
+		try {
+			Select entityType = new Select (driver.findElement(By.id("Insured.InsuranceScoreEstimate")));	
+			entityType.selectByVisibleText(InsuranceScoreEstimate.toString());
+			Hooks.scenario.log("Insurance Score: " + InsuranceScoreEstimate);
+		} catch (Exception e) {
+			Hooks.scenario.log("Insurance Score: NOT SELECTED" + InsuranceScoreEstimate);
+			wait(4);
+		}
+	}	
 }
