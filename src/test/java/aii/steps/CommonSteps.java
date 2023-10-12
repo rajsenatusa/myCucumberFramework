@@ -128,9 +128,9 @@ public class CommonSteps extends CommonMethods {
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
 
-		wait(1);
+		wait(4);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(1);
+		wait(2);
 		dashboard.btnNewQuote.click();
 		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
 		selectDropdownText(element, "Individual");
@@ -245,7 +245,7 @@ public class CommonSteps extends CommonMethods {
 		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
-		wait(10);
+		wait(12);
 	}
 
 	@Given("User search for {string}")

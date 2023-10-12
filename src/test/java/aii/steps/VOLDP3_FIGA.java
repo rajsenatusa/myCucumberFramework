@@ -42,7 +42,7 @@ public class VOLDP3_FIGA extends CommonMethods {
 	@Then("User validates 2024 FIGA VOL DP3 rate in Review")
 	public void User_validates_2024_FIGA_VOL_DP3_rate_in_Review() {
 	String expected = "$13.61";
-	String actual = dashboard.fIGA2024HO3Review.getText();
+	String actual = dashboard.fIGA2024DP3Review.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	wait(1);
 	}

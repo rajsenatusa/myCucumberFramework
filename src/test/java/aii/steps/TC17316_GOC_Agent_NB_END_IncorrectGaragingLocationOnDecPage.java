@@ -29,6 +29,7 @@ public class TC17316_GOC_Agent_NB_END_IncorrectGaragingLocationOnDecPage extends
 	static String EndPackage_Form;
 	static String EndGarage_lookup;
 
+
 	@When("User searches Agent AG1730")
 	public void user_searches_agent_ag1730() {
 		wait(5);

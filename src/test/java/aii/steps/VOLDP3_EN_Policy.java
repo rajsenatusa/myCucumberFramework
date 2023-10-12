@@ -27,7 +27,17 @@ public class VOLDP3_EN_Policy extends CommonMethods {
 			sendText(dashboard.txtSelectDate, SecondEndorsementEffectiveDate);
 			wait(2);
 			click(dashboard.btnStart);
-			dashboard.btnStart.click();			
+			dashboard.btnStart.click();	
+		}	
+		@And("User enters Third EN Effective Date {string}")
+		public void User_enters_Third_EN_Effective_Date(String ThirdEndorsementEffectiveDate) {	    	   						
+			wait(2);
+			sendText(dashboard.txtSelectDate, ThirdEndorsementEffectiveDate);
+			wait(2);
+			click(dashboard.btnStart);
+			dashboard.btnStart.click();		
+			
+			
 		}
 		@And("User clicks Endorse Policy button")
 		public void User_clicks_Endorse_Policy_button() {	    	   						

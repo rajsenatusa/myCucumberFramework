@@ -27,5 +27,12 @@ public class VOLUMB_FIGA extends CommonMethods {
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	wait(1);
 	}
+	@Then("User validates 2024 FIGA UMB rate in Worksheets")
+	public void User_validates_2024_FIGA_UMB_rate_in_Worksheets() {
+	String expected = "0.0100";
+	String actual = dashboard.fIGA2024UMBWorksheets.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	wait(1);
+	}
 	
 }
