@@ -16,6 +16,18 @@ public class AutomationUserRolesCheckSetupBeforeRegression extends CommonMethods
 		click(driver.findElement(By.id("AddRole")));
 		wait(3);
 	}
+	@When("User searches Agent CSRUW1")
+	public void user_searches_agent_csruw1() {
+		wait(5);
+		sendText(driver.findElement(By.id("LoginId")), "csruw1");
+		wait(1);
+	}
+	@When("User searches Agent AGISA002537")
+	public void user_searches_agent_AGISA002537() {
+		wait(5);
+		sendText(driver.findElement(By.id("LoginId")), "AGISA002537");
+		wait(1);
+	}
 	@When("User selects Change Date from role dropdown")
 	public void user_selects_change_date_from_role_dropdown() {
 		selectDropdownText(driver.findElement(By.id("UserRole.AuthorityRoleIdRef")), "Change Date");
