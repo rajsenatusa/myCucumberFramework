@@ -161,6 +161,11 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		dwellingChevron.txtCoverageA.sendKeys("300000"); 	
 		wait(1);
 	}
+	@And("User enters Coverage A Dwelling as 50000")
+	public void User_enters_Coverage_A_Dwelling_as_50000() {	    	   				
+		dwellingChevron.txtCoverageA.sendKeys("50000"); 	
+		wait(1);
+	}
 	@And("User enters Animal Liability {string}")
 	public void User_enters_Animal_Liability(String AnimalLiability) {	    	   						
 		selectDropdownText(dwellingChevron.ddAnimalLiability, AnimalLiability);	
@@ -403,7 +408,15 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_clicks_Start_button() {	    	   						
 		wait(1);
 		click(dwellingChevron.btnStart);
+		wait(1);
+	}
+	@And("User clicks Windstorm or Hail Exclusion box")
+	public void User_clicks_Windstorm_or_Hail_Exclusion_box() {	    	   						
+		wait(1);
+		click(dwellingChevron.rbWindHailExc);
 		wait(1);	
+		
+		
 	}
 	
 }
