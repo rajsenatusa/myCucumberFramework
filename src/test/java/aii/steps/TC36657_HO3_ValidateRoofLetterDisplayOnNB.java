@@ -28,6 +28,7 @@ public class TC36657_HO3_ValidateRoofLetterDisplayOnNB extends CommonMethods{
 	static String NBRoofLimitation_Data;
 	static String NBRoofLimitation_Name;
 	
+	
 	@When("User enters all required information on policy information screen <tc36657>")
 	public void user_enters_all_required_information_on_policy_information_screen_tc36657() {
 

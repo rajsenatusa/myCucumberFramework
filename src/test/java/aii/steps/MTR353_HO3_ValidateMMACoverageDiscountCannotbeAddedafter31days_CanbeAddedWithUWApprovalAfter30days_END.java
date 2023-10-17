@@ -79,6 +79,7 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 		click(policyChevron.btnNext);
 		wait(1);
 	}
+	
 	@When("User completes required information on dwelling chevron <mtr353>")
 	public void user_completes_required_information_on_dwelling_chevron_mtr353() throws Exception {
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");

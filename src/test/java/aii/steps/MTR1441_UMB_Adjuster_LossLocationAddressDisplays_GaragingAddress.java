@@ -360,4 +360,5 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		wait(3);
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	
 }

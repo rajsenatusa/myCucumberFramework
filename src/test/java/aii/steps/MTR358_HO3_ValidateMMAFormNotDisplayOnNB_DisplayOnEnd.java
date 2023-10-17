@@ -44,6 +44,7 @@ public class MTR358_HO3_ValidateMMAFormNotDisplayOnNB_DisplayOnEnd extends Commo
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+	
 	@When("User enters all required information on HO3 quote screen <mtr358>")
 	public void user_enters_all_required_information_on_ho3_quote_screen_mtr358() throws Exception {
 		// Quote Policy Chevron information was filled here

@@ -98,7 +98,8 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[4]/td[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[2]/td[4]")
 	public WebElement HO6elevationRate;
 	
-	
+	@FindBy(id= "Wizard_Worksheets")
+	public WebElement lnkWorksheetsChevron;
 	
 	
 	

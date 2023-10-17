@@ -237,4 +237,5 @@ public class MTR378_TC33702_TOMHO_UI_Rolled_Bitumen_RoofMaterial extends CommonM
 		wait(1);
 		Hooks.scenario.log("Test Case Completed!");;	
 	}
+	
 }

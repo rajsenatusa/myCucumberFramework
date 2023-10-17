@@ -113,7 +113,6 @@ public class VOLHO3DataTable extends CommonMethods {
 				click(dwellingChevron.btnNext);
 
 				// Application Underwriting Questions Chevron was filled here
-
 				selectDropdownText(uwquestionsChevron.ho3Question1, "No");
 				selectDropdownText(uwquestionsChevron.ho3Question2, "No");
 				selectDropdownText(uwquestionsChevron.ho3Question3, "No");

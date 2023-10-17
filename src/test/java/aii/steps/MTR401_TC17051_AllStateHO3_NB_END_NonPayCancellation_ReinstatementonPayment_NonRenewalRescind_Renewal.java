@@ -90,6 +90,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 		sendText(driver.findElement(By.id("LoginId")), "AGISA002537");
 		wait(1);
 	}
+	
 	@And("User sets Yes for 'Allow user to view Consent to Rate Fields' and 'Allow user to edit Consent to Rate Fields' fields")
 	public void user_sets_yes_for_consent_related_fields() {
 		sendText(userLookup.txtAllowUserViewConsentRateFields, "Yes");

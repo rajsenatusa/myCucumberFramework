@@ -151,4 +151,5 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		verify_AnyLabel_IsVisible(driver, "Coverage Modified: A - Dwelling Limit 1 Changed From $75,000 to $175,000");
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	
 }

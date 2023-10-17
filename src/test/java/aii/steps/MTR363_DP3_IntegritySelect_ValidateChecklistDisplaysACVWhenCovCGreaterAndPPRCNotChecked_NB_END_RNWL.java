@@ -183,8 +183,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		PdfComparator.SavePdfForm(driver, FileLocation + Rwl2Dec_Form);
 		wait(8);
 		// Checklist form
-		RnwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 49, 25, 750,
-				70, 30);
+		RnwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 49, 25, 750, 70, 30);
 		PdfComparator.verifyFormData(driver, RnwlCheckList_Version, "OIR-B1-1670");
 
 		RnwlCheckList_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);

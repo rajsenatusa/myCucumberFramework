@@ -25,6 +25,7 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 	static String PolicyNumberSuffix;
 	static String MMA_NBApp_Data;
 
+	
 	@When("User enters all required information on HO3 dwelling screen with MMA selected as Yes")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_with_mma() {
 		// Quote Dwelling information was filled here

@@ -355,6 +355,7 @@ public class TC16404_HO3_ValidateSilverReserveWithAdditionalCoverageFormsOn_NB_E
 		click(policyChevron.btnNext);
 		waitImp(3);
 	}
+	
 
 	@When("User clicks Print button on quote and validates quote form version")
 	public void user_clicks_Print_button_on_quote_and_validates_quote_form_version() throws Exception {

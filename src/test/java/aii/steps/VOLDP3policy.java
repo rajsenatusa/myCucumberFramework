@@ -74,7 +74,6 @@ public class VOLDP3policy extends CommonMethods {
 		wait(3);
 		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
-
 	}
 
 	@When("User creates DP3 application")

@@ -10,7 +10,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
@@ -231,7 +230,8 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 	}
 
 	@When("User validates 'Maximum Reserve for Indemnity exceeded limit of $10,000.00' text is visible")
-	public void user_validates_maximum_reserve_for_indemnity_exceeded_limit_of_10000_text_is_visible() throws Exception {
+	public void user_validates_maximum_reserve_for_indemnity_exceeded_limit_of_10000_text_is_visible()
+			throws Exception {
 		verify_AnyText_IsVisible(driver, "Maximum Reserve for Indemnity exceeded limit of $10,000.00");
 	}
 
@@ -317,28 +317,29 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 				.until(ExpectedConditions.elementToBeClickable(By.id("MakePayment_1")));
 		new Actions(driver).moveToElement(userManagement).perform();
 		userManagement.click();
-		
-		//selects payment type
+
+		// selects payment type
 		selectDropdownText(driver.findElement(By.id("ClaimantTransaction.PaymentTypeCd")), "Indemnity");
 		wait(1);
-		//selects payment method
+		// selects payment method
 		selectDropdownText(driver.findElement(By.id("ClaimantTransaction.PaymentMethodCd")), "Check - Batch");
 		wait(1);
-		//sets amount
+		// sets amount
 		sendText(driver.findElement(By.id("ClaimantTransaction.PaidAmt")), "3000");
 		wait(1);
-		//clicks Payee Select Claimant
+		// clicks Payee Select Claimant
 		driver.findElement(By.name("ClaimantTransaction.PayToClaimantInd")).click();
 		Hooks.scenario.log("PayToClaimantInd selected");
-		//selects memo text as none
+		// selects memo text as none
 		selectDropdownText(driver.findElement(By.id("ClaimantTransaction.MemoCd")), "None");
-		//sets indemnity dwellingA open item paid amount
+		// sets indemnity dwellingA open item paid amount
 		sendText(driver.findElement(By.id("Reserve_PaidAmt_CovA_COVASUB_Indemnity")), "3000");
 		wait(1);
-		//click make payment button
+		// click make payment button
 		driver.findElement(By.name("Save")).click();
 		Hooks.scenario.log("Make payment btn selected");
 	}
+
 	@When("User clicks start transaction for the claim")
 	public void user_clicks_start_transaction_for_the_claim() throws Exception {
 		click(driver.findElement(By.id("Wizard_Summary")));
@@ -346,6 +347,7 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 		startTransaction(driver);
 		wait(4);
 	}
+
 	@When("User takes ownership of the claim transaction")
 	public void user_takes_ownership_of_the_claim() throws Exception {
 		click(driver.findElement(By.id("dialogOK")));
