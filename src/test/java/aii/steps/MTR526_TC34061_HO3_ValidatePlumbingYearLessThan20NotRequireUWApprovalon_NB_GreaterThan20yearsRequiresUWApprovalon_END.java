@@ -43,7 +43,6 @@ public class MTR526_TC34061_HO3_ValidatePlumbingYearLessThan20NotRequireUWApprov
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
-
 	@When("User enters all required information on HO3 quote screen <mtr526>")
 	public void user_enters_all_required_information_on_ho3_quote_screen_mtr526() {
 		// Quote Policy Chevron information was filled here

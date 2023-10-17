@@ -110,4 +110,5 @@ public class MTR1413_MHO_MHOAgentChangeDateTransaction30DAYS extends CommonMetho
 		click(historyChevron.btnExpand);
 		Hooks.scenario.log("Test case completed!");
 	}
+	
 }

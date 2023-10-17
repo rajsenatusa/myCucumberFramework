@@ -149,6 +149,7 @@ public class MTR589_HO3_ValidateDiamondAgentOpenWaterLoss_RequiresUWApproval_NB 
 		wait(3);
 		attachScreenShot(driver);
 	}
+	
 	@When("User clicks Dwelling Tab and updates construction year of the building <mtr589>")
 	public void user_clicks_dwelling_tab_and_updateS_construction_year_of_the_building_mtr589() throws Exception {
 		click(dwellingChevron.btnDwelling);

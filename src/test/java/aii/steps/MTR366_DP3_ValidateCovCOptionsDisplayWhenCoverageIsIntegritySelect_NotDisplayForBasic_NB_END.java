@@ -77,8 +77,10 @@ public class MTR366_DP3_ValidateCovCOptionsDisplayWhenCoverageIsIntegritySelect_
 		click(reviewChevron.btnFinalize);
 		wait(2);
 	}
+
 	@When("User validates that DP3 policy has been created successfully and closes unnecessary tabs")
-	public void user_validates_that_dp3_policy_has_been_created_successfully_and_closes_unnecessary_Tabs() throws Exception {
+	public void user_validates_that_dp3_policy_has_been_created_successfully_and_closes_unnecessary_Tabs()
+			throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("New Business")) {
@@ -92,33 +94,37 @@ public class MTR366_DP3_ValidateCovCOptionsDisplayWhenCoverageIsIntegritySelect_
 
 		}
 
-	     // Close unnecessary tabs
-       ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-       for (int i = tabs.size() - 1; i > 0; i--) {
-           driver.switchTo().window(tabs.get(i));
-           driver.close();
-       }
+		// Close unnecessary tabs
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+		for (int i = tabs.size() - 1; i > 0; i--) {
+			driver.switchTo().window(tabs.get(i));
+			driver.close();
+		}
 
-       // Switch back to the main page
-       driver.switchTo().window(tabs.get(0));
+		// Switch back to the main page
+		driver.switchTo().window(tabs.get(0));
 	}
+
 	@When("User clicks dwelling chevron and validates C-Personal Property defaults to <70%> and should display the value amount that equates to the <70%> percentage selected of Cov-A")
-	public void user_clicks_dwelling_chevron_and_validates_c_personal_property_defaults_to_70_and_should_display() throws Exception {
+	public void user_clicks_dwelling_chevron_and_validates_c_personal_property_defaults_to_70_and_should_display()
+			throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 		verifyAnyDisabledFieldsValue(driver, "Building.CovCLimitIncluded_text", "70%");
 		verifyAnyDisabledFieldsValue(driver, "CovCLimit", "$210,000");
 	}
+
 	@When("User clicks more button and starts transaction")
 	public void user_clicks_more_button_and_starts_transaction() throws Exception {
 		click(dwellingChevron.btnMore);
 		click(dwellingChevron.btnStartTransaction);
 		wait(3);
 	}
+
 	@When("User clicks Dwelling tab on endorsement level and validates C-Personal Property drop down contains the following options:10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%, 55%, 60%, 65%, 70% and The free form text box for C-Personal Property should display the value amount that equates to the 70% percentage selected of Cov-A and should be disabled")
 	public void user_clicks_dwelling_tab_on_endorsement_level_and_validates_c_personal_property_drop_down_contains_the_following()
 			throws Exception {
-		
+
 		click(dwellingChevron.btnDwelling);
 		wait(4);
 		String[] covC = { "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%" };
@@ -127,17 +133,20 @@ public class MTR366_DP3_ValidateCovCOptionsDisplayWhenCoverageIsIntegritySelect_
 		verifyAnyDisabledFieldsValue(driver, "CovCLimit", "$210,000");
 		wait(3);
 	}
+
 	@When("User endorses policy to basic policy")
 	public void user_endorses_policy_to_basic_policy() throws Exception {
 		click(dwellingChevron.rbBasicPackage);
 		Hooks.scenario.log("Basic Package selected");
 		wait(2);
 	}
+
 	@When("User enters <170.000> for Coverage C value")
 	public void user_enters_170000_for_coverage_c_value() throws Exception {
 		sendText(dwellingChevron.txtPersonalPropertyC, "170000");
 		click(dwellingChevron.btnSave);
 	}
+
 	@When("User finalizes transaction and completes endorsement")
 	public void user_finalizes_transaction_and_completes_endorsement() throws Exception {
 		click(reviewChevron.btnFinalize);
@@ -145,6 +154,7 @@ public class MTR366_DP3_ValidateCovCOptionsDisplayWhenCoverageIsIntegritySelect_
 		click(reviewChevron.btnProcess);
 		wait(3);
 	}
+
 	@When("User validates that Endorsement transaction has been completed successfully")
 	public void user_validates_that_endorsement_transaction_has_been_completed_successfully() throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_2_TransactionCd"));
@@ -157,14 +167,14 @@ public class MTR366_DP3_ValidateCovCOptionsDisplayWhenCoverageIsIntegritySelect_
 
 		}
 
-	     // Close unnecessary tabs
-       ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-       for (int i = tabs.size() - 1; i > 0; i--) {
-           driver.switchTo().window(tabs.get(i));
-           driver.close();
-       }
+		// Close unnecessary tabs
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+		for (int i = tabs.size() - 1; i > 0; i--) {
+			driver.switchTo().window(tabs.get(i));
+			driver.close();
+		}
 
-       // Switch back to the main page
-       driver.switchTo().window(tabs.get(0));
+		// Switch back to the main page
+		driver.switchTo().window(tabs.get(0));
 	}
 }

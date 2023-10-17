@@ -29,7 +29,6 @@ public class TC17316_GOC_Agent_NB_END_IncorrectGaragingLocationOnDecPage extends
 	static String EndPackage_Form;
 	static String EndGarage_lookup;
 
-
 	@When("User searches Agent AG1730")
 	public void user_searches_agent_ag1730() {
 		wait(5);
@@ -214,7 +213,7 @@ public class TC17316_GOC_Agent_NB_END_IncorrectGaragingLocationOnDecPage extends
 		PdfComparator.verifyFormData(driver, Garage_lookup, "Garaging Location:");
 		PdfComparator.verifyFormData(driver, Garage_lookup, "11256 SW 62nd Avenue Rd");
 		PdfComparator.verifyFormData(driver, Garage_lookup, "Ocala, FL 34476-4750");
-		
+
 	}
 
 	@When("User clicks Vehicles Tab and remove vehicle garaging address information")
@@ -257,14 +256,14 @@ public class TC17316_GOC_Agent_NB_END_IncorrectGaragingLocationOnDecPage extends
 		wait(8);
 
 		// Garage Location lookup address
-		EndGarage_lookup = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 1, 50, 340, 400,
-				150);
+		EndGarage_lookup = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 1, 50, 340, 400, 150);
 		PdfComparator.verifyFormData(driver, EndGarage_lookup, "Garaging Location:");
 		PdfComparator.verifyFormData(driver, EndGarage_lookup, "11216 SW Pembroke DR");
 		PdfComparator.verifyFormData(driver, EndGarage_lookup, "Port Saint Lucie, FL 34987-1953");
-		
+
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User searches for the policy number <tc17316>")
 	public void user_searches_policy_for_tc17316() {
 		sendText(dashboard.txtSearchBar, policyNum);

@@ -211,4 +211,5 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	
 }

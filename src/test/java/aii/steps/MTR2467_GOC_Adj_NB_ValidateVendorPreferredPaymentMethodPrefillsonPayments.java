@@ -278,4 +278,5 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	
 }

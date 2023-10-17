@@ -2957,15 +2957,25 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
-	
-	public static void getInsuranceScore (WebDriver driver, String InsuranceScoreEstimate) throws Exception {
+
+	public static void getInsuranceScore(WebDriver driver, String InsuranceScoreEstimate) throws Exception {
 		try {
-			Select entityType = new Select (driver.findElement(By.id("Insured.InsuranceScoreEstimate")));	
+			Select entityType = new Select(driver.findElement(By.id("Insured.InsuranceScoreEstimate")));
 			entityType.selectByVisibleText(InsuranceScoreEstimate.toString());
 			Hooks.scenario.log("Insurance Score: " + InsuranceScoreEstimate);
 		} catch (Exception e) {
 			Hooks.scenario.log("Insurance Score: NOT SELECTED" + InsuranceScoreEstimate);
 			wait(4);
 		}
-	}	
+	}
+
+	public static void verifyLetterForm(WebDriver driver, String formName) throws Exception {
+		try {
+			driver.findElement(By.xpath("(//*[contains(text(), '" + formName + "')])[1]"));
+			Hooks.scenario.log(formName + " is visible");
+		} catch (Exception e) {
+			Hooks.scenario.log(formName + " is NOT visible");
+			wait(5);
+		}
+	}
 }

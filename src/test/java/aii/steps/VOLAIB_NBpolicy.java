@@ -404,9 +404,7 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 			} else {
 				break;
 			}
-
 		}
-
 	}
 
 }

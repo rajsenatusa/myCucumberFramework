@@ -11,14 +11,15 @@ import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
-public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31days_CanbeAddedWithUWApprovalAfter30days extends CommonMethods{
+public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31days_CanbeAddedWithUWApprovalAfter30days
+		extends CommonMethods {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String applicationNumber;
-	static String[] MMA = {"Yes", "No"};
-	
+	static String[] MMA = { "Yes", "No" };
+
 	@When("User validates that DP1 policy has been created successfully and close tabs and takes note of the policy for <tc38452>")
 	public void user_validates_that_dp1_policy_has_been_created_successfully_and_close_tabs_and_takes_note_of_the_policy_number_tc38452()
 			throws Exception {
@@ -43,12 +44,14 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 			e.printStackTrace();
 		}
 	}
+
 	@And("User selects Endorsement")
 	public void User_selects_Endorsement() {
 		selectDropdownText(dashboard.ddSelectTransaction, "Endorsement");
 		wait(1);
 		click(dashboard.btnSelect);
 	}
+
 	@When("User selects endorsement date as current date plus <31> days")
 	public void user_selects_endorsement_date_as_current_date_plus_31_days() {
 		sendText(dashboard.txtSelectDate, dtf.format(currentDate.plusDays(31)));
@@ -58,22 +61,26 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 		click(dashboard.btnStart);
 		wait(5);
 	}
+
 	@When("User clicks finalize transaction")
 	public void user_clicks_finalize_transaction() throws Exception {
 		click(reviewChevron.btnFinalize);
 		wait(3);
 	}
+
 	@When("User clicks modify application")
 	public void user_clicks_modify_application() throws Exception {
 		click(closeoutChevron.btnModifyApplication);
 		wait(2);
 	}
+
 	@When("User searches for the policy <tc38452>")
 	public void user_searches_policy_for_tc38452() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User selects endorsement date as current date plus <30> days")
 	public void user_selects_endorsement_date_as_current_date_plus_30_days() {
 		sendText(dashboard.txtSelectDate, dtf.format(currentDate.plusDays(30)));
@@ -83,16 +90,19 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 		click(dashboard.btnStart);
 		wait(5);
 	}
+
 	@When("User changes MMA as Yes")
 	public void user_changes_mma_as_yes() {
 		selectDropdownText(dwellingChevron.ddMediationArbitDp1, "Yes");
 		click(dwellingChevron.btnSave);
 		wait(2);
 	}
+
 	@When("User validates 'Mediation Arbitration Change requires Underwriting Approval' message has been displayed")
 	public void user_validates_mma_message_has_been_displayed() throws Exception {
 		verify_AnyText_IsVisible(driver, "Mediation Arbitration Change requires Underwriting Approval");
 	}
+
 	@When("User takes note of the application number for <tc38452>")
 	public void user_takes_note_of_the_application__number_for_tc38452() throws Exception {
 		try {
@@ -102,6 +112,7 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 			e.printStackTrace();
 		}
 	}
+
 	@When("User clicks submit for approval button")
 	public void user_clicks_submit_for_approval_button() {
 		sendText(closeoutChevron.txtWorkflowComments, "testtestesttest");
@@ -110,17 +121,20 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 		click(closeoutChevron.btnDialogOk);
 		wait(3);
 	}
+
 	@When("User searches for application number for <tc38452>")
 	public void user_searches_for_application_number_for_tc38452() {
 		sendText(dashboard.txtSearchBar, applicationNumber);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User clicks approve button")
 	public void user_clicks_approve_button() {
 		click(closeoutChevron.btnApprove);
 		wait(5);
 	}
+
 	@When("User endorses policy and completes test case")
 	public void user_endorses_policy_and_completes_test_case() {
 		click(closeoutChevron.btnIssueNB);
@@ -128,20 +142,22 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed");
 	}
+
 	@When("User clicks Dwelling Chevron for <tc38452>")
 	public void user_clicks_dwelling_chevron_tc38452() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 	}
+
 	@When("User enters all required information on DP1 dwelling screen and validates MMA dropdown includes Yes and No selections")
 	public void user_enters_all_required_information_on_dp1_dwelling_screen() throws Exception {
 
 		sendText(dwellingChevron.txtYearConstruction, "2023");
 		wait(2);
 		sendText(dwellingChevron.txtSquareFeet, "2500");
-		
+
 		verifyAnyDropDownOptions(driver, MMA, "BuildingExt.MMAInd");
-		
+
 		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
 		selectDropdownText(dwellingChevron.ddMediationArbitDp1, ConfigsReader.getProperty("mediation"));
 		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));

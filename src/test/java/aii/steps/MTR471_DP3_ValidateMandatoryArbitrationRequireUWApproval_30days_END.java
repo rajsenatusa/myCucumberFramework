@@ -89,5 +89,4 @@ public class MTR471_DP3_ValidateMandatoryArbitrationRequireUWApproval_30days_END
 		click(closeoutChevron.btnEndorsePolicy);
 		wait(5);
 	}
-
 }

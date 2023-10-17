@@ -27,8 +27,7 @@ public class AgentProfileSetup extends CommonMethods {
 	public void User_creates_Agent_Profiles_with_passing_information_from_excel_sheet(String Agent) throws Exception {
 
 		// Reading Input from an Excel document
-		FileInputStream fis = new FileInputStream(new File(
-				"\\C:\\Users\\CYavas\\Desktop\\User Setup Template.xls"));
+		FileInputStream fis = new FileInputStream(new File("\\C:\\Users\\CYavas\\Desktop\\User Setup Template.xls"));
 		try (HSSFWorkbook wb = new HSSFWorkbook(fis)) {
 			HSSFSheet sheet1 = wb.getSheetAt(0);
 
@@ -68,34 +67,34 @@ public class AgentProfileSetup extends CommonMethods {
 					String Lname1 = Lname.getRichStringCellValue().getString();
 					driver.findElement(By.id("UserInfo.LastName")).sendKeys(Lname1);
 
-					HSSFCell addressLine1=row.getCell(13);
-					String addressLine1Str=addressLine1.getRichStringCellValue().getString();
-					HSSFCell addressLine2=row.getCell(14);
-					String addressLine2Str=addressLine2.getRichStringCellValue().getString();
-					
-					driver.findElement(By.id("UserInfoWorkAddr.Addr1")).sendKeys(addressLine1Str +" "+addressLine2Str);
-					
-					HSSFCell city=row.getCell(15);
-					String cityStr=city.getRichStringCellValue().getString();
+					HSSFCell addressLine1 = row.getCell(13);
+					String addressLine1Str = addressLine1.getRichStringCellValue().getString();
+					HSSFCell addressLine2 = row.getCell(14);
+					String addressLine2Str = addressLine2.getRichStringCellValue().getString();
+
+					driver.findElement(By.id("UserInfoWorkAddr.Addr1"))
+							.sendKeys(addressLine1Str + " " + addressLine2Str);
+
+					HSSFCell city = row.getCell(15);
+					String cityStr = city.getRichStringCellValue().getString();
 					driver.findElement(By.id("UserInfoWorkAddr.City")).sendKeys(cityStr);
-					
-					HSSFCell state=row.getCell(16);
-					String stateStr=state.getRichStringCellValue().getString();
+
+					HSSFCell state = row.getCell(16);
+					String stateStr = state.getRichStringCellValue().getString();
 					driver.findElement(By.id("UserInfoWorkAddr.StateProvCd")).sendKeys(stateStr);
-					
-					HSSFCell zipCode=row.getCell(17);
-					String zipStr=zipCode.getRichStringCellValue().getString();
+
+					HSSFCell zipCode = row.getCell(17);
+					String zipStr = zipCode.getRichStringCellValue().getString();
 					driver.findElement(By.id("UserInfoWorkAddr.PostalCode")).sendKeys(zipStr);
-					
-					
+
 					driver.findElement(By.id("UserInfoPhoneOne.PhoneName")).sendKeys("Business");
-					
-					HSSFCell phoneNumber=row.getCell(20);
-					String phoneNumberStr=phoneNumber.getRichStringCellValue().getString();
+
+					HSSFCell phoneNumber = row.getCell(20);
+					String phoneNumberStr = phoneNumber.getRichStringCellValue().getString();
 					driver.findElement(By.id("UserInfoPhoneOne.PhoneNumber")).sendKeys(phoneNumberStr);
-					
-					HSSFCell email=row.getCell(20);
-					String emailStr=email.getRichStringCellValue().getString();
+
+					HSSFCell email = row.getCell(20);
+					String emailStr = email.getRichStringCellValue().getString();
 					driver.findElement(By.id("UserInfo.EmailAddr")).clear();
 					driver.findElement(By.id("UserInfo.EmailAddr")).sendKeys(emailStr);
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -106,7 +105,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 					driver.findElement(By.id("ChangePassword")).sendKeys("!pass1234");
 					driver.findElement(By.id("ConfirmPassword")).sendKeys("!pass1234");
-					
+
 					HSSFCell UCode = row.getCell(23);
 					String UCode1 = UCode.getRichStringCellValue().getString();
 					driver.findElement(By.id("ProviderNumber")).clear();
@@ -182,8 +181,8 @@ public class AgentProfileSetup extends CommonMethods {
 					// String ConfirmMessage= driver.switchTo().alert().getText();
 					Alert alert = driver.switchTo().alert();
 					alert.accept();
-					FileOutputStream fws = new FileOutputStream(new File(
-							"\\C:\\Users\\CYavas\\AI Automation\\UserIDResults.xls"));
+					FileOutputStream fws = new FileOutputStream(
+							new File("\\C:\\Users\\CYavas\\AI Automation\\UserIDResults.xls"));
 					HSSFCell loginid = sheet1.getRow(j).createCell(0);
 					HSSFCell pwd = sheet1.getRow(j).createCell(1);
 					HSSFCell resultcell = sheet1.getRow(j).createCell(2);

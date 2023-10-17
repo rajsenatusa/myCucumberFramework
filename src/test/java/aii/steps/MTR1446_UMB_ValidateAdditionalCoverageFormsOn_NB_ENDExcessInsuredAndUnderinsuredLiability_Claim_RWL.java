@@ -152,7 +152,7 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 	static String ren2_exclusion;
 	static String ren2_dl98;
 	static String ren2_umb_um;
-	
+
 	@When("User enters HO4 product selection information and current date as effective date")
 	public void user_enters_ho4_product_selection_information_and_current_date_as_effective_date() {
 		// product selection information was filled here
@@ -1103,6 +1103,7 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User clicks every link of the renewal forms and validates all forms content have been as expected")
 	public void user_clicks_every_link_ofthe_renewal_forms_validates_allforms_content_have_Been_as_expected()
 			throws Exception {
@@ -1271,31 +1272,32 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		PdfComparator.verifyPDFText(driver, ren_umbum_Data, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyPDFText(driver, ren_umbum_Data, "EXCESS UNINSURED MOTORISTS");
 	}
+
 	@When("User clicks Renewal Declaration Link and validates form versions")
 	public void user_clicks_renewal_declaration_link_and_validates_forms() throws Exception {
 		clickOnAnyLink(driver, "Renewal Declaration");
 		Thread.sleep(7000);
 		switchToWindow(driver, "STFile&File");
-		
+
 		renDec_Form = PdfComparator.makePdf(driver, "RenewalDec.pdf");
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+renDec_Form);
-			
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + renDec_Form);
+
 		wait(8);
-		renDec_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 5, 40, 600, 530, 80);
+		renDec_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 5, 40, 600, 530, 80);
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE1, "Greeting Letter");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE1, "AIIC UMB GL 08 16");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE1, "Privacy Statement");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE1, "AIIC UMB PS 06 16");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE1, "Policy Jacket");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE1, "AIIC PJ 07 15");
-		
-		
-		renDec_Form_FnE2 = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 6, 45, 100, 540, 120);
+
+		renDec_Form_FnE2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 6, 45, 100, 540, 120);
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "Personal Umbrella Liability Form");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "DL 98 01 10 06");
-		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "Personal Umbrella Liability Policy Amendment of Policy Provisions - Florida");
+		PdfComparator.verifyFormData(driver, renDec_Form_FnE2,
+				"Personal Umbrella Liability Policy Amendment of Policy Provisions - Florida");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "AIIC UMB SP 06 16");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "No Coverage for Home Day Care Business");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "AIIC UMB HDC 06 16");
@@ -1303,56 +1305,60 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "AIIC UMB TL 06 16");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "Public or Livery Conveyance Exclusion Endorsement");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "AIIC PLC 06 16");
-		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "Personal Umbrella Liability Policy Exclusion - Fungi, Wet or Dry Rot, or Bacteria");
+		PdfComparator.verifyFormData(driver, renDec_Form_FnE2,
+				"Personal Umbrella Liability Policy Exclusion - Fungi, Wet or Dry Rot, or Bacteria");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "DL 98 17 04 02");
 		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "Endorsement");
-		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "AIIC UMB UM 06 16Excess Uninsured Motorist  Coverage - Florida");
-		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "AIIC UMB UM 06 16");					
-		
-		ren_gl = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 1, 415, 690, 1155, 800);
+		PdfComparator.verifyFormData(driver, renDec_Form_FnE2,
+				"AIIC UMB UM 06 16Excess Uninsured Motorist  Coverage - Florida");
+		PdfComparator.verifyFormData(driver, renDec_Form_FnE2, "AIIC UMB UM 06 16");
+
+		ren_gl = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 1, 415, 690, 1155, 800);
 		PdfComparator.verifyFormData(driver, ren_gl, "AIIC UMB GL 08 16");
-		
-		ren_ps = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 2, 70, 60, 490, 720);
+
+		ren_ps = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 2, 70, 60, 490, 720);
 		PdfComparator.verifyFormData(driver, ren_ps, "PRIVACY STATEMENT");
 		PdfComparator.verifyFormData(driver, ren_ps, "AIIC UMB PS 06 16");
-		
-		ren_pj = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 4, 60, 90, 485, 670);
+
+		ren_pj = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 4, 60, 90, 485, 670);
 		PdfComparator.verifyFormData(driver, ren_pj, "Policy Jacket");
 		PdfComparator.verifyFormData(driver, ren_pj, "AIIC PJ 07 15");
-		
-		ren_liability = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 8, 50, 80, 520, 700);
+
+		ren_liability = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 8, 50, 80, 520, 700);
 		PdfComparator.verifyFormData(driver, ren_liability, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyFormData(driver, ren_liability, "DL 98 01 10 06");
-		
-		ren_liability_amendment = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 16, 40, 80, 535, 700);
+
+		ren_liability_amendment = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 16, 40, 80, 535,
+				700);
 		PdfComparator.verifyFormData(driver, ren_liability_amendment, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyFormData(driver, ren_liability_amendment, "AMENDMENT OF POLICY PROVISIONS");
 		PdfComparator.verifyFormData(driver, ren_liability_amendment, "AIIC UMB SP 06 16");
-		
-		ren_hdc = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 19, 40, 80, 530, 700);
+
+		ren_hdc = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 19, 40, 80, 530, 700);
 		PdfComparator.verifyFormData(driver, ren_hdc, "NO COVERAGE FOR");
 		PdfComparator.verifyFormData(driver, ren_hdc, "HOME DAY CARE BUSINESS");
 		PdfComparator.verifyFormData(driver, ren_hdc, "AIIC UMB HDC 06 16");
-		
-		ren_tlc = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 20, 50, 80, 515, 700);
+
+		ren_tlc = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 20, 50, 80, 515, 700);
 		PdfComparator.verifyFormData(driver, ren_tlc, "TRAMPOLINE LIABILITY EXCLUSION");
 		PdfComparator.verifyFormData(driver, ren_tlc, "AIIC UMB TL 06 16");
-		
-		ren_exclusion = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 21, 60, 100, 500, 665);
+
+		ren_exclusion = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 21, 60, 100, 500, 665);
 		PdfComparator.verifyFormData(driver, ren_exclusion, "PUBLIC OR LIVERY CONVEYANCE");
 		PdfComparator.verifyFormData(driver, ren_exclusion, "EXCLUSION ENDORSEMENT");
 		PdfComparator.verifyFormData(driver, ren_exclusion, "AIIC PLC 06 16");
-		
-		ren_dl98 = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 22, 40, 80, 550, 670);
+
+		ren_dl98 = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 22, 40, 80, 550, 670);
 		PdfComparator.verifyFormData(driver, ren_dl98, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyFormData(driver, ren_dl98, "EXCLUSION  FUNGI, WET OR DRY ROT, OR BACTERIA ENDORSEMENT");
 		PdfComparator.verifyFormData(driver, ren_dl98, "DL 98 17 04 02");
-		
-		ren_umb_um = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec_Form, 23, 40, 110, 530, 670);
+
+		ren_umb_um = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec_Form, 23, 40, 110, 530, 670);
 		PdfComparator.verifyFormData(driver, ren_umb_um, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyFormData(driver, ren_umb_um, "EXCESS UNINSURED MOTORISTS");
 		PdfComparator.verifyFormData(driver, ren_umb_um, "AIIC UMB UM 06 16");
 	}
+
 	@When("User does second manual renewal on the policy")
 	public void user_does_second_manual_renewal_on_the_polcy() {
 		click(dashboard.btnStart);
@@ -1370,12 +1376,14 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 			e.printStackTrace();
 		}
 	}
+
 	@And("User searches secondly renewed policy")
 	public void User_searches_secondly_renewed_policy() {
 		sendText(dashboard.txtSearchBar, UMB_renewalTerm2);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User clicks every link of the second renewal forms and validates all forms content have been as expected")
 	public void user_clicks_every_link_ofthe_second_renewal_forms_validates_allforms_content_have_Been_as_expected()
 			throws Exception {
@@ -1544,19 +1552,21 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		PdfComparator.verifyPDFText(driver, ren2_umbum_Data, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyPDFText(driver, ren2_umbum_Data, "EXCESS UNINSURED MOTORISTS");
 	}
+
 	@When("User clicks second Renewal Declaration Link and validates form versions and completes test")
-	public void user_clicks_second_renewal_declaration_link_and_validates_form_versions_and_completes_test() throws Exception {
+	public void user_clicks_second_renewal_declaration_link_and_validates_form_versions_and_completes_test()
+			throws Exception {
 		clickOnAnyLink(driver, "Renewal Declaration");
 		Thread.sleep(7000);
 		switchToWindow(driver, "STFile&File");
-		
+
 		renDec2_Form = PdfComparator.makePdf(driver, "RenewalDec.pdf");
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+renDec2_Form);
-			
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + renDec2_Form);
+
 		wait(8);
-		renDec2_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 5, 40, 600, 530, 80);
+		renDec2_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 5, 40, 600, 530, 80);
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE1, "Greeting Letter");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE1, "AIIC UMB GL 08 16");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE1, "Privacy Statement");
@@ -1564,10 +1574,11 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE1, "Policy Jacket");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE1, "AIIC PJ 07 15");
 
-		renDec2_Form_FnE2 = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 6, 0, 0, 610, 320);
+		renDec2_Form_FnE2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 6, 0, 0, 610, 320);
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "Personal Umbrella Liability Form");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "DL 98 01 10 06");
-		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "Personal Umbrella Liability Policy Amendment of Policy Provisions - Florida");
+		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2,
+				"Personal Umbrella Liability Policy Amendment of Policy Provisions - Florida");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "AIIC UMB SP 06 16");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "No Coverage for Home Day Care Business");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "AIIC UMB HDC 06 16");
@@ -1575,58 +1586,62 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "AIIC UMB TL 06 16");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "Public or Livery Conveyance Exclusion Endorsement");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "AIIC PLC 06 16");
-		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "Personal Umbrella Liability Policy Exclusion - Fungi, Wet or Dry Rot, or Bacteria");
+		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2,
+				"Personal Umbrella Liability Policy Exclusion - Fungi, Wet or Dry Rot, or Bacteria");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "DL 98 17 04 02");
 		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "Endorsement");
-		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "AIIC UMB UM 06 16Excess Uninsured Motorist  Coverage - Florida");
-		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "AIIC UMB UM 06 16");					
-		
-		ren2_gl = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 1, 415, 690, 1155, 800);
+		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2,
+				"AIIC UMB UM 06 16Excess Uninsured Motorist  Coverage - Florida");
+		PdfComparator.verifyFormData(driver, renDec2_Form_FnE2, "AIIC UMB UM 06 16");
+
+		ren2_gl = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 1, 415, 690, 1155, 800);
 		PdfComparator.verifyFormData(driver, ren2_gl, "AIIC UMB GL 08 16");
-		
-		ren2_ps = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 2, 70, 60, 490, 720);
+
+		ren2_ps = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 2, 70, 60, 490, 720);
 		PdfComparator.verifyFormData(driver, ren2_ps, "PRIVACY STATEMENT");
 		PdfComparator.verifyFormData(driver, ren2_ps, "AIIC UMB PS 06 16");
-		
-		ren2_pj = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 4, 60, 90, 485, 670);
+
+		ren2_pj = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 4, 60, 90, 485, 670);
 		PdfComparator.verifyFormData(driver, ren2_pj, "Policy Jacket");
 		PdfComparator.verifyFormData(driver, ren2_pj, "AIIC PJ 07 15");
-		
-		ren2_liability = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 8, 50, 80, 520, 700);
+
+		ren2_liability = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 8, 50, 80, 520, 700);
 		PdfComparator.verifyFormData(driver, ren2_liability, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyFormData(driver, ren2_liability, "DL 98 01 10 06");
-		
-		ren2_liability_amendment = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 16, 40, 80, 535, 700);
+
+		ren2_liability_amendment = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 16, 40, 80, 535,
+				700);
 		PdfComparator.verifyFormData(driver, ren2_liability_amendment, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyFormData(driver, ren2_liability_amendment, "AMENDMENT OF POLICY PROVISIONS");
 		PdfComparator.verifyFormData(driver, ren2_liability_amendment, "AIIC UMB SP 06 16");
-		
-		ren2_hdc = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 19, 40, 80, 530, 700);
+
+		ren2_hdc = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 19, 40, 80, 530, 700);
 		PdfComparator.verifyFormData(driver, ren2_hdc, "NO COVERAGE FOR");
 		PdfComparator.verifyFormData(driver, ren2_hdc, "HOME DAY CARE BUSINESS");
 		PdfComparator.verifyFormData(driver, ren2_hdc, "AIIC UMB HDC 06 16");
-		
-		ren2_tlc = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 20, 50, 80, 515, 700);
+
+		ren2_tlc = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 20, 50, 80, 515, 700);
 		PdfComparator.verifyFormData(driver, ren2_tlc, "TRAMPOLINE LIABILITY EXCLUSION");
 		PdfComparator.verifyFormData(driver, ren2_tlc, "AIIC UMB TL 06 16");
-		
-		ren2_exclusion = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 21, 60, 100, 500, 665);
+
+		ren2_exclusion = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 21, 60, 100, 500, 665);
 		PdfComparator.verifyFormData(driver, ren2_exclusion, "PUBLIC OR LIVERY CONVEYANCE");
 		PdfComparator.verifyFormData(driver, ren2_exclusion, "EXCLUSION ENDORSEMENT");
 		PdfComparator.verifyFormData(driver, ren2_exclusion, "AIIC PLC 06 16");
-		
-		ren2_dl98 = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 22, 40, 80, 550, 670);
+
+		ren2_dl98 = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 22, 40, 80, 550, 670);
 		PdfComparator.verifyFormData(driver, ren2_dl98, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyFormData(driver, ren2_dl98, "EXCLUSION  FUNGI, WET OR DRY ROT, OR BACTERIA ENDORSEMENT");
 		PdfComparator.verifyFormData(driver, ren2_dl98, "DL 98 17 04 02");
-		
-		ren2_umb_um = SmartPDFComparator2.getPDFtextByArea(FileLocation+renDec2_Form, 23, 40, 110, 530, 670);
+
+		ren2_umb_um = SmartPDFComparator2.getPDFtextByArea(FileLocation + renDec2_Form, 23, 40, 110, 530, 670);
 		PdfComparator.verifyFormData(driver, ren2_umb_um, "PERSONAL UMBRELLA LIABILITY POLICY");
 		PdfComparator.verifyFormData(driver, ren2_umb_um, "EXCESS UNINSURED MOTORISTS");
 		PdfComparator.verifyFormData(driver, ren2_umb_um, "AIIC UMB UM 06 16");
-		
+
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User clicks Make Payment second time and selects credit card and enters due amount for <mtr1446>")
 	public void user_clicks_make_payment_second_time_and_selects_cc_1446() {
 		click(closeoutChevron.btnMakePaymentHolder);
