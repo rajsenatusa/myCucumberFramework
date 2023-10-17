@@ -86,6 +86,7 @@ public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_Reinstateme
 		sendText(driver.findElement(By.id("LoginId")), "AG1529A2");
 		wait(1);
 	}
+	
 	@When("User enters all required information on policy information screen <mtr402>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr402() {
 

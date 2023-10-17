@@ -25,6 +25,7 @@ public class MTR357_TC36152_HO3_ValidateAnimalLiabilitySilverReserve_CovE_END ex
 	public void User_changes_system_date_to_current_date_mtr357() throws Exception {
 		ChangeDate_Admin(driver, dtf.format(currentDate));
 	}
+	
 	@When("User enters all required information on policy information screen <mtr357>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr357() {
 

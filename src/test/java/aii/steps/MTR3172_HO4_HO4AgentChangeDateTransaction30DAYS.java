@@ -49,10 +49,13 @@ public class MTR3172_HO4_HO4AgentChangeDateTransaction30DAYS extends CommonMetho
 		click(historyChevron.btnStart);
 		wait(1);
 	}
+
 	@And("User validates 'Requested effective date change requires underwriting review' text is visible")
-	public void User_validates_requested_effective_date_change_requires_underwriting_review_text_visible() throws Exception {
+	public void User_validates_requested_effective_date_change_requires_underwriting_review_text_visible()
+			throws Exception {
 		verify_AnyText_IsVisible(driver, "Requested effective date change requires underwriting review");
 	}
+
 	@And("User selects current date plus 30 days as new effective date")
 	public void User_selects_current_date_plus_30_days_as_new_effective_date() {
 		sendText(historyChevron.txtNewEffectiveDate, dtf.format(currentDate.plusDays(30)));
@@ -62,8 +65,9 @@ public class MTR3172_HO4_HO4AgentChangeDateTransaction30DAYS extends CommonMetho
 		click(historyChevron.btnStart);
 		wait(1);
 	}
+
 	@And("User process transaction and clicks plus sign and completes test")
-	public void User_process_transaction_and_clicks_plus_sign_and_completes_test() throws Exception {	    	   						
+	public void User_process_transaction_and_clicks_plus_sign_and_completes_test() throws Exception {
 		click(reviewChevron.btnProcess);
 		wait(5);
 		click(historyChevron.btnExpand);

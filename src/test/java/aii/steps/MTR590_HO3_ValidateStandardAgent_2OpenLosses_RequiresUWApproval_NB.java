@@ -33,7 +33,6 @@ public class MTR590_HO3_ValidateStandardAgent_2OpenLosses_RequiresUWApproval_NB 
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
-
 	@When("User enters all required information on HO3 quote screen <mtr590>")
 	public void user_enters_all_required_information_on_ho3_quote_screen_mtr590() throws Exception {
 		// Quote Policy Chevron information was filled here

@@ -84,6 +84,7 @@ public class MTR1430_HO3_MandatoryMediation_Arbitration_Acknowledgment_NB extend
 		click(policyChevron.btnNext);
 		wait(1);
 	}
+	
 	@When("User completes required information on dwelling chevron <mtr1430>")
 	public void user_completes_required_information_on_dwelling_chevron_mtr1430() throws Exception {
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");

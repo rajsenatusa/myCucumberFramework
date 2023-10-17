@@ -25,6 +25,7 @@ public class VOLUMBpolicy extends CommonMethods {
 		click(product.btnContinue);
 		click(product.btnProductSelectionUmb);
 	}
+
 	@When("User enters product selection information for UMB and {string}")
 	public void user_enters_product_selection_information_for_umb_and_(String EffectiveDate) {
 		// product selection information was filled here
@@ -41,6 +42,7 @@ public class VOLUMBpolicy extends CommonMethods {
 		selectDropdownText(policyChevron.ddPolicyWrittenAiig, "Yes");
 		selectDropdownText(policyChevron.ddAutoPolicy, "Yes");
 	}
+
 	@When("User enters all required information on UMB quote screen")
 	public void user_enters_all_required_information_on_umb_quote_screen() {
 		// Quote Policy Chevron information was filled here
@@ -70,21 +72,25 @@ public class VOLUMBpolicy extends CommonMethods {
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User selects Umbrella Liability Coverage {string}")
-	public void user_selects_umbrella_liability_coverage (String LiabilityCoverage) {
+	public void user_selects_umbrella_liability_coverage(String LiabilityCoverage) {
 
 		selectDropdownText(umbrellaChevron.ddUmbLimitCov, LiabilityCoverage);
 		wait(2);
 	}
+
 	@When("User selects Uninsured Limit {string}")
-	public void user_selects_uninsured_limit (String UninsuredLimit) {
+	public void user_selects_uninsured_limit(String UninsuredLimit) {
 
 		selectDropdownText(umbrellaChevron.ddUninsuredLimit, UninsuredLimit);
 	}
+
 	@When("User enters Number of Auto {string}")
-	public void user_enters_number_of_auto (String NumberOfAuto) {
+	public void user_enters_number_of_auto(String NumberOfAuto) {
 		sendText(umbrellaChevron.txtNumberOfAuto, NumberOfAuto);
 	}
+
 	@When("User enters all required information on UMB review screen")
 	public void user_enters_all_required_information_on_umb_review_screen() {
 		// Quote Review Chevron information was filled here
@@ -136,7 +142,7 @@ public class VOLUMBpolicy extends CommonMethods {
 			System.out.println("Test failed!");
 		}
 	}
-	
+
 	@Then("User creates UMB policy with passing information from excel {string} sheet")
 	public void User_creates_umb_policy_with_passing_information_from_excel_sheet(String umbcustomerInfo)
 			throws Exception {
@@ -214,14 +220,14 @@ public class VOLUMBpolicy extends CommonMethods {
 				click(reviewChevron.btnCreateApplication);
 				wait(4);
 				click(dwellingChevron.btnNext);
-		
+
 				// Application Underwriting Questions Chevron was filled here
 				fillUMB_UWQuestions();
 				wait(1);
 				click(uwquestionsChevron.nextButtonUw);
-				
+
 				// Application Dwelling information was filled here
-				
+
 				click(dwellingChevron.btnSave);
 				click(reviewChevron.btnReview);
 				wait(2);
@@ -246,16 +252,16 @@ public class VOLUMBpolicy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-				
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
+
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

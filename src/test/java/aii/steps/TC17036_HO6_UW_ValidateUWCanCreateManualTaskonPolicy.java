@@ -205,5 +205,4 @@ public class TC17036_HO6_UW_ValidateUWCanCreateManualTaskonPolicy extends Common
 		wait(5);
 		verify_AnyText_IsVisibleMultipletimes(driver, genTask, "1");
 	}
-
 }

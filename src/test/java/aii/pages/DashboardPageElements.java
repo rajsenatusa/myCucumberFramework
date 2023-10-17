@@ -164,7 +164,7 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowFee1\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
 	public WebElement fIGA2024AIBWorksheets;
 	
-	@FindBy(id= "Fee_FIGA_TermAmount")
+	@FindBy(id= "Fee_FIGA_TermAmount") 
 	public WebElement fIGA2024PremiumInfo;
 	
 	@FindBy(id= "FeeFinalAmt2")
@@ -191,6 +191,17 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "FeeFinalAmt4")
 	public WebElement fIGA2024TODP1Review;
 	
+	@FindBy(xpath="//*[@id=\"rowFee2\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
+	public WebElement fIGA2024TOMHOWorksheets;
+	
+	@FindBy(id= "FeeFinalAmt3")
+	public WebElement fIGA2024TOMHOReview;
+	
+	@FindBy(xpath="//*[@id=\"rowFee2\"]/tbody/tr/td/div/table/tbody/tr[2]/td[4]")
+	public WebElement fIGA2024TOMHPDWorksheets;
+	
+	@FindBy(id= "FeeFinalAmt3")
+	public WebElement fIGA2024TOMHPDReview;
 	
 	@FindBy(id= "Delete")
 	public WebElement btnDelete;
@@ -212,8 +223,6 @@ public class DashboardPageElements extends CommonMethods {
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
-		
-		
 		
 	}
 }

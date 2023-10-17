@@ -115,6 +115,7 @@ public class MTR306_HO3_ProcessRewriteNewOnCancelledPolicy_NB extends CommonMeth
 			e.printStackTrace();
 		}
 	}
+	
 	@And("User selects Cancellation Type as Insured")
 	public void User_selects_cancellation_type_insured() {
 		selectDropdownText(historyChevron.ddCancellationType, "Insured");

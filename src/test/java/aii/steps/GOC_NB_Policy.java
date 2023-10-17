@@ -474,7 +474,6 @@ public class GOC_NB_Policy extends CommonMethods {
 			}
 
 		}
-
 	}
 
 }

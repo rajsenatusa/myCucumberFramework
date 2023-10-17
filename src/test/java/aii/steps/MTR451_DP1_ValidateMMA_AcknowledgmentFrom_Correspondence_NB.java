@@ -81,111 +81,121 @@ public class MTR451_DP1_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extends
 		click(dashboard.btnCorrespondence);
 		wait(1);
 	}
+
 	@When("User selects 'Mandatory Mediation-Arbitration Acknowledgment' from dropdown")
 	public void user_selects_mma_from_dd() {
-		selectDropdownText(correspondance.ddSelectCorrespondance,"Mandatory Mediation-Arbitration Acknowledgment");
+		selectDropdownText(correspondance.ddSelectCorrespondance, "Mandatory Mediation-Arbitration Acknowledgment");
 		click(correspondance.btnAdd);
 		wait(2);
 	}
+
 	@When("User validates <Producer> and <Local Printer> texts are visible on ui")
 	public void user_validates_texts_are_visible() throws Exception {
 		verify_AnyfirstText_IsDisplayed(driver, "Producer");
 		verify_AnyText_IsVisible(driver, "Local Printer");
 	}
+
 	@When("User clicks preview correspondance button")
 	public void user_clicks_preview_correspondance_button() throws Exception {
 		click(correspondance.btnPreviewCorrespondance);
 		wait(2);
 	}
+
 	@When("User validates information in the form")
 	public void user_validates_information_in_the_form() throws Exception {
 		switchToWindow(driver, "STFile&Filename");
 		AppForm = PdfComparator.makePdf(driver, "DP1MMA_PreviewCorrespondence.pdf");
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+AppForm);
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + AppForm);
 		wait(1);
-		MMA_PreviewApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm, 2, 400, 0, 200, 50);
+		MMA_PreviewApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm, 2, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Version1, "AIIC DP1 MMAA 04 23");
-		MMA_PreviewApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm, 1, 70, 740, 200, 50);
+		MMA_PreviewApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm, 1, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Version, "AIIC DP1 MMAA 04 23");
-		
+
 		PolicyNumberSuffix = replaceMethod(policyNum, "-01", "");
-		
-		
-		MMA_PreviewApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm, 2, 70, 300, 500, 500);
+
+		MMA_PreviewApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm, 2, 70, 300, 500, 500);
 		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Data, PolicyNumberSuffix);
 		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Data, "1163 Oak Bluff DR");
-		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Data, "Davenport, FL 33837-3688");	
+		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Data, "Davenport, FL 33837-3688");
 	}
+
 	@When("User clicks new recipient button")
 	public void user_clicks_new_recipient_button() throws Exception {
 		click(correspondance.btnNewRecipient);
 		wait(2);
 	}
+
 	@When("User gets any dropdown options and validates")
 	public void user_gets_any_dropdown_options_and_validates() throws Exception {
 		getAnyDropDownOptions(driver, "Name");
-		String[] recipient = {"Select...", "Insured - John Smith", "Producer - Members Insurance Center, LLC", "Producer Management - Danielle Moscinski", "Other"};
-		verifyAnyDropDownOptions(driver, recipient, "Name");	
+		String[] recipient = { "Select...", "Insured - John Smith", "Producer - Members Insurance Center, LLC",
+				"Producer Management - Danielle Moscinski", "Other" };
+		verifyAnyDropDownOptions(driver, recipient, "Name");
 	}
+
 	@When("User selects recipient name")
 	public void user_selects_recipient_name() {
 		selectDropdownText(correspondance.ddName, "Insured - John Smith");
 		wait(2);
 	}
+
 	@When("User clicks cancel button")
 	public void user_clicks_cancel_button() {
 		click(correspondance.btnCancel);
 		wait(2);
 	}
+
 	@When("User clicks Policy File Tab for <mtr451>")
 	public void user_clicks_policy_file_tab_for_mtr451() {
 		click(policyFileChevron.btnPolicyFilePage);
 		wait(2);
 	}
+
 	@When("User clicks process correspondance button and validates quote and agent information")
 	public void user_clicks_process_correspondance_button_and_validates_quote_agent_information() throws Exception {
 		click(correspondance.btnProcessCorrespondence);
 		wait(3);
-		
+
 		switchToWindow(driver, "STFile&Filename");
 		AppForm2 = PdfComparator.makePdf(driver, "DP1MMA_ProcessCorrespondence.pdf");
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+AppForm2);
-			
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + AppForm2);
+
 		Thread.sleep(500);
-		MMA_ProcessApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm2, 2, 400, 0, 200, 50);
+		MMA_ProcessApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm2, 2, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_ProcessApp_Version1, "AIIC DP1 MMAA 04 23");
-		MMA_ProcessApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm2, 1, 70, 740, 200, 50);
+		MMA_ProcessApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm2, 1, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_ProcessApp_Version, "AIIC DP1 MMAA 04 23");
-		
-		MMA_ProcessApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm2, 2, 70, 300, 500, 500);
+
+		MMA_ProcessApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm2, 2, 70, 300, 500, 500);
 		PdfComparator.verifyFormData(driver, MMA_ProcessApp_Data, PolicyNumberSuffix);
 		PdfComparator.verifyFormData(driver, MMA_ProcessApp_Data, "1163 Oak Bluff DR");
 		PdfComparator.verifyFormData(driver, MMA_ProcessApp_Data, "Davenport, FL 33837-3688");
 	}
+
 	@When("User clicks 'Mandatory Mediation-Arbitration Acknowledgment' form and validates form version of application")
 	public void user_clicks_MMA_form_and_validates() throws Exception {
 		clickOnAnyLink(driver, "Mandatory Mediation-Arbitration Acknowledgment");
 		Thread.sleep(7000);
 		switchToWindow(driver, "STFile&File");
-		
+
 		application_Form = PdfComparator.makePdf(driver, "MMA.pdf");
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+application_Form);
-			
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + application_Form);
+
 		Thread.sleep(500);
-		
-		MMA_NBApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+application_Form, 2, 400, 0, 200, 50);
+
+		MMA_NBApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 2, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version1, "AIIC DP1 MMAA 04 23");
-		MMA_NBApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+application_Form, 2, 70, 740, 200, 50);
+		MMA_NBApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 2, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version, "AIIC DP1 MMAA 04 23");
-		
-		
-		MMA_NBApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+application_Form, 2, 70, 300, 500, 500);
+
+		MMA_NBApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 2, 70, 300, 500, 500);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, PolicyNumberSuffix);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "1163 Oak Bluff DR");
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "Davenport, FL 33837-3688");

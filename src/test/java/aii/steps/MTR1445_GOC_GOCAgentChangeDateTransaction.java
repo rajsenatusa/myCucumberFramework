@@ -183,4 +183,5 @@ public class MTR1445_GOC_GOCAgentChangeDateTransaction extends CommonMethods{
 		verify_AnyText_IsVisible(driver, "Change Effective Date from " + dtf.format(currentDate) + " to " + dtf.format(currentDate.plusDays(60)));
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	
 }

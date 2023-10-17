@@ -23,6 +23,7 @@ public class CommonSteps extends CommonMethods {
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String app_Tx_Policy_Claim_Num;
 	static String date;
+	
  
 	@Given("User login to Spin as Standard Agent")
 	public void user_login_to_spin_as_standard_agent() throws Throwable {
@@ -130,7 +131,7 @@ public class CommonSteps extends CommonMethods {
 
 		wait(4);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(2);
+		wait(4);
 		dashboard.btnNewQuote.click();
 		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
 		selectDropdownText(element, "Individual");

@@ -137,4 +137,5 @@ public class MTR474_DP3_ValidateMMATaskInboxView_TaskDashboard_NB_END extends Co
 		wait(6);
 		verify_AnyLabel_IsVisible(driver, "Suspend");
 	}
+	
 }

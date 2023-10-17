@@ -26,17 +26,19 @@ public class TODP3policy extends CommonMethods {
 		click(product.btnContinue);
 		click(product.btnProductSelectionTodp3);
 	}
+
 	@When("User enters product selection information for TODP3 and {string}")
 	public void user_enters_product_selection_information_for_todp3_and(String EffectiveDate) {
-		//login with admin for issuing TO policy
-		//product selection information was filled here
-		sendText(product.txtEffectiveDate,EffectiveDate);
+		// login with admin for issuing TO policy
+		// product selection information was filled here
+		sendText(product.txtEffectiveDate, EffectiveDate);
 		selectDropdown(product.ddStateSelection, 1);
 		selectDropdown(product.ddCarrierSelection, 1);
 		wait(2);
 		click(product.btnContinue);
-		click(product.btnProductSelectionTodp3);	
+		click(product.btnProductSelectionTodp3);
 	}
+
 	@When("User enters all required information on TODP3 quote screen")
 	public void user_enters_all_required_information_on_todp3_quote_screen() {
 		// Quote Policy Chevron information was filled here
@@ -85,6 +87,7 @@ public class TODP3policy extends CommonMethods {
 		wait(3);
 
 	}
+
 	@When("User clicks dwelling chevron and selects roof material")
 	public void user_clicks_dwelling_chevron_and_selects_roof_material() {
 		click(specialChevron.btnDwellingWiz);
@@ -111,6 +114,7 @@ public class TODP3policy extends CommonMethods {
 		}
 
 	}
+
 	@Then("User creates TODP3 policy with passing information from excel {string} sheet")
 	public void User_creates_todp3_policy_with_passing_information_from_excel_sheet(String todp3customerInfo)
 			throws Exception {
@@ -131,11 +135,10 @@ public class TODP3policy extends CommonMethods {
 				String phoneNumber = dataMap.get("Phone");
 				String constructionType = dataMap.get("ConsType");
 				String occupancy = dataMap.get("Occupancy");
-				String monthsOccupied=dataMap.get("Months");
-				String yearConstruction=dataMap.get("ConstYear");
-				String qualityGrade=dataMap.get("Quality");
-				String roofmaterial=dataMap.get("Roof");
-						
+				String monthsOccupied = dataMap.get("Months");
+				String yearConstruction = dataMap.get("ConstYear");
+				String qualityGrade = dataMap.get("Quality");
+				String roofmaterial = dataMap.get("Roof");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -183,7 +186,8 @@ public class TODP3policy extends CommonMethods {
 				selectDropdownText(dwellingChevron.ddProtectionClass, ConfigsReader.getProperty("protectionclass"));
 				selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
 				selectDropdownText(dwellingChevron.ddNumberofUnits, ConfigsReader.getProperty("numberofunits"));
-				selectDropdownText(dwellingChevron.ddBuildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
+				selectDropdownText(dwellingChevron.ddBuildingTerritoryList,
+						ConfigsReader.getProperty("buildingterritorylist"));
 				wait(2);
 				click(dwellingChevron.btnSave);
 				wait(3);
@@ -201,26 +205,26 @@ public class TODP3policy extends CommonMethods {
 				wait(3);
 				click(reviewChevron.btnCreateApplication);
 				wait(4);
-		
+
 				// Special Options Chevron was filled here
 				click(specialChevron.btnSpecialOptionsWiz);
 				wait(3);
-				
-				//User clicks treat as renewal button
+
+				// User clicks treat as renewal button
 				click(specialChevron.btnTreatAsRenewal);
 				wait(3);
 				click(specialChevron.btnDialogOk);
 				wait(3);
-				
-				//user clicks dwelling and selects roof material
+
+				// user clicks dwelling and selects roof material
 				click(specialChevron.btnDwellingWiz);
 				wait(2);
 				selectDropdownText(dwellingChevron.ddRoofMetarial, roofmaterial);
 				wait(2);
 				click(dwellingChevron.btnSave);
-				
+
 				// User clicks review Chevron and selects payment plan
-				
+
 				click(reviewChevron.btnReview);
 				wait(2);
 				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
@@ -231,9 +235,9 @@ public class TODP3policy extends CommonMethods {
 
 				click(reviewChevron.btnFinalize);
 				wait(2);
-				
-				//Closeout Chevron information was filled here
-				
+
+				// Closeout Chevron information was filled here
+
 				click(closeoutChevron.btnIssueNB);
 				wait(5);
 
@@ -249,16 +253,16 @@ public class TODP3policy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-				
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
+
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

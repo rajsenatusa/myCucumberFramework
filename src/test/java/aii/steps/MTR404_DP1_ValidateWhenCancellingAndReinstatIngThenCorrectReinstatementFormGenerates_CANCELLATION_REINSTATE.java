@@ -176,7 +176,6 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, dtf.format(cancelDate));
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "Your policy has been reinstated as of the Reinstatement Date shown above without interruption of coverage since");
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "underwriting reason(s) met.");
-		Hooks.scenario.log("PDF form Data :  "+Con_Coverage_Data);
-		
+		Hooks.scenario.log("PDF form Data :  "+Con_Coverage_Data);	
 	}
 }

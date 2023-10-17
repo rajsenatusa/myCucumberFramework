@@ -155,8 +155,7 @@ public class TC36497_HO3_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extend
 		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Version, "AIIC HO3 MMAA 04 23");
 		
 		PolicyNumberSuffix = replaceMethod(policyNum, "-01", "");
-		
-		
+			
 		MMA_PreviewApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation+AppForm, 2, 70, 300, 500, 500);
 		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Data, PolicyNumberSuffix);
 		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Data, "1163 Oak Bluff DR");

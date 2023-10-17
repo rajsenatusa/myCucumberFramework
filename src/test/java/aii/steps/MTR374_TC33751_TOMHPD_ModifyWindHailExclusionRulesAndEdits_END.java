@@ -226,5 +226,4 @@ public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END exte
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
-
 }

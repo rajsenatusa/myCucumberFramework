@@ -153,5 +153,4 @@ public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuil
 		verify_AnyLabel_IsVisible(driver, "Coverage Modified: L - Personal Liability Limit 1 Changed From $100,000 to $300,000");
 		verify_AnyLabel_IsVisible(driver, "Coverage Modified: Home Computer Limit 1 Changed From $2,500 to $7,000");
 	}
-
 }

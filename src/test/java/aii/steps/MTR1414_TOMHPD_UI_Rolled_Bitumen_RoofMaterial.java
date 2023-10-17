@@ -242,8 +242,7 @@ public class MTR1414_TOMHPD_UI_Rolled_Bitumen_RoofMaterial extends CommonMethods
 		clickApplicationTab(driver);
 		wait(1);
 		switchWindows(driver);
-		wait(1);
-		
+		wait(1);	
 		Hooks.scenario.log("Test Case Completed!");;	
 	}
 }

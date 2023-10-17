@@ -35,7 +35,6 @@ public class MTR591_HO3_ValidateWaterLossGreaterThan5000_WDE_WDL_RequiresUWAppro
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
-
 	@When("User enters all required information on HO3 quote screen <mtr591>")
 	public void user_enters_all_required_information_on_ho3_quote_screen_mtr591() {
 		// Quote Policy Chevron information was filled here

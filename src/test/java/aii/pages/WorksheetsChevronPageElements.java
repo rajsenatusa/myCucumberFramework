@@ -68,8 +68,34 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr[1]/td/div/table/tbody/tr[4]/td[4]")
 	public WebElement HurricaneBaseRate;
 	
-	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr[1]/td/div/table/tbody/tr[2]/td/i")
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement HO4HurricaneBasePremiumClick;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[2]/td/i")
+	public WebElement HO4NonHurricaneBasePremiumClick;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[4]/td[4]")
+	public WebElement HO4NonHurricaneBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[4]/td[4]")
 	public WebElement HO4HurricaneBasePremium;
+
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[4]/td[6]")
+	public WebElement MHO3NonHurricaneBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td[6]")
+	public WebElement MHO3HurricaneBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[2]/td/i")
+	public WebElement TOHO3KeyWindRateClick;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[3]/td[6]")
+	public WebElement TOHO3BaseRate;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[4]/td[6]")
+	public WebElement TOHO3WindExclusionBaseRate;
+	
+	
 	
 	//input[ends-with(@id,'_name')]
 	//input[contains(@id, '_name')]
@@ -98,8 +124,8 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[2]/td[2]/table[1]/tbody[1]/tr[4]/td[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[2]/td[4]")
 	public WebElement HO6elevationRate;
 	
-	
-	
+	@FindBy(id= "Wizard_Worksheets")
+	public WebElement lnkWorksheetsChevron;
 	
 	
 	public WorksheetsChevronPageElements() {

@@ -127,4 +127,5 @@ public class MTR1412_GOC_ValidateNoHitRequireUWApproval_NB extends CommonMethods
 		getPolicyNumber(driver);
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	
 }
