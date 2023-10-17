@@ -39,4 +39,4 @@ Feature: RC-1094: 2023 Rate Changes- FIGA: TO MHO- 10/01/2023
 
     Examples: Test Data
       | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction | TerritoryList | AttachedStructures | CoverageA |
-      | 10/01/2023    | 10/02/2023               | Owner Occupied | 9 to 12 Months |               2021 |             5 | No                 |    120000 |
+      | 01/01/2024    | 01/02/2024               | Owner Occupied | 9 to 12 Months |               2021 |             5 | No                 |    120000 |

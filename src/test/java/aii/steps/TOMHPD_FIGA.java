@@ -27,5 +27,25 @@ public class TOMHPD_FIGA extends CommonMethods {
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	wait(1);
 	}
-	
+	@Then("User validates 2024 FIGA TOMHPD rate in Worksheets")
+	public void User_validates_2024_FIGA_TOMHPD_rate_in_Worksheets() {
+	String expected = "0.0100";
+	String actual = dashboard.fIGA2024TOMHPDWorksheets.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	wait(1);
+	}
+	@Then("User validates 2024 FIGA TOMHPD rate in Premium Info")
+	public void User_validates_2024_FIGA_TOMHPD_rate_in_Premium_Info() {
+	String expected = "99.69";
+	String actual = dashboard.fIGA2024PremiumInfo.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	wait(1);
+	}
+	@Then("User validates 2024 FIGA TOMHPD rate in Review")
+	public void User_validates_2024_FIGA_TOMHPD_rate_in_Review() {
+	String expected = "$99.69";
+	String actual = dashboard.fIGA2024TOMHPDReview.getText();
+	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	wait(1);
+	}
 }
