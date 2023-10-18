@@ -31,7 +31,8 @@ public class VOLHO4_RateChange extends CommonMethods {
 	String actual = worksheetsChevron.HO4NonHurricaneBasePremium.getText();
 	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
- 	@And("User clicks Hurricane Base Premium")
+
+	@And("User clicks Hurricane Base Premium")
 	public void User_clicks_Hurricane_Base_Premium() {
 		wait(3);
 		click(worksheetsChevron.HO4HurricaneBasePremiumClick);

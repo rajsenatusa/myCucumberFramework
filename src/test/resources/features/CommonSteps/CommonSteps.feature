@@ -114,4 +114,5 @@ Feature: Common Transactions and Steps
      And User clicks Finalize button
      And User returns to main page
      And User enters EN Effective Date "<EndorsementEffectiveDate>"
+     And User clicks Windstorm or Hail Exclusion box
      

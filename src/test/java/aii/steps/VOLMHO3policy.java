@@ -18,70 +18,75 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class VOLMHO3policy extends CommonMethods {
-	
+
 	@When("User enters MHO3 product selection information and effective date")
 	public void user_enters_mho3_product_selection_information_and_effective_date() {
-		//product selection information was filled here
-				sendText(product.txtEffectiveDate,ConfigsReader.getProperty("effectivedate"));
-				selectDropdown(product.ddStateSelection, 1);
-				selectDropdown(product.ddCarrierSelection, 1);
-				wait(2);
-				click(product.btnContinue);
-				click(product.btnProductSelectionMho3);
-				
+		// product selection information was filled here
+		sendText(product.txtEffectiveDate, ConfigsReader.getProperty("effectivedate"));
+		selectDropdown(product.ddStateSelection, 1);
+		selectDropdown(product.ddCarrierSelection, 1);
+		wait(2);
+		click(product.btnContinue);
+		click(product.btnProductSelectionMho3);
+
 	}
+
 	@When("User enters all required information on MHO3 quote screen")
 	public void user_enters_all_required_information_on_mho3_quote_screen() {
-		//Quote Policy Chevron information was filled here
-		
-				selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarriermho3"));
-				sendText(policyChevron.txtPreviousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
-				click(policyChevron.btnPropertyTypePri);
-				sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
-				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
-				wait(2);
-				click(policyChevron.btnNoEmailRadio);
-				selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
-				selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupiedmho3"));
-				wait(1);
-				click(policyChevron.btnNext);
-				wait(3);
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarriermho3"));
+		sendText(policyChevron.txtPreviousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
+		click(policyChevron.btnPropertyTypePri);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
+		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupiedmho3"));
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
 	}
+
 	@When("User enters all required information on MHO3 dwelling screen")
 	public void user_enters_all_required_information_on_mho3_dwelling_screen() {
-		
+
 		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
 		wait(2);
 		sendText(dwellingChevron.txtCoverageA, ConfigsReader.getProperty("coveragea"));
 		wait(2);
 		click(dwellingChevron.btnSave);
 		click(dwellingChevron.btnNext);
-		
+
 	}
+
 	@When("User enters all required information on MHO3 review screen")
 	public void user_enters_all_required_information_on_mho3_review_screen() {
-		
+
 		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(3);
 		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
-		
+
 	}
+
 	@When("User creates MHO3 application")
 	public void user_creates_mho3_application() {
-		
-				click(reviewChevron.btnCreateApplication);
-				wait(4);
-				click(dwellingChevron.btnNext);
-			
+
+		click(reviewChevron.btnCreateApplication);
+		wait(4);
+		click(dwellingChevron.btnNext);
+
 	}
+
 	@When("User answers all underwriting questions for MHO3")
 	public void user_answers_all_underwriting_questions_for_mho3() throws Exception {
-		//Application Underwriting Questions Chevron was filled here
+		// Application Underwriting Questions Chevron was filled here
 
 		fillMHO_UWQuestions();
-		
-		//Application Dwelling information was filled here
+
+		// Application Dwelling information was filled here
 		selectDropdownText(dwellingChevron.ddBuildingLength, ConfigsReader.getProperty("buildinglength"));
 		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarialmho3"));
 		selectDropdownText(dwellingChevron.ddBuildingMake, ConfigsReader.getProperty("buildingmake"));
@@ -89,27 +94,30 @@ public class VOLMHO3policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddBuildingSkirtedRails, "Yes");
 		sendText(dwellingChevron.txtBuildingSerialNumber, ConfigsReader.getProperty("buildingserialnumber"));
 	}
+
 	@Then("User validates that MHO3 policy has been created successfully")
 	public void user_validates_that_mho3_policy_has_been_created_successfully() {
-		WebElement validate= driver.findElement(By.id("History_1_1_TransactionCd"));
-		
-		if(validate.getText().equalsIgnoreCase("New Business")) {
+		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
+
+		if (validate.getText().equalsIgnoreCase("New Business")) {
 			System.out.println("Test passed, MHO3 NB policy has been created successfully");
-		}
-		else {
+		} else {
 			System.out.println("Test failed!");
+		}
 	}
-	}
+
 	@And("User clicks VOL MHO3 policy")
 	public void User_clicks_VOL_MHO3_policy() {
 		click(product.btnProductSelectionMho3);
 	}
+
 	@And("User clicks Property Type as Private Property")
-	public void User_clicks_Property_Type_as_Private_Property () {
+	public void User_clicks_Property_Type_as_Private_Property() {
 		click(policyChevron.btnPropertyTypePri);
 	}
+
 	@And("User enters MHO3 Pay Plan Type")
-	public void User_enters_MHO3_Pay_Plan_Type () {
+	public void User_enters_MHO3_Pay_Plan_Type() {
 		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(2);
 		click(reviewChevron.btnFullPaymentRadio);
@@ -118,20 +126,24 @@ public class VOLMHO3policy extends CommonMethods {
 		wait(2);
 		click(dwellingChevron.btnNext);
 	}
+
 	@And("User verifies NB MHO3 policy has been created successfully")
 	public void User_verifies_NB_MHO3_policy_has_been_created_successfully() {
 		String expected = "New Business";
 		String actual = historyChevron.txtNewBusiness.getText();
 		Assert.assertEquals("Test passed!", expected, actual);
 	}
+
 	@And("User clicks MHO3 Prior Carrier")
 	public void User_clicks_MHO3_Prior_Carrier() {
 		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
- 		click(dwellingChevron.btnSave);
+		click(dwellingChevron.btnSave);
 		wait(1);
-	}	  
+	}
+
 	@Then("User creates MHO3 policy with passing information from excel {string} sheet")
-	public void User_creates_mho3_policy_with_passing_information_from_excel_sheet(String mho3customerInfo) throws Exception {
+	public void User_creates_mho3_policy_with_passing_information_from_excel_sheet(String mho3customerInfo)
+			throws Exception {
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLMHO3.xlsx";
 
 		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, mho3customerInfo);
@@ -153,7 +165,7 @@ public class VOLMHO3policy extends CommonMethods {
 				String monthsoccp = dataMap.get("Months");
 				String yearcons = dataMap.get("ConstYear");
 				String roof = dataMap.get("RoofMat");
-				String coveragea=dataMap.get("CoverageA");
+				String coveragea = dataMap.get("CoverageA");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -193,14 +205,13 @@ public class VOLMHO3policy extends CommonMethods {
 				click(policyChevron.btnNext);
 				wait(3);
 
-				//dwelling
+				// dwelling
 				sendText(dwellingChevron.txtYearConstruction, yearcons);
 				wait(2);
 				sendText(dwellingChevron.txtCoverageA, coveragea);
 				wait(2);
 				click(dwellingChevron.btnSave);
 				click(dwellingChevron.btnNext);
-				
 
 				// Quote Review Chevron information was filled here
 				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
@@ -219,10 +230,9 @@ public class VOLMHO3policy extends CommonMethods {
 
 				fillMHO_UWQuestions();
 				wait(1);
-				
 
 				// Application Dwelling information was filled here
-				
+
 				selectDropdownText(dwellingChevron.ddBuildingLength, ConfigsReader.getProperty("buildinglength"));
 				selectDropdownText(dwellingChevron.ddRoofMetarial, roof);
 				selectDropdownText(dwellingChevron.ddBuildingMake, ConfigsReader.getProperty("buildingmake"));
@@ -252,16 +262,16 @@ public class VOLMHO3policy extends CommonMethods {
 				wait(5);
 				getPolicyNumber(driver);
 
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
-		        
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
+
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);
 
@@ -282,6 +292,5 @@ public class VOLMHO3policy extends CommonMethods {
 		}
 
 	}
-	
-}
 
+}
