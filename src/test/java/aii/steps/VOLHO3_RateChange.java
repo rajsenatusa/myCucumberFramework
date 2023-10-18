@@ -1,4 +1,5 @@
 package aii.steps;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import aii.utils.CommonMethods;
@@ -10,50 +11,54 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 public class VOLHO3_RateChange extends CommonMethods {
-		
+
 	@And("User clicks Worksheets chevron")
-	public void User_clicks_Worksheets_chevron() {	    	   						
-		click(dwellingChevron.btnWorksheets);		
+	public void User_clicks_Worksheets_chevron() {
+		click(dwellingChevron.btnWorksheets);
 	}
+
 	@And("User clicks Underwriting Questions chevron")
-	public void User_clicks_Underwriting_Questions_chevron() {	    	   						
-		click(dwellingChevron.btnUnderwriting);		
+	public void User_clicks_Underwriting_Questions_chevron() {
+		click(dwellingChevron.btnUnderwriting);
 	}
+
 	@Then("User verifies Water NonWeather Base Rate")
-    public void User_verifies_Water_NonWeather_Base_Rate() {
-	String expected = "Initial Base Rate: 353.71<br> - Water Non-Weather Territory Code: 3<br> - Territory Factor: 1.630";
-	String actual = worksheetsChevron.txtWaterNonWeather.getText();				
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
+	public void User_verifies_Water_NonWeather_Base_Rate() {
+		String expected = "Initial Base Rate: 353.71<br> - Water Non-Weather Territory Code: 3<br> - Territory Factor: 1.630";
+		String actual = worksheetsChevron.txtWaterNonWeather.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Fire or Lightning Base Rate")
 	public void User_verifies_Fire_or_Lightning_Base_Rate() {
-	String expected = "Initial Base Rate: 50.93<br> - Fire or Lightning Territory Code: 10<br> - Territory Factor: 0.860";
-	String actual = worksheetsChevron.txtFireLightning.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
+		String expected = "Initial Base Rate: 50.93<br> - Fire or Lightning Territory Code: 10<br> - Territory Factor: 0.860";
+		String actual = worksheetsChevron.txtFireLightning.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@And("User clicks Fire or Lightning Base Premium")
-	public void User_clicks_Fire_or_Lightning_Base_Premium() {	    	   						
-		click(worksheetsChevron.fireLightningBasePremium);		
-	
+	public void User_clicks_Fire_or_Lightning_Base_Premium() {
+		click(worksheetsChevron.fireLightningBasePremium);
+
 		wait(3);
-	
+
 	}
-	
+
 	@Then("User verifies Fire or Lightning Base Rate 2")
 	public void User_verifies_Fire_or_Lightning_Base_Rate_2() {
-	
+
 		wait(5);
-		WebElement validate = driver.findElement(By.xpath("//*[@id=\"rowCovCovArea131\"]/tbody/tr/td/div/table/tbody/tr[2]/td[2]"));
+		WebElement validate = driver
+				.findElement(By.xpath("//*[@id=\"rowCovCovArea131\"]/tbody/tr/td/div/table/tbody/tr[2]/td[2]"));
 		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 58.57\r\n"
-				+ "- Fire or Lightning Territory Code: 9\r\n"
-				+ "- Territory Factor: 0.840")) {
+				+ "- Fire or Lightning Territory Code: 9\r\n" + "- Territory Factor: 0.840")) {
 			System.out.println("HO3 Endorsement has been processed successfully");
 
 		} else {
 			System.out.println("HO3 Endorsement has been failed!");
 			wait(5);
 		}
-			
+
 //		String expected = "Initial Base Rate: 58.57\r\n"
 //				+ "- Fire or Lightning Territory Code: 9\r\n"
 //				+ "- Territory Factor: 0.840";
@@ -61,34 +66,37 @@ public class VOLHO3_RateChange extends CommonMethods {
 //				String actual = worksheetsChevron.txtFireLightning2.getText().toString();
 //	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 	}
-	@Then("User verifies Other Base Rate") 
+
+	@Then("User verifies Other Base Rate")
 	public void User_verifies_Other_Base_Rate() {
-	String expected = "57.93";
-	String actual = worksheetsChevron.txtOtherBaseRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
+		String expected = "57.93";
+		String actual = worksheetsChevron.txtOtherBaseRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Weather Base Rate")
 	public void User_verifies_Weather_Base_Rate() {
-	String expected = "Initial Base Rate: 276.18<br> - Weather Territory Code: 3<br> - Territory Factor: 1.540";
-	String actual = worksheetsChevron.txtWeatherBaseRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
+		String expected = "Initial Base Rate: 276.18<br> - Weather Territory Code: 3<br> - Territory Factor: 1.540";
+		String actual = worksheetsChevron.txtWeatherBaseRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Weather Base Rate 2")
 	public void User_verifies_Weather_Base_Rate_2() {
-	wait(1);
-	
-	wait(5);
-	WebElement validate = driver.findElement(By.xpath("//*[@id=\"rowCovCovArea131\"]/tbody/tr/td/div/table/tbody/tr[2]/td[2]"));
-	if (validate.getText().equalsIgnoreCase("Initial Base Rate: 58.57\r\n"
-			+ "- Fire or Lightning Territory Code: 9\r\n"
-			+ "- Territory Factor: 0.840")) {
-		System.out.println("HO3 Endorsement has been processed successfully");
+		wait(1);
 
-	} else {
-		System.out.println("HO3 Endorsement has been failed!");
 		wait(5);
-	}
-	
+		WebElement validate = driver
+				.findElement(By.xpath("//*[@id=\"rowCovCovArea131\"]/tbody/tr/td/div/table/tbody/tr[2]/td[2]"));
+		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 58.57\r\n"
+				+ "- Fire or Lightning Territory Code: 9\r\n" + "- Territory Factor: 0.840")) {
+			System.out.println("HO3 Endorsement has been processed successfully");
+
+		} else {
+			System.out.println("HO3 Endorsement has been failed!");
+			wait(5);
+		}
+
 //	String expected = "Initial Base Rate: 335.56\r\n"
 //			+ "- Weather Territory Code: 3\r\n"
 //			+ "- Territory Factor: 1.540";
@@ -96,218 +104,251 @@ public class VOLHO3_RateChange extends CommonMethods {
 //	Assert.assertEquals("The value DOES NOT match!", expected, actual);	
 //	wait(1);
 	}
+
 	@Then("User verifies Hurricane Base Rate")
 	public void User_verifies_Hurricane_Base_Rate() {
-	String expected = "Initial Base Rate: 2090.44<br> - Hurricane Territory Code: E4<br> - Territory Factor: 0.577";
-	String actual = worksheetsChevron.txtHurricaneBaseRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "Initial Base Rate: 2090.44<br> - Hurricane Territory Code: E4<br> - Territory Factor: 0.577";
+		String actual = worksheetsChevron.txtHurricaneBaseRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Hurricane Base Rate 2")
 	public void User_verifies_Hurricane_Base_Rate_2() {
-	
+
 		wait(5);
-		WebElement validate = driver.findElement(By.xpath("//*[@id=\"rowCovCovArea137\"]/tbody/tr/td/div/table/tbody/tr[2]/td[2]"));
-		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 3407.55\r\n"
-				+ "- Hurricane Territory Code: E5\r\n"
+		WebElement validate = driver
+				.findElement(By.xpath("//*[@id=\"rowCovCovArea137\"]/tbody/tr/td/div/table/tbody/tr[2]/td[2]"));
+		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 3407.55\r\n" + "- Hurricane Territory Code: E5\r\n"
 				+ "- Territory Factor: 0.611")) {
 			System.out.println("HO3 Endorsement has been processed successfully");
 
 		} else {
 			System.out.println("HO3 Endorsement has been failed!");
 			wait(5);
-		
+
 		}
-		
+
 //		String expected = "Initial Base Rate: 3407.55\r\n"
 //			+ "- Hurricane Territory Code: E5\r\n"
 //			+ "- Territory Factor: 0.611";
 //	String actual = worksheetsChevron.txtHurricaneBaseRate2.getText();
 //	Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Building Flood Rate Zone X and Foundation Basement")
 	public void User_verifies_Building_Flood_Rate_Zone_X_and_Foundation_Basement() {
-	String expected = "0.17";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);				
+		String expected = "0.17";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone X and Foundation Basement")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_X_and_Foundation_Basement() {
-	String expected = "0.17";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.17";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Building Flood Rate Zone X and Foundation Slab")
 	public void User_verifies_Building_Flood_Rate_Zone_X_and_Foundation_Slab() {
-	String expected = "0.15";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);				
+		String expected = "0.15";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone X and Foundation Slab")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_X_and_Foundation_Slab() {
-	String expected = "0.15";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "0.15";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone D and Foundation Slab")
 	public void User_verifies_Building_Flood_Rate_Zone_D_and_Foundation_Slab() {
-	String expected = "0.65";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.65";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone D and Foundation Slab")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_D_and_Foundation_Slab() {
-	String expected = "0.70";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.70";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Building Flood Rate Zone D and Foundation Basement")
 	public void User_verifies_Building_Flood_Rate_Zone_C_and_Foundation_Elevated() {
-	String expected = "0.65";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.65";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone D and Foundation Basement")
 	public void User_verifiess_Personal_Property_Flood_Rate_Zone_C_and_Foundation_Elevated() {
-	String expected = "0.70";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "0.70";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone B and Foundation Elevated")
 	public void User_verifies_Building_Flood_Rate_Zone_B_and_Foundation_Elevated() {
-	String expected = "0.15";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.15";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone B and Foundation Elevated")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_B_and_Foundation_Elevated() {
-	String expected = "0.15";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.15";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Building Flood Rate Zone C and Foundation Basement")
 	public void User_verifies_Building_Flood_Rate_Zone_C_and_Foundation_Basement() {
-	String expected = "0.17";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.17";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone C and Foundation Basement")
 	public void User_verifiess_Personal_Property_Flood_Rate_Zone_C_and_Foundation_Basement() {
-	String expected = "0.17";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.17";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Building Flood Rate Zone A and Foundation Slab")
 	public void User_verifies_Building_Flood_Rate_Zone_A_and_Foundation_Slab() {
-	String expected = "2.64";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "2.64";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone A and Foundation Slab")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_A_and_Foundation_Slab() {
-	String expected = "1.59";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "1.59";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone AE and Foundation Basement")
 	public void User_vverifies_Building_Flood_Rate_Zone_AE_and_Foundation_Basement() {
-	String expected = "1.30";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "1.30";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone AE and Foundation Basement")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_AE_and_Foundation_Basement() {
-	String expected = "1.95";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "1.95";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone AH and Foundation Slab")
 	public void User_verifies_Building_Flood_Rate_Zone_AH_and_Foundation_Slab() {
-	String expected = "0.52";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.52";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone AH and Foundation Slab")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_AH_and_Foundation_Slab() {
-	String expected = "0.39";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "0.39";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone AO and Foundation Basement")
 	public void User_verifies_Building_Flood_Rate_Zone_AO_and_Foundation_Basement() {
-	String expected = "0.52";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.52";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone AO and Foundation Basement")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_AO_and_Foundation_Basement() {
-	String expected = "0.39";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "0.39";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone A99 and Foundation Basement")
 	public void User_verifies_Building_Flood_Rate_Zone_A99_and_Foundation_Basement() {
-	String expected = "0.17";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.17";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone A99 and Foundation Basement")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_A99_and_Foundation_Basement() {
-	String expected = "0.17";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "0.17";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone AR and Foundation Slab")
 	public void User_verifies_Building_Flood_Rate_Zone_AR_and_Foundation_Slab() {
-	String expected = "0.15";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.15";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone AR and Foundation Slab")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_AR_and_Foundation_Slab() {
-	String expected = "0.15";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "0.15";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone A15 and Foundation Elevated")
 	public void User_verifies_Building_Flood_Rate_Zone_A15_and_Foundation_Elevated() {
-	String expected = "1.30";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "1.30";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone A15 and Foundation Elevated")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_A15_and_Foundation_Elevated() {
-	String expected = "1.95";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "1.95";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone A30 and Foundation Elevated")
 	public void User_verifies_Building_Flood_Rate_Zone_A30_and_Foundation_Elevated() {
-	String expected = "1.30";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "1.30";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone A30 and Foundation Elevated")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_A30_and_Foundation_Elevated() {
-	String expected = "1.95";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	
+		String expected = "1.95";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies Building Flood Rate Zone A1 and Foundation Basement")
 	public void User_verifies_Building_Flood_Rate_Zone_A1_and_Foundation_Basement() {
-	String expected = "1.30";
-	String actual = worksheetsChevron.txtBuildingFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "1.30";
+		String actual = worksheetsChevron.txtBuildingFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
 	@Then("User verifies Personal Property Flood Rate Zone A1 and Foundation Basement")
 	public void User_verifies_Personal_Property_Flood_Rate_Zone_A1_and_Foundation_Basement() {
-	String expected = "1.95";
-	String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
-	}	 	
+		String expected = "1.95";
+		String actual = worksheetsChevron.txtPersonalPropertyFloodRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 	@Then("User verifies HO3 Elevation Certificate rate")
 	public void User_verifies_HO3_Elevation_Certificate_rate() {
-	String expected = "0.52";
-	String actual = worksheetsChevron.HO3elevationRate.getText();
-	Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		String expected = "0.52";
+		String actual = worksheetsChevron.HO3elevationRate.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 }
