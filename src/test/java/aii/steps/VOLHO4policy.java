@@ -105,21 +105,22 @@ public class VOLHO4policy extends CommonMethods {
 		}
 		wait(5);
 		getPolicyNumber(driver);
-		
-	     // Close unnecessary tabs
-        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        for (int i = tabs.size() - 1; i > 0; i--) {
-            driver.switchTo().window(tabs.get(i));
-            driver.close();
-        }
 
-        // Switch back to the main page
-        driver.switchTo().window(tabs.get(0));
+		// Close unnecessary tabs
+		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+		for (int i = tabs.size() - 1; i > 0; i--) {
+			driver.switchTo().window(tabs.get(i));
+			driver.close();
+		}
+
+		// Switch back to the main page
+		driver.switchTo().window(tabs.get(0));
 
 	}
 
 	@Then("User creates HO4 policy with passing information from excel {string} sheet")
-	public void User_creates_ho4_policy_with_passing_information_from_excel_sheet(String ho4customerInfo) throws Exception {
+	public void User_creates_ho4_policy_with_passing_information_from_excel_sheet(String ho4customerInfo)
+			throws Exception {
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLHO4.xlsx";
 
 		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, ho4customerInfo);
@@ -141,7 +142,7 @@ public class VOLHO4policy extends CommonMethods {
 				String occupancytype = dataMap.get("Occupancy");
 				String monthsoccp = dataMap.get("Months");
 				String yearcons = dataMap.get("ConstYear");
-				String coveragec=dataMap.get("CoverageC");
+				String coveragec = dataMap.get("CoverageC");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -199,7 +200,7 @@ public class VOLHO4policy extends CommonMethods {
 				wait(3);
 				click(reviewChevron.btnCreateApplication);
 				wait(4);
-	
+
 				// Application Policy Chevron information was filled here(all information was
 				// filled previously, just clicking next button)
 
@@ -239,17 +240,17 @@ public class VOLHO4policy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-				
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
-				
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
+
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
+
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);
 
@@ -270,31 +271,31 @@ public class VOLHO4policy extends CommonMethods {
 		}
 
 	}
+
 	@And("User clicks VOL HO4 policy")
 	public void User_clicks_VOL_HO4_policy() {
 
-		click(product.btnProductSelectionHo4); 
+		click(product.btnProductSelectionHo4);
 	}
+
 	@And("User selects Mobile Home")
 	public void User_selects_Mobile_Home() {
 		selectDropdownText(policyChevron.ddMobileHome, "No");
 		wait(1);
 	}
-	
+
 	@And("User enters Personal Property")
 	public void User_enters_Personal_Property() {
 		sendText(dwellingChevron.txtCoverageC, ConfigsReader.getProperty("coveragec"));
 		wait(1);
 	}
+
 	@And("User enters Pay Plan Type for HO4")
 	public void User_enters_Pay_Plan_Type_for_HO4() {
-		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");			 
+		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");
 		reviewChevron.btnFullPaymentRadio.click();
 		reviewChevron.btnCreateApplication.click();
 		click(dwellingChevron.btnNext);
 	}
-	
-	
-	
-	
+
 }

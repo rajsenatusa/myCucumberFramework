@@ -157,6 +157,7 @@ public class TODP1policy extends CommonMethods {
 			System.out.println("Test failed!");
 		}
 	}
+
 	@Then("User creates TODP1 policy with passing information from excel {string} sheet")
 	public void User_creates_todp1_policy_with_passing_information_from_excel_sheet(String todp1customerInfo)
 			throws Exception {
@@ -177,10 +178,9 @@ public class TODP1policy extends CommonMethods {
 				String phoneNumber = dataMap.get("Phone");
 				String constructionType = dataMap.get("ConsType");
 				String occupancy = dataMap.get("Occupancy");
-				String monthsOccupied=dataMap.get("Months");
-				String yearConstruction=dataMap.get("ConstYear");
-				String qualityGrade=dataMap.get("Quality");
-						
+				String monthsOccupied = dataMap.get("Months");
+				String yearConstruction = dataMap.get("ConstYear");
+				String qualityGrade = dataMap.get("Quality");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -227,7 +227,8 @@ public class TODP1policy extends CommonMethods {
 				selectDropdownText(dwellingChevron.ddDistanceToHydrant, ConfigsReader.getProperty("distancetohydrant"));
 				selectDropdownText(dwellingChevron.ddProtectionClass, ConfigsReader.getProperty("protectionclass"));
 				selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
-				selectDropdownText(dwellingChevron.ddBuildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
+				selectDropdownText(dwellingChevron.ddBuildingTerritoryList,
+						ConfigsReader.getProperty("buildingterritorylist"));
 				wait(2);
 				click(dwellingChevron.btnSave);
 				wait(3);
@@ -245,19 +246,19 @@ public class TODP1policy extends CommonMethods {
 				wait(3);
 				click(reviewChevron.btnCreateApplication);
 				wait(4);
-		
+
 				// Special Options Chevron was filled here
 				click(specialChevron.btnSpecialOptionsWiz);
 				wait(3);
-				
-				//User clicks treat as renewal button
+
+				// User clicks treat as renewal button
 				click(specialChevron.btnTreatAsRenewal);
 				wait(3);
 				click(specialChevron.btnDialogOk);
 				wait(3);
-				
+
 				// User clicks review Chevron and selects payment plan
-				
+
 				click(reviewChevron.btnReview);
 				wait(2);
 				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
@@ -268,9 +269,9 @@ public class TODP1policy extends CommonMethods {
 
 				click(reviewChevron.btnFinalize);
 				wait(2);
-				
-				//Closeout Chevron information was filled here
-				
+
+				// Closeout Chevron information was filled here
+
 				click(closeoutChevron.btnIssueNB);
 				wait(5);
 
@@ -286,16 +287,16 @@ public class TODP1policy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-				
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
+
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

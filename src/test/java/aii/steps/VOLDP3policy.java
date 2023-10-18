@@ -252,9 +252,9 @@ public class VOLDP3policy extends CommonMethods {
 				selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 				wait(4);
 				click(closeoutChevron.btnIssueNB);
-				
+
 				// Validation
-				
+
 				WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 				if (validate.getText().equalsIgnoreCase("New Business")) {
@@ -265,16 +265,16 @@ public class VOLDP3policy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-				
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
+
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

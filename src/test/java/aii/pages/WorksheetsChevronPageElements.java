@@ -95,8 +95,13 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[4]/td[6]")
 	public WebElement TOHO3WindExclusionBaseRate;
 	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[2]/td[6]")
+	public WebElement TOMHOBaseRate;
 	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[3]/td[4]")
+	public WebElement TOMHOWindExclusionBaseRate;
 	
+
 	//input[ends-with(@id,'_name')]
 	//input[contains(@id, '_name')]
 	//button[starts-with(@id, 'save') and contains(@class,'publish')] 

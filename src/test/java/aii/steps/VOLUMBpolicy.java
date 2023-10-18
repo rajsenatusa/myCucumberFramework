@@ -36,6 +36,7 @@ public class VOLUMBpolicy extends CommonMethods {
 		click(product.btnContinue);
 		click(product.btnProductSelectionUmb);
 	}
+
 	@When("User answers previous policy written with AIIG questions")
 	public void user_answers_previous_policy_written_with_aiig_questions() {
 		clickTab(policyChevron.ddPolicyWrittenAiig);
