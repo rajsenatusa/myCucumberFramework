@@ -135,7 +135,7 @@ public class TOMHPDpolicy extends CommonMethods {
 				String effDate = dataMap.get("EffectiveDate");
 				String state = dataMap.get("State");
 				String phoneNumber = dataMap.get("Phone");
-			//	String coverageA = dataMap.get("CoverageA");
+				// String coverageA = dataMap.get("CoverageA");
 				String occupancy = dataMap.get("Occupancy");
 				String monthsOccupied = dataMap.get("Months");
 				String yearConstruction = dataMap.get("ConstYear");
@@ -189,8 +189,9 @@ public class TOMHPDpolicy extends CommonMethods {
 				clickTab(dwellingChevron.txtCoverageA);
 				clearText(dwellingChevron.txtCoverageA);
 				wait(2);
-			//	sendText(dwellingChevron.txtCoverageA, coverageA);
-				driver.findElement(By.id("Building.CovALimit")).sendKeys("120000"); // did hard coding due to element is hidden
+				// sendText(dwellingChevron.txtCoverageA, coverageA);
+				driver.findElement(By.id("Building.CovALimit")).sendKeys("120000"); // did hard coding due to element is
+																					// hidden
 																					// inside dom
 				selectDropdownText(dwellingChevron.ddAttachedStructures, "No");
 				wait(2);
@@ -247,16 +248,16 @@ public class TOMHPDpolicy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-				
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
+
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

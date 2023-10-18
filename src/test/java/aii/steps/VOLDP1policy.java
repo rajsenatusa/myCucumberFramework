@@ -105,7 +105,8 @@ public class VOLDP1policy extends CommonMethods {
 	}
 
 	@Then("User creates DP1 policy with passing information from excel {string} sheet")
-	public void User_creates_dp1_policy_with_passing_information_from_excel_sheet(String dp1customerInfo) throws Exception {
+	public void User_creates_dp1_policy_with_passing_information_from_excel_sheet(String dp1customerInfo)
+			throws Exception {
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLDP1.xlsx";
 
 		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, dp1customerInfo);
@@ -228,16 +229,16 @@ public class VOLDP1policy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-				
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
+
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

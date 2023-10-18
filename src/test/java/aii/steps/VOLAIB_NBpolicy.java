@@ -132,34 +132,41 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		wait(3);
 
 	}
+
 	@And("User clicks VOL AIB policy")
-	public void User_clicks_VOL_AIB_policy() {	     
-		click(product.btnProductSelectionAib);	
+	public void User_clicks_VOL_AIB_policy() {
+		click(product.btnProductSelectionAib);
 	}
+
 	@And("User selects Have you had 6 months of continuous boat insurance")
-	public void User_selects_Have_you_had_6_months_of_continuous_boat_insurance() {	     
+	public void User_selects_Have_you_had_6_months_of_continuous_boat_insurance() {
 		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
 	}
+
 	@And("User selects Are all boats stored in Florida at least 6 months of the year")
-	public void User_selects_Are_all_boats_stored_in_Florida_at_least_6_months_of_the_year() {	     
+	public void User_selects_Are_all_boats_stored_in_Florida_at_least_6_months_of_the_year() {
 		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
 	}
+
 	@And("User selects Boating Liability")
-	public void User_selects_Boating_Liability() {	     
+	public void User_selects_Boating_Liability() {
 		selectDropdownText(golfcartChevron.ddLiabilityCovType, "No Coverage");
 	}
+
 	@Then("User verifies NB AIB policy has been created successfully")
-	public void User_verifies_NB_AIB_policy_has_been_created_successfully() {	    	   								 	   						
+	public void User_verifies_NB_AIB_policy_has_been_created_successfully() {
 		String expected = "New Business";
 		String actual = historyChevron.txtNewBusiness.getText();
-		Assert.assertEquals("Test failed!", expected, actual);	
+		Assert.assertEquals("Test failed!", expected, actual);
 	}
+
 	@And("User clicks AIB Prior Carrier")
- 	public void User_clicks_AIB_Prior_Carrier() {	    	   				
- 		selectDropdownText(policyChevron.ddPreviousCarrier, "Geico");
- 		click(dwellingChevron.btnSave);
+	public void User_clicks_AIB_Prior_Carrier() {
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Geico");
+		click(dwellingChevron.btnSave);
 		wait(1);
 	}
+
 	@When("User creates AIB application")
 	public void user_creates_aib_application() {
 
@@ -281,7 +288,8 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 				// adding operator info
 				click(aibChevron.btnAddOperator);
 				wait(3);
-				selectDropdownText(golfcartChevron.ddDriverMaritalStatus, ConfigsReader.getProperty("drivermaritalstatus"));
+				selectDropdownText(golfcartChevron.ddDriverMaritalStatus,
+						ConfigsReader.getProperty("drivermaritalstatus"));
 				selectDropdownText(golfcartChevron.ddDriverLicenseInd, "Yes");
 				selectDropdownText(aibChevron.ddLicenseState, ConfigsReader.getProperty("licensestate"));
 				sendText(aibChevron.txtLicenseNumber, ConfigsReader.getProperty("licensenumber"));
@@ -290,7 +298,7 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 				wait(3);
 				click(golfcartChevron.btnNextGocScreen);
 
-				//boat dwelling screen
+				// boat dwelling screen
 				click(aibChevron.btnAddBoat);
 				wait(3);
 				sendText(aibChevron.txtBoatYear, ConfigsReader.getProperty("boatyear"));
@@ -323,9 +331,9 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 				wait(3);
 				click(reviewChevron.btnReview);
 				wait(3);
-		
+
 				// Quote Review Chevron information was filled here
-				
+
 				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 				wait(2);
 				click(reviewChevron.btnFullPaymentRadio);
@@ -336,13 +344,13 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 				wait(4);
 				click(policyChevron.btnPolicyChevronLink);
 				wait(2);
-				
+
 				// Application Policy Chevron information was filled here(all information was
 				// filled previously, just clicking next button)
 
 				click(dwellingChevron.btnNext);
 				wait(1);
-				
+
 				// Application Underwriting Questions Chevron was filled here (with the help of
 				// commonmethods.java class)
 				wait(2);
@@ -377,16 +385,16 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-				
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
+
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

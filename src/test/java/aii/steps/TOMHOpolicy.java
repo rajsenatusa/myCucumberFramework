@@ -25,8 +25,9 @@ public class TOMHOpolicy extends CommonMethods {
 		click(product.btnContinue);
 		click(product.btnProductSelectionTomho);
 	}
+
 	@When("User enters product selection information for TOMHO and {string}")
-	public void user_enters_product_selection_information_for_tomho_and (String EffectiveDate) {
+	public void user_enters_product_selection_information_for_tomho_and(String EffectiveDate) {
 		// product selection information was filled here
 		sendText(product.txtEffectiveDate, EffectiveDate);
 		selectDropdown(product.ddStateSelection, 1);
@@ -35,6 +36,7 @@ public class TOMHOpolicy extends CommonMethods {
 		click(product.btnContinue);
 		click(product.btnProductSelectionTomho);
 	}
+
 	@When("User enters all required information on TOMHO quote screen")
 	public void user_enters_all_required_information_on_tomho_quote_screen() {
 		// Quote Policy Chevron information was filled here
@@ -82,16 +84,19 @@ public class TOMHOpolicy extends CommonMethods {
 		click(reviewChevron.btnCreateApplication);
 		wait(4);
 	}
+
 	@When("User selects Attached Structures {string}")
-	public void user_selects_attached_structures (String AttachedStructures) {
+	public void user_selects_attached_structures(String AttachedStructures) {
 		selectDropdownText(dwellingChevron.ddAttachedStructures, AttachedStructures);
 		wait(2);
 	}
+
 	@When("User enters Coverage A value {string}")
-	public void user_enters_coverage_a_value (String CoverageA) {
+	public void user_enters_coverage_a_value(String CoverageA) {
 		sendText(dwellingChevron.txtCoverageA, CoverageA);
 		wait(3);
 	}
+
 	@Then("User validates that TOMHO policy has been created successfully")
 	public void user_validates_that_tomho_policy_has_been_created_successfully() {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
@@ -102,6 +107,7 @@ public class TOMHOpolicy extends CommonMethods {
 			System.out.println("Test failed!");
 		}
 	}
+
 	@Then("User creates TOMHO policy with passing information from excel {string} sheet")
 	public void User_creates_tomho_policy_with_passing_information_from_excel_sheet(String tomhocustomerInfo)
 			throws Exception {
@@ -165,7 +171,8 @@ public class TOMHOpolicy extends CommonMethods {
 
 				// Quote Dwelling information was filled here
 				sendText(dwellingChevron.txtYearConstruction, yearConstruction);
-				selectDropdownText(dwellingChevron.ddBuildingTerritoryList, ConfigsReader.getProperty("buildingterritorylist"));
+				selectDropdownText(dwellingChevron.ddBuildingTerritoryList,
+						ConfigsReader.getProperty("buildingterritorylist"));
 				selectDropdownText(dwellingChevron.ddAttachedStructures, "No");
 				wait(2);
 				sendText(dwellingChevron.txtCoverageA, coverageA);
@@ -223,15 +230,15 @@ public class TOMHOpolicy extends CommonMethods {
 
 				wait(5);
 				getPolicyNumber(driver);
-			     // Close unnecessary tabs
-		        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		        for (int i = tabs.size() - 1; i > 0; i--) {
-		            driver.switchTo().window(tabs.get(i));
-		            driver.close();
-		        }
+				// Close unnecessary tabs
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+				for (int i = tabs.size() - 1; i > 0; i--) {
+					driver.switchTo().window(tabs.get(i));
+					driver.close();
+				}
 
-		        // Switch back to the main page
-		        driver.switchTo().window(tabs.get(0));
+				// Switch back to the main page
+				driver.switchTo().window(tabs.get(0));
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);
