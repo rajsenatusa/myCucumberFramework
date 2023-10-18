@@ -8,7 +8,7 @@
 ## 2. Create New Quote
 ## 3. Rate Area: Increase to Minimum Premium section displays on Worksheets tile
   
-## User - Jlowe
+## User - underwriter1
 
 @regression @tc17112
 Feature: TC17112 GOC UW NB Other - Minimum Premium
