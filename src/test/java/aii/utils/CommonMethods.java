@@ -33,6 +33,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -2977,5 +2978,33 @@ public class CommonMethods extends PageInitializer {
 			Hooks.scenario.log(formName + " is NOT visible");
 			wait(5);
 		}
+	}
+	public static void addSampleFile(WebDriver driver) throws Exception {
+		try {
+			Thread.sleep(12000);
+			
+			StringSelection ss = new StringSelection(System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\TestingONLY.xlsx");
+		    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+			
+		    Robot robot = new Robot();
+		    Thread.sleep(1000);
+		    robot.keyPress(KeyEvent.VK_ENTER);
+		    robot.keyRelease(KeyEvent.VK_ENTER);
+		    Thread.sleep(3000);
+		    robot.keyPress(KeyEvent.VK_CONTROL);
+		    robot.keyPress(KeyEvent.VK_V);
+		    robot.keyRelease(KeyEvent.VK_V);
+		    robot.keyRelease(KeyEvent.VK_CONTROL);
+		    Thread.sleep(5000);
+		    robot.keyPress(KeyEvent.VK_ENTER);
+		    robot.keyRelease(KeyEvent.VK_ENTER);
+		    Thread.sleep(15000);
+		    click(attachmentsChevron.btnAddAttachment);
+		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));;
+		    attachScreenShot(driver);
+			} catch (Exception e) {
+			Hooks.scenario.log("AddAttachment was not clicked");
+			wait(5);
+		}  
 	}
 }

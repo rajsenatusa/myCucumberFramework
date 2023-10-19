@@ -51,9 +51,31 @@ Feature: TC 34248--US4178:FORM: Marina As Additional Insured - Regression Test C
 		And User finalizes transaction and completes endorsement <tc34248>
 		And User searches for the policy <tc34248>
 		And User clicks Forms Chevron <tc34248>
-		
-		
-		
-		
+		And User validates AIIC SB MAI 08 21 is visible
+		And User clicks Policy File Chevron <tc34248>
+		And User validates 'Marina Endorsement Package' and 'Additional Insured - Marina - Batch - PO BOX 7089 Westlake Village, CA 91359-7089' labels are visible
+		And User clicks Start Transaction
+		And User clicks EN Transaction Selection
+		And User selects endorsement date as previous endorsement date plus 10 days <tc34248>
+		And User deletes one boat
+		And User clicks Additional Interest Chevron <tc34248>
+		And User validates 'A Boat with an Additional Interest - Marina has been removed from the policy' text is visible
+		And User finalizes transaction and validates boat removed message has been displayed
+		And User clicks Modify Application
+		And User clicks Additional Interest Chevron <tc34248>
+		And User deletes related Additional Insured Marina
+		And User finalizes transaction and completes endorsement <tc34248>
+		And User clicks Forms Chevron <tc34248>
+		And User validates AIIC SB MAI 08 21 is visible
+		And User clicks Policy File Chevron <tc34248>
+		And User validates 'Marina Endorsement Package' labels is not visible anymore
+		And User searches for the policy <tc34248>
+		And User clicks Start Transaction
+		And User clicks EN Transaction Selection
+		And User selects endorsement date as previous endorsement date plus 15 days <tc34248>
+		And User clicks Additional Interest Chevron <tc34248>
+		And User validates 'Additional Interest - Marina does not have an active interest in one or more boats' message not visible
+		And User finalizes transaction and validates marina does not have active interest message has been displayed
+		Then User process endorsement and completes test <tc34248>
 		
 		

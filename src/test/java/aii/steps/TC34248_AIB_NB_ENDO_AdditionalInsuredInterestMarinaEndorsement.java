@@ -13,6 +13,7 @@ import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement extends CommonMethods{
@@ -393,5 +394,103 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 		wait(3);
 		clickApplicationTab(driver);
 		wait(1);
+	}
+	@When("User validates AIIC SB MAI 08 21 is visible")
+	public void user_validates_AIIC_MAI_08_21_is_visible() throws Exception {
+		verify_AnyText_IsVisible(driver, "AIIC SB MAI 08 21");
+	}
+	@When("User validates 'Marina Endorsement Package' and 'Additional Insured - Marina - Batch - PO BOX 7089 Westlake Village, CA 91359-7089' labels are visible")
+	public void user_validates_Marina_endorsement_package_Labels_are_visible() throws Exception {
+		clickonAnyButton(driver, "imgItem0000000000");
+		Thread.sleep(500);
+		verify_AnyLabel_IsVisible(driver, "Marina Endorsement Package");
+		verify_AnyLabel_IsVisible(driver, "Additional Insured - Marina - Batch - PO BOX 7089 Westlake Village, CA 91359-7089");
+		clickApplicationTab(driver);
+		wait(1);
+	}
+	@When("User selects endorsement date as previous endorsement date plus 10 days <tc34248>")
+	public void user_selects_endorsement_date_as_previous_endorsement_date_plus_10_days_tc34248() {
+		sendText(dashboard.txtSelectDate, dtf.format(endorsementDate.plusDays(10)));
+		wait(5);
+		click(dashboard.btnStart);
+		wait(5);
+		click(dashboard.btnStart);
+		wait(5);
+	}
+	@When("User deletes one boat")
+	public void user_deletes_one_boat() throws Exception {
+		driver.findElement(By.id("Wizard_Vehicles")).click(); //click vehicles tab
+		Thread.sleep(500);
+		clickonAnyButton(driver, "DeleteLink_2");
+		Thread.sleep(1000);
+		sendText(driver.findElement(By.id("Vehicle.StatusComments")), "Deleting New boat");
+		clickonAnyButton(driver, "Delete");
+	}
+	@When("User validates 'A Boat with an Additional Interest - Marina has been removed from the policy' text is visible")
+	public void user_validates_A_Boat_with_an_Additional_Interest_Marina_has_been_removed_text_is_visible() throws Exception {
+		verify_AnyText_IsVisible(driver, "A Boat with an Additional Interest - Marina has been removed from the policy");
+	}
+	@When("User finalizes transaction and validates boat removed message has been displayed")
+	public void user_finalizes_transaction_and_validates_boat_removed_message_has_been_displayed() throws Exception {
+		click(reviewChevron.btnFinalize);
+		wait(3);
+		verify_AnyText_IsVisible(driver, "A Boat with an Additional Interest - Marina has been removed from the policy");
+	}
+	@When("User clicks Modify Application")
+	public void user_clicks_Modify_Application() throws Exception {
+		driver.findElement(By.id("MakeChanges")).click();
+		wait(1);
+	}
+	@When("User deletes related Additional Insured Marina")
+	public void user_deletes_related_Additional_Insured_Marina() throws Exception {
+		clickonAnyButton(driver, "AIList_2_Delete");
+		driver.findElement(By.id("dialogOK")).click();
+		wait(1);
+		verify_AnyText_NotVisible(driver, "A Boat with an Additional Interest - Marina has been removed from the policy");
+	}
+	@When("User validates 'Marina Endorsement Package' labels is not visible anymore")
+	public void user_validates_Marina_EN_Package_is_NOT_visible() throws Exception {
+		clickonAnyButton(driver, "imgItem0000000000");
+		Thread.sleep(500);
+		verify_AnyText_NotVisible(driver, "Marina Endorsement Package");
+		attachScreenShot(driver);
+	}
+	@When("User selects endorsement date as previous endorsement date plus 15 days <tc34248>")
+	public void user_selects_endorsement_date_as_previous_endorsement_date_plus_15_days_tc34248() {
+		sendText(dashboard.txtSelectDate, dtf.format(endorsementDate.plusDays(15)));
+		wait(5);
+		click(dashboard.btnStart);
+		wait(5);
+		click(dashboard.btnStart);
+		wait(5);
+	}
+	@When("User validates 'Additional Interest - Marina does not have an active interest in one or more boats' message not visible")
+	public void user_validates_Marina_does_notHave_Active_interest_in_boats_is_NOT_visible() throws Exception {
+		clickonAnyButton(driver, "AIList_1_Change");
+		Thread.sleep(1000);
+		clickonAnyButton(driver, "LinkReferenceInclude_0");
+		Thread.sleep(500);
+		click(dwellingChevron.btnSave);
+		wait(3);
+		
+		verify_AnyText_IsVisible(driver, "Additional Interest - Marina does not have an active interest in one or more boats");
+		clickonAnyButton(driver, "AIList_1_Delete");
+		driver.findElement(By.id("dialogOK")).click();
+		wait(1);
+		verify_AnyText_NotVisible(driver, "Additional Interest - Marina does not have an active interest in one or more boats");
+	}
+	@When("User finalizes transaction and validates marina does not have active interest message has been displayed")
+	public void user_finalizes_transaction_and_validates_marina_Doesnot_have_active_interest_message_has_been_displayed() throws Exception {
+		click(reviewChevron.btnFinalize);
+		wait(3);
+		verify_AnyText_NotVisible(driver, "Additional Interest - Marina does not have an active interest in one or more boats");
+	}
+	@Then("User process endorsement and completes test <tc34248>")
+	public void user_process_endorsement_and_completes_test_tc34248() throws Exception {
+		
+		click(reviewChevron.btnProcess);
+		wait(8);
+		closeUnnecessaryTabs();
+		Hooks.scenario.log("Test Case Completed!");
 	}
 }

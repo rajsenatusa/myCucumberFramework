@@ -101,7 +101,26 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[3]/td[4]")
 	public WebElement TOMHOWindExclusionBaseRate;
 	
-
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td/i")
+	public WebElement TODP3ECKeyPremiumClick;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[3]/td[6]")
+	public WebElement TODP3NonSeasonalBuilding;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[4]/td[4]")
+	public WebElement TODP3WindExclusionCreditBuilding;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td/i")
+	public WebElement TODP1ECKeyPremiumClick;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[3]/td[6]")
+	public WebElement TODP1SeasonalBuilding;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[4]/td[4]")
+	public WebElement TODP1WindExclusionCreditBuilding;
+	
+	
+	
 	//input[ends-with(@id,'_name')]
 	//input[contains(@id, '_name')]
 	//button[starts-with(@id, 'save') and contains(@class,'publish')] 
