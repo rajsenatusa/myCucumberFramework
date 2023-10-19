@@ -2,7 +2,7 @@
 @NB_Policy_VOLHO4Reinsurance
 Feature: RC-30: 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO4
 
-  @NB_Policy_VOLHO4Reinsurance-1 
+  @NB_Policy_VOLHO3Reinsurance-1
   Scenario Outline: MTR-3411: RC-30-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery2: VOL HO4 - NB on the Eff date
     Given User navigates to QA2
     And User enters a valid user name "<username>"
