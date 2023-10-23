@@ -2,7 +2,7 @@
 @NB_Policy_VOLDP1Reinsurance
 Feature: RC-26: 2023 Rate Changes- FL Reinsurance Recovery: VOL DP1
 
-  @NB_Policy_VOLDP1Reinsurance-1
+  @NB_Policy_VOLDP1Reinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-2738: RC-26-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery: VOL DP1 - NB on the Eff date
     Given User navigates to QA5
     And User enters a valid user name "<username>"

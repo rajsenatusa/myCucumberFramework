@@ -233,6 +233,10 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.WindHailExcludedInd")
 	public WebElement rbWindHailExc;
 	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[2]/td[7]/input")
+	public WebElement rbWindHailExc2;
+	
+	
 	@FindBy(id= "Building.AllPerilDed")
 	public WebElement ddDeductibleAllPerils;
 	
