@@ -48,12 +48,14 @@ Feature: TC 34248--US4178:FORM: Marina As Additional Insured - Regression Test C
 		And User selects endorsement date as current date plus 10 days <tc34248>
 		And User clicks Vehicles Tab and adds another boat
 		And User clicks Additional Interest Chevron <tc34248>
+		And User clicks Add Additional Interest button and add Marina as Additional Insured <tc34248>
 		And User finalizes transaction and completes endorsement <tc34248>
 		And User searches for the policy <tc34248>
 		And User clicks Forms Chevron <tc34248>
 		And User validates AIIC SB MAI 08 21 is visible
 		And User clicks Policy File Chevron <tc34248>
 		And User validates 'Marina Endorsement Package' and 'Additional Insured - Marina - Batch - PO BOX 7089 Westlake Village, CA 91359-7089' labels are visible
+		And User searches for the policy <tc34248>
 		And User clicks Start Transaction
 		And User clicks EN Transaction Selection
 		And User selects endorsement date as previous endorsement date plus 10 days <tc34248>

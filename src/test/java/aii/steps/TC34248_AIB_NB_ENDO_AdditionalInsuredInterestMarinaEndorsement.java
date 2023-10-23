@@ -59,7 +59,7 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 
 		selectDropdownText(policyChevron.ddPreviousCarrier, "New Purchase");
 		//sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
-		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
+		//selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
 		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
 		getInsuranceScore(driver,  "Do Not Use (No Score Ordered)");
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
@@ -129,9 +129,11 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 		selectDropdownText(aibChevron.ddBoatHp, "76 - 100");
 		sendText(aibChevron.txtBoatEngine1Year, "2019");
 		sendText(aibChevron.txtBoatEngineMake, "Engine");
+		sendText(driver.findElement(By.id("Vehicle.Engine1Model")), "Engine");
 		sendText(aibChevron.txtBoatEngine1Hp, "85");
 		selectDropdownText(aibChevron.ddTrailerCoverage, "None");
 		selectDropdownText(aibChevron.ddBoatStorageType, "Rack");
+		
 		selectDropdownText(aibChevron.ddBoatExistingDamage, "No");
 		
 		selectDropdownText(aibChevron.ddBahamasCoverage, "Yes");
@@ -175,7 +177,7 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 	public void user_does_necessary_validations_with_different_selections_and_checks_required_messages_displayed_in_additional_interest_screen() throws Exception {
 		//Click on fix and verify Boat chevron will be displayed
 		clickOnAnyLink(driver, "fix...");
-		wait(2);
+		wait(4);
 		verify_AnyLabel_IsVisible(driver, "Add Boat");
 		
 		driver.findElement(By.id("Wizard_Vehicles")).click(); //click vehicles tab
@@ -351,6 +353,7 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 		selectDropdownText(aibChevron.ddBoatHp, "76 - 100");
 		sendText(aibChevron.txtBoatEngine1Year, "2019");
 		sendText(aibChevron.txtBoatEngineMake, "Engine");
+		sendText(driver.findElement(By.id("Vehicle.Engine1Model")), "Engine");
 		sendText(aibChevron.txtBoatEngine1Hp, "85");
 		selectDropdownText(aibChevron.ddTrailerCoverage, "None");
 		selectDropdownText(aibChevron.ddBoatStorageType, "Rack");
@@ -391,7 +394,8 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 		click(reviewChevron.btnFinalize);
 		wait(3);
 		click(reviewChevron.btnProcess);
-		wait(3);
+		wait(15);
+		closeUnnecessaryTabs();
 		clickApplicationTab(driver);
 		wait(1);
 	}
@@ -489,7 +493,7 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 	public void user_process_endorsement_and_completes_test_tc34248() throws Exception {
 		
 		click(reviewChevron.btnProcess);
-		wait(8);
+		wait(10);
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}

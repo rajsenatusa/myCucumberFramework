@@ -1,7 +1,14 @@
 #Author: Can Yavas
 ##created on 08/08/2023
 
-@regression @tc17036
+ # TEST CASE NUMBER & TITLE: MTR2465 - HO6, UW, Task, 'Validate UW can create manual Task on a policy"
+ # PRECONDITIONS (IF ANY):Active HO6 policy
+  
+ # HIGH LEVEL STEPS OF TEST SCRIPT: Underwriter can create manual UW task for all the listed tasks on policy 
+ # EXPECTED RESULTS: Validating Underwriter can create manual UW task for all the listed tasks on policy
+  
+ # User : Jlowe
+@regression @tc17036 @mtr2465
 Feature: TC 17036 - HO6, UW, Task, Validate UW can create manual Task on a policy
 
   Scenario: Validate that Underwriter can create manual UW task for all the listed tasks on policy
