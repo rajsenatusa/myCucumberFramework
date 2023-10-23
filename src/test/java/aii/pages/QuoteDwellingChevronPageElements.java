@@ -233,6 +233,10 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.WindHailExcludedInd")
 	public WebElement rbWindHailExc;
 	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[2]/td[7]/input")
+	public WebElement rbWindHailExc2;
+	
+	
 	@FindBy(id= "Building.AllPerilDed")
 	public WebElement ddDeductibleAllPerils;
 	
@@ -295,6 +299,27 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	
 	@FindBy(id= "Building.SPPInd")
 	public WebElement rbSpecialPersonalProperty;
+	
+	@FindBy(id= "Building.CovHSPLimit")
+	public WebElement ddHomeSystemProtection;
+	
+	@FindBy(id= "Building.CyberProtectionInd")
+	public WebElement ddHomeCyberProtectionDwelling;
+	
+	@FindBy(id= "Building.CovLCARLimit")
+	public WebElement ddLimitedCarportsPoolCage;
+	
+	@FindBy(id= "Building.CovIDRLimit")
+	public WebElement ddIdentityRecovery;
+	
+	@FindBy(id= "Building.OrdinanceOrLawInd")
+	public WebElement ddOrdinance;
+	
+	@FindBy(id= "Building.PPReplacementCostInd")
+	public WebElement rbPersonalPropertyReplacementCost;
+	
+	@FindBy(id= "Building.Theft")
+	public WebElement btnLimitedTheft;
 	
 	public QuoteDwellingChevronPageElements() {
 		

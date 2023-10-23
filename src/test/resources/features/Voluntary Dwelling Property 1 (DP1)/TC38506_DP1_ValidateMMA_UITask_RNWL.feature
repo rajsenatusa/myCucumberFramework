@@ -28,6 +28,7 @@ Feature: TC38506: US8756 - U/I Task - Mandatory Mediation-Arbitration Acknowledg
 		And User enters all required information on DP1 dwelling screen <tc38506>
     And User enters all required information on DP1 review screen
     And User creates DP1 application
+    And User clicks Policy Chevron
     And User answers all underwriting questions for DP1
     And User checks application dwelling screen, select number of stories and finalizes transaction
     And User issues policy

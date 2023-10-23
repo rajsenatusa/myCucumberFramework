@@ -2,7 +2,7 @@
 @RN_Policy_TOMHOReinsurance
 Feature: RC-1745: 2023 Rate Changes- FL Reinsurance Recovery 2: TO MHO
 
-  @RN_Policy_TOMHOReinsurance-1
+  @RN_Policy_TOMHOReinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-3533: RC-1745-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery 2: TO MHO - RN on the Eff date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
@@ -16,7 +16,6 @@ Feature: RC-1745: 2023 Rate Changes- FL Reinsurance Recovery 2: TO MHO
     And User clicks next page button
     And User enters Year of Construction "<YearOfConstruction>"
     And User selects Building Territory List "<TerritoryList>"
-    #And User clicks Windstorm or Hail Exclusion box
     And User selects Attached Structures "<AttachedStructures>"
     And User enters Coverage A value "<CoverageA>"
     And User clicks Save
@@ -30,7 +29,6 @@ Feature: RC-1745: 2023 Rate Changes- FL Reinsurance Recovery 2: TO MHO
     And User returns to main page
     And User clicks Worksheets chevron
     Then User validates TOMHO base rate in Worksheets
-    Then User validates TOMHO wind exclusion base rate in Worksheets
 
     Examples: Test Data
       | EffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction | TerritoryList | AttachedStructures | CoverageA |

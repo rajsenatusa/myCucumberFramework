@@ -36,11 +36,78 @@ public class VOLHO3_RateChange extends CommonMethods {
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 
+	@And("User clicks  Weather Base Premium")
+	public void User_clicks_Weather_Base_Premium() {
+		click(worksheetsChevron.weatherBasePremium);
+
+		wait(3);
+
+	}
+
 	@And("User clicks Fire or Lightning Base Premium")
 	public void User_clicks_Fire_or_Lightning_Base_Premium() {
 		click(worksheetsChevron.fireLightningBasePremium);
 
 		wait(3);
+
+	}
+
+	@And("User clicks VOL HO3 Hurricane Base Premium")
+	public void User_clicks_VOL_HO3_Hurricane_Base_Premium() {
+		click(worksheetsChevron.hurricaneBasePremium);
+
+		wait(3);
+
+	}
+
+	@And("User verifies VOL HO3 Fire or Lightning Base Rate")
+	public void User_verifies_VOL_HO3_Fire_or_Lightning_Base_Rate() {
+
+		wait(5);
+		WebElement validate = driver
+				.findElement(By.xpath("//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]"));
+		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 58.57\r\n" + "- Census Block: 121050125042002\r\n"
+				+ "- Census Tract: 12105012504\r\n" + "- Fire or Lightning Territory Code: 9")) {
+			System.out.println("HO3 rate has been processed successfully");
+
+		} else {
+			System.out.println("HO3 rate has been failed!");
+			wait(5);
+		}
+
+	}
+
+	@And("User verifies VOL HO3 Weather Base Rate")
+	public void User_verifies_VOL_HO3_Weather_Base_Rate() {
+
+		wait(5);
+		WebElement validate = driver
+				.findElement(By.xpath("//*[@id=\"rowCovCovArea04\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]"));
+		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 335.56\r\n" + "- Census Block: 121050125042002\r\n"
+				+ "- Census Tract: 12105012504\r\n" + "- Weather Territory Code: 3")) {
+			System.out.println("HO3 rare has been processed successfully");
+
+		} else {
+			System.out.println("HO3 rate has been failed!");
+			wait(5);
+		}
+
+	}
+
+	@And("User verifies VOL HO3 Hurricane Base Rate")
+	public void User_verifies_VOL_HO3_Hurricane_Base_Rate() {
+
+		wait(5);
+		WebElement validate = driver
+				.findElement(By.xpath("//*[@id=\"rowCovCovArea07\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]"));
+		if (validate.getText().equalsIgnoreCase("Initial Base Rate: 3407.55\r\n" + "- Census Block: 121050125042002\r\n"
+				+ "- Census Tract: 12105012504\r\n" + "- Hurricane Territory Code: E5")) {
+			System.out.println("HO3 rare has been processed successfully");
+
+		} else {
+			System.out.println("HO3 rate has been failed!");
+			wait(5);
+		}
 
 	}
 

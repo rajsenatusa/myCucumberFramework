@@ -2,7 +2,7 @@
 @NB_Policy_TODP3Reinsurance
 Feature: RC-22: 2023 Rate Changes- FL Reinsurance Recovery: TO DP3
 
-  @NB_Policy_TODP3Reinsurance-1
+  @NB_Policy_TODP3Reinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-2532: RC-22-2023 Rate Changes- FL Reinsurance Recovery: TO DP3 - NB = NB. Eff. Date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

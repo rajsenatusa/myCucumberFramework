@@ -76,7 +76,7 @@ public class TC17113_GOC_UW_NB_Validations_GoldEndorsement extends CommonMethods
 
 		selectDropdownText(golfcartChevron.ddLiabilityCovType, "Split Limits");
 		wait(2);
-		selectDropdownText(golfcartChevron.ddCombinedSingleLimit, "$300,000");
+		//selectDropdownText(golfcartChevron.ddCombinedSingleLimit, "$300,000");
 		selectDropdownText(golfcartChevron.ddBodilyInjuryPerson, "$25,000/$50,000");
 		selectDropdownText(golfcartChevron.ddPropertyDamageLimit, "$25,000");
 		selectDropdownText(golfcartChevron.ddMedicalPaymentLimit, "No Coverage");

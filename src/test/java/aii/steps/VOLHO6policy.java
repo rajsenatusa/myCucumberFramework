@@ -27,7 +27,6 @@ public class VOLHO6policy extends CommonMethods {
 		wait(2);
 		click(product.btnContinue);
 		click(product.btnProductSelectionHo6);
-
 	}
 
 	@When("User enters all required information on HO6 quote screen")
@@ -112,14 +111,7 @@ public class VOLHO6policy extends CommonMethods {
 		getPolicyNumber(driver);
 
 		// Close unnecessary tabs
-		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		for (int i = tabs.size() - 1; i > 0; i--) {
-			driver.switchTo().window(tabs.get(i));
-			driver.close();
-		}
-
-		// Switch back to the main page
-		driver.switchTo().window(tabs.get(0));
+		closeUnnecessaryTabs();
 	}
 
 	@Then("User creates HO6 policy with passing information from excel {string} sheet")
