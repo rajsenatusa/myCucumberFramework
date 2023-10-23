@@ -2,7 +2,7 @@
 @RN_Policy_VOLHO4Reinsurance
 Feature: 2023 Rate Changes- FL Reinsurance Recovery 2: TO HO3
 
-  @RN_Policy_TOHO3Reinsurance-1
+  @RN_Policy_TOHO3Reinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-3502: RC-1742-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery 2: TO HO3  - RN on the Eff date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

@@ -2,7 +2,7 @@
 @RN_Policy_TODP1Reinsurance
 Feature: RC-23: 2023 Rate Changes- FL Reinsurance Recovery: TO DP1
 
-  @RN_Policy_VOLHO3Reinsurance-1
+  @RN_Policy_TODP1Reinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-2553: RC-23-2023 Rate Changes- FL Reinsurance Recovery: TO DP1 - RN = RN. Eff. Date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
@@ -21,6 +21,7 @@ Feature: RC-23: 2023 Rate Changes- FL Reinsurance Recovery: TO DP1
     And User selects Protection Class "<ProtectionClass>"
     And User selects Dwelling Type "<DwellingType>"
     And User selects Building Territory List "<TerritoryList>"
+    And User clicks Windstorm or Hail Exclusion box
     And User clicks Save
     And User selects Quality Grade "<QualityGrade>"
     And User clicks Calculate Button

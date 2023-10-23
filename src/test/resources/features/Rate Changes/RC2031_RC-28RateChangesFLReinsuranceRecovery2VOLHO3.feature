@@ -62,7 +62,7 @@ Feature: RC-28:2 2023 Rate Changes- FL Reinsurance Recovery 2 VOL HO3
 
     Examples: Test Data
       | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
-      | Jlowe    | Aug@2023! | 8/25/2023     | Frame            | Owner Occupied | 0 to 3 Months  |               2015 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
+      | mcemek   | Oct@2023! | 8/25/2023     | Frame            | Owner Occupied | 0 to 3 Months  |               2015 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
 
   @RateChange2HO3-2
   Scenario Outline: RC-28-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO3 - NB on the Eff date (BaseRateBuilders - Construction Year 0-1 year)

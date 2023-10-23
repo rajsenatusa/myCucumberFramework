@@ -279,7 +279,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		wait(1);
 		selectDropdownText(dwellingChevron.ddBuildingElevationDocumentation, ElevationDocumentation);
 		wait(1);
-		
+
 	}
 
 	@And("User selects Flood Foundation Type {string}")
@@ -482,11 +482,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	@And("User clicks Windstorm or Hail Exclusion box")
 	public void User_clicks_Windstorm_or_Hail_Exclusion_box() {
 
-		wait(2);
+		wait(4);
 		click(dwellingChevron.rbWindHailExc);
-		wait(2);
-
-		
+		wait(4);
 
 	}
 
