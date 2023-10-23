@@ -91,6 +91,8 @@ public class TC38506_DP1_ValidateMMA_UITask_RNWL extends CommonMethods{
 	@And("User checks application dwelling screen, select number of stories and finalizes transaction")
 	public void user_checks_application_dwelling_screen_selects_number_of_stories_and_finalizes_transaction() {
 		// Application Dwelling information was filled here
+		click(dwellingChevron.btnDwelling);
+		wait(3);
 		selectDropdownText(dwellingChevron.ddNumberOfStories, "3");
 		click(dwellingChevron.btnSave);
 		waitImp(3);
