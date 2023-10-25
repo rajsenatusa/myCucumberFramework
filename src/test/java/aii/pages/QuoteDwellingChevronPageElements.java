@@ -321,6 +321,59 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Building.Theft")
 	public WebElement btnLimitedTheft;
 	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[2]/td[9]")
+	public WebElement inflationGuardCovA;
+	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[3]/td[3]")
+	public WebElement limitCovB;
+	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[4]/td[11]")
+	public WebElement inflationGuardCovC;
+	
+	@FindBy(id= "Building.SinkholeDeductible_text")
+	public WebElement sinkholeDeductible;
+	
+	@FindBy(xpath= "//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[1]/td[5]")
+	public WebElement coverageListCovA;
+	
+	@FindBy(id= "InflationGuardPct")
+	public WebElement DP3InflationGuard; 
+	
+	@FindBy(id= "Building.CovBLimitIncluded_text")
+	public WebElement DP3limitCovB;
+	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[5]/td[3]")
+	public WebElement DP3limitCovC;
+	
+	@FindBy(id= "CovELimit")
+	public WebElement DP3CovELimit; 
+	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[5]/td[2]")
+	public WebElement DP3CovE; 
+	
+	@FindBy(id= "Building.HurricaneDeductible_text")
+	public WebElement DP3HurricaneDeductible; 
+	
+	@FindBy(id= "CoverageList_CovA_Limit1")
+	public WebElement DP3CoverageListCovA;
+	
+	@FindBy(id= "CoverageList_CovB_Limit1")
+	public WebElement DP3CoverageListCovB;
+	
+	@FindBy(id= "CoverageList_CovC_Limit1")
+	public WebElement DP3CoverageListCovC;
+	
+	@FindBy(id= "CoverageList_CovE_Limit1")
+	public WebElement DP3CoverageListCovE;
+	
+	@FindBy(id= "CoverageList_FloodCovA_Limit1")
+	public WebElement DP3CoverageListFloodCovA;
+	
+	 
+	
+	
+	
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);

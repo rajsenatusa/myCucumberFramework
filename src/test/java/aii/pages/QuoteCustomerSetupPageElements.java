@@ -80,7 +80,14 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy(xpath = "/html[1]/body[1]/main[1]/form[1]/div[1]/div[1]/div[4]/footer[1]/div[2]/span[4]")
 	public WebElement dateFooterTile;
 	
+	@FindBy(id= "CustomerNameJoint.GivenName")
+	public WebElement txtJointFirstName;
 	
+	@FindBy(id= "CustomerNameJoint.Surname")
+	public WebElement txtJointLastName;
+	
+	@FindBy(id= "CustomerPersonalJoint.BirthDt")
+	public WebElement txtJointBirthday;
 	
 	public QuoteCustomerSetupPageElements() {
 		PageFactory.initElements(driver, this);
