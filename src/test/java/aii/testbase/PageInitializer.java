@@ -1,4 +1,5 @@
 package aii.testbase;
+
 import aii.pages.AIBPageElements;
 import aii.pages.AdditionalInterestPageElements;
 import aii.pages.AttachmentsPageElements;
@@ -58,36 +59,36 @@ public class PageInitializer extends BaseClass {
 	public static ClaimPageElements claim;
 	public static CorrespondancePageElements correspondance;
 	public static AttachmentsPageElements attachmentsChevron;
-	
+
 	public static void initialize() {
 		login = new LoginPageElements();
 		dashboard = new DashboardPageElements();
-		quote= new QuoteCustomerSetupPageElements();
-		product= new QuoteProductSelectionPageElements();
-		policyChevron= new QuotePolicyChevronPageElements();
-		dwellingChevron= new QuoteDwellingChevronPageElements();
-		reviewChevron= new QuoteReviewPageElements();
-		uwquestionsChevron= new UwQuestionsPageElements();
-		closeoutChevron= new CloseOutChevronPageElements();
-		golfcartChevron= new GolfcartChevronPageElements();
-		aibChevron= new AIBPageElements();
-		specialChevron= new SpecialOptionsPageElements();
-		umbrellaChevron= new UmbrellaLiabilityPageElements();
-		policyFileChevron= new PolicyFilePageElements();
-		historyChevron= new HistoryPageElements();
-		makePayment= new MakePaymentElement();
-		holder= new ToolBarHolderElements();
-		lossNoticeInfo= new LossNoticeInformationPageElements();
-		userLookup= new UserLookupElements();
-		worksheetsChevron= new WorksheetsChevronPageElements();
-		billingChevron= new BillingChevronPageElements();
-		formsChevron= new FormsPageElements();
-		tasksChevron= new TasksPageElements();
-		batchjobs= new BatchJobsPageElements();
-		additionalinterest=new AdditionalInterestPageElements();
-		claim= new ClaimPageElements();
-		correspondance= new CorrespondancePageElements();
-		attachmentsChevron= new AttachmentsPageElements();
+		quote = new QuoteCustomerSetupPageElements();
+		product = new QuoteProductSelectionPageElements();
+		policyChevron = new QuotePolicyChevronPageElements();
+		dwellingChevron = new QuoteDwellingChevronPageElements();
+		reviewChevron = new QuoteReviewPageElements();
+		uwquestionsChevron = new UwQuestionsPageElements();
+		closeoutChevron = new CloseOutChevronPageElements();
+		golfcartChevron = new GolfcartChevronPageElements();
+		aibChevron = new AIBPageElements();
+		specialChevron = new SpecialOptionsPageElements();
+		umbrellaChevron = new UmbrellaLiabilityPageElements();
+		policyFileChevron = new PolicyFilePageElements();
+		historyChevron = new HistoryPageElements();
+		makePayment = new MakePaymentElement();
+		holder = new ToolBarHolderElements();
+		lossNoticeInfo = new LossNoticeInformationPageElements();
+		userLookup = new UserLookupElements();
+		worksheetsChevron = new WorksheetsChevronPageElements();
+		billingChevron = new BillingChevronPageElements();
+		formsChevron = new FormsPageElements();
+		tasksChevron = new TasksPageElements();
+		batchjobs = new BatchJobsPageElements();
+		additionalinterest = new AdditionalInterestPageElements();
+		claim = new ClaimPageElements();
+		correspondance = new CorrespondancePageElements();
+		attachmentsChevron = new AttachmentsPageElements();
 	}
 
 }
