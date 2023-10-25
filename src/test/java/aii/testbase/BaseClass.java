@@ -17,102 +17,98 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass {
 
 	public static WebDriver driver;
-	public  Scenario scenario;
+	public Scenario scenario;
 
 	/**
 	 * This method will create the driver
 	 */
 	public static void setUp() {
-		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);	
-		
+		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
+
 		switch (ConfigsReader.getProperty("browser").toLowerCase()) {
-		
+
 		case "chrome":
 			ChromeOptions option = new ChromeOptions();
-            option.addArguments("--remote-allow-origins=*");
+			option.addArguments("--remote-allow-origins=*");
 
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(option);			
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver(option);
 			break;
 		case "firefox":
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-			break;		
+			break;
 		case "edgedriver":
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-			break;		
+			break;
 		case "safari":
 			WebDriverManager.safaridriver().setup();
 			driver = new SafariDriver();
 			break;
-			
+
 		default:
 			throw new RuntimeException("Browser is not supported!!!");
 		}
 
-		
-		
-		 String environment = ConfigsReader.getProperty("environment").toLowerCase();
-	        System.out.println("Environment: " + environment);
+		String environment = ConfigsReader.getProperty("environment").toLowerCase();
+		System.out.println("Environment: " + environment);
 
-	        switch (environment) {
+		switch (environment) {
 
-	            case "model":
-	                System.out.println("Opening Model environment...");
-	                driver.get(ConfigsReader.getProperty("urlmodel"));
-	                break;
-	                
-	            case "model2":
-	                System.out.println("Opening Model2 environment...");
-	                driver.get(ConfigsReader.getProperty("urlmodel2"));
-	                break;
+		case "model":
+			System.out.println("Opening Model environment...");
+			driver.get(ConfigsReader.getProperty("urlmodel"));
+			break;
 
-	            case "qa1":
-	                System.out.println("Opening QA1 environment...");
-	                driver.get(ConfigsReader.getProperty("urlqa1"));
-	                break;
+		case "model2":
+			System.out.println("Opening Model2 environment...");
+			driver.get(ConfigsReader.getProperty("urlmodel2"));
+			break;
 
-	            case "qa2":
-	                System.out.println("Opening QA2 environment...");
-	                driver.get(ConfigsReader.getProperty("urlqa2"));
-	                break;
+		case "qa1":
+			System.out.println("Opening QA1 environment...");
+			driver.get(ConfigsReader.getProperty("urlqa1"));
+			break;
 
-	            case "qa3":
-	                System.out.println("Opening QA3 environment...");
-	                driver.get(ConfigsReader.getProperty("urlqa3"));
-	                break;
+		case "qa2":
+			System.out.println("Opening QA2 environment...");
+			driver.get(ConfigsReader.getProperty("urlqa2"));
+			break;
 
-	            case "qa4":
-	                System.out.println("Opening QA4 environment...");
-	                driver.get(ConfigsReader.getProperty("urlqa4"));
-	                break;
+		case "qa3":
+			System.out.println("Opening QA3 environment...");
+			driver.get(ConfigsReader.getProperty("urlqa3"));
+			break;
 
-	            case "qa5":
-	                System.out.println("Opening QA5 environment...");
-	                driver.get(ConfigsReader.getProperty("urlqa5"));
-	                break;
+		case "qa4":
+			System.out.println("Opening QA4 environment...");
+			driver.get(ConfigsReader.getProperty("urlqa4"));
+			break;
 
-	            case "qa6":
-	                System.out.println("Opening QA6 environment...");
-	                driver.get(ConfigsReader.getProperty("urlqa6"));
-	                break;
+		case "qa5":
+			System.out.println("Opening QA5 environment...");
+			driver.get(ConfigsReader.getProperty("urlqa5"));
+			break;
 
-	            case "qa7":
-	                System.out.println("Opening QA7 environment...");
-	                driver.get(ConfigsReader.getProperty("urlqa7"));
-	                break;
+		case "qa6":
+			System.out.println("Opening QA6 environment...");
+			driver.get(ConfigsReader.getProperty("urlqa6"));
+			break;
 
-	            default:
-	                throw new RuntimeException("Environment has not been found!!! Environment: " + environment);
-	        }
+		case "qa7":
+			System.out.println("Opening QA7 environment...");
+			driver.get(ConfigsReader.getProperty("urlqa7"));
+			break;
 
-	        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
-	        driver.manage().window().maximize();
-	        PageInitializer.initialize();
-	    }
-		
-		
+		default:
+			throw new RuntimeException("Environment has not been found!!! Environment: " + environment);
+		}
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
+		driver.manage().window().maximize();
+		PageInitializer.initialize();
+	}
 
 	/**
 	 * This method will quit the browser
@@ -122,6 +118,5 @@ public class BaseClass {
 			driver.quit();
 		}
 	}
-	
 
 }

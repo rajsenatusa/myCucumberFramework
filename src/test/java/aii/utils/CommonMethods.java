@@ -2979,32 +2979,50 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 		}
 	}
+
 	public static void addSampleFile(WebDriver driver) throws Exception {
 		try {
 			Thread.sleep(12000);
-			
-			StringSelection ss = new StringSelection(System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\TestingONLY.xlsx");
-		    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-			
-		    Robot robot = new Robot();
-		    Thread.sleep(1000);
-		    robot.keyPress(KeyEvent.VK_ENTER);
-		    robot.keyRelease(KeyEvent.VK_ENTER);
-		    Thread.sleep(3000);
-		    robot.keyPress(KeyEvent.VK_CONTROL);
-		    robot.keyPress(KeyEvent.VK_V);
-		    robot.keyRelease(KeyEvent.VK_V);
-		    robot.keyRelease(KeyEvent.VK_CONTROL);
-		    Thread.sleep(5000);
-		    robot.keyPress(KeyEvent.VK_ENTER);
-		    robot.keyRelease(KeyEvent.VK_ENTER);
-		    Thread.sleep(15000);
-		    click(attachmentsChevron.btnAddAttachment);
-		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));;
-		    attachScreenShot(driver);
-			} catch (Exception e) {
+
+			StringSelection ss = new StringSelection(
+					System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\TestingONLY.xlsx");
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+			Robot robot = new Robot();
+			Thread.sleep(1000);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(3000);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			Thread.sleep(5000);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(15000);
+			click(attachmentsChevron.btnAddAttachment);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+			;
+			attachScreenShot(driver);
+		} catch (Exception e) {
 			Hooks.scenario.log("AddAttachment was not clicked");
 			wait(5);
-		}  
+		}
+	}
+
+	public static boolean verify_JointLabels_IsDisplayed(WebDriver driver, String text) throws Exception {
+		try {
+			if (driver.findElement(By.xpath("(//*[text()='" + text + "'])[2]")).isDisplayed()) {
+				Hooks.scenario.log("Joint label visible: " + text);
+				return true;
+			}
+			return true;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Joint label: " + text);
+			wait(5);
+			return false;
+		}
 	}
 }

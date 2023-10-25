@@ -26,7 +26,6 @@ public class ConfigsReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -39,5 +38,4 @@ public class ConfigsReader {
 		return prop.getProperty(key);
 	}
 
-	
 }

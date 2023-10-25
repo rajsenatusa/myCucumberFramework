@@ -1,7 +1,5 @@
 package aii.steps;
 
-import java.util.ArrayList;
-
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.When;
@@ -131,17 +129,9 @@ public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuil
 	@When("User endorses policy")
 	public void user_endorses_policy() throws Exception {
 		click(reviewChevron.btnProcess);
-		wait(9);
+		wait(12);
 		
-		// Close unnecessary tabs
-		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		for (int i = tabs.size() - 1; i > 0; i--) {
-			driver.switchTo().window(tabs.get(i));
-			driver.close();
-		}
-
-		// Switch back to the main page
-		driver.switchTo().window(tabs.get(0));
+		closeUnnecessaryTabs();
 	}
 
 	@When("User expands  endorsement on transaction history tab and verifies changes made")
