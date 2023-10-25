@@ -20,4 +20,160 @@ public class VOLDP3_RateChange extends CommonMethods {
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 
+	@And("User clicks Integrity Select in Dwelling Detail")
+	public void User_clicks_Integrity_Select_in_Dwelling_Detail() {
+		click(dwellingChevron.rbIntegritySelectPackage);
+		wait(1);
+	}
+
+	@And("User selects Hurricane Deductible as 10 percentage")
+	public void User_selects_Hurricane_Deductible_as_10_percentage() {
+		selectDropdownText(dwellingChevron.ddHurricaneDeductible, "10%");
+		wait(1);
+
+	}
+
+	@Then("User validates DP3 Coverage A increases by 10 percentage")
+	public void User_validates_DP3_Coverage_A_increases_by_10_percentage() {
+
+		String expected = "10%";
+		String actual = dwellingChevron.DP3InflationGuard.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage B increases off of Coverage A inflated limit amount of 10 percentage")
+	public void User_validates_DP3_Coverage_B_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percentage() {
+
+		String expected = "2%";
+		String actual = dwellingChevron.DP3limitCovB.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage C increases by 10 percentage")
+	public void User_validates_DP3_Coverage_C_increases_by_10_percentage() {
+
+		String expected = "10%";
+		String actual = dwellingChevron.DP3InflationGuard.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage E increases off of Coverage A inflated limit amount of 10 percentage")
+	public void User_validates_DP3_Coverage_E_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percentage() {
+
+		String expected = "10%";
+		String actual = dwellingChevron.DP3CovE.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Hurricane Coverage A Deductible percentage")
+	public void User_validates_DP3_Hurricane_Coverage_A_Deductible_percentage() {
+
+		String expected = "10%";
+		String actual = dwellingChevron.DP3HurricaneDeductible.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Sinkhole Loss")
+	public void User_validates_DP3_Sinkhole_Loss() {
+
+		String expected = "10% Ded of Cov A";
+		String actual = dwellingChevron.sinkholeDeductible.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage A on Coverages List")
+	public void User_validates_DP3_Coverage_A_on_Coverages_List() {
+
+		String expected = "542,000";
+		String actual = dwellingChevron.DP3CoverageListCovA.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage B on Coverages List")
+	public void User_validates_DP3_Coverage_B_on_Coverages_List() {
+
+		String expected = "10,840";
+		String actual = dwellingChevron.DP3CoverageListCovB.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage C on Coverages List")
+	public void User_validates_DP3_Coverage_C_on_Coverages_List() {
+
+		String expected = "135,500";
+		String actual = dwellingChevron.DP3CoverageListCovC.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage E on Coverages List")
+	public void User_validates_DP3_Coverage_E_on_Coverages_List() {
+
+		String expected = "54,200";
+		String actual = dwellingChevron.DP3CoverageListCovE.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 A Dwelling Flood on Coverages List")
+	public void User_validates_DP3_A_Dwelling_Flood_on_Coverages_List() {
+
+		String expected = "110,000";
+		String actual = dwellingChevron.DP3CoverageListFloodCovA.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage A after second RN on Coverages List")
+	public void User_validates_DP3_Coverage_A_after_second_RN_on_Coverages_List() {
+
+		String expected = "597,000";
+		String actual = dwellingChevron.DP3CoverageListCovA.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage B after second RN on Coverages List")
+	public void User_validates_DP3_Coverage_B_after_second_RN_on_Coverages_List() {
+
+		String expected = "11,940";
+		String actual = dwellingChevron.DP3CoverageListCovB.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage C after second RN on Coverages List")
+	public void User_validates_DP3_Coverage_C_after_second_RN_on_Coverages_List() {
+
+		String expected = "149,250";
+		String actual = dwellingChevron.DP3CoverageListCovC.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 Coverage E after second RN on Coverages List")
+	public void User_validates_DP3_Coverage_E_after_second_RN_on_Coverages_List() {
+
+		String expected = "59,700";
+		String actual = dwellingChevron.DP3CoverageListCovE.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates DP3 A Dwelling Flood after second RN on Coverages List")
+	public void User_validates_DP3_A_Dwelling_Flood_after_second_RN_on_Coverages_List() {
+
+		String expected = "121,000";
+		String actual = dwellingChevron.DP3CoverageListFloodCovA.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
 }
