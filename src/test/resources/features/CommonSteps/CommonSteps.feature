@@ -1,22 +1,22 @@
 #updated on 07/17/2023 by Can Yavas
 ##Any contributor should review these steps before starting to write code in the framework. Basically these includes all possible steps that needs to be used.
-
 Feature: Common Transactions and Steps
+
   @commonsteps
   Scenario: Common Transactions and Steps which have been used in the framework
-		Given User navigates to the spin website
-		Given User signin Spin with username "username" and password "password"
-		Given User selects the product from Product Selection List as "LOB"
-		Given User enters Quote Information as effective date with "days" days difference and state "state" and "CarrierGroup" Insurance Carrier group
-		Given User selects the entity as "Entity"
-		Given User login to Spin as Standard Agent
-		Given User login to Spin as Admin Agent
-		Given User login to Spin as Underwriter
-		Given User enters a valid username  
-		Given User enters a valid password
-		Given User clicks on the signin button
-		Given User enters all required information on Insured information section
-		Given User fills the address details with "address" and zip "zip"
+    Given User navigates to the spin website
+    Given User signin Spin with username "username" and password "password"
+    Given User selects the product from Product Selection List as "LOB"
+    Given User enters Quote Information as effective date with "days" days difference and state "state" and "CarrierGroup" Insurance Carrier group
+    Given User selects the entity as "Entity"
+    Given User login to Spin as Standard Agent
+    Given User login to Spin as Admin Agent
+    Given User login to Spin as Underwriter
+    Given User enters a valid username
+    Given User enters a valid password
+    Given User clicks on the signin button
+    Given User enters all required information on Insured information section
+    Given User fills the address details with "address" and zip "zip"
     Given User starts transaction as a new customer
     Given User selects "package" package
     Given User search for "policyNumber"
@@ -27,9 +27,9 @@ Feature: Common Transactions and Steps
     And User navigates to dwelling screen
     And User checks application dwelling screen and finalizes transaction
     And User starts transaction on policy
-		And User navigates to Policy tab
-		And User enters Policy General detail with Producer Code "producercode"
-		And User validates the following message should display "message"
+    And User navigates to Policy tab
+    And User enters Policy General detail with Producer Code "producercode"
+    And User validates the following message should display "message"
     And User selects endorsement transaction on "days"
     And User finalizes and process the transaction
     And User finalizes the application or transaction
@@ -64,7 +64,7 @@ Feature: Common Transactions and Steps
     #And User selects Number of Units {string}
     And User clicks Next on Policy Chevron
     And User clicks Review Chevron
-    And User clicks Worksheets chevron   
+    And User clicks Worksheets chevron
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -99,20 +99,24 @@ Feature: Common Transactions and Steps
     And User calculates replacement cost
     And User clicks Home
     And User clicks Inbox
-    And User hovers over Admin 
+    And User hovers over Admin
     And User clicks Changes Date
     And User clicks Ctrl+F
     And User clicks Windstorm or Hail Exclusion
     And User clicks Worksheets chevron
     And User clicks Entity Type
-     And User selects HO3 Pay Plan Type
-     And User clicks Endorse button
-     And User clicks Endorse Policy button
-     And User clicks Review Chevron
-     And User clicks Premium Info Chevron
-     And User clicks Start button
-     And User clicks Finalize button
-     And User returns to main page
-     And User enters EN Effective Date "<EndorsementEffectiveDate>"
-     And User clicks Windstorm or Hail Exclusion box
-     
+    And User selects HO3 Pay Plan Type
+    And User clicks Endorse button
+    And User clicks Endorse Policy button
+    And User clicks Review Chevron
+    And User clicks Premium Info Chevron
+    And User clicks Start button
+    And User clicks Finalize button
+    And User returns to main page
+    And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Windstorm or Hail Exclusion box
+    And User selects Sinkhole Loss
+    And User clicks History Chevron
+    And User clicks Dwelling chevron
+    And User clicks Integrity Select in Dwelling Detail
+    And User selects Hurricane Deductible as 10 percentage
