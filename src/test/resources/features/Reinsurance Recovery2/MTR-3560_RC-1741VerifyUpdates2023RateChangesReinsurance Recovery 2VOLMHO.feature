@@ -58,4 +58,4 @@ Feature: RC-1741: 2023 Rate Changes- FL Reinsurance Recovery 2: VOL MHO
 #
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | mcemek   | Oct@2023! | 10/27/2023    | 10/27/2023               | Owner Occupied |             12 |               2021 |
+      | mcemek   | Nov@2023! | 10/27/2023    | 10/27/2023               | Owner Occupied |             12 |               2021 |
