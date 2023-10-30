@@ -56,4 +56,4 @@ Feature: RC-1849: 2024 Rate Changes- FIGA: VOL MHO - 1/1/2024
 
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | mcemek   | Oct@2023! | 1/1/2024      | 1/2/2024                 | Owner Occupied |             12 |               2021 |
+      | mcemek   | Nov@2023! | 1/1/2024      | 1/2/2024                 | Owner Occupied |             12 |               2021 |

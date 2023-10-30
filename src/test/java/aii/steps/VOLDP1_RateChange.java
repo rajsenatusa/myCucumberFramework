@@ -1,12 +1,32 @@
 package aii.steps;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.junit.Assert;
 import aii.utils.CommonMethods;
+import aii.utils.PdfComparator;
+import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class VOLDP1_RateChange extends CommonMethods {
 
+	
+	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+	static LocalDateTime currentDate = LocalDateTime.now();
+	static String policyNum;
+	static String Cov_A_InfaltionValue;
+	static String RwlDec_Form;
+	static String RwlDecCoveragesForm;
+	static String RwlDecForm;
+	static String RwlCheckList_Version;
+	static String FileLocation = System.getProperty("user.dir") + "\\target\\";
+	
+	
+	
+	
 	@And("User clicks Extended Coverage Building Hurricane Premium")
 	public void User_clicks_Extended_Coverage_Building_Hurricane_Premium() {
 		click(worksheetsChevron.eCBHP);
@@ -84,7 +104,47 @@ public class VOLDP1_RateChange extends CommonMethods {
 
 		dwellingChevron.txtCoverageC.sendKeys("25000");
 		wait(1);
-
 	}
+	
+	
+	
+		@When("111User switches that forms and validates form version on Renewal Declaration")
+		public void user_switches_that_forms_and_validates_form_version_on_rn() throws Exception {
+			switchToWindow(driver, "STFile&File");
+			RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+
+			// Save the pdf in local driver
+			PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
+
+			wait(10);
+			
+			RwlDecCoveragesForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 4, 0, 0, 800, 800);
+			PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$597,000");
+			PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$59,700");
+			PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$28,000");
+			
+
+			RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 0, 0, 800, 800);
+			PdfComparator.verifyFormData(driver, RwlDecForm,
+					"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
+			PdfComparator.verifyFormData(driver, RwlDecForm,
+					"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
+			PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+			
+			
+			
+			
+			
+		}
+
+		@When("111User validates data on the coverage form with expected data and completes test")
+		public void user_validates_data_on_the_coverage_form_with_expected_data_and_completes_test() throws Exception {
+			RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 60, 0, 400, 600, 500);
+			PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
+			PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$62,500");
+			PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$312,500");
+			PdfComparator.verifyFormData(driver, RwlCheckList_Version, "Not Included");
+			Hooks.scenario.log("Test Case Completed!");
+		}
 
 }
