@@ -23,7 +23,7 @@ Feature: TC 15207--Vol HO3 - Creating HO3 Application JNT w/eSignature
     And User answers all underwriting questions for VOL HO3
     And User completes required information on dwelling chevron selects Dwelling Type <tc15207>
     And User clicks Finalize button <tc15207>
-    And User sets Esignature and validates 3 signer fields have been enabled
+    And User sets Esignature and validates first 2 signer fields have been enabled and not editable, 3rd one enabled and editable
     And User clicks issue new business button and validates 'Missing required information' text has been displayed
     And User inputs just Signer 1 First Name and clicks issue new business button and validates 'Missing required information' text has been displayed
     And User inputs Signer 1 Last Name and clicks issue new business button and validates 'Missing required information' text has been displayed
