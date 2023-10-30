@@ -3025,4 +3025,57 @@ public class CommonMethods extends PageInitializer {
 			return false;
 		}
 	}
+	public static String getLossTypePopulatedValue(WebDriver driver) throws Exception {
+		String value=null;
+		try {
+			Select entityType = new Select (driver.findElement(By.id("ClaimLossTemplateIdRef")));	
+			value = entityType.getFirstSelectedOption().getText();
+			Hooks.scenario.log("Loss Type populated with "+value);
+			
+		} catch (Exception e) {
+			Hooks.scenario.log("Loss type not populated with "+value);
+			wait(5);
+		}
+		return value.toString();	
+		}
+	public static void getAnyDropDownOptionsOnLossNotice(WebDriver driver, String field) throws Exception {
+		try {
+			Select entityType = new Select (driver.findElement(By.id("Claim."+field+"")));	
+			WebElement story_field = driver.findElement(By.id("Claim."+field+""));
+			story_field.click();
+			List<WebElement> options = entityType.getOptions();
+						
+			Hooks.scenario.log(field+" options are:");
+			for(WebElement item:options)  { 
+	        	Hooks.scenario.log(item.getText());          
+	        }													
+		} catch (Exception e) {
+			Hooks.scenario.log(field+"Options:");
+			wait(5);
+		}	
+	}
+	public static String getanyDropDownPopulatedValueOnLossNotice(WebDriver driver, String element) throws Exception {
+		String value=null;
+		try {
+			Select entityType = new Select (driver.findElement(By.id("Claim."+element+"")));	
+			value = entityType.getFirstSelectedOption().getText();
+			Hooks.scenario.log(element+" populated with "+value);
+		} catch (Exception e) {
+			Hooks.scenario.log(element+" not populated with "+value);
+			wait(5);
+			}
+		return value.toString();	
+		}
+	
+	public static void expandTransaction(WebDriver driver,String history) throws Exception {
+		try {
+			driver.findElement(By.name("History_"+history+"_Expand"));
+			driver.findElement(By.name("History_"+history+"_Expand")).click();
+			wait(1); 
+			Hooks.scenario.log("Expanded transaction history "+history);	
+		} catch (Exception e) {
+			Hooks.scenario.log("Not Expanded transaction history "+history);
+			wait(5);
+			}
+	}
 }

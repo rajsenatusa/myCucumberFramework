@@ -64,6 +64,6 @@ Feature: RC-1827: 2024 Rate Changes- FIGA: VOL DP3 - 1/1/2024
 
     Examples: Test Data
       | username | password  | FIGADP3EffectiveDate | EndorsementEffectiveDate |
-      | mcemek   | Oct@2023! | 01/01/2024           | 01/02/2024               |
+      | mcemek   | Nov@2023! | 01/01/2024           | 01/02/2024               |
 
   

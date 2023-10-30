@@ -55,4 +55,4 @@ Feature: RC-1854: 2024 Rate Changes- FIGA: AIB - 1/1/2024
 
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate |
-      | mcemek   | Oct@2023! | 01/01/2024    | 10/02/2024               |
+      | mcemek   | Nov@2023! | 01/01/2024    | 10/02/2024               |

@@ -122,7 +122,7 @@ public class TC15207_HO3_Joint_ESignature_Policy extends CommonMethods {
 		wait(1);
 	}
 
-	@When("User sets Esignature and validates 3 signer fields have been enabled")
+	@When("User sets Esignature and validates first 2 signer fields have been enabled and not editable, 3rd one enabled and editable")
 	public void user_sets_esignature_and_validates_3_signer_fields_have_Been_enabled() throws Exception {
 
 		selectDropdownText(closeoutChevron.ddPaymentType, "None");
