@@ -859,7 +859,7 @@ public class CommonSteps extends CommonMethods {
 		//Closeout Chevron information was filled here
 		
 		click(closeoutChevron.btnIssueNB);
-		wait(5);
+		wait(12);
 	}
 	@Given("User selects loss cause as {string} and other related questions")
 	public void user_selects_loss_cause_and_questions(String lossCause) {
