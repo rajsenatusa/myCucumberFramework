@@ -149,6 +149,9 @@ public class ClaimPageElements extends CommonMethods{
 	@FindBy(id= "ClaimantTransaction.PaymentTypeCd")
 	public WebElement ddPaymentType;
 	
+	@FindBy(id= "Claim.SubLossCauseCd")
+	public WebElement ddSubLossCause;
+	
 	public ClaimPageElements() {
 		PageFactory.initElements(driver, this);
 	}	
