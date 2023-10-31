@@ -33,9 +33,11 @@ Feature: RC-401: 2024 Rate Changes- Inflation Guard: VOL HO3- 01/01/2024
     And User enters Roof Material "<RoofMaterial>"
     And User enters Fireplace "<Fireplace>"
     And User enters Exterior Walls "<ExteriorWalls>"
-    And User clicks Reserve Package
-    And User enters Coverage A Dwelling
-    And User enters Animal Liability "<AnimalLiability>"
+    And User clicks Gold Reserve Package
+    And User enters Coverage A Dwelling as 230k
+    And User selects Hurricane Deductible as $500
+    And User enters Ordinance or Law as 50 percentage
+    And User selects Sinkhole Loss
     And User enters Mandatory Mediation Arbitration
     And User enters Fire Alarm "<FireAlarm>"
     And User enters Sprinkler System "<SprinklerSystem>"
@@ -44,13 +46,6 @@ Feature: RC-401: 2024 Rate Changes- Inflation Guard: VOL HO3- 01/01/2024
     And User enters Military Discount "<MilitaryDiscount>"
     And User enters Roof Shape "<RoofShape>"
     And User enters SWR "<SWR>"
-    And User clicks Flood Coverage "<FloodCoverage>"
-    And User selects Flood Coverage Deductible "<FloodCoverageDeductible>"
-    And User selects Flood Foundation Type "<FloodFoundationType>"
-    And User selects Flood Zone Override "<FloodZoneOverride>"
-    And User selects Preferred Risk Status "<PreferredRiskStatus>"
-    And User selects SFHA Override "<SFHAOverride>"
-    And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
     And User clicks save and next page button
     And User enters Pay Plan Type
     And User clicks Next Page
@@ -64,12 +59,41 @@ Feature: RC-401: 2024 Rate Changes- Inflation Guard: VOL HO3- 01/01/2024
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
     And User clicks Finalize
-    
-    
-    
-    
-    
+    And User clicks Dwelling chevron
+    Then User validates HO3 Coverage A increases by 10 percentage
+    Then User validates HO3 Coverage B increases by 10 percentage
+    Then User validates HO3 Coverage C increases by 10 percentage
+    Then User validates HO3 Coverage D increases by 10 percentage
+    Then User validates HO3 Hurricane Deductible 2 percentage
+    Then User validates HO3 Ordinance or Law increases by 10 percentage
+    Then User validates Sinkhole Loss
+    Then User validates HO3 Coverage A on Coverages List
+    Then User validates HO3 Coverage B on Coverages List
+    Then User validates HO3 Coverage C on Coverages List
+    Then User validates HO3 Coverage D on Coverages List
+    Then User validates HO3 Ordinance or Law on Coverages List
+    Then User validates 10 percentage Inflation guard for Cov A
+    And User clicks History Chevron
+    And User clicks Start Transaction
+    And User clicks RN Transaction Selection
+    And User clicks Save
+    And User clicks Finalize button
+    And User clicks Process
+    And User clicks Dwelling chevron
+    Then User validates HO3 Coverage A increases by 10 percentage after second RN
+    Then User validates HO3 Coverage B increases by 10 percentage after second RN
+    Then User validates HO3 Coverage C increases by 10 percentage after second RN
+    Then User validates HO3 Coverage D increases by 10 percentage after second RN
+    Then User validates HO3 Hurricane Deductible 2 percentage
+    Then User validates HO3 Ordinance or Law increases by 10 percentage after second RN
+    Then User validates Sinkhole Loss
+    Then User validates HO3 Coverage A on Coverages List after second RN
+    Then User validates HO3 Coverage B on Coverages List after second RN
+    Then User validates HO3 Coverage C on Coverages List after second RN
+    Then User validates HO3 Coverage D on Coverages List after second RN
+    Then User validates HO3 Ordinance or Law on Coverages List after second RN
+    Then User validates 10 percentage Inflation guard for Cov A after second RN
 
     Examples: Test Data
       | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Nov@2023! | 01/01/2023    | Masonry          | Owner Occupied | 4 to 8 Months  |               2016 |       2500 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | No               | A-Hurricane Impact | Gable     | No  | Yes           | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |
+      | mcemek   | Nov@2023! | 01/01/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2020 |       3000 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | A-Hurricane Impact | Gable     | No  | No            | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |
