@@ -181,9 +181,25 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		click(dwellingChevron.rbSilverReserve);
 	}
 
+	@And("User clicks Gold Reserve Package")
+	public void User_clicks_Gold_Reserve_Package() {
+		click(dwellingChevron.rbGoldReserve);
+	}
+
+	@And("User clicks Silver Reserve Package")
+	public void User_clicks_Silver_Reserve_Package() {
+		click(dwellingChevron.rbSilverReserve);
+	}
+
 	@And("User enters Coverage A Dwelling")
 	public void User_enters_Coverage_A_Dwelling() {
 		dwellingChevron.txtCoverageA.sendKeys("300000");
+		wait(1);
+	}
+
+	@And("User enters Coverage A Dwelling as 230k")
+	public void User_enters_Coverage_A_Dwelling_as_230k() {
+		dwellingChevron.txtCoverageA.sendKeys("230000");
 		wait(1);
 	}
 
@@ -191,6 +207,13 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_enters_Coverage_A_Dwelling_as_50000() {
 		dwellingChevron.txtCoverageA.sendKeys("50000");
 		wait(1);
+	}
+
+	@And("User enters Ordinance or Law as 50 percentage")
+	public void User_enters_Ordinance_or_Law_as_50_percentage() {
+		wait(1);
+		selectDropdownText(dwellingChevron.ddOrdinance, "50%");
+		wait(3);
 	}
 
 	@And("User enters Animal Liability {string}")

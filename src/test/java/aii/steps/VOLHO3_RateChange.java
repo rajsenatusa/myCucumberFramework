@@ -418,4 +418,166 @@ public class VOLHO3_RateChange extends CommonMethods {
 		String actual = worksheetsChevron.HO3elevationRate.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+
+	@Then("User validates HO3 Coverage A increases by 10 percentage")
+	public void User_validates_HO3_Coverage_A_increases_by_10_percentage() {
+		String expected = "$253,000";
+		String actual = worksheetsChevron.HO6CovA.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage B increases by 10 percentage")
+	public void User_validates_HO3_Coverage_B_increases_by_10_percentage() {
+		String expected = "$25,300";
+		String actual = worksheetsChevron.HO6CovB.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage C increases by 10 percentage")
+	public void User_validates_HO3_Coverage_C_increases_by_10_percentage() {
+		String expected = "$177,100";
+		String actual = worksheetsChevron.HO6CovC.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage D increases by 10 percentage")
+	public void User_validates_HO3_Coverage_D_increases_by_10_percentage() {
+		String expected = "$50,600";
+		String actual = worksheetsChevron.HO6CovD.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Hurricane Deductible 2 percentage")
+	public void User_validates_HO3_Hurricane_Deductible_2_percentagee() {
+		String expected = "2%";
+		String actual = worksheetsChevron.HO3HurricaneDeductible.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Ordinance or Law increases by 10 percentage")
+	public void User_validates_HO3_Ordinance_or_Law_increases_by_10_percentage() {
+		String expected = "$63,250";
+		String actual = worksheetsChevron.HO3OrdinanceLaw.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage A on Coverages List")
+	public void User_validates_HO3_Coverage_A_on_Coverages_List() {
+		String expected = "253,000";
+		String actual = worksheetsChevron.HO3CovACoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage B on Coverages List")
+	public void User_validates_HO3_Coverage_B_on_Coverages_List() {
+		String expected = "25,300";
+		String actual = worksheetsChevron.HO3CovBCoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage C on Coverages List")
+	public void User_validates_HO3_Coverage_C_on_Coverages_List() {
+		String expected = "177,100";
+		String actual = worksheetsChevron.HO3CovCCoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage D on Coverages List")
+	public void User_validates_HO3_Coverage_D_on_Coverages_List() {
+		String expected = "50,600";
+		String actual = worksheetsChevron.HO3CovDCoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Ordinance or Law on Coverages List")
+	public void User_validates_HO3_Ordinance_or_Law_on_Coverages_List() {
+		String expected = "63,250";
+		String actual = worksheetsChevron.HO3OrdinanceLawCoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates 10 percentage Inflation guard for Cov A")
+	public void User_validates_10_percentage_Inflation_guard_for_Cov_A() {
+		String expected = "10%";
+		String actual = worksheetsChevron.HO3CovAInflationGuard.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage A increases by 10 percentage after second RN")
+	public void User_validates_HO3_Coverage_A_increases_by_10_percentage_after_second_RN() {
+		String expected = "$279,000";
+		String actual = worksheetsChevron.HO6CovA.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage B increases by 10 percentage after second RN")
+	public void User_validates_HO3_Coverage_B_increases_by_10_percentage_after_second_RN() {
+		String expected = "$27,900";
+		String actual = worksheetsChevron.HO6CovB.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage C increases by 10 percentage after second RN")
+	public void User_validates_HO3_Coverage_C_increases_by_10_percentage_after_second_RN() {
+		String expected = "$195,300";
+		String actual = worksheetsChevron.HO6CovC.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage D increases by 10 percentage after second RN")
+	public void User_validates_HO3_Coverage_D_increases_by_10_percentage_after_second_RN() {
+		String expected = "$55,800";
+		String actual = worksheetsChevron.HO6CovD.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Ordinance or Law increases by 10 percentage after second RN")
+	public void User_validates_HO3_Ordinance_or_Law_increases_by_10_percentage_after_second_RN() {
+		String expected = "$69,750";
+		String actual = worksheetsChevron.HO3OrdinanceLaw.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage A on Coverages List after second RN")
+	public void User_validates_HO3_Coverage_A_on_Coverages_List_after_second_RN() {
+		String expected = "279,000";
+		String actual = worksheetsChevron.HO3CovACoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage B on Coverages List after second RN")
+	public void User_validates_HO3_Coverage_B_on_Coverages_List_after_second_RN() {
+		String expected = "27,900";
+		String actual = worksheetsChevron.HO3CovBCoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage C on Coverages List after second RN")
+	public void User_validates_HO3_Coverage_C_on_Coverages_List_after_second_RN() {
+		String expected = "195,300";
+		String actual = worksheetsChevron.HO3CovCCoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Coverage D on Coverages List after second RN")
+	public void User_validates_HO3_Coverage_D_on_Coverages_List_after_second_RN() {
+		String expected = "55,800";
+		String actual = worksheetsChevron.HO3CovDCoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates HO3 Ordinance or Law on Coverages List after second RN")
+	public void User_validates_HO3_Ordinance_or_Law_on_Coverages_List_after_second_RN() {
+		String expected = "69,750";
+		String actual = worksheetsChevron.HO3OrdinanceLawCoverageList.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@Then("User validates 10 percentage Inflation guard for Cov A after second RN")
+	public void User_validates_10_percentage_Inflation_guard_for_Cov_A_after_second_RN() {
+		String expected = "10%";
+		String actual = worksheetsChevron.HO3CovAInflationGuard.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
 }
