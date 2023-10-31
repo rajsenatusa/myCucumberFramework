@@ -177,6 +177,60 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(id= "Wizard_Worksheets")
 	public WebElement lnkWorksheetsChevron;
 	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[2]/td[3]")             
+	public WebElement HO6CovA;
+	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[3]/td[3]")
+	public WebElement HO6CovB;
+	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[4]/td[3]")
+	public WebElement HO6CovC;
+	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[5]/td[3]")
+	public WebElement HO6CovD;
+	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[2]/td[6]")
+	public WebElement HO3HurricaneDeductible;
+	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[3]/tbody/tr[6]/td[4]")
+	public WebElement HO3OrdinanceLaw;
+	
+	@FindBy(xpath="//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[1]/td[5]")
+	public WebElement HO3CovACoverageList;
+
+	@FindBy(xpath="//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[5]")
+	public WebElement HO3CovBCoverageList;
+	
+	@FindBy(xpath="//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[5]")
+	public WebElement HO3CovCCoverageList;
+	
+	@FindBy(xpath="//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[5]/td/table/tbody/tr[1]/td[5]")
+	public WebElement HO3CovDCoverageList;
+	
+	@FindBy(xpath="//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[16]/td/table/tbody/tr[1]/td[5]")
+	public WebElement HO3OrdinanceLawCoverageList;
+	 
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[2]/td[10]")
+	public WebElement HO3CovAInflationGuard;
+	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[2]/td[3]")
+	public WebElement HO4CovC;
+	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[3]/td[3]")
+	public WebElement HO4CovD;
+	
+	@FindBy(xpath="//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[1]/td[5]")
+	public WebElement HO4CovCCoverageList;
+	
+	@FindBy(xpath="//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[5]")
+	public WebElement HO4CovDCoverageList;
+	
+	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[2]/td[9]")
+	public WebElement HO4CovAInflationGuard;
+	
+	
+	
+	
 	
 	public WorksheetsChevronPageElements() {
 		PageFactory.initElements(driver, this);

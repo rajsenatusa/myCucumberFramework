@@ -33,6 +33,14 @@ public class VOLDP3_RateChange extends CommonMethods {
 
 	}
 
+	@And("User selects Hurricane Deductible as $500")
+	public void User_selects_Hurricane_Deductible_as_500() {
+		wait(1);
+		selectDropdownText(dwellingChevron.ddHurricaneDeductible, "$500");
+		wait(3);
+
+	}
+
 	@Then("User validates DP3 Coverage A increases by 10 percentage")
 	public void User_validates_DP3_Coverage_A_increases_by_10_percentage() {
 
@@ -74,15 +82,6 @@ public class VOLDP3_RateChange extends CommonMethods {
 
 		String expected = "10%";
 		String actual = dwellingChevron.DP3HurricaneDeductible.getText();
-		Assert.assertEquals("The value DOES NOT match!", expected, actual);
-
-	}
-
-	@Then("User validates DP3 Sinkhole Loss")
-	public void User_validates_DP3_Sinkhole_Loss() {
-
-		String expected = "10% Ded of Cov A";
-		String actual = dwellingChevron.sinkholeDeductible.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
 	}

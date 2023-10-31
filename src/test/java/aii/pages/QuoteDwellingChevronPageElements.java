@@ -122,6 +122,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id = "Building.PackageCoverageInd_2")
 	public WebElement rbSilverReserve;
 	
+	@FindBy(id = "Building.PackageCoverageInd_3")
+	public WebElement rbGoldReserve;
+	
 	@FindBy(id = "Building.CovALimit")
 	public WebElement txtCovALimit;
 	
