@@ -54,6 +54,10 @@ Feature: RC-402: 2024 Rate Changes- Inflation Guard: VOL HO4- 01/01/2024
     Then User validates HO4 Coverage C on Coverages List
     Then User validates HO4 Coverage D on Coverages List
     Then User validates 10 percentage Inflation guard for Cov C
+    And User clicks Policy File Chevron
+    And User clicks Renewal Decleration link
+    Then User validates VOL HO4 10 percentage in RN Declaration Package
+    Then User validates VOL HO4 inflated values on OIR B1 1670 form for first RN
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
@@ -61,6 +65,9 @@ Feature: RC-402: 2024 Rate Changes- Inflation Guard: VOL HO4- 01/01/2024
     And User clicks Endorse Policy button
     And User clicks Dwelling chevron
     Then User validates 10 percentage Inflation guard for Cov C
+    And User clicks Policy File Chevron
+    And User clicks Endorsement Package link
+    Then User validates VOL HO4 10 percentage in EN Package
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
@@ -73,6 +80,10 @@ Feature: RC-402: 2024 Rate Changes- Inflation Guard: VOL HO4- 01/01/2024
     Then User validates HO4 Coverage C on Coverages List after second RN
     Then User validates HO4 Coverage D on Coverages List after second RN
     Then User validates 10 percentage Inflation guard for Cov C
+    And User clicks Policy File Chevron
+    And User clicks Renewal Decleration link
+    Then User validates VOL HO4 10 percentage in RN Declaration Package
+    Then User validates VOL HO4 inflated values on OIR B1 1670 form for first RN
 
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy       | MonthsOccupied | YearOfConstruction | BuildingCodeEffectivenessGrade | NumberOfStories | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |

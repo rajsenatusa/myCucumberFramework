@@ -1,11 +1,27 @@
 package aii.steps;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.junit.Assert;
 import aii.utils.CommonMethods;
+import aii.utils.PdfComparator;
+import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class VOLHO4_RateChange extends CommonMethods {
+
+	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+	static LocalDateTime currentDate = LocalDateTime.now();
+	static String policyNum;
+	static String Cov_A_InfaltionValue;
+	static String RwlDec_Form;
+	static String RwlDecCoveragesForm;
+	static String RwlDecForm;
+	static String RwlCheckList_Version;
+	static String FileLocation = System.getProperty("user.dir") + "\\target\\";
 
 	@And("User clicks Rate Area Hurricane")
 	public void User_clicks_Rate_Area_Hurricane() {
@@ -110,6 +126,66 @@ public class VOLHO4_RateChange extends CommonMethods {
 		String expected = "7,400";
 		String actual = worksheetsChevron.HO4CovDCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+	}
+
+	@When("User validates VOL HO4 10 percentage in RN Declaration Package")
+	public void User_validates_VOL_HO4_10_percentage_in_RN_Declaration_Package() throws Exception {
+		switchToWindow(driver, "STFile&File");
+		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
+
+		wait(15);
+
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 6, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
+		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+
+	}
+
+	@When("User validates VOL HO4 inflated values on OIR B1 1670 form for first RN")
+	public void User_validates_VOL_HO4_inflated_values_on_OIR_B1_1670_form_for_first_RN() throws Exception {
+
+		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 0, 0, 800, 800);
+//		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$33,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$500");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
+		Hooks.scenario.log("Test Case Completed!");
+	}
+
+	@When("User validates VOL HO4 inflated values on OIR B1 1670 form for second RN")
+	public void User_validates_VOL_HO4_inflated_values_on_OIR_B1_1670_form_for_second_RN() throws Exception {
+
+		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 0, 0, 800, 800);
+//		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$37,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$500");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
+		Hooks.scenario.log("Test Case Completed!");
+	}
+
+	@When("User validates VOL HO4 10 percentage in EN Package")
+	public void User_validates_VOL_HO4_10_percentage_in_EN_Package() throws Exception {
+		switchToWindow(driver, "STFile&File");
+		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
+
+		wait(11);
+
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 4, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
+		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+
 	}
 
 }
