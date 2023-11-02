@@ -19,6 +19,7 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	static LocalDateTime newDate2 = currentDate.plusDays(15);
 	static String currentDue;
 
+	
 	@When("User clicks Admin Tab")
 	public void user_clicks_admin_tab() {
 

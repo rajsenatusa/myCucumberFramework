@@ -11,13 +11,13 @@ import aii.utils.ConfigsReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPayments extends CommonMethods{
+public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPayments extends CommonMethods {
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String AppNum;
 	static String claimNum;
-	
+
 	@When("User enters all required information on policy information screen <mtr2467>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr2467() {
 
@@ -36,6 +36,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+
 	@When("User enters all required information on GOC quote screen <mtr2467>")
 	public void user_enters_all_required_information_on_goc_quote_screen_mtr2467() {
 		// Quote Policy Chevron information was filled here
@@ -56,7 +57,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		click(policyChevron.btnNext);
 		wait(3);
 	}
-	
+
 	@When("User enters all required information on GOC golfcart screen for <mtr2467>")
 	public void user_enters_all_required_information_on_goc_golfcart_screen_mtr2467() {
 
@@ -73,6 +74,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		wait(4);
 		click(dwellingChevron.btnNext);
 	}
+
 	@When("User enters driver information on driver screen <mtr2467>")
 	public void user_enters_driver_information_on_driver_screen_mtr2467() {
 
@@ -86,6 +88,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		wait(3);
 		click(golfcartChevron.btnNextGocScreen);
 	}
+
 	@When("User enters vehicles information on vehicles screen <mtr2467>")
 	public void user_enters_vehicles_information_on_vehicles_screen_mtr2467() {
 
@@ -110,6 +113,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User validates that GOC policy has been created successfully and takes note of the policy number <mtr2467>")
 	public void user_validates_that_goc_policy_has_been_created_successfully_mtr2467() throws Exception {
 
@@ -133,31 +137,36 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for Policy Number for <mtr2467>")
 	public void user_searches_for_policy_number_for_mtr2467() throws Exception {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User changes system date to current date plus 10 days")
 	public void user_changes_system_date_to_currentdate_plus_10_days() throws Exception {
 		ChangeDate_Admin(driver, dtf.format(currentDate.plusDays(10)));
 	}
+
 	@When("User sets loss date as current date plus <10> days")
 	public void user_sets_loss_date_as_current_date_plus_10_days() {
 		sendText(claim.txtLossDate, dtf.format(currentDate.plusDays(10)));
 		click(dwellingChevron.btnSave);
 		wait(2);
 	}
+
 	@When("User selects loss cause as Collapse and clicks Save")
 	public void user_selects_loss_cause_as_collapse_and_clicks_save() throws Exception {
 		selectDropdownText(claim.ddLossCause, "Collapse");
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@When("User selects vehicle, purpose of use and all required information on claim screen")
 	public void user_selects_vehicle_purpose_of_use_and_all_req_infoo_on_claim_screen() throws Exception {
-		selectDropdownText(claim.ddClaimBoatSelection, "2019 Golf Make Golf Model - 452PJ8GGH77");  //golfcart selection
+		selectDropdownText(claim.ddClaimBoatSelection, "2019 Golf Make Golf Model - 452PJ8GGH77"); // golfcart selection
 		selectDropdownText(claim.ddClaimPurposeUse, "Personal");
 		wait(1);
 		selectDropdownText(claim.ddClaimOperator, "Ramsey, Aaron ");
@@ -167,6 +176,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@When("User clicks Complete and takes note of the claim number <mtr2467>")
 	public void user_clicks_complete_takes_notes_mtr2467() throws Exception {
 		click(claim.btnComplete);
@@ -178,17 +188,20 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 			e.printStackTrace();
 		}
 	}
+
 	@When("User starts transaction")
 	public void user_starts_transaction() throws Exception {
 		startTransaction(driver);
 		wait(1);
 	}
+
 	@When("User clicks Financial Actions button and clicks Adjust Reserves")
 	public void user_clicks_Financial_Actions_button_and_clicks_Adjust_reserves() throws Exception {
 		click(claim.btnFinancialActions);
 		clickAdjustReserves(driver);
 		wait(1);
 	}
+
 	@When("User fills Indemnity and Adjust text boxes")
 	public void user_fills_Indemnity_and_Adjust_text_boxes() throws Exception {
 		sendText(driver.findElement(By.id("Reserve_COLL_COLLSUB_Indemnity")), "1000");
@@ -197,6 +210,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		wait(1);
 		attachScreenShot(driver);
 	}
+
 	@When("User finalizes adjust transaction and process")
 	public void user_finalizes_adjust_transaction_and_process() throws Exception {
 		click(claim.btnFinalize);
@@ -204,12 +218,14 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		click(claim.btnProcess);
 		wait(2);
 	}
+
 	@When("User clicks Financial Actions button and clicks Make Payment")
 	public void user_clicks_Financial_Actions_button_and_clicks_Make_Payment() throws Exception {
 		click(claim.btnFinancialActions);
 		click(claim.btnMakePayment);
 		wait(2);
 	}
+
 	@When("User selects Indemnity payment and do necessary validations")
 	public void user_selects_indemnity_payment_and_do_necessary_validations() throws Exception {
 		selectDropdownText(claim.ddPaymentType, "Indemnity");
@@ -226,8 +242,9 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
-		attachScreenShot(driver);	
+		attachScreenShot(driver);
 	}
+
 	@When("User selects Adjustment payment and do necessary validations")
 	public void user_selects_adjustment_payment_and_do_necessary_validations() throws Exception {
 		selectDropdownText(claim.ddPaymentType, "Adjustment");
@@ -239,20 +256,21 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
-		
+
 		click(driver.findElement(By.id("ClaimantTransaction.PayToClaimantInd")));
 		wait(1);
 		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
-		attachScreenShot(driver);	
-		
+		attachScreenShot(driver);
+
 		click(driver.findElement(By.id("ClaimantTransaction.PayToInterestInd")));
 		wait(1);
 		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
 	}
+
 	@When("User selects Return Indemnity payment and do necessary validations")
 	public void user_selects__return_indemnity_payment_and_do_necessary_validations() throws Exception {
 		selectDropdownText(claim.ddPaymentType, "Return Indemnity");
@@ -261,6 +279,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
 	}
+
 	@When("User selects Return Recovery payment and do necessary validations")
 	public void user_selects__return_recovery_payment_and_do_necessary_validations() throws Exception {
 		selectDropdownText(claim.ddPaymentType, "Return Recovery");
@@ -269,6 +288,7 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
 	}
+
 	@Then("User selects Return Adjustment payment and do necessary validations")
 	public void user_selects__return_adjustment_payment_and_do_necessary_validations() throws Exception {
 		selectDropdownText(claim.ddPaymentType, "Return Adjustment");
@@ -278,5 +298,5 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

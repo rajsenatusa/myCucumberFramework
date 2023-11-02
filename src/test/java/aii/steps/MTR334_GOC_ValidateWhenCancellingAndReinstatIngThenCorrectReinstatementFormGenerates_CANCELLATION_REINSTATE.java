@@ -25,6 +25,7 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 	static String Con_Coverage_Form_Version;
 	static String Con_Coverage_Data;
 
+	
 	@When("User enters all required information on policy information screen <mtr334>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr334() {
 

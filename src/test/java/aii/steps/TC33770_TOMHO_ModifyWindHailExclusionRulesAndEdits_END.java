@@ -115,16 +115,19 @@ public class TC33770_TOMHO_ModifyWindHailExclusionRulesAndEdits_END extends Comm
 			e.printStackTrace();
 		}
 	}
+
 	@When("User changes system date to current date minus 1 day <tc33770>")
 	public void user_changes_system_date_To_current_date_minus_1_day_tc33770() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate.minusDays(1)));
 	}
+
 	@When("User searches for the policy number <tc33770>")
 	public void user_searches_policy_for_tc33770() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as current date and starts endorsement <tc33770>")
 	public void User_sets_new_effective_date_as_current_date_and_starts_endorsement_tc33770() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(currentDate));
@@ -134,23 +137,28 @@ public class TC33770_TOMHO_ModifyWindHailExclusionRulesAndEdits_END extends Comm
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User validates Windhail Exclusion Selection is disabled")
 	public void user_validates_Windhail_Exclusion_Selection_is_disabled() throws Exception {
-		verifyAnyCoverageCheckbox_NotEnabledSelected(driver, "Building.WindHailExcludedInd");	
+		verifyAnyCoverageCheckbox_NotEnabledSelected(driver, "Building.WindHailExcludedInd");
 	}
+
 	@When("User changes system date to current date <tc33770>")
 	public void user_changes_system_date_To_current_date__tc33770() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate));
 	}
+
 	@When("User changes system date to current date plus 1 day <tc33770>")
 	public void user_changes_system_date_To_current_date_plus_1_day_tc33770() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate.plusDays(1)));
 	}
+
 	@When("User clicks Policy Chevron <tc33770>")
 	public void user_clicks_policy_chevron_tc33770() throws Exception {
 		click(policyChevron.btnPolicyChevronLink);
 		wait(2);
 	}
+
 	@When("User takes note of the application number for <tc33770>")
 	public void user_takes_note_of_the_app_number_for_tc33770() throws Exception {
 		try {
@@ -160,26 +168,31 @@ public class TC33770_TOMHO_ModifyWindHailExclusionRulesAndEdits_END extends Comm
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the application <tc33770>")
 	public void user_searches_application_for_tc33770() {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User validates Windhail Exclusion Selection is enabled")
 	public void user_validates_Windhail_Exclusion_Selection_is_enabled() throws Exception {
-		verifyAnyCoverageCheckbox_EnabledSelected(driver, "Building.WindHailExcludedInd");	
+		verifyAnyCoverageCheckbox_EnabledSelected(driver, "Building.WindHailExcludedInd");
 	}
+
 	@When("User unchecks WindHail Exclusion")
 	public void user_unchecks_WindHail_Exclusion() throws Exception {
 		click(dwellingChevron.rbWindHailExc);
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@When("User validates Hurricane Deductible defaulted to <%2>")
 	public void user_validates_Hurricane_Deductible_defaulted_to_2_percent() throws Exception {
 		verifyAnyDropdownDefaultedValue(driver, "Building.HurricaneDeductible", "2%");
 	}
+
 	@Then("User finalizes transaction and endorses policy and completes test <tc33770>")
 	public void user_finalizes_transaction_and_endorses_policy_and_close_tabs_tc33770() throws Exception {
 		click(dwellingChevron.btnFinalize);

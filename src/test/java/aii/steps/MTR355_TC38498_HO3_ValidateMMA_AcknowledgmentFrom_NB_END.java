@@ -25,7 +25,6 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 	static String PolicyNumberSuffix;
 	static String MMA_NBApp_Data;
 
-	
 	@When("User enters all required information on HO3 dwelling screen with MMA selected as Yes")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_with_mma() {
 		// Quote Dwelling information was filled here
@@ -63,7 +62,8 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 	}
 
 	@And("User clicks on on the application and validate the MMA acknowledge form 'AIIC HO3 MMAA 03 22' attached in the application form")
-	public void user_clicks_on_on_the_application_and_validate_the_mma_acknowledge_form_attached_in_the_application_form() throws Exception {
+	public void user_clicks_on_on_the_application_and_validate_the_mma_acknowledge_form_attached_in_the_application_form()
+			throws Exception {
 
 		click(policyFileChevron.btnApplicationForm);
 		wait(2);
@@ -74,15 +74,12 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 		PdfComparator.SavePdfForm(driver, FileLocation + application_Form);
 		wait(8);
 
-		MMA_NBApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 10, 400, 0,
-				200, 50);
+		MMA_NBApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 10, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version1, "AIIC HO3 MMAA 04 23");
-		MMA_NBApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 9, 70, 740,
-				200, 50);
+		MMA_NBApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 9, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version, "AIIC HO3 MMAA 04 23");
 		PolicyNumberSuffix = replaceMethod(policyNum, "-01", "");
-		MMA_NBApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 10, 70, 300, 500,
-				500);
+		MMA_NBApp_Data = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 10, 70, 300, 500, 500);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, PolicyNumberSuffix);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "1163 Oak Bluff DR");
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Data, "Davenport, FL 33837-3688");
@@ -96,6 +93,7 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as current date and starts endorsement <mtr355>")
 	public void User_sets_new_effective_date_as_current_date_and_starts_endorsement_mtr355() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(currentDate));
@@ -105,15 +103,18 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User clicks dwelling chevron <mtr355>")
 	public void user_clicks_dwelling_chevron_mtr355() {
 		click(specialChevron.btnDwellingWiz);
 		wait(2);
 	}
+
 	@When("User validates MMA defaulted to Yes <mtr355>")
 	public void user_validates_MMA_defaulted_to_yes_mtr355() throws Exception {
 		verifyAnyDropdownDefaultedValue(driver, "Building.MediationArbitrationInd", "Yes");
 	}
+
 	@When("User enters all required information on policy information screen <mtr355>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr355() {
 
@@ -196,13 +197,14 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 			e.printStackTrace();
 		}
 	}
+
 	@And("User clicks Finalize button and Endorses Policy <mtr355> and completes test")
-	public void User_clicks_finalize_and_Endorse_Policy_button_mtr355_completes_test() {	    
+	public void User_clicks_finalize_and_Endorse_Policy_button_mtr355_completes_test() {
 		click(dwellingChevron.btnSave);
 		wait(2);
 		reviewChevron.btnFinalize.click();
-		closeoutChevron.btnEndorsePolicy.click();	 
-		wait(5);	
+		closeoutChevron.btnEndorsePolicy.click();
+		wait(5);
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}

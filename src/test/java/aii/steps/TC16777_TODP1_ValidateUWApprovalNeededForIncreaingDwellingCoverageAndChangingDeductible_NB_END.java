@@ -11,13 +11,14 @@ import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
-public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageAndChangingDeductible_NB_END extends CommonMethods{
-	
+public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageAndChangingDeductible_NB_END
+		extends CommonMethods {
+
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String AppNum;
-	
+
 	@When("User enters all required information on policy information screen <tc16777>")
 	public void user_enters_all_required_information_on_policy_information_screen_tc16777() {
 
@@ -36,6 +37,7 @@ public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+
 	@When("User enters product selection information for TODP1 and effective date as current date <tc16777>")
 	public void user_enters_product_selection_information_for_todp1_and_effective_date_as_current_date_tc16777() {
 
@@ -47,6 +49,7 @@ public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 		click(product.btnContinue);
 		click(product.btnProductSelectionTodp1);
 	}
+
 	@When("User enters all required information on TODP1 quote screen <tc16777>")
 	public void user_enters_all_required_information_on_todp1_quote_screen_tc16777() {
 
@@ -65,6 +68,7 @@ public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 		wait(1);
 		click(policyChevron.btnNext);
 	}
+
 	@When("User enters all required information on TODP1 dwelling screen <tc16777> and sets sinkhole loss ded <10% Ded of Cov A>")
 	public void user_enter_all_required_information_on_todp1_dwelling_screen_tc16777() {
 		// Quote Dwelling information was filled here
@@ -87,13 +91,16 @@ public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User clicks Dwelling Chevron for <tc16777>")
 	public void user_clicks_dwelling_chevron_tc16777() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 	}
+
 	@When("User validates that TODP1 policy has been created successfully and takes note of the policy number <tc16777>")
-	public void user_validates_that_todp1_policy_has_been_created_successfully_and_takes_note_of_policy_number_tc16777() throws Exception {
+	public void user_validates_that_todp1_policy_has_been_created_successfully_and_takes_note_of_policy_number_tc16777()
+			throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("Renewal")) {
@@ -114,6 +121,7 @@ public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the policy number <tc16777>")
 	public void user_searches_policy_for_tc16777() {
 		sendText(dashboard.txtSearchBar, policyNum);
@@ -130,10 +138,11 @@ public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User increases CovA Dwelling and add other coverages <tc16777>")
 	public void user_increases_covADwelling_and_other_coverages_tc16777() throws Exception {
-		
-		sendText(dwellingChevron.txtCoverageA, "541000");
+
+		sendText(driver.findElement(By.id("CovALimit")), "541000");
 		selectDropdownText(dwellingChevron.ddDeductibleAllPerils, "$2,500");
 		selectDropdownText(dwellingChevron.ddHurricaneDeductible, "10%");
 		click(dwellingChevron.btnSave);
@@ -142,16 +151,18 @@ public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@And("User clicks Finalize button, validates changes are visible on closeout screen <tc16777>")
 	public void User_clicks_finalize_and_validates_changes_tc16777_() throws Exception {
 		reviewChevron.btnFinalize.click();
 		verify_AnyText_IsVisible(driver, "Coverage A change cannot exceed $5,000 Must be Approved");
 		verify_AnyText_IsVisible(driver, "Removal of Sinkhole Deductible Must Be Approved");
 		verify_AnyText_IsVisible(driver, "Change in Hurricane Deductible May Only be Changed at Renewal");
-		
+
 		verify_AnyLabel_IsVisible(driver, "Submit For Approval");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
 	}
+
 	@When("User takes note of the application for <tc16777>")
 	public void user_takes_note_of_the_application__number_for_tc16777() throws Exception {
 		try {
@@ -161,27 +172,32 @@ public class TC16777_TODP1_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the application <tc16777>")
 	public void user_searches_application_for_tc16777() {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User validates expected following messages on issue tile <tc16777>")
 	public void user_validates_expected_following_messages_on_issue_tile_tc16777() throws Exception {
 		verify_AnyText_IsVisible(driver, "Coverage A change cannot exceed $100,000 Must be Approved");
-		
-		//Verify the following messages on submitter issue tile
+
+		// Verify the following messages on submitter issue tile
 		verify_AnyText_IsVisible(driver, "Coverage A change cannot exceed $5,000 Must be Approved");
 		verify_AnyText_IsVisible(driver, "Removal of Sinkhole Deductible Must Be Approved");
 		verify_AnyText_IsVisible(driver, "Change in Hurricane Deductible May Only be Changed at Renewal");
-		attachScreenShot(driver);	
+		attachScreenShot(driver);
 	}
+
 	@When("User validates 'Coverage A change cannot exceed $100,000 Must be Approved' message")
-	public void user_validates_coverage_cannot_exceed_100000_must_be_approved_message_displayed_on_issue_tile_tc16777() throws Exception {
+	public void user_validates_coverage_cannot_exceed_100000_must_be_approved_message_displayed_on_issue_tile_tc16777()
+			throws Exception {
 		verify_AnyText_IsVisible(driver, "Coverage A change cannot exceed $100,000 Must be Approved");
 		attachScreenShot(driver);
 	}
+
 	@When("User process and completes endorsement and finishes test <tc16777>")
 	public void user_process_and_completes_endorsement_and_finishes_test_tc16777() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);

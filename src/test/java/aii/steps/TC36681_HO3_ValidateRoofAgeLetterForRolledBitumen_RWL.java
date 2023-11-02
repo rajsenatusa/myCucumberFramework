@@ -220,6 +220,7 @@ public class TC36681_HO3_ValidateRoofAgeLetterForRolledBitumen_RWL extends Commo
 	public void user_renew_policy_to_the_third_term_through_batch_jobs() throws Exception {
 		runAutoRenewPolicy(driver, PolicyNumberTerm02, "02", "03");
 	}
+
 	@Then("User validates Roof Letter is visible and completes test")
 	public void user_validates_roof_letter_is_visible_and_completes_test() throws Exception {
 		verifyInstallmentInvoiceForm(driver, "Roof Age Renewal Letter");

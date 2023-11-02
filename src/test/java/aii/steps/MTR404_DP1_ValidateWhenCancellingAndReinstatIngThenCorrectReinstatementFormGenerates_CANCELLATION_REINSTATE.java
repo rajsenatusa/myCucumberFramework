@@ -77,27 +77,32 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		wait(1);
 		click(dashboard.btnSelect);
 	}
+
 	@And("User selects Cancellation Type as Company")
 	public void User_selects_cancellation_type() {
 		selectDropdownText(historyChevron.ddCancellationType, "Company");
-		wait(2);	
+		wait(2);
 	}
+
 	@And("User selects Property ineligible as reason")
 	public void User_selects_reason() {
 		selectDropdownText(historyChevron.ddReason, "Property ineligible");
 		wait(2);
 	}
+
 	@And("User selects Constructed over water as subreason")
 	public void User_selects_subreason() {
-		selectDropdownText(historyChevron.ddSubReason,"Constructed over water");
+		selectDropdownText(historyChevron.ddSubReason, "Constructed over water");
 		click(historyChevron.btnAdd);
 		wait(2);
 	}
+
 	@And("User selects effective date as cancel date 'current date plus 30 days'")
 	public void User_sets_effective_date_as_cancel_date() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(cancelDate));
 		wait(2);
 	}
+
 	@And("User selects pro rate as cancel type and process transaction")
 	public void User_selects_pro_rate() {
 		selectDropdownText(historyChevron.ddCancelType, "Pro-Rate");
@@ -105,6 +110,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		click(dashboard.btnStart);
 		wait(3);
 	}
+
 	@And("User completes cancellation transaction and validates policy transaction status as cancelled")
 	public void User_completes_cancellation_transaction() throws Exception {
 		click(closeoutChevron.btnIssueNB);
@@ -112,6 +118,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		Hooks.scenario.log("Policy Cancellation Completed!");
 		attachScreenShot(driver);
 	}
+
 	@And("User clicks Reinstatement Transaction Selection")
 	public void User_clicks_reinstatement_Transaction_Selection() {
 		selectDropdownText(dashboard.ddSelectTransaction, "Reinstatement");
@@ -119,6 +126,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		click(dashboard.btnSelect);
 		wait(2);
 	}
+
 	@And("User clicks Start button and process transaction")
 	public void User_clicks_start_button_and_process_transaction() throws Exception {
 		click(historyChevron.btnStart);
@@ -128,6 +136,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		closeUnnecessaryTabs();
 		attachScreenShot(driver);
 	}
+
 	@And("User verifies AIIC RI 11 14 generated on Forms chevron")
 	public void User_verifies_rein_form_generated() throws Exception {
 		scrollToAnyField(driver, "REINNOTICE");
@@ -141,22 +150,26 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for Policy Number for <MTR404>")
 	public void user_searches_for_policy_number_for_mtr404() throws Exception {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User clicks Policy File Chevron for <MTR404>")
 	public void user_clicks_policy_file_chevron_for_mtr404() throws Exception {
 		waitForVisibility(driver.findElement(By.id("Tab_Documents")));
 		click(driver.findElement(By.id("Tab_Documents")));
 		wait(5);
 	}
+
 	@And("User validates Continuation of Coverage form has been displayed")
 	public void User_validates_continuation_generated() throws Exception {
 		verifyInstallmentInvoiceForm(driver, "Continuation of Coverage");
 	}
+
 	@And("User clicks Continuation of Coverage form, saves it to local and do comparisions and validations")
 	public void User_clicks_form_and_does_validations() throws Exception {
 		click(policyFileChevron.btnContinuationOfCoverage);
@@ -164,18 +177,20 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		switchToWindow(driver, "STFile&Filename");
 		wait(1);
 		Con_Coverage_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Con_Coverage");
-		PdfComparator.SavePdfForm(driver, FileLocation+Con_Coverage_Form);
+		PdfComparator.SavePdfForm(driver, FileLocation + Con_Coverage_Form);
 		wait(10);
-		Con_Coverage_Form_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Con_Coverage_Form, 1, 450, 720, 100, 50);
+		Con_Coverage_Form_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Con_Coverage_Form, 1, 450, 720,
+				100, 50);
 		PdfComparator.verifyFormData(driver, Con_Coverage_Form_Version, "AIIC RI 11 14");
-		
-		Con_Coverage_Data = PdfComparator.getPDFData(FileLocation+Con_Coverage_Form);
-		
-		//Find the required text in a pdf
+
+		Con_Coverage_Data = PdfComparator.getPDFData(FileLocation + Con_Coverage_Form);
+
+		// Find the required text in a pdf
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "AIIC RI 11 14");
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, dtf.format(cancelDate));
-		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "Your policy has been reinstated as of the Reinstatement Date shown above without interruption of coverage since");
+		PdfComparator.verifyPDFText(driver, Con_Coverage_Data,
+				"Your policy has been reinstated as of the Reinstatement Date shown above without interruption of coverage since");
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "underwriting reason(s) met.");
-		Hooks.scenario.log("PDF form Data :  "+Con_Coverage_Data);	
+		Hooks.scenario.log("PDF form Data :  " + Con_Coverage_Data);
 	}
 }

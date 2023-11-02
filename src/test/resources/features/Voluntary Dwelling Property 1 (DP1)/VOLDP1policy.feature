@@ -1,6 +1,8 @@
 #Author: Can Yavas
 #updated on 07/14/2023 by Can Yavas
 #added datatable on 07/20/2023 by C.Yavas
+#added multiple application creation on 11/01/23 by C.Yavas
+
 Feature: Issuing DP1 policy
 
   @dp1 @smoke
@@ -25,3 +27,12 @@ Feature: Issuing DP1 policy
     Then User creates DP1 policy with passing information from excel "dp1customerInfo" sheet
     ##User can change or add new customer with the help of excel data table contents from /testdata folder from VOLDP1.xlsx
 		##Do not change coloum
+		
+	@dp1multipleapplicationcreation
+  Scenario: VOL DP1 application creation with multiple customers
+    Given User login to Spin as Standard Agent
+    When User starts transaction as a new customer
+    Then User creates DP1 application with passing information from excel "dp1customerInfo" sheet
+    ##User can change or add new customer with the help of excel data table contents from /testdata folder from VOLDP1.xlsx
+		##Do not change coloum
+		

@@ -14,7 +14,6 @@ public class MTR367_DP3_OwnerOccupiedEndForm_EndorsetoIntegritySelect_END extend
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String FileLocation = System.getProperty("user.dir") + "\\target\\";
-
 	String application_Form = null;
 	String EndPackage_Form = null;
 

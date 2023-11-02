@@ -72,18 +72,20 @@ public class MTR471_DP3_ValidateMandatoryArbitrationRequireUWApproval_30days_END
 //		// Switch back to the main page
 //		driver.switchTo().window(tabs.get(0));
 	}
-	
+
 	@When("User searches previously created application")
 	public void user_searches_previously_created_application() throws Exception {
 		sendText(dashboard.txtSearchBar, applicationNumber);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("UW User approves application")
 	public void user_approves_application() throws Exception {
 		click(closeoutChevron.btnApprove);
 		wait(5);
 	}
+
 	@When("User completes endorsement")
 	public void user_completes_endorsement() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);

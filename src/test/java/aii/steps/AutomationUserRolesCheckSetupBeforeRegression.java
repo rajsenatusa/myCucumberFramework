@@ -196,6 +196,7 @@ public class AutomationUserRolesCheckSetupBeforeRegression extends CommonMethods
 		click(userLookup.btnSave);
 		wait(4);
 	}
+
 	@When("User deletes Local User Maintenance Role")
 	public void user_deletes_local_User_Maintenance_Role() {
 		click(driver.findElement(By.id("DeleteRole_2")));
@@ -204,6 +205,7 @@ public class AutomationUserRolesCheckSetupBeforeRegression extends CommonMethods
 		click(userLookup.btnSave);
 		wait(4);
 	}
+
 	@When("User changes Concurrent Sessions as 50")
 	public void user_changes_Concurrent_Sessions_as_50() {
 		sendText(driver.findElement(By.id("UserInfo.ConcurrentSessions")), "50");

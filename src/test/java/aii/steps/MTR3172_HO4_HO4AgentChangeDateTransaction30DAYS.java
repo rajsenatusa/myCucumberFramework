@@ -16,6 +16,7 @@ public class MTR3172_HO4_HO4AgentChangeDateTransaction30DAYS extends CommonMetho
 	static String policyNum;
 	static String AppNum;
 
+	
 	@When("User takes note of the policy number for <mtr3172>")
 	public void user_takes_note_of_the_policy_number_for_mtr3172() throws Exception {
 		try {

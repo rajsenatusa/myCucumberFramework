@@ -15,6 +15,7 @@ import io.cucumber.java.en.When;
 
 public class TOHO3policy extends CommonMethods {
 
+	
 	@When("User enters product selection information for TOHO3 and effective date")
 	public void user_enters_product_selection_information_for_toho3_and_effective_date() {
 
