@@ -16,6 +16,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
 public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMethods {
+	
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;

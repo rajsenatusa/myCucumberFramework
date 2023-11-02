@@ -88,7 +88,6 @@ public class VOLHO3policy extends CommonMethods {
 
 		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
 		wait(2);
-
 	}
 
 	@Then("User validates that HO3 policy has been created successfully")

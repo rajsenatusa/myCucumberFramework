@@ -73,6 +73,15 @@ Feature: RC-401: 2024 Rate Changes- Inflation Guard: VOL HO3- 01/01/2024
     Then User validates HO3 Coverage D on Coverages List
     Then User validates HO3 Ordinance or Law on Coverages List
     Then User validates 10 percentage Inflation guard for Cov A
+    
+    
+    And User clicks Policy File Chevron
+    And User clicks Renewal Decleration link 
+    Then User validates VOL HO3 10 percentage in RN Declaration Package
+    Then User validates VOL HO3 inflated values on OIR B1 1670 form for first RN
+    
+    
+    
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
@@ -93,6 +102,12 @@ Feature: RC-401: 2024 Rate Changes- Inflation Guard: VOL HO3- 01/01/2024
     Then User validates HO3 Coverage D on Coverages List after second RN
     Then User validates HO3 Ordinance or Law on Coverages List after second RN
     Then User validates 10 percentage Inflation guard for Cov A after second RN
+    
+    And User clicks Policy File Chevron
+    And User clicks Renewal Decleration link
+    Then User validates VOL HO3 10 percentage in RN Declaration Package
+    Then User validates VOL HO3 inflated values on OIR B1 1670 form for second RN
+    
 
     Examples: Test Data
       | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |

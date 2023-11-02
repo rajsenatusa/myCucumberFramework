@@ -41,6 +41,7 @@ public class TC16827_UMB_UMBAgentChangeDateTransaction60DAYS extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+
 	@When("User enters producer code and answers previous policy written with AIIG questions tc16827")
 	public void user_answers_previous_policy_written_with_aiig_questions_tc16827() {
 		sendText(policyChevron.txtProducerCodeSel, "AG8166A1");
@@ -52,12 +53,14 @@ public class TC16827_UMB_UMBAgentChangeDateTransaction60DAYS extends CommonMetho
 		click(policyChevron.btnNext);
 		wait(2);
 	}
+
 	@When("User searches for the policy number <tc16827>")
 	public void user_searches_policy_for_tc16827() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User enters all required information on UMB personal liability screen <tc16827>")
 	public void user_enters_all_required_information_on_umb_personal_liability_screen_tc16827() {
 
@@ -73,6 +76,7 @@ public class TC16827_UMB_UMBAgentChangeDateTransaction60DAYS extends CommonMetho
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User validates that UMB policy has been created successfully and takes note of the policy number <tc16827>")
 	public void user_validates_that_umb_policy_has_been_created_successfully_tc16827() throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
@@ -95,12 +99,14 @@ public class TC16827_UMB_UMBAgentChangeDateTransaction60DAYS extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the umbrella policy number <tc16827>")
 	public void user_searches_umbrella_policy_for_tc16827() {
 		sendText(dashboard.txtSearchBar, UMBpolicyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User selects current date plus 61 days as new effective date <tc16827>")
 	public void User_selects_current_date_plus_61_days_as_new_effective_date_tc16827() {
 		sendText(historyChevron.txtNewEffectiveDate, dtf.format(currentDate.plusDays(61)));
@@ -110,11 +116,14 @@ public class TC16827_UMB_UMBAgentChangeDateTransaction60DAYS extends CommonMetho
 		click(historyChevron.btnStart);
 		wait(1);
 	}
+
 	@When("User validates 'Maximum change date allowed is 60 days. You will need to rewrite this policy.' label is visible <tc16827>")
 	public void user_validates_maximum_change_date_allowed_is_60_days_label_is_visible_tc16827() throws Exception {
-		verify_AnyLabel_IsVisible(driver, "Maximum change date allowed is +/- 60 days. You will need to rewrite this policy.");
+		verify_AnyLabel_IsVisible(driver,
+				"Maximum change date allowed is +/- 60 days. You will need to rewrite this policy.");
 		attachScreenShot(driver);
 	}
+
 	@And("User selects current date plus 60 days as new effective date <tc16827>")
 	public void User_selects_current_date_plus_60_days_as_new_effective_date_tc16827() {
 		sendText(historyChevron.txtNewEffectiveDate, dtf.format(currentDate.plusDays(60)));
@@ -124,12 +133,16 @@ public class TC16827_UMB_UMBAgentChangeDateTransaction60DAYS extends CommonMetho
 		click(historyChevron.btnStart);
 		wait(1);
 	}
+
 	@When("User validates 'Requested effective date change requires Underwriting review' label is visible <tc16827>")
-	public void user_validates_requested_effective_date_change_requires_underwriting_review_label_is_visible_tc16827() throws Exception {
-		verify_AnyText_NotVisible(driver, "Maximum change date allowed is +/- 60 days. You will need to rewrite this policy.");
+	public void user_validates_requested_effective_date_change_requires_underwriting_review_label_is_visible_tc16827()
+			throws Exception {
+		verify_AnyText_NotVisible(driver,
+				"Maximum change date allowed is +/- 60 days. You will need to rewrite this policy.");
 		verify_AnyLabel_IsVisible(driver, "Requested effective date change requires Underwriting review");
 		attachScreenShot(driver);
 	}
+
 	@When("User takes note of the application for <tc16827>")
 	public void user_takes_note_of_the_application__number_for_tc16827() throws Exception {
 		try {
@@ -139,17 +152,21 @@ public class TC16827_UMB_UMBAgentChangeDateTransaction60DAYS extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches application <tc16827>")
 	public void user_searches_application_tc16827() throws Exception {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User validates 'Requested effective date change requires underwriting review' text is visible tc16827")
-	public void User_validates_requested_effective_date_change_requires_underwriting_review_text_visible_tc16827() throws Exception {
+	public void User_validates_requested_effective_date_change_requires_underwriting_review_text_visible_tc16827()
+			throws Exception {
 		verify_AnyText_IsVisible(driver, "Requested effective date change requires underwriting review");
 		attachScreenShot(driver);
 	}
+
 	@When("User process tx and validates expected messages and finishes test tc16827")
 	public void user_process_tx_and_validates_expected_messages_finishes_test_tc16827() throws Exception {
 		click(closeoutChevron.btnIssueNB);
@@ -157,9 +174,11 @@ public class TC16827_UMB_UMBAgentChangeDateTransaction60DAYS extends CommonMetho
 		getPolicyNumber(driver);
 		closeUnnecessaryTabs();
 		verify_AnyText_IsVisible(driver, "Change Date");
-		verify_AnyText_IsVisible(driver, "Change Effective Date from " + dtf.format(currentDate) + " to " + dtf.format(currentDate.plusDays(60)));
+		verify_AnyText_IsVisible(driver, "Change Effective Date from " + dtf.format(currentDate) + " to "
+				+ dtf.format(currentDate.plusDays(60)));
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User adds underlying policy in personal liability chevron tc16827")
 	public void user_adds_underlying_policy_in_personal_liability_chevron_tc16827() {
 		click(umbrellaChevron.btnAddPolicy);

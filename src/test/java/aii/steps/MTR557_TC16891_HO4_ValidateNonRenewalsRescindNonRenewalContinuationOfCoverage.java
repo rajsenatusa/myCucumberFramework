@@ -75,82 +75,98 @@ public class MTR557_TC16891_HO4_ValidateNonRenewalsRescindNonRenewalContinuation
 		setBookDate(driver, dtf.format(nonRenDate1));
 		click(dashboard.btnChangeBookDate);
 	}
+
 	@When("User searches for Policy Number for <mtr557>")
 	public void user_searches_for_policy_number_for_mtr557() throws Exception {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User clicks Non-Renewal Transaction Selection")
-	public void User_clicks_non_renewal_Transaction_Selection() {	    	   						
-		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal");	
-		 wait(1);	
-		 click(dashboard.btnSelect);	
+	public void User_clicks_non_renewal_Transaction_Selection() {
+		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal");
+		wait(1);
+		click(dashboard.btnSelect);
 	}
+
 	@And("User selects 'Failure to comply with underwriting requirements' as reason")
-	public void User_selects_reason() {	    	   						
+	public void User_selects_reason() {
 		selectDropdownText(historyChevron.ddReason, "Failure to comply with underwriting requirements");
 		wait(1);
-		selectDropdownText(historyChevron.ddSubReason, "Additional information required for underwriting review not provided");
+		selectDropdownText(historyChevron.ddSubReason,
+				"Additional information required for underwriting review not provided");
 		click(historyChevron.btnAdd);
 		wait(2);
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@And("User process transaction and clicks plus sign and validates UW reason message has been displayed")
-	public void User_process_transaction_and_validates() throws Exception {	    	   						
+	public void User_process_transaction_and_validates() throws Exception {
 		click(reviewChevron.btnProcess);
 		wait(5);
 		click(historyChevron.btnExpand);
-		verify_AnyText_IsVisible(driver, "Failure to comply with underwriting requirements;  additional information required for underwriting review not provided.");
+		verify_AnyText_IsVisible(driver,
+				"Failure to comply with underwriting requirements;  additional information required for underwriting review not provided.");
 	}
+
 	@And("User clicks Non-Renewal Rescind Transaction Selection")
-	public void User_clicks_non_renewal_rescind_Transaction_Selection() {	    	   						
-		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal Rescind");	
-		 wait(1);	
-		 click(dashboard.btnSelect);	
+	public void User_clicks_non_renewal_rescind_Transaction_Selection() {
+		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal Rescind");
+		wait(1);
+		click(dashboard.btnSelect);
 	}
+
 	@And("User validates 'Failure to comply with underwriting requirements;  additional information required for underwriting review not provided.' message has been displayed")
-	public void User_validates_uw_reason_msg_displayed() throws Exception {	    	   						
-		verify_AnyText_IsVisible(driver, "Failure to comply with underwriting requirements;  additional information required for underwriting review not provided.");	
+	public void User_validates_uw_reason_msg_displayed() throws Exception {
+		verify_AnyText_IsVisible(driver,
+				"Failure to comply with underwriting requirements;  additional information required for underwriting review not provided.");
 	}
+
 	@And("User clicks Start and process transaction")
-	public void User_clicks_start_and_process_transaction() {	    	   						
-		click(historyChevron.btnStart);	
+	public void User_clicks_start_and_process_transaction() {
+		click(historyChevron.btnStart);
 		wait(4);
 		click(reviewChevron.btnProcess);
 		wait(8);
 		closeUnnecessaryTabs();
 	}
+
 	@And("User clicks Expand Button for Rescission of Non-Renewal Notice")
-	public void User_clicks_expand_button_for_rescission_non_renewal() throws Exception {	    	   						
+	public void User_clicks_expand_button_for_rescission_non_renewal() throws Exception {
 		click(policyFileChevron.btnExpand);
 		verifyInstallmentInvoiceForm(driver, "Rescission of Non-Renewal Notice");
-		switchWindows(driver);	
+		switchWindows(driver);
 	}
+
 	@And("User clicks 'Rescission of Non-Renewal Notice' form")
-	public void User_clicks_rescission_of_rn_notice_form() throws Exception {	    	   						
+	public void User_clicks_rescission_of_rn_notice_form() throws Exception {
 		clickOnAnyPolicyFileTabForm(driver, "Rescission of Non-Renewal Notice");
 		wait(7);
 	}
+
 	@And("User switches the form, saves form and does comparision with expected texts")
-	public void User_switches_the_form_and_does_validations() throws Exception {	    	   						
+	public void User_switches_the_form_and_does_validations() throws Exception {
 		switchToWindow(driver, "STFile&Filename");
 		wait(1);
 		Con_Coverage_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Con_Coverage");
-		PdfComparator.SavePdfForm(driver, FileLocation+Con_Coverage_Form);
+		PdfComparator.SavePdfForm(driver, FileLocation + Con_Coverage_Form);
 		Thread.sleep(500);
-		Con_Coverage_Form_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Con_Coverage_Form, 1, 450, 720, 100, 50);
+		Con_Coverage_Form_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Con_Coverage_Form, 1, 450, 720,
+				100, 50);
 		PdfComparator.verifyFormData(driver, Con_Coverage_Form_Version, "AIIC REC 11 14");
-		
-		Con_Coverage_Data = PdfComparator.getPDFData(FileLocation+Con_Coverage_Form);
-		
-		//Find the required text in a pdf
+
+		Con_Coverage_Data = PdfComparator.getPDFData(FileLocation + Con_Coverage_Form);
+
+		// Find the required text in a pdf
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "AIIC REC 11 14");
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, dtf.format(expDate));
-		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "Your policy will continue without interruption of coverage since underwriting reason(s) met prior to the");
-		
+		PdfComparator.verifyPDFText(driver, Con_Coverage_Data,
+				"Your policy will continue without interruption of coverage since underwriting reason(s) met prior to the");
+
 	}
+
 	@When("User clicks Admin Tab and does change date transaction to exp.date minus <124> days")
 	public void user_clicks_admin_tab_and_does_change_date_transaction_exp_date_minus_124_days() throws Exception {
 		click(dashboard.btnAdmin);
@@ -161,9 +177,10 @@ public class MTR557_TC16891_HO4_ValidateNonRenewalsRescindNonRenewalContinuation
 		setBookDate(driver, dtf.format(nonRenDate2));
 		click(dashboard.btnChangeBookDate);
 	}
+
 	@When("User validates 'Transaction must occur within the allowed Non-Renewal Request date range' label has been displayed")
 	public void user_validates_label_has_been_displayed() throws Exception {
 		verify_AnyLabel_IsVisible(driver, "Transaction must occur within the allowed Non-Renewal Request date range");
 	}
-	
+
 }

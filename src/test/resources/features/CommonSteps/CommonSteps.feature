@@ -120,5 +120,6 @@ Feature: Common Transactions and Steps
     And User clicks Dwelling chevron
     And User clicks Integrity Select in Dwelling Detail
     And User selects Hurricane Deductible as 10 percentage
-    And User clicks Gold Reserve Package
-    And User clicks Silver Reserve Package
+    And User clicks Renewal Decleration link
+    And User clicks Endorsement Package link
+    

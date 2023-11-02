@@ -23,8 +23,7 @@ public class CommonSteps extends CommonMethods {
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String app_Tx_Policy_Claim_Num;
 	static String date;
-	
- 
+
 	@Given("User login to Spin as Standard Agent")
 	public void user_login_to_spin_as_standard_agent() throws Throwable {
 		sendText(login.username, ConfigsReader.getProperty("username"));
@@ -48,6 +47,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Underwriter Clerk")
 	public void user_login_to_spin_as_underwriter_clerk() {
 		sendText(login.username, ConfigsReader.getProperty("uwclerkusername"));
@@ -55,6 +55,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Underwriter Team Lead")
 	public void user_login_to_spin_as_underwriter_team_lead() {
 		sendText(login.username, ConfigsReader.getProperty("uwteamleadusername"));
@@ -62,6 +63,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Diamond Agent")
 	public void user_login_to_spin_as_diamond_agent() {
 		sendText(login.username, ConfigsReader.getProperty("diamondusername"));
@@ -69,6 +71,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Diamond Agent 2")
 	public void user_login_to_spin_as_diamond_agent_2() {
 		sendText(login.username, ConfigsReader.getProperty("diamond2username"));
@@ -76,6 +79,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Automation Test Agent")
 	public void user_login_to_spin_as_automation_test_agent() {
 		sendText(login.username, ConfigsReader.getProperty("automationtestusername"));
@@ -83,6 +87,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Adjuster")
 	public void user_login_to_spin_as_adjuster() {
 		sendText(login.username, ConfigsReader.getProperty("adjusterusername"));
@@ -90,6 +95,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Standard Agent 2")
 	public void user_login_to_spin_as_standard_agent_2() {
 		sendText(login.username, ConfigsReader.getProperty("standardagent2username"));
@@ -105,6 +111,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Claim CSR")
 	public void user_login_to_spin_as_claimcsr() {
 		sendText(login.username, ConfigsReader.getProperty("claimcsrusername"));
@@ -112,6 +119,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as Claims Manager")
 	public void user_login_to_spin_as_claims_manager() {
 		sendText(login.username, ConfigsReader.getProperty("claimmgrusername"));
@@ -119,6 +127,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User login to Spin as AllState Agent")
 	public void user_login_to_spin_as_allstateagent() {
 		sendText(login.username, ConfigsReader.getProperty("allstateagentusername"));
@@ -126,6 +135,7 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
 
@@ -149,21 +159,25 @@ public class CommonSteps extends CommonMethods {
 	public void user_enters_a_valid_username() {
 		sendText(login.username, ConfigsReader.getProperty("username"));
 	}
+
 	@When("User clicks Review Chevron")
 	public void user_clicks_review_chevron() {
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User clicks History Chevron")
 	public void User_clicks_History_Chevron() {
 		click(reviewChevron.btnHistory);
-		wait(3);	
+		wait(3);
 	}
+
 	@When("User clicks Premium Info Chevron")
 	public void user_clicks_Premium_Info_chevron() {
 		click(reviewChevron.btnPremiumInfo);
 		wait(3);
 	}
+
 	@When("User searches policy number before starting transaction")
 	public void user_searches_policy_number_before_starting_transaction() {
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
@@ -172,28 +186,34 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.search);
 		wait(1);
 	}
+
 	@When("User enters a valid password")
 	public void user_enters_a_valid_password() {
 		sendText(login.password, ConfigsReader.getProperty("password"));
 	}
+
 	@When("User clicks on the signin button")
 	public void user_clicks_on_the_signin_button() {
 		click(login.btnSignIn);
 	}
+
 	@Then("User quits the browser")
 	public void user_quits_the_browser() {
 		// commented this out in lesson because we have Hooks.java
 		// tearDown();
 	}
+
 	@Then("User clicks Calculate Button")
 	public void user_clicks_calculate_button() {
 		click(dwellingChevron.btnCalculate);
 		wait(4);
 	}
+
 	@Then("User selects Number of Units {string}")
-	public void user_selects_number_of_unit (String NumberOfUnits) {
+	public void user_selects_number_of_unit(String NumberOfUnits) {
 		selectDropdownText(dwellingChevron.ddNumberofUnits, NumberOfUnits);
 	}
+
 	@And("User checks application dwelling screen and finalizes transaction")
 	public void user_checks_application_dwelling_screen_and_finalizes_transaction() {
 		// Application Dwelling information was filled here
@@ -203,6 +223,7 @@ public class CommonSteps extends CommonMethods {
 		click(reviewChevron.btnFinalize);
 		wait(2);
 	}
+
 	@When("User enters all required information on policy information screen")
 	public void user_enters_all_required_information_on_policy_information_screen() {
 
@@ -221,6 +242,7 @@ public class CommonSteps extends CommonMethods {
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+
 	@When("User enters all required information on SC policy information screen")
 	public void user_enters_all_required_information_on_sc_policy_information_screen() {
 
@@ -256,21 +278,24 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.search);
 		wait(1);
 	}
+
 	@And("User enters Producer")
-	public void User_enters_Producer() {	    	   				
+	public void User_enters_Producer() {
 		policyChevron.txtProducerCodeSel.sendKeys(ConfigsReader.getProperty("Producer"));
-		click(dwellingChevron.btnSave);	
+		click(dwellingChevron.btnSave);
 		wait(1);
- 	}
+	}
 
 	@And("User starts transaction on policy")
 	public void user_starts_transaction() {
 		startTransaction();
 	}
+
 	@And("User clicks Next on Policy Chevron")
 	public void user_clicks_next_on_policy_chevron() {
 		click(policyChevron.btnNext);
 	}
+
 	@Given("User selects endorsement transaction on {string}")
 	public void user_selects_an_endorsement_transaction(String Days) throws Exception {
 
@@ -349,7 +374,8 @@ public class CommonSteps extends CommonMethods {
 	}
 
 	@And("User enters Quote Information as effective date with {string} days difference and state {string} and {string} Insurance Carrier group")
-	public void user_enters_quote_Information_as_effective_date_with(String Days, String State, String CarrierGroup) throws Exception {
+	public void user_enters_quote_Information_as_effective_date_with(String Days, String State, String CarrierGroup)
+			throws Exception {
 
 		String effectiveDate = changeDate(Days);
 
@@ -452,6 +478,7 @@ public class CommonSteps extends CommonMethods {
 			return false;
 		}
 	}
+
 	@Given("User fills all the DP3 UW questions")
 	public void user_fills_all_DP3_uw_Questions() throws InterruptedException {
 		wait(3);
@@ -523,6 +550,7 @@ public class CommonSteps extends CommonMethods {
 		wait(1);
 		click(uwquestionsChevron.nextButtonUw);
 	}
+
 	@When("User enters all the information on DP3 review screen")
 	public void user_enters_all_required_information_on_dp3_review_screen() throws Exception {
 
@@ -536,16 +564,18 @@ public class CommonSteps extends CommonMethods {
 		click(dwellingChevron.btnSave);
 		wait(2);
 	}
+
 	@Given("User enters Order Insurance Score")
 	public void User_enters_Order_Insurance_Score() throws Exception {
 
 		click(dwellingChevron.btnNext);
 		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
 	}
+
 	@Given("User fills all the details on Review screen for {string} product")
 	public void user_fills_all_the_details_on_review_screen_for_product(String LOB) throws Exception {
 		click(dwellingChevron.btnNext);
-		
+
 		switch (LOB) {
 		case "HO3":
 			select_Direct_FullPayplanType();
@@ -595,6 +625,7 @@ public class CommonSteps extends CommonMethods {
 			throw new RuntimeException("Unable to find LOB");
 		}
 	}
+
 	@Given("User creates application for {string} product")
 	public void user_creates_application_for_product(String LOB) {
 		if (LOB.equalsIgnoreCase("HO4") || LOB.equalsIgnoreCase("DP1") || LOB.equalsIgnoreCase("DP3")
@@ -604,8 +635,7 @@ public class CommonSteps extends CommonMethods {
 
 			click(reviewChevron.btnCreateApplication);
 			wait(3);
-		}
-		else {
+		} else {
 			click(reviewChevron.btnCreateApplication);
 			wait(4);
 			click(reviewChevron.btnInsuranceScoreBox);
@@ -613,9 +643,10 @@ public class CommonSteps extends CommonMethods {
 			wait(3);
 		}
 	}
+
 	@Given("User fills all the {string} product UW questions")
 	public void user_fills_all_the_product_uw_questions(String LOB) throws Exception {
-		
+
 		switch (LOB) {
 		case "HO3":
 			fillHO3_UWQuestions();
@@ -648,9 +679,10 @@ public class CommonSteps extends CommonMethods {
 			throw new RuntimeException("Unable to find LOB");
 		}
 	}
+
 	@Given("User renews policy {string} to next term through manual transaction")
 	public void user_renews_policy_to_next_term(String policy) {
-		
+
 		wait(1);
 		sendText(dashboard.txtSearchBar, policy);
 		click(dashboard.search);
@@ -663,6 +695,7 @@ public class CommonSteps extends CommonMethods {
 		click(reviewChevron.btnFinalize);
 		click(closeoutChevron.btnIssueNB);
 	}
+
 	@Given("User renews policy to next term through manual transaction")
 	public void user_renews_policy_to_next_term_as_per_global_variable_variable_policy() {
 
@@ -678,6 +711,7 @@ public class CommonSteps extends CommonMethods {
 		click(reviewChevron.btnFinalize);
 		click(closeoutChevron.btnIssueNB);
 	}
+
 	@Given("User reinstates  policy {string}")
 	public void user_reinstates_policy(String policy) {
 
@@ -692,6 +726,7 @@ public class CommonSteps extends CommonMethods {
 		wait(1);
 		click(closeoutChevron.btnIssueNB);
 	}
+
 	@Given("User cancels policy {string}")
 	public void user_cancels_policy(String policy) {
 		wait(1);
@@ -711,6 +746,7 @@ public class CommonSteps extends CommonMethods {
 		wait(1);
 		click(closeoutChevron.btnIssueNB);
 	}
+
 	@Given("User cancels policy through manual transaction")
 	public void user_cancels_policy_through_manual_transaction() {
 
@@ -772,10 +808,12 @@ public class CommonSteps extends CommonMethods {
 		click(closeoutChevron.btnIssueNB);
 		wait(4);
 	}
+
 	@And("User enters Policy General detail with Producer Code {string}")
 	public void user_enters_policy_general_detail_with_producer_code(String producerCode) {
 		sendText(policyChevron.txtProducerCodeSel, producerCode);
 	}
+
 	@Given("User signin Spin with username {string} and password {string}")
 	public void user_signin_spin_with_username_and_password(String user, String Pwd) {
 		sendText(login.username, user);
@@ -783,17 +821,20 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(1);
 	}
+
 	@Given("User submits the application for UW approval")
 	public void user_submits_the_application_for_uw_approval() throws Exception {
 		app_Tx_Policy_Claim_Num = getApplicationNumber(driver);
 		sendText(closeoutChevron.txtWorkflowComments, "Underwriting approval required for " + app_Tx_Policy_Claim_Num);
 		submitForApprovalWithDialog();
 	}
+
 	@Given("User submits the application for UW manager approval")
 	public void user_submits_the_application_for_uw_manager_approval() throws Exception {
 		app_Tx_Policy_Claim_Num = getApplicationNumber(driver);
 		submitForApproval();
 	}
+
 	@Given("User signs out")
 	public void user_signs_out() {
 		click(dashboard.btnUserMenu);
@@ -802,15 +843,18 @@ public class CommonSteps extends CommonMethods {
 		wait(2);
 		Hooks.scenario.log("Sign out was clicked");
 	}
+
 	@Given("User submits the claim transaction for approval")
 	public void user_submits_the_claim_for_approval() throws Exception {
 		app_Tx_Policy_Claim_Num = getClaimTransactionNumber(driver);
 		submitForApproval();
 	}
+
 	@Given("User approves the application or transaction")
 	public void user_approves_the_app_tx() throws Exception {
 		click(closeoutChevron.btnApprove);
 	}
+
 	@Given("User search for the app or transaction or policy")
 	public void user_search_for_app_tx_policy() {
 		wait(1);
@@ -818,6 +862,7 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.search);
 		wait(1);
 	}
+
 	@Given("User reports loss on policy with effective of {string}")
 	public void user_reports_loss_policy_with_effective_of(String days) {
 		changeDate(days);
@@ -830,37 +875,42 @@ public class CommonSteps extends CommonMethods {
 		click(holder.btnReport);
 		wait(2);
 	}
+
 	@Given("User selects only loss cause as {string}")
 	public void user_selects_loss_cause_as(String lossCause) {
 		selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
 	}
+
 	@Given("User clicks Windstorm or Hail Exclusion")
 	public void User_clicks_Windstorm_or_Hail_Exclusion() {
 		wait(1);
 		click(dwellingChevron.buildingWindHailExcludedInd);
 		wait(1);
-	}	
+	}
+
 	@And("User enters Distance to Hydrant_Accredited Water Source")
 	public void User_enters_Distance_to_Hydrant_Accredited_Water_Source() {
 		selectDropdown(dwellingChevron.ddDistanceToHydrant, 1);
 		wait(1);
 	}
-	
+
 	@And("User enters Roof Material")
 	public void User_enters_Roof_Material() {
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");
 	}
+
 	@When("User finalizes transaction and issues takeout policy")
 	public void user_finalizes_transaction_and_issues_takeout_policy() {
-		
+
 		click(reviewChevron.btnFinalize);
 		wait(2);
-		
-		//Closeout Chevron information was filled here
-		
+
+		// Closeout Chevron information was filled here
+
 		click(closeoutChevron.btnIssueNB);
 		wait(12);
 	}
+
 	@Given("User selects loss cause as {string} and other related questions")
 	public void user_selects_loss_cause_and_questions(String lossCause) {
 
@@ -876,16 +926,14 @@ public class CommonSteps extends CommonMethods {
 			selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
 			wait(1);
 			selectDropdownText(lossNoticeInfo.lstCQHomeHabitable, "Yes");
-		}
-		else if (lossCause.equalsIgnoreCase("Home Cyber Protection") || lossCause.equalsIgnoreCase("ID Recovery")
+		} else if (lossCause.equalsIgnoreCase("Home Cyber Protection") || lossCause.equalsIgnoreCase("ID Recovery")
 				|| lossCause.equalsIgnoreCase("Mysterious Disappearance")
 				|| lossCause.equalsIgnoreCase("Liability PD - Non-Pollution")
 				|| lossCause.equalsIgnoreCase("Medical Payments")) {
 
 			selectDropdownText(lossNoticeInfo.lstLossCause, lossCause);
 			wait(1);
-		}
-		else {
+		} else {
 			switch (lossCause.toLowerCase()) {
 			case "Fire":
 				selectDropdownText(lossNoticeInfo.lstLossCause, "Fire");

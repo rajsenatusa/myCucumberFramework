@@ -11,7 +11,8 @@ import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
-public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesRequiresUWApproval extends CommonMethods{
+public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesRequiresUWApproval
+		extends CommonMethods {
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static LocalDateTime effectiveDate = currentDate.minusYears(1);
@@ -19,11 +20,12 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 	static String AppNum;
 	static String policyNum;
 	static String PolicyTerm02;
-	
+
 	@When("User changes system date to effective date 'current date minus 1 year' <tc34819>")
 	public void user_changes_system_date_to__eff_date_tc34819() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(effectiveDate));
 	}
+
 	@When("User enters all required information on policy information screen <tc34819>")
 	public void user_enters_all_required_information_on_policy_information_screen_tc34819() {
 
@@ -42,6 +44,7 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+
 	@When("User enters product selection information for TODP3 and current date minus 1 year as effective date")
 	public void user_enters_product_selection_information_for_todp3_and_current_date_minus_1_year_as_effective_date() {
 		// login with admin for issuing TO policy
@@ -53,6 +56,7 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		click(product.btnContinue);
 		click(product.btnProductSelectionTodp3);
 	}
+
 	@When("User enters all required information on TODP3 quote screen <tc34819>")
 	public void user_enters_all_required_information_on_todp3_quote_screen_tc34819() {
 		// Quote Policy Chevron information was filled here
@@ -70,6 +74,7 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		wait(1);
 		click(policyChevron.btnNext);
 	}
+
 	@When("User enters all required information on TODP3 dwelling screen <tc34819>")
 	public void user_enters_all_required_information_on_todp3_dwelling_screen_tc34819() {
 		// Quote Dwelling information was filled here
@@ -92,6 +97,7 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User clicks dwelling chevron and selects roof material <tc34819>")
 	public void user_clicks_dwelling_chevron_and_selects_roof_material_tc34819() {
 		click(specialChevron.btnDwellingWiz);
@@ -100,8 +106,10 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		wait(2);
 		click(dwellingChevron.btnSave);
 	}
+
 	@When("User validates that TODP3 policy has been created successfully and take note of policy number <tc34819>")
-	public void user_validated_todp3_policy_has_been_created_successfully_and_takes_note_of_policy_number_tc34819() throws Exception {
+	public void user_validated_todp3_policy_has_been_created_successfully_and_takes_note_of_policy_number_tc34819()
+			throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("Renewal")) {
@@ -122,6 +130,7 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 			e.printStackTrace();
 		}
 	}
+
 	@When("User clicks Make Payment and selects credit card and enters due amount for <tc34819>")
 	public void user_clicks_make_payment_and_selects_tc34819() {
 		click(closeoutChevron.btnMakePaymentHolder);
@@ -135,27 +144,32 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		sendText(closeoutChevron.txtEnterAmountBox, currentDue);
 		wait(4);
 	}
+
 	@When("User makes payment with Credit Card for <tc34819>")
 	public void user_makes_payment_with_credit_card_tc34819() {
 		makeCCPayment();
 		wait(1);
 		closeUnnecessaryTabs();
 	}
+
 	@When("User does auto renewal through batch jobs <tc34819>")
 	public void user_does_auto_renewal_through_batch_jobs_tc34819() throws Exception {
 		PolicyTerm02 = runAutoRenewPolicy(driver, policyNum, "01", "02");
 		wait(1);
 	}
+
 	@When("User changes system date to renewal date minus 1 day <tc34819>")
 	public void user_changes_system_date_to__renewal_date_minus_1_day_tc34819() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(RnwlDate.minusDays(1)));
 	}
+
 	@When("User searches for the renewed policy number <tc34819>")
 	public void user_searches_renewed_policy_for_tc34819() {
 		sendText(dashboard.txtSearchBar, PolicyTerm02);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as renewal effective date and starts endorsement <tc34819>")
 	public void User_sets_new_effective_date_as_renewaleffective_date_and_starts_endorsement_tc34819() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(RnwlDate));
@@ -165,17 +179,20 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User clicks dwelling chevron <tc34819>")
 	public void user_clicks_dwelling_chevron_tc34819() {
 		click(specialChevron.btnDwellingWiz);
 		wait(2);
 	}
+
 	@When("User unchecks wind hail exclusion")
 	public void user_unchecks_wind_hail_exclusion() {
 		click(dwellingChevron.rbWindHailExc);
 		click(dwellingChevron.btnSave);
 		wait(1);
 	}
+
 	@When("User finalizes transaction and validates expected text messages on closeout screen")
 	public void user_finalizes_transaction_and_validates_expected_text_messages_on_closeout_Screen() throws Exception {
 		click(dwellingChevron.btnFinalize);
@@ -186,6 +203,7 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		verify_AnyLabel_IsVisible(driver, "Preview Output");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
 	}
+
 	@When("User endorses policy and close tabs")
 	public void user_endorses_policy_and_close_tabs_tc34819() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);
@@ -193,18 +211,22 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		getPolicyNumber(driver);
 		closeUnnecessaryTabs();
 	}
+
 	@When("User changes system date to renewal date <tc34819>")
 	public void user_changes_system_date_to__renewal_date_tc34819() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(RnwlDate));
 	}
+
 	@When("User checks wind hail exclusion")
 	public void user_checks_wind_hail_exclusion() {
 		click(dwellingChevron.rbWindHailExc);
 		click(dwellingChevron.btnSave);
 		wait(1);
 	}
+
 	@When("User finalizes second transaction and validates expected text messages on closeout screen")
-	public void user_finalizes_second_transaction_and_validates_expected_text_messages_on_closeout_Screen() throws Exception {
+	public void user_finalizes_second_transaction_and_validates_expected_text_messages_on_closeout_Screen()
+			throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(2);
 		verify_AnyText_IsVisible(driver, "Deductible Change: Hurricane Changed From 2% to Not Applicable");
@@ -213,12 +235,15 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		verify_AnyLabel_IsVisible(driver, "Preview Output");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
 	}
+
 	@When("User changes system date to renewal date plus 1 day <tc34819>")
 	public void user_changes_system_date_to__renewal_date_plus_1_day_tc34819() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(RnwlDate.plusDays(1)));
 	}
+
 	@When("User finalizes third transaction and validates expected text messages on closeout screen")
-	public void user_finalizes_third_transaction_and_validates_expected_text_messages_on_closeout_Screen() throws Exception {
+	public void user_finalizes_third_transaction_and_validates_expected_text_messages_on_closeout_Screen()
+			throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(2);
 		verify_AnyText_IsVisible(driver, "The effective date must not be older than 0 days from today");
@@ -227,6 +252,7 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		verify_AnyText_IsVisible(driver, "Windstorm Or Hail Exclusion Changed From Yes to None");
 		verify_AnyLabel_IsVisible(driver, "Submit For Approval");
 	}
+
 	@When("User takes note of the application number for <tc34819>")
 	public void user_takes_note_of_the_app_number_for_tc34819() throws Exception {
 		try {
@@ -236,14 +262,16 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the application <tc34819>")
 	public void user_searches_application_for_tc34819() {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User process transaction and completes test <tc34819>")
-	public void user_process_transaction_and_comppletes_test_tc34819() throws Exception {		
+	public void user_process_transaction_and_comppletes_test_tc34819() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);
 		wait(8);
 		getPolicyNumber(driver);

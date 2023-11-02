@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.Then;
@@ -76,7 +75,7 @@ public class TC17113_GOC_UW_NB_Validations_GoldEndorsement extends CommonMethods
 
 		selectDropdownText(golfcartChevron.ddLiabilityCovType, "Split Limits");
 		wait(2);
-		//selectDropdownText(golfcartChevron.ddCombinedSingleLimit, "$300,000");
+		// selectDropdownText(golfcartChevron.ddCombinedSingleLimit, "$300,000");
 		selectDropdownText(golfcartChevron.ddBodilyInjuryPerson, "$25,000/$50,000");
 		selectDropdownText(golfcartChevron.ddPropertyDamageLimit, "$25,000");
 		selectDropdownText(golfcartChevron.ddMedicalPaymentLimit, "No Coverage");
@@ -264,7 +263,7 @@ public class TC17113_GOC_UW_NB_Validations_GoldEndorsement extends CommonMethods
 
 		driver.findElement(By.id("Wizard_GolfCart")).click();
 		waitImp(3);
-		
+
 		try {
 
 			WebElement GolfCartGoldCoverage = driver.findElement(By.id("BasicPolicy.CoveragePackage_2"));
@@ -280,7 +279,7 @@ public class TC17113_GOC_UW_NB_Validations_GoldEndorsement extends CommonMethods
 			Hooks.scenario.log("Gold Endorsement Coverage not able to validate");
 			wait(4);
 		}
-		
+
 		Helmet_text = getTextOfElement(driver, "BasicPolicy.Helmet_text");
 		expectedValue_foundValue(driver, "$2,500", Helmet_text);
 		PersonalProperty_text = getTextOfElement(driver, "BasicPolicy.PersonalProperty_text");
@@ -291,7 +290,7 @@ public class TC17113_GOC_UW_NB_Validations_GoldEndorsement extends CommonMethods
 		expectedValue_foundValue(driver, "100% deductible applies", DiminishingDed_text);
 		PermissiveInd_text = getTextOfElement(driver, "BasicPolicy.PermissiveInd_text");
 		expectedValue_foundValue(driver, "Yes", PermissiveInd_text);
-		
+
 		Hooks.scenario.log("Test Case Completed!");
 	}
 }

@@ -48,7 +48,6 @@ public class VOLHO6policy extends CommonMethods {
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);
-
 	}
 
 	@When("User enters all required information on HO6 dwelling screen")

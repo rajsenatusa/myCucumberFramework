@@ -318,27 +318,31 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		wait(10);
 
 		// Garage Location lookup address
-		AcknowledgementLetter_lookup = SmartPDFComparator2
-				.getPDFtextByArea(FileLocation + AcknowledgementLetter_Form, 1, 0, 0, 450, 350);
+		AcknowledgementLetter_lookup = SmartPDFComparator2.getPDFtextByArea(FileLocation + AcknowledgementLetter_Form,
+				1, 0, 0, 450, 350);
 		PdfComparator.verifyFormData(driver, AcknowledgementLetter_lookup, "Location of Loss:");
 		PdfComparator.verifyFormData(driver, AcknowledgementLetter_lookup, "11256 SW 62nd Avenue Rd");
 		PdfComparator.verifyFormData(driver, AcknowledgementLetter_lookup, "Ocala, FL 34476");
 	}
+
 	@When("User clicks Claim Tab")
 	public void user_clicks_claim_tab() throws Exception {
 		clickonAnyButton(driver, "Tab_Claim");
 		switchToWindow(driver, "STFile&File");
 	}
+
 	@When("User clicks Financial Actions Button")
 	public void user_clicks_financial_actions_button() throws Exception {
 		click(claim.btnFinanctialActions2);
 		wait(1);
 	}
+
 	@When("User clicks Deny")
 	public void user_clicks_deny() throws Exception {
 		click(claim.btnDeny2);
 		wait(3);
 	}
+
 	@When("User checks Deny Personal Umbrella Liability selection and enters loss date")
 	public void user_checks_deny_personal_umbrella_liability_selection_and_enters_loss_date() throws Exception {
 		click(claim.rbReverseDenialUmbLiability);
@@ -346,12 +350,14 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		sendText(claim.txtTransactionComment, "DenyDate_Feature_PUCov");
 		sendText(claim.txtDenialDate, dtf.format(lossDate));
 	}
+
 	@When("User clicks Deny button and validates 'Open - Denied' label is visible")
 	public void user_clicks_deny_button_and_validates_label_visible() throws Exception {
 		click(claim.btnSave);
 		wait(3);
 		verify_AnyLabel_IsVisible(driver, "Open - Denied");
 	}
+
 	@When("User finalizes transaction and process and complete test")
 	public void user_finalizes_transaction_and_completes_test() throws Exception {
 		click(reviewChevron.btnFinalize);
@@ -360,5 +366,5 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		wait(3);
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

@@ -11,13 +11,14 @@ import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
-public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStoriesEndorsementEdit extends CommonMethods{
+public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStoriesEndorsementEdit
+		extends CommonMethods {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String AppNum;
-	
+
 	@When("User enters all required information on policy information screen <tc34595>")
 	public void user_enters_all_required_information_on_policy_information_screen_tc34595() {
 
@@ -36,6 +37,7 @@ public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+
 	@When("User enters product selection information for TODP3 and current date as effective date <tc34595>")
 	public void user_enters_product_selection_information_for_todp3_and_current_date_as_effective_date_tc34595() {
 		// login with admin for issuing TO policy
@@ -47,6 +49,7 @@ public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 		click(product.btnContinue);
 		click(product.btnProductSelectionTodp3);
 	}
+
 	@When("User enters all required information on TODP3 quote screen <tc34595>")
 	public void user_enters_all_required_information_on_todp3_quote_screen_tc34595() {
 		// Quote Policy Chevron information was filled here
@@ -64,6 +67,7 @@ public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 		wait(1);
 		click(policyChevron.btnNext);
 	}
+
 	@When("User enters all required information on TODP3 dwelling screen <tc34595>")
 	public void user_enters_all_required_information_on_todp3_dwelling_screen_tc34595() {
 		// Quote Dwelling information was filled here
@@ -86,6 +90,7 @@ public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User clicks dwelling chevron and selects roof material <tc34595>")
 	public void user_clicks_dwelling_chevron_and_selects_roof_material_tc34595() {
 		click(specialChevron.btnDwellingWiz);
@@ -94,8 +99,10 @@ public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 		wait(2);
 		click(dwellingChevron.btnSave);
 	}
+
 	@When("User validates that TODP3 policy has been created successfully and take note of policy number <tc34595>")
-	public void user_validated_todp3_policy_has_been_created_successfully_and_takes_note_of_policy_number_tc34595() throws Exception {
+	public void user_validated_todp3_policy_has_been_created_successfully_and_takes_note_of_policy_number_tc34595()
+			throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("Renewal")) {
@@ -116,12 +123,14 @@ public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the policy number <tc34595>")
 	public void user_searches_policy_for_tc34595() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as current date plus 10 days and starts endorsement <tc34595>")
 	public void User_sets_new_effective_date_as_current_date_plus_10_days_and_starts_endorsement_tc34595()
 			throws Exception {
@@ -135,11 +144,13 @@ public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 		wait(2);
 		attachScreenShot(driver);
 	}
+
 	@When("User clicks Dwelling Chevron <tc34595>")
 	public void user_clicks_dwelling_chevron_tc34595() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 	}
+
 	@And("User clicks Finalize button <tc34595>")
 	public void User_clicks_Finalize_button_tc34595() throws Exception {
 		wait(1);
@@ -148,6 +159,7 @@ public class TC34595_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 		attachScreenShot(driver);
 		wait(1);
 	}
+
 	@And("User process and completes endorsement <tc34595>")
 	public void User_process_and_completes_endorsement_tc34595() {
 		click(closeoutChevron.btnEndorsePolicy);

@@ -234,22 +234,24 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 				"Liability PD - Non-Pollution", "Liability PD - Pollution", "Medical Payments" };
 		verifyAnyDropDownOptions(driver, lossCauses, "Claim.LossCauseCd");
 	}
+
 	@When("User selects Catastrophic Ground Cover Collapse and validates following fields")
 	public void user_selects_Catastrophic_Ground_Cover_Collapse_and_validates_following_fields() throws Exception {
-		
+
 		selectDropdownText(claim.ddLossCause, "Catastrophic Ground Cover Collapse (CGCC)");
 		Thread.sleep(500);
 		verify_AnyText_IsVisible(driver, "Is there any damage to your dwelling?*");
 		verify_AnyText_IsVisible(driver, "Is there any other damage to the property? (i.e. driveway, yard, etc...)*");
 		verify_AnyText_IsVisible(driver, "Is there any significant cracking?*");
-		
+
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQCGCCDwellingDmg", "Select...");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQCGCCPropertyDmg", "Select...");
-		verifyAnyDropdownDefaultedValue(driver, "Claim.CQCGCCCracking", "Select...");	
+		verifyAnyDropdownDefaultedValue(driver, "Claim.CQCGCCCracking", "Select...");
 	}
+
 	@When("User selects Fire as loss cause and validates following fields")
 	public void user_selects_fire_as_loss_cause_and_validates_following_fields() throws Exception {
-		
+
 		selectDropdownText(claim.ddLossCause, "Fire");
 		Thread.sleep(500);
 		verify_AnyText_IsVisible(driver, "What is the estimated amount of damage to your home?*");
@@ -258,9 +260,10 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		getanyDropDownPopulatedValueOnLossNotice(driver, "CQFireRoomsAffected");
 		getanyDropDownPopulatedValueOnLossNotice(driver, "AuthorityContacted");
 	}
+
 	@When("User selects Water Damage as loss cause and validates following fields")
 	public void user_selects_water_damage_as_loss_cause_and_validates_following_fields() throws Exception {
-		
+
 		selectDropdownText(claim.ddLossCause, "Water Damage");
 		Thread.sleep(500);
 		verify_AnyText_IsVisible(driver, "Sub Loss Cause*");
@@ -279,9 +282,10 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQWaterMold", "Select...");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQWaterRoomsDamaged", "Select...");
 	}
+
 	@When("User selects Windstorm as loss cause and validates following fields")
 	public void user_selects_windstorm_as_loss_cause_and_validates_following_fields() throws Exception {
-		
+
 		selectDropdownText(claim.ddLossCause, "Windstorm");
 		Thread.sleep(500);
 		verify_AnyText_IsVisible(driver, "Sub Loss Cause*");
@@ -298,8 +302,10 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQWindBoardTarping", "Select...");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQWindInteriorDamage", "Select...");
 	}
+
 	@When("User selects Sub Loss Cause and selects if roof damaged approx amount selection and do validations")
-	public void user_selects_Sub_Loss_cause_and_selects_if_roof_damaged_approx_amount_selection_and_do_validations() throws Exception {
+	public void user_selects_Sub_Loss_cause_and_selects_if_roof_damaged_approx_amount_selection_and_do_validations()
+			throws Exception {
 		selectDropdownText(claim.ddSubLossCause, "All Other Windstorm");
 		wait(1);
 		selectDropdownText(driver.findElement(By.id("Claim.CQWindHomeDamaged")), "Roof");
@@ -308,6 +314,7 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@When("User selects Roof damaged amount as unknown and do validations")
 	public void user_selects_roof_damaged_amount_as_unknown_and_do_validations() throws Exception {
 		selectDropdownText(claim.ddHomeHabitable, "Yes");
@@ -327,6 +334,7 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		wait(1);
 		sendText(claim.txtClaimDescription, "LN UI verification");
 	}
+
 	@When("User selects Examiner and do validations")
 	public void user_selects_examiner_and_do_validations() throws Exception {
 		clickAnyMagnifierIcon(driver, "ExaminerProviderNumber");
@@ -342,8 +350,8 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		driver.switchTo().window(mainWindow);
 		Hooks.scenario.log("Switched to Main window");
 		verify_AnyText_IsVisible(driver, "Sarah Bennett");
-		
-		//Verify fields on Insured Information Tile
+
+		// Verify fields on Insured Information Tile
 		verify_AnyText_IsVisible(driver, "Mailing Address");
 		verify_AnyText_IsVisible(driver, "Address*");
 		verify_AnyfirstText_IsDisplayed(driver, "City*");
@@ -354,9 +362,8 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		verify_AnyText_IsVisible(driver, "Primary Phone*");
 		verify_AnyText_IsVisible(driver, "Secondary Phone");
 		verify_AnyText_IsVisible(driver, "Best Time to Contact");
-		
-		
-		//Verify fields on Property Information tile
+
+		// Verify fields on Property Information tile
 		verify_AnyText_IsVisible(driver, "Loss Location*");
 		verify_AnyText_IsVisible(driver, "Address/Description*");
 		verify_JointLabels_IsDisplayed(driver, "City*");
@@ -366,6 +373,7 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		verify_AnyText_IsVisible(driver, "Damaged?");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.DamagedInd", "Select...");
 	}
+
 	@When("User selects Vehicle Location as Unscheduled Location and do validations")
 	public void user_selects_Vehicle_Location_as_Unscheduled_Location_and_do_validations() throws Exception {
 		selectDropdownText(driver.findElement(By.id("Claim.RiskIdRef")), "Unscheduled Location");
@@ -378,6 +386,7 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		attachScreenShot(driver);
 		selectDropdownText(driver.findElement(By.id("Claim.RiskIdRef")), "Primary Dwelling");
 	}
+
 	@When("User clicks save and takes note of the loss number <tc23996>")
 	public void user_clicks_save_and_takes_note_of_the_loss_number_tc23996() throws Exception {
 		click(dwellingChevron.btnSave);
@@ -389,6 +398,7 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+
 	@When("User clicks Complete and takes note of the claim number and validate expected messages <tc23996>")
 	public void user_clicks_complete_takes_notes_tc23996() throws Exception {
 		click(claim.btnComplete);
@@ -404,6 +414,7 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		verify_AnyText_IsVisible(driver, "View Loss Notice");
 		attachScreenShot(driver);
 	}
+
 	@Then("User clicks View Loss Notice and validates expected information is visible")
 	public void user_clicks_view_loss_notice_link_and_validates_expected_information_is_visible() throws Exception {
 		click(driver.findElement(By.id("ViewLossNotice")));

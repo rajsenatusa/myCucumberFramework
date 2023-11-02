@@ -28,6 +28,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 	static String RnwlCheckList_Name;
 	static String RnwlPPRCdata;
 
+	
 	@When("User validates Personal Property Replacement Cost checkbox has been enabled and not selected")
 	public void user_validates_coverage_c_defaults_to_25_on_integrity_select_package() throws Exception {
 		verifyAnyCoverageCheckbox_EnabledAndNotSelected(driver, "PPReplacementCost");
@@ -174,6 +175,12 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		wait(3);
 	}
 
+	@When("User clicks Endorsement Package link")
+	public void User_clicks_Endorsement_Package_link() throws Exception {
+		click(policyFileChevron.btnEndorsementPackageForm);
+		wait(3);
+	}
+
 	@When("User switches that forms and validates <OIR-B1-1670> has been attached and shows Actual Cash Value for Loss Settlement Basis for Coverage C on renewal package")
 	public void user_validates_forms_on_renewal() throws Exception {
 		switchToWindow(driver, "STFile&File");
@@ -193,4 +200,5 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		PdfComparator.verifyFormData(driver, RnwlPPRCdata, "Excluded");
 		PdfComparator.verifyFormData(driver, RnwlPPRCdata, "Not Applicable");
 	}
+
 }

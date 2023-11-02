@@ -11,13 +11,13 @@ import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
-public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMethods{
+public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMethods {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String AppNum;
-	
+
 	@When("User enters all required information on policy information screen <tc33769>")
 	public void user_enters_all_required_information_on_policy_information_screen_tc33769() {
 
@@ -73,6 +73,7 @@ public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User clicks dwelling chevron <tc33769>")
 	public void user_clicks_dwelling_chevron_tc33769() {
 		click(specialChevron.btnDwellingWiz);
@@ -91,6 +92,7 @@ public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@When("User validates that TOMHO policy has been created successfully and takes note of the policy number <tc33769>")
 	public void user_validates_that_tomho_policy_has_been_created_successfully_and_takes_note_of_the_policy_number_tc33769()
 			throws Exception {
@@ -114,16 +116,19 @@ public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+
 	@When("User changes system date to current date minus 1 day <tc33769>")
 	public void user_changes_system_date_To_current_date_minus_1_day_tc33769() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate.minusDays(1)));
 	}
+
 	@When("User searches for the policy number <tc33769>")
 	public void user_searches_policy_for_tc33769() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as current date and starts endorsement <tc33769>")
 	public void User_sets_new_effective_date_as_current_date_and_starts_endorsement_tc33769() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(currentDate));
@@ -133,13 +138,15 @@ public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User decrease deductibles <tc33769>")
 	public void user_decrease_deductibles_tc33769() {
-		selectDropdownText(driver.findElement(By.id("Building.AllPerilDed")),"$1,000");
-		selectDropdownText(driver.findElement(By.id("Building.HurricaneDeductible")),"5%");
+		selectDropdownText(driver.findElement(By.id("Building.AllPerilDed")), "$1,000");
+		selectDropdownText(driver.findElement(By.id("Building.HurricaneDeductible")), "5%");
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@And("User finalizes transaction and validates ded changes are visible on closeout screen and completes endorsement <tc33769>")
 	public void user_finalizes_transaction_and_endorses_policy_and_close_tabs_tc33769() throws Exception {
 		click(dwellingChevron.btnFinalize);
@@ -150,19 +157,23 @@ public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 		wait(15);
 		closeUnnecessaryTabs();
 	}
+
 	@When("User changes system date to current date <tc33769>")
 	public void user_changes_system_date_To_current_date_tc33769() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate));
 	}
+
 	@When("User increases deductibles <tc33769>")
 	public void user_increases_deductibles_tc33769() {
-		selectDropdownText(driver.findElement(By.id("Building.AllPerilDed")),"$2,500");
-		selectDropdownText(driver.findElement(By.id("Building.HurricaneDeductible")),"10%");
+		selectDropdownText(driver.findElement(By.id("Building.AllPerilDed")), "$2,500");
+		selectDropdownText(driver.findElement(By.id("Building.HurricaneDeductible")), "10%");
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@And("User finalizes transaction and validates ded changes are visible on closeout screen and completes second endorsement <tc33769>")
-	public void user_finalizes_transaction_and_validates_changes_on_second_endorseemnt_endorses_policy_and_close_tabs_tc33769() throws Exception {
+	public void user_finalizes_transaction_and_validates_changes_on_second_endorseemnt_endorses_policy_and_close_tabs_tc33769()
+			throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(3);
 		verify_AnyText_IsVisible(driver, "Deductible Change: All Other Perils Changed From $1,000 to $2,500");
@@ -171,33 +182,41 @@ public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 		wait(15);
 		closeUnnecessaryTabs();
 	}
+
 	@When("User changes system date to current date plus 1 day <tc33769>")
 	public void user_changes_system_date_To_current_date_plus_1_day_tc33769() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate.plusDays(1)));
 	}
+
 	@When("User clicks Policy Chevron <tc33769>")
 	public void user_clicks_policy_chevron_tc33769() throws Exception {
 		click(policyChevron.btnPolicyChevronLink);
 		wait(2);
 	}
+
 	@When("User validates expected validation messages on policy chevron <tc33769>")
 	public void user_validates_expected_validation_messages_on_policy_chevron_tc33769() throws Exception {
 		verify_AnyText_IsVisible(driver, "The effective date must not be older than 0 days from today");
 		verify_AnyText_IsVisible(driver, "Change in AOP Deductible may only be changed at Renewal");
-		verify_AnyText_IsVisible(driver, "Change in Hurricane Deductible may only be changed at Renewal");		
+		verify_AnyText_IsVisible(driver, "Change in Hurricane Deductible may only be changed at Renewal");
 	}
+
 	@And("User finalizes transaction and validates expected messages on closeout screen <tc33769>")
-	public void user_finalizes_transaction_and_validates_expected_messages_on_closeout_screen_tc33769() throws Exception {
+	public void user_finalizes_transaction_and_validates_expected_messages_on_closeout_screen_tc33769()
+			throws Exception {
+		click(reviewChevron.btnFinalize);
+		wait(3);
 		verify_AnyText_IsVisible(driver, "The effective date must not be older than 0 days from today");
 		verify_AnyText_IsVisible(driver, "Change in AOP Deductible may only be changed at Renewal");
 		verify_AnyText_IsVisible(driver, "Change in Hurricane Deductible may only be changed at Renewal");
-		
+
 		verify_AnyText_IsVisible(driver, "Deductible Change: All Other Perils Changed From $2,500 to $1,000");
 		verify_AnyText_IsVisible(driver, "Deductible Change: Hurricane Changed From 10% to 5%");
-		
+
 		verify_AnyLabel_IsVisible(driver, "Submit For Approval");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
 	}
+
 	@When("User takes note of the application number for <tc33769>")
 	public void user_takes_note_of_the_app_number_for_tc33769() throws Exception {
 		try {
@@ -207,12 +226,14 @@ public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for application number <tc33769>")
 	public void user_searches_for_application_number_tc33769() {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User process and completes endorsement and finishes test <tc33769>")
 	public void user_process_and_completes_endorsement_and_finishes_test_tc33769() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);

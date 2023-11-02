@@ -100,7 +100,6 @@ public class VOLUMBpolicy extends CommonMethods {
 		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
 	}
-
 	@When("User answers all underwriting questions for UMB")
 	public void user_answers_all_underwriting_questions_for_umb() {
 		// Application Underwriting Questions Chevron was filled here

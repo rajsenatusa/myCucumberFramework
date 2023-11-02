@@ -52,6 +52,7 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 		getInForcePremium(driver);
 		getInForcePremiumFees(driver);
 
+		
 		// taking note of the issued policy
 		try {
 			policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
@@ -103,7 +104,8 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 		wait(3);
 	}
 
-	@When("User switches that forms and validates form version on Renewal Declaration")
+	
+	
 	public void user_switches_that_forms_and_validates_form_version_on_rn() throws Exception {
 		switchToWindow(driver, "STFile&File");
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");

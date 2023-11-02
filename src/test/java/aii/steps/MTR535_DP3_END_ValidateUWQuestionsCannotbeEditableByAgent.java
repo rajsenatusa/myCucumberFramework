@@ -93,6 +93,7 @@ public class MTR535_DP3_END_ValidateUWQuestionsCannotbeEditableByAgent extends C
 		click(policyChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User selects endorsement date as current date")
 	public void user_selects_endorsement_date_as_current_date() {
 		sendText(dashboard.txtSelectDate, dtf.format(currentDate));
@@ -102,5 +103,5 @@ public class MTR535_DP3_END_ValidateUWQuestionsCannotbeEditableByAgent extends C
 		click(dashboard.btnStart);
 		wait(5);
 	}
-	
+
 }

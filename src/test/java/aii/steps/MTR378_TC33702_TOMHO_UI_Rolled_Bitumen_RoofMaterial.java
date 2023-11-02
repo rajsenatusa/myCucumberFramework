@@ -75,7 +75,7 @@ public class MTR378_TC33702_TOMHO_UI_Rolled_Bitumen_RoofMaterial extends CommonM
 		sendText(dwellingChevron.txtYearConstruction, "2019");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "33");
-		//selectDropdownText(dwellingChevron.ddProtectionClass, "03");
+		// selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		sendText(dwellingChevron.txtCoverageA, "75000");
 		selectDropdownText(driver.findElement(By.id("Building.AllPerilDed")), "$1,000");
 		selectDropdownText(driver.findElement(By.id("Building.HurricaneDeductible")), "10%");
@@ -173,16 +173,19 @@ public class MTR378_TC33702_TOMHO_UI_Rolled_Bitumen_RoofMaterial extends CommonM
 		wait(1);
 		closeUnnecessaryTabs();
 	}
+
 	@When("User does auto renewal through batch jobs <mtr378>")
 	public void user_does_auto_renewal_through_batch_jobs_mtr378() throws Exception {
-		TOMHO_renewalTerm1 = runAutoRenewPolicy(driver, policyNum, "01", "02");	
+		TOMHO_renewalTerm1 = runAutoRenewPolicy(driver, policyNum, "01", "02");
 	}
+
 	@When("User searches for the renewed policy number <mtr378>")
 	public void user_searches_renewed_policy_for_mtr378() {
 		sendText(dashboard.txtSearchBar, TOMHO_renewalTerm1);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User gets transaction effective date")
 	public void user_gets_transaction_effective_date() throws Exception {
 		clickApplicationTab(driver);
@@ -191,10 +194,12 @@ public class MTR378_TC33702_TOMHO_UI_Rolled_Bitumen_RoofMaterial extends CommonM
 		wait(1);
 		renewal_effective = getTransactionEffDate(driver).toString();
 	}
+
 	@When("User changes system date to renewal effective date <mtr378>")
 	public void user_changes_system_date_to_renewal_eff_date_mtr378() throws Exception {
 		ChangeAdminDate_NotInbox(driver, renewal_effective);
 	}
+
 	@And("User sets new effective date as renewal effective date and starts endorsement <mtr378>")
 	public void User_sets_new_effective_date_as_renewaleffective_date_and_starts_endorsement_mtr378() {
 		sendText(historyChevron.txtEffectiveDate, renewal_effective);
@@ -204,26 +209,29 @@ public class MTR378_TC33702_TOMHO_UI_Rolled_Bitumen_RoofMaterial extends CommonM
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User clicks Make Payment second time and selects credit card and enters due amount for <mtr378>")
-	public void user_clicks_make_payment_second_time_and_selects_credit_card_mtr_378()  {
+	public void user_clicks_make_payment_second_time_and_selects_credit_card_mtr_378() {
 		click(closeoutChevron.btnMakePaymentHolder);
 		wait(3);
 		click(closeoutChevron.btnSubmitPaymentHolder);
 		wait(3);
 		click(driver.findElement(By.id("PaymentTypeCd_3")));
 		wait(1);
-		String currentDue2=driver.findElement(By.id("AccountSummary_CurrentDue")).getText().toString();
+		String currentDue2 = driver.findElement(By.id("AccountSummary_CurrentDue")).getText().toString();
 		wait(2);
 		sendText(closeoutChevron.txtEnterAmountBox, currentDue2);
 		wait(4);
 	}
+
 	@When("User makes payment with Credit Card for the second time <mtr378>")
-	public void user_makes_payment_second_time_with_credit_card_mtr378()  {
+	public void user_makes_payment_second_time_with_credit_card_mtr378() {
 		makeCCPayment();
 
-	     // Close unnecessary tabs
+		// Close unnecessary tabs
 		closeUnnecessaryTabs();
 	}
+
 	@When("User does second auto renewal through batch jobs and completes test <mtr378>")
 	public void user_does_second_auto_renewal_through_batch_jobs_and_completes_test_mtr378() throws Exception {
 
@@ -235,7 +243,8 @@ public class MTR378_TC33702_TOMHO_UI_Rolled_Bitumen_RoofMaterial extends CommonM
 		wait(1);
 		switchWindows(driver);
 		wait(1);
-		Hooks.scenario.log("Test Case Completed!");;	
+		Hooks.scenario.log("Test Case Completed!");
+		;
 	}
-	
+
 }

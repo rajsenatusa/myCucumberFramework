@@ -26,7 +26,6 @@ public class VOLHO4policy extends CommonMethods {
 		wait(2);
 		click(product.btnContinue);
 		click(product.btnProductSelectionHo4);
-
 	}
 
 	@When("User enters all required information on HO4 quote screen")
