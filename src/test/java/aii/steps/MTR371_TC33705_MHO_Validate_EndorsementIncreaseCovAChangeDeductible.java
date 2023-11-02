@@ -65,6 +65,7 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as currend date plus 31 days and starts endorsement")
 	public void User_sets_new_effective_date_as_endorsement_date_and_starts_endorsement() {
 		wait(2);
@@ -75,11 +76,13 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User clicks Policy Chevron")
 	public void user_clicks_policy_chevron() throws Exception {
 		click(policyChevron.btnPolicyChevronLink);
 		wait(2);
 	}
+
 	@When("User changes entity type as joint and enters required information")
 	public void user_changes_entity_type_as_joint_and_enters_required_information() throws Exception {
 		selectDropdownText(policyChevron.ddEntity, "Joint");
@@ -90,14 +93,16 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		selectDropdownText(policyChevron.ddJointMaritalStatus, "Married");
 		click(dwellingChevron.btnSave);
 	}
+
 	@When("User clicks Dwelling Chevron <mtr371>")
 	public void user_clicks_dwelling_chevron_mtr371() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 	}
+
 	@When("User updates MHO3 dwelling screen and sets covA as <175000>, ded.perils as <500>, ded.hurricane as <500>")
 	public void user_updates_on_mho3_dwelling_screen_and_sets_coverage_a_as_175000() {
-		
+
 		sendText(dwellingChevron.txtCoverageA, "175000");
 		wait(2);
 		scrollToElement(dwellingChevron.ddDeductibleAllPerils);
@@ -107,13 +112,16 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@When("User finalizes transaction and validates updated changes messages on closeout screen for <mtr371>")
-	public void user_finalizes_transaction_and_validates_updated_changes_messages_on_closeout_screen_for_mtr371() throws Exception {
+	public void user_finalizes_transaction_and_validates_updated_changes_messages_on_closeout_screen_for_mtr371()
+			throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(2);
-		verify_AnyText_IsVisible(driver,"Change of Insured Name Must Be Approved ");
-		verify_AnyText_IsVisible(driver,"Change to Coverage A Limit requires underwriting approval. ");
+		verify_AnyText_IsVisible(driver, "Change of Insured Name Must Be Approved ");
+		verify_AnyText_IsVisible(driver, "Change to Coverage A Limit requires underwriting approval. ");
 	}
+
 	@When("User takes note of the application for <mtr371>")
 	public void user_takes_note_of_the_application__number_for_mtr371() throws Exception {
 		try {
@@ -123,17 +131,20 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the last application number")
 	public void user_searches_for_the_last_application_number() throws Exception {
 		setPolicyNumSearch(driver, txNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User validates 'Change of Insured Name Must Be Approved' and 'Change to Coverage A Limit requires underwriting approval.' texts have been displayed")
 	public void user_validates_texts_have_been_displayed() throws Exception {
-		verify_AnyText_IsVisible(driver,"Change of Insured Name Must Be Approved");
-		verify_AnyText_IsVisible(driver,"Change to Coverage A Limit requires underwriting approval.");
+		verify_AnyText_IsVisible(driver, "Change of Insured Name Must Be Approved");
+		verify_AnyText_IsVisible(driver, "Change to Coverage A Limit requires underwriting approval.");
 	}
+
 	@When("User process and completes endorsement <mtr371>")
 	public void user_process_and_completes_endorsement_mtr371() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);
@@ -141,6 +152,7 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		getPolicyNumber(driver);
 		closeUnnecessaryTabs();
 	}
+
 	@When("User clicks Expand button and validates actual messages have been matched with expected and completes test")
 	public void user_clicks_expand_and_completes_validations_and_completes_test() throws Exception {
 		click(historyChevron.btnExpand);
@@ -151,5 +163,5 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		verify_AnyLabel_IsVisible(driver, "Coverage Modified: A - Dwelling Limit 1 Changed From $75,000 to $175,000");
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

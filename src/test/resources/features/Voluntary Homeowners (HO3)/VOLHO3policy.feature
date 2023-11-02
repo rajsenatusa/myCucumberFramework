@@ -1,5 +1,7 @@
 #Author: Can Yavas
 #updated on 07/14/2023 by Can Yavas
+#added multiple application creation on HO3 on 11/01/2023 by C.Yavas
+
 Feature: Issuing HO3 policy
 
   @ho3 @smoke
@@ -22,4 +24,11 @@ Feature: Issuing HO3 policy
     Given User login to Spin as Standard Agent
     When User starts transaction as a new customer
     Then User creates HO3 policy with passing information from excel "ho3customerInfo" sheet
+    ##User can change excel data table contents from /testdata folder from VOLHO3.xlsx
+
+  @ho3datatableapplicationlevel
+  Scenario: HO3 application creation with multiple inputs
+    Given User login to Spin as Standard Agent
+    When User starts transaction as a new customer
+    Then User creates HO3 application with passing information from excel "ho3customerInfo" sheet
     ##User can change excel data table contents from /testdata folder from VOLHO3.xlsx

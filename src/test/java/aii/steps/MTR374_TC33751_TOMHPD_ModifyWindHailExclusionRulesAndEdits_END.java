@@ -142,12 +142,14 @@ public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END exte
 	public void user_changes_system_date_to_current_date_minus_1_day() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate.minusDays(1)));
 	}
+
 	@When("User searches for the policy number <mtr374>")
 	public void user_searches_policy_for_mtr374() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as current date and starts endorsement <mtr374>")
 	public void User_sets_new_effective_date_as_current_date_and_starts_endorsement_mtr374() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(currentDate));
@@ -157,27 +159,33 @@ public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END exte
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User clicks Dwelling Chevron for <mtr374>")
 	public void user_clicks_dwelling_chevron_mtr374() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 	}
+
 	@When("User validates Wind Hail exclusion is disabled")
 	public void user_validates_wind_hail_selection_is_disabled() throws Exception {
 		verifyAnyCoverageCheckbox_NotEnabledSelected(driver, "Building.WindHailExcludedInd");
 	}
+
 	@When("User changes system date to current date <mtr374>")
 	public void user_changes_system_date_to_current_date_mtr374() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate));
 	}
+
 	@When("User changes system date to current date plus 1 day <mtr374>")
 	public void user_changes_system_date_to_current_date_plus_1_day_mtr374() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate.plusDays(1)));
 	}
+
 	@When("User validates 'The effective date must not be older than 0 days from today' text has been displayed")
 	public void user_validates_error_msg_has_Been_displayed() throws Exception {
 		verify_AnyText_IsVisible(driver, "The effective date must not be older than 0 days from today");
 	}
+
 	@When("User takes note of the application for <mtr374>")
 	public void user_takes_note_of_the_application__number_for_mtr374() throws Exception {
 		try {
@@ -187,12 +195,14 @@ public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END exte
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the application <mtr374>")
 	public void user_searches_application_for_mtr374() {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User clicks more button and take ownership of the application")
 	public void user_clicks_more_button_and_take_ownership_of_the_application() {
 		click(dwellingChevron.btnMore);
@@ -201,20 +211,24 @@ public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END exte
 		click(reviewChevron.btnDialogOk);
 		wait(4);
 	}
+
 	@When("User validates Wind Hail exclusion is enabled")
 	public void user_validates_wind_hail_selection_is_enabled() throws Exception {
 		verifyAnyCoverageCheckbox_EnabledSelected(driver, "Building.WindHailExcludedInd");
 	}
+
 	@When("User unchecks Wind Hail Exclusion radio button")
 	public void user_unchecks_windhailexc() throws Exception {
 		click(dwellingChevron.rbWindHailExc);
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@When("User validates Building Hurricane deductible defaulted to <%2>")
 	public void user_validates_hurricane_ded_defaulted_to_2() throws Exception {
 		verifyAnyDropdownDefaultedValue(driver, "Building.HurricaneDeductible", "2%");
 	}
+
 	@When("User finalizes transaction and validates 'Deductible Change: Hurricane Changed From Not Applicable to 2%' text has been displayed and process and completes test")
 	public void user_finalizes_transaction_and_validates_ded_change_and_completes_test() throws Exception {
 		click(dwellingChevron.btnFinalize);

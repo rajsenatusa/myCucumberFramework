@@ -12,14 +12,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMethods{
+public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMethods {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String AppNum;
 	static String ApplicationNum;
-	
+
 	@When("User enters all required information on policy information screen <tc16825>")
 	public void user_enters_all_required_information_on_policy_information_screen_tc16825() {
 
@@ -38,6 +38,7 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+
 	@When("User enters all required information on AIB quote screen for <tc16825>")
 	public void user_enters_all_required_information_on_aib_quote_screen_for_tc16825() {
 
@@ -57,6 +58,7 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 		click(policyChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User selects liability coverage on quote screen for <tc16825>")
 	public void user_selects_liability_coverage_on_quote_screen_for_tc16825() {
 
@@ -74,6 +76,7 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User adds operator information on quote screen <tc16825>")
 	public void user_adds_operator_information_on_quote_screen_tc16825() {
 		click(aibChevron.btnAddOperator);
@@ -87,7 +90,7 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 		wait(3);
 		click(golfcartChevron.btnNextGocScreen);
 	}
-	
+
 	@When("User enters all required information on AIB boat dwelling screen for <tc16825>")
 	public void user_enters_all_required_information_on_aib_boat_dwelling_screen_for_tc16825() {
 
@@ -124,6 +127,7 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User takes note of the application for <tc16825>")
 	public void user_takes_note_of_the_application__number_for_tc16825() throws Exception {
 		try {
@@ -133,12 +137,14 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the application <tc16825>")
 	public void user_searches_application_for_tc16825() {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User issues policy and close unnecessary tabs and taking note of the policy number <tc16825>")
 	public void user_issues_policy_and_close_unnecessary_tabs_tc16825() throws Exception {
 		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
@@ -165,12 +171,14 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for Policy Number for <tc16825>")
 	public void user_searches_for_policy_number_for_tc16825() throws Exception {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User selects current date plus 31 days as new effective date <tc16825>")
 	public void User_selects_current_date_plus_31_days_as_new_effective_date_tc16825() {
 		sendText(historyChevron.txtNewEffectiveDate, dtf.format(currentDate.plusDays(31)));
@@ -180,25 +188,31 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 		click(historyChevron.btnStart);
 		wait(1);
 	}
+
 	@When("User validates 'Requested effective date change requires underwriting review' text is visible <tc16825>")
-	public void user_validates_requested_effective_date_change_requires_underwriting_review_text_is_visible_tc16825() throws Exception {
+	public void user_validates_requested_effective_date_change_requires_underwriting_review_text_is_visible_tc16825()
+			throws Exception {
 		verify_AnyLabel_IsVisible(driver, "Requested effective date change requires Underwriting review");
 		attachScreenShot(driver);
 		wait(1);
 	}
+
 	@And("User selects current date plus 30 days as new effective date <tc16825>")
 	public void User_selects_current_date_plus_30_days_as_new_effective_date_tc16825() {
 		sendText(historyChevron.txtNewEffectiveDate, dtf.format(currentDate.plusDays(30)));
 		wait(5);
 		click(historyChevron.btnStart);
-		wait(6);  
+		wait(6);
 		click(historyChevron.btnStart);
 		wait(6);
 	}
+
 	@And("User validates 'Requested effective date change requires Underwriting review' text is not visible")
-	public void User_validates_requested_effective_date_change_requires_uw_review_text_is_not_visible() throws Exception {
+	public void User_validates_requested_effective_date_change_requires_uw_review_text_is_not_visible()
+			throws Exception {
 		verify_AnyText_NotVisible(driver, "Requested effective date change requires Underwriting review");
 	}
+
 	@Then("User process tx and validates expected messages and finishes test <tc16825>")
 	public void user_process_tx_and_validates_expected_messages_finishes_test_tc16825() throws Exception {
 		click(closeoutChevron.btnIssueNB);
@@ -206,10 +220,12 @@ public class TC16825_AIB_AIBAgentChangeDateTransaction30DAYS extends CommonMetho
 		getPolicyNumber(driver);
 		closeUnnecessaryTabs();
 		verify_AnyText_IsVisible(driver, "Change Date");
-		verify_AnyLabel_IsVisible(driver, "Change Effective Date from " + dtf.format(currentDate) + " to " + dtf.format(currentDate.plusDays(30)));
+		verify_AnyLabel_IsVisible(driver, "Change Effective Date from " + dtf.format(currentDate) + " to "
+				+ dtf.format(currentDate.plusDays(30)));
 
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User deletes Application <tc16825>")
 	public void user_clicks_deletes_application_tc16825() throws Exception {
 		click(closeoutChevron.btnModifyApplication);

@@ -13,16 +13,16 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TC38507_DP1_NB_RoofMaterial_RoofAgeis25 extends CommonMethods{
-	
+public class TC38507_DP1_NB_RoofMaterial_RoofAgeis25 extends CommonMethods {
+
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static LocalDate currentDate2 = LocalDate.now();
-	static int currentY = currentDate2.getYear();			
-	static String roofYear = String.valueOf(currentY-25);
-	static String plumbingYear = String.valueOf(currentY-5);
+	static int currentY = currentDate2.getYear();
+	static String roofYear = String.valueOf(currentY - 25);
+	static String plumbingYear = String.valueOf(currentY - 5);
 	static String policyNum;
-	
+
 	@When("User enters all required information on policy information screen <tc38507>")
 	public void user_enters_all_required_information_on_policy_information_screen_tc38507() {
 
@@ -41,13 +41,14 @@ public class TC38507_DP1_NB_RoofMaterial_RoofAgeis25 extends CommonMethods{
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+
 	@When("User enters all required information on DP1 quote screen <tc38507>")
 	public void user_enters_all_required_information_on_dp1_quote_screen_tc38507() {
 		// Quote Policy Chevron information was filled here
 
 		selectDropdownText(policyChevron.ddPreviousCarrier, "New Purchase");
-		//sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
-		//sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
+		// sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		// sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
 		click(dwellingChevron.btnSave);
 		wait(3);
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
@@ -63,6 +64,7 @@ public class TC38507_DP1_NB_RoofMaterial_RoofAgeis25 extends CommonMethods{
 		click(policyChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User enters all required information on DP1 dwelling screen <tc38507>")
 	public void user_enters_all_required_information_on_dp1_dwelling_screen_tc38507() {
 
@@ -73,7 +75,7 @@ public class TC38507_DP1_NB_RoofMaterial_RoofAgeis25 extends CommonMethods{
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
-		sendText(dwellingChevron.txtRoofMaterialUpdate,roofYear);
+		sendText(dwellingChevron.txtRoofMaterialUpdate, roofYear);
 		selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "Tile/Metal");
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
@@ -83,6 +85,7 @@ public class TC38507_DP1_NB_RoofMaterial_RoofAgeis25 extends CommonMethods{
 		waitImp(3);
 		click(dwellingChevron.btnNext);
 	}
+
 	@And("User checks application dwelling screen, select number of stories, plumbing, electrical and hvac updated dates and finalizes transaction")
 	public void user_checks_application_dwelling_screen_selects_number_of_stories_plumbing_electrical_hvac_updated_dates_and_finalizes_transaction() {
 		// Application Dwelling information was filled here
@@ -99,6 +102,7 @@ public class TC38507_DP1_NB_RoofMaterial_RoofAgeis25 extends CommonMethods{
 		click(reviewChevron.btnFinalize);
 		wait(2);
 	}
+
 	@Then("User validates that DP1 policy has been created successfully and close tabs and completes test <tc38507>")
 	public void user_validates_that_dp1_policy_has_been_created_successfully_and_close_tabs_and_completestest_tc38507()
 			throws Exception {
@@ -122,7 +126,7 @@ public class TC38507_DP1_NB_RoofMaterial_RoofAgeis25 extends CommonMethods{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		Hooks.scenario.log("Test Case Completed!");
 	}
 }

@@ -1152,24 +1152,26 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyPDFText(driver, sksrform_Data, "AIIC SKSR 11 14");
 		PdfComparator.verifyPDFText(driver, sksrform_Data, "Sinkhole Loss Coverage Selection/Rejection Form");
 	}
+
 	@When("User clicks Policy File Chevron <mtr2490>")
 	public void user_clicks_policy_file_chevron_mtr2490() throws Exception {
 		click(policyFileChevron.btnPolicyFilePage);
 		wait(5);
 	}
+
 	@When("User clicks Application Link and validates form versions <mtr2490>")
 	public void user_clicks_Application_Link_and_validates_form_versions_mtr2490() throws Exception {
 		driver.findElement(By.xpath("(//*[contains(text(), 'Application')])[5]")).click();
 		Thread.sleep(7000);
 		switchToWindow(driver, "STFile&File");
-		
-		NBApp_Form =  PdfComparator.makePdf(driver, "Application.pdf");
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+NBApp_Form);
+
+		NBApp_Form = PdfComparator.makePdf(driver, "Application.pdf");
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + NBApp_Form);
 		wait(10);
-		
-		//Declaration page Forms and endorsement section 
-		NBApp_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBApp_Form, 2, 30, 360, 560, 350);
+
+		// Declaration page Forms and endorsement section
+		NBApp_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBApp_Form, 2, 30, 360, 560, 350);
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC NB GL 08 19Greeting Letter");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC PS 05 19Privacy Statement");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP RWT 01 19Limitations on Roof Coverage");
@@ -1177,43 +1179,50 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC PJ 05 19Policy Jacket");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP3 IDX 07 15Dwelling Property 3 Special Form Index");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "DP 00 03 07 88Dwelling Property 3 Special Form");
-		
-		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
-		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
-		
+
+		PdfComparator.verifyFormData(driver, NBApp_Page,
+				"AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
+		PdfComparator.verifyFormData(driver, NBApp_Page,
+				"AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
+
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP HCP 09 17Home Cyber Protection Coverage");
-		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
+		PdfComparator.verifyFormData(driver, NBApp_Page,
+				"AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP3 IR 07 15Identity Recovery Coverage");
-		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
-		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
+		PdfComparator.verifyFormData(driver, NBApp_Page,
+				"AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
+		PdfComparator.verifyFormData(driver, NBApp_Page,
+				"AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "DP 04 73 07 88Limited Theft Coverage");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP LA 07 15Loss Assessment Property Coverage");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP OL 07 15Ordinance or Law Coverage");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP LWD 12 18Limited Water Damages");
-		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
+		PdfComparator.verifyFormData(driver, NBApp_Page,
+				"AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP SK 07 15Sinkhole Loss Coverage");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP WDX 12 18Water Damage Exclusion ");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP3 OC 12 18Outline of your Dwelling Policy");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "OIR B1 1670Checklist of Coverage");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "OIR B1 1655");
-		
-		NBApp_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBApp_Form, 3, 0, 0, 690, 720);
+
+		NBApp_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBApp_Form, 3, 0, 0, 690, 720);
 		PdfComparator.verifyFormData(driver, NBApp_Page2, "AIIC NCR 08 19Notice of Consumer Reports Ordered and");
-		PdfComparator.verifyFormData(driver, NBApp_Page2, "AIIC SKSR 11 14");	
+		PdfComparator.verifyFormData(driver, NBApp_Page2, "AIIC SKSR 11 14");
 	}
+
 	@When("User clicks New Business Package Link and validates form versions <mtr2490>")
 	public void user_clicks_New_Business_Package_Link_and_validates_form_versions_mtr2490() throws Exception {
 		clickOnAnyPolicyFileTabForm(driver, "New Business Package");
 		Thread.sleep(7000);
 		switchToWindow(driver, "STFile&File");
-		
+
 		NBPackage_Form = PdfComparator.makePdf(driver, "NewBusinessPackage.pdf");
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+NBPackage_Form);
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + NBPackage_Form);
 		wait(10);
-		
-		//Declaration page Forms and endorsement section 
-		NBDec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 10, 30, 350, 560, 400);
+
+		// Declaration page Forms and endorsement section
+		NBDec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 10, 30, 350, 560, 400);
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC NB GL 08 19Greeting Letter");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP PHN CSAU 06 22");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC PS 05 19Privacy Statement");
@@ -1222,247 +1231,264 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC PJ 05 19Policy Jacket");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 IDX 07 15Dwelling Property 3 Special Form Index");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "DP 00 03 07 88Dwelling Property 3 Special Form");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
-		
+		PdfComparator.verifyFormData(driver, NBDec_Page,
+				"AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
+		PdfComparator.verifyFormData(driver, NBDec_Page,
+				"AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
+
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP HCP 09 17Home Cyber Protection Coverage");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
+		PdfComparator.verifyFormData(driver, NBDec_Page,
+				"AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 IR 07 15Identity Recovery Coverage");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
+		PdfComparator.verifyFormData(driver, NBDec_Page,
+				"AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
+		PdfComparator.verifyFormData(driver, NBDec_Page,
+				"AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "DP 04 73 07 88Limited Theft Coverage");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP LA 07 15Loss Assessment Property Coverage");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP OL 07 15Ordinance or Law Coverage");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP LWD 12 18Limited Water Damages");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
+		PdfComparator.verifyFormData(driver, NBDec_Page,
+				"AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP SK 07 15Sinkhole Loss Coverage");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP WDX 12 18Water Damage Exclusion ");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 OC 12 18Outline of your Dwelling Policy");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "OIR B1 1670Checklist of Coverage");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
+		PdfComparator.verifyFormData(driver, NBDec_Page,
+				"OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC NCR 08 19");
-		
-		//Greeting letter
-		NBGreeting_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 1, 430, 700, 100, 50);
+
+		// Greeting letter
+		NBGreeting_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 1, 430, 700, 100, 50);
 		PdfComparator.verifyFormData(driver, NBGreeting_Version, "AIIC NB GL 08 19");
-		
-		NBGreeting_Data = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		NBGreeting_Data = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBGreeting_Data, "AIIC NB GL 08 19");
-		
-		//Privacy statement
-		NBPrivacy_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 4, 480, 30, 150, 50);
+
+		// Privacy statement
+		NBPrivacy_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 4, 480, 30, 150, 50);
 		PdfComparator.verifyFormData(driver, NBPrivacy_Version1, "AIIC PS 05 19");
-		NBPrivacy_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 4, 70, 740, 200, 50);
+		NBPrivacy_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 4, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, NBPrivacy_Version, "AIIC PS 05 19");
-		
-		NBPrivacy_Data = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		NBPrivacy_Data = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBPrivacy_Data, "AIIC PS 05 19");
-		NBPrivacy_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+		NBPrivacy_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBPrivacy_Name, "PRIVACY STATEMENT");
-		
-		//Roof form
-		NBRoofLimitation_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 5, 445, 35, 150, 30);
+
+		// Roof form
+		NBRoofLimitation_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 5, 445, 35, 150,
+				30);
 		PdfComparator.verifyFormData(driver, NBRoofLimitation_Version1, "AIIC DP RWT 01 19");
-		NBRoofLimitation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 5, 55, 750, 150, 30);
+		NBRoofLimitation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 5, 55, 750, 150,
+				30);
 		PdfComparator.verifyFormData(driver, NBRoofLimitation_Version, "AIIC DP RWT 01 19");
-		
-		NBRoofLimitation_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		NBRoofLimitation_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBRoofLimitation_Name, "LIMITATIONS ON ROOF COVERAGE");
-		
-		//Deductible notification form
-		NBDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 7, 450, 10, 250, 30);
+
+		// Deductible notification form
+		NBDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 7, 450, 10, 250, 30);
 		PdfComparator.verifyFormData(driver, NBDed_Version1, "AIIC DP DO 06 23");
-		NBDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 7, 70, 740, 200, 50);
+		NBDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 7, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, NBDed_Version, "AIIC DP DO 06 23");
-		
-		NBDed_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		NBDed_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBDed_Name, "DEDUCTIBLE NOTIFICATION OPTIONS");
-		
-		//Policy jacket form
-		NBPolJacket_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 14, 470, 35, 250, 50);
+
+		// Policy jacket form
+		NBPolJacket_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 14, 470, 35, 250,
+				50);
 		PdfComparator.verifyFormData(driver, NBPolJacket_Version1, "AIIC PJ 05 19");
-		NBPolJacket_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 14, 70, 740, 250, 50);
+		NBPolJacket_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 14, 70, 740, 250, 50);
 		PdfComparator.verifyFormData(driver, NBPolJacket_Version, "AIIC PJ 05 19");
-		
-		NBPolJacket_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		NBPolJacket_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBPolJacket_Name, "Policy Jacket");
-		
-		//AIIC DP3 IDX 07 15 form
-		NBIDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 15, 470, 35, 150, 50);
+
+		// AIIC DP3 IDX 07 15 form
+		NBIDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 15, 470, 35, 150, 50);
 		PdfComparator.verifyFormData(driver, NBIDX_Version, "AIIC DP3 IDX 07 15");
-		NBIDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 15, 25, 740, 150, 50);
+		NBIDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 15, 25, 740, 150, 50);
 		PdfComparator.verifyFormData(driver, NBIDX_Version1, "AIIC DP3 IDX 07 15");
-		
-		
-		//DP 00 03 07 88 form
-		DP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 16, 40, 750, 120, 30);
+
+		// DP 00 03 07 88 form
+		DP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 16, 40, 750, 120, 30);
 		PdfComparator.verifyFormData(driver, DP3Special_Version, "DP 00 03 07 88");
-		
-		//AIIC 01 DP3 SP 04 23 form
-		SPProvision_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 26, 440, 20, 120, 30);
+
+		// AIIC 01 DP3 SP 04 23 form
+		SPProvision_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 26, 440, 20, 120, 30);
 		PdfComparator.verifyFormData(driver, SPProvision_Version, "AIIC 01 DP3 SP 04 23");
-		SPProvision_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 27, 30, 760, 120, 25);
+		SPProvision_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 27, 30, 760, 120,
+				25);
 		PdfComparator.verifyFormData(driver, SPProvision_Version1, "AIIC 01 DP3 SP 04 23");
-		
-		SPProvision_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		SPProvision_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, SPProvision_Name, "SPECIAL PROVISIONS FOR FLORIDA");
 
-		//AIIC DP HD 07 15 form
-		HurDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 41, 470, 25, 100, 40);
+		// AIIC DP HD 07 15 form
+		HurDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 41, 470, 25, 100, 40);
 		PdfComparator.verifyFormData(driver, HurDed_Version, "AIIC DP HD 07 15");
-		HurDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 41, 60, 740, 100, 40);
+		HurDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 41, 60, 740, 100, 40);
 		PdfComparator.verifyFormData(driver, HurDed_Version1, "AIIC DP HD 07 15");
-		
-		HurDed_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		HurDed_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, HurDed_Name, "CALENDAR YEAR HURRICANE DEDUCTIBLE");
-		
-		//Home Cyber Protection Coverage form
-		Cyber_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 46, 450, 25, 120, 40);
+
+		// Home Cyber Protection Coverage form
+		Cyber_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 46, 450, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, Cyber_Version, "AIIC DP HCP 09 17");
-		Cyber_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 46, 60, 740, 120, 40);
+		Cyber_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 46, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Cyber_Version1, "AIIC DP HCP 09 17");
-		
-		Cyber_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		Cyber_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, Cyber_Name, "HOME CYBER PROTECTION COVERAGE");
-		
-		//Home Systems Protection & Service Line Coverage
-		HSPSL_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 53, 440, 25, 120, 40);
+
+		// Home Systems Protection & Service Line Coverage
+		HSPSL_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 53, 440, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, HSPSL_Version, "AIIC DP3 HSPSL 07 15");
-		HSPSL_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 53, 60, 740, 120, 40);
+		HSPSL_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 53, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, HSPSL_Version1, "AIIC DP3 HSPSL 07 15");
-		
-		HSPSL_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		HSPSL_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, HSPSL_Name, "HOME SYSTEMS PROTECTION & SERVICE LINE COVERAGE");
 
-		//Identity Recovery Coverage form
-		NBIR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 58, 440, 30, 120, 40);
+		// Identity Recovery Coverage form
+		NBIR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 58, 440, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, NBIR_Version, "AIIC DP3 IR 07 15");
-		NBIR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 58, 60, 740, 120, 40);
+		NBIR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 58, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, NBIR_Version1, "AIIC DP3 IR 07 15");
-		
-		NBIR_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		NBIR_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBIR_Name, "IDENTITY RECOVERY COVERAGE");
-		
-		//Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage form
-		Carpool_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 60, 470, 25, 120, 40);
+
+		// Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage form
+		Carpool_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 60, 470, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, Carpool_Version, "AIIC DP CPS 07 15");
-		Carpool_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 60, 60, 740, 120, 40);
+		Carpool_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 60, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Carpool_Version1, "AIIC DP CPS 07 15");
-		
-		Carpool_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		Carpool_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, Carpool_Name, "LIMITED CARPORT(S), POOL CAGE(S) AND SCREEN");
-		
-		//AIIC DP LFC 07 15 form
-		Fungi_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 61, 460, 30, 120, 40);
+
+		// AIIC DP LFC 07 15 form
+		Fungi_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 61, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Fungi_Version, "AIIC DP LFC 07 15");
-		Fungi_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 61, 60, 740, 120, 40);
+		Fungi_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 61, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Fungi_Version1, "AIIC DP LFC 07 15");
-		
-		Fungi_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		Fungi_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, Fungi_Name, "WET OR DRY ROT, OR BACTERIA");
-		
-		//Limited Theft Coverage form
-		Theft_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 62, 460, 30, 120, 40);
+
+		// Limited Theft Coverage form
+		Theft_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 62, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Theft_Version, "DP 04 73 07 88");
-		Theft_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 62, 40, 750, 120, 30);
+		Theft_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 62, 40, 750, 120, 30);
 		PdfComparator.verifyFormData(driver, Theft_Version1, "DP 04 73 07 88");
-		
-		Theft_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		Theft_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, Theft_Name, "LIMITED THEFT COVERAGE");
-		
-		//Loss Assessment form
-		Loss_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 64, 460, 30, 120, 40);
+
+		// Loss Assessment form
+		Loss_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 64, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Loss_Version, "AIIC DP LA 07 15");
-		Loss_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 64, 60, 740, 120, 30);
+		Loss_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 64, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Loss_Version1, "AIIC DP LA 07 15");
-		
-		Loss_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		Loss_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, Loss_Name, "LOSS ASSESSMENT PROPERTY COVERAGE");
-		
-		//Ordinance or Law Coverage form
-		Ordinance_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 65, 460, 30, 120, 40);
+
+		// Ordinance or Law Coverage form
+		Ordinance_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 65, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Ordinance_Version, "AIIC DP OL 07 15");
-		Ordinance_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 65, 60, 740, 120, 30);
+		Ordinance_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 65, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Ordinance_Version1, "AIIC DP OL 07 15");
-		
-		Ordinance_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		Ordinance_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, Ordinance_Name, "ORDINANCE OR LAW COVERAGE");
-		
-		//LIMITED WATER DAMAGE COVERAGE form
-		LimitedWater_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 66, 455, 30, 120, 40);
+
+		// LIMITED WATER DAMAGE COVERAGE form
+		LimitedWater_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 66, 455, 30, 120,
+				40);
 		PdfComparator.verifyFormData(driver, LimitedWater_Version, "AIIC DP LWD 12 18");
-		LimitedWater_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 66, 60, 735, 120, 30);
+		LimitedWater_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 66, 60, 735, 120,
+				30);
 		PdfComparator.verifyFormData(driver, LimitedWater_Version1, "AIIC DP LWD 12 18");
-		
-		LimitedWater_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		LimitedWater_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, LimitedWater_Name, "LIMITED WATER DAMAGE COVERAGE");
-		
-		//Personal Property Replacement Cost Coverage form
-		RCC_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 67, 460, 30, 120, 40);
+
+		// Personal Property Replacement Cost Coverage form
+		RCC_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 67, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RCC_Version, "AIIC DP RCC 07 15");
-		RCC_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 67, 60, 740, 120, 30);
+		RCC_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 67, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, RCC_Version1, "AIIC DP RCC 07 15");
-		
-		RCC_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		RCC_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, RCC_Name, "PERSONAL PROPERTY REPLACEMENT COST COVERAGE");
-		
-		//SINKHOLE LOSS COVERAGE form
-		Sinkhole_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 68, 460, 30, 120, 40);
+
+		// SINKHOLE LOSS COVERAGE form
+		Sinkhole_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 68, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Sinkhole_Version, "AIIC DP SK 07 15");
-		Sinkhole_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 68, 60, 740, 120, 30);
+		Sinkhole_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 68, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Sinkhole_Version1, "AIIC DP SK 07 15");
-		
-		Sinkhole_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		Sinkhole_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, Sinkhole_Name, "SINKHOLE LOSS COVERAGE");
-		
-		//AIIC DP WDX 12 18 form
-		WDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 72, 450, 40, 120, 40);
+
+		// AIIC DP WDX 12 18 form
+		WDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 72, 450, 40, 120, 40);
 		PdfComparator.verifyFormData(driver, WDX_Version, "AIIC DP WDX 12 18");
-		WDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 72, 60, 740, 120, 40);
+		WDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 72, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, WDX_Version1, "AIIC DP WDX 12 18");
-		
-		WDX_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		WDX_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, WDX_Name, "WATER DAMAGE EXCLUSION");
-		
-		//OUTLINE OF YOUR DWELLING POLICY form
-		Outline_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 73, 460, 30, 120, 40);
+
+		// OUTLINE OF YOUR DWELLING POLICY form
+		Outline_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 73, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Outline_Version, "AIIC DP3 OC 12 18");
-		Outline_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 73, 60, 740, 120, 40);
+		Outline_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 73, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Outline_Version1, "AIIC DP3 OC 12 18");
-		
-		Outline_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		Outline_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, Outline_Name, "OUTLINE OF YOUR DWELLING POLICY");
-		
-		//Checklist form
-		NBCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 77, 25, 750, 70, 30);
+
+		// Checklist form
+		NBCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 77, 25, 750, 70, 30);
 		PdfComparator.verifyFormData(driver, NBCheckList_Version, "OIR-B1-1670");
-		
-		NBCheckList_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		NBCheckList_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBCheckList_Name, "Checklist of Coverage");
-		
-		//Notice Hurricane mitigation
-		NBHurMitigation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 80, 30, 750, 90, 30);
+
+		// Notice Hurricane mitigation
+		NBHurMitigation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 80, 30, 750, 90,
+				30);
 		PdfComparator.verifyFormData(driver, NBHurMitigation_Version, "OIR-B1-1655");
-		
-		NBHurMitigation_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
-		PdfComparator.verifyPDFText(driver, NBHurMitigation_Name, "Notice of Premium Discounts for Hurricane Loss Mitigation");
-		
-		//Consumer reports form
-		NBConsReport_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+NBPackage_Form, 81, 30, 710, 100, 30);
+
+		NBHurMitigation_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
+		PdfComparator.verifyPDFText(driver, NBHurMitigation_Name,
+				"Notice of Premium Discounts for Hurricane Loss Mitigation");
+
+		// Consumer reports form
+		NBConsReport_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 81, 30, 710, 100,
+				30);
 		PdfComparator.verifyFormData(driver, NBConsReport_Version, "AIIC NCR 08 19");
-		
-		NBConsReport_Name = PdfComparator.getPDFData(FileLocation+NBPackage_Form);
+
+		NBConsReport_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBConsReport_Name, "Notice of Consumer Reports Ordered and Information");
 
 		clickApplicationTab(driver);
 		wait(3);
 	}
+
 	@When("User searches for the policy number <mtr2490>")
 	public void user_searches_policy_for_mtr2490() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as endorse date and starts endorsement <mtr2490>")
 	public void User_sets_new_effective_date_as_endorse_date_and_starts_endorsement_mtr2490() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(endorseDate));
@@ -1472,22 +1498,25 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User clicks Dwelling Chevron <mtr2490>")
 	public void user_clicks_dwelling_chevron_mtr2490() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 	}
+
 	@When("User adds flood coverage")
 	public void user_adds_flood_coverage() throws Exception {
-		selectDropdownText(driver.findElement(By.id("Building.FloodCoverage")),"Yes");
+		selectDropdownText(driver.findElement(By.id("Building.FloodCoverage")), "Yes");
 		wait(1);
-		selectDropdownText(driver.findElement(By.id("Building.FloodFoundationType")),"Slab");
+		selectDropdownText(driver.findElement(By.id("Building.FloodFoundationType")), "Slab");
 		click(dwellingChevron.btnSave);
 		wait(3);
 		sendText(driver.findElement(By.id("Building.FloodProgramDateOverride")), "04/15/1980");
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@And("User clicks Finalize button and Endorses Policy <mtr2490>")
 	public void User_clicks_finalize_and_Endorse_Policy_button_mtr2490_() {
 		reviewChevron.btnFinalize.click();
@@ -1495,8 +1524,10 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		wait(10);
 		closeUnnecessaryTabs();
 	}
+
 	@When("User validates all expected forms is visible on forms screen endorsement level<mtr2490>")
-	public void user_validates_all_expected_forms_is_visible_on_forms_screen_endorsement_level_mtr2490() throws Exception {
+	public void user_validates_all_expected_forms_is_visible_on_forms_screen_endorsement_level_mtr2490()
+			throws Exception {
 		verify_AnyText_IsVisible(driver, "AIIC NB GL 08 19");
 
 		// AIIC PS 05 19
@@ -1553,15 +1584,15 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 			wait(5);
 		}
 
-		//Flood Information Form
+		// Flood Information Form
 		try {
-			driver.findElement(By.xpath("//*[contains(text(), 'AIIC FLI 07 17')]"));	
+			driver.findElement(By.xpath("//*[contains(text(), 'AIIC FLI 07 17')]"));
 			Hooks.scenario.log("Flood Information Form");
 		} catch (Exception e) {
 			Hooks.scenario.log("Flood Information Form");
 			wait(5);
-		} 
-		
+		}
+
 		// AIIC 01 DP3 SP 04 23
 		try {
 			driver.findElement(By.xpath("//*[contains(text(), 'AIIC 01 DP3 SP 04 23')]"));
@@ -1665,49 +1696,52 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 			wait(5);
 		}
 	}
+
 	@And("User clicks Flood Information form and validates form version")
 	public void User_clicks_Flood_Information_form_and_validates_form_version_mtr2490_() throws Exception {
 		clickonAnyButton(driver, "AIICFLI0717_View");
 		Thread.sleep(7000);
 		switchToWindow(driver, "aiic-fli-0717.pdf");
 		FloodInfoForm = PdfComparator.getPdfName(driver);
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+FloodInfoForm);
-			
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + FloodInfoForm);
+
 		wait(10);
-		FloodInfo_Data = PdfComparator.getPDFData(FileLocation+FloodInfoForm);
+		FloodInfo_Data = PdfComparator.getPDFData(FileLocation + FloodInfoForm);
 		PdfComparator.verifyPDFText(driver, FloodInfo_Data, "AIIC FLI 07 17");
 		PdfComparator.verifyPDFText(driver, FloodInfo_Data, "FLOOD INFORMATION FORM");
 	}
+
 	@And("User clicks Flood Coverage Endorsement Form and validates form version")
 	public void User_clicks_Flood_Coverage_Endorsement_form_and_validates_form_version_mtr2490_() throws Exception {
 		clickonAnyButton(driver, "AIICDPPFL0317_View");
 		Thread.sleep(7000);
 		switchToWindow(driver, "aiic-dp-pfl-0317.pdf");
 		FloodCovForm = PdfComparator.getPdfName(driver);
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+FloodCovForm);
-			
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + FloodCovForm);
+
 		wait(10);
-		FloodCov_Data = PdfComparator.getPDFData(FileLocation+FloodCovForm);
+		FloodCov_Data = PdfComparator.getPDFData(FileLocation + FloodCovForm);
 		PdfComparator.verifyPDFText(driver, FloodCov_Data, "AIIC DP PFL 03 17");
-		FloodCov_Name = PdfComparator.getPDFData(FileLocation+FloodCovForm);
-		PdfComparator.verifyPDFText(driver, FloodCov_Name, "FLOOD COVERAGE ENDORSEMENT");	
+		FloodCov_Name = PdfComparator.getPDFData(FileLocation + FloodCovForm);
+		PdfComparator.verifyPDFText(driver, FloodCov_Name, "FLOOD COVERAGE ENDORSEMENT");
 	}
+
 	@And("User clicks Endorsement Package and validates form version <mtr2490>")
 	public void User_clicks_Endorsement_Package_form_and_validates_form_version_mtr2490_() throws Exception {
 		clickOnAnyPolicyFileTabForm(driver, "Endorsement Package");
 		Thread.sleep(7000);
 		switchToWindow(driver, "STFile&File");
-		
+
 		EndPackage_Form = PdfComparator.makePdf(driver, "EndorsementPackage.pdf");
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+EndPackage_Form);
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + EndPackage_Form);
 		wait(10);
-		//Declaration page Forms and endorsement section 
-		EndDec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation+EndPackage_Form, 2, 30, 450, 560, 350);
+		// Declaration page Forms and endorsement section
+		EndDec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 2, 30, 450, 560, 350);
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC NB GL 08 19");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC PS 05 19Privacy Statement");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP RWT 01 19Limitations on Roof Coverage");
@@ -1716,71 +1750,84 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP3 IDX 07 15Dwelling Property 3 Special Form Index");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "DP 00 03 07 88Dwelling Property 3 Special Form");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC FLI 07 17");
-		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
-		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
+		PdfComparator.verifyFormData(driver, EndDec_Page,
+				"AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
+		PdfComparator.verifyFormData(driver, EndDec_Page,
+				"AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP PFL 03 17");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP HCP 09 17Home Cyber Protection Coverage");
-		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
+		PdfComparator.verifyFormData(driver, EndDec_Page,
+				"AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP3 IR 07 15Identity Recovery Coverage");
-		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
-		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
+		PdfComparator.verifyFormData(driver, EndDec_Page,
+				"AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
+		PdfComparator.verifyFormData(driver, EndDec_Page,
+				"AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "DP 04 73 07 88Limited Theft Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP LA 07 15Loss Assessment Property Coverage");
-		
-		EndDec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation+EndPackage_Form, 3, 30, 80, 560, 190);
+
+		EndDec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 3, 30, 80, 560, 190);
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP OL 07 15Ordinance or Law Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP LWD 12 18Limited Water Damages");
-		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
+		PdfComparator.verifyFormData(driver, EndDec_Page2,
+				"AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP SK 07 15Sinkhole Loss Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP WDX 12 18Water Damage Exclusion ");
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP3 OC 12 18Outline of your Dwelling Policy");
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "OIR B1 1670Checklist of Coverage");
-		PdfComparator.verifyFormData(driver, EndDec_Page2, "OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
+		PdfComparator.verifyFormData(driver, EndDec_Page2,
+				"OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC NCR 08 19");
 
-	//Declaration Page
-		Declaration_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+EndPackage_Form, 1, 70, 740, 100, 50);
+		// Declaration Page
+		Declaration_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 1, 70, 740, 100, 50);
 		PdfComparator.verifyFormData(driver, Declaration_Version, "AIIC DP DEC 04 23");
-		
-		Declaration_Data = PdfComparator.getPDFData(FileLocation+EndPackage_Form);
+
+		Declaration_Data = PdfComparator.getPDFData(FileLocation + EndPackage_Form);
 		PdfComparator.verifyPDFText(driver, Declaration_Data, "AIIC DP DEC 04 23");
-		
-		//Flood information
-		EndFloodInfo_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+EndPackage_Form, 6, 460, 35, 100, 35);
+
+		// Flood information
+		EndFloodInfo_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 6, 460, 35, 100,
+				35);
 		PdfComparator.verifyFormData(driver, EndFloodInfo_Version1, "AIIC FLI 07 17");
-		EndFloodInfo_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+EndPackage_Form, 6, 70, 730, 100, 30);
+		EndFloodInfo_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 6, 70, 730, 100,
+				30);
 		PdfComparator.verifyFormData(driver, EndFloodInfo_Version, "AIIC FLI 07 17");
-		
-		EndFloodInfo_Data = PdfComparator.getPDFData(FileLocation+EndPackage_Form);
+
+		EndFloodInfo_Data = PdfComparator.getPDFData(FileLocation + EndPackage_Form);
 		PdfComparator.verifyPDFText(driver, EndFloodInfo_Data, "AIIC FLI 07 17");
-		EndFloodInfo_Name = PdfComparator.getPDFData(FileLocation+EndPackage_Form);
+		EndFloodInfo_Name = PdfComparator.getPDFData(FileLocation + EndPackage_Form);
 		PdfComparator.verifyPDFText(driver, EndFloodInfo_Name, "FLOOD INFORMATION FORM");
-		
-		//Flood coverage
-		EndFloodCov_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+EndPackage_Form, 7, 65, 710, 100, 30);
+
+		// Flood coverage
+		EndFloodCov_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 7, 65, 710, 100, 30);
 		PdfComparator.verifyFormData(driver, EndFloodCov_Version, "AIIC DP PFL 03 17");
-		
-		EndFloodCov_Data = PdfComparator.getPDFData(FileLocation+EndPackage_Form);
+
+		EndFloodCov_Data = PdfComparator.getPDFData(FileLocation + EndPackage_Form);
 		PdfComparator.verifyPDFText(driver, EndFloodCov_Data, "AIIC DP PFL 03 17");
-		EndFloodCov_Name = PdfComparator.getPDFData(FileLocation+EndPackage_Form);
-		PdfComparator.verifyPDFText(driver, EndFloodCov_Name, "FLOOD COVERAGE ENDORSEMENT");	
+		EndFloodCov_Name = PdfComparator.getPDFData(FileLocation + EndPackage_Form);
+		PdfComparator.verifyPDFText(driver, EndFloodCov_Name, "FLOOD COVERAGE ENDORSEMENT");
 	}
+
 	@And("User changes system date to endorsement date <mtr2490>")
 	public void User_changes_system_date_to_endorsement_date_mtr2490_() throws Exception {
 		ChangeDate_Admin(driver, dtf.format(endorseDate));
 	}
+
 	@When("User sets loss date as endorse date <mtr2490>")
 	public void user_sets_loss_date_as_endorse_date_mtr2490() {
 		sendText(claim.txtLossDate, dtf.format(endorseDate));
 		click(dwellingChevron.btnSave);
 		wait(2);
 	}
+
 	@When("User selects loss cause as Collapse and clicks Save <mtr2490>")
 	public void user_selects_loss_cause_as_collapse_and_clicks_save_mtr2490() throws Exception {
 		selectDropdownText(claim.ddLossCause, "Collapse");
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
+
 	@When("User completes all required information on claim chevron <mtr2490>")
 	public void user_completes_all_reqiured_information_on_claim_chevron_mtr2490() throws Exception {
 		selectDropdownText(claim.ddHomeHabitable, "Yes");
@@ -1788,6 +1835,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		wait(1);
 		sendText(claim.txtClaimDescription, "Forms verification");
 	}
+
 	@When("User clicks save and takes note of the loss number <mtr2490>")
 	public void user_clicks_save_and_takes_note_of_the_loss_number_mtr2490() throws Exception {
 		click(dwellingChevron.btnSave);
@@ -1799,6 +1847,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 			e.printStackTrace();
 		}
 	}
+
 	@When("User clicks Complete and takes note of the claim number <mtr2490>")
 	public void user_clicks_complete_takes_notes_mtr2490() throws Exception {
 		click(claim.btnComplete);
@@ -1810,6 +1859,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 			e.printStackTrace();
 		}
 	}
+
 	@When("User clicks Make Payment and selects credit card and enters due amount <mtr2490>")
 	public void user_clicks_make_payment_and_selects_cc_mtr2490() {
 		click(closeoutChevron.btnMakePaymentHolder);
@@ -1823,6 +1873,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
 		wait(4);
 	}
+
 	@When("User makes payment with Credit Card for <mtr2490>")
 	public void user_makes_payment_with_credit_card_mtr2490() throws Exception {
 		makeCCPayment();
@@ -1830,6 +1881,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		// Close unnecessary tabs
 		closeUnnecessaryTabs();
 	}
+
 	@When("User does Auto Renewal for the policy with batch jobs <mtr2490>")
 	public void user_does_auto_renewal_mtr2490() throws Exception {
 
@@ -1838,19 +1890,20 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		driver.findElement(By.id("Tab_Policy")).click();
 		wait(1);
 	}
+
 	@When("User clicks Renewal Declaration Form and validates form version <mtr2490>")
 	public void user_clicks_Renewal_Declaration_Form_and_validates_form_version_mtr2490() throws Exception {
 		clickOnAnyPolicyFileTabForm(driver, "Renewal Declaration");
 		Thread.sleep(7000);
 		switchToWindow(driver, "STFile&File");
-		
+
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+RwlDec_Form);
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
 		wait(10);
-		//Declaration page Forms and endorsement section 
-		RwlDec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 10, 30, 450, 560, 350);
+		// Declaration page Forms and endorsement section
+		RwlDec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 10, 30, 450, 560, 350);
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC RN GL 08 19");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP PHN CSAU 06 22");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC PS 05 19Privacy Statement");
@@ -1860,269 +1913,283 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP3 IDX 07 15Dwelling Property 3 Special Form Index");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "DP 00 03 07 88Dwelling Property 3 Special Form");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC FLI 07 17");
-		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
-		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
+		PdfComparator.verifyFormData(driver, RwlDec_Page,
+				"AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
+		PdfComparator.verifyFormData(driver, RwlDec_Page,
+				"AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP PFL 03 17");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP HCP 09 17Home Cyber Protection Coverage");
-		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
+		PdfComparator.verifyFormData(driver, RwlDec_Page,
+				"AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP3 IR 07 15Identity Recovery Coverage");
-		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
-		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
+		PdfComparator.verifyFormData(driver, RwlDec_Page,
+				"AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
+		PdfComparator.verifyFormData(driver, RwlDec_Page,
+				"AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "DP 04 73 07 88Limited Theft Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP LA 07 15Loss Assessment Property Coverage");
-		
-		RwlDec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 11, 30, 80, 590, 170);
+
+		RwlDec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 11, 30, 80, 590, 170);
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP OL 07 15Ordinance or Law Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP LWD 12 18Limited Water Damages");
-		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
+		PdfComparator.verifyFormData(driver, RwlDec_Page2,
+				"AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP SK 07 15Sinkhole Loss Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP WDX 12 18Water Damage Exclusion ");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP3 OC 12 18Outline of your Dwelling Policy");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "OIR B1 1670Checklist of Coverage");
-		PdfComparator.verifyFormData(driver, RwlDec_Page2, "OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
+		PdfComparator.verifyFormData(driver, RwlDec_Page2,
+				"OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC NCR 08 19Notice of Consumer Reports Ordered and");
-		
-		//Greeting letter
-		RwlGreeting_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 1, 430, 700, 100, 50);
+
+		// Greeting letter
+		RwlGreeting_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 1, 430, 700, 100, 50);
 		PdfComparator.verifyFormData(driver, RwlGreeting_Version, "AIIC RN GL 08 19");
-		
-		RwlGreeting_Data = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlGreeting_Data = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlGreeting_Data, "AIIC RN GL 08 19");
-		
-		//Privacy statement
-		RwlPrivacy_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 4, 480, 30, 150, 50);
+
+		// Privacy statement
+		RwlPrivacy_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 4, 480, 30, 150, 50);
 		PdfComparator.verifyFormData(driver, RwlPrivacy_Version1, "AIIC PS 05 19");
-		RwlPrivacy_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 4, 70, 740, 200, 50);
+		RwlPrivacy_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 4, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, RwlPrivacy_Version, "AIIC PS 05 19");
-		
-		RwlPrivacy_Data = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlPrivacy_Data = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlPrivacy_Data, "AIIC PS 05 19");
-		RwlPrivacy_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+		RwlPrivacy_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlPrivacy_Name, "PRIVACY STATEMENT");
-		
-		//Roof form
-		RwlRoofLimitation_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 5, 445, 35, 150, 30);
+
+		// Roof form
+		RwlRoofLimitation_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 5, 445, 35, 150,
+				30);
 		PdfComparator.verifyFormData(driver, RwlRoofLimitation_Version1, "AIIC DP RWT 01 19");
-		RwlRoofLimitation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 5, 55, 750, 150, 30);
+		RwlRoofLimitation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 5, 55, 750, 150,
+				30);
 		PdfComparator.verifyFormData(driver, RwlRoofLimitation_Version, "AIIC DP RWT 01 19");
-		
-		RwlRoofLimitation_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlRoofLimitation_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlRoofLimitation_Name, "LIMITATIONS ON ROOF COVERAGE");
-		
-		//Deductible notification form
-		RwlDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 7, 450, 10, 250, 30);
+
+		// Deductible notification form
+		RwlDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 450, 10, 250, 30);
 		PdfComparator.verifyFormData(driver, RwlDed_Version1, "AIIC DP DO 06 23");
-		RwlDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 7, 70, 740, 200, 50);
+		RwlDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, RwlDed_Version, "AIIC DP DO 06 23");
-		
-		RwlDed_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlDed_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlDed_Name, "DEDUCTIBLE NOTIFICATION OPTIONS");
-		
-		//Policy jacket form
-		RwlPolJacket_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 14, 470, 35, 250, 50);
+
+		// Policy jacket form
+		RwlPolJacket_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 14, 470, 35, 250, 50);
 		PdfComparator.verifyFormData(driver, RwlPolJacket_Version1, "AIIC PJ 05 19");
-		RwlPolJacket_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 14, 70, 740, 250, 50);
+		RwlPolJacket_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 14, 70, 740, 250, 50);
 		PdfComparator.verifyFormData(driver, RwlPolJacket_Version, "AIIC PJ 05 19");
-		
-		RwlPolJacket_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlPolJacket_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlPolJacket_Name, "Policy Jacket");
-		
-		//AIIC DP3 IDX 07 15 form
-		RwlIDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 15, 470, 35, 150, 50);
+
+		// AIIC DP3 IDX 07 15 form
+		RwlIDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 15, 470, 35, 150, 50);
 		PdfComparator.verifyFormData(driver, RwlIDX_Version, "AIIC DP3 IDX 07 15");
-		RwlIDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 15, 25, 740, 150, 50);
+		RwlIDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 15, 25, 740, 150, 50);
 		PdfComparator.verifyFormData(driver, RwlIDX_Version1, "AIIC DP3 IDX 07 15");
-		
-		
-		//DP 00 03 07 88 form
-		RwlDP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 16, 40, 750, 120, 30);
+
+		// DP 00 03 07 88 form
+		RwlDP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 16, 40, 750, 120, 30);
 		PdfComparator.verifyFormData(driver, RwlDP3Special_Version, "DP 00 03 07 88");
-		
-		//AIIC 01 DP3 SP 04 23 form
-		RwlSPProvision_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 27, 440, 20, 120, 30);
+
+		// AIIC 01 DP3 SP 04 23 form
+		RwlSPProvision_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 27, 440, 20, 120, 30);
 		PdfComparator.verifyFormData(driver, RwlSPProvision_Version, "AIIC 01 DP3 SP 04 23");
-		RwlSPProvision_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 28, 30, 760, 120, 25);
+		RwlSPProvision_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 28, 30, 760, 120,
+				25);
 		PdfComparator.verifyFormData(driver, RwlSPProvision_Version1, "AIIC 01 DP3 SP 04 23");
-		
-		RwlSPProvision_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlSPProvision_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlSPProvision_Name, "SPECIAL PROVISIONS FOR FLORIDA");
 
-		//Flood information
-		RwlFloodInfo_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 25, 460, 35, 100, 35);
+		// Flood information
+		RwlFloodInfo_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 25, 460, 35, 100, 35);
 		PdfComparator.verifyFormData(driver, RwlFloodInfo_Version1, "AIIC FLI 07 17");
-		RwlFloodInfo_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 25, 70, 730, 100, 30);
+		RwlFloodInfo_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 25, 70, 730, 100, 30);
 		PdfComparator.verifyFormData(driver, RwlFloodInfo_Version, "AIIC FLI 07 17");
-		
-		RwlFloodInfo_Data = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlFloodInfo_Data = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlFloodInfo_Data, "AIIC FLI 07 17");
-		RwlFloodInfo_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+		RwlFloodInfo_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlFloodInfo_Name, "FLOOD INFORMATION FORM");
-		
-		//AIIC DP HD 07 15 form
-		RwlHurDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 42, 470, 25, 100, 40);
+
+		// AIIC DP HD 07 15 form
+		RwlHurDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 42, 470, 25, 100, 40);
 		PdfComparator.verifyFormData(driver, RwlHurDed_Version, "AIIC DP HD 07 15");
-		RwlHurDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 42, 60, 740, 100, 40);
+		RwlHurDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 42, 60, 740, 100, 40);
 		PdfComparator.verifyFormData(driver, RwlHurDed_Version1, "AIIC DP HD 07 15");
-		
-		RwlHurDed_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlHurDed_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlHurDed_Name, "CALENDAR YEAR HURRICANE DEDUCTIBLE");
-		
-		//Home Cyber Protection Coverage form
-		RwlCyber_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 68, 450, 25, 120, 40);
+
+		// Home Cyber Protection Coverage form
+		RwlCyber_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 68, 450, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlCyber_Version, "AIIC DP HCP 09 17");
-		RwlCyber_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 68, 60, 740, 120, 40);
+		RwlCyber_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 68, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlCyber_Version1, "AIIC DP HCP 09 17");
-		
-		RwlCyber_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlCyber_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlCyber_Name, "HOME CYBER PROTECTION COVERAGE");
-		
-		//Flood coverage
-		RwlFloodCov_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 47, 65, 710, 100, 30);
+
+		// Flood coverage
+		RwlFloodCov_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 47, 65, 710, 100, 30);
 		PdfComparator.verifyFormData(driver, RwlFloodCov_Version, "AIIC DP PFL 03 17");
-		
-		RwlFloodCov_Data = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlFloodCov_Data = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlFloodCov_Data, "AIIC DP PFL 03 17");
-		RwlFloodCov_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+		RwlFloodCov_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlFloodCov_Name, "FLOOD COVERAGE ENDORSEMENT");
-		
-		//Home Systems Protection & Service Line Coverage
-		RwlHSPSL_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 75, 440, 25, 120, 40);
+
+		// Home Systems Protection & Service Line Coverage
+		RwlHSPSL_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 75, 440, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlHSPSL_Version, "AIIC DP3 HSPSL 07 15");
-		RwlHSPSL_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 75, 60, 740, 120, 40);
+		RwlHSPSL_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 75, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlHSPSL_Version1, "AIIC DP3 HSPSL 07 15");
-		
-		RwlHSPSL_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlHSPSL_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlHSPSL_Name, "HOME SYSTEMS PROTECTION & SERVICE LINE COVERAGE");
 
-		//Identity Recovery Coverage form
-		RwlIR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 80, 440, 30, 120, 40);
+		// Identity Recovery Coverage form
+		RwlIR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 80, 440, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlIR_Version, "AIIC DP3 IR 07 15");
-		RwlIR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 80, 60, 740, 120, 40);
+		RwlIR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 80, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlIR_Version1, "AIIC DP3 IR 07 15");
-		
-		RwlIR_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlIR_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlIR_Name, "IDENTITY RECOVERY COVERAGE");
-		
-		//Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage form
-		RwlCarpool_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 82, 470, 25, 120, 40);
+
+		// Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage form
+		RwlCarpool_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 82, 470, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlCarpool_Version, "AIIC DP CPS 07 15");
-		RwlCarpool_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 82, 60, 740, 120, 40);
+		RwlCarpool_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 82, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlCarpool_Version1, "AIIC DP CPS 07 15");
-		
-		RwlCarpool_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlCarpool_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlCarpool_Name, "LIMITED CARPORT(S), POOL CAGE(S) AND SCREEN");
-		
-		//AIIC DP LFC 07 15 form
-		RwlFungi_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 83, 460, 30, 120, 40);
+
+		// AIIC DP LFC 07 15 form
+		RwlFungi_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 83, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlFungi_Version, "AIIC DP LFC 07 15");
-		RwlFungi_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 83, 60, 740, 120, 40);
+		RwlFungi_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 83, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlFungi_Version1, "AIIC DP LFC 07 15");
-		
-		RwlFungi_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlFungi_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlFungi_Name, "MOLD, WET OR DRY ROT, OR BACTERIA");
-		
-		//Limited Theft Coverage form
-		RwlTheft_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 84, 460, 30, 120, 40);
+
+		// Limited Theft Coverage form
+		RwlTheft_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 84, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlTheft_Version, "DP 04 73 07 88");
-		RwlTheft_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 84, 40, 750, 120, 30);
+		RwlTheft_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 84, 40, 750, 120, 30);
 		PdfComparator.verifyFormData(driver, RwlTheft_Version1, "DP 04 73 07 88");
-		
-		RwlTheft_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlTheft_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlTheft_Name, "LIMITED THEFT COVERAGE");
-		
-		//Loss Assessment form
-		RwlLoss_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 86, 460, 30, 120, 40);
+
+		// Loss Assessment form
+		RwlLoss_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 86, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlLoss_Version, "AIIC DP LA 07 15");
-		RwlLoss_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 86, 60, 740, 120, 30);
+		RwlLoss_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 86, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, RwlLoss_Version1, "AIIC DP LA 07 15");
-		
-		RwlLoss_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlLoss_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlLoss_Name, "LOSS ASSESSMENT PROPERTY COVERAGE");
-		
-		//Ordinance or Law Coverage form
-		RwlOrdinance_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 87, 460, 30, 120, 40);
+
+		// Ordinance or Law Coverage form
+		RwlOrdinance_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 87, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlOrdinance_Version, "AIIC DP OL 07 15");
-		RwlOrdinance_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 87, 60, 740, 120, 30);
+		RwlOrdinance_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 87, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, RwlOrdinance_Version1, "AIIC DP OL 07 15");
-		
-		RwlOrdinance_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlOrdinance_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlOrdinance_Name, "ORDINANCE OR LAW COVERAGE");
-		
-		//LIMITED WATER DAMAGE COVERAGE form
-		RwlLimitedWater_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 88, 455, 30, 120, 40);
+
+		// LIMITED WATER DAMAGE COVERAGE form
+		RwlLimitedWater_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 88, 455, 30, 120,
+				40);
 		PdfComparator.verifyFormData(driver, RwlLimitedWater_Version, "AIIC DP LWD 12 18");
-		RwlLimitedWater_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 88, 60, 735, 120, 30);
+		RwlLimitedWater_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 88, 60, 735, 120,
+				30);
 		PdfComparator.verifyFormData(driver, RwlLimitedWater_Version1, "AIIC DP LWD 12 18");
-		
-		RwlLimitedWater_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlLimitedWater_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlLimitedWater_Name, "LIMITED WATER DAMAGE COVERAGE");
-		
-		//Personal Property Replacement Cost Coverage form
-		RwlRCC_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 89, 460, 30, 120, 40);
+
+		// Personal Property Replacement Cost Coverage form
+		RwlRCC_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 89, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlRCC_Version, "AIIC DP RCC 07 15");
-		RwlRCC_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 89, 60, 740, 120, 30);
+		RwlRCC_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 89, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, RwlRCC_Version1, "AIIC DP RCC 07 15");
-		
-		RwlRCC_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlRCC_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlRCC_Name, "PERSONAL PROPERTY REPLACEMENT COST COVERAGE");
-		
-		//SINKHOLE LOSS COVERAGE form
-		RwlSinkhole_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 91, 460, 30, 120, 40);
+
+		// SINKHOLE LOSS COVERAGE form
+		RwlSinkhole_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 91, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlSinkhole_Version, "AIIC DP SK 07 15");
-		RwlSinkhole_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 91, 60, 740, 120, 30);
+		RwlSinkhole_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 91, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, RwlSinkhole_Version1, "AIIC DP SK 07 15");
-		
-		RwlSinkhole_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlSinkhole_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlSinkhole_Name, "SINKHOLE LOSS COVERAGE");
-		
-		//AIIC DP WDX 12 18 form
-		RwlWDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 94, 450, 40, 120, 40);
+
+		// AIIC DP WDX 12 18 form
+		RwlWDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 94, 450, 40, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlWDX_Version, "AIIC DP WDX 12 18");
-		RwlWDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 94, 60, 740, 120, 40);
+		RwlWDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 94, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlWDX_Version1, "AIIC DP WDX 12 18");
-		
-		RwlWDX_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlWDX_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlWDX_Name, "WATER DAMAGE EXCLUSION");
-		
-		//OUTLINE OF YOUR DWELLING POLICY form
-		RwlOutline_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 95, 460, 30, 120, 40);
+
+		// OUTLINE OF YOUR DWELLING POLICY form
+		RwlOutline_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 95, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlOutline_Version, "AIIC DP3 OC 12 18");
-		RwlOutline_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 95, 60, 740, 120, 40);
+		RwlOutline_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 95, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlOutline_Version1, "AIIC DP3 OC 12 18");
-		
-		RwlOutline_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlOutline_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlOutline_Name, "OUTLINE OF YOUR DWELLING POLICY");
-		
-		//Checklist form
-		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 99, 25, 750, 70, 30);
+
+		// Checklist form
+		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 99, 25, 750, 70, 30);
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
-		
-		RwlCheckList_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlCheckList_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlCheckList_Name, "Checklist of Coverage");
-		
-		//Notice Hurricane mitigation
-		RwlHurMitigation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 102, 30, 750, 90, 30);
+
+		// Notice Hurricane mitigation
+		RwlHurMitigation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 102, 30, 750, 90,
+				30);
 		PdfComparator.verifyFormData(driver, RwlHurMitigation_Version, "OIR-B1-1655");
-		
-		RwlHurMitigation_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
-		PdfComparator.verifyPDFText(driver, RwlHurMitigation_Name, "Notice of Premium Discounts for Hurricane Loss Mitigation");
-		
-		//Consumer reports form
-		RwlConsReport_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 103, 30, 710, 100, 30);
+
+		RwlHurMitigation_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
+		PdfComparator.verifyPDFText(driver, RwlHurMitigation_Name,
+				"Notice of Premium Discounts for Hurricane Loss Mitigation");
+
+		// Consumer reports form
+		RwlConsReport_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 103, 30, 710, 100, 30);
 		PdfComparator.verifyFormData(driver, RwlConsReport_Version, "AIIC NCR 08 19");
-		
-		RwlConsReport_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
+
+		RwlConsReport_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
 		PdfComparator.verifyPDFText(driver, RwlConsReport_Name, "Notice of Consumer Reports Ordered and Information");
-		
-		//Sinkhole Loss Coverage Selection/Rejection Form form
-		RwlSKSR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 104, 460, 30, 120, 40);
+
+		// Sinkhole Loss Coverage Selection/Rejection Form form
+		RwlSKSR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 104, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlSKSR_Version, "AIIC SKSR 11 14");
-		RwlSKSR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 104, 60, 740, 120, 40);
+		RwlSKSR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 104, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, RwlSKSR_Version1, "AIIC SKSR 11 14");
-		
-		RwlSKSR_Name = PdfComparator.getPDFData(FileLocation+RwlDec_Form);
-		PdfComparator.verifyPDFText(driver, RwlSKSR_Name, "Sinkhole Loss Coverage Selection/Rejection Form");	
+
+		RwlSKSR_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
+		PdfComparator.verifyPDFText(driver, RwlSKSR_Name, "Sinkhole Loss Coverage Selection/Rejection Form");
 	}
+
 	@When("User clicks Make Payment and do renewal payment <mtr2490>")
 	public void user_clicks_make_payment_and_do_renewal_payment_mtr2490() {
 		click(closeoutChevron.btnMakePaymentHolder);
@@ -2144,6 +2211,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		// Close unnecessary tabs
 		closeUnnecessaryTabs();
 	}
+
 	@When("User clicks Finalize button and completes renewal <mtr2490>")
 	public void user_clicks_finalize_button_and_completes_renewal_mtr2490() {
 		wait(3);
@@ -2153,12 +2221,14 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		wait(12);
 		closeUnnecessaryTabs();
 	}
+
 	@When("User searches for renewed second term the policy number <mtr2490>")
 	public void user_searches_renewed_second_term_policy_for_mtr2490() {
 		sendText(dashboard.txtSearchBar, PolicyNumberTerm02);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User searches third term manually renewed policy")
 	public void user_searches_third_term_manually_renewed_policy() throws InterruptedException {
 		temp2 = replaceMethod(PolicyNumberTerm02, "-02", "");
@@ -2168,20 +2238,21 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@Then("User clicks Second Renewal Declaration and validate form version <mtr2490> and completes test")
 	public void user_clicks_Second_Renewal_Declaration_and_validate_form_Version_mtr2490() throws Exception {
 		clickOnAnyPolicyFileTabForm(driver, "Renewal Declaration");
 		Thread.sleep(7000);
 		switchToWindow(driver, "STFile&File");
-		
+
 		Rwl2Dec_Form = PdfComparator.makePdf(driver, "Renewal2_Declaration.pdf");
-		
-		//Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation+Rwl2Dec_Form);
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + Rwl2Dec_Form);
 		wait(10);
-		
-		//Declaration page Forms and endorsement section 
-		Rwl2Dec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 10, 30, 450, 560, 350);
+
+		// Declaration page Forms and endorsement section
+		Rwl2Dec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 10, 30, 450, 560, 350);
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC RN GL 08 19");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP PHN CSAU 06 22");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC PS 05 19Privacy Statement");
@@ -2191,267 +2262,286 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP3 IDX 07 15Dwelling Property 3 Special Form Index");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "DP 00 03 07 88Dwelling Property 3 Special Form");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC FLI 07 17");
-		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
-		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
+		PdfComparator.verifyFormData(driver, Rwl2Dec_Page,
+				"AIIC 01 DP3 SP 04 23Special Provisions for Florida - DP 00 03 - Special Form");
+		PdfComparator.verifyFormData(driver, Rwl2Dec_Page,
+				"AIIC DP HD 07 15Calendar Year Hurricane Deductible Requirement");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP PFL 03 17");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP HCP 09 17Home Cyber Protection Coverage");
-		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
+		PdfComparator.verifyFormData(driver, Rwl2Dec_Page,
+				"AIIC DP3 HSPSL 07 15Home Systems Protection and Service Line Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP3 IR 07 15Identity Recovery Coverage");
-		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
-		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
+		PdfComparator.verifyFormData(driver, Rwl2Dec_Page,
+				"AIIC DP CPS 07 15Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage");
+		PdfComparator.verifyFormData(driver, Rwl2Dec_Page,
+				"AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "DP 04 73 07 88Limited Theft Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP LA 07 15Loss Assessment Property Coverage");
-		
-		Rwl2Dec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 11, 30, 80, 590, 170);
+
+		Rwl2Dec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 11, 30, 80, 590, 170);
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP OL 07 15Ordinance or Law Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP LWD 12 18Limited Water Damages");
-		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
+		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2,
+				"AIIC DP RCC 07 15Personal Property Replacement Cost Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP SK 07 15Sinkhole Loss Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP WDX 12 18Water Damage Exclusion ");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP3 OC 12 18Outline of your Dwelling Policy");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "OIR B1 1670Checklist of Coverage");
-		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
+		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2,
+				"OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC NCR 08 19Notice of Consumer Reports Ordered and");
-		
-		//Greeting letter
-		Rwl2Greeting_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 1, 430, 700, 100, 50);
+
+		// Greeting letter
+		Rwl2Greeting_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 1, 430, 700, 100, 50);
 		PdfComparator.verifyFormData(driver, Rwl2Greeting_Version, "AIIC RN GL 08 19");
-		
-		Rwl2Greeting_Data = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Greeting_Data = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Greeting_Data, "AIIC RN GL 08 19");
-		
-		//Privacy statement
-		Rwl2Privacy_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 4, 480, 30, 150, 50);
+
+		// Privacy statement
+		Rwl2Privacy_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 4, 480, 30, 150, 50);
 		PdfComparator.verifyFormData(driver, Rwl2Privacy_Version1, "AIIC PS 05 19");
-		Rwl2Privacy_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 4, 70, 740, 200, 50);
+		Rwl2Privacy_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 4, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, Rwl2Privacy_Version, "AIIC PS 05 19");
-		
-		Rwl2Privacy_Data = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Privacy_Data = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Privacy_Data, "AIIC PS 05 19");
-		Rwl2Privacy_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+		Rwl2Privacy_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Privacy_Name, "PRIVACY STATEMENT");
-		
-		//Roof form
-		Rwl2RoofLimitation_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 5, 445, 35, 150, 30);
+
+		// Roof form
+		Rwl2RoofLimitation_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 5, 445, 35, 150,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2RoofLimitation_Version1, "AIIC DP RWT 01 19");
-		Rwl2RoofLimitation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 5, 55, 750, 150, 30);
+		Rwl2RoofLimitation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 5, 55, 750, 150,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2RoofLimitation_Version, "AIIC DP RWT 01 19");
-		
-		Rwl2RoofLimitation_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2RoofLimitation_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2RoofLimitation_Name, "LIMITATIONS ON ROOF COVERAGE");
-		
-		//Deductible notification form
-		Rwl2Ded_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 7, 450, 10, 250, 30);
+
+		// Deductible notification form
+		Rwl2Ded_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 7, 450, 10, 250, 30);
 		PdfComparator.verifyFormData(driver, Rwl2Ded_Version1, "AIIC DP DO 06 23");
-		Rwl2Ded_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 7, 70, 740, 200, 50);
+		Rwl2Ded_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 7, 70, 740, 200, 50);
 		PdfComparator.verifyFormData(driver, Rwl2Ded_Version, "AIIC DP DO 06 23");
-		
-		Rwl2Ded_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Ded_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Ded_Name, "DEDUCTIBLE NOTIFICATION OPTIONS");
-		
-		//Policy jacket form
-		Rwl2PolJacket_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 14, 470, 35, 250, 50);
+
+		// Policy jacket form
+		Rwl2PolJacket_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 14, 470, 35, 250,
+				50);
 		PdfComparator.verifyFormData(driver, Rwl2PolJacket_Version1, "AIIC PJ 05 19");
-		Rwl2PolJacket_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 14, 70, 740, 250, 50);
+		Rwl2PolJacket_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 14, 70, 740, 250, 50);
 		PdfComparator.verifyFormData(driver, Rwl2PolJacket_Version, "AIIC PJ 05 19");
-		
-		Rwl2PolJacket_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2PolJacket_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2PolJacket_Name, "Policy Jacket");
-		
-		//AIIC DP3 IDX 07 15 form
-		Rwl2IDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 15, 470, 35, 150, 50);
+
+		// AIIC DP3 IDX 07 15 form
+		Rwl2IDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 15, 470, 35, 150, 50);
 		PdfComparator.verifyFormData(driver, Rwl2IDX_Version, "AIIC DP3 IDX 07 15");
-		Rwl2IDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 15, 25, 740, 150, 50);
+		Rwl2IDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 15, 25, 740, 150, 50);
 		PdfComparator.verifyFormData(driver, Rwl2IDX_Version1, "AIIC DP3 IDX 07 15");
-		
-		
-		//DP 00 03 07 88 form
-		Rwl2DP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 16, 40, 750, 120, 30);
+
+		// DP 00 03 07 88 form
+		Rwl2DP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 16, 40, 750, 120,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2DP3Special_Version, "DP 00 03 07 88");
-		
-		//AIIC 01 DP3 SP 04 23 form
-		Rwl2SPProvision_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 27, 440, 20, 120, 30);
+
+		// AIIC 01 DP3 SP 04 23 form
+		Rwl2SPProvision_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 27, 440, 20, 120,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2SPProvision_Version, "AIIC 01 DP3 SP 04 23");
-		Rwl2SPProvision_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 28, 30, 760, 120, 25);
+		Rwl2SPProvision_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 28, 30, 760, 120,
+				25);
 		PdfComparator.verifyFormData(driver, Rwl2SPProvision_Version1, "AIIC 01 DP3 SP 04 23");
-		
-		Rwl2SPProvision_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2SPProvision_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2SPProvision_Name, "SPECIAL PROVISIONS FOR FLORIDA");
 
-		//Flood information
-		Rwl2FloodInfo_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 25, 460, 35, 100, 35);
+		// Flood information
+		Rwl2FloodInfo_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 25, 460, 35, 100,
+				35);
 		PdfComparator.verifyFormData(driver, Rwl2FloodInfo_Version1, "AIIC FLI 07 17");
-		Rwl2FloodInfo_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 25, 70, 730, 100, 30);
+		Rwl2FloodInfo_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 25, 70, 730, 100, 30);
 		PdfComparator.verifyFormData(driver, Rwl2FloodInfo_Version, "AIIC FLI 07 17");
-		
-		Rwl2FloodInfo_Data = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2FloodInfo_Data = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2FloodInfo_Data, "AIIC FLI 07 17");
-		Rwl2FloodInfo_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+		Rwl2FloodInfo_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2FloodInfo_Name, "FLOOD INFORMATION FORM");
-		
-		//AIIC DP HD 07 15 form
-		Rwl2HurDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 42, 470, 25, 100, 40);
+
+		// AIIC DP HD 07 15 form
+		Rwl2HurDed_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 42, 470, 25, 100, 40);
 		PdfComparator.verifyFormData(driver, Rwl2HurDed_Version, "AIIC DP HD 07 15");
-		Rwl2HurDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 42, 60, 740, 100, 40);
+		Rwl2HurDed_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 42, 60, 740, 100, 40);
 		PdfComparator.verifyFormData(driver, Rwl2HurDed_Version1, "AIIC DP HD 07 15");
-		
-		Rwl2HurDed_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2HurDed_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2HurDed_Name, "CALENDAR YEAR HURRICANE DEDUCTIBLE");
-		
-		//Home Cyber Protection Coverage form
-		Rwl2Cyber_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 68, 450, 25, 120, 40);
+
+		// Home Cyber Protection Coverage form
+		Rwl2Cyber_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 68, 450, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Cyber_Version, "AIIC DP HCP 09 17");
-		Rwl2Cyber_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 68, 60, 740, 120, 40);
+		Rwl2Cyber_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 68, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Cyber_Version1, "AIIC DP HCP 09 17");
-		
-		Rwl2Cyber_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Cyber_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Cyber_Name, "HOME CYBER PROTECTION COVERAGE");
-		
-		//Flood coverage
-		Rwl2FloodCov_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 47, 65, 710, 100, 30);
+
+		// Flood coverage
+		Rwl2FloodCov_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 47, 65, 710, 100, 30);
 		PdfComparator.verifyFormData(driver, Rwl2FloodCov_Version, "AIIC DP PFL 03 17");
-		
-		Rwl2FloodCov_Data = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2FloodCov_Data = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2FloodCov_Data, "AIIC DP PFL 03 17");
-		Rwl2FloodCov_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+		Rwl2FloodCov_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2FloodCov_Name, "FLOOD COVERAGE ENDORSEMENT");
-		
-		//Home Systems Protection & Service Line Coverage
-		Rwl2HSPSL_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 75, 440, 25, 120, 40);
+
+		// Home Systems Protection & Service Line Coverage
+		Rwl2HSPSL_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 75, 440, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2HSPSL_Version, "AIIC DP3 HSPSL 07 15");
-		Rwl2HSPSL_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 75, 60, 740, 120, 40);
+		Rwl2HSPSL_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 75, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2HSPSL_Version1, "AIIC DP3 HSPSL 07 15");
-		
-		Rwl2HSPSL_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2HSPSL_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2HSPSL_Name, "HOME SYSTEMS PROTECTION & SERVICE LINE COVERAGE");
 
-		//Identity Recovery Coverage form
-		Rwl2IR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 80, 440, 30, 120, 40);
+		// Identity Recovery Coverage form
+		Rwl2IR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 80, 440, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2IR_Version, "AIIC DP3 IR 07 15");
-		Rwl2IR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 80, 60, 740, 120, 40);
+		Rwl2IR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 80, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2IR_Version1, "AIIC DP3 IR 07 15");
-		
-		Rwl2IR_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2IR_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2IR_Name, "IDENTITY RECOVERY COVERAGE");
-		
-		//Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage form
-		Rwl2Carpool_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 82, 470, 25, 120, 40);
+
+		// Limited Carport(s), Pool Cage(s) and Screen Enclosure(s) Coverage form
+		Rwl2Carpool_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 82, 470, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Carpool_Version, "AIIC DP CPS 07 15");
-		Rwl2Carpool_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 82, 60, 740, 120, 40);
+		Rwl2Carpool_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 82, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Carpool_Version1, "AIIC DP CPS 07 15");
-		
-		Rwl2Carpool_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Carpool_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Carpool_Name, "LIMITED CARPORT(S), POOL CAGE(S) AND SCREEN");
-		
-		//AIIC DP LFC 07 15 form
-		Rwl2Fungi_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 83, 460, 30, 120, 40);
+
+		// AIIC DP LFC 07 15 form
+		Rwl2Fungi_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 83, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Fungi_Version, "AIIC DP LFC 07 15");
-		Rwl2Fungi_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 83, 60, 740, 120, 40);
+		Rwl2Fungi_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 83, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Fungi_Version1, "AIIC DP LFC 07 15");
-		
-		Rwl2Fungi_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Fungi_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Fungi_Name, "MOLD, WET OR DRY ROT, OR BACTERIA");
-		
-		//Limited Theft Coverage form
-		Rwl2Theft_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 84, 460, 30, 120, 40);
+
+		// Limited Theft Coverage form
+		Rwl2Theft_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 84, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Theft_Version, "DP 04 73 07 88");
-		Rwl2Theft_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 84, 40, 750, 120, 30);
+		Rwl2Theft_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 84, 40, 750, 120, 30);
 		PdfComparator.verifyFormData(driver, Rwl2Theft_Version1, "DP 04 73 07 88");
-		
-		Rwl2Theft_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Theft_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Theft_Name, "LIMITED THEFT COVERAGE");
-		
-		//Loss Assessment form
-		Rwl2Loss_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 86, 460, 30, 120, 40);
+
+		// Loss Assessment form
+		Rwl2Loss_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 86, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Loss_Version, "AIIC DP LA 07 15");
-		Rwl2Loss_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 86, 60, 740, 120, 30);
+		Rwl2Loss_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 86, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Rwl2Loss_Version1, "AIIC DP LA 07 15");
-		
-		Rwl2Loss_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Loss_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Loss_Name, "LOSS ASSESSMENT PROPERTY COVERAGE");
-		
-		//Ordinance or Law Coverage form
-		Rwl2Ordinance_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 87, 460, 30, 120, 40);
+
+		// Ordinance or Law Coverage form
+		Rwl2Ordinance_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 87, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Ordinance_Version, "AIIC DP OL 07 15");
-		Rwl2Ordinance_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 87, 60, 740, 120, 30);
+		Rwl2Ordinance_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 87, 60, 740, 120,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2Ordinance_Version1, "AIIC DP OL 07 15");
-		
-		Rwl2Ordinance_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Ordinance_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Ordinance_Name, "ORDINANCE OR LAW COVERAGE");
-		
-		//LIMITED WATER DAMAGE COVERAGE form
-		Rwl2LimitedWater_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 88, 455, 30, 120, 40);
+
+		// LIMITED WATER DAMAGE COVERAGE form
+		Rwl2LimitedWater_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 88, 455, 30, 120,
+				40);
 		PdfComparator.verifyFormData(driver, Rwl2LimitedWater_Version, "AIIC DP LWD 12 18");
-		Rwl2LimitedWater_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 88, 60, 735, 120, 30);
+		Rwl2LimitedWater_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 88, 60, 735, 120,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2LimitedWater_Version1, "AIIC DP LWD 12 18");
-		
-		Rwl2LimitedWater_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2LimitedWater_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2LimitedWater_Name, "LIMITED WATER DAMAGE COVERAGE");
-		
-		//Personal Property Replacement Cost Coverage form
-		Rwl2RCC_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 89, 460, 30, 120, 40);
+
+		// Personal Property Replacement Cost Coverage form
+		Rwl2RCC_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 89, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2RCC_Version, "AIIC DP RCC 07 15");
-		Rwl2RCC_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 89, 60, 740, 120, 30);
+		Rwl2RCC_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 89, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Rwl2RCC_Version1, "AIIC DP RCC 07 15");
-		
-		Rwl2RCC_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2RCC_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2RCC_Name, "PERSONAL PROPERTY REPLACEMENT COST COVERAGE");
-		
-		//SINKHOLE LOSS COVERAGE form
-		Rwl2Sinkhole_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 91, 460, 30, 120, 40);
+
+		// SINKHOLE LOSS COVERAGE form
+		Rwl2Sinkhole_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 91, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Sinkhole_Version, "AIIC DP SK 07 15");
-		Rwl2Sinkhole_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 91, 60, 740, 120, 30);
+		Rwl2Sinkhole_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 91, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Rwl2Sinkhole_Version1, "AIIC DP SK 07 15");
-		
-		Rwl2Sinkhole_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Sinkhole_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Sinkhole_Name, "SINKHOLE LOSS COVERAGE");
-		
-		//AIIC DP WDX 12 18 form
-		Rwl2WDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 94, 450, 40, 120, 40);
+
+		// AIIC DP WDX 12 18 form
+		Rwl2WDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 94, 450, 40, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2WDX_Version, "AIIC DP WDX 12 18");
-		Rwl2WDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 94, 60, 740, 120, 40);
+		Rwl2WDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 94, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2WDX_Version1, "AIIC DP WDX 12 18");
-		
-		Rwl2WDX_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2WDX_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2WDX_Name, "WATER DAMAGE EXCLUSION");
-		
-		//OUTLINE OF YOUR DWELLING POLICY form
-		Rwl2Outline_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 95, 460, 30, 120, 40);
+
+		// OUTLINE OF YOUR DWELLING POLICY form
+		Rwl2Outline_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 95, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Outline_Version, "AIIC DP3 OC 12 18");
-		Rwl2Outline_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 95, 60, 740, 120, 40);
+		Rwl2Outline_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 95, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2Outline_Version1, "AIIC DP3 OC 12 18");
-		
-		Rwl2Outline_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2Outline_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2Outline_Name, "OUTLINE OF YOUR DWELLING POLICY");
-		
-		//Checklist form
-		Rwl2CheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 99, 25, 750, 70, 30);
+
+		// Checklist form
+		Rwl2CheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 99, 25, 750, 70, 30);
 		PdfComparator.verifyFormData(driver, Rwl2CheckList_Version, "OIR-B1-1670");
-		
-		Rwl2CheckList_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2CheckList_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2CheckList_Name, "Checklist of Coverage");
-		
-		//Notice Hurricane mitigation
-		Rwl2HurMitigation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 102, 30, 750, 90, 30);
+
+		// Notice Hurricane mitigation
+		Rwl2HurMitigation_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 102, 30, 750, 90,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2HurMitigation_Version, "OIR-B1-1655");
-		
-		Rwl2HurMitigation_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
-		PdfComparator.verifyPDFText(driver, Rwl2HurMitigation_Name, "Notice of Premium Discounts for Hurricane Loss Mitigation");
-		
-		//Consumer reports form
-		Rwl2ConsReport_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 103, 30, 710, 100, 30);
+
+		Rwl2HurMitigation_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
+		PdfComparator.verifyPDFText(driver, Rwl2HurMitigation_Name,
+				"Notice of Premium Discounts for Hurricane Loss Mitigation");
+
+		// Consumer reports form
+		Rwl2ConsReport_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 103, 30, 710, 100,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2ConsReport_Version, "AIIC NCR 08 19");
-		
-		Rwl2ConsReport_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2ConsReport_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2ConsReport_Name, "Notice of Consumer Reports Ordered and Information");
-		
-		//Sinkhole Loss Coverage Selection/Rejection Form form
-		Rwl2SKSR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 104, 460, 30, 120, 40);
+
+		// Sinkhole Loss Coverage Selection/Rejection Form form
+		Rwl2SKSR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 104, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2SKSR_Version, "AIIC SKSR 11 14");
-		Rwl2SKSR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation+Rwl2Dec_Form, 104, 60, 740, 120, 40);
+		Rwl2SKSR_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 104, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Rwl2SKSR_Version1, "AIIC SKSR 11 14");
-		
-		Rwl2SKSR_Name = PdfComparator.getPDFData(FileLocation+Rwl2Dec_Form);
+
+		Rwl2SKSR_Name = PdfComparator.getPDFData(FileLocation + Rwl2Dec_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2SKSR_Name, "Sinkhole Loss Coverage Selection/Rejection Form");
 		Hooks.scenario.log("Test Case Completed!");
 	}

@@ -17,6 +17,7 @@ public class MTR3171_DP1_ValidateAgentCannotIssuePolicyWhenFloodCovAGreaterThanD
 	static String policyNum;
 	static String AppNum;
 
+	
 	@When("User enters all required information on policy information screen <mtr3171>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr3171() {
 

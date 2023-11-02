@@ -17,6 +17,7 @@ public class MTR253_DP1_ValidateClaimCanbeReportedByInsuredContractor extends Co
 	static String claimNum;
 	static String lossNum;
 
+	
 	@When("User validates that DP1 policy has been created successfully and close tabs and takes note of the policy number")
 	public void user_validates_that_dp1_policy_has_been_created_successfully_and_close_tabs_and_takes_note_of_the_policy_number()
 			throws Exception {

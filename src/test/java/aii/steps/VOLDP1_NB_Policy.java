@@ -80,5 +80,4 @@ public class VOLDP1_NB_Policy extends CommonMethods {
 		String actual = historyChevron.txtNewBusiness.getText();
 		Assert.assertEquals("Test failed!", expected, actual);
 	}
-
 }

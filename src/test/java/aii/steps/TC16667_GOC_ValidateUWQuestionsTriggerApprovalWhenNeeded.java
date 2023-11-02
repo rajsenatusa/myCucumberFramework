@@ -109,24 +109,25 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 	}
 
 	@When("User checks error messages when Goc Underwriting Questions answered as Yes and validates particular error messages for all questions")
-	public void user_checks_error_messages_when_GOC_UW_questions_answered_as_yes_and_validates_particular_error_messages() throws Exception {
+	public void user_checks_error_messages_when_GOC_UW_questions_answered_as_yes_and_validates_particular_error_messages()
+			throws Exception {
 
 		// GOC Underwriting Questions Chevron was filled here
 
-		selectDropdownText(uwquestionsChevron.gocQuestion1, "No"); //1
-		selectDropdownText(uwquestionsChevron.ho3Question1, "No"); //2
-		selectDropdownText(uwquestionsChevron.gocQuestion3, "No"); //3
-		selectDropdownText(uwquestionsChevron.gocQuestion4, "No"); //4
-		selectDropdownText(uwquestionsChevron.gocQuestion5, "No"); //5
-		selectDropdownText(uwquestionsChevron.gocQuestion6, "No"); //6
-		selectDropdownText(uwquestionsChevron.gocQuestion7, "No"); //7
-		selectDropdownText(uwquestionsChevron.gocQuestion8, "No"); //8
-		selectDropdownText(uwquestionsChevron.gocQuestion9, "No"); //9
-		selectDropdownText(uwquestionsChevron.gocQuestion10, "No"); //10
-		selectDropdownText(uwquestionsChevron.gocQuestion11, "No"); //11
-		selectDropdownText(uwquestionsChevron.gocQuestion12, "No"); //12
-		
-		//Question 1
+		selectDropdownText(uwquestionsChevron.gocQuestion1, "No"); // 1
+		selectDropdownText(uwquestionsChevron.ho3Question1, "No"); // 2
+		selectDropdownText(uwquestionsChevron.gocQuestion3, "No"); // 3
+		selectDropdownText(uwquestionsChevron.gocQuestion4, "No"); // 4
+		selectDropdownText(uwquestionsChevron.gocQuestion5, "No"); // 5
+		selectDropdownText(uwquestionsChevron.gocQuestion6, "No"); // 6
+		selectDropdownText(uwquestionsChevron.gocQuestion7, "No"); // 7
+		selectDropdownText(uwquestionsChevron.gocQuestion8, "No"); // 8
+		selectDropdownText(uwquestionsChevron.gocQuestion9, "No"); // 9
+		selectDropdownText(uwquestionsChevron.gocQuestion10, "No"); // 10
+		selectDropdownText(uwquestionsChevron.gocQuestion11, "No"); // 11
+		selectDropdownText(uwquestionsChevron.gocQuestion12, "No"); // 12
+
+		// Question 1
 		selectDropdownText(uwquestionsChevron.gocQuestion1, "Yes");
 		verify_AnyLabel_IsVisible(driver, "Policy type*");
 		verify_AnyLabel_IsVisible(driver, "Operator name*");
@@ -146,8 +147,8 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Underwriting referral required due to coverage history");
-		
-		//Question 2
+
+		// Question 2
 		click(dwellingChevron.btnNext);
 		selectDropdownText(uwquestionsChevron.ho3Question1, "Yes");
 		click(dwellingChevron.btnSave);
@@ -162,74 +163,74 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Risk is ineligible");
-		
-		//Question 3
+
+		// Question 3
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion3, "Yes"); //3
+		selectDropdownText(uwquestionsChevron.gocQuestion3, "Yes"); // 3
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Underwriting referral required");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion3, "No"); //3
+		selectDropdownText(uwquestionsChevron.gocQuestion3, "No"); // 3
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Underwriting referral required");
-		
-		//Question 4
+
+		// Question 4
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion4, "Yes"); //4
+		selectDropdownText(uwquestionsChevron.gocQuestion4, "Yes"); // 4
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Underwriting referral required");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion4, "No"); //4
+		selectDropdownText(uwquestionsChevron.gocQuestion4, "No"); // 4
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Underwriting referral required");
-		
-		//Question 5
+
+		// Question 5
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion5, "Yes"); //5
+		selectDropdownText(uwquestionsChevron.gocQuestion5, "Yes"); // 5
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Risk is ineligible");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion5, "No"); //5
+		selectDropdownText(uwquestionsChevron.gocQuestion5, "No"); // 5
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Risk is ineligible");
-		
-		//Question 6
+
+		// Question 6
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion6, "Yes"); //6
+		selectDropdownText(uwquestionsChevron.gocQuestion6, "Yes"); // 6
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Risk is ineligible");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion6, "No"); //6
+		selectDropdownText(uwquestionsChevron.gocQuestion6, "No"); // 6
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Risk is ineligible");
-		
-		//Question 7
+
+		// Question 7
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion7, "Yes"); //7
+		selectDropdownText(uwquestionsChevron.gocQuestion7, "Yes"); // 7
 		wait(1);
 		verify_AnyLabel_IsVisible(driver, "Operator name*");
 		verify_AnyLabel_IsVisible(driver, "Explanation of impairment*");
@@ -241,107 +242,107 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Underwriting referral required");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion7, "No"); //7
+		selectDropdownText(uwquestionsChevron.gocQuestion7, "No"); // 7
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Underwriting referral required");
-		
-		//Question 8
+
+		// Question 8
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion8, "Yes"); //8
+		selectDropdownText(uwquestionsChevron.gocQuestion8, "Yes"); // 8
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Risk is ineligible");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion8, "No"); //8
+		selectDropdownText(uwquestionsChevron.gocQuestion8, "No"); // 8
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Risk is ineligible");
-		
-		//Question 9
+
+		// Question 9
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion9, "Yes"); //9
+		selectDropdownText(uwquestionsChevron.gocQuestion9, "Yes"); // 9
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Risk is ineligible");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion9, "No"); //9
+		selectDropdownText(uwquestionsChevron.gocQuestion9, "No"); // 9
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Risk is ineligible");
-		
-		//Question 10
+
+		// Question 10
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion10, "Yes"); //10
+		selectDropdownText(uwquestionsChevron.gocQuestion10, "Yes"); // 10
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Risk is ineligible");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion10, "No"); //10
+		selectDropdownText(uwquestionsChevron.gocQuestion10, "No"); // 10
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Risk is ineligible");
-		
-		//Question 11
+
+		// Question 11
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion11, "Yes"); //11
+		selectDropdownText(uwquestionsChevron.gocQuestion11, "Yes"); // 11
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_IsVisible(driver, "Risk is ineligible");
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion11, "No"); //11
+		selectDropdownText(uwquestionsChevron.gocQuestion11, "No"); // 11
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(3);
 		verify_AnyText_NotVisible(driver, "Risk is ineligible");
-		
-		//Question 12
+
+		// Question 12
 		click(dwellingChevron.btnNext);
-		selectDropdownText(uwquestionsChevron.gocQuestion12, "No"); //12
+		selectDropdownText(uwquestionsChevron.gocQuestion12, "No"); // 12
 	}
-	
+
 	@When("User answers as Yes all UW questions")
 	public void user_answers_as_Yes_all_UW_questions() throws Exception {
-		selectDropdownText(uwquestionsChevron.gocQuestion1, "Yes"); //1
+		selectDropdownText(uwquestionsChevron.gocQuestion1, "Yes"); // 1
 		sendText(driver.findElement(By.id("Question_InsuredDecline2")), "XYZ");
 		sendText(driver.findElement(By.id("Question_InsuredDecline3")), "Operator");
 		sendText(driver.findElement(By.id("Question_InsuredDecline4")), "Other");
 		click(dwellingChevron.btnSave);
 		waitImp(3);
-		
-		selectDropdownText(uwquestionsChevron.ho3Question1, "Yes"); //2
-		selectDropdownText(uwquestionsChevron.gocQuestion3, "Yes"); //3
-		selectDropdownText(uwquestionsChevron.gocQuestion4, "Yes"); //4
-		selectDropdownText(uwquestionsChevron.gocQuestion5, "Yes"); //5
-		selectDropdownText(uwquestionsChevron.gocQuestion6, "Yes"); //6
-		selectDropdownText(uwquestionsChevron.gocQuestion7, "Yes"); //7
+
+		selectDropdownText(uwquestionsChevron.ho3Question1, "Yes"); // 2
+		selectDropdownText(uwquestionsChevron.gocQuestion3, "Yes"); // 3
+		selectDropdownText(uwquestionsChevron.gocQuestion4, "Yes"); // 4
+		selectDropdownText(uwquestionsChevron.gocQuestion5, "Yes"); // 5
+		selectDropdownText(uwquestionsChevron.gocQuestion6, "Yes"); // 6
+		selectDropdownText(uwquestionsChevron.gocQuestion7, "Yes"); // 7
 		sendText(driver.findElement(By.id("Question_OperatorImpairment2")), "OperSeven");
 		sendText(driver.findElement(By.id("Question_OperatorImpairment3")), "Impair");
 		click(dwellingChevron.btnSave);
 		waitImp(3);
-		
-		selectDropdownText(uwquestionsChevron.gocQuestion8, "Yes"); //8
-		selectDropdownText(uwquestionsChevron.gocQuestion9, "Yes"); //9
-		selectDropdownText(uwquestionsChevron.gocQuestion10, "Yes"); //10
-		selectDropdownText(uwquestionsChevron.gocQuestion11, "Yes"); //11
-		selectDropdownText(uwquestionsChevron.gocQuestion12, "Yes"); //12
+
+		selectDropdownText(uwquestionsChevron.gocQuestion8, "Yes"); // 8
+		selectDropdownText(uwquestionsChevron.gocQuestion9, "Yes"); // 9
+		selectDropdownText(uwquestionsChevron.gocQuestion10, "Yes"); // 10
+		selectDropdownText(uwquestionsChevron.gocQuestion11, "Yes"); // 11
+		selectDropdownText(uwquestionsChevron.gocQuestion12, "Yes"); // 12
 		click(dwellingChevron.btnSave);
 		waitImp(3);
 		attachScreenShot(driver);
@@ -351,6 +352,7 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 		verify_AnyText_IsVisible(driver, "Risk is ineligible");
 		verify_AnyText_IsVisible(driver, "Underwriting referral required");
 	}
+
 	@When("User validates expected error messages displayed on closeout Screen")
 	public void user_validates_expected_error_messages_displayed_on_closeout_Screen() throws Exception {
 		verify_AnyText_IsVisible(driver, "Underwriting referral required due to coverage history");
@@ -358,8 +360,9 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 		verify_AnyText_IsVisible(driver, "Underwriting referral required");
 		scrollToAnyField(driver, "Quote/Policy");
 		attachScreenShot(driver);
-	
+
 	}
+
 	@When("User takes note of the application for <tc16667>")
 	public void user_takes_note_of_the_application__number_for_tc16667() throws Exception {
 		try {
@@ -369,12 +372,14 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the application <tc16667>")
 	public void user_searches_application_for_tc16667() {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User validates expected error messages displayed on Underwriter closeout screen")
 	public void user_validates_expected_error_messages_displayed_on_Underwriter_closeout_screen() throws Exception {
 		verify_AnyText_IsVisible(driver, "Underwriting referral required due to coverage history");
@@ -383,12 +388,14 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 		scrollToAnyField(driver, "Submitter Issues");
 		attachScreenShot(driver);
 	}
+
 	@When("User validates 'Risk is ineligible' message on closeout Screen")
 	public void user_validates_Risk_is_ineligible_message_on_closeout_Screen() throws Exception {
 		verify_AnyText_IsVisible(driver, "Risk is ineligible");
 		scrollToAnyField(driver, "Submitter Issues");
 		attachScreenShot(driver);
 	}
+
 	@Then("User issues policy and close unnecessary tabs and completes test <tc16667>")
 	public void user_issues_policy_and_close_unnecessary_tabs_tc16667() throws Exception {
 		selectDropdownText(closeoutChevron.ddPaymentType, "None");
@@ -408,5 +415,5 @@ public class TC16667_GOC_ValidateUWQuestionsTriggerApprovalWhenNeeded extends Co
 		getInForcePremiumFees(driver);
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

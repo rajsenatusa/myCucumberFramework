@@ -3078,4 +3078,16 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 			}
 	}
+	public static void clickProcess(WebDriver driver) throws Exception {
+		attachScreenShot(driver);
+		
+		try {
+			driver.findElement(By.id("Process")).click();
+			wait(3);
+			Hooks.scenario.log("Process was selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("Process was not selected");
+			wait(5);
+		}
+	}
 }

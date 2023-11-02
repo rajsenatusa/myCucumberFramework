@@ -18,6 +18,7 @@ public class MTR359_TC16763_HO3_ValidateUWApprovalNeededForBasicToGoldReserveAnd
 	static String policyNum;
 	static String AppNum;
 	
+	
 	@When("User enters all required information on policy information screen <mtr359>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr359() {
 

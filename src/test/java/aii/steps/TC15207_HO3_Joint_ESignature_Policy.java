@@ -26,8 +26,8 @@ public class TC15207_HO3_Joint_ESignature_Policy extends CommonMethods {
 		sendText(quote.txtJointLastName, "Smith");
 		sendText(quote.txtJointBirthday, "8/23/1978");
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
-		sendText(quote.txtZipCode, "34987");
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);
@@ -81,7 +81,7 @@ public class TC15207_HO3_Joint_ESignature_Policy extends CommonMethods {
 
 	@When("User enters all required information on HO3 dwelling screen <tc15207>")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_tc15207() {
-
+		sendText(dwellingChevron.txtYearConstruction, "2023");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		// selectDropdownText(dwellingChevron.bCEG, "4");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
@@ -90,7 +90,7 @@ public class TC15207_HO3_Joint_ESignature_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "Metal");
-		sendText(dwellingChevron.txtRoofMaterialUpdate, "2022");
+		//sendText(dwellingChevron.txtRoofMaterialUpdate, "2023");
 		selectDropdownText(dwellingChevron.ddMediationArbit, "No");
 		wait(2);
 		click(dwellingChevron.btnSave);
@@ -99,6 +99,7 @@ public class TC15207_HO3_Joint_ESignature_Policy extends CommonMethods {
 		wait(4);
 		click(dwellingChevron.btnSave);
 		wait(4);
+		sendText(dwellingChevron.txtCoverageA, "400000");
 		selectDropdownText(dwellingChevron.ddDeductibleWindHail, "$15,000");
 		click(dwellingChevron.btnSave);
 		wait(4);
@@ -210,9 +211,9 @@ public class TC15207_HO3_Joint_ESignature_Policy extends CommonMethods {
 			e.printStackTrace();
 		}
 	}
+
 	@When("User clicks ESignature Tab and do validations for expected buttons, labels, texts")
-	public void user_clicks_ESignature_Tab()
-			throws Exception {
+	public void user_clicks_ESignature_Tab() throws Exception {
 		clickonAnyButton(driver, "Tab_ESignature");
 		wait(10);
 		verify_AnyfirstText_IsDisplayed(driver, "Cancel");
@@ -223,11 +224,11 @@ public class TC15207_HO3_Joint_ESignature_Policy extends CommonMethods {
 		verify_AnyfirstText_IsDisplayed(driver, "Sent");
 		verify_JointLabels_IsDisplayed(driver, "Sent");
 		verify_AnyText_IsVisibleMultipletimes(driver, "Sent", "4");
-		
+
 		verify_AnyText_IsVisible(driver, "cyavas@aiiflorida.com");
 		verify_AnyText_IsVisible(driver, "mcemek@aiiflorida.com");
 		verify_AnyText_IsVisible(driver, "aiicmodel@aiiflorida.com");
-		
+
 		driver.findElement(By.id("Tab_Documents")).click();
 		wait(1);
 		verify_AnyText_NotVisible(driver, "Application (e-signed)");
