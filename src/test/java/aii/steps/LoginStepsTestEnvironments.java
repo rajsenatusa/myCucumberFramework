@@ -2,7 +2,6 @@ package aii.steps;
 
 import org.junit.Assert;
 
-
 //import com.aii.testbase.PageInitializer;
 //import com.aii.utils.Constants;
 
@@ -68,73 +67,81 @@ public class LoginStepsTestEnvironments extends CommonMethods {
 	public void User_will_quit_the_browser() {
 //	tearDown();
 	}
-	
+
 	@And("User enters a valid user name {string}")
 	public void User_enters_a_valid_user_name(String username) {
-		sendText(login.username, username);			
+		sendText(login.username, username);
 	}
+
 	@And("User enters a valid password {string}")
 	public void User_enters_a_valid_user_password(String password) {
-		sendText(login.password, password);		
-		wait(1);	
+		sendText(login.password, password);
+		wait(1);
 	}
-	
+
 	@When("User logins with valid {string} and {string}")
 	public void user_logins_with_valid_and(String string, String string2) {
-	    
+
 		sendText(login.username, string);
 		sendText(login.password, string2);
-		
+
 	}
+
 	@Given("User navigates to QA6")
 	public void User_navigates_to_QA6() {
 		// setUp();
 //		login = new LoginPageElements();
 //		dashboard = new DashboardPageElements();
 	}
+
 	@Given("User navigates to QA5")
 	public void User_navigates_to_QA5() {
 		// setUp();
 //		login = new LoginPageElements();
 //		dashboard = new DashboardPageElements();
 	}
+
 	@Given("User navigates to QA4")
 	public void User_navigates_to_QA4() {
 		// setUp();
 //		login = new LoginPageElements();
 //		dashboard = new DashboardPageElements();
 	}
+
 	@Given("User navigates to QA3")
 	public void User_navigates_to_QA3() {
 		// setUp();
 //		login = new LoginPageElements();
 //		dashboard = new DashboardPageElements();
 	}
+
 	@Given("User navigates to QA2")
 	public void User_navigates_to_QA2() {
-		
-		 
+
 		// setUp();
 //		login = new LoginPageElements();
 //		dashboard = new DashboardPageElements();
 	}
+
 	@Given("User navigates to QA1")
 	public void User_navigates_to_QA1() {
 		// setUp();
 //		login = new LoginPageElements();
 //		dashboard = new DashboardPageElements();
 	}
+
 	@Given("User navigates to Model")
 	public void User_navigates_to_model() {
 		// setUp();
 //		login = new LoginPageElements();
 //		dashboard = new DashboardPageElements();
 	}
+
 	@Given("User navigates to Model2")
 	public void User_navigates_to_model2() {
 		// setUp();
 //		login = new LoginPageElements();
 //		dashboard = new DashboardPageElements();
 	}
-	
+
 }

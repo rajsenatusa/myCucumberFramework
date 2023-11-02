@@ -58,7 +58,6 @@ public class VOLDP3_NB_Policy extends CommonMethods {
 		closeoutChevron.btnIssueNB.click();
 
 	}
-
 	@And("User enters DP3 Underwritting Questions")
 	public void User_enters_dp1_Underwritting_Questions() {
 		selectDropdownText(uwquestionsChevron.ho3Question1, "No");

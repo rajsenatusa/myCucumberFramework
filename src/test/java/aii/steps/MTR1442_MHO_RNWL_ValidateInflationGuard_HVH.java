@@ -52,6 +52,7 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 		getInForcePremium(driver);
 		getInForcePremiumFees(driver);
 
+		
 		// taking note of the issued policy
 		try {
 			policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();

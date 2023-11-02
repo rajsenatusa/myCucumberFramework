@@ -87,11 +87,13 @@ public class MTR1412_GOC_ValidateNoHitRequireUWApproval_NB extends CommonMethods
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User validates 'Driver received a No Hit on their MVR. This policy will require Underwriting approval' message has been displayed and 'Submit For Approval' 'Modify Application' labels are visible")
 	public void user_validates_error_message_and_labels() throws Exception {
 		verify_AnyLabel_IsVisible(driver, "Submit For Approval");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
 	}
+
 	@When("User takes note of the application number <mtr1412>")
 	public void user_takes_note_of_the_application__number() throws Exception {
 		try {
@@ -101,18 +103,22 @@ public class MTR1412_GOC_ValidateNoHitRequireUWApproval_NB extends CommonMethods
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the application <mtr1412>")
 	public void user_searches_for_the_application_mtr1412() throws Exception {
 		setPolicyNumSearch(driver, applicationNumber);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("UW User validates 'Driver received a No Hit on their MVR. This policy will require Underwriting approval' message has been displayed and approves transaction")
 	public void uwuser_approves_transaction() throws Exception {
-		verify_AnyText_IsVisible(driver, "Driver received a No Hit on their MVR. This policy will require Underwriting approval");
+		verify_AnyText_IsVisible(driver,
+				"Driver received a No Hit on their MVR. This policy will require Underwriting approval");
 		click(closeoutChevron.btnApprove);
 		wait(3);
 	}
+
 	@When("User validates that GOC policy has been created successfully and complete test")
 	public void user_validates_that_goc_policy_has_been_created_successfully() throws Exception {
 
@@ -127,5 +133,5 @@ public class MTR1412_GOC_ValidateNoHitRequireUWApproval_NB extends CommonMethods
 		getPolicyNumber(driver);
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

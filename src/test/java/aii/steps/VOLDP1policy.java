@@ -104,6 +104,7 @@ public class VOLDP1policy extends CommonMethods {
 		}
 	}
 
+	
 	@Then("User creates DP1 policy with passing information from excel {string} sheet")
 	public void User_creates_dp1_policy_with_passing_information_from_excel_sheet(String dp1customerInfo)
 			throws Exception {
@@ -239,6 +240,147 @@ public class VOLDP1policy extends CommonMethods {
 
 				// Switch back to the main page
 				driver.switchTo().window(tabs.get(0));
+
+				click(dashboard.btnUserMenu);
+				click(dashboard.btnSignOut);
+
+				sendText(login.username, ConfigsReader.getProperty("username"));
+				sendText(login.password, ConfigsReader.getProperty("password"));
+				click(login.btnSignIn);
+				wait(5);
+				moveToElement(driver.findElement(By.id("Menu_Policy")));
+				wait(4);
+				dashboard.btnNewQuote.click();
+				WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
+				selectDropdownText(element, "Individual");
+
+			} else {
+				break;
+			}
+
+		}
+
+	}
+	@Then("User creates DP1 application with passing information from excel {string} sheet")
+	public void User_creates_dp1_application_with_passing_information_from_excel_sheet(String dp1customerInfo)
+			throws Exception {
+		String AppNum= null;
+		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLDP1.xlsx";
+
+		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, dp1customerInfo);
+
+		for (Map<String, String> dataMap : excelList) {
+
+			if (!dataMap.containsValue("")) {
+				String firstName = dataMap.get("FirstName");
+				String lastName = dataMap.get("LastName");
+				String birthDate = dataMap.get("BirthDate");
+				String address = dataMap.get("Address");
+				String zipcode = dataMap.get("Zipcode");
+				String effDate = dataMap.get("EffectiveDate");
+				String state = dataMap.get("State");
+				String previousCarr = dataMap.get("PreviousCarrier");
+				String previousExp = dataMap.get("PreviousExpDate");
+				String phone = dataMap.get("Phone");
+				String constructtype = dataMap.get("ConsType");
+				String occupancytype = dataMap.get("Occupancy");
+				String monthsoccp = dataMap.get("Months");
+				String yearcons = dataMap.get("ConstYear");
+				String roof = dataMap.get("RoofMat");
+				String quality = dataMap.get("Quality");
+
+				sendText(quote.txtFirstName, firstName);
+				sendText(quote.txtLastName, lastName);
+				wait(2);
+				sendText(quote.txtBirthDate, birthDate);
+				wait(2);
+				click(quote.txtSearchName);
+				sendText(quote.txtAddress, address);
+				sendText(quote.txtZipCode, zipcode);
+				wait(2);
+				click(quote.btnVerifyAddress);
+				wait(2);
+				click(quote.btnCopyToMailAddress);
+				click(quote.btnCopyToBillAddress);
+				click(quote.btnSaveAndQuote);
+				wait(2);
+
+				// productSelection
+				sendText(product.txtEffectiveDate, effDate);
+				selectDropdownText(product.ddStateSelection, state);
+				selectDropdown(product.ddCarrierSelection, 1);
+				wait(2);
+				click(product.btnContinue);
+				click(product.btnProductSelectionDp1);
+
+				// quote
+				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
+				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
+				sendText(policyChevron.txtPhoneNumber, phone);
+				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+				wait(2);
+				click(policyChevron.btnNoEmailRadio);
+				selectDropdownText(policyChevron.ddConstructionType, constructtype);
+				selectDropdownText(policyChevron.ddOccupancy, occupancytype);
+				selectDropdownText(policyChevron.ddMonthsOccupied, monthsoccp);
+				selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
+				selectDropdownText(policyChevron.ddShortTermRental, "No");
+				wait(1);
+				click(policyChevron.btnNext);
+
+				// dwelling
+				sendText(dwellingChevron.txtYearConstruction, yearcons);
+				sendText(dwellingChevron.txtSquareFeet, "1600");
+				wait(3);
+				selectDropdownText(dwellingChevron.ddRoofMetarial, roof);
+				selectDropdownText(dwellingChevron.ddMediationArbitDp1, ConfigsReader.getProperty("mediation"));
+				selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
+				wait(2);
+				selectDropdownText(dwellingChevron.ddQualityGrade, quality);
+				click(dwellingChevron.btnCalculate);
+				wait(4);
+				click(dwellingChevron.btnSave);
+				click(dwellingChevron.btnNext);
+				wait(3);
+
+				// Quote Review Chevron information was filled here
+				selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
+				wait(2);
+				click(reviewChevron.btnFullPaymentRadio);
+				wait(3);
+				click(reviewChevron.btnCreateApplication);
+				wait(4);
+
+				// Application Policy Chevron information was filled here(all information was
+				// filled previously, just clicking next button)
+
+				click(dwellingChevron.btnNext);
+
+				// Application Underwriting Questions Chevron was filled here
+
+				fillDP1_UWQuestions();
+				wait(1);
+				click(uwquestionsChevron.nextButtonUw);
+
+				// Application Dwelling information was filled here
+
+				wait(2);
+				click(dwellingChevron.btnSave);
+				click(reviewChevron.btnReview);
+				wait(2);
+				click(reviewChevron.btnFinalize);
+				wait(2);
+
+				// taking note of the application number and logs to the console
+
+				try {
+					AppNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+					Hooks.scenario.log("Application Number: " + AppNum);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				Hooks.scenario.log(AppNum);		
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

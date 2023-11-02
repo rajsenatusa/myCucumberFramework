@@ -12,7 +12,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew_UWTaskWillGenerate extends CommonMethods{
+public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew_UWTaskWillGenerate
+		extends CommonMethods {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
@@ -21,7 +22,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 	static String claimNum2;
 	static String preAutoDt;
 	static String user;
-	
+
 	@When("User enters all required information on AIB quote screen for <tc35142>")
 	public void user_enters_all_required_information_on_aib_quote_screen_for_tc35142() {
 
@@ -41,6 +42,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		click(policyChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User selects liability coverage on quote screen for <tc35142>")
 	public void user_selects_liability_coverage_on_quote_screen_for_tc35142() {
 
@@ -58,6 +60,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User enters all required information on AIB boat dwelling screen for <tc35142>")
 	public void user_enters_all_required_information_on_aib_boat_dwelling_screen_for_tc35142() {
 
@@ -94,6 +97,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@Given("User issues policy and close unnecessary tabs and taking note of the policy number <tc35142>")
 	public void user_issues_policy_and_close_unnecessary_tabs_tc35142() throws Exception {
 		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
@@ -120,18 +124,21 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the policy <tc35142>")
 	public void user_searches_policy_for_tc35142() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User sets loss date as current date")
 	public void user_sets_loss_date_as_current_date() {
 		sendText(claim.txtLossDate, dtf.format(currentDate));
 		click(dwellingChevron.btnSave);
 		wait(2);
 	}
+
 	@When("User sets loss date as current date second time")
 	public void user_sets_loss_date_as_current_date_second_time() {
 		sendText(claim.txtLossDate, dtf.format(currentDate));
@@ -140,6 +147,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		click(dwellingChevron.btnSave);
 		wait(2);
 	}
+
 	@When("User selects collision as loss cause, police department as authority contacted and validates authority name and case number labels are visible")
 	public void user_selects_collision_as_loss_cause() throws Exception {
 		selectDropdownText(claim.ddLossCause, "Collision");
@@ -151,6 +159,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		sendText(claim.txtCaseNumber, "CollisionCase101");
 		wait(1);
 	}
+
 	@When("User selects all required information on loss notice creation screen")
 	public void user_selects_all_required_information_on_loss_notice_creation_screen() {
 		selectDropdownText(claim.ddClaimBoatSelection, "2019 Bayliner Testing - 1548799652");
@@ -165,6 +174,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		click(claim.btnSave);
 		wait(3);
 	}
+
 	@When("User clicks complete button and takes note of the claim number")
 	public void user_clicks_complete_and_takes_note_of_claim_number() {
 		click(claim.btnComplete);
@@ -176,6 +186,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 			e.printStackTrace();
 		}
 	}
+
 	@When("User selects cracking as loss cause, police department as authority contacted and validates authority name and case number labels are visible")
 	public void user_selects_cracking_as_loss_cause() throws Exception {
 		selectDropdownText(claim.ddLossCause, "Cracking");
@@ -187,6 +198,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		sendText(claim.txtCaseNumber, "CollisionCase102");
 		wait(1);
 	}
+
 	@When("User clicks complete button and takes note of the second claim number")
 	public void user_clicks_complete_and_takes_note_of_second_claim_number() {
 		click(claim.btnComplete);
@@ -198,15 +210,16 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 			e.printStackTrace();
 		}
 	}
+
 	@When("User clicks Make Payment for <tc35142> and selects credit card and enters due amount")
-	public void user_clicks_make_payment_for_tc35142()  {
+	public void user_clicks_make_payment_for_tc35142() {
 		click(closeoutChevron.btnMakePaymentHolder);
 		wait(3);
 		click(closeoutChevron.btnSubmitPaymentHolder);
 		wait(3);
 		click(driver.findElement(By.id("PaymentTypeCd_2")));
 		wait(2);
-		String totalDue=driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
+		String totalDue = driver.findElement(By.id("ARSummary_TotalDue")).getText().toString();
 		wait(2);
 		sendText(closeoutChevron.txtEnterAmountBox, totalDue);
 		wait(4);
@@ -233,15 +246,17 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		click(driver.findElement(By.id("SubmitPayment")));
 		click(driver.findElement(By.id("dialogOK")));
 		wait(4);
-		
-	    // Close unnecessary tabs
-	      closeUnnecessaryTabs();
+
+		// Close unnecessary tabs
+		closeUnnecessaryTabs();
 	}
+
 	@When("User checks show system task and take note preautorenew date")
 	public void user_checks_show_system_task_and_take_note_preautorenew_date() throws Exception {
 		checkShowSysTask(driver);
 		preAutoDt = getPreAutoRenewDate(driver).toString();
 	}
+
 	@When("User changes system date to preautorenewal date and run pre-automated batch job")
 	public void user_changes_system_date_to_preautorenewal_date_and_run_batch() throws Exception {
 		ChangeDate_Admin(driver, preAutoDt);
@@ -250,6 +265,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		click(dashboard.btnHome);
 		wait(2);
 	}
+
 	@Then("User validates UW task generated and completes the test")
 	public void user_validates_uw_task_generated_and_completes_the_test() throws Exception {
 		selectShowAll(driver);
@@ -261,5 +277,5 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		expectedValue_foundValue(driver, "GeneralUW", user);
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

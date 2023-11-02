@@ -355,7 +355,6 @@ public class TC16404_HO3_ValidateSilverReserveWithAdditionalCoverageFormsOn_NB_E
 		click(policyChevron.btnNext);
 		waitImp(3);
 	}
-	
 
 	@When("User clicks Print button on quote and validates quote form version")
 	public void user_clicks_Print_button_on_quote_and_validates_quote_form_version() throws Exception {
@@ -2094,8 +2093,8 @@ public class TC16404_HO3_ValidateSilverReserveWithAdditionalCoverageFormsOn_NB_E
 		// Privacy statement
 		Rwl2Privacy_VersionTop = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 4, 470, 35, 250, 50);
 		PdfComparator.verifyFormData(driver, Rwl2Privacy_VersionTop, "AIIC PS 05 19");
-		Rwl2Privacy_VersioRwl2ottom = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 4, 70,
-				740, 250, 50);
+		Rwl2Privacy_VersioRwl2ottom = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 4, 70, 740, 250,
+				50);
 		PdfComparator.verifyFormData(driver, Rwl2Privacy_VersioRwl2ottom, "AIIC PS 05 19");
 
 		Rwl2Privacy_Name = PdfComparator.getPDFData(FileLocation + RwlDec2_Form);
@@ -2223,12 +2222,12 @@ public class TC16404_HO3_ValidateSilverReserveWithAdditionalCoverageFormsOn_NB_E
 		Rwl2ConsReport_Name = PdfComparator.getPDFData(FileLocation + RwlDec2_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2ConsReport_Name, "AIIC NCR 08 19");
 
-		//Assisting living care
-		Rwl2AsstLiving_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 44, 480, 30,
-				100, 35);
+		// Assisting living care
+		Rwl2AsstLiving_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 44, 480, 30, 100,
+				35);
 		PdfComparator.verifyFormData(driver, Rwl2AsstLiving_Version1, "HO 04 59 05 11");
-		Rwl2AsstLiving_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 44, 50, 735,
-				100, 30);
+		Rwl2AsstLiving_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 44, 50, 735, 100,
+				30);
 		PdfComparator.verifyFormData(driver, Rwl2AsstLiving_Version, "HO 04 59 05 11");
 
 		Rwl2AsstLiving_Data = PdfComparator.getPDFData(FileLocation + RwlDec2_Form);
@@ -2236,12 +2235,10 @@ public class TC16404_HO3_ValidateSilverReserveWithAdditionalCoverageFormsOn_NB_E
 		Rwl2AsstLiving_Name = PdfComparator.getPDFData(FileLocation + RwlDec2_Form);
 		PdfComparator.verifyPDFText(driver, Rwl2AsstLiving_Name, "ASSISTED LIVING CARE COVERAGE");
 
-		//SRO form
-		Rwl2SRO_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 70, 475, 4, 100,
-				35);
+		// SRO form
+		Rwl2SRO_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 70, 475, 4, 100, 35);
 		PdfComparator.verifyFormData(driver, Rwl2SRO_Version1, "AIIC SRO 07 18");
-		Rwl2SRO_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 70, 50, 755, 100,
-				30);
+		Rwl2SRO_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec2_Form, 70, 50, 755, 100, 30);
 		PdfComparator.verifyFormData(driver, Rwl2SRO_Version, "AIIC SRO 07 18");
 
 		Rwl2SRO_Data = PdfComparator.getPDFData(FileLocation + RwlDec2_Form);

@@ -17,6 +17,7 @@ public class MTR306_HO3_ProcessRewriteNewOnCancelledPolicy_NB extends CommonMeth
 	static String policyNum;
 	static String AppNum;
 	
+	
 	@When("User enters all required information on policy information screen <mtr306>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr306() {
 

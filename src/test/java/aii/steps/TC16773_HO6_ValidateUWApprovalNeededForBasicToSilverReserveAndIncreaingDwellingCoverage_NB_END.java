@@ -222,17 +222,21 @@ public class TC16773_HO6_ValidateUWApprovalNeededForBasicToSilverReserveAndIncre
 		attachScreenShot(driver);
 		wait(2);
 	}
+
 	@When("User clicks submit for approval button with underwriter")
 	public void user_clicks_submit_for_approval_button_with_underwriter() {
 		sendText(closeoutChevron.txtWorkflowComments, "testtestesttest");
 		click(closeoutChevron.btnSubmitApproval);
 		wait(2);
 	}
+
 	@When("User validates 'Coverage A - Dwelling + Coverage C - Personal Property Limits that are increased above $100,000 require Underwriting Approval' message")
 	public void user_validates_message_displayed_on_issue_tile_tc16773() throws Exception {
-		verify_AnyLabel_IsVisible(driver, "Coverage A - Dwelling + Coverage C - Personal Property Limits that are increased above $100,000 require Underwriting Approval");
+		verify_AnyLabel_IsVisible(driver,
+				"Coverage A - Dwelling + Coverage C - Personal Property Limits that are increased above $100,000 require Underwriting Approval");
 		attachScreenShot(driver);
 	}
+
 	@When("User process and completes endorsement and finishes test <tc16773>")
 	public void user_process_and_completes_endorsement_and_finishes_test_tc16773() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);
@@ -240,5 +244,5 @@ public class TC16773_HO6_ValidateUWApprovalNeededForBasicToSilverReserveAndIncre
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

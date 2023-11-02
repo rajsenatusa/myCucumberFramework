@@ -51,7 +51,7 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		click(policyChevron.btnNext);
 		wait(3);
 	}
-	
+
 	@When("User enters all required information on GOC golfcart screen for <tc16854>")
 	public void user_enters_all_required_information_on_goc_golfcart_screen_tc16854() {
 
@@ -67,6 +67,7 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		wait(4);
 		click(dwellingChevron.btnNext);
 	}
+
 	@When("User enters driver information on driver screen <tc16854>")
 	public void user_enters_driver_information_on_driver_screen_tc16854() {
 
@@ -80,7 +81,7 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		wait(3);
 		click(golfcartChevron.btnNextGocScreen);
 	}
-	
+
 	@When("User enters vehicles information on vehicles screen <tc16854>")
 	public void user_enters_vehicles_information_on_vehicles_screen_tc16854() {
 
@@ -105,70 +106,79 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User clicks Policy Chevron and validates 'Underwriting approval required prior to binding due to loss history' error message displayed")
-	public void user_clicks_policy_chevron_and_validates_uw_approval_required_prior_to_binding_due_to_loss_history_error_message_displayed() throws Exception {
+	public void user_clicks_policy_chevron_and_validates_uw_approval_required_prior_to_binding_due_to_loss_history_error_message_displayed()
+			throws Exception {
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(4);
-		verify_AnyText_IsVisible(driver, "Driver received a No Hit on their MVR. This policy will require Underwriting approval");
+		verify_AnyText_IsVisible(driver,
+				"Driver received a No Hit on their MVR. This policy will require Underwriting approval");
 		verify_AnyText_IsVisible(driver, "Underwriting approval required prior to binding due to loss history");
 		attachScreenShot(driver);
 	}
+
 	@When("User clicks Loss History Chevron and validates previous losses displayed and edit driver information on the losses")
-	public void user_clicks_loss_history_chevron_and_validates_previous_losses_displayed_and_edit_driver_information_on_the_losses() throws Exception {
+	public void user_clicks_loss_history_chevron_and_validates_previous_losses_displayed_and_edit_driver_information_on_the_losses()
+			throws Exception {
 		click(driver.findElement(By.id("Wizard_LossHistory")));
 		waitImp(3);
 		verify_AnyLabel_IsVisible(driver, "Collision");
 		getCountOfText(driver, "Collision");
 		getCountOfText(driver, "CLUE");
 		attachScreenShot(driver);
-		
+
 		clickonAnyButton(driver, "EditLink_4");
 		waitImp(2);
 		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
 		attachScreenShot(driver);
 		click(dwellingChevron.btnSave);
-		
+
 		clickonAnyButton(driver, "EditLink_5");
 		waitImp(2);
 		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
 		attachScreenShot(driver);
 		click(dwellingChevron.btnSave);
-		
+
 		clickonAnyButton(driver, "EditLink_6");
 		waitImp(2);
 		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
 		attachScreenShot(driver);
 		click(dwellingChevron.btnSave);
-		
-		
+
 		clickonAnyButton(driver, "EditLink_3");
 		waitImp(2);
 		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
 		attachScreenShot(driver);
 		click(dwellingChevron.btnSave);
-		
+
 		clickonAnyButton(driver, "EditLink_2");
 		waitImp(3);
 		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
 		click(dwellingChevron.btnSave);
-		
+
 		clickonAnyButton(driver, "EditLink_1");
 		waitImp(2);
 		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
 		click(dwellingChevron.btnSave);
 	}
+
 	@When("User clicks Policy Chevron and validates 'Underwriting approval required prior to binding due to loss history' and 'Underwriting referral required due to number of accidents' messages displayed")
-	public void user_clicks_policy_chevron_and_validates_uw_approval_required_prior_to_binding_due_to_loss_history_error_and_uw_referral_required_messages_displayed() throws Exception {
+	public void user_clicks_policy_chevron_and_validates_uw_approval_required_prior_to_binding_due_to_loss_history_error_and_uw_referral_required_messages_displayed()
+			throws Exception {
 		click(policyChevron.btnPolicyChevronLink);
 		waitImp(4);
-		verify_AnyText_IsVisible(driver, "Driver received a No Hit on their MVR. This policy will require Underwriting approval");
+		verify_AnyText_IsVisible(driver,
+				"Driver received a No Hit on their MVR. This policy will require Underwriting approval");
 		verify_AnyText_IsVisible(driver, "Underwriting approval required prior to binding due to loss history");
 		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
 		attachScreenShot(driver);
 	}
+
 	@And("User finalizes transaction and validates same error messages displayed on closeout screen")
-	public void user_finalizes_transaction_and_validateS_same_error_messages_displayed_on_closeout_screen() throws Exception {
-		
+	public void user_finalizes_transaction_and_validateS_same_error_messages_displayed_on_closeout_screen()
+			throws Exception {
+
 		click(dwellingChevron.btnSave);
 		click(reviewChevron.btnReview);
 		wait(2);
@@ -176,10 +186,11 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		wait(2);
 		verify_AnyText_IsVisible(driver, "Underwriting approval required prior to binding due to loss history");
 		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
-		
+
 		verify_AnyLabel_IsVisible(driver, "Submit For Approval");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
 	}
+
 	@When("User takes note of the application number <tc16854>")
 	public void user_takes_note_of_the_application__number_tc16854() throws Exception {
 		try {
@@ -189,19 +200,23 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches application <tc16854>")
 	public void user_searches_application_tc16854() throws Exception {
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User validates 'Underwriting approval required prior to binding due to loss history' and 'Underwriting referral required due to number of accidents' messages displayed")
-	public void user_validates_uw_approval_required_prior_to_binding_due_to_loss_history_error_and_uw_referral_required_messages_displayed() throws Exception {
-		
+	public void user_validates_uw_approval_required_prior_to_binding_due_to_loss_history_error_and_uw_referral_required_messages_displayed()
+			throws Exception {
+
 		verify_AnyText_IsVisible(driver, "Underwriting approval required prior to binding due to loss history");
 		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
 		attachScreenShot(driver);
 	}
+
 	@When("User process tx and finishes test tc16854")
 	public void user_process_tx__finishes_test_tc16854() throws Exception {
 		selectDropdownText(closeoutChevron.ddPaymentType, "None");
@@ -211,5 +226,5 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

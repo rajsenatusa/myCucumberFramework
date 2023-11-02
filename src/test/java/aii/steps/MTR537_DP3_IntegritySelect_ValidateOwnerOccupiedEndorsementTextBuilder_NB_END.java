@@ -130,7 +130,7 @@ public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuil
 	public void user_endorses_policy() throws Exception {
 		click(reviewChevron.btnProcess);
 		wait(12);
-		
+
 		closeUnnecessaryTabs();
 	}
 
@@ -139,8 +139,10 @@ public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuil
 		click(historyChevron.btnExpand);
 		wait(4);
 		verify_AnyLabel_IsVisible(driver, "Coverage added: Animal Liability");
-		verify_AnyLabel_IsVisible(driver, "Coverage Modified: C - Personal Property Limit 1 Changed From $100,000 to $80,000");
-		verify_AnyLabel_IsVisible(driver, "Coverage Modified: L - Personal Liability Limit 1 Changed From $100,000 to $300,000");
+		verify_AnyLabel_IsVisible(driver,
+				"Coverage Modified: C - Personal Property Limit 1 Changed From $100,000 to $80,000");
+		verify_AnyLabel_IsVisible(driver,
+				"Coverage Modified: L - Personal Liability Limit 1 Changed From $100,000 to $300,000");
 		verify_AnyLabel_IsVisible(driver, "Coverage Modified: Home Computer Limit 1 Changed From $2,500 to $7,000");
 	}
 }

@@ -4,7 +4,7 @@
  # TEST CASE NUMBER & TITLE: TC 16781--TODP3, Agent, END TX, Increase CovA, Change Deductible, UW MGR Approval
  # PRECONDITIONS (IF ANY):Active TODP3  Policy 
  # HIGH LEVEL STEPS OF TEST SCRIPT:  As an agent, Endorse the policy to Increase CovA, change Deductibles.
- # EXPECTED RESULTS: Underwriting Manager  approval is required Appraval messages trigger on CloseOut screen
+ # EXPECTED RESULTS: Underwriter approval is required Approval messages trigger on CloseOut screen
  # Agent must Submit for Approval 
   
  # User: AG1730
@@ -12,7 +12,7 @@
 @regression @tc16781
 Feature: TC 16781--TODP3, Agent, END TX, Increase CovA, Change Deductible, UW MGR Approval
 
-  Scenario: Validate that Underwriting Manager  approval is required Appraval messages trigger on CloseOut screen
+  Scenario: Validate that Underwriter approval is required Approval messages trigger on CloseOut screen
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
     And User enters all required information on policy information screen <tc16781>

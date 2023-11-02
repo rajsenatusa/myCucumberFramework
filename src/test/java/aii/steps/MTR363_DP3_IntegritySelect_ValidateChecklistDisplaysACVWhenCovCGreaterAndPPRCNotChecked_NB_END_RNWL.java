@@ -28,6 +28,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 	static String RnwlCheckList_Name;
 	static String RnwlPPRCdata;
 
+	
 	@When("User validates Personal Property Replacement Cost checkbox has been enabled and not selected")
 	public void user_validates_coverage_c_defaults_to_25_on_integrity_select_package() throws Exception {
 		verifyAnyCoverageCheckbox_EnabledAndNotSelected(driver, "PPReplacementCost");
