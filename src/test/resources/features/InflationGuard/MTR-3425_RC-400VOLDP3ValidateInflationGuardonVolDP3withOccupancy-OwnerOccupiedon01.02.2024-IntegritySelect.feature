@@ -74,6 +74,10 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates DP3 Coverage C on Coverages List
     Then User validates DP3 Coverage E on Coverages List
     Then User validates DP3 A Dwelling Flood on Coverages List
+    And User clicks Policy File Chevron
+    And User clicks Renewal Decleration link
+    Then User validates VOL DP3 10 percentage in RN Declaration Package
+    Then User validates VOL DP3 inflated values on OIR B1 1670 form for first RN
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
@@ -92,6 +96,9 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates DP3 Coverage C on Coverages List
     Then User validates DP3 Coverage E on Coverages List
     Then User validates DP3 A Dwelling Flood on Coverages List
+    And User clicks Policy File Chevron
+    And User clicks Endorsement Package link
+    Then User validates VOL DP3 10 percentage in EN Package
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
@@ -110,6 +117,10 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates DP3 Coverage C after second RN on Coverages List
     Then User validates DP3 Coverage E after second RN on Coverages List
     Then User validates DP3 A Dwelling Flood after second RN on Coverages List
+    And User clicks Policy File Chevron
+    And User clicks Renewal Decleration link
+    Then User validates VOL DP3 10 percentage in RN Declaration Package
+    Then User validates VOL DP3 inflated values on OIR B1 1670 form for second RN
 
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |

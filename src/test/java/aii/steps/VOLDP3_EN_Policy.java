@@ -16,7 +16,7 @@ public class VOLDP3_EN_Policy extends CommonMethods {
 
 	@And("User enters EN Effective Date {string}")
 	public void User_enters_EN_Effective_Date(String EndorsementEffectiveDate) {
-		wait(2);
+		wait(3);
 		sendText(dashboard.txtSelectDate, EndorsementEffectiveDate);
 		wait(2);
 		click(dashboard.btnStart);

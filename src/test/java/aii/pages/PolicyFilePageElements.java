@@ -22,7 +22,7 @@ public class PolicyFilePageElements extends CommonMethods {
 	
 	@FindBy(linkText= "Renewal Declaration")
 	public WebElement btnRenewalDeclaration;
-
+	
 	@FindBy(id= "imgItem0000000000")
 	public WebElement btnExpand;
 	
