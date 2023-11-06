@@ -82,6 +82,7 @@ Feature: RC-404: 2024 Rate Changes- Inflation Guard: VOL MHO- 01/01/2024
     #Then User validates MHO3 Coverage B on Coverages List after second RN
     #Then User validates MHO3 Coverage C on Coverages List after second RN
     #Then User validates MHO3 Coverage D on Coverages List after second RN
+    
     Then User validates MHO3 Coverage A is 10 percente under Inflation Guard
     
     
