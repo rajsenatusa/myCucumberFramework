@@ -295,10 +295,11 @@ public class VOLDP3policy extends CommonMethods {
 		}
 
 	}
+
 	@Then("User creates DP3 application with passing information from excel {string} sheet")
 	public void User_creates_dp3_application_with_passing_information_from_excel_sheet(String dp3customerInfo)
 			throws Exception {
-		String AppNum= null;
+		String AppNum = null;
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLDP3.xlsx";
 
 		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, dp3customerInfo);
@@ -415,8 +416,8 @@ public class VOLDP3policy extends CommonMethods {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
-				Hooks.scenario.log(AppNum);		
+
+				Hooks.scenario.log(AppNum);
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

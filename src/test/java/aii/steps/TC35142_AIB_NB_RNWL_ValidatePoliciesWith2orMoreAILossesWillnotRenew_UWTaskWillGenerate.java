@@ -277,5 +277,4 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		expectedValue_foundValue(driver, "GeneralUW", user);
 		Hooks.scenario.log("Test Case Completed!");
 	}
-
 }

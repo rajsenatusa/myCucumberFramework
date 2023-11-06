@@ -12,12 +12,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPayments extends CommonMethods {
+
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String AppNum;
 	static String claimNum;
 
+	
 	@When("User enters all required information on policy information screen <mtr2467>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr2467() {
 

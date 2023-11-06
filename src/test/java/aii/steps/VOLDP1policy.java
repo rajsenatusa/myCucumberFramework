@@ -26,7 +26,6 @@ public class VOLDP1policy extends CommonMethods {
 		click(product.btnProductSelectionDp1);
 
 	}
-
 	@When("User enters all required information on DP1 quote screen")
 	public void user_enters_all_required_information_on_dp1_quote_screen() {
 		// Quote Policy Chevron information was filled here

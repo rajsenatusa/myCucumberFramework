@@ -31,7 +31,6 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 		click(product.btnProductSelectionAib);
 
 	}
-
 	@When("User enters all required information on AIB quote screen")
 	public void user_enters_all_required_information_on_aib_quote_screen() {
 

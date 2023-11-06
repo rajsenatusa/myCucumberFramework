@@ -19,6 +19,7 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 	static String policyNum;
 	static String AppNum;
 
+	
 	@When("User enters all required information on policy information screen <mtr353>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr353() {
 

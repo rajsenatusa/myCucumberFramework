@@ -27,7 +27,6 @@ public class VOLHO4policy extends CommonMethods {
 		click(product.btnContinue);
 		click(product.btnProductSelectionHo4);
 	}
-
 	@When("User enters all required information on HO4 quote screen")
 	public void user_enters_all_required_information_on_ho4_quote_screen() {
 		// Quote Policy Chevron information was filled here

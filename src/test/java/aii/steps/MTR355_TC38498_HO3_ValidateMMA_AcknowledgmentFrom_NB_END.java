@@ -15,6 +15,7 @@ import io.cucumber.java.en.When;
 
 public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends CommonMethods {
 
+	
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String FileLocation = System.getProperty("user.dir") + "\\target\\";

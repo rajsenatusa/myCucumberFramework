@@ -3,9 +3,9 @@
 ## this script needs to be run before each monthly regression tests starts and after model refresh!
 
 ## Add change date and site-admin button for users AG1730 - AG0376 - AG8166 - AGISA002537
-## change password for AG0376 - AG8166 - AG1529A2
+## change password for AG0376 - AG8166 - AG1529A2 - adjuster1
 ## Add adjuster 2 role to Adjuster2 usercode
-## Add change date to Adjuster1, Adjuster2, underwriter1, csruw1 usercode
+## Add change date to Adjuster1, Adjuster2, underwriter1, csruw1, jbarnes usercode
 ## Add claimmgr1 userrole from scratch
 ## add Underwriter role for the user Underwriter1 and remove underwriter manager role
 ## delete local admin role for csruw1
@@ -55,6 +55,14 @@ Feature: Automation User Roles Check and Setup Before Each Regression
     And User clicks Admin Tab 
     And User clicks User Management Tab
     And User searches Agent Underwriter1
+    And User clicks Search button
+    And User scrolls to User Roles List 
+    And User clicks Add Role
+    And User selects Change Date from role dropdown
+    And User clicks save
+    And User clicks Admin Tab 
+    And User clicks User Management Tab
+    And User searches Agent Underwriter Manager Jbarnes
     And User clicks Search button
     And User scrolls to User Roles List 
     And User clicks Add Role

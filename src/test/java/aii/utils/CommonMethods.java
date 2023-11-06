@@ -3025,68 +3025,100 @@ public class CommonMethods extends PageInitializer {
 			return false;
 		}
 	}
+
 	public static String getLossTypePopulatedValue(WebDriver driver) throws Exception {
-		String value=null;
+		String value = null;
 		try {
-			Select entityType = new Select (driver.findElement(By.id("ClaimLossTemplateIdRef")));	
+			Select entityType = new Select(driver.findElement(By.id("ClaimLossTemplateIdRef")));
 			value = entityType.getFirstSelectedOption().getText();
-			Hooks.scenario.log("Loss Type populated with "+value);
-			
+			Hooks.scenario.log("Loss Type populated with " + value);
+
 		} catch (Exception e) {
-			Hooks.scenario.log("Loss type not populated with "+value);
+			Hooks.scenario.log("Loss type not populated with " + value);
 			wait(5);
 		}
-		return value.toString();	
-		}
+		return value.toString();
+	}
+
 	public static void getAnyDropDownOptionsOnLossNotice(WebDriver driver, String field) throws Exception {
 		try {
-			Select entityType = new Select (driver.findElement(By.id("Claim."+field+"")));	
-			WebElement story_field = driver.findElement(By.id("Claim."+field+""));
+			Select entityType = new Select(driver.findElement(By.id("Claim." + field + "")));
+			WebElement story_field = driver.findElement(By.id("Claim." + field + ""));
 			story_field.click();
 			List<WebElement> options = entityType.getOptions();
-						
-			Hooks.scenario.log(field+" options are:");
-			for(WebElement item:options)  { 
-	        	Hooks.scenario.log(item.getText());          
-	        }													
-		} catch (Exception e) {
-			Hooks.scenario.log(field+"Options:");
-			wait(5);
-		}	
-	}
-	public static String getanyDropDownPopulatedValueOnLossNotice(WebDriver driver, String element) throws Exception {
-		String value=null;
-		try {
-			Select entityType = new Select (driver.findElement(By.id("Claim."+element+"")));	
-			value = entityType.getFirstSelectedOption().getText();
-			Hooks.scenario.log(element+" populated with "+value);
-		} catch (Exception e) {
-			Hooks.scenario.log(element+" not populated with "+value);
-			wait(5);
+
+			Hooks.scenario.log(field + " options are:");
+			for (WebElement item : options) {
+				Hooks.scenario.log(item.getText());
 			}
-		return value.toString();	
+		} catch (Exception e) {
+			Hooks.scenario.log(field + "Options:");
+			wait(5);
 		}
-	
-	public static void expandTransaction(WebDriver driver,String history) throws Exception {
-		try {
-			driver.findElement(By.name("History_"+history+"_Expand"));
-			driver.findElement(By.name("History_"+history+"_Expand")).click();
-			wait(1); 
-			Hooks.scenario.log("Expanded transaction history "+history);	
-		} catch (Exception e) {
-			Hooks.scenario.log("Not Expanded transaction history "+history);
-			wait(5);
-			}
 	}
+
+	public static String getanyDropDownPopulatedValueOnLossNotice(WebDriver driver, String element) throws Exception {
+		String value = null;
+		try {
+			Select entityType = new Select(driver.findElement(By.id("Claim." + element + "")));
+			value = entityType.getFirstSelectedOption().getText();
+			Hooks.scenario.log(element + " populated with " + value);
+		} catch (Exception e) {
+			Hooks.scenario.log(element + " not populated with " + value);
+			wait(5);
+		}
+		return value.toString();
+	}
+
+	public static void expandTransaction(WebDriver driver, String history) throws Exception {
+		try {
+			driver.findElement(By.name("History_" + history + "_Expand"));
+			driver.findElement(By.name("History_" + history + "_Expand")).click();
+			wait(1);
+			Hooks.scenario.log("Expanded transaction history " + history);
+		} catch (Exception e) {
+			Hooks.scenario.log("Not Expanded transaction history " + history);
+			wait(5);
+		}
+	}
+
 	public static void clickProcess(WebDriver driver) throws Exception {
 		attachScreenShot(driver);
-		
+
 		try {
 			driver.findElement(By.id("Process")).click();
 			wait(3);
 			Hooks.scenario.log("Process was selected");
 		} catch (Exception e) {
 			Hooks.scenario.log("Process was not selected");
+			wait(5);
+		}
+	}
+
+	public static void setAddress(WebDriver driver, String num, String street, String zip) throws Exception {
+		try {
+			driver.findElement(By.id("InsuredResidentAddr.PrimaryNumber")).clear();
+			driver.findElement(By.id("InsuredResidentAddr.PrimaryNumber")).sendKeys(num.toString());
+
+			driver.findElement(By.id("InsuredResidentAddr.StreetName")).clear();
+			driver.findElement(By.id("InsuredResidentAddr.StreetName")).sendKeys(street.toString());
+
+			// driver.findElement(By.id("InsuredResidentAddr.City")).clear();
+			// driver.findElement(By.id("InsuredResidentAddr.City")).sendKeys(city.toString());
+
+			// driver.findElement(By.id("InsuredResidentAddr.County")).clear();
+			// driver.findElement(By.id("InsuredResidentAddr.County")).sendKeys(county.toString());
+
+			// Select entityType = new Select
+			// (driver.findElement(By.id("InsuredResidentAddr.StateProvCd")));
+			// entityType.selectByVisibleText(state.toString());
+
+			driver.findElement(By.id("InsuredResidentAddr.PostalCode")).clear();
+			driver.findElement(By.id("InsuredResidentAddr.PostalCode")).sendKeys(zip.toString());
+
+			Hooks.scenario.log("Address: " + num + " " + street + " " + zip);
+		} catch (Exception e) {
+			Hooks.scenario.log("Address: FAILED" + num + " " + street + " " + " " + zip);
 			wait(5);
 		}
 	}

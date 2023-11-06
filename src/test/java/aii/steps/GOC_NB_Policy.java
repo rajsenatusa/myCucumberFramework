@@ -17,7 +17,6 @@ import io.cucumber.java.en.When;
 
 public class GOC_NB_Policy extends CommonMethods {
 
-	
 	@When("User enters GOC product selection information and effective date")
 	public void user_enters_goc_product_selection_information_and_effective_date() {
 
