@@ -173,6 +173,11 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "Tab_Policy")
 	public WebElement btnTabPolicy;
 	
+	@FindBy(id= "ParkNumber")
+	public WebElement parkNumber;
+	
+	
+	
 	public QuotePolicyChevronPageElements() {
 		PageFactory.initElements(driver, this);
 		

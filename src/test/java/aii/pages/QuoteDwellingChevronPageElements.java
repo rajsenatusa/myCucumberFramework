@@ -372,7 +372,61 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "CoverageList_FloodCovA_Limit1")
 	public WebElement DP3CoverageListFloodCovA;
 	
-	 
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[2]/td[3]")
+	public WebElement HO63CovA; 
+	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[3]/td[3]")
+	public WebElement HO63CovC; 
+	
+	@FindBy(xpath= "//*[@id=\"Dwelling Detail\"]/table[2]/tbody/tr[4]/td[3]")
+	public WebElement HO63CovD; 
+	
+	@FindBy(id= "OrdOrLawLimit")
+	public WebElement HO63OrdOrLaw;
+	
+	@FindBy(id= "CoverageList_CovA_Limit1")
+	public WebElement HO6CoverageListCovA;
+	
+	@FindBy(id= "CoverageList_CovC_Limit1")
+	public WebElement HO6CoverageListCovC;
+	
+	@FindBy(id= "CoverageList_CovD_Limit1")
+	public WebElement HO6CoverageListCovD;
+	
+	@FindBy(id= "CoverageList_ORD_Limit1")
+	public WebElement HO6CoverageListORD;
+	
+	@FindBy(id= "InflationGuardPct")
+	public WebElement HO6InflationGuardPct;
+	
+	@FindBy(id= "Building.CovALimit_text")
+	public WebElement MHOCovA;
+	
+	@FindBy(id= "CovBLimit")
+	public WebElement MHOCovB;
+	
+	@FindBy(id= "CovCLimit")
+	public WebElement MHOCovC;
+	
+	@FindBy(id= "CovDLimit")
+	public WebElement MHOCovD;
+	
+	@FindBy(id= "CoverageList_CovA_Limit1")
+	public WebElement MHO3CoverageListCovA;
+	
+	@FindBy(id= "CoverageList_CovB_Limit1")
+	public WebElement MHO3CoverageListCovB; 
+	
+	@FindBy(id= "CoverageList_CovC_Limit1")
+	public WebElement MHO3CoverageListCovC; 
+	
+	@FindBy(id= "CoverageList_CovD_Limit1")
+	public WebElement MHO3CoverageListCovD; 
+	
+	@FindBy(id= "InflationGuardPct")
+	public WebElement MHOInflationGuard; 
+	
+	
 	
 	
 	
