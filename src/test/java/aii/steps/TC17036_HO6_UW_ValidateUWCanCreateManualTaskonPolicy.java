@@ -209,7 +209,6 @@ public class TC17036_HO6_UW_ValidateUWCanCreateManualTaskonPolicy extends Common
 		verify_AnyText_IsVisibleMultipletimes(driver, latePayment, "1");
 		wait(5);
 	}
-
 	@When("User validates 'General Reminder' Task and 'General' Task is visible on Inbox")
 	public void user_validates_general_tasks_are_visible() throws Exception {
 		wait(5);

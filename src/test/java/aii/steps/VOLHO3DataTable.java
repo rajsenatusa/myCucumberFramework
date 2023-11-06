@@ -170,7 +170,7 @@ public class VOLHO3DataTable extends CommonMethods {
 				}
 
 				wait(5);
-				
+
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
@@ -203,12 +203,13 @@ public class VOLHO3DataTable extends CommonMethods {
 		}
 
 	}
+
 	@Then("User creates HO3 application with passing information from excel {string} sheet")
 	public void User_creates_ho3_application_with_passing_information_from_excel_sheet(String ho3customerInfo)
 			throws Exception {
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLHO3.xlsx";
 		String AppNum = null;
-		
+
 		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, ho3customerInfo);
 
 		for (Map<String, String> dataMap : excelList) {
@@ -353,9 +354,8 @@ public class VOLHO3DataTable extends CommonMethods {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
-				Hooks.scenario.log(AppNum);				
-				
+
+				Hooks.scenario.log(AppNum);
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

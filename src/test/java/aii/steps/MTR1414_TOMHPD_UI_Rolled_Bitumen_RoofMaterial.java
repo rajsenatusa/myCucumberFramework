@@ -22,6 +22,7 @@ public class MTR1414_TOMHPD_UI_Rolled_Bitumen_RoofMaterial extends CommonMethods
 	static String renewal_effective;
 	static String TOMHPD_renewalTerm2;
 
+	
 	@When("User enters all required information on policy information screen <mtr1414>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr1414() {
 

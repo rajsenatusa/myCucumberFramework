@@ -107,6 +107,9 @@ public class AIBPageElements extends CommonMethods {
 	@FindBy(id= "Vehicle.BahamasNavigation")
 	public WebElement ddBahamasNavigation;
 	
+	@FindBy(id= "Vehicle.Engine1SerialNum")
+	public WebElement txtEngineSerialNum;
+	
 	public AIBPageElements() {
 		
 		PageFactory.initElements(driver, this);

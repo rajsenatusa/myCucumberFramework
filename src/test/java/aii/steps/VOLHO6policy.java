@@ -28,7 +28,6 @@ public class VOLHO6policy extends CommonMethods {
 		click(product.btnContinue);
 		click(product.btnProductSelectionHo6);
 	}
-
 	@When("User enters all required information on HO6 quote screen")
 	public void user_enters_all_required_information_on_ho6_quote_screen() {
 

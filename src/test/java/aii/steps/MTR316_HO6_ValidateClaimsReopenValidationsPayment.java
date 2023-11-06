@@ -25,6 +25,7 @@ public class MTR316_HO6_ValidateClaimsReopenValidationsPayment extends CommonMet
 	static String claimNum;
 	static String txNum;
 
+
 	@When("User enters all required information on policy information screen <mtr316>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr316() {
 

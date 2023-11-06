@@ -172,4 +172,5 @@ public class TC36657_HO3_ValidateRoofLetterDisplayOnNB extends CommonMethods {
 		NBRoofLimitation_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBRoofLimitation_Name, "LIMITATIONS ON ROOF COVERAGE");
 	}
+	
 }

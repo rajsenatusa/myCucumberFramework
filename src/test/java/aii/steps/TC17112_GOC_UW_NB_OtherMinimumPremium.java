@@ -184,7 +184,6 @@ public class TC17112_GOC_UW_NB_OtherMinimumPremium extends CommonMethods {
 			e.printStackTrace();
 		}
 	}
-
 	@When("User validates 'Rate Area: Increase to Minimum Premium' is visible on policy level")
 	public void user_validates_Rate_area_increase_to_minimum_premium_is_visible_on_policy_level() throws Exception {
 

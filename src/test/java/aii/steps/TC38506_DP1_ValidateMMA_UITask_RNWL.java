@@ -235,7 +235,6 @@ public class TC38506_DP1_ValidateMMA_UITask_RNWL extends CommonMethods {
 		driver.findElement(By.id("AddFiles")).click();
 		addSampleFile(driver);
 	}
-
 	@Then("User selects show all and validates 'Mandatory Mediation-Arbitration discount applied on Policy' text is visible and do other validations")
 	public void user_selects_show_all_and_validates_MMA_discount_applied_on_policy_text_is_visible_and_do_other_validations()
 			throws Exception {

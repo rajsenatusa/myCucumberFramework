@@ -202,7 +202,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 
 		wait(11);
 
-		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 13, 0, 0, 800, 800);
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 10, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
 		PdfComparator.verifyFormData(driver, RwlDecForm,

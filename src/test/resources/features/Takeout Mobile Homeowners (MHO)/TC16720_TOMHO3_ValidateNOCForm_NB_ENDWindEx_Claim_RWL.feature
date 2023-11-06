@@ -59,8 +59,8 @@ Feature: TC 16720--TOMHO3, UWMgr: End (Wind/Hail Excl) , Claim RN(2) Forms: NOC 
     And User completes all required information on claim chevron <tc16720>
     And User clicks save and takes note of the loss number <tc16720>
     And User clicks Complete and takes note of the claim number <tc16720>
+    And User clicks Financial Actions Tab 
     And User clicks Start Claim button
-    And User clicks Financial Actions Tab
     And User clicks Claims Icon
     And User clicks Adjust Reserves
     And User finalizes transaction and process transaction <tc16720>
@@ -74,12 +74,12 @@ Feature: TC 16720--TOMHO3, UWMgr: End (Wind/Hail Excl) , Claim RN(2) Forms: NOC 
 		And User does Auto Renewal for the policy with batch jobs <tc16720>
     And User searches for the renewed policy number <tc16720>
     And User clicks Forms Chevron <tc16720>
-    And User validates 'HO 04 94 06 97' and Assignment Agreement Notice 01 19 form is visible on forms chevron <tc16720>
+    And User validates 'HO 04 94 06 97' form and Assignment Agreement Notice 01 19 form is visible on forms chevron <tc16720>
     And User clicks Assignment Agreement Notice form and validates form version <tc16720>
     And User clicks Policy File Chevron <tc16720>
     And User clicks Renewal Declaration and validates form version <tc16720>
     And User clicks Make Payment and do renewal payment <tc16720>
     And User does second Auto Renewal for the policy with batch jobs <tc16720>
     And User clicks Forms Chevron <tc16720>
-    Then User validates 'HO 04 94 06 97' and Assignment Agreement Notice 01 19 form is visible on forms chevron <tc16720>
+    Then User validates 'HO 04 94 06 97' form is visible and Assignment Agreement Notice 01 19 form is not visible on forms chevron <tc16720>
     

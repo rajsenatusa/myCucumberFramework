@@ -18,7 +18,6 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 	static String policyNum;
 	static String applicationNumber;
 
-	
 	@When("User enters all required information on policy information screen and enters mobile park address")
 	public void user_enters_all_required_information_on_policy_information_screen_and_enters_mobile_park_address() {
 
@@ -85,6 +84,7 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 		wait(2);
 		click(dwellingChevron.btnNext);
 	}
+
 	@And("User verifies NB MHO3 policy has been created successfully and takes note of the policy number for <mtr368>")
 	public void User_verifies_NB_MHO3_policy_has_been_created_successfully_for_mtr368() throws Exception {
 		String expected = "New Business";
@@ -103,16 +103,19 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 			e.printStackTrace();
 		}
 	}
+
 	@When("User changes system date to current date minus <1> day")
 	public void user_changes_system_date_to_current_date_minus_1_day() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate.minusDays(1)));
 	}
+
 	@When("User searches for the policy <mtr368>")
 	public void user_searches_policy_for_mtr368() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User sets new effective date as current date and starts endorsement")
 	public void User_sets_new_effective_date_as_current_date_and_starts_endorsement() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(currentDate));
@@ -122,11 +125,13 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 		click(historyChevron.btnStart);
 		wait(4);
 	}
+
 	@When("User clicks Dwelling Chevron for <mtr368>")
 	public void user_clicks_dwelling_chevron_mtr368() throws Exception {
 		click(dwellingChevron.btnDwelling);
 		wait(3);
 	}
+
 	@When("User updates deductible perils as <1500> and ded hurricane as <%2>")
 	public void user_updates_ded_perils_as_1500_and_ded_hurricane_as_2() throws Exception {
 		selectDropdownText(dwellingChevron.ddDeductibleAllPerils, "$1,500");
@@ -134,8 +139,10 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 		click(dwellingChevron.btnSave);
 		wait(4);
 	}
+
 	@When("User finalizes transaction and validates updated changes messages on closeout screen")
-	public void user_finalizes_transaction_and_validates_updated_changes_messages_on_closeout_screen() throws Exception {
+	public void user_finalizes_transaction_and_validates_updated_changes_messages_on_closeout_screen()
+			throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(2);
 		verify_AnyText_IsVisible(driver, "Deductible Change: All Other Perils Changed From $2,500 to $1,500");
@@ -144,10 +151,12 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 		verify_AnyLabel_IsVisible(driver, "Preview Output");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
 	}
+
 	@When("User changes system date to current date")
 	public void user_changes_system_date_to_current_date() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate));
 	}
+
 	@When("User updates deductible perils as <2000> and ded hurricane as <%5>")
 	public void user_updates_ded_perils_as_2000_and_ded_hurricane_as_5() throws Exception {
 		selectDropdownText(dwellingChevron.ddDeductibleAllPerils, "$2,000");
@@ -155,8 +164,10 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 		click(dwellingChevron.btnSave);
 		wait(4);
 	}
+
 	@When("User finalizes transaction and validates updated changes messages on closeout screen <2000> and <%5>")
-	public void user_finalizes_transaction_and_validates_updated_changes_messages_on_closeout_screen_2000_and_5() throws Exception {
+	public void user_finalizes_transaction_and_validates_updated_changes_messages_on_closeout_screen_2000_and_5()
+			throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(2);
 		verify_AnyText_IsVisible(driver, "Deductible Change: All Other Perils Changed From $1,500 to $2,000");
@@ -165,35 +176,41 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 		verify_AnyLabel_IsVisible(driver, "Preview Output");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
 	}
+
 	@When("User changes system date to current date plus <1> day")
 	public void user_changes_system_date_to_current_date_plus_1_day() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate.plusDays(1)));
 	}
+
 	@When("User validates 'The effective date must not be older than 0 days from today' message has been displayed")
 	public void user_validates_error_message_has_been_displayed() throws Exception {
 		verify_AnyText_IsVisible(driver, "The effective date must not be older than 0 days from today");
 	}
+
 	@When("User clicks Policy Chevron and validates error messages")
 	public void user_clicks_policy_chevron_and_validates_error_messages() throws Exception {
 		click(policyChevron.btnPolicyChevronLink);
 		wait(3);
 		verify_AnyText_IsVisible(driver, "The effective date must not be older than 0 days from today");
 		verify_AnyText_IsVisible(driver, "Change in AOP Deductible may only be changed at Renewal");
-		verify_AnyText_IsVisible(driver, "Change in Hurricane Deductible may only be changed at Renewal");	
+		verify_AnyText_IsVisible(driver, "Change in Hurricane Deductible may only be changed at Renewal");
 	}
+
 	@When("User finalizes transaction and validates updated changes messages on closeout screen for third endorsement")
-	public void user_finalizes_transaction_and_validates_updated_changes_messages_on_closeout_screen_for_third_endorsement() throws Exception {
+	public void user_finalizes_transaction_and_validates_updated_changes_messages_on_closeout_screen_for_third_endorsement()
+			throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(2);
-		
+
 		verify_AnyText_IsVisible(driver, "The effective date must not be older than 0 days from today");
 		verify_AnyText_IsVisible(driver, "Change in AOP Deductible may only be changed at Renewal");
 		verify_AnyText_IsVisible(driver, "Change in Hurricane Deductible may only be changed at Renewal");
 		verify_AnyText_IsVisible(driver, "Deductible Change: All Other Perils Changed From $2,000 to $1,500");
 		verify_AnyText_IsVisible(driver, "Deductible Change: Hurricane Changed From 5% to 2%");
 		verify_AnyText_NotVisible(driver, "Endorse Policy");
-		verify_AnyLabel_IsVisible(driver, "Submit For Approval");	
+		verify_AnyLabel_IsVisible(driver, "Submit For Approval");
 	}
+
 	@When("User takes note of the application for <mtr368>")
 	public void user_takes_note_of_the_application__number_for_mtr368() throws Exception {
 		try {
@@ -203,17 +220,20 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the application <mtr368>")
 	public void user_searches_application_for_mtr368() {
 		sendText(dashboard.txtSearchBar, applicationNumber);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@When("User approves application")
 	public void user_approves_application() {
 		click(closeoutChevron.btnApprove);
 		wait(3);
 	}
+
 	@When("User process and completes endorsement and finishes test")
 	public void user_process_and_completes_endorsement_and_finishes_test() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);
@@ -222,5 +242,5 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }

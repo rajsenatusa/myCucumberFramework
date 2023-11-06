@@ -35,7 +35,6 @@ public class MTR1412_GOC_ValidateNoHitRequireUWApproval_NB extends CommonMethods
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
-
 	@When("User enters all required information on GOC golfcart screen for <mtr1412>")
 	public void user_enters_all_required_information_on_goc_golfcart_screen_mtr1412() {
 

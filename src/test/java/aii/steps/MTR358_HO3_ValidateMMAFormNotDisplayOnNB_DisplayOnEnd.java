@@ -26,6 +26,7 @@ public class MTR358_HO3_ValidateMMAFormNotDisplayOnNB_DisplayOnEnd extends Commo
 	static String Endpackage_Form_FnE1;
 	static String MMA_End1;
 
+	
 	@When("User enters all required information on policy information screen <mtr358>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr358() {
 

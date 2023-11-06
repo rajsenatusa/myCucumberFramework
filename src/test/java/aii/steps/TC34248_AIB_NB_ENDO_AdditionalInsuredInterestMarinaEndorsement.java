@@ -547,4 +547,5 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	
 }

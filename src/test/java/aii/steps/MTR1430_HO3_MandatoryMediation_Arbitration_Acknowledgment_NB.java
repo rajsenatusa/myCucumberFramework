@@ -23,6 +23,7 @@ public class MTR1430_HO3_MandatoryMediation_Arbitration_Acknowledgment_NB extend
 	static String workdate;
 	static String MMA_Acknowledment_Form;
 
+	
 	@When("User enters all required information on policy information screen <mtr1430>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr1430() {
 
