@@ -50,8 +50,36 @@ Feature: RC-403: 2024 Rate Changes- Inflation Guard: VOL HO6- 01/01/2024
     And User returns to main page
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
-    And User clicks Finalize
-
+    And User clicks Save
+    And User clicks Finalize button
+    And User clicks Process
+    And User clicks Dwelling chevron
+    Then User validates HO6 Coverage A increases by 10 percent
+    Then User validates HO6 Coverage C increases by 10 percent
+    Then User validates HO6 Coverage D increases by 10 percent
+    Then User validates HO6 Ordinance or Law increases off of Coverage A inflated limit amount of 10 percentage
+    Then User validates Sinkhole Loss
+    Then User validates HO6 Coverage A on Coverages List
+    Then User validates HO6 Coverage C on Coverages List
+    Then User validates HO6 Coverage D on Coverages List
+    Then User validates HO6 Ordinance or Law on Coverages List
+    Then User validates HO6 Coverage A is 10 percent under Inflation Guard
+    Then User validates HO6 Coverage C is 10 percent under Inflation Guard
+    And User clicks Policy File Chevron
+    And User clicks Renewal Decleration link
+    Then User validates VOL HO6 10 percentage in RN Declaration Package
+    Then User validates VOL HO6 inflated values on OIR B1 1670 form
+    Then User validates VOL HO6 Ordinance or Law Coverage on Dec page
+    And User clicks History Chevron
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User enters EN Effective Date "<EndorsementEffectiveDate>"
+    And User clicks Dwelling chevron
+    And User clicks Endorse Policy button
+    And User clicks Dwelling chevron
+    Then User validates HO6 Coverage A is 10 percent under Inflation Guard
+    Then User validates HO6 Coverage C is 10 percent under Inflation Guard
+    
     Examples: Test Data
-      | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Nov@2023! | 01/01/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mcemek   | Nov@2023! | 01/01/2023    | 01/01/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
