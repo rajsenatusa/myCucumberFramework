@@ -15,7 +15,6 @@ import io.cucumber.java.en.When;
 
 public class TODP1policy extends CommonMethods {
 
-	
 	@When("User enters product selection information for TODP1 and effective date")
 	public void user_enters_product_selection_information_for_todp1_and_effective_date() {
 		// login with admin for issuing TO policy

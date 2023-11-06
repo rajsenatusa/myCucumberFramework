@@ -478,7 +478,6 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		click(dwellingChevron.lnkForms);
 		wait(5);
 	}
-
 	@When("User validates all expected forms is visible on forms screen <mtr2490>")
 	public void user_validates_all_expected_forms_is_visible_on_forms_screen_mtr2490() throws Exception {
 		verify_AnyText_IsVisible(driver, "AIIC NB GL 08 19");

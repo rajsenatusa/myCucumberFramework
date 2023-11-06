@@ -14,6 +14,7 @@ public class MTR365_DP3_ValidateCovCOptionsDefaultChange_NB_END extends CommonMe
 	@When("User clicks Dwelling tab and validates C-Personal Property drop down contains the following options:10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%, 55%, 60%, 65%, 70% and Coverage C limit defaulted %25 and Cov C limit $75.000 is disabled")
 	public void user_clicks_dwelling_tab_and_validates_c_personal_property_drop_down_contains_the_following_options_and_validates()
 			throws Exception {
+		
 		click(dwellingChevron.btnDwelling);
 		String[] cov_C = { "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%" };
 		verifyAnyDropdownDefaultedValue(driver, "Building.CovCLimitIncluded", "25%");

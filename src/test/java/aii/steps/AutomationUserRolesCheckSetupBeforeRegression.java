@@ -22,6 +22,12 @@ public class AutomationUserRolesCheckSetupBeforeRegression extends CommonMethods
 		sendText(driver.findElement(By.id("LoginId")), "csruw1");
 		wait(1);
 	}
+	@When("User searches Agent Underwriter Manager Jbarnes")
+	public void user_searches_agent_jbarnes() {
+		wait(5);
+		sendText(driver.findElement(By.id("LoginId")), "jbarnes");
+		wait(1);
+	}
 
 	@When("User searches Agent AGISA002537")
 	public void user_searches_agent_AGISA002537() {

@@ -31,6 +31,7 @@ public class LoginStepsTestEnvironments extends CommonMethods {
 		sendText(login.password, "123456");
 	}
 
+	
 	@Then("User validates that Invalid Credentials is displayed")
 	public void user_validates_that_invalid_credentials_is_displayed() {
 		String expectedMsg = "Invalid user or password.";

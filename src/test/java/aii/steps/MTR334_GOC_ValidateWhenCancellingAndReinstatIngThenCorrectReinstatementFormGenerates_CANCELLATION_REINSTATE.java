@@ -25,7 +25,6 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 	static String Con_Coverage_Form_Version;
 	static String Con_Coverage_Data;
 
-	
 	@When("User enters all required information on policy information screen <mtr334>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr334() {
 
@@ -110,6 +109,7 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User validates that GOC policy has been created successfully and takes note of the policy number <mtr334>")
 	public void user_validates_that_goc_policy_has_been_created_successfully_mtr334() throws Exception {
 
@@ -133,23 +133,27 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 			e.printStackTrace();
 		}
 	}
+
 	@When("User searches for the policy number <mtr334>")
 	public void user_searches_policy_for_mtr334() {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User selects Cancellation")
 	public void User_selects_cancellation() {
 		selectDropdownText(dashboard.ddSelectTransaction, "Cancellation");
 		wait(1);
 		click(dashboard.btnSelect);
 	}
+
 	@And("User selects Substantial change in risk as reason")
 	public void User_selects_reason() {
 		selectDropdownText(historyChevron.ddReason, "Substantial change in risk");
 		wait(2);
 	}
+
 	@And("User selects Loss meets policy limits as subreason")
 	public void User_selects_subreason() throws Exception {
 		wait(2);
@@ -160,6 +164,7 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		click(historyChevron.btnAdd);
 		wait(2);
 	}
+
 	@And("User selects pro rate as cancel type and process transaction <mtr334>")
 	public void User_selects_pro_rate_334() {
 		selectDropdownText(historyChevron.ddCancelType, "Pro-Rate");
@@ -169,20 +174,24 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		click(dashboard.btnStart);
 		wait(3);
 	}
+
 	@And("User selects effective date as cancel date 'current date'")
 	public void User_selects_effective_date_as_cancel_date() {
 		sendText(historyChevron.txtEffectiveDate, dtf.format(currentDate));
 		wait(2);
 	}
+
 	@When("User clicks Policy File Chevron <mtr334>")
 	public void user_clicks_policy_file_chevron_mtr334() throws Exception {
 		click(policyFileChevron.btnPolicyFilePage);
 		wait(5);
 	}
+
 	@When("User validates 'Continuation of Coverage' text has been displayed")
 	public void user_validates_txt_has_been_displayed() throws Exception {
 		verify_AnyfirstText_IsDisplayed(driver, "Continuation of Coverage");
 	}
+
 	@Then("User clicks 'Continuation of Coverage' link and validates form version 'AIIC GOC RI 12 16' and completes test")
 	public void user_clicks_link_validates_form() throws Exception {
 		clickOnAnyPolicyFileTabForm(driver, "Continuation of Coverage");
@@ -190,20 +199,22 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		switchToWindow(driver, "STFile&Filename");
 		wait(2);
 		Con_Coverage_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Con_Coverage");
-		PdfComparator.SavePdfForm(driver, FileLocation+Con_Coverage_Form);
+		PdfComparator.SavePdfForm(driver, FileLocation + Con_Coverage_Form);
 		wait(8);
-		Con_Coverage_Form_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation+Con_Coverage_Form, 1, 470, 720, 130, 50);
+		Con_Coverage_Form_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Con_Coverage_Form, 1, 470, 720,
+				130, 50);
 		PdfComparator.verifyFormData(driver, Con_Coverage_Form_Version, "AIIC GOC RI 12 16");
-		
-		Con_Coverage_Data = PdfComparator.getPDFData(FileLocation+Con_Coverage_Form);
-		
-		//Find the required text in a pdf
+
+		Con_Coverage_Data = PdfComparator.getPDFData(FileLocation + Con_Coverage_Form);
+
+		// Find the required text in a pdf
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "AIIC GOC RI 12 16");
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, dtf.format(currentDate));
-		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "Your policy has been reinstated as of the Reinstatement Date shown above without interruption of coverage since");
+		PdfComparator.verifyPDFText(driver, Con_Coverage_Data,
+				"Your policy has been reinstated as of the Reinstatement Date shown above without interruption of coverage since");
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "underwriting reason(s) met.");
-		Hooks.scenario.log("PDF form Data :  "+Con_Coverage_Data);
+		Hooks.scenario.log("PDF form Data :  " + Con_Coverage_Data);
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
+
 }
