@@ -169,7 +169,7 @@ public class VOLMHO3_RateChange extends CommonMethods {
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
 
-		wait(11);
+		wait(20);
 
 		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
@@ -177,8 +177,30 @@ public class VOLMHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+		wait(10);
 
 	}
+
+	@When("User validates VOL MHO3 10 percentage in RN Declaration Package for second RN")
+	public void User_validates_VOL_MHO3_10_percentage_in_RN_Declaration_Package_for_second_RN() throws Exception {
+		switchToWindow(driver, "STFile&File");
+		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
+
+		wait(20);
+
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
+		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+		wait(10);
+
+	}
+
 	@When("User validates VOL MHO3 inflated values on Dec page for first RN")
 	public void User_validates_VOL_MHO3_inflated_values_on_Dec_page_for_first_RN() throws Exception {
 
@@ -190,8 +212,9 @@ public class VOLMHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$66,000");
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User validates VOL MHO3 inflated values on OIR B1 1670 form for first RN")
-	public void Then_User_validates_VOL_MHO3_inflated_values_on_OIR_B1_1670_form_for_first_RN() throws Exception {
+	public void User_validates_VOL_MHO3_inflated_values_on_OIR_B1_1670_form_for_first_RN() throws Exception {
 
 		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 63, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
@@ -202,6 +225,7 @@ public class VOLMHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@Then("User validates MHO3 Coverage A increases by 10 percentage after second RN")
 	public void User_validates_MHO3_Coverage_A_increases_by_10_percentage_after_second_RN() {
 
@@ -210,8 +234,93 @@ public class VOLMHO3_RateChange extends CommonMethods {
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
 	}
-	
-	
-	
-   
+
+	@Then("User validates MHO3 Coverage B increases off of Coverage A percentage after second RN")
+	public void User_validates_MHO3_Coverage_B_increases_off_of_Coverage_A_percentage_after_second_RN() {
+
+		String expected = "$3,630";
+		String actual = dwellingChevron.MHOCovB.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates MHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percente after second RN")
+	public void User_validates_MHO3_Coverage_C_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percente_after_second_RN() {
+
+		String expected = "$181,500";
+		String actual = dwellingChevron.MHOCovC.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates MHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percente after second RN")
+	public void User_validates_MHO3_Coverage_D_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percente_after_second_RN() {
+
+		String expected = "$72,600";
+		String actual = dwellingChevron.MHOCovD.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates MHO3 Coverage A on Coverages List after second RN")
+	public void User_validates_MHO3_Coverage_A_on_Coverages_List_after_second_RN() {
+
+		String expected = "363,000";
+		String actual = dwellingChevron.MHO3CoverageListCovA.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates MHO3 Coverage B on Coverages List after second RN")
+	public void User_validates_MHO3_Coverage_B_on_Coverages_List_after_second_RN() {
+
+		String expected = "3,630";
+		String actual = dwellingChevron.MHO3CoverageListCovB.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates MHO3 Coverage C on Coverages List after second RN")
+	public void User_validates_MHO3_Coverage_C_on_Coverages_List_after_second_RN() {
+
+		String expected = "181,500";
+		String actual = dwellingChevron.MHO3CoverageListCovC.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@Then("User validates MHO3 Coverage D on Coverages List after second RN")
+	public void User_validates_MHO3_Coverage_D_on_Coverages_List_after_second_RN() {
+
+		String expected = "72,600";
+		String actual = dwellingChevron.MHO3CoverageListCovD.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+
+	}
+
+	@When("User validates VOL MHO3 inflated values on Dec page for second RN")
+	public void User_validates_VOL_MHO3_inflated_values_on_Dec_page_for_second_RN() throws Exception {
+
+		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 4, 0, 0, 800, 800);
+//		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$363,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$3,630");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$181,500");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$72,600");
+		Hooks.scenario.log("Test Case Completed!");
+	}
+
+	@When("User validates VOL MHO3 inflated values on OIR B1 1670 form for second RN")
+	public void User_validates_VOL_MHO3_inflated_values_on_OIR_B1_1670_form_for_second_RN() throws Exception {
+
+		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 62, 0, 0, 800, 800);
+//		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$363,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$3,630");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$181,500");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$7,260");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
+		Hooks.scenario.log("Test Case Completed!");
+	}
+
 }

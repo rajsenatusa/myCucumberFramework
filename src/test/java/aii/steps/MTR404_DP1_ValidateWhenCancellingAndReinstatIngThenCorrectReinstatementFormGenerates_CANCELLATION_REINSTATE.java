@@ -24,6 +24,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 	static String Con_Coverage_Data;
 	static String policyNum;
 
+	
 	@When("User enters DP1 product selection information and current date as effective date")
 	public void user_enters_dp1_product_selection_information_and_current_date_as_effective_date() {
 		// product selection information was filled here

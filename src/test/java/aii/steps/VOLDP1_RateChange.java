@@ -49,7 +49,7 @@ public class VOLDP1_RateChange extends CommonMethods {
 
 	}
 
-	@Then("User validates Coverage A increases by 10 percentage")
+	@Then("User validates Coverage A increases by 10 percent")
 	public void User_validates_Coverage_A_increases_by_10_percentage() {
 
 		String expected = "10%";
@@ -119,6 +119,28 @@ public class VOLDP1_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
 
 	}
+	@When("User validates 10 percentage in RN Declaration Package for second RN")
+	public void User_validates_10_percentage_in_RN_Declaration_Package_for_second_RN() throws Exception {
+
+		switchToWindow(driver, "STFile&File");
+		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
+		
+		
+		wait(15);
+		
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 11, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
+		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+
+		wait(10);
+	}
+	
 	@When("User validates inflated values on OIR B1 1670 form for first RN")
 	public void User_validates_inflated_values_on_OIR_B1_1670_form_for_first_RN() throws Exception {
 
@@ -136,8 +158,8 @@ public class VOLDP1_RateChange extends CommonMethods {
 
 		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 48, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$597,000");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$59,700");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$593,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$59,300");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$28,000");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");

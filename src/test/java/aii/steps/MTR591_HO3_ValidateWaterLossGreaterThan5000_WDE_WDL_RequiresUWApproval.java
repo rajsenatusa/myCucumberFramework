@@ -216,7 +216,6 @@ public class MTR591_HO3_ValidateWaterLossGreaterThan5000_WDE_WDL_RequiresUWAppro
 		scrollToAnyField(driver, "Preview Output");
 		attachScreenShot(driver);
 	}
-
 	@When("User issues policy and completes test")
 	public void user_issues_policy_and_completes_test() throws Exception {
 		selectDropdownText(closeoutChevron.ddPaymentType, "None");

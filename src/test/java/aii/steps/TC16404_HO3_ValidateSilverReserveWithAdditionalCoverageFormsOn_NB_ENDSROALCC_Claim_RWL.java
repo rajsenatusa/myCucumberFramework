@@ -2045,7 +2045,6 @@ public class TC16404_HO3_ValidateSilverReserveWithAdditionalCoverageFormsOn_NB_E
 		driver.findElement(By.id("Tab_Policy")).click();
 		wait(1);
 	}
-
 	@When("User clicks the last renewal declaration form and validates all form versions and completes test")
 	public void user_clicks_the_last_renewal_declaration_form_and_validates_all_form_versions_and_completes_test()
 			throws Exception {

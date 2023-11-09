@@ -16,7 +16,6 @@ import io.cucumber.java.en.When;
 public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAndUnderinsuredLiability_Claim_RWL
 		extends CommonMethods {
 
-	
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
@@ -224,6 +223,7 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		click(policyChevron.btnNext);
 		wait(2);
 	}
+
 	@When("User enters all required information on UMB personal liability screen <mtr1446>")
 	public void user_enters_all_required_information_on_umb_personal_liability_screen_mtr1446() {
 

@@ -401,6 +401,7 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 
 	@When("User clicks Complete and takes note of the claim number and validate expected messages <tc23996>")
 	public void user_clicks_complete_takes_notes_tc23996() throws Exception {
+		
 		click(claim.btnComplete);
 		wait(5);
 		try {

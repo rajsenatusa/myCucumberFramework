@@ -1,6 +1,5 @@
 //updated on 07/12/2023 by Can Yavas
 
-
 package aii.steps;
 
 import java.time.LocalDateTime;
@@ -140,7 +139,7 @@ public class CommonSteps extends CommonMethods {
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
 
-		wait(4);
+		wait(5);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
 		wait(4);
 		dashboard.btnNewQuote.click();

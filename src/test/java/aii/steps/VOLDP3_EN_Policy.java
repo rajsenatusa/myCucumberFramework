@@ -39,7 +39,6 @@ public class VOLDP3_EN_Policy extends CommonMethods {
 		wait(2);
 		click(dashboard.btnStart);
 		dashboard.btnStart.click();
-
 	}
 
 	@And("User clicks Endorse Policy button")

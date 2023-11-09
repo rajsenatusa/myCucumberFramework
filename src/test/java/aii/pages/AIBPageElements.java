@@ -110,6 +110,27 @@ public class AIBPageElements extends CommonMethods {
 	@FindBy(id= "Vehicle.Engine1SerialNum")
 	public WebElement txtEngineSerialNum;
 	
+	@FindBy(id= "Vehicle.Engine1Model")
+	public WebElement txtEngine1Model;
+	
+	@FindBy(id= "Vehicle.BoatStorageLocation")
+	public WebElement ddBoatStorageLocation;
+	
+	@FindBy(id= "VehicleGarageAddr.Addr1")
+	public WebElement txtStorageAddress;
+	
+	@FindBy(id= "VehicleGarageAddr.PostalCode")
+	public WebElement txtStorageZip;
+	
+	@FindBy(id= "NewVehicle")
+	public WebElement btnNewBoat;
+	
+	@FindBy(id= "Vehicle.CostNewAmt")
+	public WebElement txtPresentValue;
+	
+	@FindBy(id= "Vehicle.BassCoastal")
+	public WebElement ddNavigateCoastalWaters;
+
 	public AIBPageElements() {
 		
 		PageFactory.initElements(driver, this);

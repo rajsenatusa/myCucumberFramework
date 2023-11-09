@@ -33,7 +33,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -3119,6 +3118,30 @@ public class CommonMethods extends PageInitializer {
 			Hooks.scenario.log("Address: " + num + " " + street + " " + zip);
 		} catch (Exception e) {
 			Hooks.scenario.log("Address: FAILED" + num + " " + street + " " + " " + zip);
+			wait(5);
+		}
+	}
+
+	public static void clickInsuranceDialog(WebDriver driver, String policy) throws Exception {
+		try {
+
+			driver.findElement(By.xpath("(//*[text()='" + policy + "'])[3]")).click();
+			Hooks.scenario.log("Text selected: " + policy);
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Text not selected: " + policy);
+			wait(5);
+		}
+	}
+
+	public static void clickOKDailogButton(WebDriver driver) throws Exception {
+		try {
+
+			driver.findElement(By.id("dialogOK")).click();
+			wait(2);
+			Hooks.scenario.log("dialogOK selected");
+		} catch (Exception e) {
+			Hooks.scenario.log("dialogOK not selected");
 			wait(5);
 		}
 	}

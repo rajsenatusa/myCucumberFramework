@@ -242,7 +242,7 @@ public class VOLHO6RateChange extends CommonMethods {
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
 
-		wait(11);
+		wait(20);
 
 		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 10, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
@@ -250,6 +250,7 @@ public class VOLHO6RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+		wait(10);
 
 	}
 	@When("User validates VOL HO6 inflated values on OIR B1 1670 form")
