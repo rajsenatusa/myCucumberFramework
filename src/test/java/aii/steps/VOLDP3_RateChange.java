@@ -42,8 +42,8 @@ public class VOLDP3_RateChange extends CommonMethods {
 		wait(1);
 	}
 
-	@And("User selects Hurricane Deductible as 10 percentage")
-	public void User_selects_Hurricane_Deductible_as_10_percentage() {
+	@And("User selects Hurricane Deductible as 10 percent")
+	public void User_selects_Hurricane_Deductible_as_10_percent() {
 		selectDropdownText(dwellingChevron.ddHurricaneDeductible, "10%");
 		wait(1);
 
@@ -200,14 +200,36 @@ public class VOLDP3_RateChange extends CommonMethods {
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
 
-		wait(11);
+		wait(20);
 
-		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 10, 0, 0, 800, 800);
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 13, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+		wait(10);
+
+	}
+
+	@When("User validates VOL DP3 10 percentage in RN Declaration Package for second RN")
+	public void User_validates_VOL_DP3_10_percentage_in_RN_Declaration_Package_for_second_RN() throws Exception {
+
+		switchToWindow(driver, "STFile&File");
+		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
+		
+		wait(20);
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 13, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
+		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+
+		wait(5);
 
 	}
 
@@ -253,6 +275,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
-
+		
+		wait(5);
 	}
 }

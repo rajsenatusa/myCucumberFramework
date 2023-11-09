@@ -1,6 +1,7 @@
 package aii.steps;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import aii.utils.CommonMethods;
 import aii.utils.PdfComparator;
@@ -8,6 +9,7 @@ import capgemini.smartPDFcomparator.SmartPDFComparator2;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 
 import org.junit.Assert;
 //import Member.Pages.ActionsTile.ActionTile;
@@ -18,7 +20,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class VOLHO3_RateChange extends CommonMethods {
-	
+
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
@@ -28,7 +30,6 @@ public class VOLHO3_RateChange extends CommonMethods {
 	static String RwlDecForm;
 	static String RwlCheckList_Version;
 	static String FileLocation = System.getProperty("user.dir") + "\\target\\";
-
 
 	@And("User clicks Worksheets chevron")
 	public void User_clicks_Worksheets_chevron() {
@@ -597,20 +598,28 @@ public class VOLHO3_RateChange extends CommonMethods {
 		String actual = worksheetsChevron.HO3CovAInflationGuard.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
-//	@When("User clicks Renewal Decleration link for HO3")
-//	public void User_clicks_renewal_decleration_link_for_HO3() throws Exception {
-//		click(policyFileChevron.linkRenewalDeclaration);
-//		wait(3);
-//	}
+
 	@When("User validates VOL HO3 10 percentage in RN Declaration Package")
 	public void User_validates_VOL_HO3_10_percentage_in_RN_Declaration_Package() throws Exception {
-		switchToWindow(driver, "STFile&File");
+
+		wait(5);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+
+		}
+
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
 
-		wait(11);
+		wait(15);
 
 		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 13, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
@@ -619,7 +628,43 @@ public class VOLHO3_RateChange extends CommonMethods {
 				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
 
+		wait(10);
 	}
+
+	@When("User validates VOL HO3 10 percentage in RN Declaration Package for second RN")
+	public void User_validates_VOL_HO3_10_percentage_in_RN_Declaration_Package_for_second_RN() throws Exception {
+
+//	!!!!!!!!!	
+
+		wait(5);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+
+		}
+
+		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
+
+		wait(15);
+
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 13, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
+		PdfComparator.verifyFormData(driver, RwlDecForm,
+				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
+		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+
+		wait(10);
+	}
+
 	@When("User validates VOL HO3 inflated values on OIR B1 1670 form for first RN")
 	public void User_validates_VOL_HO3_inflated_values_on_OIR_B1_1670_form_for_first_RN() throws Exception {
 
@@ -632,10 +677,11 @@ public class VOLHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User validates VOL HO3 inflated values on OIR B1 1670 form for second RN")
 	public void User_validates_VOL_HO3_inflated_values_on_OIR_B1_1670_form_for_second_RN() throws Exception {
 
-		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 68, 0, 0, 800, 800);
+		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 66, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$279,000");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$27,900");

@@ -33,7 +33,7 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     And User enters Number of stories "<NumberOfStories>"
     And User enters Roof Material "<RoofMaterial>"
     And User clicks Integrity Select in Dwelling Detail
-    And User selects Hurricane Deductible as 10 percentage
+    And User selects Hurricane Deductible as 10 percent
     And User selects Sinkhole Loss
     And User enters DP3 Mandatory Mediation Arbitration
     And User enters Dwelling Type
@@ -119,7 +119,7 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates DP3 A Dwelling Flood after second RN on Coverages List
     And User clicks Policy File Chevron
     And User clicks Renewal Decleration link
-    Then User validates VOL DP3 10 percentage in RN Declaration Package
+    Then User validates VOL DP3 10 percentage in RN Declaration Package for second RN 
     Then User validates VOL DP3 inflated values on OIR B1 1670 form for second RN
 
     Examples: Test Data

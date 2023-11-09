@@ -64,7 +64,6 @@ Feature: RC-404: 2024 Rate Changes- Inflation Guard: VOL MHO- 01/01/2024
     And User clicks Endorse Policy button
     And User clicks Dwelling chevron
     Then User validates MHO3 Coverage A is 10 percente under Inflation Guard
-    
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
@@ -72,39 +71,21 @@ Feature: RC-404: 2024 Rate Changes- Inflation Guard: VOL MHO- 01/01/2024
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    
-    
     Then User validates MHO3 Coverage A increases by 10 percentage after second RN
-    #Then User validates MHO3 Coverage B increases off of Coverage A percentage after second RN
-    #Then User validates MHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percente after second RN
-    #Then User validates MHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percente after second RN
-    #Then User validates MHO3 Coverage A on Coverages List after second RN
-    #Then User validates MHO3 Coverage B on Coverages List after second RN
-    #Then User validates MHO3 Coverage C on Coverages List after second RN
-    #Then User validates MHO3 Coverage D on Coverages List after second RN
-    
+    Then User validates MHO3 Coverage B increases off of Coverage A percentage after second RN
+    Then User validates MHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percente after second RN
+    Then User validates MHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percente after second RN
+    Then User validates MHO3 Coverage A on Coverages List after second RN
+    Then User validates MHO3 Coverage B on Coverages List after second RN
+    Then User validates MHO3 Coverage C on Coverages List after second RN
+    Then User validates MHO3 Coverage D on Coverages List after second RN
     Then User validates MHO3 Coverage A is 10 percente under Inflation Guard
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     
+    And User clicks Policy File Chevron
+    And User clicks Renewal Decleration link
+    Then User validates VOL MHO3 10 percentage in RN Declaration Package for second RN
+    Then User validates VOL MHO3 inflated values on Dec page for second RN
+    Then User validates VOL MHO3 inflated values on OIR B1 1670 form for second RN
+
     Examples: Test Data
       | username | password  | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
       | mcemek   | Nov@2023! | 01/01/2023    | 01/01/2024               | Owner Occupied |             12 |               2021 |

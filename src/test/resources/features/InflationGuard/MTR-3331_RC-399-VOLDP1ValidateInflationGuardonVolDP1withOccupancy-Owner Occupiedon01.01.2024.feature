@@ -52,7 +52,7 @@ Feature: RC-399: 2024 Rate Changes- Inflation Guard: VOL DP1- 01/01/2024
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates Coverage A increases by 10 percentage
+    Then User validates Coverage A increases by 10 percent
     Then User validates Coverage B increases off of Coverage A inflated limit amount of 10 percentage
     Then User validates Coverage C increases by 10 percentage
     Then User validates Sinkhole Loss
@@ -69,7 +69,7 @@ Feature: RC-399: 2024 Rate Changes- Inflation Guard: VOL DP1- 01/01/2024
     And User enters Coverage C in Dwelling
     And User clicks Endorse Policy button
     And User clicks Dwelling chevron
-    Then User validates Coverage A increases by 10 percentage
+    Then User validates Coverage A increases by 10 percent
     Then User validates Coverage B increases off of Coverage A inflated limit amount of 10 percentage
     Then User validates Coverage C increases by 10 percentage
     Then User validates Coverage A on Coverages List
@@ -83,12 +83,12 @@ Feature: RC-399: 2024 Rate Changes- Inflation Guard: VOL DP1- 01/01/2024
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates Coverage A increases by 10 percentage
+    Then User validates Coverage A increases by 10 percent
     Then User validates Coverage C increases by 10 percentage
     Then User validates Sinkhole Loss
     And User clicks Policy File Chevron
     And User clicks Renewal Decleration link
-    Then User validates 10 percentage in RN Declaration Package
+    Then User validates 10 percentage in RN Declaration Package for second RN 
     Then User validates inflated values on OIR B1 1670 form for second RN
 
     Examples: Test Data
