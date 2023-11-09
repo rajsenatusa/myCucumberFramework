@@ -490,7 +490,6 @@ public class TC16720_TOMHO3_ValidateNOCForm_NB_ENDWindEx_Claim_RWL extends Commo
 		// Close unnecessary tabs
 		closeUnnecessaryTabs();
 	}
-
 	@When("User does second Auto Renewal for the policy with batch jobs <tc16720>")
 	public void user_does_second_Auto_Renewal_for_the_policy_with_batch_jobs_tc16720() throws Exception {
 		runAutoRenewPolicy(driver, TOMHO_renewalTerm1, "02", "03");

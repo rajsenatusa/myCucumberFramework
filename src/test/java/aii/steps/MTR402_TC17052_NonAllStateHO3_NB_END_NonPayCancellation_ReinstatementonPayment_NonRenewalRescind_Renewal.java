@@ -17,6 +17,7 @@ import io.cucumber.java.en.When;
 
 public class MTR402_TC17052_NonAllStateHO3_NB_END_NonPayCancellation_ReinstatementonPayment_NonRenewalRescind_Renewal
 		extends CommonMethods {
+	
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;

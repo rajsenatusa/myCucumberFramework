@@ -263,7 +263,6 @@ public class MTR1443_UMB_Adjuster_LossLocationAddressDisplays_ForVehicleAllInclu
 		PdfComparator.verifyFormData(driver, AcknowledgementLetter_lookup, "11216 SW Pembroke DR");
 		PdfComparator.verifyFormData(driver, AcknowledgementLetter_lookup, "Port Saint Lucie, FL 34987");
 	}
-
 	@When("User checks Deny Personal Umbrella Liability selection and enters loss date <mtr1443>")
 	public void user_checks_deny_personal_umbrella_liability_selection_and_enters_loss_date_mtr1443() throws Exception {
 		click(claim.rbReverseDenialUmbLiability);

@@ -223,7 +223,6 @@ public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END exte
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
-
 	@When("User validates Building Hurricane deductible defaulted to <%2>")
 	public void user_validates_hurricane_ded_defaulted_to_2() throws Exception {
 		verifyAnyDropdownDefaultedValue(driver, "Building.HurricaneDeductible", "2%");

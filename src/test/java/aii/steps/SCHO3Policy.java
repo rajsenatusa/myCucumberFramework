@@ -342,7 +342,5 @@ public class SCHO3Policy extends CommonMethods {
 				break;
 			}
 		}
-
-	}
-	
+	}	
 }

@@ -26,7 +26,6 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 	static String RwlCheckList_Version;
 	static String FileLocation = System.getProperty("user.dir") + "\\target\\";
 
-	
 	@When("User enters all required information on MHO3 dwelling screen and sets coverage A as <500.000> and coverage B as <%10> and clicks WindHailExclusion")
 	public void user_enters_all_required_information_on_mho3_dwelling_screen_and_sets_coverage_a_as_500000() {
 
@@ -53,7 +52,6 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 		getInForcePremium(driver);
 		getInForcePremiumFees(driver);
 
-		
 		// taking note of the issued policy
 		try {
 			policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
@@ -105,8 +103,6 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 		wait(3);
 	}
 
-	
-	
 	public void user_switches_that_forms_and_validates_form_version_on_rn() throws Exception {
 		switchToWindow(driver, "STFile&File");
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");

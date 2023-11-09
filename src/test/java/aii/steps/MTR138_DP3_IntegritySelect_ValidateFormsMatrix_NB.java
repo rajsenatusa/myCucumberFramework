@@ -115,7 +115,6 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 		wait(2);
 	}
 
-	
 	@When("User enters all required information on DP3 quote screen with current date as prior policy date <mtr138>")
 	public void user_enters_all_current_date_as_prior_date_mtr138() throws Exception {
 		// Quote Policy Chevron information was filled here

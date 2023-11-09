@@ -57,4 +57,5 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 		String actual = worksheetsChevron.txtHO3NBHurricaneBaseRate.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
+	
 }

@@ -26,6 +26,7 @@ public class VOLDP1policy extends CommonMethods {
 		click(product.btnProductSelectionDp1);
 
 	}
+
 	@When("User enters all required information on DP1 quote screen")
 	public void user_enters_all_required_information_on_dp1_quote_screen() {
 		// Quote Policy Chevron information was filled here
@@ -103,7 +104,6 @@ public class VOLDP1policy extends CommonMethods {
 		}
 	}
 
-	
 	@Then("User creates DP1 policy with passing information from excel {string} sheet")
 	public void User_creates_dp1_policy_with_passing_information_from_excel_sheet(String dp1customerInfo)
 			throws Exception {
@@ -260,10 +260,11 @@ public class VOLDP1policy extends CommonMethods {
 		}
 
 	}
+
 	@Then("User creates DP1 application with passing information from excel {string} sheet")
 	public void User_creates_dp1_application_with_passing_information_from_excel_sheet(String dp1customerInfo)
 			throws Exception {
-		String AppNum= null;
+		String AppNum = null;
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/VOLDP1.xlsx";
 
 		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, dp1customerInfo);
@@ -378,8 +379,8 @@ public class VOLDP1policy extends CommonMethods {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
-				Hooks.scenario.log(AppNum);		
+
+				Hooks.scenario.log(AppNum);
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

@@ -40,7 +40,6 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 		click(reviewChevron.btnDialogOk);
 	}
 
-	
 	@When("User enters all required information on DP1 dwelling screen for <mtr1411>")
 	public void user_enters_all_required_information_on_dp1_dwelling_screen_for_mtr1411() {
 

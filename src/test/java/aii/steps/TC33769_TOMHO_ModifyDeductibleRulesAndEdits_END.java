@@ -204,6 +204,7 @@ public class TC33769_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 	@And("User finalizes transaction and validates expected messages on closeout screen <tc33769>")
 	public void user_finalizes_transaction_and_validates_expected_messages_on_closeout_screen_tc33769()
 			throws Exception {
+		
 		click(reviewChevron.btnFinalize);
 		wait(3);
 		verify_AnyText_IsVisible(driver, "The effective date must not be older than 0 days from today");

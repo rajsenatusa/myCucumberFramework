@@ -14,8 +14,12 @@ public class MTR367_DP3_OwnerOccupiedEndForm_EndorsetoIntegritySelect_END extend
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String FileLocation = System.getProperty("user.dir") + "\\target\\";
-	String application_Form = null;
-	String EndPackage_Form = null;
+	static String OOCov_Data;
+	static String OwnerOccupiedForm;
+	static String OOCov_Name;
+	static String EndPackage_Form;
+	static String EndDec_Page;
+	static String Declaration_Version;
 
 	@When("User clicks Forms Chevron")
 	public void user_clicks_forms_chevron() throws Exception {
@@ -58,15 +62,15 @@ public class MTR367_DP3_OwnerOccupiedEndForm_EndorsetoIntegritySelect_END extend
 		click(formsChevron.btnAIICDP3OO0423);
 		wait(8);
 		switchToWindow(driver, "aiic-dp3-oo-0423.pdf");
-		String OwnerOccupiedForm = PdfComparator.getPdfName(driver);
+		OwnerOccupiedForm = PdfComparator.getPdfName(driver);
 		wait(4);
 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + OwnerOccupiedForm);
 		wait(10);
-		String OOCov_Data = PdfComparator.getPDFData(FileLocation + OwnerOccupiedForm);
+		OOCov_Data = PdfComparator.getPDFData(FileLocation + OwnerOccupiedForm);
 		PdfComparator.verifyPDFText(driver, OOCov_Data, "AIIC DP3 OO 04 23");
-		String OOCov_Name = PdfComparator.getPDFData(FileLocation + OwnerOccupiedForm);
+		OOCov_Name = PdfComparator.getPDFData(FileLocation + OwnerOccupiedForm);
 		PdfComparator.verifyPDFText(driver, OOCov_Name, "OWNER OCCUPIED ENDORSEMENT");
 	}
 
@@ -81,20 +85,20 @@ public class MTR367_DP3_OwnerOccupiedEndForm_EndorsetoIntegritySelect_END extend
 		click(policyFileChevron.btnEndorsementPackageForm);
 		wait(7);
 		switchToWindow(driver, "STFile&File");
-		String EndPackage_Form = PdfComparator.makePdf(driver, "EndorsementPackage.pdf");
+		EndPackage_Form = PdfComparator.makePdf(driver, "EndorsementPackage.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + EndPackage_Form);
-
+		wait(12);
 		// Declaration page Forms and endorsement section
-		String EndDec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 2, 30, 450, 560, 350);
+		EndDec_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 2, 30, 450, 560, 350);
 		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP3 OO 04 23");
 
 		// Declaration Page
-		String Declaration_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 17, 70, 740,
+		Declaration_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 17, 70, 740,
 				100, 50);
 		PdfComparator.verifyFormData(driver, Declaration_Version, "AIIC DP3 OO 04 23");
 
-		System.out.println("MTR-367 Test Case completed successfully, test passed!");
+		Hooks.scenario.log("MTR-367 Test Case completed successfully, test passed!");
 	}
 
 }

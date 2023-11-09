@@ -133,7 +133,6 @@ public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuil
 
 		closeUnnecessaryTabs();
 	}
-
 	@When("User expands  endorsement on transaction history tab and verifies changes made")
 	public void user_expands_endorsement_on_transaction_history_Tab() throws Exception {
 		click(historyChevron.btnExpand);

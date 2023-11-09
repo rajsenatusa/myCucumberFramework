@@ -160,7 +160,6 @@ public class TC17112_GOC_UW_NB_OtherMinimumPremium extends CommonMethods {
 		attachScreenShot(driver);
 		verifyAnyDisabledFieldsValue(driver, "QuoteAppSummary_PremWithTaxesFeesAmt", "$100.00");
 	}
-
 	@When("User validates that GOC policy has been created successfully and takes note of the policy number <tc17112>")
 	public void user_validates_that_goc_policy_has_been_created_successfully_tc17112() throws Exception {
 

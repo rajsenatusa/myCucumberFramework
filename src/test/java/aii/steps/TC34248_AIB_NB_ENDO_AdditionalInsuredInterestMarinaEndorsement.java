@@ -514,6 +514,7 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 
 	@When("User validates 'Additional Interest - Marina does not have an active interest in one or more boats' message not visible")
 	public void user_validates_Marina_does_notHave_Active_interest_in_boats_is_NOT_visible() throws Exception {
+		
 		clickonAnyButton(driver, "AIList_1_Change");
 		Thread.sleep(1000);
 		clickonAnyButton(driver, "LinkReferenceInclude_0");
@@ -546,6 +547,5 @@ public class TC34248_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 		wait(10);
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
-	}
-	
+	}	
 }

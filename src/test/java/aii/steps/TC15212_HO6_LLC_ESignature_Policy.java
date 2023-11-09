@@ -67,7 +67,6 @@ public class TC15212_HO6_LLC_ESignature_Policy extends CommonMethods {
 		sendText(closeoutChevron.txtInsuredEmail, Insured1_email);
 		wait(1);
 	}
-
 	@When("User enters Agent Email address and clicks issue new business button and validates error message")
 	public void user_enters_agent_email_address_clicks() throws Exception {
 		sendText(closeoutChevron.txtAgentEmail, Agent_email);

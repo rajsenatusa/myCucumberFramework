@@ -20,6 +20,7 @@ public class TC38452_DP1_NB_END_ValidateMMACoverageDiscountCannotbeAddedafter31d
 	static String applicationNumber;
 	static String[] MMA = { "Yes", "No" };
 
+	
 	@When("User validates that DP1 policy has been created successfully and close tabs and takes note of the policy for <tc38452>")
 	public void user_validates_that_dp1_policy_has_been_created_successfully_and_close_tabs_and_takes_note_of_the_policy_number_tc38452()
 			throws Exception {

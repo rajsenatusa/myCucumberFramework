@@ -161,6 +161,7 @@ public class TC33770_TOMHO_ModifyWindHailExclusionRulesAndEdits_END extends Comm
 
 	@When("User takes note of the application number for <tc33770>")
 	public void user_takes_note_of_the_app_number_for_tc33770() throws Exception {
+		
 		try {
 			AppNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
 			Hooks.scenario.log("Application Number: " + AppNum);

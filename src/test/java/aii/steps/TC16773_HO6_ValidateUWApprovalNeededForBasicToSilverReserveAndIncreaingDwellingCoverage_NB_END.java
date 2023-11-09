@@ -244,5 +244,4 @@ public class TC16773_HO6_ValidateUWApprovalNeededForBasicToSilverReserveAndIncre
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
-
 }

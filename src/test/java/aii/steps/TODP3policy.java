@@ -85,7 +85,6 @@ public class TODP3policy extends CommonMethods {
 		wait(2);
 		click(reviewChevron.btnFullPaymentRadio);
 		wait(3);
-
 	}
 
 	@When("User clicks dwelling chevron and selects roof material")
