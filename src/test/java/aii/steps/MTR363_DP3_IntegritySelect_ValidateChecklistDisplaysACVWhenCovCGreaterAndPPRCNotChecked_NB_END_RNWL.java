@@ -199,5 +199,4 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		PdfComparator.verifyFormData(driver, RnwlPPRCdata, "Excluded");
 		PdfComparator.verifyFormData(driver, RnwlPPRCdata, "Not Applicable");
 	}
-
 }

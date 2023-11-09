@@ -24,7 +24,6 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 	static String AcknowledgementLetter_Form;
 	static String AcknowledgementLetter_lookup;
 
-	
 	@When("User enters all required information on policy information screen <mtr1441>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr1441() {
 

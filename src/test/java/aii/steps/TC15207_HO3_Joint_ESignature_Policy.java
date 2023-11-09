@@ -211,7 +211,6 @@ public class TC15207_HO3_Joint_ESignature_Policy extends CommonMethods {
 			e.printStackTrace();
 		}
 	}
-
 	@When("User clicks ESignature Tab and do validations for expected buttons, labels, texts")
 	public void user_clicks_ESignature_Tab() throws Exception {
 		clickonAnyButton(driver, "Tab_ESignature");

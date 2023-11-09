@@ -179,7 +179,6 @@ public class MTR590_HO3_ValidateStandardAgent_2OpenLosses_RequiresUWApproval_NB 
 		getInForcePremiumFees(driver);
 		Hooks.scenario.log("Test Case Completed!");
 	}
-
 	@When("User takes ownership of the application")
 	public void user_takes_ownership_of_the_application() throws Exception {
 		click(dwellingChevron.btnMore);

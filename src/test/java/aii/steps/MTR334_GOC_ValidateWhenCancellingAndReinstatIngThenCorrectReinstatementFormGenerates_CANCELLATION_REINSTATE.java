@@ -216,5 +216,4 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		Hooks.scenario.log("PDF form Data :  " + Con_Coverage_Data);
 		Hooks.scenario.log("Test Case Completed!");
 	}
-
 }

@@ -11,7 +11,8 @@ public class FormsPageElements extends CommonMethods{
 	@FindBy(id="AIICDP3OO_View")
 	public WebElement btnAIICDP3OO0423;
 	
-	
+	@FindBy(id="Wizard_Forms")
+	public WebElement lnkForms;
 	
 public FormsPageElements() {
 		

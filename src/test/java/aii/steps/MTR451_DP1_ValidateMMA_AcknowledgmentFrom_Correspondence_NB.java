@@ -32,7 +32,6 @@ public class MTR451_DP1_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extends
 	static String MMA_NBApp_Data;
 	static String FileLocation = System.getProperty("user.dir") + "\\target\\";
 
-	
 	@When("User enters all required information on DP1 dwelling screen and select MMA as yes and validates 'Premium amount includes Mandatory Mediation-Arbitration discount. Signed acknowledgement must be attached to policy in SPIN within 15 days' message")
 	public void user_enters_all_required_information_on_dp1_dwelling_screen_and_select_mma_as_yes() throws Exception {
 

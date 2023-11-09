@@ -19,7 +19,6 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 	static String AppNum;
 	static String claimNum;
 
-	
 	@When("User enters all required information on policy information screen <mtr2467>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr2467() {
 

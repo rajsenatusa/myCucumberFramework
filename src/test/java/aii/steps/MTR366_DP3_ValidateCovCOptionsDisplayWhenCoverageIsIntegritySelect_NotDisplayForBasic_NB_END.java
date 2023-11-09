@@ -16,7 +16,7 @@ public class MTR366_DP3_ValidateCovCOptionsDisplayWhenCoverageIsIntegritySelect_
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
-	
+
 	@When("User enters all required information on DP3 dwelling screen and selects integrity select package")
 	public void user_enters_all_required_information_on_dp3_dwelling_screen_and_selects_integrity_select_package() {
 

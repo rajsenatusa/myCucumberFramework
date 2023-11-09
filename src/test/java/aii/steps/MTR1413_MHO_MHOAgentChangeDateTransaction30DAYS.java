@@ -28,6 +28,7 @@ public class MTR1413_MHO_MHOAgentChangeDateTransaction30DAYS extends CommonMetho
 		click(product.btnContinue);
 		click(product.btnProductSelectionMho3);
 	}
+
 	@When("User enters all required information on MHO3 quote screen with prior exp date as current date")
 	public void user_enters_all_required_information_on_mho3_quote_screen_with_prior_exp_date_as_current_date() {
 		// Quote Policy Chevron information was filled here

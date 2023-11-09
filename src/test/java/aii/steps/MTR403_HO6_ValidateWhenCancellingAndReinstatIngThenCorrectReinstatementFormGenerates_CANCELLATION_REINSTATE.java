@@ -196,5 +196,4 @@ public class MTR403_HO6_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		click(dashboard.btnStart);
 		wait(3);
 	}
-
 }

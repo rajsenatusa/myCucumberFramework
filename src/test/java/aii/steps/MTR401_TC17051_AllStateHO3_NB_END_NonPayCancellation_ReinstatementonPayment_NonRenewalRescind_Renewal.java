@@ -85,6 +85,7 @@ public class MTR401_TC17051_AllStateHO3_NB_END_NonPayCancellation_Reinstatemento
 	static String RwlDINST_Form;
 	static String RwlDINST_Data;
 
+	
 	@And("User searches Agent <AGISA002537>")
 	public void user_searches_agent_AGISA002537() {
 		wait(5);
