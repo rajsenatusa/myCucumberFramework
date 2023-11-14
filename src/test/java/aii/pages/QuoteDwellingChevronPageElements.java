@@ -459,6 +459,52 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "CoverageList_CovD_Limit1")
 	public WebElement coverageListCovD; 
 	
+	@FindBy(id= "Building.CovALimit_text")
+	public WebElement TOHO3CovALimit;
+	
+	@FindBy(id= "CovBLimit")
+	public WebElement TOHO3CovBLimit;
+	
+	@FindBy(id= "CovCLimit")
+	public WebElement TOHO3CovCLimit;
+	 
+	@FindBy(id= "CovDLimit")
+	public WebElement TOHO3CovDLimit;
+	
+	@FindBy(id= "Building.HurricaneDeductible_text")
+	public WebElement TOHO3HurricaneDeductiblePercent;
+	
+	@FindBy(id= "OrdOrLawLimit")
+	public WebElement TOHO3OrdOrLawLimit;
+	
+	@FindBy(id= "Building.SinkholeDeductible_text")
+	public WebElement TOHO3SinkholeDeductible;
+	
+	@FindBy(id= "CoverageList_CovA_Limit1")
+	public WebElement TOHO3CovACoverageList;
+	
+	@FindBy(id= "CoverageList_CovB_Limit1")
+	public WebElement TOHO3CovBCoverageList;
+	
+	@FindBy(id= "CoverageList_CovC_Limit1")
+	public WebElement TOHO3CovCCoverageList;
+	
+	@FindBy(id= "CoverageList_CovD_Limit1")
+	public WebElement TOHO3CovDCoverageList;
+	
+	@FindBy(id= "CoverageList_ORD_Limit1")
+	public WebElement TOHO3OrdOrLawLimitCoverageList;
+	
+	@FindBy(id= "InflationGuardPct")
+	public WebElement TOHO3InflationGuardPct;
+	
+	 
+	
+	
+	
+	
+	
+	
 	
 	public QuoteDwellingChevronPageElements() {
 		

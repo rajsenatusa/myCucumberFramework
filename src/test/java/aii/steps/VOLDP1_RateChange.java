@@ -2,7 +2,11 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
+
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+
 import aii.utils.CommonMethods;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
@@ -103,7 +107,19 @@ public class VOLDP1_RateChange extends CommonMethods {
 
 	@When("User validates 10 percentage in RN Declaration Package")
 	public void User_validates_10_percentage_in_RN_Declaration_Package() throws Exception {
-		switchToWindow(driver, "STFile&File");
+//		switchToWindow(driver, "STFile&File");
+
+		wait(5);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
+
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver
@@ -119,18 +135,30 @@ public class VOLDP1_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
 
 	}
+
 	@When("User validates 10 percentage in RN Declaration Package for second RN")
 	public void User_validates_10_percentage_in_RN_Declaration_Package_for_second_RN() throws Exception {
 
-		switchToWindow(driver, "STFile&File");
+//		switchToWindow(driver, "STFile&File");
+
+		wait(5);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
+
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
-		
-		
+
 		wait(15);
-		
+
 		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 11, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
@@ -140,7 +168,7 @@ public class VOLDP1_RateChange extends CommonMethods {
 
 		wait(10);
 	}
-	
+
 	@When("User validates inflated values on OIR B1 1670 form for first RN")
 	public void User_validates_inflated_values_on_OIR_B1_1670_form_for_first_RN() throws Exception {
 
@@ -164,6 +192,7 @@ public class VOLDP1_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User validates 10 percentage in EN Package")
 	public void User_validates_10_percentage_in_EN_Package() throws Exception {
 		switchToWindow(driver, "STFile&File");
@@ -182,5 +211,5 @@ public class VOLDP1_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
 
 	}
-	
+
 }

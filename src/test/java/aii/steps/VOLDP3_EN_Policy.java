@@ -9,9 +9,11 @@ public class VOLDP3_EN_Policy extends CommonMethods {
 
 	@And("User clicks EN Transaction Selection")
 	public void User_clicks_EN_Transaction_Selection() {
+				
 		selectDropdownText(dashboard.ddSelectTransaction, "Endorsement");
-		wait(1);
+		wait(3);
 		click(dashboard.btnSelect);
+		wait(5);
 	}
 
 	@And("User enters EN Effective Date {string}")
