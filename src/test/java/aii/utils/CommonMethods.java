@@ -3145,4 +3145,5 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 		}
 	}
+
 }

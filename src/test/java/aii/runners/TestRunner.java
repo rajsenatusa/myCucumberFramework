@@ -18,24 +18,13 @@ import io.cucumber.junit.CucumberOptions;
 		// if they are glued to some java code
 		dryRun = false,
 
-
-
-
-
-
-
-
-				tags = "",
-
-
-
-
-				
+		
+		tags = "",
 
 		
-		//it provides the output console to more readable
-		monochrome = true, 
-		
+		// it provides the output console to more readable
+		monochrome = true,
+
 		plugin = {
 				// prints the gherkin steps into the console
 				"pretty",
@@ -44,12 +33,10 @@ import io.cucumber.junit.CucumberOptions;
 				// store every step of execution into this json file
 				"json:target/cucumber.json",
 				// creates an extent report in target/SparkReport folder
-				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-				}
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }
 
 )
 
 public class TestRunner {
-	
 
 }

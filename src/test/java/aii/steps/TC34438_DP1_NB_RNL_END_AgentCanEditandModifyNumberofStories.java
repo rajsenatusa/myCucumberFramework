@@ -247,4 +247,27 @@ public class TC34438_DP1_NB_RNL_END_AgentCanEditandModifyNumberofStories extends
 		attachScreenShot(driver);
 		Hooks.scenario.log("Test Case Completed!");
 	}
+	@When("User makes payment with Credit Card <tc34438>")
+	public void user_makes_payment_with_credit_card_tc34438() {
+		makeCCPayment();
+
+		// Close unnecessary tabs
+		closeUnnecessaryTabs();
+	}
+	@When("User clicks Dwelling Chevron <tc34438>")
+	public void user_clicks_dwelling_chevron_tc34438() throws Exception {
+		click(dwellingChevron.btnDwelling);
+		wait(3);
+	}
+	@And("User clicks Start Transaction <tc34438>")
+	public void User_clicks_Start_Transaction_tc34438() {
+		click(dashboard.btnStartTransaction);
+	}
+
+	@And("User clicks EN Transaction Selection <tc34438>")
+	public void User_clicks_EN_Transaction_Selection_tc34438() {
+		selectDropdownText(dashboard.ddSelectTransaction, "Endorsement");
+		wait(1);
+		click(dashboard.btnSelect);
+	}
 }
