@@ -54,4 +54,4 @@ Feature: RC-1864: 2024 Rate Changes- FIGA: TO HO3 - 1/1/2024
 
     Examples: Test Data
       | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | TerritoryList | StructureRentedOthers | QualityGrade | HurricaneDeductible |
-      | 01/01/2024    | 01/02/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |             5 | No                    | Economy      | 2%                  |
+      | 01/01/2024    | 01/02/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2023 |       3000 |             5 | No                    | Economy      | 2%                  |

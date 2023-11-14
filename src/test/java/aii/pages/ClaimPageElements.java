@@ -152,6 +152,27 @@ public class ClaimPageElements extends CommonMethods{
 	@FindBy(id= "Claim.SubLossCauseCd")
 	public WebElement ddSubLossCause;
 	
+	@FindBy(id= "ExaminerProviderNumber")
+	public WebElement txtExaminerNumber;
+	
+	@FindBy(id= "Wizard_Claimants")
+	public WebElement lnkClaimants;
+	
+	@FindBy(id= "Claim.CQWaterSourceIdentified")
+	public WebElement ddSourceOfWaterIdentified;
+	
+	@FindBy(id= "Claim.CQWaterSourceStopped")
+	public WebElement ddWasSourceStopped;
+	
+	@FindBy(id= "Claim.CQWaterStanding")
+	public WebElement ddStandingWaterInHome;
+	
+	@FindBy(id= "Claim.CQWaterMold")
+	public WebElement ddMoldIsPresent;
+	
+	@FindBy(id= "Claim.CQWaterRoomsDamaged")
+	public WebElement ddEstimatedAmountOfDamage;
+	
 	public ClaimPageElements() {
 		PageFactory.initElements(driver, this);
 	}	

@@ -228,18 +228,23 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User enters Fire Alarm {string}")
 	public void User_enters_Fire_Alarm(String FireAlarm) {
+		wait(1);
 		selectDropdownText(dwellingChevron.ddFireAlarm, FireAlarm);
+		wait(1);
 	}
 
 	@And("User enters Sprinkler System {string}")
 	public void User_enters_Sprinkler_System(String SprinklerSystem) {
+		wait(1);
 		selectDropdownText(dwellingChevron.ddSprinklerSystem, SprinklerSystem);
 		wait(1);
 	}
 
 	@And("User enters Burglar Alarm {string}")
 	public void User_enters_Burglar_Alarm(String BurglarAlarm) {
+		wait(1);
 		selectDropdownText(dwellingChevron.ddBurglarAlarm, BurglarAlarm);
+		wait(1);
 	}
 
 	@And("User enters Secured Community and Bldg {string}")

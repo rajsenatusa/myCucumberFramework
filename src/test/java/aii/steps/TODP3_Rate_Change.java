@@ -2,8 +2,11 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+
 import aii.utils.CommonMethods;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
@@ -91,7 +94,6 @@ public class TODP3_Rate_Change extends CommonMethods {
 
 	}
 
-	@Then("User validates TODP3 Coverage A on Coverages List")
 	public void User_validates_TODP3_Coverage_A_on_Coverages_List() {
 
 		String expected = "539,000";
@@ -139,9 +141,17 @@ public class TODP3_Rate_Change extends CommonMethods {
 	@When("User validates TODP3 10 percentage in RN Declaration Package")
 	public void User_validates_TODP3_10_percentage_in_RN_Declaration_Package() throws Exception {
 
-		wait(8);
+//		switchToWindow(driver, "STFile&File");
+		wait(15);
 
-		switchToWindow(driver, "STFile&File");
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver
@@ -170,6 +180,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "2% of Coverage A");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "10% of Coverage A");
 		Hooks.scenario.log("Test Case Completed!");
+		wait(5);
 	}
 
 	@When("User validates TODP3 inflated values on OIR B1 1670 form for first RN")
@@ -183,6 +194,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$10,780");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
+		wait(5);
 	}
 
 	@Then("User validates TODP3 Coverage A is 10 percente under Inflation Guard")
@@ -196,7 +208,19 @@ public class TODP3_Rate_Change extends CommonMethods {
 
 	@When("User validates TODP3 10 percentage in EN Declaration Package")
 	public void User_validates_TODP3_10_percentage_in_EN_Declaration_Package() throws Exception {
-		switchToWindow(driver, "STFile&File");
+//		switchToWindow(driver, "STFile&File");
+
+		wait(15);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
+
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver

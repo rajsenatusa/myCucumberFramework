@@ -82,7 +82,7 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
     And User enters EN Effective Date "<EndorsementEffectiveDate>"
-    And User clicks Dwelling chevron
+   
     And User clicks Endorse Policy button
     And User clicks Dwelling chevron
     Then User validates DP3 Coverage A increases by 10 percentage

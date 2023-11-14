@@ -134,7 +134,6 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowCovCovArea02\"]/tbody/tr/td/div/table/tbody/tr[3]/td[4]")
 	public WebElement VOLDP3HurricaneCoverageABaseRate;
 	
-	
 	//input[ends-with(@id,'_name')]
 	//input[contains(@id, '_name')]
 	//button[starts-with(@id, 'save') and contains(@class,'publish')] 
@@ -149,9 +148,6 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	
 	@FindBy(xpath="//*[@id=\"rowCovCovArea07\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
 	public WebElement hurricaneBasePremium;
-	
-	
-	
 	
 	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]")
 	public WebElement VOLHO3FireLightningBasePremium;
@@ -227,7 +223,6 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	
 	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[2]/td[9]")
 	public WebElement HO4CovAInflationGuard;
-	
 	
 	
 	
