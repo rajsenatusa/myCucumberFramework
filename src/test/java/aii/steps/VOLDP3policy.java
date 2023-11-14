@@ -1,7 +1,6 @@
 //updated on 07/14/2023 by Can Yavas
 package aii.steps;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -83,9 +82,7 @@ public class VOLDP3policy extends CommonMethods {
 		wait(4);
 		// Application Policy Chevron information was filled here(all information was
 		// filled previously, just clicking next button)
-
 		click(dwellingChevron.btnNext);
-
 	}
 
 	@When("User answers all underwriting questions for DP3")
@@ -191,6 +188,9 @@ public class VOLDP3policy extends CommonMethods {
 				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
 				selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+				//sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
+				//click(dwellingChevron.btnSave);
+				//wait(3);
 				sendText(policyChevron.txtPhoneNumber, phone);
 				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 				wait(2);
@@ -241,6 +241,9 @@ public class VOLDP3policy extends CommonMethods {
 				// Application Dwelling information was filled here
 
 				wait(2);
+				click(dwellingChevron.btnDwelling);
+				wait(2);
+				selectDropdownText(dwellingChevron.ddRoofMetarial, roof);
 				click(dwellingChevron.btnSave);
 				click(reviewChevron.btnReview);
 				wait(2);
@@ -249,6 +252,7 @@ public class VOLDP3policy extends CommonMethods {
 
 				// Closeout Chevron information was filled here
 
+				
 				selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 				wait(4);
 				click(closeoutChevron.btnIssueNB);
@@ -267,13 +271,7 @@ public class VOLDP3policy extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);
@@ -351,6 +349,9 @@ public class VOLDP3policy extends CommonMethods {
 				// quote
 				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
+				//sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
+				//click(dwellingChevron.btnSave);
+				//wait(3);
 				selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
 				sendText(policyChevron.txtPhoneNumber, phone);
 				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
