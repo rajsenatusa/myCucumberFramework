@@ -111,6 +111,7 @@ public class TOHO3policy extends CommonMethods {
 
 	@When("User selects Hurricane Deductible {string}")
 	public void user_selects_hurricane_deductible(String HurricaneDeductible) {
+		wait(3);
 		selectDropdownText(dwellingChevron.ddHurricaneDeductible, HurricaneDeductible);
 		wait(3);
 	}

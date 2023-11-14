@@ -611,7 +611,6 @@ public class VOLHO3_RateChange extends CommonMethods {
 			String parent = windowIterator.next();
 			popup = driver.switchTo().window(parent);
 			popup.getCurrentUrl();
-
 		}
 
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
@@ -636,6 +635,26 @@ public class VOLHO3_RateChange extends CommonMethods {
 
 //	!!!!!!!!!	
 
+//		wait(5);
+//
+//		mainWindow = driver.getWindowHandle();
+//		WebDriver popup = null;
+//		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+//		while (windowIterator.hasNext()) {
+////			String parent = windowIterator.next();
+//			popup = driver.switchTo().parentFrame();
+//				
+//			popup.getCurrentUrl();
+//		}
+//		switchToWindow(driver, "STFile&File");
+
+		wait(6);
+//		driver.switchTo().window(driver.getWindowHandle());
+//		wait(6);
+//		
+
+//		driver.switchTo().window(Cov_A_InfaltionValue);
+
 		wait(5);
 
 		mainWindow = driver.getWindowHandle();
@@ -645,7 +664,6 @@ public class VOLHO3_RateChange extends CommonMethods {
 			String parent = windowIterator.next();
 			popup = driver.switchTo().window(parent);
 			popup.getCurrentUrl();
-
 		}
 
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
@@ -663,11 +681,14 @@ public class VOLHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
 
 		wait(10);
+	
+
 	}
 
 	@When("User validates VOL HO3 inflated values on OIR B1 1670 form for first RN")
 	public void User_validates_VOL_HO3_inflated_values_on_OIR_B1_1670_form_for_first_RN() throws Exception {
 
+		wait(5);
 		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 68, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$253,000");
@@ -676,6 +697,7 @@ public class VOLHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$5,060");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
+		wait(5);
 	}
 
 	@When("User validates VOL HO3 inflated values on OIR B1 1670 form for second RN")
@@ -689,6 +711,7 @@ public class VOLHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$5,580");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
+		wait(5);
 	}
 
 }

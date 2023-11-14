@@ -1,6 +1,10 @@
 package aii.steps;
 
+import javax.swing.text.html.HTMLDocument.Iterator;
+
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+
 import aii.utils.CommonMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -10,14 +14,18 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 	@And("User returns to main page")
 
 	public void User_returns_to_main_page() {
-		wait(6);
+		wait(16);
 		driver.switchTo().window(driver.getWindowHandle());
-		wait(6);
+		wait(16);
+
 	}
 
 	@And("User clicks Start Transaction")
-	public void User_clicks_Start_Transaction() {
+	public void User_clicks_Start_Transaction() {		
+		wait(1);
 		click(dashboard.btnStartTransaction);
+		wait(1);
+		
 	}
 
 	@And("User clicks RN Transaction Selection")
@@ -57,5 +65,5 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 		String actual = worksheetsChevron.txtHO3NBHurricaneBaseRate.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
-	
+
 }
