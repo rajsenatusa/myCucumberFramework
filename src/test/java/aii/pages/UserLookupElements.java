@@ -83,6 +83,12 @@ public class UserLookupElements extends CommonMethods {
 	@FindBy(id= "SearchName")
 	public WebElement txtSearchName;
 	
+	@FindBy(id= "UserRoleAttrValue_7_462")
+	public WebElement txtQuestionMatchingLimit;
+	
+	@FindBy(id= "UserRoleAttrValue_7_463")
+	public WebElement txtQuestionUnusualLiability;
+	
 	public UserLookupElements() {
 		PageFactory.initElements(driver, this);
 	}

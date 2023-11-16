@@ -18,9 +18,10 @@
 # 2. Animal Liability and Personal Injury will display under L-Personal Liability
 # 3. C-Personal Property will display with limit selected
   
-# User: adjuster1
+# User: jbarnes, csruw1
+# Test is INEFFECTIVE with these inputs like reserves and recoveries. It is exceeding possible max amounts. Needs to write steps in User Story. Removed from regression
 
-@regression @mtr2464
+@mtr2464
 Feature: MTR2464 --Claim Acord Property Loss Notice Form; with all coverages Integrity Select on 01/21/2022
 
   Scenario: Validate following coverage reserves will display under the mentioned coverages accordingly in alphabet order
@@ -46,7 +47,23 @@ Feature: MTR2464 --Claim Acord Property Loss Notice Form; with all coverages Int
     And User selects loss cause as Water Damage <mtr2464>
     And User selects sub loss cause as Sewer Back Up and completes required information <mtr2464>
     And User clicks Complete and takes note of the claim number <mtr2464>
-    
+    And User starts Transaction on Claims Chevron
+    And User clicks Financial Actions Tab
+    And User adjust reserves and do UI validations <mtr2464>
+    And User sets CovA Scheduled Limit as <200> CovC Personal Property Scheduled Item as <3000> and finalize and process transaction
+    And User starts Transaction on Claims Chevron
+    And User clicks Financial Actions Tab
+    And User adjust recoveries and do UI validations <mtr2464>
+    And User clicks Claimants Tab
+    And User Adds New Claimant as Third Party Employee <mtr2464>
+    And User clicks Financial Actions Tab
+    And User adjust reserves and do UI validations <mtr2464>
+    And User sets CovL Animal Liability Scheduled Item Limit as <3000> CovL Personal Injury Scheduled Item Limit as <2000> and finalize and process transaction
+    And User starts Transaction on Claims Chevron
+    And User clicks Financial Actions Tab
+    And User adjust recoveries 2 and do UI validations <mtr2464>
+    And User clicks Claim File Tab
+    Then User clicks Property Loss Notice form and validates form version and completes test
     
     
     
