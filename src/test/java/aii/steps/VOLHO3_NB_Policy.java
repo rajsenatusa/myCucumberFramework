@@ -126,6 +126,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_enters_Occupancy(String Occupancy) {
 		wait(1);
 		selectDropdownText(policyChevron.ddOccupancy, Occupancy);
+		wait(1);
 	}
 
 	@And("User enters Months Occupied {string}")

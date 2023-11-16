@@ -2,8 +2,11 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+
 import aii.utils.CommonMethods;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
@@ -163,13 +166,24 @@ public class VOLMHO3_RateChange extends CommonMethods {
 
 	@When("User validates VOL MHO3 10 percentage in RN Declaration Package")
 	public void User_validates_VOL_MHO3_10_percentage_in_RN_Declaration_Package() throws Exception {
-		switchToWindow(driver, "STFile&File");
+
+		wait(15);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
+
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
 
-		wait(20);
+		wait(15);
 
 		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
@@ -177,13 +191,33 @@ public class VOLMHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
+
 		wait(10);
 
 	}
 
 	@When("User validates VOL MHO3 10 percentage in RN Declaration Package for second RN")
 	public void User_validates_VOL_MHO3_10_percentage_in_RN_Declaration_Package_for_second_RN() throws Exception {
-		switchToWindow(driver, "STFile&File");
+
+//		wait(5);
+//		switchToWindow(driver, "STFile&File");
+		wait(15);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
+
+		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
+
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
+
+		wait(15);
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver

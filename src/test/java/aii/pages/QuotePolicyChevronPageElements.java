@@ -176,6 +176,11 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "ParkNumber")
 	public WebElement parkNumber;
 	
+	@FindBy(id= "LeaseTerm")
+	public WebElement ddLeaseTerm;
+	
+	
+	
 	
 	
 	public QuotePolicyChevronPageElements() {

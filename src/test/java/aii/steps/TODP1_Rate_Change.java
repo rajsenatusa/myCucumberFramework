@@ -51,8 +51,9 @@ public class TODP1_Rate_Change extends CommonMethods {
 
 	@And("User selects Hurricane Deductible as 5 percent")
 	public void User_selects_Hurricane_Deductible_as_5_percent() {
-		selectDropdownText(dwellingChevron.ddHurricaneDeductible, "5%");
 		wait(1);
+		selectDropdownText(dwellingChevron.ddHurricaneDeductible, "5%");
+		wait(2);
 
 	}
 
