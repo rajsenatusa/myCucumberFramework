@@ -498,9 +498,25 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "InflationGuardPct")
 	public WebElement TOHO3InflationGuardPct;
 	
+	@FindBy(id= "Building.SeasonalPropertyInd")
+	public WebElement seasonalProperty; 
+	
+	@FindBy(id= "Building.OriginalSystemsInd")
+	public WebElement originalSystems; 
+	
+	@FindBy(id= "Building.CovALimit_text")
+	public WebElement covALimit; 
+	
+	@FindBy(id= "CovBLimit")
+	public WebElement covBLimit; 
+	
+	@FindBy(id= "Building.CovCLimit_text")
+	public WebElement covCLimit; 
+	
+	@FindBy(id= "CovDLimit")
+	public WebElement covDLimit; 
+	
 	 
-	
-	
 	
 	
 	

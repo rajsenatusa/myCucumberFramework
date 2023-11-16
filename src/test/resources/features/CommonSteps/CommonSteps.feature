@@ -125,3 +125,7 @@ Feature: Common Transactions and Steps
     And User clicks Endorsement Package link
     And User enters Personal Property limit
     And User selects Personal Liability limit
+    And User enters Lease Term "<LeaseTerm>"    
+    And User clicks Seasonal Property
+    And User clicks Original Systems Surcharge	
+    

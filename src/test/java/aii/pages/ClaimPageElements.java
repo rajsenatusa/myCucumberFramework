@@ -173,6 +173,12 @@ public class ClaimPageElements extends CommonMethods{
 	@FindBy(id= "Claim.CQWaterRoomsDamaged")
 	public WebElement ddEstimatedAmountOfDamage;
 	
+	@FindBy(id= "Reserve_CovA_WBU_Indemnity")
+	public WebElement txtCovAWBUScheduledItemLimit;
+	
+	@FindBy(id= "Reserve_CovC_COVCSUB_Indemnity")
+	public WebElement txtCovCPersonalPropertyScheduledItemLimit;
+	
 	public ClaimPageElements() {
 		PageFactory.initElements(driver, this);
 	}	

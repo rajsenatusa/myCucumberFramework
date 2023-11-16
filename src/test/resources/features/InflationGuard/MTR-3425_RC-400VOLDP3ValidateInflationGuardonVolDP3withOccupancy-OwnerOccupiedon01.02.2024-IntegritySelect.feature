@@ -82,7 +82,6 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
     And User enters EN Effective Date "<EndorsementEffectiveDate>"
-   
     And User clicks Endorse Policy button
     And User clicks Dwelling chevron
     Then User validates DP3 Coverage A increases by 10 percentage
@@ -119,7 +118,7 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates DP3 A Dwelling Flood after second RN on Coverages List
     And User clicks Policy File Chevron
     And User clicks Renewal Decleration link
-    Then User validates VOL DP3 10 percentage in RN Declaration Package for second RN 
+    Then User validates VOL DP3 10 percentage in RN Declaration Package for second RN
     Then User validates VOL DP3 inflated values on OIR B1 1670 form for second RN
 
     Examples: Test Data
