@@ -2,7 +2,6 @@
 
 package aii.steps;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.openqa.selenium.By;
@@ -22,6 +21,7 @@ public class VOLHO3DataTable extends CommonMethods {
 
 		List<Map<String, String>> excelList = ExcelUtility.excelIntoListOfMaps(path, ho3customerInfo);
 
+		
 		for (Map<String, String> dataMap : excelList) {
 
 			if (!dataMap.containsValue("")) {
@@ -70,6 +70,9 @@ public class VOLHO3DataTable extends CommonMethods {
 				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
 				selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+				//sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
+				//click(dwellingChevron.btnSave);
+				//wait(3);
 				sendText(policyChevron.txtPhoneNumber, phone);
 				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 				wait(2);
@@ -159,8 +162,9 @@ public class VOLHO3DataTable extends CommonMethods {
 				// Closeout Chevron information was filled here
 
 				selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
-				wait(4);
+				wait(3);
 				click(closeoutChevron.btnIssueNB);
+				wait(7);
 				WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 				if (validate.getText().equalsIgnoreCase("New Business")) {
@@ -174,14 +178,7 @@ public class VOLHO3DataTable extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);
