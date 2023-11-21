@@ -372,6 +372,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		reviewChevron.btnCreateApplication.click();
 		reviewChevron.btnInsuranceScoreBox.click();
 		reviewChevron.btnInsuranceScoreOk.click();
+		wait(1);
 	}
 
 	@And("User selects HO3 Pay Plan Type")

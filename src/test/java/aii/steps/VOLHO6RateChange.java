@@ -7,8 +7,11 @@ import capgemini.smartPDFcomparator.SmartPDFComparator2;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+
 //import Member.Pages.ActionsTile.ActionTile;
 //import Member.Pages.Login.LoginPage;
 //import Member.Pages.ProductSelection.ProductSelectPage;
@@ -236,7 +239,18 @@ public class VOLHO6RateChange extends CommonMethods {
 
 	@When("User validates VOL HO6 10 percentage in RN Declaration Package")
 	public void User_validates_VOL_HO6_10_percentage_in_RN_Declaration_Package() throws Exception {
-		switchToWindow(driver, "STFile&File");
+//		switchToWindow(driver, "STFile&File");
+		wait(15);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
+		
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver
