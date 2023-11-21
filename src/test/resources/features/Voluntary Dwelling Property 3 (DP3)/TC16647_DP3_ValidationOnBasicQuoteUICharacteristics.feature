@@ -9,8 +9,8 @@
   
  # User: AG1730
 
-@regression @tc16647
-Feature: TC 16647--DP3 Agent NB UI Basic Quote Mode UI Validations
+@regression @tc16647 @MTR4468
+Feature: TC 16647--MTR4468 DP3 Agent NB UI Basic Quote Mode UI Validations
 
   Scenario: Validate Quote is created while validating UI
     Given User login to Spin as Admin Agent
@@ -23,12 +23,27 @@ Feature: TC 16647--DP3 Agent NB UI Basic Quote Mode UI Validations
     And User sets Question Matching Limit and Question Unusual Liability as Yes
     And User clicks save
 		And User signs out
-    And User login to Spin as Underwriter
-    When User starts transaction as a new customer
+    And User login to Spin as Standard Agent
+    And User starts transaction as a new customer
     And User enters all required information on policy information screen <tc16647>
     And User enters DP3 product selection information and effective date as current date and do UI validations <tc16647>
     And User enters all required information on DP3 quote screen and do UI validations <tc16647>
     And User enters all required information on DP3 dwelling screen and do UI validations <tc16647>
+    And User validates fields on Replacement cost estimator tile
+    And User validates hurricane deductible populated value
+    And User validates coverages and additional options and selections on UI
+    And User selects flood coverage as Yes and validates fields on UI
+    And User validates coverage list tile on UI
+    Then User enters all required information on DP3 review screen sets Order Insurance Score as Yes do validations with different pay plan selection
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

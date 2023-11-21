@@ -8,8 +8,8 @@
   
 ## User: AG1730
 
-@regression @tc36657
-Feature: TC36657 : User Story 8585:RULE: Roof Material - Roof Letter Rules - NB Metal Roof Policy File
+@regression @tc36657 @MTR4504
+Feature: TC36657:MTR4504 User Story 8585:RULE: Roof Material - Roof Letter Rules - NB Metal Roof Policy File
 
   Scenario: Validate that when a NB policy is issued, with a roof type of Metal, that the NB Packet includes the AIIC RWT letter
     Given User login to Spin as Standard Agent
