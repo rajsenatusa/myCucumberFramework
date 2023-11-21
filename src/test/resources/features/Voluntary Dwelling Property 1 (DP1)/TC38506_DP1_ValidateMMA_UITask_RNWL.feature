@@ -16,8 +16,8 @@
 # User:AG1730
 
 
-@regression @tc38506
-Feature: TC38506: US8756 - U/I Task - Mandatory Mediation-Arbitration Acknowledgment - DP1- RNWL on 08/22/2022
+@regression @tc38506 @MTR4370
+Feature: TC38506: MTR4370 US8756 - U/I Task - Mandatory Mediation-Arbitration Acknowledgment - DP1- RNWL on 08/22/2022
 
   Scenario: Validating that Task will not be generated on RNWL on 08/22/2022 will be generated on END and referring to UW Clerk group
     Given User login to Spin as Admin Agent

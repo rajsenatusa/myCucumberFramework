@@ -16,8 +16,8 @@
   
  # User: Gallopadmin
 
-@regression @tc16720
-Feature: TC 16720--TOMHO3, UWMgr: End (Wind/Hail Excl) , Claim RN(2) Forms: NOC Assignment Agreement Notice
+@regression @tc16720 @MTR4461
+Feature: TC 16720-MTR4461-TOMHO3, UWMgr: End (Wind/Hail Excl) , Claim RN(2) Forms: NOC Assignment Agreement Notice
 
   Scenario: Validate that NOC form attached accordingly as per renewal 
     Given User login to Spin as Admin Agent

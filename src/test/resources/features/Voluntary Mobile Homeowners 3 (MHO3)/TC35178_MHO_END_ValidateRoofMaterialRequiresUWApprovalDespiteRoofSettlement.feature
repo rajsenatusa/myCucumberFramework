@@ -12,8 +12,8 @@
  # User: AG1730
 
 
-@regression @tc35178
-Feature: TC 35178--MHO Park AGENT UW NB END - Validate Other for Roof Material can be selected on endorsement and a referral will be received, despite Roof Settlement
+@regression @tc35178 @MTR4507
+Feature: TC 35178-MTR4507-MHO Park AGENT UW NB END - Validate Other for Roof Material can be selected on endorsement and a referral will be received, despite Roof Settlement
 
   Scenario: Validate Other for Roof Material  can be selected on endorsement and a referral will be received, despite Roof Settlement
     Given User login to Spin as Standard Agent
