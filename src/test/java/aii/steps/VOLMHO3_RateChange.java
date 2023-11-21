@@ -212,11 +212,6 @@ public class VOLMHO3_RateChange extends CommonMethods {
 			popup.getCurrentUrl();
 		}
 
-		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
-
-		// Save the pdf in local driver
-		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
-
 		wait(15);
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
