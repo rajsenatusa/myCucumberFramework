@@ -93,7 +93,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
 	}
-
+	@Then("User validates TODP3 Coverage A on Coverages List")
 	public void User_validates_TODP3_Coverage_A_on_Coverages_List() {
 
 		String expected = "539,000";

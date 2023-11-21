@@ -2,8 +2,11 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+
 import aii.utils.CommonMethods;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
@@ -130,7 +133,16 @@ public class VOLHO4_RateChange extends CommonMethods {
 
 	@When("User validates VOL HO4 10 percentage in RN Declaration Package")
 	public void User_validates_VOL_HO4_10_percentage_in_RN_Declaration_Package() throws Exception {
-		switchToWindow(driver, "STFile&File");
+		wait(15);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver
@@ -171,7 +183,16 @@ public class VOLHO4_RateChange extends CommonMethods {
 
 	@When("User validates VOL HO4 10 percentage in EN Package")
 	public void User_validates_VOL_HO4_10_percentage_in_EN_Package() throws Exception {
-		switchToWindow(driver, "STFile&File");
+		wait(15);
+
+		mainWindow = driver.getWindowHandle();
+		WebDriver popup = null;
+		Iterator<String> windowIterator = driver.getWindowHandles().iterator();
+		while (windowIterator.hasNext()) {
+			String parent = windowIterator.next();
+			popup = driver.switchTo().window(parent);
+			popup.getCurrentUrl();
+		}
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver

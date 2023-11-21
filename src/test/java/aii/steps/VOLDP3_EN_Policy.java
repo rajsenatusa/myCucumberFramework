@@ -20,7 +20,7 @@ public class VOLDP3_EN_Policy extends CommonMethods {
 	public void User_enters_EN_Effective_Date(String EndorsementEffectiveDate) {
 		wait(3);
 		sendText(dashboard.txtSelectDate, EndorsementEffectiveDate);
-		wait(2);
+		wait(3);
 		click(dashboard.btnStart);
 		dashboard.btnStart.click();
 	}

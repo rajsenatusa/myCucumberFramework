@@ -32,7 +32,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -3146,4 +3145,19 @@ public class CommonMethods extends PageInitializer {
 		}
 	}
 
+	public static boolean verify_AnyText_NotVisibleTwice(WebDriver driver, String text) throws Exception {
+
+		try {
+			if (driver.findElement(By.xpath("(//*[contains(text(), '" + text + "')])[2]")).isDisplayed()) {
+				Hooks.scenario.log("Not visible: " + text);
+
+				return false;
+			}
+			return false;
+		} catch (Exception e) {
+			Hooks.scenario.log("Not visible: " + text);
+			attachScreenShot(driver);
+			return true;
+		}
+	}
 }

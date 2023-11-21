@@ -13,8 +13,8 @@
   
 # User: Admin, Agent
 
-@regression @tc33769
-Feature: TC 33769--TO MHO AF: RULES - Modify Deductible Rules and Edits
+@regression @tc33769 @MTR4459
+Feature: TC 33769-MTR4459-TO MHO AF: RULES - Modify Deductible Rules and Edits
 
   Scenario: As an Agent endorse the policy prior to RN effective Date, On RN Effective Date, After RN Effective Date UW Approval 
     Given User login to Spin as Admin Agent

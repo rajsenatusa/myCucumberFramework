@@ -10,8 +10,8 @@
 # User:AG1730
 
 
-@regression @tc38507
-Feature: TC38507: US 8918: DP1 RULE - Metal/Tile roof material age change - NB = 25 years
+@regression @tc38507 @MTR4371
+Feature: TC38507: MTR4371 US 8918: DP1 RULE - Metal/Tile roof material age change - NB = 25 years
 
   Scenario: Validating that Agent can issue DP1 policy without referral
     Given User login to Spin as Standard Agent

@@ -62,14 +62,10 @@ Feature: RC-404: 2024 Rate Changes- Inflation Guard: VOL MHO- 01/01/2024
     And User enters EN Effective Date "<EndorsementEffectiveDate>"
     And User clicks Dwelling chevron
     And User clicks Endorse Policy button
-    
-    
     And User returns to main page
     And User clicks Dwelling chevron
     Then User validates MHO3 Coverage A is 10 percente under Inflation Guard
-    
     And User returns to main page
-    
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
