@@ -12,17 +12,16 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TC35177_MHO_NB_ValidateAgentCannotIssueNBforCompositionShingleAndRoofGreater16_UWCanIssue
-		extends CommonMethods {
+public class MTR4563_MHO_NB_ValidateAgentCannotIssueNBforRolledBitumenAndRoofGreater16_UWCanIssue extends CommonMethods{
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	static String applicationNumber;
 	static String appPremium;
-
-	@When("User enters all required information on policy information screen and enters mobile park address <tc35177>")
-	public void user_enters_all_required_information_on_policy_information_screen_and_enters_mobile_park_address_tc35177() {
+	
+	@When("User enters all required information on policy information screen and enters mobile park address <mtr4563>")
+	public void user_enters_all_required_information_on_policy_information_screen_and_enters_mobile_park_address_mtr4563() {
 
 		// quote level information was filled here
 		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
@@ -39,9 +38,8 @@ public class TC35177_MHO_NB_ValidateAgentCannotIssueNBforCompositionShingleAndRo
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
-
-	@When("User enters all required information on MHO3 quote screen and selects park as property type <tc35177>")
-	public void user_enters_all_required_information_on_mho3_quote_screen_and_selects_park_tc35177() throws Exception {
+	@When("User enters all required information on MHO3 quote screen and selects park as property type <mtr4563>")
+	public void user_enters_all_required_information_on_mho3_quote_screen_and_selects_park_mtr4563() throws Exception {
 		// Quote Policy Chevron information was filled here
 
 		selectDropdownText(policyChevron.ddPreviousCarrier, "New Purchase");
@@ -70,9 +68,8 @@ public class TC35177_MHO_NB_ValidateAgentCannotIssueNBforCompositionShingleAndRo
 		click(policyChevron.btnNext);
 		wait(3);
 	}
-
-	@When("User enters all required information on MHO3 dwelling screen and sets covA as <65000> <tc35177>")
-	public void user_enters_all_required_information_on_mho3_dwelling_screen_and_sets_coverage_a_as_65000_tc35177() {
+	@When("User enters all required information on MHO3 dwelling screen and sets covA as <65000> <mtr4563>")
+	public void user_enters_all_required_information_on_mho3_dwelling_screen_and_sets_coverage_a_as_65000_mtr4563() {
 
 		sendText(dwellingChevron.txtYearConstruction, "2004");
 		wait(2);
@@ -82,13 +79,12 @@ public class TC35177_MHO_NB_ValidateAgentCannotIssueNBforCompositionShingleAndRo
 		wait(2);
 		click(dwellingChevron.btnNext);
 	}
-
-	@And("User checks application dwelling screen, validates 'Risk is ineligible based upon roof material and roof age' message displayed and finalizes transaction")
-	public void user_checks_application_dwelling_screen_validates_risk_ineligible_message_displayed_and_finalizes_transaction()
+	@And("User checks application dwelling screen, validates 'Risk is ineligible based upon roof material and roof age' message displayed and finalizes transaction <mtr4563>")
+	public void user_checks_application_dwelling_screen_validates_risk_ineligible_message_displayed_and_finalizes_transaction_mtr4563()
 			throws Exception {
 		// Application Dwelling information was filled here
 		selectDropdownText(dwellingChevron.ddBuildingLength, "32 to 55");
-		selectDropdownText(dwellingChevron.ddRoofMetarial, "Composition Shingle");
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "Rolled/Bitumen");
 		selectDropdownText(dwellingChevron.ddBuildingMake, "Excel Homes");
 		selectDropdownText(dwellingChevron.ddBuildingWidth, "24 to 35");
 		selectDropdownText(dwellingChevron.ddBuildingSkirtedRails, "Yes");
@@ -100,9 +96,8 @@ public class TC35177_MHO_NB_ValidateAgentCannotIssueNBforCompositionShingleAndRo
 		click(reviewChevron.btnFinalize);
 		wait(2);
 	}
-
-	@When("User takes note of the application number for <tc35177>")
-	public void user_takes_note_of_the_application__number_for_tc35177() throws Exception {
+	@When("User takes note of the application number for <mtr4563>")
+	public void user_takes_note_of_the_application__number_for_mtr4563() throws Exception {
 		try {
 			applicationNumber = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
 			Hooks.scenario.log("Application Number: " + applicationNumber);
@@ -110,35 +105,25 @@ public class TC35177_MHO_NB_ValidateAgentCannotIssueNBforCompositionShingleAndRo
 			e.printStackTrace();
 		}
 	}
-
-	@When("User validates 'Issue New Business' and 'Submit For Approval' buttons are not visible and premium amount equals to zero on closeout screen")
-	public void user_validates_issue_new_business_and_submit_for_approval_buttons_are_not_visible_on_closeout_screen()
+	@When("User validates 'Issue New Business' and 'Submit For Approval' buttons are not visible and premium amount equals to zero on closeout screen <mtr4563>")
+	public void user_validates_issue_new_business_and_submit_for_approval_buttons_are_not_visible_on_closeout_screen_mtr4563()
 			throws Exception {
 		verify_AnyText_NotVisible(driver, "Issue New Business");
 		verify_AnyText_NotVisible(driver, "Submit For Approval");
-
+		attachScreenShot(driver);
 		driver.findElement(By.id("FullSummaryHolder")).click();
 		Thread.sleep(1000);
 		appPremium = driver.findElement(By.id("Full_QuoteAppSummary_PremWithTaxesFeesAmt")).getText().toString();
 		expectedValue_foundValue(driver, "$0.00", appPremium);
 	}
-
-	@When("User searches previously created application for <tc35177>")
-	public void user_searches_previously_created_application_for_tc35177() throws Exception {
+	@When("User searches previously created application for <mtr4563>")
+	public void user_searches_previously_created_application_for_mtr4563() throws Exception {
 		sendText(dashboard.txtSearchBar, applicationNumber);
 		click(dashboard.search);
 		wait(3);
 	}
-
-	@When("User validates 'Risk is ineligible based upon roof material and roof age' message has been displayed")
-	public void user_validates_Risk_is_ineligible_based_upon_roof_material_and_roof_age_message_has_been_displayed()
-			throws Exception {
-		verify_AnyText_IsVisible(driver, "Risk is ineligible due to roof material and roof age.  ");
-		attachScreenShot(driver);
-	}
-
-	@Then("User verifies NB MHO3 policy has been created successfully and comppletes test <tc35177>")
-	public void User_verifies_NB_MHO3_policy_has_been_created_successfully_for_tc35177() throws Exception {
+	@Then("User verifies NB MHO3 policy has been created successfully and comppletes test <mtr4563>")
+	public void User_verifies_NB_MHO3_policy_has_been_created_successfully_for_mtr4563() throws Exception {
 		String expected = "New Business";
 		String actual = historyChevron.txtNewBusiness.getText();
 		Assert.assertEquals("NB MHO3 policy has been created successfully!", expected, actual);

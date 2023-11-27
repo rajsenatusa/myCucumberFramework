@@ -402,7 +402,7 @@ public class TC16404_HO3_ValidateSilverReserveWithAdditionalCoverageFormsOn_NB_E
 	@And("User validates that HO3 policy has been created successfully and takes note of the policy number <tc16404>")
 	public void user_validates_that_ho3_policy_has_been_created_successfully_and_takes_note_of_the_policy_number_tc16404()
 			throws Exception {
-		waitImp(5);
+		wait(5);
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("New Business")) {

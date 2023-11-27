@@ -9,8 +9,8 @@
   
  # User: AG1730
 
-@regression @tc16781
-Feature: TC 16781--TODP3, Agent, END TX, Increase CovA, Change Deductible, UW MGR Approval
+@regression @tc16781 @MTR4565
+Feature: TC 16781-MTR4565-TODP3, Agent, END TX, Increase CovA, Change Deductible, UW MGR Approval
 
   Scenario: Validate that Underwriter approval is required Approval messages trigger on CloseOut screen
     Given User login to Spin as Admin Agent
