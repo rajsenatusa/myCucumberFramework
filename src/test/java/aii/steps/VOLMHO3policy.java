@@ -118,6 +118,7 @@ public class VOLMHO3policy extends CommonMethods {
 
 	@And("User enters MHO3 Pay Plan Type")
 	public void User_enters_MHO3_Pay_Plan_Type() {
+		wait(2);
 		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
 		wait(2);
 		click(reviewChevron.btnFullPaymentRadio);
