@@ -221,6 +221,9 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Wizard_UmbrellaLiability")
 	public WebElement lnkPersonalUmbrellaLiability;
 	
+	@FindBy(id= "Menu_Policy_UnderwritingMaintenance")
+	public WebElement btnUnderwritingMaintenance;
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 		
