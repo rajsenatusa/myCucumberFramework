@@ -268,7 +268,7 @@ public class CommonSteps extends CommonMethods {
 		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
-		wait(12);
+		wait(15);
 	}
 
 	@Given("User search for {string}")

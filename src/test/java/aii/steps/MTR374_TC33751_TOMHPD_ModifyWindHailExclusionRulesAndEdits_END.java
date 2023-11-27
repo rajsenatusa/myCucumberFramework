@@ -50,7 +50,7 @@ public class MTR374_TC33751_TOMHPD_ModifyWindHailExclusionRulesAndEdits_END exte
 	@When("User enters all required information on TOMHPD quote screen <mtr374>")
 	public void user_enters_all_required_information_on_tomhpd_quote_screen_mtr374() {
 		// Quote Policy Chevron information was filled here
-		sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("Producer"));
+		sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
 		wait(3);
 		click(dwellingChevron.btnSave);
 		wait(3);

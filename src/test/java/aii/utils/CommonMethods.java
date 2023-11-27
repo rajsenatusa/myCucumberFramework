@@ -1,6 +1,6 @@
 package aii.utils;
 
-import java.awt.Robot;
+import java.awt.*;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
@@ -32,6 +32,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -3158,6 +3159,56 @@ public class CommonMethods extends PageInitializer {
 			Hooks.scenario.log("Not visible: " + text);
 			attachScreenShot(driver);
 			return true;
+		}
+	}
+
+	public static boolean verifyResults_ForAnyCoverageDiscountPropertyDesc(WebDriver driver, String coverage,
+			String element, String expectedResults) throws Exception {
+
+		String target = "//*[contains(@id,'" + element + "')]/td[2]";
+		Boolean results = null;
+
+		if (driver.findElement(By.xpath(target)).getText().contains(expectedResults)) {
+			Hooks.scenario.log(coverage + "_" + element + "_description: "
+					+ driver.findElement(By.xpath(target)).getText().toString());
+			results = true;
+
+		} else {
+			Hooks.scenario.log(coverage + "_" + element + "_description: "
+					+ driver.findElement(By.xpath(target)).getText().toString());
+			results = false;
+		}
+		return results;
+
+	}
+
+	public static boolean verifyResults_ForAnyCoverageDiscountPropertyRate(WebDriver driver, String coverage,
+			String element, String expectedResults) throws Exception {
+
+		String target = "//*[contains(@id,'" + element + "')]/td[4]";
+		Boolean results = null;
+
+		if (driver.findElement(By.xpath(target)).getText().contentEquals(expectedResults)) {
+			Hooks.scenario.log(
+					coverage + "_" + element + "_rate: " + driver.findElement(By.xpath(target)).getText().toString());
+			results = true;
+
+		} else {
+			Hooks.scenario.log(
+					coverage + "_" + element + "_rate: " + driver.findElement(By.xpath(target)).getText().toString());
+			results = false;
+		}
+		return results;
+	}
+
+	public static void expandAnyDiscountProperty(WebDriver driver, String coverage, String element) throws Exception {
+		try {
+			driver.findElement(By.xpath("(//*[contains(@id,'" + element + "')])"));
+			driver.findElement(By.xpath("(//*[contains(@id,'" + element + "')])")).click();
+			Hooks.scenario.log(coverage + " " + element + " clicked");
+		} catch (Exception e) {
+			Hooks.scenario.log(coverage + " " + element + " clicked");
+			wait(5);
 		}
 	}
 }
