@@ -3211,4 +3211,34 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 		}
 	}
+
+	public static boolean expectedReults_ExpectedValueFoundXpath(WebDriver driver, String string, String xpath)
+			throws Exception {
+		attachScreenShot(driver);
+
+		try {
+			if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
+				if (driver.findElement(By.xpath(xpath)).getText().toString().contentEquals(string)) {
+					Hooks.scenario.log("Expected Value Found: " + string);
+					return true;
+				} else if (!driver.findElement(By.xpath(xpath)).getText().toString().contentEquals(string)) {
+					Hooks.scenario.log("Expected Value Not Found: " + string);
+					return false;
+				}
+			}
+
+			else if (!driver.findElement(By.xpath(xpath)).isDisplayed()) {
+				Hooks.scenario.log("Expected Value Not Found: " + string);
+				wait(4);
+				return false;
+			}
+			return true;
+		} catch (Exception e) {
+			Hooks.scenario.log("Expected Value Not Found: " + string);
+			attachScreenShot(driver);
+			e.printStackTrace();
+
+			return false;
+		}
+	}
 }
