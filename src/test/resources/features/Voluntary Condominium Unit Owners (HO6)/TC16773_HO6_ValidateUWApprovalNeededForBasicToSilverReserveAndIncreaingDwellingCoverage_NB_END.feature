@@ -9,8 +9,8 @@
   
 ## User: AG1730
 
-@regression @tc16773
-Feature: TC 16773--HO6, Agent, END TX, Change Reserve Package, Increase CovA, Change Deductible, Add 1st Mortgagee, UW Approval
+@regression @tc16773 @mtr4576
+Feature: TC 16773-mtr4576-HO6, Agent, END TX, Change Reserve Package, Increase CovA, Change Deductible, Add 1st Mortgagee, UW Approval
 
   Scenario: Validate that Underwriting approval is required Approval messages trigger on Closeout screen Agent must Submit for Approval 
     Given User login to Spin as Standard Agent

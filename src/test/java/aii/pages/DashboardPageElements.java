@@ -224,6 +224,20 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Menu_Policy_UnderwritingMaintenance")
 	public WebElement btnUnderwritingMaintenance;
 	
+	@FindBy(id= "QuoteAppSummary_PremWithTaxesFeesAmt")
+	public WebElement premWithTaxesFeesAmt;
+	
+	@FindBy(id= "QuoteAppSummary_QuoteAppNumber")
+	public WebElement quoteAppNumber;
+	
+	@FindBy(id= "TakeOwnership")
+	public WebElement takeOwnership;
+	
+	@FindBy(id= "dialogOK")
+	public WebElement dialogOK;
+	
+	
+	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
 		

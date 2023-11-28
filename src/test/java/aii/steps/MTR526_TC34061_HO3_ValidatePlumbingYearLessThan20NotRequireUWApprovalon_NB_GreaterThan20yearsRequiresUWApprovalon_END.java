@@ -211,7 +211,7 @@ public class MTR526_TC34061_HO3_ValidatePlumbingYearLessThan20NotRequireUWApprov
 	@When("User process and completes endorsement and finishes test <mtr526>")
 	public void user_process_and_completes_endorsement_and_finishes_test_mtr526() throws Exception {
 		click(closeoutChevron.btnEndorsePolicy);
-		wait(6);
+		wait(12);
 		getPolicyNumber(driver);
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
