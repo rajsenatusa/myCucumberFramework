@@ -7,8 +7,8 @@
   
  # Expected results- Loss Assessment should listed in the forms
 
-@regression @tc35559
-Feature: TC 35559--Validate User Story 6625:Loss Assessment
+@regression @tc35559 @mtr4583
+Feature: TC 35559-mtr4583-Validate User Story 6625:Loss Assessment
 
   Scenario: Validate Loss Assessment should listed in the forms
     Given User login to Spin as Standard Agent

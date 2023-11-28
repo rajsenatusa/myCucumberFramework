@@ -13,8 +13,8 @@
   
 ## User:AG1730
 
-@regression @tc36497
-Feature: TC36497 : US8583 - U/I CORRESPONDENCE Mandatory Mediation-Arbitration Acknowledgment 
+@regression @tc36497 @mtr4582
+Feature: TC36497 : mtr4582 US8583 - U/I CORRESPONDENCE Mandatory Mediation-Arbitration Acknowledgment 
 
   Scenario: Validate AIIC HO3 MMAA 03 22 form displays in the desired packages
     Given User login to Spin as Standard Agent
