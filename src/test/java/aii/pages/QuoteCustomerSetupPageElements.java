@@ -89,6 +89,12 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy(id= "CustomerPersonalJoint.BirthDt")
 	public WebElement txtJointBirthday;
 	
+	@FindBy(id= "CustomerPhonePrimary.PhoneName")
+	public WebElement ddcustomerPhonePrimaryPhoneName;
+	
+	
+	
+	
 	public QuoteCustomerSetupPageElements() {
 		PageFactory.initElements(driver, this);
 	}
