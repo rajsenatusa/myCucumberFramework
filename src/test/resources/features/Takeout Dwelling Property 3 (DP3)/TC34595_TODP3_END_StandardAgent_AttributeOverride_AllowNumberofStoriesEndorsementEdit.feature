@@ -13,8 +13,8 @@
  
 # User: AG1730
 
-@regression @tc34595
-Feature: TC 34595--TODP3, Standard Agent, 'Allow Number of Stories Endorsement Edit'
+@regression @tc34595 @mtr4584
+Feature: TC 34595-mtr4584-TODP3, Standard Agent, 'Allow Number of Stories Endorsement Edit'
 
   Scenario: Validate Agent Allow Number of Stories Endorsement Edit
     Given User login to Spin as Admin Agent
