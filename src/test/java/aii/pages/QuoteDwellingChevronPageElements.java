@@ -516,9 +516,41 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "CovDLimit")
 	public WebElement covDLimit; 
 	
-	 
+	@FindBy(id= "dialogOK")
+	public WebElement dialogOK;  
 	
+	@FindBy(id= "Building.LocatedPC10")
+	public WebElement ddbuildingLocatedPC10; 
 	
+	@FindBy(id= "CoverageList_AS_Add")
+	public WebElement coverageListASAdd; 
+	
+	@FindBy(id= "Building.CovLFMLimit")
+	public WebElement ddBuildingCovLFMLimit;
+	
+	@FindBy(id= "ClassCd.Value")
+	public WebElement ddClassCdValue;
+	
+	@FindBy(id= "Year")
+	public WebElement year;
+	
+	@FindBy(id= "Length")
+	public WebElement length;
+	
+	@FindBy(id= "Width")
+	public WebElement width;
+	
+	@FindBy(id= "ItemLimit1.Value")
+	public WebElement itemLimit1Value;
+	
+	@FindBy(id= "AddCoverageItem")
+	public WebElement addCoverageItem;
+	
+	@FindBy(id= "Wizard_Review")
+	public WebElement review;
+	
+	@FindBy(xpath= "//*[@id=\"Price Compare\"]/table/tbody/tr[2]/td[2]/i")
+	public WebElement priceCompare;
 	
 	
 	
