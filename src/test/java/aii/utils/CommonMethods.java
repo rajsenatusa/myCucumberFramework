@@ -1323,6 +1323,7 @@ public class CommonMethods extends PageInitializer {
 		try {
 			if (driver.findElement(By.xpath("//td[contains(text(), '" + text + "')]")).isDisplayed()) {
 				Hooks.scenario.log("Is visible: " + text);
+				attachScreenShot(driver);
 				return true;
 			}
 			return true;
@@ -2413,6 +2414,7 @@ public class CommonMethods extends PageInitializer {
 		try {
 			if (driver.findElement(By.xpath("(//*[text()='" + text + "'])[1]")).isDisplayed()) {
 				Hooks.scenario.log("Is visible: " + text);
+				attachScreenShot(driver);
 				return true;
 			}
 			return true;
@@ -2420,6 +2422,7 @@ public class CommonMethods extends PageInitializer {
 		} catch (Exception e) {
 			Hooks.scenario.log("Is visible: " + text);
 			wait(5);
+			attachScreenShot(driver);
 			return false;
 		}
 	}

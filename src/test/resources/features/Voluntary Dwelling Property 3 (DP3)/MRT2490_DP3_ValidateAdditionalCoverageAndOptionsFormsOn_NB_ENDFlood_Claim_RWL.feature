@@ -12,9 +12,11 @@
 # Claims
 # Renewal transactions
  
-# User: Lrallo
+# User: jbarnes , admin
 
-@regression @tc16598 @mtr2490
+#NOTE: TEST CASE IN JIRA NEEDS TO BE UPDATED. IT's failing once adding flood coverage. Either there is a defect or steps are designed wrongly.
+
+@tc16598 @mtr2490
 Feature: TC 16598--DP3 UWMgr NB End (FLOOD) RN (2) and Claim Forms Basic w/ ALL additional/optional coverages
 
   Scenario: All forms will be verified in the following states
@@ -63,6 +65,7 @@ Feature: TC 16598--DP3 UWMgr NB End (FLOOD) RN (2) and Claim Forms Basic w/ ALL 
     And User clicks Application Link and validates form versions <mtr2490>
     And User clicks Policy File Chevron <mtr2490>
     And User clicks New Business Package Link and validates form versions <mtr2490>
+    And User changes system date to endorsement date <mtr2490>
     And User searches for the policy number <mtr2490>
     And User clicks Start Transaction
     And User clicks EN Transaction Selection

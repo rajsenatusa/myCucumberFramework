@@ -1,8 +1,8 @@
 #Author: Can Yavas
 ##created on 08/21/2023
 
-@regression @tc37260
-Feature: TC 37260--US1616- AIB - Change Mailing address twice for Endorsement
+@regression @tc37260 @mtr373
+Feature: TC 37260-MTR373-US1616- AIB - Change Mailing address twice for Endorsement
 
   Scenario: Validate Endorsement package should show new mailing address under section INSURED NAME AND MAIL ADDRESS
     Given User login to Spin as Standard Agent

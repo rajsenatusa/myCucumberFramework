@@ -5,8 +5,8 @@
 ## different than the  Lookup Address. Validate the Garaging location matches what was entered on Golf Cart Detail 
 ## EXPECTED RESULTS: The Garaging address on the Application and Declarations pages displays correctly 
 
-@regression @tc17316 @gocregression
-Feature: TC 17316--GOC, Agent, NB, END, Incorrect Garaging Location showing on declarations page
+@regression @tc17316 @mtr372
+Feature: TC 17316-mtr372-GOC, Agent, NB, END, Incorrect Garaging Location showing on declarations page
 
   Scenario: Validate the Garaging address on the Application and Declarations pages displays correctly 
   
