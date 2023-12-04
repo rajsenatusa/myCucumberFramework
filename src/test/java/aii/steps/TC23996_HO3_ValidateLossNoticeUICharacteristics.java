@@ -75,9 +75,9 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_tc23996() {
 
 		sendText(dwellingChevron.txtSquareFeet, "1500");
-		selectDropdownText(dwellingChevron.bCEG, "3");
+		//selectDropdownText(dwellingChevron.bCEG, "3");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
-		selectDropdownText(dwellingChevron.ddDistanceToCoast, "5 mi to less than 10 mi");
+		//selectDropdownText(dwellingChevron.ddDistanceToCoast, "5 mi to less than 10 mi");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");
@@ -148,9 +148,10 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 
 	@When("User validates 'Loss Type' 'Loss Date' texts are visible and gets loss type of populated value")
 	public void user_validates_loss_type_loss_date_texts_are_visible() throws Exception {
-		verify_AnyText_IsVisible(driver, "Loss Type*");
-		verify_AnyText_IsVisible(driver, "Loss Date*");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Type*");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Date*");
 		getLossTypePopulatedValue(driver);
+		attachScreenShot(driver);
 	}
 
 	@When("User sets loss date as current date plus 10 days <tc23996>")
@@ -163,34 +164,34 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 	@When("User validates Loss Notice Info Tile UI Labels")
 	public void user_validates_Loss_Notice_Info_Tile_UI_Labels() throws Exception {
 
-		verify_AnyText_IsVisible(driver, "Loss Notice Information");
-		verify_AnyText_IsVisible(driver, "Insured Contact Information");
-		verify_AnyText_IsVisible(driver, "Property Information");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Notice Information");
+		verify_AnyfirstText_IsDisplayed(driver, "Insured Contact Information");
+		verify_AnyfirstText_IsDisplayed(driver, "Property Information");
 
 		// Verifying fields on Loss Notice Information tile
-		verify_AnyText_IsVisible(driver, "Loss Date*");
-		verify_AnyText_IsVisible(driver, "Reported Date*");
-		verify_AnyText_IsVisible(driver, "Reported By*");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Date*");
+		verify_AnyfirstText_IsDisplayed(driver, "Reported Date*");
+		verify_AnyfirstText_IsDisplayed(driver, "Reported By*");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.ReportedBy", "Insured");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.LossCauseCd", "Select...");
-		verify_AnyText_IsVisible(driver, "Loss Cause*");
-		verify_AnyText_IsVisible(driver, "Loss Time");
-		verify_AnyText_IsVisible(driver, "Reported Time*");
-		verify_AnyText_IsVisible(driver, "Causation Claim");
-		verify_AnyText_IsVisible(driver, "Hartford Steam Boiler/HSP");
-		verify_AnyText_IsVisible(driver, "Inspection Needed");
-		verify_AnyText_IsVisible(driver, "Estimating Source");
-		verify_AnyText_IsVisible(driver, "Party Preventing Inspection");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Cause*");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Time");
+		verify_AnyfirstText_IsDisplayed(driver, "Reported Time*");
+		verify_AnyfirstText_IsDisplayed(driver, "Causation Claim");
+		verify_AnyfirstText_IsDisplayed(driver, "Hartford Steam Boiler/HSP");
+		verify_AnyfirstText_IsDisplayed(driver, "Inspection Needed");
+		verify_AnyfirstText_IsDisplayed(driver, "Estimating Source");
+		verify_AnyfirstText_IsDisplayed(driver, "Party Preventing Inspection");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.PartyPreventingInspection", "Select...");
-		verify_AnyText_IsVisible(driver, "AOB Involved?");
+		verify_AnyfirstText_IsDisplayed(driver, "AOB Involved?");
 		verify_AnyfirstText_IsDisplayed(driver, "Trenching");
-		verify_AnyText_IsVisible(driver, "Loss Cause*");
-		verify_AnyText_IsVisible(driver, "Is your home habitable?*");
-		verify_AnyText_IsVisible(driver, "Which authority was contacted?*");
-		verify_AnyText_IsVisible(driver, "Weather-related?*");
-		verify_AnyText_IsVisible(driver, "Wind/Hail Coverage?*");
-		verify_AnyText_IsVisible(driver, "Detailed Description*");
-		verify_AnyText_IsVisible(driver, "Comments");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Cause*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is your home habitable?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Which authority was contacted?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Weather-related?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Wind/Hail Coverage?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Detailed Description*");
+		verify_AnyfirstText_IsDisplayed(driver, "Comments");
 		verify_AnyfirstText_IsDisplayed(driver, "Examiner");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQHomeHabitable", "Select...");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.AuthorityContacted", "Select...");
@@ -201,10 +202,10 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		verifyAnyDropDownOptions(driver, inspection, "Claim.InspectionInd");
 		getAnyDropDownOptionsOnLossNotice(driver, "InspectionInd");
 		selectDropdownText(driver.findElement(By.id("Claim.InspectionInd")), "Yes");
-		verify_AnyText_IsVisible(driver, "Estimating Source");
-		verify_AnyText_IsVisible(driver, "Inspection Date");
-		verify_AnyText_IsVisible(driver, "Date when Inspection was offered");
-		verify_AnyText_IsVisible(driver, "Party Preventing Inspection");
+		verify_AnyfirstText_IsDisplayed(driver, "Estimating Source");
+		verify_AnyfirstText_IsDisplayed(driver, "Inspection Date");
+		verify_AnyfirstText_IsDisplayed(driver, "Date when Inspection was offered");
+		verify_AnyfirstText_IsDisplayed(driver, "Party Preventing Inspection");
 
 		selectDropdownText(driver.findElement(By.id("Claim.InspectionInd")), "No");
 		verify_AnyText_NotVisible(driver, "Inspection Date");
@@ -240,9 +241,9 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 
 		selectDropdownText(claim.ddLossCause, "Catastrophic Ground Cover Collapse (CGCC)");
 		Thread.sleep(500);
-		verify_AnyText_IsVisible(driver, "Is there any damage to your dwelling?*");
-		verify_AnyText_IsVisible(driver, "Is there any other damage to the property? (i.e. driveway, yard, etc...)*");
-		verify_AnyText_IsVisible(driver, "Is there any significant cracking?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is there any damage to your dwelling?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is there any other damage to the property? (i.e. driveway, yard, etc...)*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is there any significant cracking?*");
 
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQCGCCDwellingDmg", "Select...");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQCGCCPropertyDmg", "Select...");
@@ -254,8 +255,8 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 
 		selectDropdownText(claim.ddLossCause, "Fire");
 		Thread.sleep(500);
-		verify_AnyText_IsVisible(driver, "What is the estimated amount of damage to your home?*");
-		verify_AnyText_IsVisible(driver, "If known, where did the fire originate?");
+		verify_AnyfirstText_IsDisplayed(driver, "What is the estimated amount of damage to your home?*");
+		verify_AnyfirstText_IsDisplayed(driver, "If known, where did the fire originate?");
 
 		getanyDropDownPopulatedValueOnLossNotice(driver, "CQFireRoomsAffected");
 		getanyDropDownPopulatedValueOnLossNotice(driver, "AuthorityContacted");
@@ -266,14 +267,14 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 
 		selectDropdownText(claim.ddLossCause, "Water Damage");
 		Thread.sleep(500);
-		verify_AnyText_IsVisible(driver, "Sub Loss Cause*");
-		verify_AnyText_IsVisible(driver, "Is your home habitable?*");
-		verify_AnyText_IsVisible(driver, "Was the source of water identified?*");
-		verify_AnyText_IsVisible(driver, "Was the source stopped?*");
-		verify_AnyText_IsVisible(driver, "Is there standing water in the home?*");
-		verify_AnyText_IsVisible(driver, "Is there mold present?*");
-		verify_AnyText_IsVisible(driver, "What is the estimated amount of damage to your home?*");
-		verify_AnyText_IsVisible(driver, "Which authority was contacted?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Sub Loss Cause*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is your home habitable?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Was the source of water identified?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Was the source stopped?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is there standing water in the home?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is there mold present?*");
+		verify_AnyfirstText_IsDisplayed(driver, "What is the estimated amount of damage to your home?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Which authority was contacted?*");
 
 		verifyAnyDropdownDefaultedValue(driver, "Claim.SubLossCauseCd", "Select...");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQWaterSourceIdentified", "Select...");
@@ -288,13 +289,13 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 
 		selectDropdownText(claim.ddLossCause, "Windstorm");
 		Thread.sleep(500);
-		verify_AnyText_IsVisible(driver, "Sub Loss Cause*");
-		verify_AnyText_IsVisible(driver, "Is your home habitable?*");
-		verify_AnyText_IsVisible(driver, "Please indicate which part of your home was damaged?*");
-		verify_AnyText_IsVisible(driver,
+		verify_AnyfirstText_IsDisplayed(driver, "Sub Loss Cause*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is your home habitable?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Please indicate which part of your home was damaged?*");
+		verify_AnyfirstText_IsDisplayed(driver,
 				"Is there a tree on any covered structure or blocking access to your property?*");
-		verify_AnyText_IsVisible(driver, "Do you require any board up or tarping?*");
-		verify_AnyText_IsVisible(driver, "Is there any interior water damage?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Do you require any board up or tarping?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Is there any interior water damage?*");
 
 		verifyAnyDropdownDefaultedValue(driver, "Claim.SubLossCauseCd", "Select...");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.CQWindHomeDamaged", "Select...");
@@ -309,8 +310,8 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		selectDropdownText(claim.ddSubLossCause, "All Other Windstorm");
 		wait(1);
 		selectDropdownText(driver.findElement(By.id("Claim.CQWindHomeDamaged")), "Roof");
-		verify_AnyText_IsVisible(driver, "Please estimate the amount of roof damage.*");
-		verify_AnyText_IsVisible(driver, "What is the approximate age of your roof?*");
+		verify_AnyfirstText_IsDisplayed(driver, "Please estimate the amount of roof damage.*");
+		verify_AnyfirstText_IsDisplayed(driver, "What is the approximate age of your roof?*");
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
@@ -319,16 +320,16 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 	public void user_selects_roof_damaged_amount_as_unknown_and_do_validations() throws Exception {
 		selectDropdownText(claim.ddHomeHabitable, "Yes");
 		selectDropdownText(driver.findElement(By.id("Claim.CQWindHomeDamaged")), "Unknown");
-		selectDropdownText(driver.findElement(By.id("Claim.CQWindRoofAge")), "0-14 years");
+		//selectDropdownText(driver.findElement(By.id("Claim.CQWindRoofAge")), "0-14 years");
 		selectDropdownText(driver.findElement(By.id("Claim.CQWindTreeBlocking")), "No");
 		selectDropdownText(driver.findElement(By.id("Claim.CQWindBoardTarping")), "Unknown");
 		selectDropdownText(driver.findElement(By.id("Claim.CQWindInteriorDamage")), "Yes");
-		verify_AnyText_IsVisible(driver,
+		verify_AnyfirstText_IsDisplayed(driver,
 				"What is the estimated amount of damage to your home from Interior Water Damage?*");
 		selectDropdownText(driver.findElement(By.id("Claim.CQWindRoomsDamaged")), "50%-75%");
 		selectDropdownText(claim.ddAuthorityContacted, "Police Department");
-		verify_AnyText_IsVisible(driver, "Authority Name");
-		verify_AnyText_IsVisible(driver, "Case Number");
+		verify_AnyfirstText_IsDisplayed(driver, "Authority Name");
+		verify_AnyfirstText_IsDisplayed(driver, "Case Number");
 		sendText(driver.findElement(By.id("Claim.AuthorityName")), "Officer");
 		sendText(driver.findElement(By.id("Claim.CaseNumber")), "WindCase014");
 		wait(1);
@@ -352,25 +353,25 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		verify_AnyText_IsVisible(driver, "Sarah Bennett");
 
 		// Verify fields on Insured Information Tile
-		verify_AnyText_IsVisible(driver, "Mailing Address");
-		verify_AnyText_IsVisible(driver, "Address*");
+		verify_AnyfirstText_IsDisplayed(driver, "Mailing Address");
+		verify_AnyfirstText_IsDisplayed(driver, "Address*");
 		verify_AnyfirstText_IsDisplayed(driver, "City*");
 		verify_AnyfirstText_IsDisplayed(driver, "State*");
 		verify_AnyfirstText_IsDisplayed(driver, "Zip*");
 		verify_AnyfirstText_IsDisplayed(driver, "Country*");
 		verify_AnyfirstText_IsDisplayed(driver, "Contact");
-		verify_AnyText_IsVisible(driver, "Primary Phone*");
-		verify_AnyText_IsVisible(driver, "Secondary Phone");
-		verify_AnyText_IsVisible(driver, "Best Time to Contact");
+		verify_AnyfirstText_IsDisplayed(driver, "Primary Phone*");
+		verify_AnyfirstText_IsDisplayed(driver, "Secondary Phone");
+		verify_AnyfirstText_IsDisplayed(driver, "Best Time to Contact");
 
 		// Verify fields on Property Information tile
-		verify_AnyText_IsVisible(driver, "Loss Location*");
-		verify_AnyText_IsVisible(driver, "Address/Description*");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Location*");
+		verify_AnyfirstText_IsDisplayed(driver, "Address/Description*");
 		verify_JointLabels_IsDisplayed(driver, "City*");
 		verify_JointLabels_IsDisplayed(driver, "State*");
-		verify_AnyText_IsVisible(driver, "County*");
+		verify_AnyfirstText_IsDisplayed(driver, "County*");
 		verify_AnyfirstText_IsDisplayed(driver, "Zip");
-		verify_AnyText_IsVisible(driver, "Damaged?");
+		verify_AnyfirstText_IsDisplayed(driver, "Damaged?");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.DamagedInd", "Select...");
 	}
 
@@ -381,7 +382,7 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		verify_JointLabels_IsDisplayed(driver, "City*");
 		verify_JointLabels_IsDisplayed(driver, "State*");
 		verify_AnyfirstText_IsDisplayed(driver, "Zip");
-		verify_AnyText_IsVisible(driver, "Damaged?");
+		verify_AnyfirstText_IsDisplayed(driver, "Damaged?");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.DamagedInd", "Select...");
 		attachScreenShot(driver);
 		selectDropdownText(driver.findElement(By.id("Claim.RiskIdRef")), "Primary Dwelling");
@@ -410,19 +411,19 @@ public class TC23996_HO3_ValidateLossNoticeUICharacteristics extends CommonMetho
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		verify_AnyText_IsVisible(driver, "Loss Notice Complete");
-		verify_AnyText_IsVisible(driver, "Start Claim");
-		verify_AnyText_IsVisible(driver, "View Loss Notice");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Notice Complete");
+		verify_AnyfirstText_IsDisplayed(driver, "Start Claim");
+		verify_AnyfirstText_IsDisplayed(driver, "View Loss Notice");
 		attachScreenShot(driver);
 	}
 
 	@Then("User clicks View Loss Notice and validates expected information is visible")
 	public void user_clicks_view_loss_notice_link_and_validates_expected_information_is_visible() throws Exception {
 		click(driver.findElement(By.id("ViewLossNotice")));
-		verify_AnyText_IsVisible(driver, "Loss Notice Information");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Notice Information");
 		click(claim.btnComplete);
 		wait(5);
-		verify_AnyText_IsVisible(driver, "Loss Notice Complete");
+		verify_AnyfirstText_IsDisplayed(driver, "Loss Notice Complete");
 		Hooks.scenario.log("Test Case Completed!");
 	}
 }

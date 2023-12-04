@@ -141,7 +141,7 @@ public class CommonSteps extends CommonMethods {
 
 		wait(5);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(4);
+		wait(6);
 		dashboard.btnNewQuote.click();
 		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
 		selectDropdownText(element, "Individual");

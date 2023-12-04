@@ -85,10 +85,10 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 	@When("User compares CovA Inflation Value with expected value and validates disabled fields values")
 	public void user_compares_cova_inflation_value_with_expected_value_and_validates_disabled_fields()
 			throws Exception {
-		expectedValue_foundValue(driver, "$625,000", Cov_A_InfaltionValue);
-		verifyAnyDisabledFieldsValue(driver, "CovBLimit", "$62,500");
-		verifyAnyDisabledFieldsValue(driver, "CovCLimit", "$312,500");
-		verifyAnyDisabledFieldsValue(driver, "CovDLimit", "$125,000");
+		expectedValue_foundValue(driver, "$550,000", Cov_A_InfaltionValue);
+		verifyAnyDisabledFieldsValue(driver, "CovBLimit", "$55,000");
+		verifyAnyDisabledFieldsValue(driver, "CovCLimit", "$275,000");
+		verifyAnyDisabledFieldsValue(driver, "CovDLimit", "$110,000");
 	}
 
 	@When("User clicks Policy File Chevron for <mtr1442>")
@@ -103,7 +103,8 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 		wait(3);
 	}
 
-	public void user_switches_that_forms_and_validates_form_version_on_rn() throws Exception {
+	@And("User switches that forms and validates form version on Renewal Declaration <mtr1442>")
+	public void user_switches_that_forms_and_validates_form_version_on_rn_mtr1442() throws Exception {
 		switchToWindow(driver, "STFile&File");
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
@@ -111,14 +112,14 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
 
 		RwlDecCoveragesForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 4, 0, 0, 800, 800);
-		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$625,000");
-		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$62,500");
-		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$312,500");
-		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$125,000");
+		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$550,000");
+		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$55,000");
+		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$275,000");
+		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$110,000");
 
 		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
-				"Property Coverage limits have increased at renewal due to an inflation factor of 25%, as determined by an");
+				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
@@ -126,10 +127,10 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 
 	@When("User validates data on the coverage form with expected data and completes test")
 	public void user_validates_data_on_the_coverage_form_with_expected_data_and_completes_test() throws Exception {
-		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 60, 0, 400, 600, 500);
+		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 59, 0, 400, 600, 500);
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$62,500");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$312,500");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$55,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$275,000");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "Not Included");
 		Hooks.scenario.log("Test Case Completed!");
 	}

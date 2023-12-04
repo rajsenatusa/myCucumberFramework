@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
@@ -33,9 +35,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+ 
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
-
+ 
 public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
@@ -645,7 +648,24 @@ public class CommonMethods extends PageInitializer {
 		return policyNum.toString();
 
 	}
+	
+	public static String getQuoteNumber(WebDriver driver) throws Exception {
 
+		String QuoteNum = null;
+		try {
+			QuoteNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+			Hooks.scenario.log("Quote Number: " + QuoteNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return QuoteNum.toString();
+
+	}
+	
+	public static void verifyQuoteMade (WebDriver driver) throws Exception {
+		driver.findElement(By.id("Tab_Policy")).isDisplayed(); 
+				
+	}
 	public static String getInForcePremium(WebDriver driver) throws Exception {
 		String PremiumNoFees = null;
 
@@ -658,6 +678,23 @@ public class CommonMethods extends PageInitializer {
 		}
 
 		return PremiumNoFees.toString();
+		
+	}
+	public static String getQuotePremium(WebDriver driver) throws Exception {
+		String QuotePremium = null;
+		try {
+			 
+			QuotePremium = driver.findElement(By.id("QuoteAppSummary_PremWithTaxesFeesAmt")).getText().toString();
+			Hooks.scenario.log("Quote premium is: " + QuotePremium);
+			
+			
+			} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return QuotePremium.toString();
+		
+		
+		
 	}
 
 	public static String getInForcePremiumFees(WebDriver driver) throws Exception {
@@ -1323,6 +1360,7 @@ public class CommonMethods extends PageInitializer {
 		try {
 			if (driver.findElement(By.xpath("//td[contains(text(), '" + text + "')]")).isDisplayed()) {
 				Hooks.scenario.log("Is visible: " + text);
+				attachScreenShot(driver);
 				return true;
 			}
 			return true;
@@ -2413,6 +2451,7 @@ public class CommonMethods extends PageInitializer {
 		try {
 			if (driver.findElement(By.xpath("(//*[text()='" + text + "'])[1]")).isDisplayed()) {
 				Hooks.scenario.log("Is visible: " + text);
+				attachScreenShot(driver);
 				return true;
 			}
 			return true;
@@ -2420,6 +2459,7 @@ public class CommonMethods extends PageInitializer {
 		} catch (Exception e) {
 			Hooks.scenario.log("Is visible: " + text);
 			wait(5);
+			attachScreenShot(driver);
 			return false;
 		}
 	}

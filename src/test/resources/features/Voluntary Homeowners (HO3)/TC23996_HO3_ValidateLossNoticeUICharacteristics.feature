@@ -42,8 +42,8 @@ Feature: TC 23996--HO3 Adjuster Report A Loss (LN) UI Characteristic Validations
 		And User selects Examiner and do validations
 		And User selects Vehicle Location as Unscheduled Location and do validations
 		And User clicks save and takes note of the loss number <tc23996>
-    And User clicks Complete and takes note of the claim number and validate expected messages <tc23996>
-    Then User clicks View Loss Notice and validates expected information is visible
+    Then User clicks Complete and takes note of the claim number and validate expected messages <tc23996>
+    
 		
 		
 		

@@ -18,8 +18,10 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
-	static LocalDateTime newBusinessDate = currentDate.plusDays(30);
-	static LocalDateTime endorseDate = newBusinessDate.plusDays(30);
+	static int currentYear_temp = LocalDateTime.now().getYear();
+	static String currentYear = String.valueOf(currentYear_temp);
+	static String newBusinessDate = dtf.format(currentDate);
+	static String endorseDate = dtf.format(currentDate.plusDays(30));
 	static String policyNum;
 	static String lossNum;
 	static String claimNum;
@@ -345,8 +347,8 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		sendText(quote.txtLastName, "Richard");
 		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
-		sendText(quote.txtZipCode, "34987");
+		sendText(quote.txtAddress, "19415 Oakleaf St, Orlando");
+		sendText(quote.txtZipCode, "32833");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);
@@ -359,7 +361,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 	@When("User enters DP3 product selection information and effective date as current date plus 30 days <mtr2490>")
 	public void user_enters_dp3_product_selection_information_and_effective_date_as_current_date_plus_30_days_mtr2490() {
 		// product selection information was filled here
-		sendText(product.txtEffectiveDate, dtf.format(newBusinessDate));
+		sendText(product.txtEffectiveDate, newBusinessDate);
 		selectDropdown(product.ddStateSelection, 1);
 		selectDropdown(product.ddCarrierSelection, 1);
 		wait(2);
@@ -372,7 +374,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		// Quote Policy Chevron information was filled here
 
 		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
-		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(newBusinessDate));
+		sendText(policyChevron.txtPreviousPolicyExpDate, newBusinessDate);
 		sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
 		click(dwellingChevron.btnSave);
 		wait(3);
@@ -394,10 +396,10 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 	@When("User enters all required information on DP3 dwelling screen <mtr2490> and selects additional coverages and adds additional options")
 	public void user_enters_all_required_information_on_dp3_dwelling_screen_mtr2490_and_selects_additional_coverages_and_adds_additional_options() {
 
-		// sendText(dwellingChevron.txtYearConstruction, "2023");
+		sendText(dwellingChevron.txtYearConstruction, currentYear);
 		wait(2);
 		sendText(dwellingChevron.txtSquareFeet, "1500");
-		selectDropdownText(dwellingChevron.ddDistanceToCoast, "5 mi to less than 10 mi");
+		//selectDropdownText(dwellingChevron.ddDistanceToCoast, "5 mi to less than 10 mi");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
@@ -406,6 +408,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		click(dwellingChevron.btnCalculate);
 		wait(4);
+		sendText(dwellingChevron.txtCoverageA, "400000");
 		click(dwellingChevron.btnSave);
 		wait(3);
 		sendText(dwellingChevron.txtPersonalPropertyC, "25000");
@@ -413,7 +416,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		// additional coverages
 		selectDropdownText(dwellingChevron.ddHomeCyberProtectionDwelling, "$25,000");
 		selectDropdownText(dwellingChevron.ddHomeSystemProtection, "$50,000/$10,000");
-		selectDropdownText(dwellingChevron.ddLimitedCarportsPoolCage, "$10,000");
+		sendText(driver.findElement(By.id("Building.CovLCARLimit")), "$10,000");
 		selectDropdownText(dwellingChevron.ddIdentityRecovery, "$15,000");
 		selectDropdownText(dwellingChevron.ddLossAssesment, "$2,000");
 		selectDropdownText(dwellingChevron.ddOrdinance, "25%");
@@ -431,7 +434,10 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 
 	@And("User updates roof material on dwelling screen")
 	public void User_updates_roof_material_on_dwelling_screen() {
+		click(dwellingChevron.btnDwelling);
+		wait(2);
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+		sendText(dwellingChevron.txtRoofMaterialUpdate, currentYear);
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
@@ -1491,7 +1497,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 
 	@And("User sets new effective date as endorse date and starts endorsement <mtr2490>")
 	public void User_sets_new_effective_date_as_endorse_date_and_starts_endorsement_mtr2490() {
-		sendText(historyChevron.txtEffectiveDate, dtf.format(endorseDate));
+		sendText(historyChevron.txtEffectiveDate, endorseDate);
 		wait(2);
 		click(historyChevron.btnStart);
 		wait(4);
@@ -1520,6 +1526,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 	@And("User clicks Finalize button and Endorses Policy <mtr2490>")
 	public void User_clicks_finalize_and_Endorse_Policy_button_mtr2490_() {
 		reviewChevron.btnFinalize.click();
+		wait(3);
 		closeoutChevron.btnEndorsePolicy.click();
 		wait(10);
 		closeUnnecessaryTabs();
@@ -1811,12 +1818,12 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 
 	@And("User changes system date to endorsement date <mtr2490>")
 	public void User_changes_system_date_to_endorsement_date_mtr2490_() throws Exception {
-		ChangeDate_Admin(driver, dtf.format(endorseDate));
+		ChangeDate_Admin(driver, endorseDate);
 	}
 
 	@When("User sets loss date as endorse date <mtr2490>")
 	public void user_sets_loss_date_as_endorse_date_mtr2490() {
-		sendText(claim.txtLossDate, dtf.format(endorseDate));
+		sendText(claim.txtLossDate, endorseDate);
 		click(dwellingChevron.btnSave);
 		wait(2);
 	}
