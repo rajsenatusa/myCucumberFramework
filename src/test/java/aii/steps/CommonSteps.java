@@ -139,9 +139,9 @@ public class CommonSteps extends CommonMethods {
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
 
-		wait(5);
+		wait(3);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(6);
+		wait(3);
 		dashboard.btnNewQuote.click();
 		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
 		selectDropdownText(element, "Individual");
