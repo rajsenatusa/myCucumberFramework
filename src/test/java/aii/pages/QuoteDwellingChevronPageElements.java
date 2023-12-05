@@ -552,6 +552,14 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(xpath= "//*[@id=\"Price Compare\"]/table/tbody/tr[2]/td[2]/i")
 	public WebElement priceCompare;
 	
+	@FindBy(id= "Building.Acreage")
+	public WebElement ddBuildingAcreage;
+	
+	@FindBy(id= "Wizard_Policy")
+	public WebElement policy;
+	
+	
+	
 	
 	
 	public QuoteDwellingChevronPageElements() {

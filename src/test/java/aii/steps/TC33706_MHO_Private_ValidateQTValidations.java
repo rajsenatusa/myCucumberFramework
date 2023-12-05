@@ -334,14 +334,9 @@ public class TC33706_MHO_Private_ValidateQTValidations extends CommonMethods {
 	@Given("User validates that MHO3 Quote has been created successfully and takes note of the Quote number for <tc33706>")
 	public void User_validates_that_MHO3_Quote_has_been_created_successfully_and_takes_note_of_the_Quote_number_for_tc33706()
 			throws Exception {
-//		click(dwellingChevron.btnSave);
+		
 		click(dwellingChevron.btnNext);
 		wait(1);
-		click(dwellingChevron.review);
-		
-		
-		
-		
 		selectDropdownText(reviewChevron.ddPayPlan, "Direct Bill");
 		wait(2);
 		click(reviewChevron.btnFullPaymentRadio);

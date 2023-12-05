@@ -128,4 +128,4 @@ Feature: Common Transactions and Steps
     And User enters Lease Term "<LeaseTerm>"    
     And User clicks Seasonal Property
     And User clicks Original Systems Surcharge	
-    
+    And User creates MHO3 application

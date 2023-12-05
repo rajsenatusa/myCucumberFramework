@@ -98,6 +98,11 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "BasicPolicy.PayPlanCd_10")
 	public WebElement btn8PaymentPayPlanTO;
 	
+	@FindBy(id= "MakeChanges")
+	public WebElement btnModifyApplication;
+	
+	
+	
 	public QuoteReviewPageElements() {
 		PageFactory.initElements(driver, this);
 	}
