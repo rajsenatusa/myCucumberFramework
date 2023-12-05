@@ -33,20 +33,58 @@ Feature: TC 16767--UMB Agent Basic Policy App Validations 'Validate UW Questions
     And User enters UMB product selection information
     And User answers previous policy written with AIIG questions <tc16767>
     And User enters all required information on UMB personal liability screen <tc16767>
+    And User creates UMB application <tc16767>
     And User adds underlying policy in personal liability chevron <tc16767>
     And User adds underlying auto policy in personal liability chevron <tc16767>
     And User adds exposure in personal liability chevron <tc16767>
     And User adds driver and do UI validations 
     And User clicks add non-driver list
     And User enters all required information on UMB review screen
-    And User creates UMB application <tc16767>
-    And User validates 'Application has been created, but has Errors' 'Underwriting Questions Required ' labels are visible
     And User answers all underwriting questions as NO for UMB <tc16767>
     And User answers UW Question 1 as Yes and validates error messages
     And User answers UW Question 2 as Yes and validates error messages
     And User answers UW Question 3 as Yes and validates error messages
     And User answers UW Question 4 as Yes and validates error messages
     And User answers UW Question 5 as Yes and validates error messages
+    And User answers UW Question 6 as Yes and validates error messages
+    And User answers UW Question 7 as Yes and validates error messages
+    And User answers UW Question 8 as Yes and validates error messages
+    And User answers UW Question 9 as Yes and validates error messages
+    And User answers UW Question 10 as Yes and validates error messages
+    And User answers UW Question 11 as Yes and validates error messages
+    And User answers UW Question 12 as Yes and validates error messages
+    And User answers UW Question 13 as Yes and validates error messages
+    And User answers UW Question 14 as Yes and validates error messages
+    And User answers UW Question 15 as Yes and validates error messages
+    And User answers UW Question 16 as Yes and validates error messages
+    And User answers UW Question 17 as Yes and validates error messages
+    And User answers UW Question 18 as Yes and validates error messages
+    And User answers all UW Questions as Yes and validates error messages
+    And User finalizes transaction 
+    And User validates UW error messages on issues tile
+    And User sets payment type and takes note of the application for <tc16767>
+    And User clicks submit for approval button <tc16767>
+    And User signs out
+    And User login to Spin as Underwriter
+    And User searches for the application <tc16767>
+    And User validates expected error messages on policy tile and submitter issues tile
+    And User clicks submit for approval as underwriter <tc16767>
+    And User signs out
+    And User login to Spin as Underwriter Clerk
+    And User searches for the application <tc16767>
+    And User validates expected error messages on policy tile and submitter issues tile with UW manager role
+    And User approves application
+    And User signs out
+    And User login to Spin as Standard Agent 2
+    And User searches for the application <tc16767>
+    And User validates issue messages under submitter issues tile
+    Then User issues policy and close unnecessary tabs and completes test <tc16767>
+    
+    
+    
+    
+    
+    
     
     
     
