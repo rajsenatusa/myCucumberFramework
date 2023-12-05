@@ -15,8 +15,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
@@ -35,10 +33,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
- 
+
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
- 
+
 public class CommonMethods extends PageInitializer {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
@@ -3280,5 +3278,16 @@ public class CommonMethods extends PageInitializer {
 
 			return false;
 		}
+	}
+	public static void MoratoriumDetail_setMoratoriumCode(WebDriver driver, String string) throws Exception {
+		try {
+			driver.findElement(By.id("Moratorium.MoratoriumCd")).clear();
+			driver.findElement(By.id("Moratorium.MoratoriumCd")).sendKeys(string.toString());
+			Hooks.scenario.log("MoratoriumCd: " + string);
+		
+		} catch (Exception e) {
+			Hooks.scenario.log("MoratoriumCd: " + string);
+			wait(3);
+		}		
 	}
 }
