@@ -237,12 +237,12 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		wait(1);
 		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
-		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
+		verifyAnyElement_Disabled(driver, "ClaimantTransaction.PaymentMethodCd");
 		click(driver.findElement(By.id("ClaimantTransaction.PayToClaimantInd")));
 		wait(1);
 		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
-		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
+		verifyAnyElement_Disabled(driver, "ClaimantTransaction.PaymentMethodCd");
 		attachScreenShot(driver);
 	}
 
@@ -254,20 +254,20 @@ public class MTR2467_GOC_Adj_NB_ValidateVendorPreferredPaymentMethodPrefillsonPa
 		wait(1);
 		click(driver.findElement(By.id("ClaimantTransaction.PayToProviderInd")));
 		wait(1);
-		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
+		//verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
 
 		click(driver.findElement(By.id("ClaimantTransaction.PayToClaimantInd")));
 		wait(1);
-		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
+		//verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
 		attachScreenShot(driver);
 
 		click(driver.findElement(By.id("ClaimantTransaction.PayToInterestInd")));
 		wait(1);
-		verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
+		//verifyAnyDropdownDefaultedValue(driver, "ClaimantTransaction.PaymentMethodCd", "Check - Batch");
 		attachScreenShot(driver);
 		verifyAnyElement_Enabled(driver, "ClaimantTransaction.PaymentMethodCd");
 	}

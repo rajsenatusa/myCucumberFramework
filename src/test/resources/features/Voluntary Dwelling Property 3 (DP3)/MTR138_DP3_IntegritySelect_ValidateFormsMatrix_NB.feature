@@ -12,6 +12,7 @@
 ## User: Jbarnes
 
 ##updated on 10/06/23 by CYavas due to a defect. AIIC DP DPL 07 15 form replaced with AIIC DP DPL 07 23
+#updated on 12/06/23 by C.Y/ Assignment Agreement form has been removed due to rule change.
 
 @regression @mtr138
 Feature: TC 36013--Validate User Story 6249:Forms Matrix
@@ -41,7 +42,7 @@ Feature: TC 36013--Validate User Story 6249:Forms Matrix
     And User validates privacy statement form version
     And User validates roof limitation form version
     And User validates deductible notification form version
-    And User validates assignment form version
+    #And User validates assignment form version
     And User validates policy jacket form version
     And User validates AIIC DP3 IDX 07 15 form version
     And User validates DP 00 03 07 88 form version

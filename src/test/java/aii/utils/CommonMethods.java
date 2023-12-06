@@ -646,7 +646,7 @@ public class CommonMethods extends PageInitializer {
 		return policyNum.toString();
 
 	}
-	
+
 	public static String getQuoteNumber(WebDriver driver) throws Exception {
 
 		String QuoteNum = null;
@@ -659,11 +659,12 @@ public class CommonMethods extends PageInitializer {
 		return QuoteNum.toString();
 
 	}
-	
-	public static void verifyQuoteMade (WebDriver driver) throws Exception {
-		driver.findElement(By.id("Tab_Policy")).isDisplayed(); 
-				
+
+	public static void verifyQuoteMade(WebDriver driver) throws Exception {
+		driver.findElement(By.id("Tab_Policy")).isDisplayed();
+
 	}
+
 	public static String getInForcePremium(WebDriver driver) throws Exception {
 		String PremiumNoFees = null;
 
@@ -676,23 +677,21 @@ public class CommonMethods extends PageInitializer {
 		}
 
 		return PremiumNoFees.toString();
-		
+
 	}
+
 	public static String getQuotePremium(WebDriver driver) throws Exception {
 		String QuotePremium = null;
 		try {
-			 
+
 			QuotePremium = driver.findElement(By.id("QuoteAppSummary_PremWithTaxesFeesAmt")).getText().toString();
 			Hooks.scenario.log("Quote premium is: " + QuotePremium);
-			
-			
-			} catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return QuotePremium.toString();
-		
-		
-		
+
 	}
 
 	public static String getInForcePremiumFees(WebDriver driver) throws Exception {
@@ -726,7 +725,7 @@ public class CommonMethods extends PageInitializer {
 
 		String appNum = null;
 		try {
-			appNum = driver.findElement(By.id("ClaimSummary_ClaimTransactionNumber")).getText().toString();
+			appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
 			Hooks.scenario.log("Policy Number: " + appNum);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -3279,15 +3278,41 @@ public class CommonMethods extends PageInitializer {
 			return false;
 		}
 	}
+
 	public static void MoratoriumDetail_setMoratoriumCode(WebDriver driver, String string) throws Exception {
 		try {
 			driver.findElement(By.id("Moratorium.MoratoriumCd")).clear();
 			driver.findElement(By.id("Moratorium.MoratoriumCd")).sendKeys(string.toString());
 			Hooks.scenario.log("MoratoriumCd: " + string);
-		
+
 		} catch (Exception e) {
 			Hooks.scenario.log("MoratoriumCd: " + string);
 			wait(3);
-		}		
+		}
+	}
+
+	public static void clickAgentSearchedFor(WebDriver driver, String LoginId) throws Exception {
+
+		try {
+			driver.findElement(By.linkText(LoginId));
+			driver.findElement(By.linkText(LoginId)).click();
+			Hooks.scenario.log("User selected: " + LoginId);
+		} catch (Exception e) {
+			Hooks.scenario.log("User selected: " + LoginId);
+			wait(3);
+		}
+	}
+
+	public static void anyUserAttributeOverride(WebDriver driver, String field, String data) throws Exception {
+		try {
+			driver.findElement(By.xpath("(//*[contains(text(),'" + field + "')]//following::*[5])[1]")).clear();
+			driver.findElement(By.xpath("(//*[contains(text(),'" + field + "')]//following::*[5])[1]"))
+					.sendKeys(data.toString());
+			Hooks.scenario.log(field + " : " + data);
+
+		} catch (Exception e) {
+			Hooks.scenario.log(field + " : " + data);
+			wait(5);
+		}
 	}
 }

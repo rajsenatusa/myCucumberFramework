@@ -12,7 +12,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
@@ -43,8 +42,7 @@ public class TC16806_MHO_Agent_APP_NB_Validations extends CommonMethods {
 	static String QuoteNum;
 	static String switchToWindow;
 	static String submitForApproval;
-	
-	
+	static String AppNummm;
 
 	@When("User enters all required information on policy information screen and enters mobile park address for <tc16806>")
 	public void user_enters_all_required_information_on_policy_information_screen_and_enters_mobile_park_address_for_tc16806() {
@@ -234,20 +232,61 @@ public class TC16806_MHO_Agent_APP_NB_Validations extends CommonMethods {
 
 		wait(1);
 		verify_AnyText_IsVisible(driver,
-				"	Coverage A Limit greater than $350,000 requries underwriting approval for the Family program. ");
+				"Coverage A Limit greater than $350,000 requries underwriting approval for the Family program. ");
 		wait(2);
-		verify_AnyText_IsVisible(driver, "	Underwriting approval is required, risk is located on more than 5 acres ");
+		verify_AnyText_IsVisible(driver, "Underwriting approval is required, risk is located on more than 5 acres ");
 		wait(2);
-		verify_AnyText_IsVisible(driver, "	Skirted, Tied Down, Hand Rails not present, risk is ineligible. ");
+		verify_AnyText_IsVisible(driver, "Skirted, Tied Down, Hand Rails not present, risk is ineligible. ");
 		wait(2);
 		verify_AnyText_IsVisible(driver,
 				"Number of Months Occupied is ineligible for coverage under the MHO3 policy form.");
 		wait(2);
 		attachScreenShot(driver);
 		wait(1);
-		getApplicationNumber(driver);
-		
-		 
+
 	}
+
+	@When("User takes note of the application for <tc16806>")
+	public void User_takes_note_of_the_application_for_tc16806() {
+
+		try {
+			AppNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+			Hooks.scenario.log("Application Number: " + AppNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@When("User searches for the application <tc16806>")
+	public void User_searches_for_the_application_tc16806() {
+		sendText(dashboard.txtSearchBar, AppNum);
+		click(dashboard.search);
+		wait(3);
+	}
+
+	@When("User verifies messages on issues tile")
+	public void User_verifies_messages_on_issues_tile() throws Exception {
+
+		wait(1);
+		verify_AnyText_IsVisible(driver,
+				"Coverage A Limit greater than $350,000 requries underwriting approval for the Family program. ");
+		wait(2);
+		verify_AnyText_IsVisible(driver, "Skirted, Tied Down, Hand Rails not present, risk is ineligible. ");
+		wait(2);
+		verify_AnyText_IsVisible(driver, "Underwriting approval is required, risk is located on more than 5 acres ");
+		wait(2);
+		attachScreenShot(driver);
+		wait(1);
+
+	}
+
+	@When("User verifies policy created")
+	public void User_verifies_policy_created() throws Exception {
+
+		getPolicyNumber(driver);
+		closeUnnecessaryTabs();
+		Hooks.scenario.log("Test Case Completed!");
+
+	}
+
 }
- 

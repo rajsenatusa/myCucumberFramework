@@ -295,15 +295,6 @@ public class CommonSteps extends CommonMethods {
 	public void user_clicks_next_on_policy_chevron() {
 		click(policyChevron.btnNext);
 	}
-	@And("User clicks Quote Policy Tab")
-	public void user_clicks_Quote_Policy_Tab() {
-		click(dashboard.btnQuotePolicy);
-	}
-	@And("User clicks Capacity Maintenance")
-	public void user_clicks_Capacity_Maintenance() throws Exception {
-		clickonAnyButton(driver, "Menu_Policy_CapacityMaintenance");
-		wait(1);
-	}
 
 	@Given("User selects endorsement transaction on {string}")
 	public void user_selects_an_endorsement_transaction(String Days) throws Exception {
