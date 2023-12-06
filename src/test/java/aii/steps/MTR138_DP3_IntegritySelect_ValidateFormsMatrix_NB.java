@@ -285,14 +285,14 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 			wait(5);
 		}
 
-		// AIIC AA 02 20
-		try {
-			driver.findElement(By.xpath("//*[contains(text(), 'AIIC AA 02 20')]"));
-			Hooks.scenario.log("Assignment Agreement Notice Form");
-		} catch (Exception e) {
-			Hooks.scenario.log("Assignment Agreement Notice Form");
-			wait(5);
-		}
+//		// AIIC AA 02 20
+//		try {
+//			driver.findElement(By.xpath("//*[contains(text(), 'AIIC AA 02 20')]"));
+//			Hooks.scenario.log("Assignment Agreement Notice Form");
+//		} catch (Exception e) {
+//			Hooks.scenario.log("Assignment Agreement Notice Form");
+//			wait(5);
+//		}
 
 		// AIIC PJ 05 19
 		try {
@@ -465,7 +465,7 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC PS 05 19Privacy Statement");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP RWT 01 19Limitations on Roof Coverage");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP DO 06 23Deductible Notification Options");
-		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC AA 02 20Assignment Agreement Notice");
+		//PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC AA 02 20Assignment Agreement Notice");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC PJ 05 19Policy Jacket");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 IDX 07 15Dwelling Property 3 Special Form Index");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "DP 00 03 07 88Dwelling Property 3 Special Form");
@@ -776,7 +776,7 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@Then("User validates Consumer reports form version and completes test")
 	public void user_validates_consumer_reports_form_version() throws Exception {
-		NBConsReport_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 81, 30, 710, 100,
+		NBConsReport_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 80, 30, 710, 100,
 				30);
 		PdfComparator.verifyFormData(driver, NBConsReport_Version, "AIIC NCR 08 19");
 

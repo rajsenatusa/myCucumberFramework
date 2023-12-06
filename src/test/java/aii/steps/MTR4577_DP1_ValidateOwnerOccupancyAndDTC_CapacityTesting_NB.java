@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends CommonMethods {
@@ -55,6 +56,7 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is set for DP1 product");
 							System.out.println("Capacity is of 10 mi to less than 15 mi is set for DP1 product");
 							click(driver.findElement(By.id("UserMenu"))); // signout
+							click(driver.findElement(By.id("SignOutInMenu")));
 							wait(3);
 						} else {
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is not set for DP1 product");
@@ -70,6 +72,7 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 							click(driver.findElement(By.id("Save")));
 							wait(3);
 							click(driver.findElement(By.id("UserMenu"))); // signout
+							click(driver.findElement(By.id("SignOutInMenu")));
 							wait(2);
 						}
 						break;
@@ -79,6 +82,7 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is set for DP3 product");
 							System.out.println("Capacity is of 10 mi to less than 15 mi is set for DP3 product");
 							click(driver.findElement(By.id("UserMenu"))); // signout
+							click(driver.findElement(By.id("SignOutInMenu")));
 							wait(3);
 						} else {
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is not set for DP3 product");
@@ -91,6 +95,7 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is set for HO3 product");
 							System.out.println("Capacity is of 10 mi to less than 15 mi is set for HO3 product");
 							click(driver.findElement(By.id("UserMenu"))); // signout
+							click(driver.findElement(By.id("SignOutInMenu")));
 							wait(2);
 						} else {
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is not set for HO3 product");
@@ -103,6 +108,7 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is set for MHO3 product");
 							System.out.println("Capacity is of 10 mi to less than 15 mi is set for MHO3 product");
 							click(driver.findElement(By.id("UserMenu"))); // signout
+							click(driver.findElement(By.id("SignOutInMenu")));
 							wait(2);
 						} else {
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is not set for MHO3 product");
@@ -152,6 +158,7 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 			wait(3);
 			
 			click(driver.findElement(By.id("UserMenu"))); // signout
+			click(driver.findElement(By.id("SignOutInMenu")));
 			wait(2);
 		}
 	}
@@ -172,5 +179,110 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 		click(quote.btnCopyToBillAddress);
 		click(quote.btnSaveAndQuote);
 		wait(2);
+	}
+	@When("User enters all required information on DP1 quote screen <mtr4577>")
+	public void user_enters_all_required_information_on_dp1_quote_screen_mtr4577() {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "New Purchase");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
+		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
+	@When("User enters all required information on DP1 dwelling screen <mtr4577>")
+	public void user_enters_all_required_information_on_dp1_dwelling_screen_mtr4577() throws Exception {
+
+		try {
+			clickOKDailogButton(driver);
+			Thread.sleep(500);
+
+			selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+			wait(1);
+			sendText(driver.findElement(By.id("CovALimit")), "200000");
+			selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+			selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
+			click(dwellingChevron.btnSave);
+		} catch (InterruptedException e) {
+			selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+			wait(1);
+			sendText(driver.findElement(By.id("CovALimit")), "200000");
+			selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+			selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
+			click(dwellingChevron.btnSave);
+		}
+	}
+	@When("User validates 'Cannot issue due to limited catastrophic capacity Distance to Coast which exceeds a minimum of 10 mi to less than 15 mi requires underwriting review' message is visible")
+	public void user_validates_cannot_issue_due_to_limited_catastrophic_capacity_message_is_visible_4577() throws Exception {
+		verify_AnyText_IsVisible(driver, "Cannot issue due to limited catastrophic capacity [Distance to Coast which exceeds a minimum of 10 mi to less than 15 mi requires underwriting review] ");
+		wait(1);
+		click(dwellingChevron.btnNext);
+		wait(2);
+	}
+	@When("User clicks Dwelling Chevron <mtr4577>")
+	public void user_clicks_dwelling_chevron_mtr4577() throws Exception {
+		click(dwellingChevron.btnDwelling);
+		wait(3);
+	}
+	@And("User checks application dwelling screen validates error message and finalizes transaction <mtr4577>")
+	public void user_checks_application_dwelling_screen_validates_error_messageand_finalizes_transaction_mtr4577() throws Exception {
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+		click(dwellingChevron.btnSave);
+		wait(2);
+		verify_AnyText_IsVisible(driver, "Cannot issue due to limited catastrophic capacity [Distance to Coast which exceeds a minimum of 10 mi to less than 15 mi requires underwriting review] ");
+		click(dwellingChevron.btnNext);
+		wait(2);
+		click(reviewChevron.btnFinalize);
+		wait(2);
+	}
+	@And("User validates error message displayed on closeout screen <mtr4577>")
+	public void user_validates_error_message_displayed_on_closeout_screen_mtr4577() throws Exception {
+		attachScreenShot(driver);
+		verify_AnyText_IsVisible(driver, "Cannot issue due to limited catastrophic capacity [Distance to Coast which exceeds a minimum of 10 mi to less than 15 mi requires underwriting review] ");
+		verify_AnyLabel_IsVisible(driver, "Modify Application");
+	}
+	@When("User takes note of the application number <mtr4577>")
+	public void user_takes_note_of_the_application__number_mtr4577() throws Exception {
+		try {
+			AppNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
+			Hooks.scenario.log("Application Number: " + AppNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@When("User searches for application number <mtr4577>")
+	public void user_searches_for_application_number_mtr4577() {
+		sendText(dashboard.txtSearchBar, AppNum);
+		click(dashboard.search);
+		wait(3);
+	}
+	@When("User validates 'App is owned by AG1730' 'Application in inquiry mode only' labels are visible")
+	public void user_validates_App_is_owned_by_AG1730_Application_in_inquiry_mode_only_labels_are_visible_mtr4577() throws Exception {
+		verify_AnyLabel_IsVisible(driver, AppNum+" is owned by AG1730");
+		verify_AnyLabel_IsVisible(driver, "Application in inquiry mode only");
+	}
+	@And("User validates error message displayed on dwelling screen <mtr4577>")
+	public void user_validates_error_message_displayed_on_dwelling_screen_mtr4577() throws Exception {
+		attachScreenShot(driver);
+		verify_AnyText_IsVisible(driver, "Cannot issue due to limited catastrophic capacity [Distance to Coast which exceeds a minimum of 10 mi to less than 15 mi requires underwriting review] ");
+	}
+	@Then("User issues policy and completes test <mtr4577>")
+	public void user_issues_policy_and_completes_test_mtr4577() {
+
+		selectDropdownText(closeoutChevron.ddPaymentType, "None");
+		wait(3);
+		click(closeoutChevron.btnIssueNB);
+		wait(10);
+		closeUnnecessaryTabs();
+		Hooks.scenario.log("Test Case Completed!");
 	}
 }

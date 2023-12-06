@@ -146,7 +146,7 @@ public class MTR3171_DP1_ValidateAgentCannotIssuePolicyWhenFloodCovAGreaterThanD
 		selectDropdownText(closeoutChevron.ddPaymentType, "None");
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
-		waitImp(8);
+		wait(10);
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
