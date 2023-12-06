@@ -24,4 +24,15 @@ Feature: TC16806_MHO_Agent_APP_NB_Validations
     And User verifies messages in Issues for <tc16806>
     And User updates Year Roof Material Completely Updated
     And User verifies messages for <tc16806>
-    And User submits the application for UW approval
+    And User takes note of the application for <tc16806>
+    And User clicks submit for approval button
+    And User signs out
+    And User login to Spin as Underwriter
+    And User searches for the application <tc16806>
+    And User verifies messages on issues tile
+    And User approves application
+    And User signs out
+    Then User login to Spin as Standard Agent
+    And User searches for the application <tc16806>
+    And User issues new business with payment type "None"
+    And User verifies policy created

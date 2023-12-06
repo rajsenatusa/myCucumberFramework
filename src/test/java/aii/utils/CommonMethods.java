@@ -726,7 +726,7 @@ public class CommonMethods extends PageInitializer {
 
 		String appNum = null;
 		try {
-			appNum = driver.findElement(By.id("ClaimSummary_ClaimTransactionNumber")).getText().toString();
+			appNum = driver.findElement(By.id("QuoteAppSummary_QuoteAppNumber")).getText().toString();
 			Hooks.scenario.log("Policy Number: " + appNum);
 		} catch (Exception e) {
 			e.printStackTrace();
