@@ -242,7 +242,25 @@ public class CommonSteps extends CommonMethods {
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+	@When("User enters all required information on DP1 quote screen with current date as prior policy date")
+	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_as_prior_policy_date() {
+		// Quote Policy Chevron information was filled here
 
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
+		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytypedp1"));
+		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupieddp1"));
+		selectDropdownText(policyChevron.ddPropertyManaged, ConfigsReader.getProperty("propertymanaged"));
+		selectDropdownText(policyChevron.ddShortTermRental, ConfigsReader.getProperty("shorttermrental"));
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
 	@When("User enters all required information on SC policy information screen")
 	public void user_enters_all_required_information_on_sc_policy_information_screen() {
 
@@ -413,7 +431,21 @@ public class CommonSteps extends CommonMethods {
 		click(policyChevron.btnResetName);
 		wait(2);
 	}
+	@When("User validates that Endorsement transaction has been completed successfully")
+	public void user_validates_that_endorsement_transaction_has_been_completed_successfully_and_completes_test_mtr366() throws Exception {
+		WebElement validate = driver.findElement(By.id("History_1_2_TransactionCd"));
 
+		if (validate.getText().equalsIgnoreCase("Endorsement")) {
+			System.out.println("DP3 Endorsement has been processed successfully");
+
+		} else {
+			System.out.println("DP3 Endorsement has been failed!");
+
+		}
+
+		// Close unnecessary tabs
+		closeUnnecessaryTabs();
+	}
 	@Given("User fills the address details with {string} and zip {string}")
 	public void user_fills_the_address_details_of(String address, String zip) {
 //		sendText(quote.txtAddress, ));

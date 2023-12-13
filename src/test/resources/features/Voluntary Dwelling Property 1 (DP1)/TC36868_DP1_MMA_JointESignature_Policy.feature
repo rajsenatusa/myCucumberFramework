@@ -8,7 +8,7 @@
   
  # User: AG1730
  
-@tc36868 @regression
+@tc36868 @regression @dp1regression
 Feature: TC36868 : E-Signature - DP1 - NB After 07/01/2022 with Joint Insured
 
   Scenario: Validate that DP1 policy is created using eSignature feature

@@ -27,8 +27,8 @@ public class TC16742_AIB_ValidateErrorMessagesForQuoteCharaceristics extends Com
 		sendText(quote.txtLastName, "Ramsey");
 		sendText(quote.txtBirthDate, dtf.format(currentDate.minusYears(20)));
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "770 Claughton Island Dr");
-		sendText(quote.txtZipCode, "33131");
+		sendText(quote.txtAddress, "16 S Kyle Way, Marathon");
+		sendText(quote.txtZipCode, "33050");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);
@@ -59,7 +59,8 @@ public class TC16742_AIB_ValidateErrorMessagesForQuoteCharaceristics extends Com
 	@When("User validates 'County is closed for new business' text is visible")
 	public void user_validates_County_is_closed_for_new_business_text_is_visible() throws Exception {
 
-		verify_AnyText_IsVisible(driver, "County is closed for new business");
+		verify_AnyfirstText_IsDisplayed(driver, "County is closed for new business");
+		attachScreenShot(driver);
 	}
 	@When("User changes ineligible address with eligible address")
 	public void user_changes_ineligible_address_with_eligible_address() throws Exception {
@@ -167,7 +168,7 @@ public class TC16742_AIB_ValidateErrorMessagesForQuoteCharaceristics extends Com
 		wait(3);
 		verify_AnyText_IsVisible(driver, "Primary operator of the boat must be 21 years or older. ");
 		verify_AnyText_IsVisible(driver, "Coverage for this hull type is not eligible for this program. ");
-		verify_AnyText_IsVisible(driver, "Cannot issue due to limited catastrophic capacity [Boat Length which exceeds a maximum of 27 - 30 requires underwriting review|IF2|Value of Boat Maximum which exceeds a maximum of $200,000 requires underwriting review]");
+		verify_AnyText_IsVisible(driver, "Cannot issue due to limited catastrophic capacity [Boat Length which exceeds a maximum of 27 - 30 requires underwriting review|Value of Boat Maximum which exceeds a maximum of $200,000 requires underwriting review]");
 		verify_AnyText_IsVisible(driver, "Boat with any existing damage requires Underwriting approval.  ");
 		verify_AnyText_IsVisible(driver, "Bahamas coverage is not available for boats that do not have a non-detachable satellite navigation system.  ");
 		verify_AnyText_IsVisible(driver, "Boats 61 mph or faster require Underwriting approval.  ");

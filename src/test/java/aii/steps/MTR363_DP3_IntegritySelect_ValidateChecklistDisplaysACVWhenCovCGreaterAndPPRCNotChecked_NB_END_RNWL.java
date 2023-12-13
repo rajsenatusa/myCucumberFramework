@@ -3,7 +3,6 @@ package aii.steps;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
-
 import aii.utils.CommonMethods;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
@@ -76,7 +75,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		NBPackage_Form = PdfComparator.makePdf(driver, "NewBusinessPackage.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + NBPackage_Form);
-		wait(8);
+		wait(12);
 		// Checklist form
 		NBCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 67, 25, 750, 70, 30);
 		PdfComparator.verifyFormData(driver, NBCheckList_Version, "OIR-B1-1670");
@@ -84,7 +83,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 		NBCheckList_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
 		PdfComparator.verifyPDFText(driver, NBCheckList_Name, "Checklist of Coverage");
 
-		PPRCdata = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 67, 40, 550, 550, 100);
+		PPRCdata = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 66, 40, 550, 550, 100);
 		PdfComparator.verifyFormData(driver, PPRCdata, cov_C);
 		PdfComparator.verifyFormData(driver, PPRCdata, "Actual Cash Value");
 	}

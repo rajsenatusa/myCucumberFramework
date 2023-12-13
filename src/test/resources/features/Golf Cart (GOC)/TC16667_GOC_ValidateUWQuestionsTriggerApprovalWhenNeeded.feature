@@ -12,7 +12,7 @@
 ## User: AG1730
 
 
-@regression @tc16667
+@regression @tc16667 @gocregression
 Feature: TC 16667--GOC Agent App Validations 'Validate UW questions trigger approval when needed'
 
   Scenario: Validate Selecting Yes to Underwriting Questions will require Underwriting Approval

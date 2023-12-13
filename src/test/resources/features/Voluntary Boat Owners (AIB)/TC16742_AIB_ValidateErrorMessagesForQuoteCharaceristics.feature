@@ -17,7 +17,7 @@
 # User: AG1730
 
 
-@regression @tc16742
+@regression @tc16742 @aibregression
 Feature: TC 16742--AIB Agent Basic Policy QT Validations - Validate error messages for AIB Characteristics
 
   Scenario: Validating Edits, error or hard stops are triggered in quote status

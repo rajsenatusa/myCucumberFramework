@@ -1535,6 +1535,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 	@When("User validates all expected forms is visible on forms screen endorsement level<mtr2490>")
 	public void user_validates_all_expected_forms_is_visible_on_forms_screen_endorsement_level_mtr2490()
 			throws Exception {
+		wait(2);
 		verify_AnyText_IsVisible(driver, "AIIC NB GL 08 19");
 
 		// AIIC PS 05 19

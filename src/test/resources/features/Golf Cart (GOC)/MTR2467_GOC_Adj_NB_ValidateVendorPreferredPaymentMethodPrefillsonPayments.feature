@@ -15,7 +15,7 @@
 ## User: Gallopadmin
 
 
-@regression @mtr2467
+@regression @mtr2467 @gocregression
 Feature: MTR2467--GOC Adj NB, Claims UI Validations 'Vendor Preferred Payment Method Prefills on Payments'
 
   Scenario: Validate that when a payment is made to only a Vendor that the Payment Method prefills with the Vendors Payment Preference

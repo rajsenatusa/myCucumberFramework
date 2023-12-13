@@ -2,8 +2,6 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -167,17 +165,9 @@ public class MTR1414_TOMHPD_UI_Rolled_Bitumen_RoofMaterial extends CommonMethods
 	@When("User makes payment with Credit Card for <mtr1414>")
 	public void user_makes_payment_with_credit_card_mtr1414() {
 		makeCCPayment();
-
-		// Close unnecessary tabs
-		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		for (int i = tabs.size() - 1; i > 0; i--) {
-			driver.switchTo().window(tabs.get(i));
-			driver.close();
-		}
-
-		// Switch back to the main page
-		driver.switchTo().window(tabs.get(0));
 		wait(3);
+		// Close unnecessary tabs
+		closeUnnecessaryTabs();
 	}
 
 	@When("User does auto renewal through batch jobs and takes note of the renewed effective date")
