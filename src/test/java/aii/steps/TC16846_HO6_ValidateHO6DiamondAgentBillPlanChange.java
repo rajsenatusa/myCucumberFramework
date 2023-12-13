@@ -278,11 +278,11 @@ public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMet
 	@When("User selects endorsement date as tenth next action date")
 	public void user_selects_endorsement_date_as_tenth_next_action_date() {
 		sendText(dashboard.txtSelectDate, nextDate10);
-		wait(5);
+		wait(2);
 		click(dashboard.btnStart);
-		wait(5);
+		wait(2);
 		click(dashboard.btnStart);
-		wait(5);
+		wait(2);
 	}
 
 	@When("User clicks Review Chevron select Direct Full Payment and completes endorsement")

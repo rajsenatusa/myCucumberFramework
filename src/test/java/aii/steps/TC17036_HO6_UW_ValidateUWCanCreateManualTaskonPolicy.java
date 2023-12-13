@@ -48,7 +48,7 @@ public class TC17036_HO6_UW_ValidateUWCanCreateManualTaskonPolicy extends Common
 		click(policyChevron.btnNoEmailRadio);
 		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
 		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
-		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
+		policyChevron.ddMonthsOccupied.sendKeys("9 to 12 Months");
 		selectDropdownText(policyChevron.ddInsuredReside, "No");
 		wait(1);
 		click(policyChevron.btnNext);

@@ -9,6 +9,7 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+ 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import aii.utils.ExcelUtility;
@@ -66,19 +67,19 @@ public class VOLHO6policy extends CommonMethods {
 	public void user_enter_all_required_information_on_ho6_review_screen() {
 
 		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
-		wait(2);
+		wait(1);
 		click(reviewChevron.btnFullPaymentRadio);
-		wait(3);
-
+		wait(1);
+		click(dwellingChevron.btnSave);
 	}
 
 	@When("User creates HO6 application")
 	public void user_creates_ho6_application() {
 		click(reviewChevron.btnCreateApplication);
-		wait(2);
+		wait(1);
 		click(reviewChevron.btnInsuranceScoreBox);
 		click(reviewChevron.btnInsuranceScoreOk);
-		wait(3);
+		wait(1);
 		click(dwellingChevron.btnNext);
 	}
 
@@ -107,6 +108,9 @@ public class VOLHO6policy extends CommonMethods {
 		}
 		wait(5);
 		getPolicyNumber(driver);
+		
+		getInForcePremium(driver);
+		getInForcePremiumFees(driver);
 
 		// Close unnecessary tabs
 		closeUnnecessaryTabs();

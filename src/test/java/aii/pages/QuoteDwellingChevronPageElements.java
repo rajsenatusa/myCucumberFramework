@@ -558,9 +558,11 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Wizard_Policy")
 	public WebElement policy;
 	
+	@FindBy(xpath= "//*[@id=\"CoverageList\"]/div[2]/table/tbody/tr[13]/td/table/tbody/tr[1]/td[5]")
+	public WebElement coverageLimitWBU;
 	
-	
-	
+	@FindBy(id= "TransactionEffectiveDt")
+	public WebElement transactionEffectiveDt;
 	
 	public QuoteDwellingChevronPageElements() {
 		
