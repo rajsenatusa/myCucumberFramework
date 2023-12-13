@@ -1,16 +1,16 @@
 #Author: Can Yavas
 ##created on 08/08/2023
 
-@regression @tc15212
+@regression @tc15212 @ho6regression
 Feature: TC 15212--Vol HO6 - Creating HO6 Application LLC w/eSignature
 
   Scenario: Validate that valid user role, create a HO6 NB (LLC) with selecting Esignature on CloseOut Screen
     Given User login to Spin as Standard Agent
  		When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <tc15212>
     And User enters HO6 product selection information and current date as effective date
-    And User enters all required information on HO6 quote screen with current date as prior policy date
-    And User enters all required information on HO6 dwelling screen
+    And User enters all required information on HO6 quote screen with current date as prior policy date <tc15212>
+    And User enters all required information on HO6 dwelling screen <tc15212>
     And User enters all required information on HO6 review screen
     And User creates HO6 application
     And User answers all underwriting questions for HO6

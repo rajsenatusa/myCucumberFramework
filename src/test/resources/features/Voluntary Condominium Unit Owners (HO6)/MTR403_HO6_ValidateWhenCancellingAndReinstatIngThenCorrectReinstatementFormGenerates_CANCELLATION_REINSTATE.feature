@@ -13,7 +13,7 @@
 
 ##note: There is a defect created by offshore team for this scenario. REIN NOTICE sample form in forms chevron is not opening. That part removed from code. It should be added after defect has been resolved. 
 
-@regression @mtr403
+@regression @mtr403 @ho6regression
 Feature: MTR403--HO6- UW - Company Cancellation - Reason Roof Disrepair - Reinstatement form_AIIC RI 11 14
 
   Scenario: Validate that Policy is Cancelled & on reinstatement correct Reinstatement form is attaching to Policy File 

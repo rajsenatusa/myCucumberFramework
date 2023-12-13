@@ -2,9 +2,9 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
@@ -62,10 +62,21 @@ public class TC33770_TOMHO_ModifyWindHailExclusionRulesAndEdits_END extends Comm
 		sendText(dwellingChevron.txtYearConstruction, "2019");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "33");
-		// selectDropdownText(dwellingChevron.ddProtectionClass, "03");
+		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		sendText(dwellingChevron.txtCoverageA, "75000");
-		click(dwellingChevron.rbWindHailExc);
+		wait(1);
 		selectDropdownText(dwellingChevron.ddAttachedStructures, "No");
+		click(dwellingChevron.btnSave);
+		wait(3);
+		try {
+			driver.findElement(By.id("Building.WindHailExcludedInd")).click();
+			Hooks.scenario.log("WindHailExcludedInd was checked");
+			wait(1);
+		} catch (Exception e) {
+			Hooks.scenario.log( "WindHailExcludedInd was not checked");
+			wait(3);
+		}  
+		
 		wait(2);
 		click(dwellingChevron.btnSave);
 		wait(3);
@@ -141,6 +152,7 @@ public class TC33770_TOMHO_ModifyWindHailExclusionRulesAndEdits_END extends Comm
 	@When("User validates Windhail Exclusion Selection is disabled")
 	public void user_validates_Windhail_Exclusion_Selection_is_disabled() throws Exception {
 		verifyAnyCoverageCheckbox_NotEnabledSelected(driver, "Building.WindHailExcludedInd");
+		attachScreenShot(driver);
 	}
 
 	@When("User changes system date to current date <tc33770>")
@@ -180,11 +192,19 @@ public class TC33770_TOMHO_ModifyWindHailExclusionRulesAndEdits_END extends Comm
 	@When("User validates Windhail Exclusion Selection is enabled")
 	public void user_validates_Windhail_Exclusion_Selection_is_enabled() throws Exception {
 		verifyAnyCoverageCheckbox_EnabledSelected(driver, "Building.WindHailExcludedInd");
+		attachScreenShot(driver);
 	}
 
 	@When("User unchecks WindHail Exclusion")
 	public void user_unchecks_WindHail_Exclusion() throws Exception {
-		click(dwellingChevron.rbWindHailExc);
+		wait(1);
+		try {
+			driver.findElement(By.id("Building.WindHailExcludedInd")).click();
+			Hooks.scenario.log("WindHailExcludedInd was Unchecked");
+		} catch (Exception e) {
+			Hooks.scenario.log( "WindHailExcludedInd Uncheck is failed");
+			wait(3);
+		}  
 		click(dwellingChevron.btnSave);
 		wait(3);
 	}
@@ -192,12 +212,14 @@ public class TC33770_TOMHO_ModifyWindHailExclusionRulesAndEdits_END extends Comm
 	@When("User validates Hurricane Deductible defaulted to <%2>")
 	public void user_validates_Hurricane_Deductible_defaulted_to_2_percent() throws Exception {
 		verifyAnyDropdownDefaultedValue(driver, "Building.HurricaneDeductible", "2%");
+		attachScreenShot(driver);
 	}
 
 	@Then("User finalizes transaction and endorses policy and completes test <tc33770>")
 	public void user_finalizes_transaction_and_endorses_policy_and_close_tabs_tc33770() throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(3);
+		attachScreenShot(driver);
 		verify_AnyText_IsVisible(driver, "Deductible Change: Hurricane Changed From Not Applicable to 2%");
 		click(closeoutChevron.btnEndorsePolicy);
 		wait(15);

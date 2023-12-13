@@ -11,7 +11,7 @@
 ## 5. Issue NB as Agent
 
 
-@regression @tc16800 @MTR4463
+@regression @tc16800 @MTR4463 @aibregression
 Feature: TC 16800-MTR4463-AIB, Agent, Change Date Transaction 
 
   Scenario: Validate agent cannot issue NB policy without UW approval when changing date over 60 days

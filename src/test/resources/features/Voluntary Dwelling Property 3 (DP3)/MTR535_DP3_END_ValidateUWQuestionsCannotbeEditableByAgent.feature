@@ -1,17 +1,17 @@
 #Author: C.Yavas
 ##created on 07/28/2023
 
-@regression @tc35179
-Feature: TC 35179--DP3, Agent, END TX Validate No Longer Allowing Underwriter Questions to be Modified by Agent in END
+@regression @tc35179 @mtr535 @dp3regression
+Feature: TC 35179-MTR535-DP3, Agent, END TX Validate No Longer Allowing Underwriter Questions to be Modified by Agent in END
 
  
   Scenario: As an Agent - Validate that once the risk is bound at NB, every UW question is locked down and cannot be modified
     Given User login to Spin as Automation Test Agent
     When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <mtr535>
     And User enters DP3 product selection information and effective date as current date
-    And User enters all required information on DP3 quote screen with current date as prior policy date
-    And User enters all required information on DP3 dwelling screen
+    And User enters all required information on DP3 quote screen with current date as prior policy date <mtr535>
+    And User enters all required information on DP3 dwelling screen <mtr535>
     And User enters all required information on DP3 review screen
     And User creates DP3 application
     And User answers all underwriting questions for DP3

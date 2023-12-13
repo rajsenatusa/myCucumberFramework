@@ -14,7 +14,7 @@
 # User: AG1730, gallopadmin
 
 
-@regression @tc34248 @mtr4465
+@regression @tc34248 @mtr4465 @aibregression
 Feature: TC 34248-mtr4465-US4178:FORM: Marina As Additional Insured - Regression Test Case
 
   Scenario: Validating that the UI has the updates the additional Interest page so the Marina endorsement can be added

@@ -189,6 +189,12 @@ public class MTR377_TC16775_TOHO3_ValidateUWApprovalNeededForIncreaingDwellingCo
 		wait(3);
 	}
 
+	@When("User clicks submit for approval button <mtr377>")
+	public void user_clicks_submit_for_approval_button_mtr377() {
+		sendText(closeoutChevron.txtWorkflowComments, "testtestesttest");
+		click(closeoutChevron.btnSubmitApproval);
+		wait(2);
+	}
 	@When("User finalizes transaction and verify changes are visible on closeout screen and clicks submit for approval")
 	public void user_finalizes_transaction_and_clicks_submit_for_approval_validate_changes_and_() throws Exception {
 		click(dwellingChevron.btnFinalize);

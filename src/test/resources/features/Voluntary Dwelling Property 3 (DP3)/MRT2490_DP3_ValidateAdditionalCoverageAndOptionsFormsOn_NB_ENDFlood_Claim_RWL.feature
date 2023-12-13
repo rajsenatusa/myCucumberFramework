@@ -16,7 +16,7 @@
 
 #NOTE: IT's failing once adding flood coverage. There is a defect created on 12/04/23 (MRT-35)
 
-@regression @tc16598 @mtr2490
+@regression @tc16598 @mtr2490 @dp3regression
 Feature: TC 16598--DP3 UWMgr NB End (FLOOD) RN (2) and Claim Forms Basic w/ ALL additional/optional coverages
 
   Scenario: All forms will be verified in the following states
@@ -83,6 +83,7 @@ Feature: TC 16598--DP3 UWMgr NB End (FLOOD) RN (2) and Claim Forms Basic w/ ALL 
     And User login to Spin as Claim CSR
     And User changes system date to endorsement date <mtr2490>
     And User searches for the policy number <mtr2490>
+    And User clicks Report Loss
     And User sets loss date as endorse date <mtr2490>
     And User selects loss cause as Collapse and clicks Save <mtr2490>
     And User completes all required information on claim chevron <mtr2490>

@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
+import aii.utils.ConfigsReader;
 import io.cucumber.java.en.When;
 
 public class MTR253_DP1_ValidateClaimCanbeReportedByInsuredContractor extends CommonMethods {
@@ -42,7 +43,58 @@ public class MTR253_DP1_ValidateClaimCanbeReportedByInsuredContractor extends Co
 			e.printStackTrace();
 		}
 	}
+	@When("User enters all required information on policy information screen <mtr253>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr253() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on DP1 quote screen with current date as prior policy date <mtr253>")
+	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_as_prior_policy_date_mtr253() {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
+		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
+	@When("User enters all required information on DP1 dwelling screen <mtr253>")
+	public void user_enters_all_required_information_on_dp1_dwelling_screen_mtr253() {
+
+		sendText(dwellingChevron.txtYearConstruction, "2023");
+		wait(2);
+		sendText(dwellingChevron.txtSquareFeet, "1700");
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+		selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
+		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
+		click(dwellingChevron.btnCalculate);
+		wait(4);
+		click(dwellingChevron.btnSave);
+		click(dwellingChevron.btnNext);
+	}
 	@When("User changes system date to current date plus <60> days")
 	public void user_changes_system_date_current_date_plus_60_days() throws Exception {
 		ChangeDate_Admin(driver, dtf.format(currentDate.plusDays(60)));

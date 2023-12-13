@@ -14,7 +14,7 @@
 ##updated on 10/06/23 by CYavas due to a defect. AIIC DP DPL 07 15 form replaced with AIIC DP DPL 07 23
 #updated on 12/06/23 by C.Y/ Assignment Agreement form has been removed due to rule change.
 
-@regression @mtr138
+@regression @mtr138 @dp3regression
 Feature: TC 36013--Validate User Story 6249:Forms Matrix
 
   Scenario: Validate the forms are as per the sequence of the Forms Matrix

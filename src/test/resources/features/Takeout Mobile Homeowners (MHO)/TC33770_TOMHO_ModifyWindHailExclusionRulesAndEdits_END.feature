@@ -13,7 +13,7 @@
  # xxx Test Is Ineffective due to rule change 
  # User: Admin, Agent
 
- @tc33770 @MTR4460
+ @tc33770 @MTR4460 @tomhoregression
 Feature: TC 33770-MTR4460-TO MHO AF: RULES - Modify Windstorm or Hail Exclusion Rules and Edits
 
   Scenario: As an Agent endorse the policy prior to RN effective Date, On RN Effective Date, After RN Effective Date UW Approval 

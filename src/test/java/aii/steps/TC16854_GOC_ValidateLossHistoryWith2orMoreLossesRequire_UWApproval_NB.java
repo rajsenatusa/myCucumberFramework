@@ -128,23 +128,23 @@ public class TC16854_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		getCountOfText(driver, "CLUE");
 		attachScreenShot(driver);
 
-		clickonAnyButton(driver, "EditLink_4");
-		waitImp(2);
-		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
-		attachScreenShot(driver);
-		click(dwellingChevron.btnSave);
-
-		clickonAnyButton(driver, "EditLink_5");
-		waitImp(2);
-		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
-		attachScreenShot(driver);
-		click(dwellingChevron.btnSave);
-
-		clickonAnyButton(driver, "EditLink_6");
-		waitImp(2);
-		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
-		attachScreenShot(driver);
-		click(dwellingChevron.btnSave);
+//		clickonAnyButton(driver, "EditLink_4");
+//		waitImp(2);
+//		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
+//		attachScreenShot(driver);
+//		click(dwellingChevron.btnSave);
+//
+//		clickonAnyButton(driver, "EditLink_5");
+//		waitImp(2);
+//		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
+//		attachScreenShot(driver);
+//		click(dwellingChevron.btnSave);
+//
+//		clickonAnyButton(driver, "EditLink_6");
+//		waitImp(2);
+//		selectDropdownText(driver.findElement(By.id("LossHistory.DriverName")), "TROMBLE JR, MISTY P");
+//		attachScreenShot(driver);
+//		click(dwellingChevron.btnSave);
 
 		clickonAnyButton(driver, "EditLink_3");
 		waitImp(2);

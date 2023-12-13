@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/15/2023
 
-@regression @mtr253
+@regression @mtr253 @dp1regression
 Feature: TC 35197--VOL DP1 Claims UI: Tracking for claims in which customer was alerted to roof loss by a contractor/roofer
 
   Scenario: Create a claim that is reported by Insured/Contractor to validate screen flow
@@ -9,10 +9,10 @@ Feature: TC 35197--VOL DP1 Claims UI: Tracking for claims in which customer was 
    
    	Given User login to Spin as Standard Agent
 	 	When User starts transaction as a new customer
-   	And User enters all required information on policy information screen
+   	And User enters all required information on policy information screen <mtr253>
    	And User enters DP1 product selection information and current date as effective date
-   	And User enters all required information on DP1 quote screen with current date as prior policy date
-	 	And User enters all required information on DP1 dwelling screen
+   	And User enters all required information on DP1 quote screen with current date as prior policy date <mtr253>
+	 	And User enters all required information on DP1 dwelling screen <mtr253>
 		And User enters all required information on DP1 review screen
     And User creates DP1 application
     And User answers all underwriting questions for DP1

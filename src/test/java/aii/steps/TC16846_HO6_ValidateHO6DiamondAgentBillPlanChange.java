@@ -9,6 +9,7 @@ import org.openqa.selenium.Keys;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMethods {
@@ -40,7 +41,44 @@ public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMet
 		click(reviewChevron.btn8PaymentPlan);
 		wait(3);
 	}
+	@When("User enters all required information on policy information screen <tc16846>")
+	public void user_enters_all_required_information_on_policy_information_screen_tc16846() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on HO6 quote screen with current date as prior policy date <tc16846>")
+	public void user_enters_all_required_information_on_ho6_quote_screen_with_current_date_as_prior_policy_date_tc16846() {
+
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "9 to 12 Months");
+		selectDropdownText(policyChevron.ddInsuredReside, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
 	@When("User adds additional interests for first mortgagee")
 	public void user_adds_additional_interests_for_first_mortgagee() {
 
@@ -90,15 +128,8 @@ public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMet
 		wait(10);
 
 		// Close unnecessary tabs
-		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		for (int i = tabs.size() - 1; i > 0; i--) {
-			driver.switchTo().window(tabs.get(i));
-			driver.close();
-		}
+		closeUnnecessaryTabs();
 
-		// Switch back to the main page
-		driver.switchTo().window(tabs.get(0));
-		wait(3);
 	}
 
 	@When("User takes note of the policy number for <tc16846>")
@@ -278,11 +309,11 @@ public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMet
 	@When("User selects endorsement date as tenth next action date")
 	public void user_selects_endorsement_date_as_tenth_next_action_date() {
 		sendText(dashboard.txtSelectDate, nextDate10);
-		wait(5);
+		wait(2);
 		click(dashboard.btnStart);
-		wait(5);
+		wait(2);
 		click(dashboard.btnStart);
-		wait(5);
+		wait(2);
 	}
 
 	@When("User clicks Review Chevron select Direct Full Payment and completes endorsement")
@@ -325,7 +356,7 @@ public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMet
 		Thread.sleep(500);
 	}
 
-	@When("User changes system date as autoRenew date and changes pay plan as <8 Pay Plan>")
+	@Then("User changes system date as autoRenew date and changes pay plan as <8 Pay Plan>")
 	public void user_changes_system_date_as_autoRenew_date_and_changes_pay() throws Exception {
 		ChangeDate_Admin(driver, autoRenewDt);
 		wait(3);
@@ -343,6 +374,7 @@ public class TC16846_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMet
 		wait(3);
 		click(reviewChevron.btnProcess);
 		wait(2);
+		Hooks.scenario.log("Test Case Completed");
 	}
 
 	@When("User clicks Make Payment for <tc16846> and selects credit card and enters due amount")

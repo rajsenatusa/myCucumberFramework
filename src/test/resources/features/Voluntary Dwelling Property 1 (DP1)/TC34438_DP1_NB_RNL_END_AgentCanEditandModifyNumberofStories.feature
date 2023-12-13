@@ -13,7 +13,7 @@
   
 # User: AG1730
  
-@tc34438 @regression
+@tc34438 @regression @dp1regression
 Feature: TC 34438--DP1 NB RNL END Validate Standard Agent can edit and modify Number of Stories field
 
   Scenario: Validate that standard agent allowed to edit and modify the Number of stories field on New business and on endorsement

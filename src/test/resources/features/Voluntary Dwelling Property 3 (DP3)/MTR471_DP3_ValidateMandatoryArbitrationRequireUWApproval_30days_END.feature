@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/03/2023
 
-@regression @mtr471
+@regression @mtr471 @dp3regression
 Feature: US8684 - U/I Mandatory Mediation-Arbitration Coverage discount on and require UW Approval when adding on END with 30 days
  NB for Owner Occupied; Basic Policy and END to Change discount
 
@@ -10,10 +10,10 @@ Feature: US8684 - U/I Mandatory Mediation-Arbitration Coverage discount on and r
 
     Given User login to Spin as Standard Agent
 		When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <mtr471>
     And User enters DP3 product selection information and effective date as current date
-    And User enters all required information on DP3 quote screen with current date as prior policy date
-    And User enters all required information on DP3 dwelling screen
+    And User enters all required information on DP3 quote screen with current date as prior policy date <mtr471>
+    And User enters all required information on DP3 dwelling screen <mtr471>
     And User enters all required information on DP3 review screen
     And User creates DP3 application
     And User answers all underwriting questions for DP3
@@ -35,7 +35,7 @@ Feature: US8684 - U/I Mandatory Mediation-Arbitration Coverage discount on and r
 		And User login to Spin as Standard Agent
 		And User searches previously created application
 		And User completes endorsement 
-		And User validates that Endorsement transaction has been completed successfully
+		Then User validates that Endorsement transaction has been completed successfully
 		
 		
 		

@@ -41,7 +41,7 @@ public class MTR2466_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 	@When("User enters all required information on AIB quote screen for <mtr2466>")
 	public void user_enters_all_required_information_on_aib_quote_screen_for_mtr2466() {
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Geico");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
 		click(dwellingChevron.btnSave);

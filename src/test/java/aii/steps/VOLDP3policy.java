@@ -107,9 +107,8 @@ public class VOLDP3policy extends CommonMethods {
 
 		} else {
 			System.out.println("Test failed!");
-
 		}
-
+		closeUnnecessaryTabs();
 	}
 
 	@Given("I select Tenent occupied and navigate to dwelling page")

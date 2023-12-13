@@ -49,7 +49,7 @@ public class MTR403_HO6_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
 		click(dwellingChevron.btnSave);

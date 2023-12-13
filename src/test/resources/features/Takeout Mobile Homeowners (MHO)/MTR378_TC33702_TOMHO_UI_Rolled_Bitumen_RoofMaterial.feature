@@ -10,7 +10,7 @@
   
  ## User: Admin, Agent
 
-@regression @mtr378
+@regression @mtr378 @tomhoregression
 Feature: MTR378--TO MHO AF - UI / RULES:Add Rolled/Bitumen roof material
 
   Scenario: Validate Rolled/Bitumen is added to the Roof Material selection and displays in order indicated 

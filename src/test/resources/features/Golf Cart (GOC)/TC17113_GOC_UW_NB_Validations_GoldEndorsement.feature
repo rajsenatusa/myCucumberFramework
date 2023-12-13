@@ -10,7 +10,7 @@
   
 ## User - underwriter1
 
-@regression @tc17113
+@regression @tc17113 @gocregression
 Feature: TC17113 GOC UW NB Validations - Gold Endorsement
 
   Scenario: Validate Gold Endorsement is able to be selected when Liability, Other Than Collision, and Collision are selected

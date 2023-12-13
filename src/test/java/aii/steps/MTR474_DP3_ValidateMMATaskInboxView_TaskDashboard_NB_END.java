@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
 
 import aii.utils.CommonMethods;
+import aii.utils.ConfigsReader;
 import io.cucumber.java.en.When;
 
 public class MTR474_DP3_ValidateMMATaskInboxView_TaskDashboard_NB_END extends CommonMethods {
@@ -17,6 +18,11 @@ public class MTR474_DP3_ValidateMMATaskInboxView_TaskDashboard_NB_END extends Co
 	static String policyNum;
 	static String workdate;
 	static String temp1;
+	static String refer;
+	static String status;
+	static String refer1;
+	static String status1;
+	static String workdate1;
 
 	@When("User takes note of the policy number for <MTR474>")
 	public void user_takes_note_of_the_policy_number_for_mtr474() {
@@ -27,7 +33,75 @@ public class MTR474_DP3_ValidateMMATaskInboxView_TaskDashboard_NB_END extends Co
 			e.printStackTrace();
 		}
 	}
+	@When("User enters all required information on policy information screen <mtr474>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr474() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
+		sendText(quote.txtZipCode, "34987");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on DP3 quote screen with current date as prior policy date <mtr474>")
+	public void user_enters_all_current_date_as_prior_date_mtr474() throws Exception {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "9 to 12 Months");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		selectDropdownText(policyChevron.ddInsuredReside, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
+	@When("User enters all required information on DP3 dwelling screen <mtr474>")
+	public void user_enters_all_required_information_on_dp3_dwelling_screen_mtr474() {
+
+		//sendText(dwellingChevron.txtYearConstruction, "2023");
+		wait(2);
+		sendText(dwellingChevron.txtSquareFeet, "2500");
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");
+		selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
+		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
+		click(dwellingChevron.btnCalculate);
+		wait(4);
+		sendText(dwellingChevron.txtCovALimit, "400000");
+		sendText(dwellingChevron.txtPersonalPropertyC, "12000");
+		click(dwellingChevron.btnSave);
+		wait(2);
+	}
+	@When("User completes endorsement <mtr474>")
+	public void user_completes_endorsement_mtr474() throws Exception {
+		click(closeoutChevron.btnEndorsePolicy);
+		wait(12);
+	}
+	@When("User selects endorsement date as current date <mtr474>")
+	public void user_selects_endorsement_date_as_current_date_mtr474() {
+		sendText(dashboard.txtSelectDate, dtf.format(currentDate));
+		wait(5);
+		click(dashboard.btnStart);
+		wait(5);
+		click(dashboard.btnStart);
+		wait(5);
+	}
 	@When("User searches previously created policy for <MTR474>")
 	public void user_searches_previously_created_policy_for_mtr474() {
 		sendText(dashboard.txtSearchBar, policyNum);
@@ -60,15 +134,15 @@ public class MTR474_DP3_ValidateMMATaskInboxView_TaskDashboard_NB_END extends Co
 
 	@When("User validates expected messages <Mandatory Mediation-Arbitration discount applied on Policy> and notates work date")
 	public void user_validates_expected_messages() throws Exception {
-		String temp1 = replaceMethod(policyNum, "-01", "");
+		temp1 = replaceMethod(policyNum, "-01", "");
 		verify_AnyLabel_IsVisible(driver, "Mandatory Mediation-Arbitration discount applied on Policy " + temp1
 				+ ". Please Review and follow up for signed acknowledgment if not received.");
-		String refer = getTaskReferrringUserStatus(driver, "Mandatory Mediation-Arbitration discount");
+		refer = getTaskReferrringUserStatus(driver, "Mandatory Mediation-Arbitration discount");
 		expectedValue_foundValue(driver, "Underwriting Clerk", refer);
-		String status = getTaskStatus(driver, "Mandatory Mediation-Arbitration discount");
+		status = getTaskStatus(driver, "Mandatory Mediation-Arbitration discount");
 		expectedValue_foundValue(driver, "Open", status);
-		String workdate = getTaskWorkDate(driver, "Mandatory Mediation-Arbitration discount");
-		expectedValue_foundValue(driver, dtf.format(currentDate.plusDays(30)), workdate);
+		workdate = getTaskWorkDate(driver, "Mandatory Mediation-Arbitration discount");
+		expectedValue_foundValue(driver, dtf.format(currentDate.plusDays(15)), workdate);
 	}
 
 	@When("User clicks Policy Tab")
@@ -79,16 +153,8 @@ public class MTR474_DP3_ValidateMMATaskInboxView_TaskDashboard_NB_END extends Co
 
 	@When("User changes system date to the work date")
 	public void user_changes_system_date_to_the_work_date() throws Exception {
-		// Get the workdate using the getTaskWorkDate method
-		workdate = getTaskWorkDate(driver, "Mandatory Mediation-Arbitration discount");
 
-		// Make sure the workdate is not null or empty
-		if (workdate != null && !workdate.isEmpty()) {
-			ChangeAdminDate_NotInbox(driver, workdate);
-		} else {
-			// Handle the case when workdate is not available
-			throw new Exception("Workdate not found or invalid.");
-		}
+		ChangeAdminDate_NotInbox(driver, workdate);
 	}
 
 	@When("User clicks Task Dashboard")
@@ -133,19 +199,19 @@ public class MTR474_DP3_ValidateMMATaskInboxView_TaskDashboard_NB_END extends Co
 
 	@When("User valiates Task Tab Referring User Status displayed as Underwriting Clerk")
 	public void user_validates_task_tab_referring_user() throws Exception {
-		String refer1 = getTaskReferrringUserStatus(driver, "Mandatory Mediation-Arbitration discount");
+		refer1 = getTaskReferrringUserStatus(driver, "Mandatory Mediation-Arbitration discount");
 		expectedValue_foundValue(driver, "Underwriting Clerk", refer1);
 	}
 
 	@When("User validates Task Status as open")
 	public void user_validates_task_status_as_open() throws Exception {
-		String status1 = getTaskStatus(driver, "Mandatory Mediation-Arbitration discount");
+		status1 = getTaskStatus(driver, "Mandatory Mediation-Arbitration discount");
 		expectedValue_foundValue(driver, "Open", status1);
 	}
 
 	@When("User validates task date")
 	public void user_validates_task_date() throws Exception {
-		String workdate1 = getTaskWorkDate(driver, "Mandatory Mediation-Arbitration discount");
+		workdate1 = getTaskWorkDate(driver, "Mandatory Mediation-Arbitration discount");
 		expectedValue_foundValue(driver, dtf.format(currentDate.plusDays(40)), workdate1);
 	}
 

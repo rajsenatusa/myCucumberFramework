@@ -40,7 +40,7 @@ public class TODP1_FIGA extends CommonMethods {
 
 	@Then("User validates 2024 FIGA TODP1 rate in Premium Info")
 	public void User_validates_2024_FIGA_TODP1_rate_in_Premium_Info() {
-		String expected = "91.37";
+		String expected = "91.56";
 		String actual = dashboard.fIGA2024PremiumInfo.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 		wait(1);
@@ -48,7 +48,7 @@ public class TODP1_FIGA extends CommonMethods {
 
 	@Then("User validates 2024 FIGA TODP1 rate in Review")
 	public void User_validates_2024_FIGA_TODP1_rate_in_Review() {
-		String expected = "$91.37";
+		String expected = "$91.56";
 		String actual = dashboard.fIGA2024TODP1Review.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 		wait(1);

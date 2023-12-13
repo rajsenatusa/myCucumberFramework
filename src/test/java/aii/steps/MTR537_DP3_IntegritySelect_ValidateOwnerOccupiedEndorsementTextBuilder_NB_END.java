@@ -1,29 +1,74 @@
 package aii.steps;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.When;
 
 public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuilder_NB_END extends CommonMethods {
+	
+	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+	static LocalDateTime currentDate = LocalDateTime.now();
+	static String policyNum;
+	
 	@When("User enters all required information on DP3 dwelling screen and validates New Line Item Displays Package Basic Policy and Integrity Select with Radio buttons display on the Dwelling Detail tile")
 	public void user_enters_all_required_information_on_dp3_dwelling_screen_and_validates_new_line_item_displays_package()
 			throws Exception {
 
-		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
-		wait(2);
-		sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
-		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
-		selectDropdownText(dwellingChevron.ddMediationArbitDp1, ConfigsReader.getProperty("mediation"));
-		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
-		selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
+		//sendText(dwellingChevron.txtYearConstruction, "2023");
+		sendText(dwellingChevron.txtSquareFeet, "2500");
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");
+		selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
+		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		click(dwellingChevron.btnCalculate);
 		wait(4);
+		sendText(dwellingChevron.txtRoofMaterialUpdate, "2023");
 		verifyAnyElement_Enabled(driver, "Building.PackageCoverageInd_2");
 		click(dwellingChevron.rbIntegritySelectPackage);
 		Hooks.scenario.log("Integrity Package selected");
 
 	}
+	@When("User enters all required information on policy information screen <mtr537>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr537() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
+		sendText(quote.txtZipCode, "34987");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on DP3 quote screen with current date as prior policy date <mtr537>")
+	public void user_enters_all_current_date_as_prior_date_mtr537() throws Exception {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "9 to 12 Months");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		selectDropdownText(policyChevron.ddInsuredReside, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
 	@When("User selects Integrity Select Package")
 	public void user_selects_integrity_select_package() throws Exception {
 
@@ -143,5 +188,6 @@ public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuil
 		verify_AnyLabel_IsVisible(driver,
 				"Coverage Modified: L - Personal Liability Limit 1 Changed From $100,000 to $300,000");
 		verify_AnyLabel_IsVisible(driver, "Coverage Modified: Home Computer Limit 1 Changed From $2,500 to $7,000");
+		Hooks.scenario.log("Test Case Completed!");
 	}
 }

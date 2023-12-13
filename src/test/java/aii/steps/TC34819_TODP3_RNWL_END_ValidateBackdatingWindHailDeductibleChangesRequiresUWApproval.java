@@ -83,7 +83,7 @@ public class TC34819_TODP3_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "06");
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
-		selectDropdownText(dwellingChevron.ddNumberofUnits, ConfigsReader.getProperty("numberofunits"));
+		selectDropdownText(dwellingChevron.ddNumberofUnits, "2");
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "41");
 		wait(2);
 		click(dwellingChevron.btnSave);

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,6 +24,44 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 	static String preAutoDt;
 	static String user;
 
+	@When("User enters all required information on policy information screen <tc35142>")
+	public void user_enters_all_required_information_on_policy_information_screen_tc35142() {
+
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@And("User enters Producer <tc35142>")
+	public void User_enters_Producer_tc35142() {
+		policyChevron.txtProducerCodeSel.sendKeys("AG1730A1");
+		click(dwellingChevron.btnSave);
+		wait(1);
+	}
+	@When("User adds operator information on quote screen <tc35142>")
+	public void user_adds_operator_information_on_quote_screen_tc35142() {
+		click(aibChevron.btnAddOperator);
+		wait(3);
+		selectDropdownText(golfcartChevron.ddDriverMaritalStatus, "Single");
+		selectDropdownText(golfcartChevron.ddDriverLicenseInd, "Yes");
+		selectDropdownText(aibChevron.ddLicenseState, "Florida");
+		sendText(aibChevron.txtLicenseNumber, "Y123101952915");
+		selectDropdownText(aibChevron.ddBoatExperience, "4");
+		selectDropdownText(golfcartChevron.ddDriverTrainingInd, "No");
+		wait(3);
+		click(golfcartChevron.btnNextGocScreen);
+
+	}
 	@When("User enters all required information on AIB quote screen for <tc35142>")
 	public void user_enters_all_required_information_on_aib_quote_screen_for_tc35142() {
 
@@ -67,9 +106,9 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		click(aibChevron.btnAddBoat);
 		wait(3);
 		sendText(aibChevron.txtBoatYear, "2019");
-		sendText(aibChevron.txtBoatHinNumber, ConfigsReader.getProperty("boathinnumber"));
-		selectDropdownText(aibChevron.ddBoatMake, ConfigsReader.getProperty("boatmake"));
-		sendText(aibChevron.txtBoatModel, ConfigsReader.getProperty("boatmodel"));
+		sendText(aibChevron.txtBoatHinNumber, "1548799652");
+		selectDropdownText(aibChevron.ddBoatMake, "Bayliner");
+		sendText(aibChevron.txtBoatModel, "Testing");
 		sendText(aibChevron.txtBoatPurchDate, dtf.format(currentDate));
 		selectDropdownText(aibChevron.ddBoatFinanced, "Owned");
 		wait(3);
@@ -100,7 +139,7 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 
 	@Given("User issues policy and close unnecessary tabs and taking note of the policy number <tc35142>")
 	public void user_issues_policy_and_close_unnecessary_tabs_tc35142() throws Exception {
-		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+		selectDropdownText(closeoutChevron.ddPaymentType, "None");
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
 		wait(5);
@@ -165,12 +204,14 @@ public class TC35142_AIB_NB_RNWL_ValidatePoliciesWith2orMoreAILossesWillnotRenew
 		selectDropdownText(claim.ddClaimBoatSelection, "2019 Bayliner Testing - 1548799652");
 		selectDropdownText(claim.ddClaimPurposeUse, "Business");
 		selectDropdownText(claim.ddClaimOperator, "None");
-		sendText(claim.txtClaimCurrentLocation, ConfigsReader.getProperty("address"));
+		sendText(claim.txtClaimCurrentLocation, "1163 Oak Bluff Dr");
 		sendText(claim.txtClaimLossDesc, "Boat Loss Notice Verification");
 		sendText(claim.txtClaimCity, "Davenport");
 		selectDropdownText(claim.ddClaimState, "Florida");
 		sendText(claim.txtClaimPostalCode, "33837");
+		click(driver.findElement(By.id("InsuredMailingAddr.addrVerifyImg")));
 		wait(1);
+		sendText(driver.findElement(By.id("LossLocationAddr.County")), "Polk");
 		click(claim.btnSave);
 		wait(3);
 	}

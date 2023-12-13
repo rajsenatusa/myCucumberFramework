@@ -1,19 +1,19 @@
 #Author: Can Yavas
 ##created on 08/07/2023
 
-@regression @mtr363
+@regression @mtr363 @dp3regression
 Feature: MTR363--Admin, NB, END, RNWL Validate Checklist form displays Personal Property Coverage as
-  ACV For Integrity Select on NB when Cov-C > 0 and Personal Property Replacement cost is unchecked and NA on RNWL
+  ACV For Integrity Select on NB when Cov-C larger than 0 and Personal Property Replacement cost is unchecked and NA on RNWL
 
   Scenario: Validate that the OIR-B1-1670 form shows Actual Cash Value for Loss Settlement Basis for Coverage C when the risk has
-    Coverage C > 0 and Personal Property Replacement Cost is unchecked on NB
+    Coverage C larger than 0 and Personal Property Replacement Cost is unchecked on NB
 
     Given User login to Spin as Underwriter Clerk
     When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <mtr363>
     And User enters DP3 product selection information and effective date as current date
-    And User enters Producer Code
-    And User enters all required information on DP3 quote screen with current date as prior policy date
+    And User enters Producer Code <mtr363>
+    And User enters all required information on DP3 quote screen with current date as prior policy date <mtr363>
     And User enters all required information on DP3 dwelling screen and selects integrity select package
     And User validates Coverage C defaults to %25 on integrity select package
     And User validates Personal Property Replacement Cost checkbox has been enabled and not selected

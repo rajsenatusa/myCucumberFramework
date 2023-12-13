@@ -6,7 +6,7 @@
 #EXPECTED RESULTS: Edits, error or hard stops triggerd in Quote status
 #User: AG1730
 @regression @tc33706
-Feature: TC33706_MHO_Private_ValidateQTValidations
+Feature: `
 
   Scenario: MHO Family Private Validation
     Given User login to Spin as Standard Agent

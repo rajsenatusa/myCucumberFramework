@@ -14,7 +14,7 @@
  ## User: Admin, Agent
 
 
-@regression @mtr374
+@regression @mtr374 @tomhpdregression
 Feature: MTR374--TO MHPD AF: RULES - Modify Windstorm or Hail Exclusion Rules and Edits
 
   Scenario: Validate As an Agent endorse the policy prior to RN effective Date, On RN Effective Date, After RN Effective Date & UW Approval

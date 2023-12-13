@@ -204,7 +204,7 @@ public class TC17316_GOC_Agent_NB_END_IncorrectGaragingLocationOnDecPage extends
 		App_Form = PdfComparator.makePdf(driver, "Application.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + App_Form);
-		wait(7);
+		wait(10);
 		// Garage Location lookup address
 		Garage_lookup = SmartPDFComparator2.getPDFtextByArea(FileLocation + App_Form, 1, 50, 340, 400, 150);
 		PdfComparator.verifyFormData(driver, Garage_lookup, "Garaging Location:");
@@ -254,7 +254,7 @@ public class TC17316_GOC_Agent_NB_END_IncorrectGaragingLocationOnDecPage extends
 		EndPackage_Form = PdfComparator.makePdf(driver, "EndorsementPackage.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + EndPackage_Form);
-		wait(8);
+		wait(10);
 
 		// Garage Location lookup address
 		EndGarage_lookup = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 1, 50, 340, 400, 150);
