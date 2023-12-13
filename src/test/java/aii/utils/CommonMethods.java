@@ -698,7 +698,7 @@ public class CommonMethods extends PageInitializer {
 		String PremiumFees = null;
 
 		try {
-			PremiumFees = driver.findElement(By.id("Full_PolicySummary_PremWithTaxesFeesAmt")).getText().toString();
+			PremiumFees = driver.findElement(By.id("PolicySummary_PremWithTaxesFeesAmt")).getText().toString();
 			Hooks.scenario.log("Policy Premium is: " + PremiumFees);
 		} catch (Exception e) {
 			e.printStackTrace();
