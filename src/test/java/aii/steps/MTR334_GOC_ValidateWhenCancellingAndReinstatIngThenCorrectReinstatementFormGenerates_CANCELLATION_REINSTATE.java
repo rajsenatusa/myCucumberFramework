@@ -200,7 +200,7 @@ public class MTR334_GOC_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		wait(2);
 		Con_Coverage_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Con_Coverage");
 		PdfComparator.SavePdfForm(driver, FileLocation + Con_Coverage_Form);
-		wait(8);
+		wait(10);
 		Con_Coverage_Form_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + Con_Coverage_Form, 1, 470, 720,
 				130, 50);
 		PdfComparator.verifyFormData(driver, Con_Coverage_Form_Version, "AIIC GOC RI 12 16");

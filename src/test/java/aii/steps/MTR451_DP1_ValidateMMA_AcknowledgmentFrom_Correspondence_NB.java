@@ -35,13 +35,13 @@ public class MTR451_DP1_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extends
 	@When("User enters all required information on DP1 dwelling screen and select MMA as yes and validates 'Premium amount includes Mandatory Mediation-Arbitration discount. Signed acknowledgement must be attached to policy in SPIN within 15 days' message")
 	public void user_enters_all_required_information_on_dp1_dwelling_screen_and_select_mma_as_yes() throws Exception {
 
-		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
+		sendText(dwellingChevron.txtYearConstruction, "2023");
 		wait(2);
-		sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
-		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
+		sendText(dwellingChevron.txtSquareFeet, "1700");
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
 		selectDropdownText(dwellingChevron.ddMediationArbitDp1, "Yes");
-		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
-		selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
+		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
 		click(dwellingChevron.btnCalculate);
 		wait(4);
 		click(dwellingChevron.btnSave);
@@ -50,7 +50,43 @@ public class MTR451_DP1_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extends
 				"Premium amount includes Mandatory Mediation-Arbitration discount. Signed acknowledgement must be attached to policy in SPIN within 15 days");
 		click(dwellingChevron.btnNext);
 	}
+	@When("User enters all required information on policy information screen <mtr451>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr451() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on DP1 quote screen with current date as prior policy date <mtr451>")
+	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_as_prior_policy_date_mtr451() {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
+		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
 	@When("User validates that DP1 policy has been created successfully and close tabs and takes note of the policy number <mtr451>")
 	public void user_validates_that_dp1_policy_has_been_created_successfully_and_close_tabs_and_takes_note_of_the_policy_number_mtr451()
 			throws Exception {
@@ -108,7 +144,7 @@ public class MTR451_DP1_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extends
 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + AppForm);
-		wait(1);
+		wait(12);
 		MMA_PreviewApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm, 2, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_PreviewApp_Version1, "AIIC DP1 MMAA 04 23");
 		MMA_PreviewApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm, 1, 70, 740, 200, 50);
@@ -165,7 +201,7 @@ public class MTR451_DP1_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extends
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + AppForm2);
 
-		Thread.sleep(500);
+		wait(12);
 		MMA_ProcessApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm2, 2, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_ProcessApp_Version1, "AIIC DP1 MMAA 04 23");
 		MMA_ProcessApp_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + AppForm2, 1, 70, 740, 200, 50);
@@ -188,7 +224,7 @@ public class MTR451_DP1_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extends
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + application_Form);
 
-		Thread.sleep(500);
+		wait(12);
 
 		MMA_NBApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 2, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version1, "AIIC DP1 MMAA 04 23");

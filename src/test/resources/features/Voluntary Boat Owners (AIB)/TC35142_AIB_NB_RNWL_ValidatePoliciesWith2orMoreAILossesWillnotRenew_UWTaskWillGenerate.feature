@@ -1,19 +1,19 @@
 #Author: Can Yavas
 ##created on 08/21/2023
 
-@regression @tc35142
+@regression @tc35142 @aibregression
 Feature: TC 35142--AIB Validate boat policies with 2 or more AI claims will not renew and UW task will be generated
 
   Scenario: Validating boat policies with 2 or more AI Claims do not renew and UW task will be created
   
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
-		And User enters all required information on policy information screen
+		And User enters all required information on policy information screen <tc35142>
 		And User enters AIB product selection information and current date as effective date
-		And User enters Producer
+		And User enters Producer <tc35142>
 		And User enters all required information on AIB quote screen for <tc35142>
 		And User selects liability coverage on quote screen for <tc35142>
-		And User adds operator information on quote screen
+		And User adds operator information on quote screen <tc35142>
 		And User enters all required information on AIB boat dwelling screen for <tc35142>
 		And User enters all required information on AIB review screen
 		And User creates AIB application

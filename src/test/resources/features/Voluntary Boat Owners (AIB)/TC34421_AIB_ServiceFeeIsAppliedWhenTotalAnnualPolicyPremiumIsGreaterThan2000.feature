@@ -13,7 +13,7 @@
  # User: gallopadmin
 
 
-@regression @tc34421
+@regression @tc34421 @aibregression
 Feature: TC 34421-AIB, Service fee is applied when Total Annual Policy Premium is greater than $2000 
 
   Scenario: Validating that Service fee is applied on tiers over $2000

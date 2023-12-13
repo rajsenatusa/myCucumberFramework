@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/14/2023
 
-@regression @mtr1411
+@regression @mtr1411 @dp1regression
 Feature: TC 34253--DP1, UW, Approvals 'Allow to Approve Age of Plumbing attribute'
 
   Scenario: Validate that Uw can approve the application when Allow to Approve Age of Plumbing attribute = Yes
@@ -9,7 +9,7 @@ Feature: TC 34253--DP1, UW, Approvals 'Allow to Approve Age of Plumbing attribut
 		When User starts transaction as a new customer
     And User enters all required information on policy information screen with old address
     And User enters DP1 product selection information and current date as effective date
-    And User enters all required information on DP1 quote screen with current date as prior policy date
+    And User enters all required information on DP1 quote screen with current date as prior policy date <mtr1411>
     And User clicks OK for the message "Roof Cover has been changed to FBC Equivalent."
 		And User enters all required information on DP1 dwelling screen for <mtr1411>
 		And User enters all required information on DP1 review screen

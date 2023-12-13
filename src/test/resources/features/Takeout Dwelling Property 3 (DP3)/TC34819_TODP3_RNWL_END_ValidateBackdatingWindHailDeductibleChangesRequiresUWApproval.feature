@@ -9,8 +9,8 @@
   
  ## User: AG1730
 
-@regression @tc34819
-Feature: TC 34819--TODP3: RULES - Backdating Wind/Hail Deductible Changes Prior to, On, and After RN Effective Date
+@regression @tc34819 @todp3regression @MTR376
+Feature: TC 34819-MTR376-TODP3: RULES - Backdating Wind/Hail Deductible Changes Prior to, On, and After RN Effective Date
 
   Scenario: Validate that the agent can still refer a deductible change for approval 
     Given User login to Spin as Admin Agent

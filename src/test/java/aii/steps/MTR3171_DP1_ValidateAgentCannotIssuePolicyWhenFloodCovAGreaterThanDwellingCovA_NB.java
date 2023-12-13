@@ -41,7 +41,7 @@ public class MTR3171_DP1_ValidateAgentCannotIssuePolicyWhenFloodCovAGreaterThanD
 	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_as_prior_policy_date_mtr3171() {
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));

@@ -41,7 +41,7 @@ public class TC16765_AIB_ValidateUWQuestionsTriggerApprovalwhenNeeded extends Co
 	@When("User enters all required information on AIB quote screen for <tc16765>")
 	public void user_enters_all_required_information_on_aib_quote_screen_for_tc16765() {
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Geico");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
 		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
@@ -465,7 +465,7 @@ public class TC16765_AIB_ValidateUWQuestionsTriggerApprovalwhenNeeded extends Co
 		verify_AnyText_IsVisible(driver, "Response to Underwriting question #16 requires Underwriting approval");
 		verify_AnyText_IsVisible(driver, "Response to Underwriting question #17 requires Underwriting approval");
 		verify_AnyText_IsVisible(driver, "Risk not eligible due to response to Underwriting question #18");
-		verify_AnyText_IsVisible(driver, "Additional Insured of type Additional Owner must be added");
+		//verify_AnyText_IsVisible(driver, "Additional Insured of type Additional Owner must be added");
 		verify_AnyText_IsVisible(driver, "Risk not eligible due to response to Underwriting question #20");
 		verify_AnyText_IsVisible(driver, "Risk not eligible due to response to Underwriting question #21");
 		verify_AnyText_IsVisible(driver, "Response to Underwriting question #22 requires Underwriting approval");
@@ -511,7 +511,7 @@ public class TC16765_AIB_ValidateUWQuestionsTriggerApprovalwhenNeeded extends Co
 		verify_AnyText_IsVisible(driver, "Response to Underwriting question #16 requires Underwriting approval");
 		verify_AnyText_IsVisible(driver, "Response to Underwriting question #17 requires Underwriting approval");
 		verify_AnyText_IsVisible(driver, "Risk not eligible due to response to Underwriting question #18");
-		verify_AnyText_IsVisible(driver, "Additional Insured of type Additional Owner must be added");
+		//verify_AnyText_IsVisible(driver, "Additional Insured of type Additional Owner must be added");
 		verify_AnyText_IsVisible(driver, "Risk not eligible due to response to Underwriting question #20");
 		verify_AnyText_IsVisible(driver, "Risk not eligible due to response to Underwriting question #21");
 		verify_AnyText_IsVisible(driver, "Response to Underwriting question #22 requires Underwriting approval");

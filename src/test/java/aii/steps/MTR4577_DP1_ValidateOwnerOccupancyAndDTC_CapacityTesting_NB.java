@@ -31,6 +31,16 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 		click(driver.findElement(By.id("Search")));
 		wait(2);
 	}
+	@When("User clicks Quote Policy Tab <mtr4577>")
+	public void user_clicks_Quote_Policy_Tab_mtr4577() {
+		driver.findElement(By.id("Menu_Policy")).click();
+		wait(2);
+	}
+	@When("User clicks Capacity Maintenance <mtr4577>")
+	public void user_clicks_Capacity_Maintenance_mtr4577() throws Exception {
+		clickonAnyButton(driver, "Menu_Policy_CapacityMaintenance");
+		wait(2);
+	}
 
 	@And("User checks Capacity Rule has been set to Capacity is of 10 mi to less than 15 mi is set for DP1 DP3 HO3 MHO3 and adds capacity in case it has not been set")
 	public void user_checks_Capacity_Rule_has_been_set_to_Capacity_is_of_10_mi_toless_than_15_mi_is_set_for_dp1_dp3_ho3_mho3() throws Exception {

@@ -14,13 +14,13 @@
 # User: AG1730, jbarnes, Gallopadmin
 
 
-@regression @mtr4577
+@regression @mtr4577 @dp1regression
 Feature: TC 16882-MTR4577-DP1 Standard Agent, NB, Occupancy Owner, DTC Distance to Coast, Capacity testing
 
   Scenario: Validate or DP1 policy in Manatee County, agent gets information message Cannot issue due to limited catastrophic capacity
     Given User login to Spin as Admin Agent
-    When User clicks Quote Policy Tab
-    And User clicks Capacity Maintenance
+    When User clicks Quote Policy Tab <mtr4577>
+    And User clicks Capacity Maintenance <mtr4577>
     And User searches Manatee County 
     And User checks Capacity Rule has been set to Capacity is of 10 mi to less than 15 mi is set for DP1 DP3 HO3 MHO3 and adds capacity in case it has not been set
     And User login to Spin as Standard Agent

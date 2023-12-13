@@ -34,7 +34,25 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+	@When("User enters all required information on DP1 quote screen with current date as prior policy date <mtr1411>")
+	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_as_prior_policy_date_mtr1411() {
+		// Quote Policy Chevron information was filled here
 
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
+		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
 	@When("User clicks OK for the message \"Roof Cover has been changed to FBC Equivalent.\"")
 	public void user_clicks_ok_for_the_message() {
 		click(reviewChevron.btnDialogOk);
@@ -113,7 +131,7 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 	@When("User searches Underwriter")
 	public void user_searches_underwriter() {
 		wait(5);
-		sendText(driver.findElement(By.id("LoginId")), "JLowe");
+		sendText(driver.findElement(By.id("LoginId")), "underwriter1");
 		wait(1);
 	}
 
@@ -144,6 +162,7 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 	@And("User validates 'Submit for Approval' is visible on closeout screen")
 	public void user_validates_submit_for_approval_is_visible_on_closeout() throws Exception {
 		verify_AnyLabel_IsVisible(driver, "Submit For Approval");
+		attachScreenShot(driver);
 	}
 
 	@And("User validates 'Pending Approval' is visible on closeout screen")

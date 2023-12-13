@@ -12,7 +12,7 @@
 ## User: AG1730
 
 
-@regression @tc16854 @MTR4507
+@regression @tc16854 @MTR4507 @gocregression
 Feature: TC 16854--MTR4507 Golf, Agent, NB, Loss History - 2 or more Loss, UW Approval 
 
   Scenario: Validate Agent needs UW approval for GOC policy binding with 2 or more losses
@@ -41,7 +41,7 @@ Feature: TC 16854--MTR4507 Golf, Agent, NB, Loss History - 2 or more Loss, UW Ap
     And User signs out
     And User login to Spin as Standard Agent
     And User searches application <tc16854>
-    And User process tx and finishes test tc16854
+    Then User process tx and finishes test tc16854
     
     
     

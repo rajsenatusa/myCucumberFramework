@@ -1,15 +1,15 @@
 #Author: Can Yavas
 ##created on 08/09/2023
 
-@regression @tc16846 @mtr361
+@regression @tc16846 @mtr361 @ho6regression
 Feature: TC 16846--MTR361 HO6, Diamond Agent, BillPlanChange
 
   Scenario: As an agent change bill plan several times throughout the life cycle of the policy
     Given User login to Spin as Diamond Agent
     When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <tc16846>
     And User enters HO6 product selection information and current date as effective date
-    And User enters all required information on HO6 quote screen with current date as prior policy date
+    And User enters all required information on HO6 quote screen with current date as prior policy date <tc16846>
  		And User enters all required information on HO6 dwelling screen and enters <35.000> for CovC
  		And User enters all required information on HO6 review screen and selects <8> payment plan
  		And User creates HO6 application
@@ -86,7 +86,7 @@ Feature: TC 16846--MTR361 HO6, Diamond Agent, BillPlanChange
     And User does auto renewal on policy
     And User signs out
     And User login to Spin as Diamond Agent
-    And User changes system date as autoRenew date and changes pay plan as <8 Pay Plan>
+    Then User changes system date as autoRenew date and changes pay plan as <8 Pay Plan>
     
     
     

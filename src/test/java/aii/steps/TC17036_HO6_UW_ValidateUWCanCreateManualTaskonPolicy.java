@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
 public class TC17036_HO6_UW_ValidateUWCanCreateManualTaskonPolicy extends CommonMethods {
@@ -32,6 +33,50 @@ public class TC17036_HO6_UW_ValidateUWCanCreateManualTaskonPolicy extends Common
 		wait(2);
 		click(product.btnContinue);
 		click(product.btnProductSelectionHo6);
+	}
+	@And("User enters Producer Code <tc17036>")
+	public void User_enters_Producer_Code_tc17036() {
+		policyChevron.txtProducerCodeSel.sendKeys("AG1730A1");
+		click(dwellingChevron.btnSave);
+		wait(1);
+	}
+	@When("User enters all required information on HO6 quote screen with current date as prior policy date <tc17036>")
+	public void user_enters_all_required_information_on_ho6_quote_screen_with_current_date_as_prior_policy_date_tc17036() {
+
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "9 to 12 Months");
+		selectDropdownText(policyChevron.ddInsuredReside, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
+	@When("User enters all required information on policy information screen <tc17036>")
+	public void user_enters_all_required_information_on_policy_information_screen_tc17036() {
+
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
 	}
 
 	@When("User enters all required information on HO6 quote screen with current date as prior policy date")

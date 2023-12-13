@@ -7,6 +7,7 @@ import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MTR367_DP3_OwnerOccupiedEndForm_EndorsetoIntegritySelect_END extends CommonMethods {
@@ -26,7 +27,58 @@ public class MTR367_DP3_OwnerOccupiedEndForm_EndorsetoIntegritySelect_END extend
 		click(dwellingChevron.lnkForms);
 		wait(5);
 	}
+	@When("User enters all required information on policy information screen <mtr367>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr367() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on DP3 quote screen with current date as prior policy date <mtr367>")
+	public void user_enters_all_current_date_as_prior_date_mtr367() throws Exception {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "9 to 12 Months");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		selectDropdownText(policyChevron.ddInsuredReside, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
+	@When("User enters all required information on DP3 dwelling screen <mtr367>")
+	public void user_enters_all_required_information_on_dp3_dwelling_screen_mtr367() {
+
+		sendText(dwellingChevron.txtYearConstruction, "2023");
+		wait(2);
+		sendText(dwellingChevron.txtSquareFeet, "1700");
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+		selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
+		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
+		click(dwellingChevron.btnCalculate);
+		wait(4);
+		click(dwellingChevron.btnSave);
+	}
 	@When("User validates <AIIC DP3 OO 04 23> form is not visible on basic policy")
 	public void user_validates_desired_form_is_not_visible_on_basic_policy() throws Exception {
 		verify_AnyText_NotVisible(driver, "AIIC DP3 OO 04 23");
@@ -80,7 +132,7 @@ public class MTR367_DP3_OwnerOccupiedEndForm_EndorsetoIntegritySelect_END extend
 		wait(5);
 	}
 
-	@When("User validates form details on endorsement package")
+	@Then("User validates form details on endorsement package")
 	public void user_validates_form_details_on_endorsement_package() throws Exception {
 		click(policyFileChevron.btnEndorsementPackageForm);
 		wait(7);

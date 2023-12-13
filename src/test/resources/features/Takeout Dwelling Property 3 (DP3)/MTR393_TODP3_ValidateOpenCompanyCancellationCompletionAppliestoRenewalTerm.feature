@@ -8,16 +8,16 @@
  
  ## User: Jlowe
  
-@regression @mtr393
+@regression @mtr393 @todp3regression
 Feature: TC 35243--UW, TODP3, Validate when open Company cancellation is completed that it also applies the cancellation to the renewal term
 
   Scenario: Validate when the open cancellation is completed that it also applies the cancellation to the renewal term
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <mtr393>
     And User enters product selection information for TODP3 and current date as effective date
-    And User enters all required information on TODP3 quote screen
-    And User enters all required information on TODP3 dwelling screen
+    And User enters all required information on TODP3 quote screen <mtr393>
+    And User enters all required information on TODP3 dwelling screen <mtr393>
     And User enters all required information on TODP3 review screen
     And User creates TODP3 application
     And User clicks special options chevron
@@ -51,6 +51,6 @@ Feature: TC 35243--UW, TODP3, Validate when open Company cancellation is complet
     And User validates 'conflict with changes made to the policy since this application was started. Expand to review' message has been displayed
     And User finalizes transaction <mtr393>
     And User clicks process and close unnecessary tabs
-    And User clicks cancelled policy and compare transaction status with expected value
+    Then User clicks cancelled policy and compare transaction status with expected value
     
     

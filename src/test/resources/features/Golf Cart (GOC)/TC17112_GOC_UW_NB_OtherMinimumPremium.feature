@@ -10,7 +10,7 @@
   
 ## User - underwriter1
 
-@regression @tc17112
+@regression @tc17112 @gocregression
 Feature: TC17112 GOC UW NB Other - Minimum Premium
 
   Scenario: Validate Increase to Minimum Premium section displays on Worksheets tile

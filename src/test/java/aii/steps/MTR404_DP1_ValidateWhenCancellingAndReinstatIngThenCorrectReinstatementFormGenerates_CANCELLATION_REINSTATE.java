@@ -2,6 +2,7 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -10,6 +11,7 @@ import aii.utils.ConfigsReader;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstatementFormGenerates_CANCELLATION_REINSTATE
@@ -35,27 +37,64 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		click(product.btnContinue);
 		click(product.btnProductSelectionDp1);
 	}
+	@When("User enters all required information on policy information screen <mtr404>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr404() {
 
-	@When("User enters all required information on DP1 quote screen with current date as prior policy date")
-	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_as_prior_policy_date() {
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@And("User enters Producer Code <mtr404>")
+	public void User_enters_Producer_Code_mtr404() {
+		policyChevron.txtProducerCodeSel.sendKeys("AG1730A1");
+		click(dwellingChevron.btnSave);
+		wait(1);
+	}
+	@When("User enters all required information on DP1 quote screen with current date as prior policy date <mtr404>")
+	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_as_prior_policy_date_mtr404() {
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
 		click(policyChevron.btnNoEmailRadio);
-		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
-		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytypedp1"));
-		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupieddp1"));
-		selectDropdownText(policyChevron.ddPropertyManaged, ConfigsReader.getProperty("propertymanaged"));
-		selectDropdownText(policyChevron.ddShortTermRental, ConfigsReader.getProperty("shorttermrental"));
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
+		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
+		selectDropdownText(policyChevron.ddShortTermRental, "No");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);
 	}
+	@When("User enters all required information on DP1 dwelling screen <mtr404>")
+	public void user_enters_all_required_information_on_dp1_dwelling_screen_mtr404() {
 
+		sendText(dwellingChevron.txtYearConstruction, "2023");
+		wait(2);
+		sendText(dwellingChevron.txtSquareFeet, "1700");
+		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+		selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
+		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
+		click(dwellingChevron.btnCalculate);
+		wait(4);
+		click(dwellingChevron.btnSave);
+		click(dwellingChevron.btnNext);
+	}
 	@When("User validates that DP1 policy has been created successfully and close tabs")
 	public void user_validates_that_dp1_policy_has_been_created_successfully_and_close_tabs() throws Exception {
 
@@ -171,7 +210,7 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 		verifyInstallmentInvoiceForm(driver, "Continuation of Coverage");
 	}
 
-	@And("User clicks Continuation of Coverage form, saves it to local and do comparisions and validations")
+	@Then("User clicks Continuation of Coverage form, saves it to local and do comparisions and validations")
 	public void User_clicks_form_and_does_validations() throws Exception {
 		click(policyFileChevron.btnContinuationOfCoverage);
 		wait(6);
@@ -193,5 +232,6 @@ public class MTR404_DP1_ValidateWhenCancellingAndReinstatIngThenCorrectReinstate
 				"Your policy has been reinstated as of the Reinstatement Date shown above without interruption of coverage since");
 		PdfComparator.verifyPDFText(driver, Con_Coverage_Data, "underwriting reason(s) met.");
 		Hooks.scenario.log("PDF form Data :  " + Con_Coverage_Data);
-	}
+		
+		Hooks.scenario.log("Test Case Completed!");	}
 }

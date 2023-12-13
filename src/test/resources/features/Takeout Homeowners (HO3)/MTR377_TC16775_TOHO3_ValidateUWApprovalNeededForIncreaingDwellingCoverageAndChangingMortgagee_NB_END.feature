@@ -11,7 +11,7 @@
 
 ## The test cases is pending resolution with defect IS 578
 
-@regression @mtr377
+@regression @mtr377 @toho3regression
 Feature: MTR377--TOHO3, Agent, END TX, Increase CovA, Change Deductible, Additional Interests, UW Approval
 
   Scenario: Validate Underwriting Manager approval is required Approval messages trigger on CloseOut screen
@@ -45,7 +45,7 @@ Feature: MTR377--TOHO3, Agent, END TX, Increase CovA, Change Deductible, Additio
     And User login to Spin as Underwriter
     And User searches for the application <mtr377>
     And User validates approval request texts have been displayed
-    And User clicks submit for approval button
+    And User clicks submit for approval button <mtr377>
     And User signs out
     And User login to Spin as Underwriter Clerk
     And User searches for the application <mtr377>

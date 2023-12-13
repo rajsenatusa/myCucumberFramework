@@ -44,11 +44,42 @@ public class TC37260_AIB_ValidateUpdatedMailingAddressDisplaysonDecPage_END exte
 		click(product.btnContinue);
 		click(product.btnProductSelectionAib);
 	}
+	@When("User enters all required information on policy information screen <tc37260>")
+	public void user_enters_all_required_information_on_policy_information_screen_tc37260() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User adds operator information on quote screen <tc37260>")
+	public void user_adds_operator_information_on_quote_screen_tc37260() {
+		click(aibChevron.btnAddOperator);
+		wait(3);
+		selectDropdownText(golfcartChevron.ddDriverMaritalStatus, "Single");
+		selectDropdownText(golfcartChevron.ddDriverLicenseInd, "Yes");
+		selectDropdownText(aibChevron.ddLicenseState, "Florida");
+		sendText(aibChevron.txtLicenseNumber, "Y123101952915");
+		selectDropdownText(aibChevron.ddBoatExperience, "4");
+		selectDropdownText(golfcartChevron.ddDriverTrainingInd, "No");
+		wait(3);
+		click(golfcartChevron.btnNextGocScreen);
+
+	}
 	@When("User enters all required information on AIB quote screen for <tc37260>")
 	public void user_enters_all_required_information_on_aib_quote_screen_for_tc37260() {
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Geico");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
 		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
@@ -89,9 +120,9 @@ public class TC37260_AIB_ValidateUpdatedMailingAddressDisplaysonDecPage_END exte
 		click(aibChevron.btnAddBoat);
 		wait(3);
 		sendText(aibChevron.txtBoatYear, "2019");
-		sendText(aibChevron.txtBoatHinNumber, ConfigsReader.getProperty("boathinnumber"));
-		selectDropdownText(aibChevron.ddBoatMake, ConfigsReader.getProperty("boatmake"));
-		sendText(aibChevron.txtBoatModel, ConfigsReader.getProperty("boatmodel"));
+		sendText(aibChevron.txtBoatHinNumber, "1548799652");
+		selectDropdownText(aibChevron.ddBoatMake, "Bayliner");
+		sendText(aibChevron.txtBoatModel, "Testing");
 		sendText(aibChevron.txtBoatPurchDate, dtf.format(currentDate));
 		selectDropdownText(aibChevron.ddBoatFinanced, "Owned");
 		wait(3);
@@ -139,7 +170,7 @@ public class TC37260_AIB_ValidateUpdatedMailingAddressDisplaysonDecPage_END exte
 
 	@Given("User issues policy and close unnecessary tabs and taking note of the policy number")
 	public void user_issues_policy_and_close_unnecessary_tabs() throws Exception {
-		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+		selectDropdownText(closeoutChevron.ddPaymentType, "None");
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
 		wait(5);
@@ -178,7 +209,7 @@ public class TC37260_AIB_ValidateUpdatedMailingAddressDisplaysonDecPage_END exte
 		application_Form = PdfComparator.makePdf(driver, "Application.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + application_Form);
-		wait(7);
+		wait(10);
 
 		application_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 1, 20, 200, 280,
 				120);
@@ -195,7 +226,7 @@ public class TC37260_AIB_ValidateUpdatedMailingAddressDisplaysonDecPage_END exte
 		Dec_Form = PdfComparator.makePdf(driver, "Declaration.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + Dec_Form);
-		wait(7);
+		wait(10);
 
 		Dec_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Dec_Form, 1, 20, 200, 280, 120);
 		PdfComparator.verifyFormData(driver, Dec_Form_FnE1, "1163 Oak Bluff DR");
@@ -210,7 +241,7 @@ public class TC37260_AIB_ValidateUpdatedMailingAddressDisplaysonDecPage_END exte
 		nb_Form = PdfComparator.makePdf(driver, "NBPackage.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + nb_Form);
-		wait(7);
+		wait(10);
 
 		nb_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + nb_Form, 3, 20, 200, 280, 120);
 		PdfComparator.verifyFormData(driver, nb_Form_FnE1, "1163 Oak Bluff DR");
@@ -256,7 +287,7 @@ public class TC37260_AIB_ValidateUpdatedMailingAddressDisplaysonDecPage_END exte
 		EndPack_Form = PdfComparator.makePdf(driver, "EndorsementPackage.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + EndPack_Form);
-		wait(7);
+		wait(10);
 
 		EndPack_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPack_Form, 1, 20, 200, 280, 120);
 		PdfComparator.verifyFormData(driver, EndPack_Form_FnE1, "11256 SW 62nd Avenue Rd");
@@ -287,7 +318,7 @@ public class TC37260_AIB_ValidateUpdatedMailingAddressDisplaysonDecPage_END exte
 		EndPack2_Form = PdfComparator.makePdf(driver, "EndorsementPackage.pdf");
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + EndPack2_Form);
-		wait(8);
+		wait(10);
 
 		EndPack2_Form_FnE1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPack2_Form, 1, 20, 200, 280, 120);
 		PdfComparator.verifyFormData(driver, EndPack2_Form_FnE1, "6356 SW 103rd Street Rd");

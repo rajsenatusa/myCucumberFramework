@@ -41,7 +41,7 @@ public class TC16800_AIB_AIBAgentChangeDateTransaction extends CommonMethods {
 	@When("User enters all required information on AIB quote screen for <tc16800>")
 	public void user_enters_all_required_information_on_aib_quote_screen_for_tc16800() {
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Geico");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
 		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");

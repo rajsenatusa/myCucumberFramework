@@ -8,7 +8,7 @@
     
 # User: Gallopadmin
 
-@regression @mtr2463
+@regression @mtr2463 @dp3regression
 Feature: MTR2463--Apply Prior Losses Concession: Validate Apply Prior Losses = Yes on NB; Age of home 0-5 years; Water Factors will apply
 
   Scenario: Validate Prior Carrier Claims Surcharge displays Number of Claims as number of water losses from Loss history tab in Worksheet
