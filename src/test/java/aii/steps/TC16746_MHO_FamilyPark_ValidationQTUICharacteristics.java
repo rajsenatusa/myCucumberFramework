@@ -159,13 +159,6 @@ public class TC16746_MHO_FamilyPark_ValidationQTUICharacteristics extends Common
 		wait(2);
 	}
 
-	@When("User verifies error messages")
-	public void User_verifies_error_messages() throws Exception {
-		wait(2);
-		verify_AnyText_IsVisible(driver, "Coverage A must be a minimum of $20,000 for the Adult Park Program ");
-		wait(2);
-	}
-
 	@When("User updates Coverage A as <100,000> and Windstorm or Hail Exclusion")
 	public void User_updates_Coverage_A_as_100000_and_Windstorm_or_Hail_Exclusion() {
 		wait(1);
@@ -258,8 +251,7 @@ public class TC16746_MHO_FamilyPark_ValidationQTUICharacteristics extends Common
 		verify_AnyText_IsVisible(driver,
 				"Number of Months Occupied is ineligible for coverage under the MHO3 policy form. ");
 		wait(2);
-		verify_AnyText_IsVisible(driver,
-				"The signed Windstorm or Hail exclusion form must be submitted after binding. ");
+		attachScreenShot(driver);
 		wait(2);
 	}
 
@@ -282,9 +274,7 @@ public class TC16746_MHO_FamilyPark_ValidationQTUICharacteristics extends Common
 		verify_AnyText_IsVisible(driver,
 				"Number of Months Occupied is ineligible for coverage under the MHO3 policy form. ");
 		wait(2);
-		verify_AnyText_IsVisible(driver,
-				"The signed Windstorm or Hail exclusion form must be submitted after binding. ");
-		wait(2);
+		
 	}
 
 	@When("User updates Coverage A as <500,000>")

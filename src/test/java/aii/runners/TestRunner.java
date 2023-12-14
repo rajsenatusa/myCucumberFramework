@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 		
-		tags = "@mtr537",
+		tags = "",
 
 		
 		// it provides the output console to more readable

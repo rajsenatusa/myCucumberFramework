@@ -226,7 +226,7 @@ public class CommonSteps extends CommonMethods {
 
 	@When("User enters all required information on policy information screen")
 	public void user_enters_all_required_information_on_policy_information_screen() {
-
+		wait(2);
 		// quote level information was filled here
 		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));

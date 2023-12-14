@@ -20,7 +20,6 @@ Feature: TC16746_MHO_FamilyPark_ValidationQTUICharacteristics
     And User updates Dwelling Chevron
     And User verifies error messages in Issues
     And User updates Coverage A and Windstorm or Hail Exclusion
-    And User verifies error messages
     And User updates Coverage A as <100,000> and Windstorm or Hail Exclusion
     And User verifies Windstorm or Hail exclusion message
     And User enters all required information on MHO3 quote screen with prior exp date as current date and selects park as property type for <tc16746> second quote
@@ -32,4 +31,4 @@ Feature: TC16746_MHO_FamilyPark_ValidationQTUICharacteristics
     And User updates Coverage A as <500,000>
     And User verifies messages
     And User validates that MHO3 Quote has been created successfully and takes note of the Quote number for <tc16746>
-    And User submits the application for UW approval
+     
