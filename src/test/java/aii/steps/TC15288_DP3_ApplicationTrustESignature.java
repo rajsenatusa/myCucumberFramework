@@ -120,9 +120,10 @@ public class TC15288_DP3_ApplicationTrustESignature extends CommonMethods {
 	}
 	@When("User sets payment type and sets E-signature and do validations <tc15288>")
 	public void user_sets_payment_type_and_sets_e_signature_and_do_validations_tc15288() throws Exception {
-		verify_AnyText_IsVisible(driver, "eSignature?*");
+		verify_AnyfirstText_IsDisplayed(driver, "eSignature?*");
+		attachScreenShot(driver);
 		verifyAnyDropdownDefaultedValue(driver, "eSignatureInd", "No");	
-		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+		selectDropdownText(closeoutChevron.ddPaymentType, "None");
 		wait(4);
 		selectDropdownText(closeoutChevron.ddEsignature, "Yes");
 		wait(1);

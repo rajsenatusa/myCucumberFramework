@@ -2,8 +2,6 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
@@ -46,7 +44,7 @@ public class MTR370_MHO_NB_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 			throws Exception {
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarriermho3"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		click(policyChevron.btnParkPropertyType);
 		wait(1);
@@ -66,8 +64,8 @@ public class MTR370_MHO_NB_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
 		click(policyChevron.btnNoEmailRadio);
-		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
-		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupiedmho3"));
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "12");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);
@@ -76,7 +74,7 @@ public class MTR370_MHO_NB_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 	@When("User enters all required information on MHO3 dwelling screen and sets covA as <65000>, checks wind exlusion button")
 	public void user_enters_all_required_information_on_mho3_dwelling_screen_and_sets_coverage_a_as_65000_checks_wind_exclusion() {
 
-		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
+		sendText(dwellingChevron.txtYearConstruction, "2023");
 		wait(2);
 		sendText(dwellingChevron.txtCoverageA, "65000");
 		wait(2);
@@ -126,15 +124,7 @@ public class MTR370_MHO_NB_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		makeCCPayment();
 
 		// Close unnecessary tabs
-		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		for (int i = tabs.size() - 1; i > 0; i--) {
-			driver.switchTo().window(tabs.get(i));
-			driver.close();
-		}
-
-		// Switch back to the main page
-		driver.switchTo().window(tabs.get(0));
-		wait(3);
+		closeUnnecessaryTabs();
 	}
 
 	@When("User does auto renewal throught batch jobs <mtr370>")
@@ -273,7 +263,12 @@ public class MTR370_MHO_NB_RNWL_END_ValidateBackdatingWindHailDeductibleChangesR
 		closeUnnecessaryTabs();
 		Hooks.scenario.log("Test Case Completed!");
 	}
-
+	@And("User enters Producer <mtr370>")
+	public void User_enters_Producer_mtr370() {
+		policyChevron.txtProducerCodeSel.sendKeys("AG1730A1");
+		click(dwellingChevron.btnSave);
+		wait(1);
+	}
 	@When("User changes system date to renewal date plus 1 day")
 	public void user_changes_system_date_to_renewal_date_plus_1_day() throws Exception {
 		ChangeAdminDate_NotInbox(driver, dtf.format(RnwlDate.plusDays(1)));

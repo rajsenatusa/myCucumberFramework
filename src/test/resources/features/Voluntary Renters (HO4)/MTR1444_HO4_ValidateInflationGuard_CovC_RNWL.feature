@@ -9,7 +9,7 @@
  
 # User: UW(underwriter1)
 
-@regression @mtr1444
+@regression @mtr1444 @ho4regression
 Feature: TC 38731--S 9452:VOL HO4 FL - 2022 Inflation Guard: High Value RN eff 09/19/2022
 
   Scenario: Validate that once renewed to 2022 term, Cov C increases by 10%

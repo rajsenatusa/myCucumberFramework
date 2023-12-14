@@ -11,7 +11,7 @@
 ## Note: Please login with gallopadmin and remove Catestropic threashold limit and add it after execution
 ## TEST CASE STEPS MODIFIED ON 09/19/2023 REGARDING CAPACITY RULE CHANGE AND APLUS DATA REPORTING ISSUE 
 
-@regression @mtr589
+@regression @mtr589 @ho3regression
 Feature: MTR589--HO3, Standard Agent, NB Water Loss over 5,000 , WDE, WDL, UW approval required
 
   Scenario: Validate Agent is not able to bind without Underwriting approval due to open water loss

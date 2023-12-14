@@ -13,7 +13,7 @@
 # User: AG1730
 
 
-@regression @tc35177 @MTR4506
+@regression @tc35177 @MTR4506 @mho3regression
 Feature: TC 35177-MTR4506-MHO Park AGENT UW NB - Validate Policy Agent cannot issue Roof Material Composition Shingle- NB Roof >16 but UW can issue
 
   Scenario: Validate the new attribute will not allow an agent to issue a policy with Roof Material is Composition Shingle, Year Roof Material Updated over 16 years old, regardless of Roof Settlement

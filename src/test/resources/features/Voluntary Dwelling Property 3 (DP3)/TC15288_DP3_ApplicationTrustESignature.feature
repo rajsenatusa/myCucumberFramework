@@ -10,7 +10,7 @@
  
 # User: AG1529
 
-@regression @tc15288
+@regression @tc15288 @dp3regression
 Feature: TC 15288--Vol DP3 - Creating DP3 Application Trust w/eSignature
 
   Scenario: Validate DP3 policy is created using eSignature feature

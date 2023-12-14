@@ -159,7 +159,7 @@ public class MTR1444_HO4_ValidateInflationGuard_CovC_RNWL extends CommonMethods{
 		PdfComparator.SavePdfForm(driver, FileLocation+RwlDec_Form);
 		wait(15);
 		
-		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 4, 0, 0, 800, 800);
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation+RwlDec_Form, 6, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm, "Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");

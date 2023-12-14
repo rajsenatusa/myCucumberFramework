@@ -8,7 +8,7 @@
   
  # User: AG1730
 
-@regression @tc15207
+@regression @tc15207 @ho3regression
 Feature: TC 15207--Vol HO3 - Creating HO3 Application JNT w/eSignature
 
   Scenario: Validate HO3 policy is created using eSignature feature
