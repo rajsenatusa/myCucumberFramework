@@ -284,6 +284,29 @@ public class UwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_PriorInsurance")
 	public WebElement scHo3Question9;
 	
+	@FindBy(id= "Question_Breed1")
+	public WebElement questionBreed1;
+	
+	@FindBy(id= "Question_BiteHistory")
+	public WebElement questionBiteHistory;
+	
+	@FindBy(id= "Question_ExoticAnimals")
+	public WebElement questionExoticAnimals;
+	
+	@FindBy(id= "Question_MatchingLimits")
+	public WebElement questionMatchingLimits;
+	
+	@FindBy(id= "Question_UnfencedPool")
+	public WebElement questionUnfencedPool;
+	
+	@FindBy(id= "Question_FloodProof")
+	public WebElement questionFloodProof; 
+	
+	@FindBy(id= "Question_PriorAIICPolicyNumber")
+	public WebElement questionPriorAIICPolicyNumber; 
+	
+	
+	
 	
 	public UwQuestionsPageElements() {
 		
