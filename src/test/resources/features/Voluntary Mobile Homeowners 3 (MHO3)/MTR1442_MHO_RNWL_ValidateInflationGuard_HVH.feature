@@ -1,16 +1,16 @@
 #Author: Can Yavas
 ##created on 08/16/2023
 
-@regression @mtr1442
+@regression @mtr1442 @mho3regression
 Feature: TR 8630--US 9453 :VOL MHO - Modify Inflation Guard - RN effective After 9/19/2022 HVH Cov A 500k
 
   Scenario: Validate Coverages will increase by 25%
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <mtr1442>
     And User enters MHO3 product selection information and effective date as current date
-    And User enters Producer Code
-		And User enters all required information on MHO3 quote screen with prior exp date as current date
+    And User enters Producer Code <mtr1442>
+		And User enters all required information on MHO3 quote screen with prior exp date as current date <mtr1442>
 		And User enters all required information on MHO3 dwelling screen and sets coverage A as <500.000> and coverage B as <%10> and clicks WindHailExclusion
 		And User enters all required information on MHO3 review screen
     And User creates MHO3 application

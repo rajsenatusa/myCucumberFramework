@@ -149,8 +149,8 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 		wait(3);
 	}
 
-	@When("User validates MMA Index is disabled")
-	public void user_validates_MMA_index_is_disabled() throws Exception {
+	@When("User validates MMA Index is editable")
+	public void user_validates_MMA_index_is_editable() throws Exception {
 		verifyAnyTextbox_EnabledDisabled(driver, "Building.MediationArbitrationInd_text");
 		scrollToAnyField(driver, "Mandatory Mediation Arbitration*");
 		attachScreenShot(driver);

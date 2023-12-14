@@ -10,16 +10,16 @@
 ## 4. Submit for approval
 ## 5. Issue NB as Agent
 
-@regression @mtr3173
+@regression @mtr3173 @ho4regression
 Feature: MTR3172 HO4 HO4 Agent Change Date Transaction 61 DAYS
 
   Scenario: Validate Agent is not able to complete change date transaction over 60 days
     Given User login to Spin as Standard Agent
     When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <mtr3173>
     And User enters HO4 product selection information and effective date as current date
-    And User enters all required information on HO4 quote screen with current date as prior policy date
-    And User enters all required information on HO4 dwelling screen
+    And User enters all required information on HO4 quote screen with current date as prior policy date <mtr3173>
+    And User enters all required information on HO4 dwelling screen <mtr3173>
     And User enters all required information on HO4 review screen
     And User creates HO4 application
     And User answers all underwriting questions for HO4

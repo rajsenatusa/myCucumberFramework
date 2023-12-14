@@ -41,7 +41,47 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 		wait(2);
 		click(dwellingChevron.btnNext);
 	}
+	@When("User enters all required information on policy information screen <mtr1442>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr1442() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@And("User enters Producer Code <mtr1442>")
+	public void User_enters_Producer_Code_mtr1442() {
+		policyChevron.txtProducerCodeSel.sendKeys("AG1730A1");
+		click(dwellingChevron.btnSave);
+		wait(1);
+	}
+	@When("User enters all required information on MHO3 quote screen with prior exp date as current date <mtr1442>")
+	public void user_enters_all_required_information_on_mho3_quote_screen_with_prior_exp_date_as_current_date_mtr1442() {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		click(policyChevron.btnPropertyTypePri);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "12");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
 	@And("User verifies NB MHO3 policy has been created successfully and takes note of the policy number for <mtr1442>")
 	public void User_verifies_NB_MHO3_policy_has_been_created_successfully_for_mtr1442() throws Exception {
 		String expected = "New Business";
@@ -110,14 +150,15 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
-
+		wait(10);
+		
 		RwlDecCoveragesForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 4, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$550,000");
 		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$55,000");
 		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$275,000");
 		PdfComparator.verifyFormData(driver, RwlDecCoveragesForm, "$110,000");
 
-		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 7, 0, 0, 800, 800);
+		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 6, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"Property Coverage limits have increased at renewal due to an inflation factor of 10%, as determined by an");
 		PdfComparator.verifyFormData(driver, RwlDecForm,
@@ -127,7 +168,7 @@ public class MTR1442_MHO_RNWL_ValidateInflationGuard_HVH extends CommonMethods {
 
 	@When("User validates data on the coverage form with expected data and completes test")
 	public void user_validates_data_on_the_coverage_form_with_expected_data_and_completes_test() throws Exception {
-		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 59, 0, 400, 600, 500);
+		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 58, 0, 400, 600, 500);
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$55,000");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$275,000");

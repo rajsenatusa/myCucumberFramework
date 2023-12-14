@@ -1,16 +1,16 @@
 #Author: Can Yavas
 ##created on 08/11/2023
 
-@regression @mtr557
+@regression @mtr557 @ho4regression
 Feature: TC 16891--HO4 - UW - Non-Renewals and Rescind Non-Renewal ( 124 & 125 Days from Expiration), Continuation of Coverage form
 
   Scenario: Validate that UW can Non Renew a policy upto 125 day from Policy Expiration Date
     Given User login to Spin as Standard Agent
     When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <mtr557>
     And User enters HO4 product selection information and effective date as current date
-    And User enters all required information on HO4 quote screen with current date as prior policy date
-    And User enters all required information on HO4 dwelling screen
+    And User enters all required information on HO4 quote screen with current date as prior policy date <mtr557>
+    And User enters all required information on HO4 dwelling screen <mtr557>
     And User enters all required information on HO4 review screen
     And User creates HO4 application
     And User answers all underwriting questions for HO4

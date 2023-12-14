@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
 
 import aii.utils.CommonMethods;
+import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
@@ -25,7 +26,52 @@ public class MTR3172_HO4_HO4AgentChangeDateTransaction30DAYS extends CommonMetho
 			e.printStackTrace();
 		}
 	}
+	@When("User enters all required information on policy information screen <mtr3172>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr3172() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on HO4 quote screen with current date as prior policy date <mtr3172>")
+	public void user_enters_all_required_information_on_ho4_quote_screen_mtr3172() {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "AAA");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdownText(policyChevron.ddMobileHomeInd, "No");
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, "Frame");
+		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "9 to 12 Months");
+		wait(1);
+		click(policyChevron.btnNext);
+	}
+	@When("User enters all required information on HO4 dwelling screen <mtr3172>")
+	public void user_enters_all_required_information_on_ho4_dwelling_screen_mtr3172() {
+
+		sendText(dwellingChevron.txtYearConstruction, "2023");
+		wait(2);
+		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
+		sendText(dwellingChevron.txtCoverageC, "30000");
+		click(dwellingChevron.btnSave);
+		wait(3);
+		click(dwellingChevron.btnNext);
+	}
 	@When("User searches for Policy Number for <mtr3172>")
 	public void user_searches_for_policy_number_for_mtr3172() throws Exception {
 		sendText(dashboard.txtSearchBar, policyNum);

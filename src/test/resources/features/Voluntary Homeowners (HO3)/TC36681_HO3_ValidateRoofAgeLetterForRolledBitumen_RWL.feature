@@ -8,7 +8,7 @@
  
 ## User: AG1777,Gallopadmin
 
-@regression @tc36681 @mtr4585
+@regression @tc36681 @mtr4585 @ho3regression
 Feature: TC36681 -mtr4585- HO3 Validate Roof Age Letter For RolledBitumen RENEWAL
 
   Scenario: Validate that a home, that has a 10 year old rolled Bitumen roof at renewal receives the letter for wind and X-Wind policies

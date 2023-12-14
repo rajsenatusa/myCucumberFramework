@@ -5,8 +5,9 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT:  Validating the edit and error messages trigger in quote status.
 #EXPECTED RESULTS: Edits, error or hard stops triggerd in Quote status
 #User: AG1730
-@regression @tc33706
-Feature: `
+
+@regression @tc33706 @mho3regression
+Feature: Validating the edit and error messages trigger in quote status
 
   Scenario: MHO Family Private Validation
     Given User login to Spin as Standard Agent
@@ -15,12 +16,12 @@ Feature: `
     And User enters MHO3 product selection information and effective date as current date
     And User enters all required information on MHO3 quote screen with prior exp date as current date and selects park as property type for <tc33706>
     And User validates error messages and delete quote for <tc33706>
-    When User starts transaction as a new customer
+    And User starts transaction as a new customer
     And User enters all required information on policy information screen and enters mobile park address again for <tc33706> second quote
     And User enters MHO3 product selection information and effective date as current date
     And User enters all required information on MHO3 quote screen with prior exp date as current date and selects park as property type again for <tc33706> second quote
     And User validates error messages and delete for <tc33706> second quote
-    When User starts transaction as a new customer
+    And User starts transaction as a new customer
     And User enters all required information on policy information screen and enters mobile park address again for <tc33706> third quote
     And User enters MHO3 product selection information and effective date as current date
     And User enters all required information on MHO3 quote screen with prior exp date as current date and selects park as property type again for <tc33706> third quote
@@ -33,4 +34,4 @@ Feature: `
     And User validates error messages
     And User updates Attached Structures
     And User validates error messages
-    And User validates that MHO3 Quote has been created successfully and takes note of the Quote number for <tc33706>
+    Then User validates that MHO3 Quote has been created successfully and takes note of the Quote number for <tc33706>

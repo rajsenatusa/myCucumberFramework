@@ -33,7 +33,41 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		click(reviewChevron.btnReview);
 		wait(2);
 	}
+	@When("User enters all required information on policy information screen <mtr371>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr371() {
 
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on MHO3 quote screen with prior exp date as current date <mtr371>")
+	public void user_enters_all_required_information_on_mho3_quote_screen_with_prior_exp_date_as_current_date_mtr371() {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		click(policyChevron.btnPropertyTypePri);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "12");
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
 	@And("User verifies NB MHO3 policy has been created successfully and takes note of the policy number for <mtr371>")
 	public void User_verifies_NB_MHO3_policy_has_been_created_successfully_for_mtr371() throws Exception {
 		String expected = "New Business";
@@ -118,6 +152,7 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 			throws Exception {
 		click(dwellingChevron.btnFinalize);
 		wait(2);
+		attachScreenShot(driver);
 		verify_AnyText_IsVisible(driver, "Change of Insured Name Must Be Approved ");
 		verify_AnyText_IsVisible(driver, "Change to Coverage A Limit requires underwriting approval. ");
 	}
@@ -141,8 +176,9 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 
 	@When("User validates 'Change of Insured Name Must Be Approved' and 'Change to Coverage A Limit requires underwriting approval.' texts have been displayed")
 	public void user_validates_texts_have_been_displayed() throws Exception {
-		verify_AnyText_IsVisible(driver, "Change of Insured Name Must Be Approved");
-		verify_AnyText_IsVisible(driver, "Change to Coverage A Limit requires underwriting approval.");
+		verify_AnyText_IsVisible(driver,"Change of Insured Name Must Be Approved ");
+		verify_AnyText_IsVisible(driver,"Change to Coverage A Limit requires underwriting approval. ");
+		attachScreenShot(driver);
 	}
 
 	@When("User process and completes endorsement <mtr371>")

@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/11/2023 
 
-@regression @mtr360
+@regression @mtr360 @ho4regression
 Feature: TC 16851--HO4 Agent AllowPayPlanChange
 
   
@@ -20,10 +20,10 @@ Feature: TC 16851--HO4 Agent AllowPayPlanChange
 		And User signs out
 		When User login to Spin as Automation Test Agent
 		And User starts transaction as a new customer
-		And User enters all required information on policy information screen
+		And User enters all required information on policy information screen <mtr360>
 		And User enters HO4 product selection information and current day as effective date
-		And User enters all required information on HO4 quote screen with current date as prior policy date
-		And User enters all required information on HO4 dwelling screen
+		And User enters all required information on HO4 quote screen with current date as prior policy date <mtr360>
+		And User enters all required information on HO4 dwelling screen <mtr360>
 		And User enters all required information on HO4 review screen
 		And User creates HO4 application
 		And User answers all underwriting questions for HO4

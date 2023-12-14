@@ -91,7 +91,7 @@ public class MTR4563_MHO_NB_ValidateAgentCannotIssueNBforRolledBitumenAndRoofGre
 		sendText(dwellingChevron.txtBuildingSerialNumber, "1257AWS678");
 		click(dwellingChevron.btnSave);
 		wait(2);
-		verify_AnyText_IsVisible(driver, "Risk is ineligible due to roof material and roof age.  ");
+		verify_AnyfirstText_IsDisplayed(driver, "Risk is ineligible due to roof material and roof age");
 		attachScreenShot(driver);
 		click(reviewChevron.btnFinalize);
 		wait(2);
