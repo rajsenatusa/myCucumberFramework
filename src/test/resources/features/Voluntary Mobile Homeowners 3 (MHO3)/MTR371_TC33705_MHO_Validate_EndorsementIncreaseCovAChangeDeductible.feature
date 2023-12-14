@@ -7,15 +7,15 @@
 ## EXPECTED RESULTS: Underwriter  approval is required Approval messages trigger on CloseOut screen. Agent  must Submit for Approval
 ## User: AG1730
 
-@regression @mtr371
+@regression @mtr371 @mho3regression
 Feature: MTR-371--MHO Agent, END TX, Increase CovA, Change Deductible, UW Approval
 
   Scenario: Validate Underwriter approval is required Approval messages trigger on CloseOut screen and Agent  must Submit for Approval
     Given User login to Spin as Standard Agent
 		When User starts transaction as a new customer
-    And User enters all required information on policy information screen
+    And User enters all required information on policy information screen <mtr371>
     And User enters MHO3 product selection information and effective date as current date
-    And User enters all required information on MHO3 quote screen with prior exp date as current date
+    And User enters all required information on MHO3 quote screen with prior exp date as current date <mtr371>
     And User enters all required information on MHO3 dwelling screen and sets covA as <75000>, ded.perils as <2500>, ded.hurricane as <%10>
     And User enters all required information on MHO3 review screen
     And User creates MHO3 application

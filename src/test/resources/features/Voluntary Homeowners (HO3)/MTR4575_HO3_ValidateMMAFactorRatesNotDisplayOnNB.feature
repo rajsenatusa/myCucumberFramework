@@ -13,7 +13,7 @@
   
  # User: AG1730
 
-@regression @mtr4575
+@regression @mtr4575 @ho3regression
 Feature: TC38455 HO3 Validate MMA Factor Rates Not Display On NB
 
   Scenario: Validate Mandatory Mediation-Arbitration Coverage factor will not display on NB and displays on END

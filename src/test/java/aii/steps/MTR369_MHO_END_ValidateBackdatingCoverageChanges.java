@@ -41,7 +41,7 @@ public class MTR369_MHO_END_ValidateBackdatingCoverageChanges extends CommonMeth
 			throws Exception {
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarriermho3"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		click(policyChevron.btnParkPropertyType);
 		wait(1);
@@ -61,8 +61,8 @@ public class MTR369_MHO_END_ValidateBackdatingCoverageChanges extends CommonMeth
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
 		click(policyChevron.btnNoEmailRadio);
-		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
-		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupiedmho3"));
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "12");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);
@@ -70,7 +70,7 @@ public class MTR369_MHO_END_ValidateBackdatingCoverageChanges extends CommonMeth
 	@When("User enters all required information on MHO3 dwelling screen and sets covA as <65000>, personal liability <500000>")
 	public void user_enters_all_required_information_on_mho3_dwelling_screen_and_sets_coverage_a_as_65000_personal_liability_500000() {
 
-		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
+		sendText(dwellingChevron.txtYearConstruction, "2023");
 		wait(2);
 		sendText(dwellingChevron.txtCoverageA, "65000");
 		wait(2);

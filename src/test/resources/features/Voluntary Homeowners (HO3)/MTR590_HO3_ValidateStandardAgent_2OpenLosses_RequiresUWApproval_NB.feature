@@ -11,7 +11,7 @@
 
 ## TEST CASE STEPS MODIFIED ON 09/19/2023 REGARDING CAPACITY RULE CHANGE AND APLUS DATA REPORTING ISSUE
 
-@regression @mtr590
+@regression @mtr590 @ho3regression
 Feature: MTR-590--HO3, Standard Agent, NB 2 or more losses, UW approval required
 
   Scenario: Validate Underwriting Approval required due to loss history

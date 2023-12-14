@@ -7,7 +7,7 @@
   
  # User: Tbrean
 
-@regression @tc23996
+@regression @tc23996 @ho3regression
 Feature: TC 23996--HO3 Adjuster Report A Loss (LN) UI Characteristic Validations
 
   Scenario: Validate Adjuster can Complete the  Loss Notice to Start Claim 

@@ -10,7 +10,7 @@
    
 ## User: AG1730
 
-@regression @tc38492 @MTR4468
+@regression @tc38492 @MTR4468 @dp3regression
 Feature: TC 38492-MTR4468-Validate Owner Occupied NB Endorsement- NB INTEGRITY SELECT Text Builder
 
   Scenario: Validate that NB Integrity Select DP3 Policy Owner Occupied Endorse to change to Basic and Coverages default as expected per requirements Text Builder is working as expected 

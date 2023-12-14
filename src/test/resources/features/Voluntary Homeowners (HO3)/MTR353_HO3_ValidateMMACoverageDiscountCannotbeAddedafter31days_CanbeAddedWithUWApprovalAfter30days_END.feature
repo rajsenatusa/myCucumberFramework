@@ -8,7 +8,7 @@
   
  ## User:AG1730
 
-@regression @mtr353
+@regression @mtr353 @ho3regression
 Feature: TC38454 HO3 Validate MMA Coverage Discount on NB And Endorsement
 
   Scenario: Validate MMA Coverage Discount on NB And Endorsement
@@ -29,7 +29,7 @@ Feature: TC38454 HO3 Validate MMA Coverage Discount on NB And Endorsement
     And User clicks EN Transaction Selection
     And User sets new effective date as current date plus 31 days and starts endorsement <mtr353>
     And User clicks Dwelling Chevron <mtr353>
-    And User validates MMA Index is disabled
+    And User validates MMA Index is editable
     And User clicks Finalize button <mtr353>
     And User clicks Modify Application and cancels transaction
     And User searches for the policy number <mtr353>

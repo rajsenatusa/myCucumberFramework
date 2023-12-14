@@ -16,7 +16,7 @@
 ## Validate the UW can override and allow the Endorsement when submitted for approval    
 ## User: AG1730
 
-@regression @mtr370
+@regression @mtr370 @mho3regression
 Feature: TC 35186--MHO Agent NB END - Validate Backdating WInd/Hail Deductible Changes Prior to On, and After RN Effective Date
 
   Scenario: Validate a change to coverage(s) with an Effective Date in the past fires the error
@@ -24,7 +24,7 @@ Feature: TC 35186--MHO Agent NB END - Validate Backdating WInd/Hail Deductible C
     When User starts transaction as a new customer
     And User enters all required information on policy information screen and enters mobile park address for <mtr370>
     And User enters MHO3 product selection information and effective date as current date
-    And User enters Producer
+    And User enters Producer <mtr370>
     And User enters all required information on MHO3 quote screen with prior exp date as current date and selects park as property type for <mtr370>
     And User enters all required information on MHO3 dwelling screen and sets covA as <65000>, checks wind exlusion button
     And User enters all required information on MHO3 review screen

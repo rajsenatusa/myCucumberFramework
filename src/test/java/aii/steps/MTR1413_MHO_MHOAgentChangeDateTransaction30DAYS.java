@@ -28,25 +28,52 @@ public class MTR1413_MHO_MHOAgentChangeDateTransaction30DAYS extends CommonMetho
 		click(product.btnContinue);
 		click(product.btnProductSelectionMho3);
 	}
+	@When("User enters all required information on policy information screen <mtr1413>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr1413() {
 
-	@When("User enters all required information on MHO3 quote screen with prior exp date as current date")
-	public void user_enters_all_required_information_on_mho3_quote_screen_with_prior_exp_date_as_current_date() {
+		// quote level information was filled here
+		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
+		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
+		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
+		click(quote.txtSearchName);
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+	@When("User enters all required information on MHO3 quote screen with prior exp date as current date <mtr1413>")
+	public void user_enters_all_required_information_on_mho3_quote_screen_with_prior_exp_date_as_current_date_mtr1413() {
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarriermho3"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		click(policyChevron.btnPropertyTypePri);
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
 		click(policyChevron.btnNoEmailRadio);
-		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
-		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupiedmho3"));
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "12");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);
 	}
+	@When("User enters all required information on MHO3 dwelling screen <mtr1413>")
+	public void user_enters_all_required_information_on_mho3_dwelling_screen_mtr1413() {
 
+		sendText(dwellingChevron.txtYearConstruction, "2023");
+		wait(2);
+		sendText(dwellingChevron.txtCoverageA, "120000");
+		wait(2);
+		click(dwellingChevron.btnSave);
+		click(dwellingChevron.btnNext);
+
+	}
 	@And("User verifies NB MHO3 policy has been created successfully and takes note of the policy number")
 	public void User_verifies_NB_MHO3_policy_has_been_created_successfully() throws Exception {
 		String expected = "New Business";
