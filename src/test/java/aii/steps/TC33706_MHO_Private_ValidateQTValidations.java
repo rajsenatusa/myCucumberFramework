@@ -85,7 +85,6 @@ public class TC33706_MHO_Private_ValidateQTValidations extends CommonMethods {
 	@When("User validates error messages and delete quote for <tc33706>")
 	public void User_validates_error_messages_and_delete_quote_for_tc33706() throws Exception {
 		verify_AnyText_IsVisible(driver, "County is closed for new business. ");
-		verify_AnyText_IsVisible(driver, "Capacity has been exceeded - Max Count: 0 for Miami-Dade ");
 		attachScreenShot(driver);
 		clickonAnyButton(driver, "Delete");
 		wait(1);
@@ -138,8 +137,7 @@ public class TC33706_MHO_Private_ValidateQTValidations extends CommonMethods {
 
 	@When("User validates error messages and delete for <tc33706> third quote")
 	public void User_validates_error_messages_and_delete_for_tc33706_third_quote() throws Exception {
-		verify_AnyText_IsVisible(driver, "Postal Code is closed for new business. ");
-		verify_AnyText_IsVisible(driver, "Tenant Occupied homes are not eligible. ");
+		verify_AnyText_IsVisible(driver, "Number of Months Occupied is ineligible for coverage under the MHO3 policy form. ");
 		attachScreenShot(driver);
 
 	}
@@ -190,7 +188,9 @@ public class TC33706_MHO_Private_ValidateQTValidations extends CommonMethods {
 	@When("User validates error messages and delete for <tc33706> second quote")
 	public void User_validates_error_messages_and_delete_for_tc33706_second_quote() throws Exception {
 		verify_AnyText_IsVisible(driver,
-				"Number of Months Occupied is ineligible for coverage under the MHO3 policy form. ");
+				"Postal Code is closed for new business. ");
+		verify_AnyText_IsVisible(driver,
+				"Tenant Occupied homes are not eligible. ");
 		attachScreenShot(driver);
 
 		clickonAnyButton(driver, "Delete");

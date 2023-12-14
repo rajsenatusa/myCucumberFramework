@@ -10,7 +10,7 @@
 ## Validate the UW can override and allow the Endorsement when submitted for approval    
 ## User: AG1730
 
-@regression @mtr369
+@regression @mtr369 @mho3regression
 Feature: TC 35185--MHO Agent NB END - Validate Backdating Coverage Changes Prior to, On, and Afer NB Effective Date
 
   Scenario: Validate a change to coverage(s) with an Effective Date in the past fires the error

@@ -9,7 +9,7 @@
   
 ## User: AG1730
 
-@regression @mtr359
+@regression @mtr359 @ho3regression
 Feature: TC 16763--HO3, Agent, END TX, Change Reserve Package, Increase CovA, Change Deductible, Change 1st Mortgagee, UW Approval
 
   Scenario: Validate Underwriting approval is required Approval messages trigger on CloseOut screen Agent must Submit for Approval

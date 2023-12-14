@@ -13,7 +13,7 @@
   
 ## User: JLOWE
 
-@regression @tc16404 @mtr4574
+@regression @tc16404 @mtr4574 @ho3regression
 Feature: TC 16404-mtr4574-HO3 UW NB END (SRO & ALCC) Claim RN(2) Forms Silver Reserve with all additional Optional coverages
 
   Scenario: Validate All forms will be verified in the following states

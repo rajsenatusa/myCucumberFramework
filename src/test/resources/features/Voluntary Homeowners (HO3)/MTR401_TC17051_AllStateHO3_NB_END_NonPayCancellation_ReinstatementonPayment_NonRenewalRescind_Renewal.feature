@@ -13,7 +13,7 @@
   
  ## User: AGISA006955
 
-@regression @mtr401
+@regression @mtr401 @ho3regression
 Feature: TC 17051--Allstate Agent test case: HO3, Allstate - New Business Endorsement - NonPay Cancellation - Reinstatement on Payment - Non Renewal/Rescind - Renewal
 
   Scenario: Validate All forms will be verified in the following states

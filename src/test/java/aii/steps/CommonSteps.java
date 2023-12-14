@@ -177,7 +177,23 @@ public class CommonSteps extends CommonMethods {
 		click(reviewChevron.btnPremiumInfo);
 		wait(3);
 	}
+	@When("User enters all required information on HO4 quote screen with current date as prior policy date")
+	public void user_enters_all_required_information_on_ho4_quote_screen() {
+		// Quote Policy Chevron information was filled here
 
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdownText(policyChevron.ddMobileHomeInd, "No");
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
+		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytypeho4"));
+		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
+		wait(1);
+		click(policyChevron.btnNext);
+	}
 	@When("User searches policy number before starting transaction")
 	public void user_searches_policy_number_before_starting_transaction() {
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
@@ -186,7 +202,23 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.search);
 		wait(1);
 	}
+	@When("User enters all required information on MHO3 quote screen with prior exp date as current date")
+	public void user_enters_all_required_information_on_mho3_quote_screen_with_prior_exp_date_as_current_date() {
+		// Quote Policy Chevron information was filled here
 
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarriermho3"));
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		click(policyChevron.btnPropertyTypePri);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
+		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupiedmho3"));
+		wait(1);
+		click(policyChevron.btnNext);
+		wait(3);
+	}
 	@When("User enters a valid password")
 	public void user_enters_a_valid_password() {
 		sendText(login.password, ConfigsReader.getProperty("password"));
@@ -226,7 +258,7 @@ public class CommonSteps extends CommonMethods {
 
 	@When("User enters all required information on policy information screen")
 	public void user_enters_all_required_information_on_policy_information_screen() {
-
+		wait(2);
 		// quote level information was filled here
 		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));

@@ -9,7 +9,7 @@
   
  # User: AG1730
 
-@regression @tc16647 @MTR4468
+@regression @tc16647 @MTR4468 @dp3regression
 Feature: TC 16647--MTR4468 DP3 Agent NB UI Basic Quote Mode UI Validations
 
   Scenario: Validate Quote is created while validating UI

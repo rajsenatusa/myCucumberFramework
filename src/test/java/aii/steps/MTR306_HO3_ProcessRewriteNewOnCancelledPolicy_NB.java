@@ -211,6 +211,7 @@ public class MTR306_HO3_ProcessRewriteNewOnCancelledPolicy_NB extends CommonMeth
 	@Then("User validates Home Cyber Protection field is disabled and completes test")
 	public void user_validates_home_cyber_protection_field_is_disabled_and_completes_test() throws Exception {
 		verifyAnyDisabledFieldsValue(driver, "Building.HomeCyberProtection_text", "$25,000");
+		moveToElement(driver.findElement(By.id("Building.HomeCyberProtection_text")));
 		Hooks.scenario.log("Test Case Completed!");
 	}
 }

@@ -95,7 +95,7 @@ public class TC35177_MHO_NB_ValidateAgentCannotIssueNBforCompositionShingleAndRo
 		sendText(dwellingChevron.txtBuildingSerialNumber, "1257AWS678");
 		click(dwellingChevron.btnSave);
 		wait(2);
-		verify_AnyText_IsVisible(driver, "Risk is ineligible due to roof material and roof age.  ");
+		verify_AnyfirstText_IsDisplayed(driver, "Risk is ineligible due to roof material and roof age.  ");
 		attachScreenShot(driver);
 		click(reviewChevron.btnFinalize);
 		wait(2);
@@ -133,7 +133,7 @@ public class TC35177_MHO_NB_ValidateAgentCannotIssueNBforCompositionShingleAndRo
 	@When("User validates 'Risk is ineligible based upon roof material and roof age' message has been displayed")
 	public void user_validates_Risk_is_ineligible_based_upon_roof_material_and_roof_age_message_has_been_displayed()
 			throws Exception {
-		verify_AnyText_IsVisible(driver, "Risk is ineligible due to roof material and roof age.  ");
+		verify_AnyfirstText_IsDisplayed(driver, "Risk is ineligible due to roof material and roof age.  ");
 		attachScreenShot(driver);
 	}
 

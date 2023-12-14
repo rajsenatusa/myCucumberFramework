@@ -43,9 +43,9 @@ public class MTR591_HO3_ValidateWaterLossGreaterThan5000_WDE_WDL_RequiresUWAppro
 		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
-		sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
-		click(dwellingChevron.btnSave);
-		wait(3);
+//		sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
+//		click(dwellingChevron.btnSave);
+//		wait(3);
 		sendText(policyChevron.txtPhoneNumber, "555-444-5555");
 		selectDropdownText(policyChevron.ddPhoneNumberType, "Mobile");
 		wait(2);

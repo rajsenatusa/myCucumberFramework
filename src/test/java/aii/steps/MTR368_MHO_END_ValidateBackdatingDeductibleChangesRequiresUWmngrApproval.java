@@ -42,7 +42,7 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 			throws Exception {
 		// Quote Policy Chevron information was filled here
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarriermho3"));
+		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		click(policyChevron.btnParkPropertyType);
 		wait(1);
@@ -62,8 +62,8 @@ public class MTR368_MHO_END_ValidateBackdatingDeductibleChangesRequiresUWmngrApp
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
 		click(policyChevron.btnNoEmailRadio);
-		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
-		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupiedmho3"));
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "12");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);

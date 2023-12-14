@@ -7,8 +7,8 @@
 ## EXPECTED RESULTS: Loss location address populated with umbrella policy address 
  
 ## User: Tbrean
- 
-@regression @mtr1443
+  
+@regression @mtr1443 @umbregression
 Feature: TC 35144--UMB Validate Adjuster can create Claim for loss location as 'Vehicle and all included exposures'
 
   Scenario: Validate Loss location address populated with umbrella policy address

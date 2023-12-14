@@ -6,7 +6,7 @@
   
 ## User:AG1730
 
-@regression @mtr306
+@regression @mtr306 @ho3regression
 Feature: MTR-306 : HO3-As an Client Service Agent I would like the ability to process a rewrite-New on Cancelled NB policy
 
   Scenario: Validate HO3 NB Policy is cancelled and UW can able to rewrite the cancelled Policy

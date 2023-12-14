@@ -5,7 +5,8 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT:  Create an MHO Application to verify if error and edit messages trigger and that the Agent cannot bind NB policy.  Agent must submit to UW for approval before agent can bind Policy
 #EXPECTED RESULTS: Agent cannot bind policy and must Submit for Approval.
 #User: AG1730
-@regression @tc16806
+
+@regression @tc16806 @mho3regression
 Feature: TC16806_MHO_Agent_APP_NB_Validations
 
   Scenario: MHO_Agent_APP_NB_Validations
