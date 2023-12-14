@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT:  Validating that edit and error messages trigger for the following in quote status..
 #EXPECTED RESULTS: Edits, error or hard stops triggerd in Quote status
 #User: AG1730
-@regression @tc16746
+@regression @tc16746 @mho3regression
 Feature: TC16746_MHO_FamilyPark_ValidationQTUICharacteristics
 
   Scenario: MHO Family Park Validation
@@ -30,5 +30,5 @@ Feature: TC16746_MHO_FamilyPark_ValidationQTUICharacteristics
     And User verifies messages for Coverage A
     And User updates Coverage A as <500,000>
     And User verifies messages
-    And User validates that MHO3 Quote has been created successfully and takes note of the Quote number for <tc16746>
+    Then User validates that MHO3 Quote has been created successfully and takes note of the Quote number for <tc16746>
      
