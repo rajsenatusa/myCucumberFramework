@@ -484,9 +484,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User clicks Save")
 	public void User_clicks_Save() {
-		wait(1);
+		wait(3);
 		click(dwellingChevron.btnSave);
-		wait(1);
+		wait(2);
 	}
 
 	@And("User clicks Next Page")

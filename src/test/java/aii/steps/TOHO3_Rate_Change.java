@@ -59,25 +59,25 @@ public class TOHO3_Rate_Change extends CommonMethods {
 	}
 	@Then("User validates TOHO3 Coverage A increases by 10 percent")
 	public void User_validates_TOHO3_Coverage_A_increases_by_10_percent() {
-		String expected = "$539,000";
+		String expected = "$541,000";
 		String actual = dwellingChevron.TOHO3CovALimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage B increases off of Coverage A inflated limit amount of 10 percent")
 	public void User_validates_TOHO3_Coverage_B_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percent() {
-		String expected = "$53,900";
+		String expected = "$54,100";
 		String actual = dwellingChevron.TOHO3CovBLimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percent")
 	public void User_validates_TOHO3_Coverage_C_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percent() {
-		String expected = "$269,500";
+		String expected = "$270,500";
 		String actual = dwellingChevron.TOHO3CovCLimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percent")
 	public void User_validates_TOHO3_Coverage_D_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percent() {
-		String expected = "$53,900";
+		String expected = "$54,100";
 		String actual = dwellingChevron.TOHO3CovDLimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
@@ -89,7 +89,7 @@ public class TOHO3_Rate_Change extends CommonMethods {
 	}
 	@Then("User validates TOHO3 Ordinance or Law Increases off of Coverage A inflated amount of 10 percent")
 	public void User_validates_TOHO3_Ordinance_or_Law_Increases_off_of_Coverage_A_inflated_amount_of_10_percent() {
-		String expected = "$134,750";
+		String expected = "$135,250";
 		String actual = dwellingChevron.TOHO3OrdOrLawLimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
@@ -101,31 +101,31 @@ public class TOHO3_Rate_Change extends CommonMethods {
 	}
 	@Then("User validates TOHO3 Coverage A on Coverages List")
 	public void User_validates_TOHO3_Coverage_A_on_Coverages_List() {
-		String expected = "539,000";
+		String expected = "541,000";
 		String actual = dwellingChevron.TOHO3CovACoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage B on Coverages List")
 	public void User_validates_TOHO3_Coverage_B_on_Coverages_List() {
-		String expected = "53,900";
+		String expected = "54,100";
 		String actual = dwellingChevron.TOHO3CovBCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage C on Coverages List")
 	public void User_validates_TOHO3_Coverage_C_on_Coverages_List() {
-		String expected = "269,500";
+		String expected = "270,500";
 		String actual = dwellingChevron.TOHO3CovCCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage D on Coverages List")
 	public void User_validates_TOHO3_Coverage_D_on_Coverages_List() {
-		String expected = "53,900";
+		String expected = "54,100";
 		String actual = dwellingChevron.TOHO3CovDCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Inflated value of Ordinance or Law on Coverages List")
 	public void User_validates_TOHO3_Inflated_value_of_Ordinance_or_Law_on_Coverages_List() {
-		String expected = "134,750";
+		String expected = "135,250";
 		String actual = dwellingChevron.TOHO3OrdOrLawLimitCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
@@ -170,11 +170,11 @@ public class TOHO3_Rate_Change extends CommonMethods {
 
 		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 6, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$539,000");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$53,900");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$269,500");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$53,900");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$134,750");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$541,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$54,100");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$270,500");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$54,100");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$135,250");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "2% of Coverage A");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "10% of Coverage A");
 		Hooks.scenario.log("Test Case Completed!");
@@ -185,10 +185,10 @@ public class TOHO3_Rate_Change extends CommonMethods {
 
 		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 35, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$539,000");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$53,900");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$269,500");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$10,780");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$541,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$54,100");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$270,500");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$10,820");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
 		wait(5);
@@ -213,24 +213,24 @@ public class TOHO3_Rate_Change extends CommonMethods {
 	}
 	@Then("User validates TOHO3 Coverage A increases by 10 percent after second RN")
 	public void User_validates_TOHO3_Coverage_A_increases_by_10_percent_after_second_RN() {
-		String expected = "$593,000";
+		String expected = "$596,000";
 		String actual = dwellingChevron.TOHO3CovALimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage B increases off of Coverage A inflated limit amount of 10 percent after second RN")
 	public void User_validates_TOHO3_Coverage_B_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percent_after_second_RN() {
-		String expected = "$59,300";
+		String expected = "$59,600";
 		String actual = dwellingChevron.TOHO3CovBLimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}@Then("User validates TOHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percent after second RN")
 	public void User_validates_TOHO3_Coverage_C_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percent_after_second_RN() {
-		String expected = "$296,500";
+		String expected = "$298,000";
 		String actual = dwellingChevron.TOHO3CovCLimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percent after second RN")
 	public void User_validates_TOHO3_Coverage_D_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percent_after_second_RN() {
-		String expected = "$59,300";
+		String expected = "$59,600";
 		String actual = dwellingChevron.TOHO3CovDLimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
@@ -242,7 +242,7 @@ public class TOHO3_Rate_Change extends CommonMethods {
 	}
 	@Then("User validates TOHO3 Ordinance or Law Increases off of Coverage A inflated amount of 10 percent after second RN")
 	public void User_validates_TOHO3_Ordinance_or_Law_Increases_off_of_Coverage_A_inflated_amount_of_10_percent_after_second_RN() {
-		String expected = "$148,250";
+		String expected = "$149,000";
 		String actual = dwellingChevron.TOHO3OrdOrLawLimit.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
@@ -254,31 +254,31 @@ public class TOHO3_Rate_Change extends CommonMethods {
 	}
 	@Then("User validates TOHO3 Coverage A on Coverages List after second RN")
 	public void User_validates_TOHO3_Coverage_A_on_Coverages_List_after_second_RN() {
-		String expected = "593,000";
+		String expected = "596,000";
 		String actual = dwellingChevron.TOHO3CovACoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage B on Coverages List after second RN")
 	public void User_validates_TOHO3_Coverage_B_on_Coverages_List_after_second_RN() {
-		String expected = "59,300";
+		String expected = "59,600";
 		String actual = dwellingChevron.TOHO3CovBCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage C on Coverages List after second RN")
 	public void User_validates_TOHO3_Coverage_C_on_Coverages_List_after_second_RN() {
-		String expected = "296,500";
+		String expected = "298,000";
 		String actual = dwellingChevron.TOHO3CovCCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Coverage D on Coverages List after second RN")
 	public void User_validates_TOHO3_Coverage_D_on_Coverages_List_after_second_RN() {
-		String expected = "59,300";
+		String expected = "59,600";
 		String actual = dwellingChevron.TOHO3CovDCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
 	@Then("User validates TOHO3 Inflated value of Ordinance or Law on Coverages List after second RN")
 	public void User_validates_TOHO3_Inflated_value_of_Ordinance_or_Law_on_Coverages_List_after_second_RN() {
-		String expected = "148,250";
+		String expected = "149,000";
 		String actual = dwellingChevron.TOHO3OrdOrLawLimitCoverageList.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}
@@ -323,11 +323,11 @@ public class TOHO3_Rate_Change extends CommonMethods {
 
 		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 4, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$593,000");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$59,300");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$296,500");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$59,300");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$148,250");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$596,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$59,600");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$298,500");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$59,600");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$149,000");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "2% of Coverage A");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "10% of Coverage A");
 		Hooks.scenario.log("Test Case Completed!");
@@ -338,10 +338,10 @@ public class TOHO3_Rate_Change extends CommonMethods {
 
 		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 33, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$593,000");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$59,300");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$296,500");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$11,860");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$596,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$59,600");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$298,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$11,920");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
 		wait(5);

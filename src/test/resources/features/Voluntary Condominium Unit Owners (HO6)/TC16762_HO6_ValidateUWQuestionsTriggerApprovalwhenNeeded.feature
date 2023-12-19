@@ -26,12 +26,23 @@ Feature: TC 16762--HO6 Agent App Validations "Validate UW questions trigger appr
     And User answers as Yes all UW questions for <tc16762>
     And User validates error messages in Policy chevron for <tc16762>
     And User checks application dwelling screen and finalizes transaction for <tc16762>
-    
-    
-    
-     
-    
-    
-    
-    
-     
+    And User validates error messages in Issues for <tc16762>
+    And User takes note of the application for <tc16762>
+    And User clicks submit for approval button for <tc16762>
+    And User signs out
+    And User login to Spin as Underwriter
+    And User searches for the application <tc16762>
+    And User verifies messages on issues tile for <tc16762>
+    And User verifies messages on Submitter Issues tile for <tc16762>
+    And User clicks submit for approval as underwriter
+    And User signs out
+    And User login to Spin as Underwriter Clerk
+    And User searches for the application <tc16762>
+    And User verifies Underwriter Clerk messages on Issues tile for <tc16762>
+    And User verifies Underwriter Clerk messages on Submitter Issues tile for <tc16762>
+    And User approves application
+    And User signs out
+    Given User login to Spin as Standard Agent
+    And User searches for the application <tc16762>
+    And User verifies Standard Agent messages on Submitter Issues tile for <tc16762>
+    Then User issues policy and close unnecessary tabs and completes test <tc16762>
