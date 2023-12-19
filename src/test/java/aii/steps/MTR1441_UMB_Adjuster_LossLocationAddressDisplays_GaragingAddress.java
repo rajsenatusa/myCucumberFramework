@@ -262,7 +262,7 @@ public class MTR1441_UMB_Adjuster_LossLocationAddressDisplays_GaragingAddress ex
 		wait(2);
 		scrollToAnyField(driver, "Property Information");
 		verifyAnyDropdownDefaultedValue(driver, "Claim.RiskIdRef",
-				"1 - Recreational Vehicle - 2020 Golf Make Golf Model");
+				"1 - Recreational Vehicle - 2020 GOC Make GOC Model");
 		verify_AnyLabel_IsVisible(driver, "11256 SW 62nd Avenue Rd");
 		verifyAnyTextboxAttributeValue(driver, "LossLocationAddr.City", "Ocala");
 		verifyAnyTextboxAttributeValue(driver, "LossLocationAddr.PostalCode", "34476");

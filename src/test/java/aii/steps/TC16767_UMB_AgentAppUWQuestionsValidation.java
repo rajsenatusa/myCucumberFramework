@@ -223,8 +223,8 @@ public class TC16767_UMB_AgentAppUWQuestionsValidation extends CommonMethods{
 		selectDropdownText(uwquestionsChevron.umbQuestion2, "Yes");
 		click(dwellingChevron.btnSave);
 		wait(2);
-		click(policyChevron.btnPolicyChevronLink);
 		verify_AnyLabel_IsVisible(driver, "Is animal liability excluded on any primary homeowner's policy?*");
+		click(policyChevron.btnPolicyChevronLink);	
 		attachScreenShot(driver);
 		driver.findElement(By.id("Wizard_Underwriting")).click();  //click underwriting chevron
 		selectDropdownText(driver.findElement(By.id("Question_MemberBite1")),"Yes");

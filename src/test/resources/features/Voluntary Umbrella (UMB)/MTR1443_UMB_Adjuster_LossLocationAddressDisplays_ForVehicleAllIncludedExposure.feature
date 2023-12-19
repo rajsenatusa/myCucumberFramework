@@ -30,7 +30,7 @@ Feature: TC 35144--UMB Validate Adjuster can create Claim for loss location as '
     And User issues policy
     And User validates that UMB policy has been created successfully and takes note of the policy number <mtr1443>
     And User signs out
-    And User login to Spin as Adjuster 2
+    And User login to Spin as Adjuster
     And User changes system date to loss date 'current date plus 10 days' <mtr1443>
     And User searches for the umbrella policy number <mtr1443>
     And User clicks Report Loss
