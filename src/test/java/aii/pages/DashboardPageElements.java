@@ -236,6 +236,15 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "dialogOK")
 	public WebElement dialogOK;
 	
+	@FindBy(id= "ReasonCd")
+	public WebElement ddreasonCd;
+	
+	@FindBy(id= "Add")
+	public WebElement btnAdd;
+	
+	@FindBy(id= "Process")
+	public WebElement btnProcess;
+	
 	
 	
 	public DashboardPageElements() {

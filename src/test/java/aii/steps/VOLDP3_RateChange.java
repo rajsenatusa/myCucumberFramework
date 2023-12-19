@@ -108,7 +108,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage A on Coverages List")
 	public void User_validates_DP3_Coverage_A_on_Coverages_List() {
 
-		String expected = "539,000";
+		String expected = "541,000";
 		String actual = dwellingChevron.DP3CoverageListCovA.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -117,7 +117,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage B on Coverages List")
 	public void User_validates_DP3_Coverage_B_on_Coverages_List() {
 
-		String expected = "10,780";
+		String expected = "10,820";
 		String actual = dwellingChevron.DP3CoverageListCovB.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -126,7 +126,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage C on Coverages List")
 	public void User_validates_DP3_Coverage_C_on_Coverages_List() {
 
-		String expected = "134,750";
+		String expected = "135,250";
 		String actual = dwellingChevron.DP3CoverageListCovC.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -135,7 +135,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage E on Coverages List")
 	public void User_validates_DP3_Coverage_E_on_Coverages_List() {
 
-		String expected = "53,900";
+		String expected = "54,100";
 		String actual = dwellingChevron.DP3CoverageListCovE.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -153,7 +153,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage A after second RN on Coverages List")
 	public void User_validates_DP3_Coverage_A_after_second_RN_on_Coverages_List() {
 
-		String expected = "593,000";
+		String expected = "596,000";
 		String actual = dwellingChevron.DP3CoverageListCovA.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -162,7 +162,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage B after second RN on Coverages List")
 	public void User_validates_DP3_Coverage_B_after_second_RN_on_Coverages_List() {
 
-		String expected = "11,860";
+		String expected = "11,920";
 		String actual = dwellingChevron.DP3CoverageListCovB.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -171,7 +171,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage C after second RN on Coverages List")
 	public void User_validates_DP3_Coverage_C_after_second_RN_on_Coverages_List() {
 
-		String expected = "148,250";
+		String expected = "149,000";
 		String actual = dwellingChevron.DP3CoverageListCovC.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -180,7 +180,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage E after second RN on Coverages List")
 	public void User_validates_DP3_Coverage_E_after_second_RN_on_Coverages_List() {
 
-		String expected = "59,300";
+		String expected = "59,600";
 		String actual = dwellingChevron.DP3CoverageListCovE.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -198,7 +198,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@When("User validates VOL DP3 10 percentage in RN Declaration Package")
 	public void User_validates_VOL_DP3_10_percentage_in_RN_Declaration_Package() throws Exception {
 //		switchToWindow(driver, "STFile&File");
-		
+
 		wait(5);
 
 		mainWindow = driver.getWindowHandle();
@@ -231,7 +231,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	public void User_validates_VOL_DP3_10_percentage_in_RN_Declaration_Package_for_second_RN() throws Exception {
 
 //		switchToWindow(driver, "STFile&File");
-		
+
 		wait(5);
 
 		mainWindow = driver.getWindowHandle();
@@ -247,7 +247,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + RwlDec_Form);
-		
+
 		wait(20);
 		RwlDecForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 13, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RwlDecForm,
@@ -278,10 +278,10 @@ public class VOLDP3_RateChange extends CommonMethods {
 
 		RwlCheckList_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 94, 0, 0, 800, 800);
 //		PdfComparator.verifyFormData(driver, RwlCheckList_Version, Cov_A_InfaltionValue);
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$593,000");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$11,860");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$148,250");
-		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$$59,300");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$596,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$11,920");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$149,000");
+		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$$59,600");
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
 	}
@@ -302,7 +302,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm,
 				"industry approved replacement cost estimator index to maintain insurance to an approximate replacement cost");
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
-		
+
 		wait(5);
 	}
 }
