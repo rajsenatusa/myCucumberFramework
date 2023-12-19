@@ -305,7 +305,12 @@ public class UwQuestionsPageElements extends CommonMethods {
 	@FindBy(id= "Question_PriorAIICPolicyNumber")
 	public WebElement questionPriorAIICPolicyNumber; 
 	
+	@FindBy(id= "Question_LicensePolicy")
+	public WebElement questionLicensePolicy; 
 	
+	@FindBy(id= "selectDropdownText(uwquestionsChevron.ho3Question26,")
+	public WebElement selectDropdownText26; 
+	 
 	
 	
 	public UwQuestionsPageElements() {

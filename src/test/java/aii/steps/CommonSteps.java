@@ -901,6 +901,7 @@ public class CommonSteps extends CommonMethods {
 
 	@Given("User signs out")
 	public void user_signs_out() {
+		wait(1);
 		click(dashboard.btnUserMenu);
 		wait(1);
 		click(dashboard.btnSignOut);

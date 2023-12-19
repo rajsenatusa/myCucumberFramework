@@ -129,3 +129,11 @@ Feature: Common Transactions and Steps
     And User clicks Seasonal Property
     And User clicks Original Systems Surcharge	
     And User creates MHO3 application
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User clicks Non-Renewal Transaction Selection
+    And User clicks Non-Renewal Rescind Transaction Selection
+    And User selects 'Failure to comply with underwriting requirements' as reason
+    And User searches for Policy Number for <tc16890>
+    And User changes date transaction to exp.date minus <125> days for <tc16890>
+    

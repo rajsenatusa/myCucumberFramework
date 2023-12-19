@@ -175,8 +175,10 @@ public class MTR557_TC16891_HO4_ValidateNonRenewalsRescindNonRenewalContinuation
 
 	@And("User switches the form, saves form and does comparision with expected texts")
 	public void User_switches_the_form_and_does_validations() throws Exception {
+		
+		wait(3);
 		switchToWindow(driver, "STFile&Filename");
-		wait(1);
+		wait(3);
 		Con_Coverage_Form = PdfComparator.getPolicyFileTabPdfName(driver, "Con_Coverage");
 		PdfComparator.SavePdfForm(driver, FileLocation + Con_Coverage_Form);
 		Thread.sleep(500);

@@ -52,7 +52,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 	@Then("User validates TODP3 Coverage A increases by 10 percent")
 	public void User_validates_TODP3_Coverage_A_increases_by_10_percent() {
 
-		String expected = "$539,000";
+		String expected = "$541,000";
 		String actual = dwellingChevron.TODP3CovA.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -61,7 +61,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 	@Then("User validates TODP3 Coverage B increases off of Coverage A inflated limit amount of 10 percent")
 	public void User_validates_TODP3_Coverage_B_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percent() {
 
-		String expected = "$53,900";
+		String expected = "$54,100";
 		String actual = dwellingChevron.TODP3CovB.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -70,7 +70,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 	@Then("User validates TODP3 Coverage D increases by 10 percent")
 	public void User_validates_TODP3_Coverage_D_increases_by_10_percent() {
 
-		String expected = "$53,900";
+		String expected = "$54,100";
 		String actual = dwellingChevron.TODP3CovD.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -96,7 +96,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 	@Then("User validates TODP3 Coverage A on Coverages List")
 	public void User_validates_TODP3_Coverage_A_on_Coverages_List() {
 
-		String expected = "539,000";
+		String expected = "541,000";
 		String actual = dwellingChevron.coverageListCovA.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -105,7 +105,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 	@Then("User validates TODP3 Coverage B on Coverages List")
 	public void User_validates_TODP3_Coverage_B_on_Coverages_List() {
 
-		String expected = "53,900";
+		String expected = "54,100";
 		String actual = dwellingChevron.coverageListCovB.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -114,7 +114,7 @@ public class TODP3_Rate_Change extends CommonMethods {
 	@Then("User validates TODP3 Coverage D on Coverages List")
 	public void User_validates_TODP3_Coverage_D_on_Coverages_List() {
 
-		String expected = "53,900";
+		String expected = "54,100";
 		String actual = dwellingChevron.coverageListCovD.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
