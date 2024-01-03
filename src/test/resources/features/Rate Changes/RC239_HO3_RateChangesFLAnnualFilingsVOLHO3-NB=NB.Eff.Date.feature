@@ -4,7 +4,6 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
 
   @RateChangeHO3-1
   Scenario Outline: RC-239: Rate Change-2023 HO3-Flood Rate Zone X and Foundation Basement
-    
     Given User navigates to QA7
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -68,8 +67,8 @@ Feature: RC-4:2023 Rate Changes- FL Annual Filings: VOL HO3
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | Jlowe    | password | 04/21/2023    | Frame            | Owner Occupied | 0 to 3 Months  |               2015 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mcemek   | Oct@2023! | 04/21/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2015 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
 
   @RateChangeHO3-2
   Scenario Outline: Rate Change-2023 HO3-Flood Rate Zone D and Foundation Slab
