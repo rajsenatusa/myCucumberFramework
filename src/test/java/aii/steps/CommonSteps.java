@@ -165,7 +165,6 @@ public class CommonSteps extends CommonMethods {
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
-
 	@When("User clicks History Chevron")
 	public void User_clicks_History_Chevron() {
 		click(reviewChevron.btnHistory);
