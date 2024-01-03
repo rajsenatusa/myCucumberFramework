@@ -17,9 +17,9 @@
  # EXPECTED RESULTS: Edits, error or hard stops triggered in Quote status
   
  # User: AG1730
- ## **TEST CASE IS INEFFECTIVE. OWNER OCCUPIED SELECTION FOR DP1 IS NOT AVAILABLE ANYMORE. REMOVED FROM REGRESSION. USER STORY NEEDS TO BE UPDATED
+ 
 
- @tc16741
+ @tc16741 @regression @dp1regression
 Feature: TC 16741--DP1 Agent Basic Policy QT Validations - Validate error messages for DP1 Characteristics
 
   Scenario: Validating Edits, error or hard stops are triggered in quote status
@@ -36,7 +36,7 @@ Feature: TC 16741--DP1 Agent Basic Policy QT Validations - Validate error messag
     And User changes property managed selection as yes and months occupied as montly rented total 6 times and validates expected issue messages 
     And User changes Lease Term as Annual and selects Short Term Rental as Yes and validates expected messages
     And User sets prior carrier, expiration date as current date minus 50 days and validates expected issue messages
-    And User sets prior carrier as new purchase removes expiration date sets occupancy as owner occupied 0 to 3 months and validates issue messages
+    And User sets prior carrier as new purchase removes expiration date sets occupancy as tenant occupied annual and validates issue messages
     And User enters all required information on DP1 dwelling screen and validates expected issue messages <tc16741>
     And User sets CoverageA as <1.700.000> and other deductibles and validates issue messages
     And User sets CoverageA as <10.000> and other deductibles and validates issue messages

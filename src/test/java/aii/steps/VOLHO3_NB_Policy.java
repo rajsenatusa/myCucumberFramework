@@ -389,6 +389,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	@And("User enters HO3 Underwritting Questions")
 	public void User_enters_HO3_Underwritting_Questions() {
 //	click(dwellingChevron.btnNext);
+		click(reviewChevron.btnUnderwriting);
 		selectDropdownText(uwquestionsChevron.ho3Question1, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question2, "No");
 		selectDropdownText(uwquestionsChevron.ho3Question3, "No");

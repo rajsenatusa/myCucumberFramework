@@ -8,7 +8,8 @@
 #2. Underwriting Approval referral is triggered
 #3. Agent cannot bind NB without Underwriting Approval
 #User: AG1730, jlowe, Underwriter Clerk
-@regression @tc16759
+
+@regression @tc16759 @dp3regression
 Feature: TC 16759--DP3 Agent Basic Policy App Validations
 
   Scenario: TC16759_DP3_ValidateUWQuestionsTriggerApprovalwhenNeeded

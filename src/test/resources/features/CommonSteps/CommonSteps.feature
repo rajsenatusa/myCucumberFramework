@@ -109,6 +109,7 @@ Feature: Common Transactions and Steps
     And User clicks Endorse button
     And User clicks Endorse Policy button
     And User clicks Review Chevron
+    And User clicks Underwriting Chevron
     And User clicks Premium Info Chevron
     And User clicks Start button
     And User clicks Finalize button
