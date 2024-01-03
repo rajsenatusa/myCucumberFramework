@@ -17,11 +17,11 @@
 Feature: TC 16879--HO6 Standard Agent, NB, Occupancy Owner, DTC  Distance to Coast  Capacity testing
 
   Scenario: Validate that HO6 policy in Manatee County, agent gets information message Cannot issue due to limited catastrophic capacity
-    #Given User login to Spin as Admin Agent
-    #When User clicks Quote Policy Tab <tc16879>
-    #And User clicks Capacity Maintenance <tc16879>
-    #And User searches Manatee County 
-    #And User checks Capacity Rule has been set to Capacity is of 10 mi to less than 15 mi is set for HO6 and adds capacity in case it has not been set
+    Given User login to Spin as Admin Agent
+    When User clicks Quote Policy Tab <tc16879>
+    And User clicks Capacity Maintenance <tc16879>
+    And User searches Manatee County 
+    And User checks Capacity Rule has been set to Capacity is of 10 mi to less than 15 mi is set for HO6 and adds capacity in case it has not been set
     And User login to Spin as Standard Agent
     And User starts transaction as a new customer
     And User enters all required information on policy information screen <tc16879>
@@ -35,9 +35,9 @@ Feature: TC 16879--HO6 Standard Agent, NB, Occupancy Owner, DTC  Distance to Coa
     And User sets payment type and validates expected issue messages <tc16879>
     And User takes note of the application number <tc16879>
     And User signs out <tc16879>
-    And User login to Spin as Underwriter
+    And User login to Spin as Underwriter Clerk
     And User searches for application number <tc16879>
-    And User validates 'App is owned by AG1730' 'Application in inquiry mode only' labels are visible
+    And User validates 'App is owned by AG1730' 'Application in inquiry mode only' labels are visible <tc16879>
     And User takes ownership of the application
     And User clicks Dwelling Chevron <tc16879>
     And User clicks Finalize button

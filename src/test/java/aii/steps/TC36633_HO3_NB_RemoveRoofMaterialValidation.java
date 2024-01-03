@@ -1,25 +1,13 @@
 package aii.steps;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-//import Member.CommonFunctions.PageUtility;
-//import Member.Pages.ActionsTile.ActionTile;
-//import Member.Tabs.Application.ApplicationTab;
-//import Member.Pages.Search.Search;
-//import Member.CommonFunctions.PageUtility;
-//import Member.Tabs.Policy.ReviewChevron;
-//import Member.CommonFunctions.PageUtility;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TC36633_HO3_NB_RemoveRoofMaterialValidation extends CommonMethods {

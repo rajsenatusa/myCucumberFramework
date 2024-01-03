@@ -1369,7 +1369,28 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+	/**
+	 * This method checks any generic message is visible or not
+	 * 
+	 */
+	public static boolean verify_GenericMessage_IsVisible(WebDriver driver, String text) throws Exception {
+		Thread.sleep(2000);
 
+		try {
+			if (driver.findElement(By.id("GenericBusinessError")).isDisplayed()) {
+				Hooks.scenario.log("Is visible: " + text);
+				attachScreenShot(driver);
+				return true;
+			}
+			return true;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is NOT visible: " + text);
+			wait(5);
+			return false;
+		}
+
+	}
 	/**
 	 * This method checks any desired text box value with expected value
 	 * 
