@@ -1,6 +1,5 @@
 package aii.steps;
 
-import java.text.SimpleDateFormat;
 import org.junit.Assert;
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
@@ -11,7 +10,7 @@ public class VOLHO6_NB_Policy extends CommonMethods {
 
 	@And("User enters HO6 New Product Version effective date")
 	public void User_enters_NB_HO6_New_Product_Version_effective_date() {
-		SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
+		//SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy");
 		product.txtEffectiveDate.sendKeys(ConfigsReader.getProperty("NBHO6NewProductVersioneffectivedate"));
 	}
 

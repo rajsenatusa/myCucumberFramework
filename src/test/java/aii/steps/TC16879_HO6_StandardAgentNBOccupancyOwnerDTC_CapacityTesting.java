@@ -209,7 +209,7 @@ public class TC16879_HO6_StandardAgentNBOccupancyOwnerDTC_CapacityTesting extend
 		selectDropdownText(dwellingChevron.ddStoryUnit, "1");
 		click(dwellingChevron.btnSave);
 		wait(2);
-		verify_AnyText_IsVisible(driver, "Actual insurance score results differs from the selected estimate");
+		verify_GenericMessage_IsVisible(driver, "Actual insurance score results differs from the selected estimate");
 		verify_AnyText_IsVisible(driver,
 				"Cannot issue due to limited catastrophic capacity [Distance to Coast which exceeds a minimum of 10 mi to less than 15 mi requires underwriting review]");
 		click(driver.findElement(By.id("Wizard_Underwriting")));
@@ -263,7 +263,7 @@ public class TC16879_HO6_StandardAgentNBOccupancyOwnerDTC_CapacityTesting extend
 		selectDropdownText(dwellingChevron.ddStoryUnit, "1");
 		click(dwellingChevron.btnSave);
 		wait(2);
-		verify_AnyText_IsVisible(driver, "Actual insurance score results differs from the selected estimate");
+		verify_GenericMessage_IsVisible(driver, "Actual insurance score results differs from the selected estimate");
 		verify_AnyText_IsVisible(driver,
 				"Cannot issue due to limited catastrophic capacity [Distance to Coast which exceeds a minimum of 10 mi to less than 15 mi requires underwriting review]");
 		click(reviewChevron.btnFinalize);
@@ -323,5 +323,10 @@ public class TC16879_HO6_StandardAgentNBOccupancyOwnerDTC_CapacityTesting extend
 		closeUnnecessaryTabs();
 		getPolicyNumber(driver);
 		Hooks.scenario.log("Test Case Completed!");
+	}
+	@When("User validates 'App is owned by AG1730' 'Application in inquiry mode only' labels are visible <tc16879>")
+	public void user_validates_App_is_owned_by_AG1730_Application_in_inquiry_mode_only_labels_are_visible_tc16879() throws Exception {
+		verify_AnyLabel_IsVisible(driver, AppNum+" is owned by AG1730");
+		verify_AnyLabel_IsVisible(driver, "Application in inquiry mode only");
 	}
 }

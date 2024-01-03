@@ -9,8 +9,6 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
-import aii.utils.PdfComparator;
-import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
