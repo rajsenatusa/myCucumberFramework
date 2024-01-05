@@ -15,7 +15,7 @@
 ## User: Admin
 
 
-@regression @mtr1019 @toho3regression @gwu
+@regression @mtr1010 @toho3regression @gu
 Feature: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on - Renewal Effective on 06/18/2023
 
   Scenario: Validate FORM content and formatting match clean copies attached to the AIIC 02 HO3 DEC 04 23 displays on  bottom of all pages
@@ -41,7 +41,7 @@ Feature: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on 
     And User clicks Start Transaction
     And User selects Renewal
     And User does manual renewal on the policy <mtr1010>
-    And User clicks Policy File Chevron
+    And User clicks Policy File Chevron <mtr1010>
     And User clicks Renewal Declaration Link and validates AIIC 02 HO3 DEC 04 23 form version listed in the package
     And User validates Counter Signature has been added on Renewal Declaration Package
     And User validates correct Additional Interest Information has been added on Renewal Declaration Package
@@ -49,7 +49,7 @@ Feature: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on 
     And User clicks Start Transaction
     And User selects Renewal
     And User does second manual renewal on the policy <mtr1010>
-    And User clicks Policy File Chevron
+    And User clicks Policy File Chevron <mtr1010>
     Then User clicks Second Renewal Declaration Link and validates AIIC 02 HO3 DEC 04 23 form version listed in the package and completes test
     
     

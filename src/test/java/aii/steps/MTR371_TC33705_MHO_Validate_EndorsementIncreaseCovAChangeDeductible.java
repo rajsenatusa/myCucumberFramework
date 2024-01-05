@@ -153,8 +153,8 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 		click(dwellingChevron.btnFinalize);
 		wait(2);
 		attachScreenShot(driver);
-		verify_AnyText_IsVisible(driver, "Change of Insured Name Must Be Approved ");
-		verify_AnyText_IsVisible(driver, "Change to Coverage A Limit requires underwriting approval. ");
+		verify_AnyText_IsVisible(driver, "Change of Insured Name Must Be Approved");
+		verify_AnyText_IsVisible(driver, "Change to Coverage A Limit requires underwriting approval");
 	}
 
 	@When("User takes note of the application for <mtr371>")
@@ -176,8 +176,8 @@ public class MTR371_TC33705_MHO_Validate_EndorsementIncreaseCovAChangeDeductible
 
 	@When("User validates 'Change of Insured Name Must Be Approved' and 'Change to Coverage A Limit requires underwriting approval.' texts have been displayed")
 	public void user_validates_texts_have_been_displayed() throws Exception {
-		verify_AnyText_IsVisible(driver,"Change of Insured Name Must Be Approved ");
-		verify_AnyText_IsVisible(driver,"Change to Coverage A Limit requires underwriting approval. ");
+		verify_AnyText_IsVisible(driver,"Change of Insured Name Must Be Approved");
+		verify_AnyText_IsVisible(driver,"Change to Coverage A Limit requires underwriting approval");
 		attachScreenShot(driver);
 	}
 
