@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 11/27/2023
 
- # TEST CASE NUMBER & TITLE: TC 33726--TO MHPD AF: RULES - Modify Deductible Rules and Edits
+ # TEST CASE NUMBER & TITLE: TC 33726-MTR4727-TO MHPD AF: RULES - Modify Deductible Rules and Edits
  # PRECONDITIONS (IF ANY): Change date to 30 days prior to Creating TOMHPD policy with an effective on or after 
  # 7/24/2021 (remove hard coded date after go live) With AOP,Fire, and VM&M  Deductibles at 2,500, HURR is 10%
  # Agent and Underwriter must have Change Date Roles
@@ -14,8 +14,8 @@
  # User: Admin, Agent
 
 
-@regression @tc33726 @tomhpdregression
-Feature: TC 33726--TO MHPD AF: RULES - Modify Deductible Rules and Edits
+@regression @tc33726 @tomhpdregression @mtr4727
+Feature: TC 33726-MTR4727-TO MHPD AF: RULES - Modify Deductible Rules and Edits
 
   Scenario: Validate As an Agent endorse the policy prior to RN effective Date, On RN Effective Date, After RN Effective Date & UW Approval
     Given User login to Spin as Admin Agent
