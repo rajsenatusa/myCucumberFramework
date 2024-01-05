@@ -3,23 +3,23 @@
 
 ## TEST CASE NUMBER & TITLE: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on - Renewal Effective on 06/18/2023
 ## PRECONDITIONS (IF ANY): TOHO3 policy effective 06/18/2022;add additional interest
-## HIGH LEVEL STEPS OF TEST SCRIPT:  
+## HIGH LEVEL STEPS OF TEST SCRIPT:
 ## 1.Log into the Spin as an Admin and search for policy from Pre-ConditionsRenew to next  term
 ## 2.Verify the Flood language on Page 3
 ## 3.Validate counter signature is added
 ## 4.Open the Additional Interest Dec Package and verify the new flood language and counter signature is matching with the clean copy
-## 5.Declaration should be present and FORM content and formatting match clean copies attached to the US 
+## 5.Declaration should be present and FORM content and formatting match clean copies attached to the US
 ## EXPECTED RESULTS: FORM content and formatting match clean copies attached to the AIIC 02 HO3 DEC 04 23 displays on  bottom of all pages
 ## counter signature should be  added and should match with clean copy
-  
+
 ## User: Admin
 
 
-@regression @mtr1010 @toho3regression @gwu
+@regression @mtr1010 @toho3regression @gu
 Feature: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on - Renewal Effective on 06/18/2023
-
+  
   Scenario: Validate FORM content and formatting match clean copies attached to the AIIC 02 HO3 DEC 04 23 displays on  bottom of all pages
-
+    
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
     And User enters all required information on policy information screen <mtr1010>
@@ -41,7 +41,7 @@ Feature: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on 
     And User clicks Start Transaction
     And User selects Renewal
     And User does manual renewal on the policy <mtr1010>
-    And User clicks Policy File Chevron
+    And User clicks Policy File Chevron <mtr1010>
     And User clicks Renewal Declaration Link and validates AIIC 02 HO3 DEC 04 23 form version listed in the package
     And User validates Counter Signature has been added on Renewal Declaration Package
     And User validates correct Additional Interest Information has been added on Renewal Declaration Package
@@ -49,7 +49,7 @@ Feature: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on 
     And User clicks Start Transaction
     And User selects Renewal
     And User does second manual renewal on the policy <mtr1010>
-    And User clicks Policy File Chevron
+    And User clicks Policy File Chevron <mtr1010>
     Then User clicks Second Renewal Declaration Link and validates AIIC 02 HO3 DEC 04 23 form version listed in the package and completes test
     
     
