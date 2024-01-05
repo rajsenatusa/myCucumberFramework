@@ -58,6 +58,26 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		wait(2);
 	}
 
+	@And("User enters HO3 Dwelling Address {string}")
+	public void User_enters_HO3_Dwelling_Address(String DwellingAddress) {
+		wait(2);
+		sendText(quote.customerLookupAddrStreetName, DwellingAddress);
+
+	}
+
+	@And("User enters HO3 Dwelling Zip {string}")
+	public void User_enters_HO3_Dwelling_Zip(String DwellingZip) {
+		wait(2);
+		sendText(quote.customerLookupAddrPostalCode, DwellingZip);
+		wait(2);
+		click(quote.btnVerifyAddress);
+		wait(2);
+		click(quote.btnCopyToMailAddress);
+		click(quote.btnCopyToBillAddress);
+		click(quote.btnSaveAndQuote);
+		wait(2);
+	}
+
 	@And("User enters effective date {string}")
 	public void User_enters_effective_date(String EffectiveDate) {
 		wait(2);
@@ -313,12 +333,16 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User selects Flood Foundation Type {string}")
 	public void User_selects_Flood_Foundation_Type(String FloodFoundationType) {
+
+		wait(1);
 		selectDropdownText(dwellingChevron.ddFloodFoundationType, FloodFoundationType);
 	}
 
 	@And("User selects Flood Zone Override {string}")
 	public void User_selects_Flood_Zone_Override(String FloodZoneOverride) {
+		wait(1);
 		selectDropdownText(dwellingChevron.ddFloodZoneOverride, FloodZoneOverride);
+		dwellingChevron.btnSave.click();
 	}
 
 	@And("User enters Base Flood Elevation Override")

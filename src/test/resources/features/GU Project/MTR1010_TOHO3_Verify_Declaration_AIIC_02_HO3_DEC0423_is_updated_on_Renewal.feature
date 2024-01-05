@@ -3,22 +3,29 @@
 
 ## TEST CASE NUMBER & TITLE: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on - Renewal Effective on 06/18/2023
 ## PRECONDITIONS (IF ANY): TOHO3 policy effective 06/18/2022;add additional interest
+ 
+ 
 ## HIGH LEVEL STEPS OF TEST SCRIPT:  
+
 ## 1.Log into the Spin as an Admin and search for policy from Pre-ConditionsRenew to next  term
 ## 2.Verify the Flood language on Page 3
 ## 3.Validate counter signature is added
 ## 4.Open the Additional Interest Dec Package and verify the new flood language and counter signature is matching with the clean copy
+ 
+
 ## 5.Declaration should be present and FORM content and formatting match clean copies attached to the US 
 ## EXPECTED RESULTS: FORM content and formatting match clean copies attached to the AIIC 02 HO3 DEC 04 23 displays on  bottom of all pages
 ## counter signature should be  added and should match with clean copy
-  
+
 ## User: Admin
 
 
 @regression @mtr1010 @toho3regression @gu
 Feature: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on - Renewal Effective on 06/18/2023
 
+
   Scenario: Validate FORM content and formatting match clean copies attached to the AIIC 02 HO3 DEC 04 23 displays on  bottom of all pages
+
 
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

@@ -4,8 +4,8 @@
 #Precondition-Create a NB policy with effective date = Inception Date (04/21/2023). Add Flood coverage on the policy with the details in test steps. Validate Generated rates are as expected.
 #HIGH LEVEL STEPS OF TEST SCRIPT:
 #EXPECTED RESULTS: Validate Generated rates are as expected.
-#User:Underwriter
-@regression @mtr2929
+#User:admin
+@regression @mtr2929 @gu
 Feature: MTR-2929_HO3_RateChangesValidationwithFloodCoverage
 
   Scenario Outline: Rate Changes Validation with Flood Coverage
@@ -17,7 +17,9 @@ Feature: MTR-2929_HO3_RateChangesValidationwithFloodCoverage
     And User clicks new custemer and quote
     And User clicks Entity Type
     And User enters Customer Informations
-    And User enters Dwelling Address
+   #And User enters Dwelling Address 
+    And User enters HO3 Dwelling Address "<DwellingAddress>"
+    And User enters HO3 Dwelling Zip "<DwellingZip>"
     And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL HO3 policy
@@ -72,5 +74,5 @@ Feature: MTR-2929_HO3_RateChangesValidationwithFloodCoverage
     And User clicks Finalize button
 
     Examples: Test Data
-      | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Jan@2024! | 04/21/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2020 |       2000 |                              7 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password  | EffectiveDate | DwellingAddress | DwellingZip | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mcemek   | Jan@2024! | 04/21/2023    | 13405 83rd ST   |       32948 | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       2000 |                              5 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $500                    | Slab                | A                 | Yes                 | No           | Yes                  |

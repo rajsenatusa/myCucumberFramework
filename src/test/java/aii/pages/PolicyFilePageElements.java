@@ -35,6 +35,13 @@ public class PolicyFilePageElements extends CommonMethods {
 	@FindBy(id= "Output_00001_1_Link")
 	public WebElement btnInsuranceQuote;
 	
+	@FindBy(xpath= "//*[@id=\"Draggable_00000_00002\"]/table/tbody/tr[1]")
+	public WebElement HO4DeclarationLink;
+	
+	@FindBy(xpath= "//*[@id=\"Draggable_00000_00000\"]/table/tbody/tr[1]")
+	public WebElement HO4NewBussinessPackageLink;
+	
+	
 	public PolicyFilePageElements() {
 		PageFactory.initElements(driver, this);
 		
