@@ -43,6 +43,8 @@ public class VOLHO3_RateChange extends CommonMethods {
 
 	@Then("User verifies Water NonWeather Base Rate")
 	public void User_verifies_Water_NonWeather_Base_Rate() {
+		click(worksheetsChevron.HO3WNWBasePremium);
+
 		String expected = "Initial Base Rate: 353.71<br> - Water Non-Weather Territory Code: 3<br> - Territory Factor: 1.630";
 		String actual = worksheetsChevron.txtWaterNonWeather.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
@@ -681,7 +683,6 @@ public class VOLHO3_RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlDecForm, "of the home");
 
 		wait(10);
-	
 
 	}
 

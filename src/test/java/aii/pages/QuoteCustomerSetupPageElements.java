@@ -92,6 +92,12 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy(id= "CustomerPhonePrimary.PhoneName")
 	public WebElement ddcustomerPhonePrimaryPhoneName;
 	
+	@FindBy(id= "CustomerLookupAddr.StreetName")
+	public WebElement customerLookupAddrStreetName;
+	
+	@FindBy(id= "CustomerLookupAddr.PostalCode")
+	public WebElement customerLookupAddrPostalCode;
+	
 	
 	
 	

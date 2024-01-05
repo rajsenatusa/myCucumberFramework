@@ -224,6 +224,8 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"Dwelling Detail\"]/table[1]/tbody/tr[2]/td[9]")
 	public WebElement HO4CovAInflationGuard;
 	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement HO3WNWBasePremium;
 	
 	
 	

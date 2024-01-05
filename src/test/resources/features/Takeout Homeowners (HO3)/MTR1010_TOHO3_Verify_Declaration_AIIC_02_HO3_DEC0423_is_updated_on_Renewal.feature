@@ -15,7 +15,7 @@
 ## User: Admin
 
 
-@regression @mtr1019 @toho3regression @gwu
+@regression @mtr1010 @toho3regression @gwu
 Feature: MTR1010--TOHO3, Verify Declaration AIIC 02 HO3 DEC 04 23 is updated on - Renewal Effective on 06/18/2023
 
   Scenario: Validate FORM content and formatting match clean copies attached to the AIIC 02 HO3 DEC 04 23 displays on  bottom of all pages
