@@ -160,7 +160,7 @@ public class MTR1010_TOHO3_Verify_Declaration_AIIC_02_HO3_DEC0423_is_updated_on_
 		click(dwellingChevron.btnFinalize);
 		wait(5);
 		click(reviewChevron.btnProcess);
-		wait(12);
+		wait(15);
 		closeUnnecessaryTabs();
 		// taking note of the renewal issued policy
 		try {
@@ -170,6 +170,11 @@ public class MTR1010_TOHO3_Verify_Declaration_AIIC_02_HO3_DEC0423_is_updated_on_
 			e.printStackTrace();
 		}
 	}
+	@When("User clicks Policy File Chevron <mtr1010>")
+	public void user_clicks_policy_file_chevron_mtr1010() throws Exception {
+		click(policyFileChevron.btnPolicyFilePage);
+		wait(5);
+	}
 	@When("User does second manual renewal on the policy <mtr1010>")
 	public void user_does_second_manual_renewal_on_the_polcy_mtr1010() {
 		click(dashboard.btnStart);
@@ -177,7 +182,7 @@ public class MTR1010_TOHO3_Verify_Declaration_AIIC_02_HO3_DEC0423_is_updated_on_
 		click(dwellingChevron.btnFinalize);
 		wait(5);
 		click(reviewChevron.btnProcess);
-		wait(12);
+		wait(15);
 		closeUnnecessaryTabs();
 	}
 	@When("User clicks Renewal Declaration Link and validates AIIC 02 HO3 DEC 04 23 form version listed in the package")
@@ -244,15 +249,15 @@ public class MTR1010_TOHO3_Verify_Declaration_AIIC_02_HO3_DEC0423_is_updated_on_
 		wait(10);
 
 		// Declaration page Forms
-		RNDec2_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 4, 0, 0, 800, 800);
+		RNDec2_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form2, 4, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RNDec2_Page, "AIIC 02 HO3 DEC 04 23");
-		RNDec2_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 5, 0, 0, 800, 800);
+		RNDec2_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form2, 5, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RNDec2_Page2, "AIIC 02 HO3 DEC 04 23");
-		RNDec2_Page3 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 6, 0, 0, 800, 800);
+		RNDec2_Page3 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form2, 6, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RNDec2_Page3, "AIIC 02 HO3 DEC 04 23");
-		RNDec2_Page4 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 7, 0, 0, 800, 800);
+		RNDec2_Page4 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form2, 7, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RNDec2_Page4, "AIIC 02 HO3 DEC 04 23");
-		RNDec2_Page5 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 8, 0, 0, 800, 800);
+		RNDec2_Page5 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form2, 8, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RNDec2_Page5, "AIIC 02 HO3 DEC 04 23");
 		
 		Hooks.scenario.log("Test Case Completed!");
