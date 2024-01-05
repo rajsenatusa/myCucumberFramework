@@ -137,4 +137,12 @@ Feature: Common Transactions and Steps
     And User selects 'Failure to comply with underwriting requirements' as reason
     And User searches for Policy Number for <tc16890>
     And User changes date transaction to exp.date minus <125> days for <tc16890>
-    
+    And User enters HO3 Dwelling Address "<DwellingAddress>"
+    And User enters HO3 Dwelling Zip "<DwellingZip>"
+    And User enters effective date "<EffectiveDate>"
+    And User enters Dwelling Address
+    And User enters HO4 product selection information and effective date as current date
+    And User enters HO4 product selection information and effective date as 04.21.2023
+    And User validates that HO4 policy has been created successfully and takes note of the policy number <mtr916>
+    And User clicks Policy File Chevron for <mtr916>
+    And User clicks HO4 Decleration link

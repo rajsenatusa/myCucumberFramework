@@ -1,14 +1,14 @@
 # Author: Mustafa Cemek
 # created on 12/15/2023
-#TEST CASE NUMBER & TITLE: TC 16890--HO6 - UW - Non-Renewals and Rescind Non-Renewal ( 124 & 125 Days from Expiration), Continuation of Coverage form
+#TEST CASE NUMBER & TITLE: TC 16890-MTR4728-HO6 - UW - Non-Renewals and Rescind Non-Renewal ( 124 & 125 Days from Expiration), Continuation of Coverage form
 #PRECONDITIONS (IF ANY): Current HO6  policy
 #HIGH LEVEL STEPS OF TEST SCRIPT:  UW can Non Renew a policy upto 125 day from Policy Expiration Date.
 #Then the user can rescind the non renewal transaction  and form Continuation of Coverage form is attached.
 #EXPECTED RESULTS: UW can Non Renew a policy upto 125 day from Policy Expiration Date.Then the user can rescind the non renewal transaction and form Continuation of Coverage form is attached.
 #The UW cannot Non Renew the policy on 124 day from Policy Expiration Date, gets message -'Transaction must occur within the allowed Non-Renewal Request date range'
 #User: UW(Jlowe)
-@regression @tc16890
-Feature: TC 16890--HO6 - UW - Non-Renewals and Rescind Non-Renewal (124 & 125 Days from Expiration)
+@regression @tc16890 @mtr4728
+Feature: TC 16890-MTR4728-HO6 - UW - Non-Renewals and Rescind Non-Renewal (124 & 125 Days from Expiration)
 
   Scenario: TC16890_HO6_ValidateNonRenewalsRescindNonRenewalContinuationOfCoverage
     Given User login to Spin as Standard Agent

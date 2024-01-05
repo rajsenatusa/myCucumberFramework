@@ -106,6 +106,9 @@ public class VOLHO4policy extends CommonMethods {
 
 		// Close unnecessary tabs
 		closeUnnecessaryTabs();
+		getPolicyNumber(driver);
+		getInForcePremium(driver);
+		getInForcePremiumFees(driver);
 
 	}
 
