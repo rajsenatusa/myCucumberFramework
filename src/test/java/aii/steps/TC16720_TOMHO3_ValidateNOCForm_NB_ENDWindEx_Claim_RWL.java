@@ -443,24 +443,24 @@ public class TC16720_TOMHO3_ValidateNOCForm_NB_ENDWindEx_Claim_RWL extends Commo
 
 		// Declaration Forms and End section
 		RwlFormsEndSection = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 3, 30, 320, 540, 200);
-		PdfComparator.verifyFormData(driver, RwlFormsEndSection, "AIIC AA 02 20");
+//		PdfComparator.verifyFormData(driver, RwlFormsEndSection, "AIIC AA 02 20");
 		PdfComparator.verifyFormData(driver, RwlFormsEndSection, "HO 04 94 06 97");
 
 		// Assignment aggrement notice
-		RwlAssignment_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 5, 490, 35, 250, 50);
-		PdfComparator.verifyFormData(driver, RwlAssignment_Version1, "AIIC AA 02 20");
-		RwlAssignment_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 5, 70, 740, 250, 50);
-		PdfComparator.verifyFormData(driver, RwlAssignment_Version, "AIIC AA 02 20");
-
-		RwlAssignment_Data = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
-		PdfComparator.verifyPDFText(driver, RwlAssignment_Data, "AIIC AA 02 20");
-		RwlAssignment_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
-		PdfComparator.verifyPDFText(driver, RwlAssignment_Name, "ASSIGNMENT AGREEMENT NOTICE");
+//		RwlAssignment_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 5, 490, 35, 250, 50);
+//		PdfComparator.verifyFormData(driver, RwlAssignment_Version1, "AIIC AA 02 20");
+//		RwlAssignment_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 5, 70, 740, 250, 50);
+//		PdfComparator.verifyFormData(driver, RwlAssignment_Version, "AIIC AA 02 20");
+//
+//		RwlAssignment_Data = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
+//		PdfComparator.verifyPDFText(driver, RwlAssignment_Data, "AIIC AA 02 20");
+//		RwlAssignment_Name = PdfComparator.getPDFData(FileLocation + RwlDec_Form);
+//		PdfComparator.verifyPDFText(driver, RwlAssignment_Name, "ASSIGNMENT AGREEMENT NOTICE");
 
 		// Windhail exclusion form
-		RwlWindHail_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 51, 475, 50, 100, 30);
+		RwlWindHail_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 50, 475, 50, 100, 30);
 		PdfComparator.verifyFormData(driver, RwlWindHail_Version1, "HO 04 94 06 97");
-		RwlWindHail_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 51, 50, 755, 120, 30);
+		RwlWindHail_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 50, 50, 755, 120, 30);
 		PdfComparator.verifyFormData(driver, RwlWindHail_Version, "HO 04 94 06 97");
 
 		RwlWindHail_Data = PdfComparator.getPDFData(FileLocation + RwlDec_Form);

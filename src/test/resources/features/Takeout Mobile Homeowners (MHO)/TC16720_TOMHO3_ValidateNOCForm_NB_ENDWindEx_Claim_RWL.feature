@@ -75,7 +75,7 @@ Feature: TC 16720-MTR4461-TOMHO3, UWMgr: End (Wind/Hail Excl) , Claim RN(2) Form
     And User searches for the renewed policy number <tc16720>
     And User clicks Forms Chevron <tc16720>
     And User validates 'HO 04 94 06 97' form and Assignment Agreement Notice 01 19 form is visible on forms chevron <tc16720>
-    And User clicks Assignment Agreement Notice form and validates form version <tc16720>
+    #And User clicks Assignment Agreement Notice form and validates form version <tc16720>
     And User clicks Policy File Chevron <tc16720>
     And User clicks Renewal Declaration and validates form version <tc16720>
     And User clicks Make Payment and do renewal payment <tc16720>

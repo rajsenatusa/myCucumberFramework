@@ -16,7 +16,7 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 	public void User_returns_to_main_page() {
 		wait(16);
 		driver.switchTo().window(driver.getWindowHandle());
-		wait(16);
+		wait(5);
 
 	}
 
