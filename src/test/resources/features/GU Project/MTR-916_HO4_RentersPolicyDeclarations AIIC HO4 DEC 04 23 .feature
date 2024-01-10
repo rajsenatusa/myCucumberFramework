@@ -34,7 +34,6 @@ Feature: MTR-916_HO4_Renters Policy Declarations AIIC HO4 DEC 04 23
     And User clicks Process
     And User validates that HO4 policy has been created successfully and takes note of the policy number <mtr916>
     And User clicks Policy File Chevron for <mtr916>
-    And User clicks HO4 Decleration link
-    And User validates AIIC HO4 DEC 04 23 form version listed in the declaration package
-    And User clicks HO4 New Business package link
-    And User validates AIIC HO4 DEC 04 23 form version listed in the New Business package
+    And User clicks HO4 Renewal Decleration link
+    And User validates AIIC HO4 DEC 04 23 form version listed in the Renewal Decleration package
+    

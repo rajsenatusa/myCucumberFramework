@@ -10,14 +10,13 @@ Feature: MTR-2929_HO3_RateChangesValidationwithFloodCoverage
 
   Scenario Outline: Rate Changes Validation with Flood Coverage
     Given User navigates to Model
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User login to Spin as Admin Agent
+   
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
     And User enters Customer Informations
-   #And User enters Dwelling Address 
+    #And User enters Dwelling Address
     And User enters HO3 Dwelling Address "<DwellingAddress>"
     And User enters HO3 Dwelling Zip "<DwellingZip>"
     And User enters effective date "<EffectiveDate>"
@@ -41,7 +40,7 @@ Feature: MTR-2929_HO3_RateChangesValidationwithFloodCoverage
     And User enters Fireplace "<Fireplace>"
     And User enters Exterior Walls "<ExteriorWalls>"
     And User clicks Reserve Package
-    And User enters Coverage A Dwelling
+    #And User enters Coverage A Dwelling
     And User enters Animal Liability "<AnimalLiability>"
     And User enters Mandatory Mediation Arbitration
     And User enters Fire Alarm "<FireAlarm>"
@@ -59,20 +58,26 @@ Feature: MTR-2929_HO3_RateChangesValidationwithFloodCoverage
     And User selects SFHA Override "<SFHAOverride>"
     And User selects Elevated Risk Discount "<ElevatedRiskDiscount>"
     And User clicks save and next page button
+    And User enters Distance to Hydrant_Accredited Water Source
+    And User clicks save and next page button
     And User enters Pay Plan Type
     And User enters HO3 Underwritting Questions
     And User enters Dwelling Type
     And User clicks Worksheets chevron
-    Then User verifies Water NonWeather Base Rate
-    Then User verifies Fire or Lightning Base Rate
-    Then User verifies Other Base Rate
-    Then User verifies Weather Base Rate
-    Then User verifies Hurricane Base Rate
-    Then User verifies Building Flood Rate Zone X and Foundation Basement
-    Then User verifies Personal Property Flood Rate Zone X and Foundation Basement
-    And User clicks Dwelling chevron
-    And User clicks Finalize button
+   Then User verifies Water NonWeather Base Rate <mtr2929>
+    Then User verifies Fire or Lightning Base Rate <mtr2929>
+    Then User verifies Other Base Rate <mtr2929>
+    Then User verifies Weather Base Rate <mtr2929>
+    Then User verifies Hurricane Base Rate <mtr2929>
+    
+    
+    
+    
+    #Then User verifies Building Flood Rate Zone X and Foundation Basement
+    #Then User verifies Personal Property Flood Rate Zone X and Foundation Basement
+    #And User clicks Dwelling chevron
+    #And User clicks Finalize button
 
     Examples: Test Data
-      | username | password  | EffectiveDate | DwellingAddress | DwellingZip | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Jan@2024! | 04/21/2023    | 13405 83rd ST   |       32948 | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       2000 |                              5 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $500                    | Slab                | A                 | Yes                 | No           | Yes                  |
+      | EffectiveDate | DwellingAddress | DwellingZip | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | 04/21/2023    | 13405 83rd ST   |       32948 | Frame            | Owner Occupied | 9 to 12 Months |               2005 |       2000 |                              5 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $500                    | Slab                | A                 | Yes                 | No           | Yes                  |

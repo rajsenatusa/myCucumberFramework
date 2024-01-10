@@ -714,5 +714,55 @@ public class VOLHO3_RateChange extends CommonMethods {
 		Hooks.scenario.log("Test Case Completed!");
 		wait(5);
 	}
+	@Then("User verifies Water NonWeather Base Rate <mtr2929>")
+	public void User_verifies_Water_NonWeather_Base_Rate_mtr2929() {
+		click(worksheetsChevron.HO3WNWBasePremium);
+
+		String expected = "Initial Base Rate: 353.71<br> - Census Block: 120610509042024<br> - Census Tract: 12061050904<br> - Water Non-Weather Territory Code: 5";
+		String actual = worksheetsChevron.HO3WNWBaseRateDescription.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		Hooks.scenario.log("Water Non-Weather Base Rate: 353.71");	
+	}
+	@Then("User verifies Fire or Lightning Base Rate <mtr2929>")
+	public void User_verifies_Fire_or_Lightning_Base_Rate_mtr2929() {
+		click(worksheetsChevron.HO3FireLightningBasePremium);
+
+		String expected = "Initial Base Rate: 50.93<br> - Census Block: 120610509042024<br> - Census Tract: 12061050904<br> - Fire or Lightning Territory Code: 4";
+		String actual = worksheetsChevron.HO3FireLightningBaseRateDescription.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		Hooks.scenario.log("Fire or Lightning Base Rate: 50.93");	
+	}
+	@Then("User verifies Other Base Rate <mtr2929>")
+	public void User_verifies_Other_Base_Rate_mtr2929() {
+		click(worksheetsChevron.HO3OtherBasePremium);
+
+		String expected = "Initial Base Rate: 57.93<br> - Census Block: 120610509042024<br> - Census Tract: 12061050904<br> - Other Territory Code: 1";
+		String actual = worksheetsChevron.HO3OtherBaseRateDescription.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		Hooks.scenario.log("Other Base Rate: 57.93");	
+	}
+	@Then("User verifies Weather Base Rate <mtr2929>")
+	public void User_verifies_Weather_Base_Rate_mtr2929() {
+		click(worksheetsChevron.HO3WeatherBasePremium);
+
+		String expected = "Initial Base Rate: 276.18<br> - Census Block: 120610509042024<br> - Census Tract: 12061050904<br> - Weather Territory Code: 9";
+		String actual = worksheetsChevron.HO3WeatherBaseRateDescription.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		Hooks.scenario.log("Other Base Rate: 276.18");	
+	}
+	@Then("User verifies Hurricane Base Rate <mtr2929>")
+	public void User_verifies_Hurricane_Base_Rate_mtr2929() {
+		click(worksheetsChevron.HO3HurricaneBasePremium);
+
+		String expected = "Initial Base Rate: 2090.44<br> - Census Block: 120610509042024<br> - Census Tract: 12061050904<br> - Hurricane Territory Code: G10";
+		String actual = worksheetsChevron.HO3HurricaneBaseRateDescription.getText();
+		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		Hooks.scenario.log("Other Base Rate: 2090.44");	
+	}
+	
+	
+	
+	 
+	
 
 }

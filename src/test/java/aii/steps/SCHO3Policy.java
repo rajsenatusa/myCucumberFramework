@@ -183,8 +183,7 @@ public class SCHO3Policy extends CommonMethods {
 
 	@When("User answers all underwriting questions for SC HO3")
 	public void user_answers_all_underwriting_questions_for_sc_ho3() throws Exception {
-		click(uwquestionsChevron.lnkUwQuestionsTab);
-		wait(2);
+
 		fillSCHO3_UWQuestions();
 		wait(1);
 		click(uwquestionsChevron.nextButtonUw);
@@ -197,6 +196,7 @@ public class SCHO3Policy extends CommonMethods {
 	@Then("User validates that SC HO3 policy has been created successfully")
 	public void user_validates_that_sc_ho3_policy_has_been_created_successfully() throws Exception {
 
+
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("New Business")) {
@@ -206,8 +206,7 @@ public class SCHO3Policy extends CommonMethods {
 		}
 		getPolicyNumber(driver);
 		getInForcePremium(driver);
-		// Close unnecessary tabs
-		closeUnnecessaryTabs();
+
 
 	}
 

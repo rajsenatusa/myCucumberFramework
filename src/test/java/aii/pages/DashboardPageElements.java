@@ -245,6 +245,22 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "Process")
 	public WebElement btnProcess;
 	
+	@FindBy(id= "NoteHolder")
+	public WebElement btnNewNote;
+	
+	@FindBy(id= "Note.TemplateId")
+	public WebElement ddNoteTemplate;
+	
+	@FindBy(id= "Note.PriorityCd")
+	public WebElement ddNotePriority;
+	
+	@FindBy(id= "Note.Memo")
+	public WebElement noteMemo;
+	
+	@FindBy(id= "AddNote")
+	public WebElement addNote;
+	
+	
 	
 	
 	public DashboardPageElements() {

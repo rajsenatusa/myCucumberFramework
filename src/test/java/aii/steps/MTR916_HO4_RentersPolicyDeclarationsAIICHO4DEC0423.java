@@ -44,12 +44,17 @@ public class MTR916_HO4_RentersPolicyDeclarationsAIICHO4DEC0423 extends CommonMe
 	static String RNDec_PageSignature;
 	static String RNDec_AdditionalInterest;
 	static String RenewalDeclaration_Form2;
-	static String RN_Page;
-	static String RN_Page2;
-	static String RN_Page3;
-	static String RN_Page4;
-	static String RN_Page5;
+	static String NB_Page;
+	static String NB_Page2;
+	static String NB_Page3;
+	static String NB_Page4;
+	static String NB_Page5;
 	static String NewBussines_Form;
+	static String RNDec2_Page;
+	static String RNDec2_Page2;
+	static String RNDec2_Page3;
+	static String RNDec2_Page4;
+	static String RNDec2_Page5;
 
 	@When("User enters all required information on policy information screen <mtr916>")
 	public void User_enters_all_required_information_on_policy_information_screen_mtr916() {
@@ -128,7 +133,8 @@ public class MTR916_HO4_RentersPolicyDeclarationsAIICHO4DEC0423 extends CommonMe
 	}
 
 	@Then("User validates that HO4 policy has been created successfully and takes note of the policy number <mtr916>")
-	public void user_validates_that_ho4_policy_has_been_created_successfully_and_akes_note_of_the_policy_number_mtr916() throws Exception {
+	public void user_validates_that_ho4_policy_has_been_created_successfully_and_akes_note_of_the_policy_number_mtr916()
+			throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("New Business")) {
@@ -143,17 +149,17 @@ public class MTR916_HO4_RentersPolicyDeclarationsAIICHO4DEC0423 extends CommonMe
 		closeUnnecessaryTabs();
 		getInForcePremiumFees(driver);
 		// taking note of the issued policy
-				try {
-					policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
-					Hooks.scenario.log("Policy Number: " + policyNum);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		try {
+			policyNum = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
+			Hooks.scenario.log("Policy Number: " + policyNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
+
 	@When("User validates AIIC HO4 DEC 04 23 form version listed in the declaration package")
-	public void User_validates_AIIC_HO4_DEC_04_23_form_version_listed_in_the_declaration_package()
-			throws Exception {
+	public void User_validates_AIIC_HO4_DEC_04_23_form_version_listed_in_the_declaration_package() throws Exception {
 		clickOnAnyPolicyFileTabForm(driver, "Renewal Declaration");
 		wait(7);
 		switchToWindow(driver, "STFile&File");
@@ -172,16 +178,17 @@ public class MTR916_HO4_RentersPolicyDeclarationsAIICHO4DEC0423 extends CommonMe
 		PdfComparator.verifyFormData(driver, RNDec_Page3, "AIIC HO4 DEC 04 23");
 		RNDec_Page4 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 4, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, RNDec_Page4, "AIIC HO4 DEC 04 23");
-		
+
 	}
+
 	@When("User clicks HO4 New Business package link")
 	public void User_clicks_HO4_New_Business_package_link() throws Exception {
 		click(policyFileChevron.HO4NewBussinessPackageLink);
 		wait(3);
 	}
+
 	@When("User validates AIIC HO4 DEC 04 23 form version listed in the New Business package")
-	public void User_validates_AIIC_HO4_DEC_04_23_form_version_listed_in_the_New_Business_package()
-			throws Exception {
+	public void User_validates_AIIC_HO4_DEC_04_23_form_version_listed_in_the_New_Business_package() throws Exception {
 		clickOnAnyPolicyFileTabForm(driver, "Renewal Declaration");
 		wait(7);
 		switchToWindow(driver, "STFile&File");
@@ -192,15 +199,48 @@ public class MTR916_HO4_RentersPolicyDeclarationsAIICHO4DEC0423 extends CommonMe
 		wait(10);
 
 		// Declaration page Forms
-		RN_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBussines_Form, 3, 0, 0, 800, 800);
-		PdfComparator.verifyFormData(driver, RNDec_Page, "AIIC HO4 DEC 04 23");
-		RN_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBussines_Form, 4, 0, 0, 800, 800);
-		PdfComparator.verifyFormData(driver, RNDec_Page2, "AIIC HO4 DEC 04 23");
-		RN_Page3 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBussines_Form, 5, 0, 0, 800, 800);
-		PdfComparator.verifyFormData(driver, RNDec_Page3, "AIIC HO4 DEC 04 23");
-		RN_Page4 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBussines_Form, 6, 0, 0, 800, 800);
-		PdfComparator.verifyFormData(driver, RNDec_Page4, "AIIC HO4 DEC 04 23");
-		
+		NB_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBussines_Form, 3, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, NB_Page, "AIIC HO4 DEC 04 23");
+		NB_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBussines_Form, 4, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, NB_Page2, "AIIC HO4 DEC 04 23");
+		NB_Page3 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBussines_Form, 5, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, NB_Page3, "AIIC HO4 DEC 04 23");
+		NB_Page4 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBussines_Form, 6, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, NB_Page4, "AIIC HO4 DEC 04 23");
+
+	}
+
+	@When("User clicks HO4 Renewal Decleration link")
+	public void user_clicks_Renewal_decleration_link() throws Exception {
+		click(policyFileChevron.HO4RenewalDeclarationLink);
+		wait(3);
+	}
+
+	@When("User validates AIIC HO4 DEC 04 23 form version listed in the Renewal Decleration package")
+	public void User_validates_AIIC_HO4_DEC_04_23_form_version_listed_in_the_Renewal_Decleration_package()
+			throws Exception {
+
+		clickOnAnyPolicyFileTabForm(driver, "Renewal Declaration");
+		wait(7);
+		switchToWindow(driver, "STFile&File");
+
+		RenewalDeclaration_Form = PdfComparator.makePdf(driver, "RenewalDeclaration.pdf");
+		// Save the pdf in local driver
+		PdfComparator.SavePdfForm(driver, FileLocation + RenewalDeclaration_Form);
+		wait(10);
+
+		// Declaration page Forms
+		RNDec2_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 3, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RNDec2_Page, "AIIC HO4 DEC 04 23");
+		RNDec2_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 4, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RNDec2_Page2, "AIIC HO4 DEC 04 23");
+		RNDec2_Page3 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 5, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RNDec2_Page3, "AIIC HO4 DEC 04 23");
+		RNDec2_Page4 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RenewalDeclaration_Form, 6, 0, 0, 800, 800);
+		PdfComparator.verifyFormData(driver, RNDec2_Page4, "AIIC HO4 DEC 04 23");
+
+		Hooks.scenario.log("Test Case Completed!");
+
 	}
 
 }
