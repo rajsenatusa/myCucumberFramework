@@ -110,12 +110,12 @@ public class MTR557_TC16891_HO4_ValidateNonRenewalsRescindNonRenewalContinuation
 		wait(3);
 	}
 
-	@And("User clicks Non-Renewal Transaction Selection")
-	public void User_clicks_non_renewal_Transaction_Selection() {
-		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal");
-		wait(1);
-		click(dashboard.btnSelect);
-	}
+//	@And("User clicks Renewal Transaction Selection")
+//	public void User_clicks_renewal_Transaction_Selection() {
+//		selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
+//		wait(1);
+//		click(dashboard.btnSelect);
+//	}
 
 	@And("User selects 'Failure to comply with underwriting requirements' as reason")
 	public void User_selects_reason() {

@@ -2,6 +2,8 @@
 
 package aii.steps;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +20,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class VOLMHO3policy extends CommonMethods {
-
+	
+	static LocalDateTime currentDate = LocalDateTime.now();
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
+	
 	@When("User enters MHO3 product selection information and effective date")
 	public void user_enters_mho3_product_selection_information_and_effective_date() {
 		// product selection information was filled here
@@ -139,6 +144,11 @@ public class VOLMHO3policy extends CommonMethods {
 	public void User_clicks_MHO3_Prior_Carrier() {
 		selectDropdownText(policyChevron.ddPreviousCarrier, "Avatar");
 		click(dwellingChevron.btnSave);
+		wait(1);
+	}
+	@And("User enters current date")
+	public void User_enters_current_date() {
+		sendText(product.txtEffectiveDate, dtf.format(currentDate));
 		wait(1);
 	}
 

@@ -62,7 +62,7 @@ Feature: Common Transactions and Steps
     And User finalizes transaction and issues takeout policy
     And User clicks Calculate Button
     #And User selects Number of Units {string}
-    And User clicks Next on PolPolicyicy Chevron
+    #And User clicks Next on PolPolicyicy Chevron
     And User clicks Review Chevron
     And User clicks Worksheets chevron
     And User enters Construction Type "<ConstructionType>"
@@ -122,13 +122,12 @@ Feature: Common Transactions and Steps
     And User clicks Integrity Select in Dwelling Detail
     And User selects Hurricane Deductible as 10 percent
     And User selects Hurricane Deductible as 5 percent
-    And User clicks Renewal Decleration link
     And User clicks Endorsement Package link
     And User enters Personal Property limit
     And User selects Personal Liability limit
-    And User enters Lease Term "<LeaseTerm>"    
+    And User enters Lease Term "<LeaseTerm>"
     And User clicks Seasonal Property
-    And User clicks Original Systems Surcharge	
+    And User clicks Original Systems Surcharge
     And User creates MHO3 application
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
@@ -146,3 +145,14 @@ Feature: Common Transactions and Steps
     And User validates that HO4 policy has been created successfully and takes note of the policy number <mtr916>
     And User clicks Policy File Chevron for <mtr916>
     And User clicks HO4 Decleration link
+    And User clicks RN Transaction Selection
+    And User clicks Non-Renewal Transaction Selection
+    And User clicks Process
+    #And User Searchs for Quote Number
+    And User clicks Policy File Chevron
+    And User Searchs for Policy Number for <mtr584>
+    And User enters current date
+    And User validates SC HO3 policy has been created successfully and takes note of the policy number for <mtr584>
+    And User Searchs for Policy Number 
+    And User clicks New Note
+   

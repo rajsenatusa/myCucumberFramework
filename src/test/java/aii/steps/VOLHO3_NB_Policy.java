@@ -15,7 +15,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User hovers over quote and policy")
 	public void User_hovers_over_quote_and_policy() {
-		wait(4);
+		wait(5);
 		Actions action = new Actions(driver);
 		action.moveToElement(quote.btnQuoteAndPolicy).perform();
 		wait(2);

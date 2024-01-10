@@ -227,6 +227,35 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
 	public WebElement HO3WNWBasePremium;
 	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]")
+	public WebElement HO3WNWBaseRateDescription;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement HO3FireLightningBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]")
+	public WebElement HO3FireLightningBaseRateDescription;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea03\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement HO3OtherBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea03\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]")
+	public WebElement HO3OtherBaseRateDescription;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea04\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement HO3WeatherBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea04\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]")
+	public WebElement HO3WeatherBaseRateDescription;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea07\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement HO3HurricaneBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea07\"]/tbody/tr/td/div/table/tbody/tr[3]/td[2]")
+	public WebElement HO3HurricaneBaseRateDescription;
+	
+	
+	
 	
 	
 	public WorksheetsChevronPageElements() {
