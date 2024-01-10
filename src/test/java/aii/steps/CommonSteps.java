@@ -365,6 +365,13 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.btnStart);
 
 	}
+	@Given("User selects Non Renewal")
+	public void user_selects_Non_Renewal() throws Exception {
+
+		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal");
+		click(dashboard.btnSelect);
+		wait(2);
+	}
 
 	@Given("User finalizes and process the transaction")
 	public void user_finalizes_and_process_the_transaction() {

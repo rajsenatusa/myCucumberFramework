@@ -14,6 +14,9 @@ public class FormsPageElements extends CommonMethods{
 	@FindBy(id="Wizard_Forms")
 	public WebElement lnkForms;
 	
+	@FindBy(id= "SCREINNOTICE_View")
+	public WebElement btnReinNotice;
+	
 public FormsPageElements() {
 		
 		PageFactory.initElements(driver, this);
