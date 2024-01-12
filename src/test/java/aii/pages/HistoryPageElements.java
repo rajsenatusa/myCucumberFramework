@@ -53,6 +53,9 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "NewPolicyEffectiveDt")
 	public WebElement txtNewEffectiveDate;
 	
+	@FindBy(id= "Tab_History")
+	public WebElement btnHistoryChevron;
+	
 	public HistoryPageElements() {
 		
 		PageFactory.initElements(driver, this);
