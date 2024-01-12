@@ -260,7 +260,8 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "AddNote")
 	public WebElement addNote;
 	
-	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]")
+	public WebElement btnExpand;
 	
 	
 	public DashboardPageElements() {

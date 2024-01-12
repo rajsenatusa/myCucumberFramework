@@ -8,10 +8,9 @@
 @regression @mtr459 @gu
 Feature: MTR-459 MHO3_Verify Underwriter creates High Priority General notes
 
-  
-  Scenario Outline: Verify High Priority General notes created by Underwriter 
+  Scenario: Verify High Priority General notes created by Underwriter
     Given User navigates to Model
-    Given User login to Spin as Standard Agent
+    And User login to Spin as Standard Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -25,10 +24,10 @@ Feature: MTR-459 MHO3_Verify Underwriter creates High Priority General notes
     And User clicks Property Type as Private Property
     And User enters Primary Phone
     And User clicks No Email
-    And User enters Occupancy "<Occupancy>"
-    And User enters Months Occupied "<MonthsOccupied>"
+    And User enters Occupancy 
+    And User enters Months Occupied for MHO3   
     And User clicks Next Page
-    And User enters Year of Construction "<YearOfConstruction>"
+    And User enters Year of Construction  
     And User enters Coverage A Dwelling
     And User clicks Save
     And User clicks Review button
@@ -37,14 +36,18 @@ Feature: MTR-459 MHO3_Verify Underwriter creates High Priority General notes
     And User clicks Finalize button
     And User selects Payment Type
     And User clicks Issue New Business
-    And User validates NB MHO3 policy has been created successfully and takes note of the policy number for <mtr459>
+    Then User validates NB MHO3 policy has been created successfully and takes note of the policy number for <mtr459>
     And User signs out
     And User login to Spin as Underwriter
-    And User Searchs for Policy Number 
-    And User clicks New Note button and enters New Policy Notes <mtr459>
+    And User Searchs for Policy Number
+    And User clicks Notes Chevron
+    And User clicks Add Note button
+    And User creates a New Note
+    And User validates a New Note has been created successfully in Notes List
+    And User signs out
+    Given User login to Spin as Standard Agent
+    And User Searchs for Policy Number
+    And User clicks Notes Chevron
+    Then User validates Agent is not able to see Company Privileged Note that was created by Underwriter
+
     
-    
-    
-    Examples: Test Data
-      | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | Owner Occupied |             12 |               2021 |

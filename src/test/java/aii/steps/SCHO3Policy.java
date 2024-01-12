@@ -183,7 +183,7 @@ public class SCHO3Policy extends CommonMethods {
 
 	@When("User answers all underwriting questions for SC HO3")
 	public void user_answers_all_underwriting_questions_for_sc_ho3() throws Exception {
-
+		click(policyChevron.btnNext);
 		fillSCHO3_UWQuestions();
 		wait(1);
 		click(uwquestionsChevron.nextButtonUw);
