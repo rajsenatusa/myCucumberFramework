@@ -153,6 +153,49 @@ Feature: Common Transactions and Steps
     And User Searchs for Policy Number for <mtr584>
     And User enters current date
     And User validates SC HO3 policy has been created successfully and takes note of the policy number for <mtr584>
-    And User Searchs for Policy Number 
-    And User clicks New Note
-   
+    And User Searchs for Policy Number
+    And User clicks Notes Chevron
+    And User clicks Add Note button
+    And User creates a New Note
+    And User validates a New Note has been created successfully in Notes List
+    And User enters Occupancy
+    And User enters Months Occupied
+    And User enters Months Occupied for MHO3
+    And User enters Year of Construction
+    And User login to Spin as Standard Agent
+    And User hovers over quote and policy
+    And User clicks new custemer and quote
+    And User enters Customer Informations
+    And User enters state
+    And User clicks VOL DP1 policy
+    And User enters Producer Code
+    And User clicks Prior Carrier
+    And User enters Prior Policy Expiration Date
+    And User enters Primary Phone
+    And User clicks No Email
+    And User enters Construction Type
+    And User enters Square Feet
+    And User enters Building Code Effectiveness Grade
+    And User enters Number of stories
+    And User enters Fire Alarm
+    And User enters Sprinkler System
+    And User enters Roof Shape  
+    And User enters SWR
+    And User clicks Flood Coverage
+    And User selects Flood Coverage Deductible
+    And User selects Flood Foundation Type
+    And User selects Flood Zone Override
+    And User selects Preferred Risk Status
+    And User selects SFHA Override
+    And User selects Elevated Risk Discount
+    And User enters DP1 Occupancy
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

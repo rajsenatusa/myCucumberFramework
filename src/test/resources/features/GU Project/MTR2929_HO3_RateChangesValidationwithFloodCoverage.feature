@@ -2,7 +2,7 @@
 # created on 01/03/2024
 #TEST CASE NUMBER & TITLE: GU-1525_MTR-2929: 2023 Rate Changes- FL Annual Filings: VOL HO3 - NB = NB. Eff. Date (04/21/2023) with Flood Coverage
 #Precondition-Create a NB policy with effective date = Inception Date (04/21/2023). Add Flood coverage on the policy with the details in test steps. Validate Generated rates are as expected.
-#HIGH LEVEL STEPS OF TEST SCRIPT:
+#HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: Validate Generated rates are as expected.
 #User:admin
 @regression @mtr2929 @gu

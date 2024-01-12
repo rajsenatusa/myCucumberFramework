@@ -1,9 +1,15 @@
-#Author:Mustafa Cemek
-@RateChangeHO6
-Feature: RC-5: 2023 Rate Changes- FL Annual Filings: VOL HO6
+# Author: Mustafa Cemek
+# created on 01/04/2024
+#TEST CASE NUMBER & TITLE: GU-1525_MTR-2947: 2023 Rate Changes- FL Annual Filings: VOL HO6 - NB = NB. Eff. Date (04/21/2023) with optional coverages and Flood Coverage
+#Precondition-Create a NB policy with effective date = Inception Date (04/21/2023). Add Flood coverage on the policy with the details in test steps. Validate Generated rates are as expected.
+#HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
+#EXPECTED RESULTS: Validate Generated rates are as expected.
+#User:admin
+@regression @mtr2947 @gu
 
-  @RateChangeHO6-11111 @gu
-  Scenario Outline: RC-257: 2023 Rate Changes- FL Annual Filings: VOL HO6 - NB = NB. Eff. Date (04/21/2023) with Flood Coverage
+Feature: MTR-2947_HO6_RateChangesValidationwithFloodCoverage
+
+  Scenario Outline: Rate Changes Validation with Flood Coverage
     Given User navigates to Model
     And User enters a valid user name "<username>"
     And User enters a valid password "<password>"
@@ -49,10 +55,10 @@ Feature: RC-5: 2023 Rate Changes- FL Annual Filings: VOL HO6
     And User clicks Worksheets chevron
     Then User verifies HO6 Building Flood Rate Zone X and Foundation Basement
     Then User verifies HO6 Personal Property Flood Rate Zone X and Foundation Basement
-    And User clicks Finalize button
+    
 
     Examples: Test Data
       | username | password  | FloodCoverage | FloodPersonalProperty | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount | RoofMaterial                      |
-      | mcemek   | Jan@2024! | Yes           | $10,000               | $500                    | Basement            | B                 | No                  | No           | No                   | Architectural Composition Shingle |
+      | mcemek   | Jan@2024! | Yes           | $10,000               | $500                    | Basement            | X                 | No                  | No           | No                   | Architectural Composition Shingle |
 
   

@@ -21,6 +21,7 @@ Feature: MTR584--SC HO3, Verify Non-Renewal Notice in Policy File
     And User checks application dwelling screen and finalizes transaction
     And User issues policy
     Then User validates SC HO3 policy has been created successfully and takes note of the policy number for <mtr584>
+    And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks Non-Renewal Transaction Selection
     And User selects 'Failure to comply with underwriting requirements' as reason

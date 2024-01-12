@@ -39,9 +39,16 @@ public class VOLHO6RateChange extends CommonMethods {
 
 	@And("User enters Occupancy")
 	public void User_enters_Occupancy() {
-		selectDropdown(policyChevron.ddOccupancy, 1);
+		selectDropdownText(policyChevron.ddOccupancy, "Owner Occupied");
 		wait(1);
 	}
+
+	@And("User enters DP1 Occupancy")
+	public void User_enters__DP1_Occupancy() {
+		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
+		wait(1);
+	}
+	
 
 	@And("User enters Months Occupied")
 	public void User_enters_Months_Occupied() {
@@ -250,7 +257,7 @@ public class VOLHO6RateChange extends CommonMethods {
 			popup = driver.switchTo().window(parent);
 			popup.getCurrentUrl();
 		}
-		
+
 		RwlDec_Form = PdfComparator.makePdf(driver, "Renewal_Declaration.pdf");
 
 		// Save the pdf in local driver
@@ -267,6 +274,7 @@ public class VOLHO6RateChange extends CommonMethods {
 		wait(10);
 
 	}
+
 	@When("User validates VOL HO6 inflated values on OIR B1 1670 form")
 	public void User_validates_VOL_HO6_inflated_values_on_OIR_B1_1670_form() throws Exception {
 
@@ -279,6 +287,7 @@ public class VOLHO6RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "OIR-B1-1670");
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User validates VOL HO6 Ordinance or Law Coverage on Dec page")
 	public void User_validates_VOL_HO6_Ordinance_or_Law_Coverage_on_Dec_page() throws Exception {
 
@@ -288,6 +297,5 @@ public class VOLHO6RateChange extends CommonMethods {
 		PdfComparator.verifyFormData(driver, RwlCheckList_Version, "$95,000");
 		Hooks.scenario.log("Test Case Completed!");
 	}
-	
-	 
+
 }

@@ -26,22 +26,17 @@ public class MTR584_SCHO3_VerifyNonRenewalNotice extends CommonMethods {
 	public void User_validates_SC_HO3_policy_has_been_created_successfully_and_takes_note_of_the_policy_number_for_mtr584()
 			throws Exception {
 
-		wait(9);
-		switchToWindow(driver, "ai.iscs.com/innovation");
-		wait(9);
-
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("New Business")) {
-			System.out.println("SC HO3 NB policy has been created successfully");
+			System.out.println("Test passed, SC HO3 NB policy has been created successfully");
 		} else {
-			System.out.println("SC HO3 NB policy creation failed!");
+			System.out.println("Test failed!");
 		}
-		closeUnnecessaryTabs();
 		getPolicyNumber(driver);
 		getInForcePremium(driver);
-		getInForcePremiumFees(driver);
-		Hooks.scenario.log("New Business SC HO3 policy has been created successfully");
+		// Close unnecessary tabs
+		closeUnnecessaryTabs();
 
 		// taking note of the issued policy
 		try {
@@ -123,14 +118,15 @@ public class MTR584_SCHO3_VerifyNonRenewalNotice extends CommonMethods {
 
 		Hooks.scenario.log("Test Case Completed!");
 	}
+
 	@When("User clicks Policy File Chevron <mtr584>")
 	public void user_clicks_policy_file_chevron_mtr584() throws Exception {
 		click(policyFileChevron.btnPolicyFilePage);
 		wait(5);
 	}
+
 	@And("User validates Non Renewal HO3 policy has been created successfully")
-	public void User_validates_Non_Renewal_HO3_policy_has_been_created_successfully()
-			throws Exception {
+	public void User_validates_Non_Renewal_HO3_policy_has_been_created_successfully() throws Exception {
 
 		WebElement validate = driver.findElement(By.id("History_1_2_Description"));
 
@@ -155,5 +151,4 @@ public class MTR584_SCHO3_VerifyNonRenewalNotice extends CommonMethods {
 
 	}
 
-	
 }
