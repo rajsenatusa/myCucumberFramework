@@ -27,7 +27,7 @@ Feature: TR 8630--US 9453 :VOL MHO - Modify Inflation Guard - RN effective After
     And User compares CovA Inflation Value with expected value and validates disabled fields values
     And User clicks Policy File Chevron for <mtr1442>
     And User clicks Renewal Decleration link for <mtr1442>
-    And User switches that forms and validates form version on Renewal Declaration
+    And User switches that forms and validates form version on Renewal Declaration <mtr1442>
     And User validates data on the coverage form with expected data and completes test
     
     

@@ -101,6 +101,12 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "MakeChanges")
 	public WebElement btnModifyApplication;
 	
+	@FindBy(id= "Tab_Notes")
+	public WebElement btnNotes;
+	
+	
+	
+	
 	
 	
 	public QuoteReviewPageElements() {

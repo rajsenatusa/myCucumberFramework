@@ -99,7 +99,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User enters Producer Code")
 	public void User_enters_Producer_Code() {
-		policyChevron.txtProducerCodeSel.sendKeys(ConfigsReader.getProperty("ProducerCode"));
+		policyChevron.txtProducerCodeSel.sendKeys(ConfigsReader.getProperty("Producer"));
 		click(dwellingChevron.btnSave);
 		wait(1);
 	}
@@ -253,11 +253,23 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddFireAlarm, FireAlarm);
 		wait(1);
 	}
+	@And("User enters Fire Alarm")
+	public void User_enters_Fire_Alarm() {
+		wait(1);
+		selectDropdownText(dwellingChevron.ddFireAlarm, "Fire Station");
+		wait(1);
+	}
 
 	@And("User enters Sprinkler System {string}")
 	public void User_enters_Sprinkler_System(String SprinklerSystem) {
 		wait(1);
 		selectDropdownText(dwellingChevron.ddSprinklerSystem, SprinklerSystem);
+		wait(1);
+	}
+	@And("User enters Sprinkler System")
+	public void User_enters_Sprinkler_System() {
+		wait(1);
+		selectDropdownText(dwellingChevron.ddSprinklerSystem, "Full");
 		wait(1);
 	}
 
@@ -283,16 +295,30 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_enters_Roof_Shape(String RoofShape) {
 		selectDropdownText(dwellingChevron.ddRoofShape, RoofShape);
 	}
+	@And("User enters Roof Shape")
+	public void User_enters_Roof_Shape() {
+		selectDropdownText(dwellingChevron.ddRoofShape, "HIP ");
+	}
 
 	@And("User enters SWR {string}")
 	public void User_enters_SWR(String SWR) {
 		selectDropdownText(dwellingChevron.ddSecondaryWaterResistance, SWR);
 		wait(1);
 	}
+	@And("User enters SWR")
+	public void User_enters_SWR() {
+		selectDropdownText(dwellingChevron.ddSecondaryWaterResistance, "Yes");
+		wait(1);
+	}
 
 	@And("User clicks Flood Coverage {string}")
 	public void User_clicks_Flood_Coverage(String FloodCoverage) {
 		selectDropdownText(dwellingChevron.ddFloodCoverage, FloodCoverage);
+		wait(5);
+	}
+	@And("User clicks Flood Coverage")
+	public void User_clicks_Flood_Coverage() {
+		selectDropdownText(dwellingChevron.ddFloodCoverage, "X");
 		wait(5);
 	}
 
@@ -314,6 +340,12 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddFloodCovADed, FloodCoverageDeductible);
 		wait(1);
 	}
+	@And("User selects Flood Coverage Deductible")
+	public void User_selects_Flood_Coverage_Deductible() {
+		wait(1);
+		selectDropdownText(dwellingChevron.ddFloodCovADed, "$2,000");
+		wait(1);
+	}
 
 	@And("User selects Flood Personal Property {string}")
 	public void User_selects_Flood_Personal_Property(String FloodPersonalProperty) {
@@ -324,7 +356,6 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User selects Elevation Documentation {string}")
 	public void User_selects_Elevation_Documentation(String ElevationDocumentation) {
-
 		wait(1);
 		selectDropdownText(dwellingChevron.ddBuildingElevationDocumentation, ElevationDocumentation);
 		wait(1);
@@ -333,15 +364,25 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User selects Flood Foundation Type {string}")
 	public void User_selects_Flood_Foundation_Type(String FloodFoundationType) {
-
 		wait(1);
 		selectDropdownText(dwellingChevron.ddFloodFoundationType, FloodFoundationType);
+	}
+	@And("User selects Flood Foundation Type")
+	public void User_selects_Flood_Foundation_Type() {
+		wait(1);
+		selectDropdownText(dwellingChevron.ddFloodFoundationType, "Basement");
 	}
 
 	@And("User selects Flood Zone Override {string}")
 	public void User_selects_Flood_Zone_Override(String FloodZoneOverride) {
 		wait(1);
 		selectDropdownText(dwellingChevron.ddFloodZoneOverride, FloodZoneOverride);
+		dwellingChevron.btnSave.click();
+	}
+	@And("User selects Flood Zone Override")
+	public void User_selects_Flood_Zone_Override() {
+		wait(1);
+		selectDropdownText(dwellingChevron.ddFloodZoneOverride, "X");
 		dwellingChevron.btnSave.click();
 	}
 
@@ -355,15 +396,27 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_selects_Preferred_Risk_Status(String PreferredRiskStatus) {
 		selectDropdownText(dwellingChevron.txtFloodPreferredStatus, PreferredRiskStatus);
 	}
+	@And("User selects Preferred Risk Status")
+	public void User_selects_Preferred_Risk_Status() {
+		selectDropdownText(dwellingChevron.txtFloodPreferredStatus, "Yes");
+	}
 
 	@And("User selects SFHA Override {string}")
 	public void User_selects_SFHA_Override(String SFHAOverride) {
 		selectDropdownText(dwellingChevron.ddFloodSFHAOverride, SFHAOverride);
 	}
+	@And("User selects SFHA Override")
+	public void User_selects_SFHA_Override() {
+		selectDropdownText(dwellingChevron.ddFloodSFHAOverride, "No");
+	}
 
 	@And("User selects Elevated Risk Discount {string}")
 	public void User_selects_Elevated_Risk_Discount(String ElevatedRiskDiscount) {
 		selectDropdownText(dwellingChevron.ddElevatedRiskDiscount, ElevatedRiskDiscount);
+	}
+	@And("User selects Elevated Risk Discount")
+	public void User_selects_Elevated_Risk_Discount() {
+		selectDropdownText(dwellingChevron.ddElevatedRiskDiscount, "Yes");
 	}
 
 	@And("User clicks save and next page button")

@@ -2,7 +2,7 @@
 @NB_Policy_VOLDP1
 Feature: New Business Policy VOL DP1
 
-  @NB_Policy_VOLDP1-1 @healthcheck11
+  @NB_Policy_VOLDP1-1
   Scenario Outline: NB VOL DP1
     Given User navigates to QA7
     And User enters a valid user name "<username>"
@@ -53,5 +53,53 @@ Feature: New Business Policy VOL DP1
     Then User verifies NB DP1 policy has been created successfully
 
     Examples: Test Data
-      | username | password | EffectiveDate | ConstructionType | Occupancy | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek  | Nov@2023! | 09/11/2016    | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $2,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password  | EffectiveDate | ConstructionType | Occupancy | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mcemek   | Nov@2023! | 09/11/2016    | Frame            | Vacant    | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $2,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
+
+  @NB_Policy_VOLDP1-2
+  Scenario Outline: NB VOL DP1
+    Given User navigates to Model
+    And User login to Spin as Standard Agent
+    And User hovers over quote and policy
+    And User clicks new custemer and quote
+    And User clicks Entity Type
+    And User enters Customer Informations
+    And User enters Dwelling Address
+    And User enters current date
+    And User enters state
+    And User clicks VOL DP1 policy
+    And User enters Producer Code
+    And User clicks Prior Carrier
+    And User enters Prior Policy Expiration Date
+    And User enters Primary Phone
+    And User clicks No Email
+    And User enters Construction Type
+    And User enters DP1 Occupancy
+    And User clicks next page button
+    And User enters Year of Construction
+    And User enters Square Feet
+    And User enters Building Code Effectiveness Grade
+    And User enters Number of stories
+    And User enters Roof Material
+    And User enters DP1 Mandatory Mediation Arbitration
+    And User enters Dwelling Type
+    And User calculates DP1 replacement cost
+    And User enters Fire Alarm
+    And User enters Sprinkler System
+    And User enters Roof Shape
+    And User enters SWR  "
+    And User clicks Flood Coverage
+    And User selects Flood Coverage Deductible
+    And User selects Flood Foundation Type
+    And User selects Flood Zone Override
+    And User selects Preferred Risk Status
+    And User selects SFHA Override
+    And User selects Elevated Risk Discount
+    And User clicks save and next page button
+    And User enters DP1 Pay Plan Type
+    And User enters DP1 Underwritting Questions
+    And User clicks Dwelling chevron
+    And User clicks Finalize button
+    And User selects Payment Type
+    And User clicks Issue New Business
+    Then User verifies NB DP1 policy has been created successfully

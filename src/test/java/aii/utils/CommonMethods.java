@@ -2269,6 +2269,26 @@ public class CommonMethods extends PageInitializer {
 
 		return AutoRenewDt.toString();
 	}
+	/**
+	 * This method gets Manual Renewal Date for policy
+	 * 
+	 */
+	public static Object getManualRenewDate(WebDriver driver) throws Exception {
+		String ManualRenewDt = null;
+		try {
+			driver.findElement(By.xpath("//*[contains(text(), 'Underwriting')]"));
+			ManualRenewDt = driver
+					.findElement(By.xpath(
+							"(//*[contains(text(),'Manual Renewal Required for Policy')])[1]//following-sibling::*[6]"))
+					.getText().toString();
+			Hooks.scenario.log("Automatic Renewal Date: " + ManualRenewDt);
+		} catch (Exception e) {
+			Hooks.scenario.log("Automatic Renewal Date: " + ManualRenewDt);
+			wait(5);
+		}
+
+		return ManualRenewDt.toString();
+	}
 
 	/**
 	 * This method gets Scheduled Task Description on Tasks Chevron

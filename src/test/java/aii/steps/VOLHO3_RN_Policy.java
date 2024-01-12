@@ -1,10 +1,6 @@
 package aii.steps;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
-
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-
 import aii.utils.CommonMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
