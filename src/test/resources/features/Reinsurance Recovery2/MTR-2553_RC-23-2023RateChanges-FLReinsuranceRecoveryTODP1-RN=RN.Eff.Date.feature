@@ -5,6 +5,7 @@ Feature: RC-23: 2023 Rate Changes- FL Reinsurance Recovery: TO DP1
   @RN_Policy_TODP1Reinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-2553: RC-23-2023 Rate Changes- FL Reinsurance Recovery: TO DP1 - RN = RN. Eff. Date
     Given User login to Spin as Admin Agent
+    And User hovers over quote and policy
     When User starts transaction as a new customer
     And User enters all required information on policy information screen
     And User enters product selection information for TODP1 and "<EffectiveDate>"

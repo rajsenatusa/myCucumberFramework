@@ -18,7 +18,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		wait(5);
 		Actions action = new Actions(driver);
 		action.moveToElement(quote.btnQuoteAndPolicy).perform();
-		wait(2);
+		wait(3);
 	}
 
 	@And("User clicks new custemer and quote")
@@ -428,6 +428,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User clicks next page button")
 	public void User_clicks_next_page_button() {
+		wait(1);
 		dwellingChevron.btnNext.click();
 		wait(1);
 	}

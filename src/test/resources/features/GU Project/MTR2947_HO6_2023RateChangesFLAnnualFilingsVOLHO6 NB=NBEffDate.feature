@@ -6,14 +6,11 @@
 #EXPECTED RESULTS: Validate Generated rates are as expected.
 #User:admin
 @regression @mtr2947 @gu
-
 Feature: MTR-2947_HO6_RateChangesValidationwithFloodCoverage
 
   Scenario Outline: Rate Changes Validation with Flood Coverage
     Given User navigates to Model
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    And User login to Spin as Admin Agent
     When User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -55,10 +52,7 @@ Feature: MTR-2947_HO6_RateChangesValidationwithFloodCoverage
     And User clicks Worksheets chevron
     Then User verifies HO6 Building Flood Rate Zone X and Foundation Basement
     Then User verifies HO6 Personal Property Flood Rate Zone X and Foundation Basement
-    
 
     Examples: Test Data
-      | username | password  | FloodCoverage | FloodPersonalProperty | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount | RoofMaterial                      |
-      | mcemek   | Jan@2024! | Yes           | $10,000               | $500                    | Basement            | X                 | No                  | No           | No                   | Architectural Composition Shingle |
-
-  
+      | FloodCoverage | FloodPersonalProperty | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount | RoofMaterial                      |
+      | Yes           | $10,000               | $500                    | Basement            | X                 | No                  | No           | No                   | Architectural Composition Shingle |

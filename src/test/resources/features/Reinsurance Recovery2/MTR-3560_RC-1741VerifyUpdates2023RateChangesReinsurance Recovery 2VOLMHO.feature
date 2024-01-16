@@ -4,10 +4,8 @@ Feature: RC-1741: 2023 Rate Changes- FL Reinsurance Recovery 2: VOL MHO
 
   @NB_Policy_VOLMHO3Reinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-3560: RC-1741-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery 2: VOL MHO - NB on the Eff date
-    Given User navigates to QA2
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -55,7 +53,6 @@ Feature: RC-1741: 2023 Rate Changes- FL Reinsurance Recovery 2: VOL MHO
     And User clicks Hurricane Base Premium
     Then User validates Hurricane VOL MHO3 additional premium base rate in Worksheets
 
-#
     Examples: Test Data
-      | username | password  | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | mcemek   | Nov@2023! | 10/27/2023    | 10/27/2023               | Owner Occupied |             12 |               2021 |
+      | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
+      | 10/27/2023    | 10/27/2023               | Owner Occupied |             12 |               2021 |

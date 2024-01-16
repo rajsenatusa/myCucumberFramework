@@ -38,7 +38,6 @@ public class MTR459_MHO3_Verify_as_an_Underwriter_has_the_ability_to_create_High
 		}
 		closeUnnecessaryTabs();
 		getPolicyNumber(driver);
-		getInForcePremium(driver);
 		getInForcePremiumFees(driver);
 		Hooks.scenario.log("New Business MHO3 policy has been created successfully");
 		attachScreenShot(driver);
