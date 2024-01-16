@@ -263,6 +263,25 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]")
 	public WebElement btnExpand;
 	
+	@FindBy(id= "Note.Action")
+	public WebElement noteAction;
+	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]")
+	public WebElement btnExpandDP1;
+	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement btnExpandHO3;
+	
+	@FindBy(id= "EditLink_Policy_0")
+	public WebElement editLink;
+	
+	@FindBy(id= "SaveNote")
+	public WebElement saveNote;
+	
+	
+	
+	
+	 
 	
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);

@@ -5,9 +5,7 @@ Feature: RC-1827: 2024 Rate Changes- FIGA: VOL DP3 - 1/1/2024
   @FIGA2024-VOLDP3-1 @FIGA2024
   Scenario Outline: MTR-3059: RC-1827, 2024 Rate Changes - FIGA: VOL DP3 - NB = Eff. Date + Flat Endorsement
     Given User navigates to Model
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    And User login to Spin as Admin Agent
     When User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -63,7 +61,5 @@ Feature: RC-1827: 2024 Rate Changes- FIGA: VOL DP3 - 1/1/2024
     Then User validates 2024 FIGA VOL DP3 rate in Review
 
     Examples: Test Data
-      | username | password  | FIGADP3EffectiveDate | EndorsementEffectiveDate |
-      | mcemek   | Nov@2023! | 01/01/2024           | 01/02/2024               |
-
-  
+      | FIGADP3EffectiveDate | EndorsementEffectiveDate |
+      | 01/01/2024           | 01/02/2024               |

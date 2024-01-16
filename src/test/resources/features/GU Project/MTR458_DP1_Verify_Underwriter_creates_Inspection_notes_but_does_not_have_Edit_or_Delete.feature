@@ -21,17 +21,11 @@ Feature: MTR458_DP1_Verify_Underwriter_creates_Inspection_notes_but_does_not_hav
     And User checks application dwelling screen and finalizes transaction
     And User issues policy
     Then User validates NB DP1 policy has been created successfully and takes note of the policy number for <mtr458>
-    
     And User signs out
     And User login to Spin as Underwriter
     And User Searchs for Policy Number for <mtr458>
     And User clicks Notes Chevron
-    And User clicks Add Note button for <mtr458>
+    And User clicks Add Note button
     And User creates a New Note for <mtr458>
-    And User validates a New Note has been created successfully in Notes List
-    And User signs out
-    Given User login to Spin as Standard Agent
-    And User Searchs for Policy Number
-    And User clicks Notes Chevron
-    Then User validates Agent is not able to see Company Privileged Note that was created by Underwriter
-    
+    And User validates a New Note has been created successfully in Notes List <mtr458>
+    Then User verifies that no Edit or Delete links are displayed

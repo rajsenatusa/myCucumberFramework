@@ -6,6 +6,7 @@ Feature: RC-22: 2023 Rate Changes- FL Reinsurance Recovery: TO DP3
   Scenario Outline: MTR-2532: RC-22-2023 Rate Changes- FL Reinsurance Recovery: TO DP3 - NB = NB. Eff. Date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
+    And User hovers over quote and policy
     And User enters all required information on policy information screen
     And User enters product selection information for TODP3 and "<EffectiveDate>"
     And User enters Producer Code

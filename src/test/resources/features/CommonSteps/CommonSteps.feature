@@ -189,13 +189,12 @@ Feature: Common Transactions and Steps
     And User selects SFHA Override
     And User selects Elevated Risk Discount
     And User enters DP1 Occupancy
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    And User enters HO3 product selection information and current date as effective date
+    And User verifies that no Edit or Delete links are displayed
+    Then User verifies that Agent cannot see Company Privileged Note
+    And User login to Spin as Underwriter Clerk
+    And User creates a General Note 
+    Then User verifies that Agent can see General Note
+    And User enters product selection information for TOMHO and current date
+   
     

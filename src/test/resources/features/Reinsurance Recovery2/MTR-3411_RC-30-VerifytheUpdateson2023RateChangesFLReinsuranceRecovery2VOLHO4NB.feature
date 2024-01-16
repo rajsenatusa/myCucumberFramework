@@ -4,10 +4,8 @@ Feature: RC-30: 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO4
 
   @NB_Policy_VOLHO3Reinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-3411: RC-30-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery2: VOL HO4 - NB on the Eff date
-    Given User navigates to QA2
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -46,13 +44,11 @@ Feature: RC-30: 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO4
     And User clicks Issue New Business
     And User returns to main page
     And User clicks Worksheets chevron
-    And User clicks NonHurricane Base Premium   
+    And User clicks NonHurricane Base Premium
     Then User validates NonHurricane VOL HO4 base rate in Worksheets
-    And User clicks Hurricane Base Premium   
+    And User clicks Hurricane Base Premium
     Then User validates Hurricane VOL HO4 base rate in Worksheets
-    
-    
-    
+
     Examples: Test Data
-      | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | BuildingCodeEffectivenessGrade | NumberOfStories | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
-      | mcemek   | Nov@2023! | 10/27/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
+      | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | BuildingCodeEffectivenessGrade | NumberOfStories | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
+      | 10/27/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |

@@ -10,8 +10,7 @@ Feature: MTR-2929_HO3_RateChangesValidationwithFloodCoverage
 
   Scenario Outline: Rate Changes Validation with Flood Coverage
     Given User navigates to Model
-    Given User login to Spin as Admin Agent
-   
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -64,20 +63,16 @@ Feature: MTR-2929_HO3_RateChangesValidationwithFloodCoverage
     And User enters HO3 Underwritting Questions
     And User enters Dwelling Type
     And User clicks Worksheets chevron
-   Then User verifies Water NonWeather Base Rate <mtr2929>
+    Then User verifies Water NonWeather Base Rate <mtr2929>
     Then User verifies Fire or Lightning Base Rate <mtr2929>
     Then User verifies Other Base Rate <mtr2929>
     Then User verifies Weather Base Rate <mtr2929>
     Then User verifies Hurricane Base Rate <mtr2929>
-    
-    
-    
-    
+
     #Then User verifies Building Flood Rate Zone X and Foundation Basement
     #Then User verifies Personal Property Flood Rate Zone X and Foundation Basement
     #And User clicks Dwelling chevron
     #And User clicks Finalize button
-
     Examples: Test Data
       | EffectiveDate | DwellingAddress | DwellingZip | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
       | 04/21/2023    | 13405 83rd ST   |       32948 | Frame            | Owner Occupied | 9 to 12 Months |               2005 |       2000 |                              5 |               3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $500                    | Slab                | A                 | Yes                 | No           | Yes                  |
