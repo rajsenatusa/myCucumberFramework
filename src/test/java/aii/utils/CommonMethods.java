@@ -33,7 +33,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import aii.steps.Hooks;
 import aii.testbase.PageInitializer;
 
@@ -1369,6 +1368,7 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+
 	/**
 	 * This method checks any generic message is visible or not
 	 * 
@@ -1391,6 +1391,7 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+
 	/**
 	 * This method checks any desired text box value with expected value
 	 * 
@@ -2269,6 +2270,7 @@ public class CommonMethods extends PageInitializer {
 
 		return AutoRenewDt.toString();
 	}
+
 	/**
 	 * This method gets Manual Renewal Date for policy
 	 * 
@@ -2392,6 +2394,32 @@ public class CommonMethods extends PageInitializer {
 
 		}
 		return num;
+	}
+
+	public static String getCurrentDueDate(WebDriver driver) throws Exception {
+		String action = null;
+		try {
+			action = driver.findElement(By.id("CurrentDueDt_text")).getText().toString();
+			wait(4);
+			Hooks.scenario.log(action + " current Due Date : ");
+		} catch (Exception e) {
+			Hooks.scenario.log(" current Due Date : ");
+
+		}
+		return action;
+	}
+	
+	public static String getPaymentPlan(WebDriver driver) throws Exception {
+		String payPlan = null;
+		try {
+			payPlan = driver.findElement(By.id("PayPlan_text")).getText().toString();
+			wait(4);
+			Hooks.scenario.log(payPlan + " Pay Plan : ");
+		} catch (Exception e) {
+			Hooks.scenario.log(" Pay Plan : ");
+
+		}
+		return payPlan;
 	}
 
 	public static void verifyInstallmentInvoiceForm(WebDriver driver, String invoiceName) throws Exception {

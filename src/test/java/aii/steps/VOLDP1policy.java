@@ -14,7 +14,7 @@ import io.cucumber.java.en.When;
 
 public class VOLDP1policy extends CommonMethods {
 
- 
+	@When("User enters DP1 product selection information and effective date")
 	public void user_enters_dp1_product_selection_information_and_effective_date() {
 		// product selection information was filled here
 		sendText(product.txtEffectiveDate, ConfigsReader.getProperty("effectivedate"));

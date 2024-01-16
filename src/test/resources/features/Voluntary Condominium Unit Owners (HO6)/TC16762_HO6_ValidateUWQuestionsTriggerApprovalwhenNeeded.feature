@@ -9,7 +9,9 @@
 #						2. Underwriting Approval referral is triggered
 #						3. Agent cannot bind NB without Underwriting Approval
 #User: AG1730
-@regression @tc16762
+
+
+@regression @tc16762 @ho6regression
 Feature: TC 16762--HO6 Agent App Validations "Validate UW questions trigger approval when needed"
 
   Scenario: TC16762_HO6_ValidateUWQuestionsTriggerApprovalwhenNeeded

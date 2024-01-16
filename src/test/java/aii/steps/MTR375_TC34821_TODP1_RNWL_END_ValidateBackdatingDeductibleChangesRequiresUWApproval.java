@@ -2,8 +2,6 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -158,15 +156,7 @@ public class MTR375_TC34821_TODP1_RNWL_END_ValidateBackdatingDeductibleChangesRe
 		makeCCPayment();
 
 		// Close unnecessary tabs
-		ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-		for (int i = tabs.size() - 1; i > 0; i--) {
-			driver.switchTo().window(tabs.get(i));
-			driver.close();
-		}
-
-		// Switch back to the main page
-		driver.switchTo().window(tabs.get(0));
-		wait(3);
+		closeUnnecessaryTabs();
 	}
 
 	@When("User does auto renewal through batch jobs")
