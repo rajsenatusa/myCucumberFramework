@@ -3,7 +3,7 @@
 #TEST CASE NUMBER & TITLE: GU-1171_MTR-459: MHO3 Verify as an Underwriter has the ability to create High Priority General notes
 #Precondition: Create a MHO3 policy. Underwriter creates High Priority General notes.
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
-#EXPECTED RESULTS: Underwriter can create and see the High Priority General notes.
+#EXPECTED RESULTS: Underwriter can create and see the High Priority General notes. Agent is not able to see Company Privileged Note
 #User:Underwriter
 @regression @mtr459 @gu
 Feature: MTR-459 MHO3_Verify Underwriter creates High Priority General notes

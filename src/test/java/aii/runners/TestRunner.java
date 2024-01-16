@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 		
-		tags = "",
+		tags = " @FIGA2024-VOLDP3-1",
 
 		
 		// it provides the output console to more readable

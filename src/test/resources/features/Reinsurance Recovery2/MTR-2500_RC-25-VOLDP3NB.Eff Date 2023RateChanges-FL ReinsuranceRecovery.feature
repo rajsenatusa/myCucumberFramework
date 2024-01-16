@@ -4,10 +4,8 @@ Feature: RC-25: 2023 Rate Changes- FL Reinsurance Recovery: VOL DP3
 
   @NB_Policy_VOLDP3Reinsurance-1 @ReinsuranceRecovery
   Scenario Outline: MTR-2500: RC-25 VOL DP3 - NB = NB. Eff. Date : 2023 Rate Changes- FL Reinsurance Recovery
-    Given User navigates to QA7
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -52,5 +50,5 @@ Feature: RC-25: 2023 Rate Changes- FL Reinsurance Recovery: VOL DP3
     Then User validates VOL DP3 Hurricane Coverage A Base Rate in Worksheets
 
     Examples: Test Data
-      | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Nov@2023! | 07/21/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2015 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $500                    |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |
+      | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | 07/21/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2015 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $500                    |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |

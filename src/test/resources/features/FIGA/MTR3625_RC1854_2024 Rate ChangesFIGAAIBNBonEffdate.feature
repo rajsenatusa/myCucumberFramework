@@ -5,9 +5,7 @@ Feature: RC-1854: 2024 Rate Changes- FIGA: AIB - 1/1/2024
   @FIGA2024-AIB-1 @FIGA2024
   Scenario Outline: MTR-3625: RC-1854, 2024 Rate Changes - FIGA: AIB - NB on the Eff date
     Given User navigates to Model
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -54,5 +52,5 @@ Feature: RC-1854: 2024 Rate Changes- FIGA: AIB - 1/1/2024
     Then User validates 2024 FIGA AIB rate in Review
 
     Examples: Test Data
-      | username | password  | EffectiveDate | EndorsementEffectiveDate |
-      | mcemek   | Nov@2023! | 01/01/2024    | 10/02/2024               |
+      | EffectiveDate | EndorsementEffectiveDate |
+      | 01/01/2024    | 10/02/2024               |

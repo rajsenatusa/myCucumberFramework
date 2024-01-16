@@ -5,9 +5,7 @@ Feature: RC-1849: 2024 Rate Changes- FIGA: VOL MHO - 1/1/2024
   @FIGA2024-VOLMHO3-1 @FIGA2024
   Scenario Outline: MTR-3151: RC-1849, 2024 Rate Changes: FL Annual FIGA Rate Changes - VOL MHO - NB = Eff. Date+ Flat Endorsement
     Given User navigates to Model
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -55,5 +53,5 @@ Feature: RC-1849: 2024 Rate Changes- FIGA: VOL MHO - 1/1/2024
     Then User validates 2024 FIGA VOL MHO3 rate in Review
 
     Examples: Test Data
-      | username | password  | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | mcemek   | Nov@2023! | 1/1/2024      | 1/2/2024                 | Owner Occupied |             12 |               2021 |
+      | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
+      | 1/1/2024      | 1/2/2024                 | Owner Occupied |             12 |               2021 |

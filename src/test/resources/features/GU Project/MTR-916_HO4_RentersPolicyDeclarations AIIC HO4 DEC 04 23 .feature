@@ -2,7 +2,7 @@
 # created on 01/05/2024
 #TEST CASE NUMBER & TITLE: GU-1525_MTR-916: Verify the updated  Voluntary HO4: Renters Policy Declarations AIIC HO4 DEC 04 23
 #Precondition-Policy Eff 04/21/2023, Update wording  and version changes to Vol HO4 Renters Policy Declarations (NB). Renters Policy Declarations AIIC HO4 DEC 04 23
-#HIGH LEVEL STEPS OF TEST SCRIPT:
+#HIGH LEVEL STEPS OF TEST SCRIPT:  In the Scenario Below
 #EXPECTED RESULTS: FORM content and formatting match clean copies attached to the AIIC HO4 DEC 04 23 displays on  bottom of all pages. Validate AIIC HO4 DEC 04 23 form is as expected.
 #User:admin
 @regression @mtr916 @gu
