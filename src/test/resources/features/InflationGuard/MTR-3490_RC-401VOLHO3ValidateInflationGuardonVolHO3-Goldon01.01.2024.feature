@@ -4,10 +4,8 @@ Feature: RC-401: 2024 Rate Changes- Inflation Guard: VOL HO3- 01/01/2024
 
   @RN_Policy_VOLHO3InflationGuard-1 @InflationGuard2024
   Scenario Outline: MTR-3490: RC-401 -VOL HO3 Validate Inflation Guard on Vol HO3 -Gold on 01/01/2024
-    Given User navigates to QA2
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -103,5 +101,5 @@ Feature: RC-401: 2024 Rate Changes- Inflation Guard: VOL HO3- 01/01/2024
     Then User validates VOL HO3 inflated values on OIR B1 1670 form for second RN
 
     Examples: Test Data
-      | username | password  | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Nov@2023! | 01/01/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2020 |       3000 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | A-Hurricane Impact | Gable     | No  | No            | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |
+      | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial              | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm   | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | OpeningProtection> | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | 01/01/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2020 |       3000 |                              3 |               2 | 3 Tab Composition Shingle | No        | Stone         | Unknown | $50,000         | Local Alarm | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | A-Hurricane Impact | Gable     | No  | No            | $5,000                  | Slab                | D                 | Yes                 | Yes          | Yes                  |

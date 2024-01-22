@@ -4,10 +4,8 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
 
   @RN_Policy_VOLDP3InflationGuard-1 @InflationGuard2024
   Scenario Outline: MTR-3425: RC-400-VOL DP3:Validate Inflation Guard on Vol DP3 with Occupancy-Owner Occupied on 01/02/2024-Integrity Select
-    Given User navigates to QA2
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -122,5 +120,5 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates VOL DP3 inflated values on OIR B1 1670 form for second RN
 
     Examples: Test Data
-      | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Nov@2023! | 01/02/2023    | 01/02/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2018 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $500                    |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |
+      | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | 01/02/2023    | 01/02/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2018 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $500                    |                 20000 | Basement            | X                 | Yes                 | Yes          | Yes                  |

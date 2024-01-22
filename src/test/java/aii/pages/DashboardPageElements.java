@@ -2,7 +2,7 @@ package aii.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
 
 import aii.utils.CommonMethods;
 
@@ -278,13 +278,15 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "SaveNote")
 	public WebElement saveNote;
 	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[4]/td[1]/i")
+	public WebElement btnExpandGeneralNote;
 	
-	
+	@FindBy(id= "DeleteLink_Policy_1")
+	public WebElement deleteLink;
 	
 	 
 	
-	public DashboardPageElements() {
-		PageFactory.initElements(driver, this);
+	 
 		
-	}
+	
 }

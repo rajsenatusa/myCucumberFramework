@@ -1,5 +1,7 @@
 package aii.steps;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TODP1policy extends CommonMethods {
+	static LocalDateTime currentDate = LocalDateTime.now();
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 
 	@When("User enters product selection information for TODP1 and effective date")
 	public void user_enters_product_selection_information_for_todp1_and_effective_date() {
@@ -25,6 +29,18 @@ public class TODP1policy extends CommonMethods {
 		wait(2);
 		click(product.btnContinue);
 		click(product.btnProductSelectionTodp1);
+	}
+
+	@When("User enters product selection information for TODP1 and current date")
+	public void user_enters_product_selection_information_for_toDP1_and_current_date() {
+		// product selection information was filled here
+		sendText(product.txtEffectiveDate, dtf.format(currentDate));
+		wait(1);
+		selectDropdown(product.ddStateSelection, 1);
+		selectDropdown(product.ddCarrierSelection, 1);
+		wait(2);
+		click(product.btnContinue);
+		click(product.btnProductSelectionTomho);
 	}
 
 	@When("User enters product selection information for TODP1 and {string}")
@@ -52,7 +68,9 @@ public class TODP1policy extends CommonMethods {
 		wait(2);
 		click(policyChevron.btnNoEmailRadio);
 		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
+		wait(3);
 		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
+		wait(3);
 		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
 		wait(1);
 		click(policyChevron.btnNext);

@@ -71,8 +71,9 @@ public class MTR459_MHO3_Verify_as_an_Underwriter_has_the_ability_to_create_High
 	}
 
 	@When("User clicks Add Note button")
-	public void User_clicks_Add_Note_button() {
-		click(dashboard.addNote);
+	public void User_clicks_Add_Note_button() {		
+		driver.findElement(By.id("AddNote")).click();
+//		click(dashboard.addNote);
 		wait(1);
 	}
 

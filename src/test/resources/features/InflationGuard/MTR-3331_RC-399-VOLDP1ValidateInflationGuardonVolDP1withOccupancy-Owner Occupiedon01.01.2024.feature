@@ -4,10 +4,8 @@ Feature: RC-399: 2024 Rate Changes- Inflation Guard: VOL DP1- 01/01/2024
 
   @RN_Policy_VOLDP1InflationGuard-1 @InflationGuard2024
   Scenario Outline: MTR-3331: RC-399- VOL DP1:Validate Inflation Guard on Vol DP1 with Occupancy-Owner Occupied on 01/01/2024
-    Given User navigates to QA2
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -88,9 +86,9 @@ Feature: RC-399: 2024 Rate Changes- Inflation Guard: VOL DP1- 01/01/2024
     Then User validates Sinkhole Loss
     And User clicks Policy File Chevron
     And User clicks Renewal Decleration link
-    Then User validates 10 percentage in RN Declaration Package for second RN 
+    Then User validates 10 percentage in RN Declaration Package for second RN
     Then User validates inflated values on OIR B1 1670 form for second RN
 
     Examples: Test Data
-      | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Nov@2023! | 01/01/2023    | 01/01/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $2,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |
+      | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | RoofMaterial                      | FireAlarm    | SprinklerSystem | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodPersonalProperty | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | 01/01/2023    | 01/01/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 | Architectural Composition Shingle | Fire Station | Full            | HIP       | Yes | Yes           | $2,000                  |                 20000 | Basement            | X                 | Yes                 | No           | Yes                  |

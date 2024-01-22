@@ -23,9 +23,9 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 
 	@And("User clicks new custemer and quote")
 	public void User_clicks_new_custemer_and_quote() {
-		wait(3);
+		wait(10);
 		dashboard.btnNewQuote.click();
-		wait(3);
+		wait(10);
 	}
 
 	@And("User clicks Entity Type")

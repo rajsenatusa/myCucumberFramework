@@ -4,10 +4,8 @@ Feature: RC-402: 2024 Rate Changes- Inflation Guard: VOL HO4- 01/01/2024
 
   @RN_Policy_VOLHO4InflationGuard-1 @InflationGuard2024
   Scenario Outline: MTR-3440: RC-402-VOL HO4:Validate Inflation Guard on Vol HO4 with Occupancy-Tenant Occupied after  01/01/2024
-    Given User navigates to QA2
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -86,5 +84,5 @@ Feature: RC-402: 2024 Rate Changes- Inflation Guard: VOL HO4- 01/01/2024
     Then User validates VOL HO4 inflated values on OIR B1 1670 form for first RN
 
     Examples: Test Data
-      | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy       | MonthsOccupied | YearOfConstruction | BuildingCodeEffectivenessGrade | NumberOfStories | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
-      | mcemek   | Nov@2023! | 01/01/2023    | 01/01/2024               | Frame            | Tenant Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
+      | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy       | MonthsOccupied | YearOfConstruction | BuildingCodeEffectivenessGrade | NumberOfStories | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR |
+      | 01/01/2023    | 01/01/2024               | Frame            | Tenant Occupied | 9 to 12 Months |               2021 |                              7 |               3 | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes |
