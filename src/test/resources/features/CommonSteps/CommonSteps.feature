@@ -179,7 +179,7 @@ Feature: Common Transactions and Steps
     And User enters Number of stories
     And User enters Fire Alarm
     And User enters Sprinkler System
-    And User enters Roof Shape  
+    And User enters Roof Shape
     And User enters SWR
     And User clicks Flood Coverage
     And User selects Flood Coverage Deductible
@@ -193,8 +193,13 @@ Feature: Common Transactions and Steps
     And User verifies that no Edit or Delete links are displayed
     Then User verifies that Agent cannot see Company Privileged Note
     And User login to Spin as Underwriter Clerk
-    And User creates a General Note 
+    And User creates a General Note
+    And User creates an Inspection Note
     Then User verifies that Agent can see General Note
     And User enters product selection information for TOMHO and current date
-   
+    Then User validates Inspection and General Notes have been created successfully in Notes List
+    And User verifies that Edit or Delete links are displayed
+    Then User verifies that Underwriter Manager can Edit and Save General Note
+    Then User verifies that Edit or Delete links are displayed
+    
     
