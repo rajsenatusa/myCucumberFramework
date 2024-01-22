@@ -4,7 +4,6 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -177,6 +176,7 @@ public class VOLMHO3policy extends CommonMethods {
 				String yearcons = dataMap.get("ConstYear");
 				String roof = dataMap.get("RoofMat");
 				String coveragea = dataMap.get("CoverageA");
+				String producerCode = dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -203,6 +203,10 @@ public class VOLMHO3policy extends CommonMethods {
 				click(product.btnProductSelectionMho3);
 
 				// quote
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
+				wait(3);
+				click(dwellingChevron.btnSave);
+				wait(2);
 				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
 				click(policyChevron.btnPropertyTypePri);
@@ -274,14 +278,7 @@ public class VOLMHO3policy extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

@@ -36,6 +36,12 @@ public class GOC_NB_Policy extends CommonMethods {
 		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
 		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
 		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		
+//		sendText(policyChevron.txtProducerCodeSel, "ivans-test4");
+//		wait(3);
+//		click(dwellingChevron.btnSave);
+//		wait(2);
+		
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
@@ -130,7 +136,7 @@ public class GOC_NB_Policy extends CommonMethods {
 	}
 
 	@Then("User validates that GOC policy has been created successfully")
-	public void user_validates_that_goc_policy_has_been_created_successfully() {
+	public void user_validates_that_goc_policy_has_been_created_successfully() throws Exception {
 
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
@@ -139,6 +145,7 @@ public class GOC_NB_Policy extends CommonMethods {
 		} else {
 			System.out.println("Test failed!");
 		}
+		getPolicyNumber(driver);
 	}
 
 	@And("User clicks GOC policy")

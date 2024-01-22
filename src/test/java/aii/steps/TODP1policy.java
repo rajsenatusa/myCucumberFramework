@@ -1,6 +1,5 @@
 package aii.steps;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -181,6 +180,7 @@ public class TODP1policy extends CommonMethods {
 				String monthsOccupied = dataMap.get("Months");
 				String yearConstruction = dataMap.get("ConstYear");
 				String qualityGrade = dataMap.get("Quality");
+				String producerCode = dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -207,7 +207,7 @@ public class TODP1policy extends CommonMethods {
 				click(product.btnProductSelectionTodp1);
 
 				// Quote Policy Chevron information was filled here
-				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
 				wait(3);
 				click(dwellingChevron.btnSave);
 				wait(2);
@@ -289,14 +289,7 @@ public class TODP1policy extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

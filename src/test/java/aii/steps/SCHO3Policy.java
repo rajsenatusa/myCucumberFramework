@@ -236,6 +236,7 @@ public class SCHO3Policy extends CommonMethods {
 				String yearcons = dataMap.get("ConstYear");
 				String roof = dataMap.get("RoofMat");
 				String quality = dataMap.get("Quality");
+				String producerCode=dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -261,9 +262,10 @@ public class SCHO3Policy extends CommonMethods {
 				click(product.btnContinue);
 
 				// quote
-				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("scproducerselection"));
-				wait(2);
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
+				wait(3);
 				click(dwellingChevron.btnSave);
+				wait(2);
 				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
 				selectDropdownText(policyChevron.ddNewPurchase, "Yes");

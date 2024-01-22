@@ -100,6 +100,10 @@ public class BaseClass {
 			System.out.println("Opening QA7 environment...");
 			driver.get(ConfigsReader.getProperty("urlqa7"));
 			break;
+			
+		case "production":
+			System.out.println("Opening Production Environment");
+			driver.get(ConfigsReader.getProperty("production"));
 
 		default:
 			throw new RuntimeException("Environment has not been found!!! Environment: " + environment);
