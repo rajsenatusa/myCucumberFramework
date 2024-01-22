@@ -2408,7 +2408,18 @@ public class CommonMethods extends PageInitializer {
 		}
 		return action;
 	}
-	
+	public static String getMinimumAmountReinstate(WebDriver driver) throws Exception {
+		String num = null;
+		try {
+			num = driver.findElement(By.id("MinAmountToReinstate_text")).getText().toString();
+			wait(4);
+			Hooks.scenario.log(" Minimum Amount to Reinstate : " + num);
+		} catch (Exception e) {
+			Hooks.scenario.log(num + " Minimum Amount to Reinstate : ");
+
+		}
+		return num;
+	}
 	public static String getPaymentPlan(WebDriver driver) throws Exception {
 		String payPlan = null;
 		try {

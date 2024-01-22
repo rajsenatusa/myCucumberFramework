@@ -19,7 +19,10 @@ import io.cucumber.junit.CucumberOptions;
 		dryRun = false,
 
 		
- 
+
+		// tags can do the same thing groups on TestNG do
+		tags = "@ho4datatable",
+
 
 		
 		// it provides the output console to more readable

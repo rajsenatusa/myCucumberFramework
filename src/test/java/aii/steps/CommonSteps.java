@@ -138,11 +138,11 @@ public class CommonSteps extends CommonMethods {
 
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
-
 		wait(4);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
 		wait(3);
-		dashboard.btnNewQuote.click();
+		waitForClickability(driver.findElement(By.id("Menu_Policy_NewCustomerAndQuote")));
+		driver.findElement(By.id("Menu_Policy_NewCustomerAndQuote")).click();
 		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
 		selectDropdownText(element, "Individual");
 	}
@@ -165,6 +165,7 @@ public class CommonSteps extends CommonMethods {
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
+
 	@When("User clicks History Chevron")
 	public void User_clicks_History_Chevron() {
 		click(reviewChevron.btnHistory);
@@ -176,6 +177,7 @@ public class CommonSteps extends CommonMethods {
 		click(reviewChevron.btnPremiumInfo);
 		wait(3);
 	}
+
 	@When("User enters all required information on HO4 quote screen with current date as prior policy date")
 	public void user_enters_all_required_information_on_ho4_quote_screen() {
 		// Quote Policy Chevron information was filled here
@@ -193,6 +195,7 @@ public class CommonSteps extends CommonMethods {
 		wait(1);
 		click(policyChevron.btnNext);
 	}
+
 	@When("User searches policy number before starting transaction")
 	public void user_searches_policy_number_before_starting_transaction() {
 		app_Tx_Policy_Claim_Num = driver.findElement(By.id("PolicySummary_PolicyNumber")).getText().toString();
@@ -201,6 +204,7 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.search);
 		wait(1);
 	}
+
 	@When("User enters all required information on MHO3 quote screen with prior exp date as current date")
 	public void user_enters_all_required_information_on_mho3_quote_screen_with_prior_exp_date_as_current_date() {
 		// Quote Policy Chevron information was filled here
@@ -218,6 +222,7 @@ public class CommonSteps extends CommonMethods {
 		click(policyChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User enters a valid password")
 	public void user_enters_a_valid_password() {
 		sendText(login.password, ConfigsReader.getProperty("password"));
@@ -273,6 +278,7 @@ public class CommonSteps extends CommonMethods {
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+
 	@When("User enters all required information on DP1 quote screen with current date as prior policy date")
 	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_as_prior_policy_date() {
 		// Quote Policy Chevron information was filled here
@@ -292,6 +298,7 @@ public class CommonSteps extends CommonMethods {
 		click(policyChevron.btnNext);
 		wait(3);
 	}
+
 	@When("User enters all required information on SC policy information screen")
 	public void user_enters_all_required_information_on_sc_policy_information_screen() {
 
@@ -365,6 +372,7 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.btnStart);
 
 	}
+
 	@Given("User selects Non Renewal")
 	public void user_selects_Non_Renewal() throws Exception {
 
@@ -469,8 +477,10 @@ public class CommonSteps extends CommonMethods {
 		click(policyChevron.btnResetName);
 		wait(2);
 	}
+
 	@When("User validates that Endorsement transaction has been completed successfully")
-	public void user_validates_that_endorsement_transaction_has_been_completed_successfully_and_completes_test_mtr366() throws Exception {
+	public void user_validates_that_endorsement_transaction_has_been_completed_successfully_and_completes_test_mtr366()
+			throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_2_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("Endorsement")) {
@@ -484,6 +494,7 @@ public class CommonSteps extends CommonMethods {
 		// Close unnecessary tabs
 		closeUnnecessaryTabs();
 	}
+
 	@Given("User fills the address details with {string} and zip {string}")
 	public void user_fills_the_address_details_of(String address, String zip) {
 //		sendText(quote.txtAddress, ));
@@ -908,9 +919,11 @@ public class CommonSteps extends CommonMethods {
 	@Given("User signs out")
 	public void user_signs_out() {
 		wait(2);
-		click(dashboard.btnUserMenu);
+		driver.findElement(By.id("UserMenu")).click();
+//		click(dashboard.btnUserMenu);
 		wait(1);
-		click(dashboard.btnSignOut);
+		driver.findElement(By.id("SignOutInMenu")).click();
+//		click(dashboard.btnSignOut);
 		wait(2);
 		Hooks.scenario.log("Sign out was clicked");
 	}

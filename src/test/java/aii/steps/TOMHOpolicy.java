@@ -2,7 +2,6 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -146,6 +145,7 @@ public class TOMHOpolicy extends CommonMethods {
 				String occupancy = dataMap.get("Occupancy");
 				String monthsOccupied = dataMap.get("Months");
 				String yearConstruction = dataMap.get("ConstYear");
+				String producerCode = dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -172,7 +172,7 @@ public class TOMHOpolicy extends CommonMethods {
 				click(product.btnProductSelectionTomho);
 
 				// Quote Policy Chevron information was filled here
-				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
 				wait(3);
 				click(dwellingChevron.btnSave);
 				wait(2);
@@ -247,14 +247,7 @@ public class TOMHOpolicy extends CommonMethods {
 				wait(5);
 				getPolicyNumber(driver);
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

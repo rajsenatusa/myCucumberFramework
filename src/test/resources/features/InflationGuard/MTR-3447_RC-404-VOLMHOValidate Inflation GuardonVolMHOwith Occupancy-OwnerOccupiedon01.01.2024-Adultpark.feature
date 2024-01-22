@@ -4,10 +4,8 @@ Feature: RC-404: 2024 Rate Changes- Inflation Guard: VOL MHO- 01/01/2024
 
   @RN_Policy_VOLMHOInflationGuard-1 @InflationGuard2024
   Scenario Outline: MTR-3447: RC-404- VOL MHO:Validate Inflation Guard on Vol MHO with Occupancy-Owner Occupied on 01/01/2024-Adult park
-    Given User navigates to QA2
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
     And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
@@ -89,5 +87,5 @@ Feature: RC-404: 2024 Rate Changes- Inflation Guard: VOL MHO- 01/01/2024
     Then User validates VOL MHO3 inflated values on OIR B1 1670 form for second RN
 
     Examples: Test Data
-      | username | password  | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
-      | mcemek   | Nov@2023! | 01/01/2023    | 01/01/2024               | Owner Occupied |             12 |               2021 |
+      | EffectiveDate | EndorsementEffectiveDate | Occupancy      | MonthsOccupied | YearOfConstruction |
+      | 01/01/2023    | 01/01/2024               | Owner Occupied |             12 |               2021 |
