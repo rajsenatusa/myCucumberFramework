@@ -2,7 +2,6 @@
 
 package aii.steps;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -228,6 +227,7 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 				String phone = dataMap.get("Phone");
 				String boatingliability = dataMap.get("BoatingLiability");
 				String boadilyinjuryboat = dataMap.get("BoadilyInjury");
+				String producerCode= dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -258,9 +258,10 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
 				click(dwellingChevron.btnSave);
 				wait(2);
-				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
+				wait(2);
 				click(dwellingChevron.btnSave);
-				wait(5);
+				wait(4);
 				selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
 				selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
 				selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
@@ -386,14 +387,7 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);
