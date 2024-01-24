@@ -1,7 +1,7 @@
 package aii.utils;
 
 import java.awt.*;
-import java.awt.Toolkit;
+
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -2408,6 +2408,7 @@ public class CommonMethods extends PageInitializer {
 		}
 		return action;
 	}
+
 	public static String getMinimumAmountReinstate(WebDriver driver) throws Exception {
 		String num = null;
 		try {
@@ -2420,6 +2421,7 @@ public class CommonMethods extends PageInitializer {
 		}
 		return num;
 	}
+
 	public static String getPaymentPlan(WebDriver driver) throws Exception {
 		String payPlan = null;
 		try {

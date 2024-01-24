@@ -18,10 +18,11 @@ import io.cucumber.junit.CucumberOptions;
 		// if they are glued to some java code
 		dryRun = false,
 
-		
 
 		// tags can do the same thing groups on TestNG do
-		tags = "@ho4datatable",
+
+		tags = "@mtr1010",
+
 
 
 		

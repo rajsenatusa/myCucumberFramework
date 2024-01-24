@@ -62,15 +62,20 @@ public class MTR461_TODP1_Verify_Underwriter_creates_High_Priority_Inspection_no
 
 	@When("User creates an Inspection Note")
 	public void User_creates_an_Inspection_Note() throws Exception {
-		selectDropdownText(dashboard.ddNoteTemplate, "Inspection Note");
+//		selectDropdownText(dashboard.ddNoteTemplate, "Inspection Note");
+		driver.findElement(By.id("Note.TemplateId")).sendKeys("Inspection Note");
 		wait(1);
-		selectDropdownText(dashboard.noteAction, "Agent Task");
+//		selectDropdownText(dashboard.noteAction, "Agent Task");
+		driver.findElement(By.id("Note.Action")).sendKeys("Agent Task");
 		wait(1);
-		selectDropdownText(dashboard.ddNotePriority, "High");
+//		selectDropdownText(dashboard.ddNotePriority, "High");
+		driver.findElement(By.id("Note.PriorityCd")).sendKeys("High");
 		wait(1);
-		sendText(dashboard.noteMemo, "High Priority Inspection Note that was entered by Underwriter");
+//		sendText(dashboard.noteMemo, "High Priority Inspection Note that was entered by Underwriter");
+		driver.findElement(By.id("Note.Memo")).sendKeys("High Priority Inspection Note that was entered by Underwriter");
 		wait(1);
-		click(dashboard.addNote);
+//		click(dashboard.addNote);
+		driver.findElement(By.id("AddNote")).click();
 		wait(1);
 
 		Hooks.scenario.log("Company Privileged Note has been created successfully");
@@ -82,13 +87,15 @@ public class MTR461_TODP1_Verify_Underwriter_creates_High_Priority_Inspection_no
 	public void User_validates_Inspection_and_General_Notes_have_been_created_successfully_in_Notes_List()
 			throws Exception {
 		wait(3);
-		click(dashboard.btnExpandDP1);
+//		click(dashboard.btnExpandDP1);
+		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]/i")).click();
 		verify_AnyText_IsVisible(driver, "Memo: A High Priority Inspection Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("A High Priority Inspection Note has been created successfully");
 		attachScreenShot(driver);
 		wait(3);
-		click(dashboard.btnExpandGeneralNote);
+//		click(dashboard.btnExpandGeneralNote);
+		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[4]/td[1]/i")).click();
 		verify_AnyText_IsVisible(driver, "Memo: General Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("General Note has been created successfully");
@@ -99,13 +106,15 @@ public class MTR461_TODP1_Verify_Underwriter_creates_High_Priority_Inspection_no
 	@Then("User verifies that Agent can see Inspection and General Notes")
 	public void User_verifies_that_Agent_can_see_General_Note() throws Exception {
 		wait(5);
-		click(dashboard.btnExpandDP1);
+//		click(dashboard.btnExpandDP1);
+		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]/i")).click();
 		verify_AnyText_IsVisible(driver, "Memo: A High Priority Inspection Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("A High Priority Inspection Note has been created successfully");
 		attachScreenShot(driver);
 		wait(5);
-		click(dashboard.btnExpandGeneralNote);
+//		click(dashboard.btnExpandGeneralNote);
+		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[4]/td[1]/i")).click();
 		verify_AnyText_IsVisible(driver, "Memo: General Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("General Note has been created successfully");
@@ -149,8 +158,10 @@ public class MTR461_TODP1_Verify_Underwriter_creates_High_Priority_Inspection_no
 	@Then("User verifies that Underwriter Manager can Delete and Save General Note")
 	public void User_verifies_that_Underwriter_Manager_can_Delete_and_Save_General_Note() throws Exception {
 		wait(1);
-		click(dashboard.deleteLink);
-		click(dashboard.dialogOK);
+//		click(dashboard.deleteLink);
+		driver.findElement(By.id("DeleteLink_Policy_1")).click();
+//		click(dashboard.dialogOK);
+		driver.findElement(By.id("dialogOK")).click();
 		wait(3);
 		verify_AnyText_NotVisible(driver, "General Note");
 		Hooks.scenario.log("User is not able to see General Note");
@@ -158,4 +169,5 @@ public class MTR461_TODP1_Verify_Underwriter_creates_High_Priority_Inspection_no
 		attachScreenShot(driver);
 
 	}
+	
 }
