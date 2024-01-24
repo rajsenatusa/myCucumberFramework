@@ -7,3 +7,9 @@ Feature: Agent Profile Setup
   Scenario: Validate Agent Profiles Successfully have been added to desired environment
     Given User login to Spin as Admin Agent
 		Then User creates Agent Profiles with passing information from excel "Agent" sheet
+		
+	
+	@commisionupdate	
+	Scenario: Validate Agent Profiles Successfully have been added to desired environment
+    Given User login to Spin as Admin Agent
+		Then User edits Agent Commissions with passing information from excel "ProducerCode" sheet

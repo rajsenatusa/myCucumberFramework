@@ -148,7 +148,7 @@ public class MTR1010_TOHO3_Verify_Declaration_AIIC_02_HO3_DEC0423_is_updated_on_
 		}
 	}
 	@When("User searches for the policy number <mtr1010>")
-	public void user_searches_policy_for_mtr1010() {
+	public void user_searches_policy_for_mtr1010() throws Exception {
 		sendText(dashboard.txtSearchBar, policyNum);
 		click(dashboard.search);
 		wait(3);

@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
-import aii.utils.PdfComparator;
-import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -92,14 +90,13 @@ public class MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note extends CommonMethod
 
 	@When("User creates a General Note")
 	public void User_creates_a_General_Note() throws Exception {
-//		selectDropdownText(dashboard.ddNoteTemplate, "General Note");
-		driver.findElement(By.id("Note.TemplateId")).sendKeys("General Note");
+
+		selectDropdownText(driver.findElement(By.id("Note.TemplateId")), "General Note");
 		wait(1);
-//		selectDropdownText(dashboard.ddNotePriority, "Low");
-		driver.findElement(By.id("Note.PriorityCd")).sendKeys("Low");
+		selectDropdownText(driver.findElement(By.id("Note.PriorityCd")), "Low");
 		wait(1);
-//		sendText(dashboard.noteMemo, "General Note that was entered by Underwriter");
-		driver.findElement(By.id("Note.Memo")).sendKeys("General Note that was entered by Underwriter");
+		sendText(driver.findElement(By.id("Note.Memo")), "General Note that was entered by Underwriter");
+
 		wait(1);
 //		click(dashboard.addNote);
 		driver.findElement(By.id("AddNote")).click();

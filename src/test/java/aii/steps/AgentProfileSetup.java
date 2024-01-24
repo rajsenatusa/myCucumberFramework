@@ -9,11 +9,14 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UnhandledAlertException;
@@ -28,7 +31,9 @@ public class AgentProfileSetup extends CommonMethods {
 	public void User_creates_Agent_Profiles_with_passing_information_from_excel_sheet(String Agent) throws Exception {
 
 		// Reading Input from an Excel document
-		FileInputStream fis = new FileInputStream(new File("\\C:\\Users\\CYavas\\Desktop\\User Setup Template.xls"));
+		FileInputStream fis = new FileInputStream(new File(
+				"\\C:\\Users\\CYavas\\git\\AutomationCucumber2023\\src\\test\\resources\\testddata\\User Setup Template.xls"));
+
 		try (HSSFWorkbook wb = new HSSFWorkbook(fis)) {
 			HSSFSheet sheet1 = wb.getSheetAt(0);
 
@@ -227,5 +232,255 @@ public class AgentProfileSetup extends CommonMethods {
 			}
 		}
 
+	}
+
+	@Then("User edits Agent Commissions with passing information from excel {string} sheet")
+	public void User_edits_Agent_Commisions_with_passing_information_from_excel_sheet(String ProducerCode)
+			throws Exception {
+
+		// Reading Input from an Excel document
+		FileInputStream fis = new FileInputStream(
+				new File(System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\Users.xlsx"));
+
+		try (XSSFWorkbook wb = new XSSFWorkbook(fis)) {
+			XSSFSheet sheet1 = wb.getSheetAt(0);
+
+			// Counting Number of Rows from Excel
+			int rowcount = sheet1.getLastRowNum();
+			System.out.println("Total number of Transactions to be Created : " + rowcount);
+
+			// Processing each row of the Excel
+
+			for (int j = 0; j <= rowcount; j++) {
+
+				try {
+					driver.findElement(By.id("Menu_Policy")).click();
+					driver.findElement(By.id("Menu_Policy_UnderwritingMaintenance")).click();
+					clickOnAnyLink(driver, "Producer");
+					XSSFRow row = sheet1.getRow(j);
+
+					selectDropdownText(driver.findElement(By.id("SearchBy")), "Producer Code");
+
+					// retrieving user ID from excel
+					XSSFCell UID = row.getCell(0);
+
+					System.out.println("Creating User ID" + UID);
+
+					String UID1 = UID.getRichStringCellValue().getString();
+
+					// searching User ID
+					driver.findElement(By.id("SearchText")).sendKeys(UID1);
+					click(driver.findElement(By.id("Search")));
+					click(driver.findElement(By.id("Link_" + UID1 + "")));
+					moveToElement(driver.findElement(By.id("AddProduct")));
+
+					// selecting Product line and updating
+
+					// GOC
+					// edit current rate expiration dates
+					click(driver.findElement(By.id("Product_GOC_FL_Edit")));
+					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					// adding new commmission rates
+					click(driver.findElement(By.id("AddProduct")));
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "GOC");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")), "10");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+
+					// AIB
+					// edit current rate expiration dates
+					click(driver.findElement(By.id("Product_AIB_FL_Edit")));
+					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					// adding new commmission rates
+					click(driver.findElement(By.id("AddProduct")));
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AIB");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")), "10");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+
+					// AGR
+					// edit current rate expiration dates
+					click(driver.findElement(By.id("Product_AGR_FL_Edit"))); 
+					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					// adding new commmission rates
+					click(driver.findElement(By.id("AddProduct")));
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGR"); 																																																	
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")), "7");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+
+					// AGM
+					// edit current rate expiration dates
+					click(driver.findElement(By.id("Product_AGM_FL_Edit")));
+					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					// adding new commmission rates
+					click(driver.findElement(By.id("AddProduct")));
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGM");																						
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")), "7");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+
+					// AGH
+					// edit current rate expiration dates
+					click(driver.findElement(By.id("Product_AGH_FL_Edit"))); 
+					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					// adding new commmission rates
+					click(driver.findElement(By.id("AddProduct")));
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGH"); 
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")), "7");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+
+					// AGD3
+					// edit current rate expiration dates
+					click(driver.findElement(By.id("Product_AGD3_FL_Edit"))); 
+					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					// adding new commmission rates
+					click(driver.findElement(By.id("AddProduct")));
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGD3"); 
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")), "7");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+
+					// AGD1
+					// edit current rate expiration dates
+					click(driver.findElement(By.id("Product_AGD1_FL_Edit"))); 
+					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					// adding new commmission rates
+					click(driver.findElement(By.id("AddProduct")));
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGD1"); 
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")), "7");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+
+					// AGC
+					// edit current rate expiration dates
+					click(driver.findElement(By.id("Product_AGC_FL_Edit"))); 
+					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					// adding new commmission rates
+					click(driver.findElement(By.id("AddProduct")));
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGC"); 
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
+					sendText(driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")), "7");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					click(driver.findElement(By.id("Save")));
+					wait(1);
+					
+					click(driver.findElement(By.id("Return")));
+					wait(1);
+
+					// Making outcome report
+					FileOutputStream fws = new FileOutputStream(new File(System.getProperty("user.dir")
+							+ "\\git\\AutomationCucumber2023\\test-output\\UserResults.xlsx"));
+					XSSFCell ProdCode = sheet1.getRow(j).createCell(0);
+					XSSFCell resultcell = sheet1.getRow(j).createCell(1);
+					XSSFCell timecell = sheet1.getRow(j).createCell(2);
+					ProdCode.setCellValue(UID1);
+					resultcell.setCellValue("Success");
+					LocalDateTime timestamp = LocalDateTime.now();
+					timecell.setCellValue(String.valueOf(timestamp));
+					wb.write(fws);
+					System.out.println(UID1 + " Agent Commissions Rates Updated Successfully");
+
+					// driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
+					// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
+				} catch (FileNotFoundException e) {
+					System.out.println(" File not available");
+					// String result1="Excel file not available";
+					continue;
+
+				} catch (IOException e) {
+					System.out.println("Pending Transaction");
+					// String result1="Pending Transaction";
+					continue;
+
+				} catch (NoSuchElementException exception) {
+					System.out.println("Element not found exception");
+					// String result1="Pending Transaction";
+					continue;
+				} catch (UnhandledAlertException e) {
+					System.out.println("unhandled alert");
+					Alert alert = driver.switchTo().alert();
+					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+					alert.accept();
+					driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
+					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+					alert.accept();
+					continue;
+				}
+
+			}
+		}
 	}
 }
