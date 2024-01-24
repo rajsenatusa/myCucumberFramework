@@ -72,7 +72,8 @@ public class MTR458_DP1_Verify_Underwriter_creates_Inspection_notes_but_does_not
 	@Then("User verifies that no Edit or Delete links are displayed")
 	public void User_verifies_that_no_Edit_or_Delete_links_are_displayed() throws Exception {
 		wait(3);
-		click(dashboard.btnExpandDP1);
+//		click(dashboard.btnExpandDP1);
+		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]/i")).click();
 		verify_AnyText_NotVisible(driver, "Edit or Delete links");
 		Hooks.scenario.log("Underwriter is not able to see Edit or Delete links");
 		Hooks.scenario.log("No Edit or Delete links");

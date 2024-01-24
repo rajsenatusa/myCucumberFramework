@@ -92,13 +92,17 @@ public class MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note extends CommonMethod
 
 	@When("User creates a General Note")
 	public void User_creates_a_General_Note() throws Exception {
-		selectDropdownText(dashboard.ddNoteTemplate, "General Note");
+//		selectDropdownText(dashboard.ddNoteTemplate, "General Note");
+		driver.findElement(By.id("Note.TemplateId")).sendKeys("General Note");
 		wait(1);
-		selectDropdownText(dashboard.ddNotePriority, "Low");
+//		selectDropdownText(dashboard.ddNotePriority, "Low");
+		driver.findElement(By.id("Note.PriorityCd")).sendKeys("Low");
 		wait(1);
-		sendText(dashboard.noteMemo, "General Note that was entered by Underwriter");
+//		sendText(dashboard.noteMemo, "General Note that was entered by Underwriter");
+		driver.findElement(By.id("Note.Memo")).sendKeys("General Note that was entered by Underwriter");
 		wait(1);
-		click(dashboard.addNote);
+//		click(dashboard.addNote);
+		driver.findElement(By.id("AddNote")).click();
 		wait(1);
 		Hooks.scenario.log("General Note has been created successfully");
 		attachScreenShot(driver);

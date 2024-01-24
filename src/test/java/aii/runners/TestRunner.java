@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions;
 		
 
 		// tags can do the same thing groups on TestNG do
-		tags = "@ho4datatable",
+		tags = "",
 
 
 		
