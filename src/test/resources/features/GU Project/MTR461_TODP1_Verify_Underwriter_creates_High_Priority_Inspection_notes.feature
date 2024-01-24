@@ -43,19 +43,3 @@ Feature: MTR-461 TODP1_Verify_Underwriter_creates_High_Priority_Inspection_notes
     And User clicks Notes Chevron
     Then User verifies that Edit or Delete links are displayed
     Then User verifies that Underwriter Manager can Delete and Save General Note
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
