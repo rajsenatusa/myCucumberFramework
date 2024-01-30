@@ -17,7 +17,7 @@
   
 ## User: AG1730
 
-@regression @mtr368 @mho3regression
+@regression @mtr368 @mho3regression @hotfix
 Feature: TC 35184--MHO Agent NB END - Validate Backdating Deductible Changes Prior to, On, and After NB Effective Date
 
   Scenario: Validate a change to coverage(s) with an Effective Date in the past fires the error

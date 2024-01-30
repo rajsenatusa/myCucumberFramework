@@ -8,7 +8,7 @@ Feature: RC-1859: 2024 Rate Changes- FIGA: UMB - 1/1/2024
     When User starts transaction as a new customer
     And User enters all required information on policy information screen
     And User enters product selection information for UMB and "<EffectiveDate>"
-    And User enters Producer Code
+    And User enters Producer Code for <mtr3646>
     And User answers previous policy written with AIIG questions
     And User enters Primary Phone
     And User clicks No Email

@@ -8,7 +8,7 @@
   
 ## EXPECTED RESULTS: Loss location address populated garaging address 
 
-@regression @mtr1441 @umbregression
+@regression @mtr1441 @umbregression @hotfixUMB
 Feature: TC 35148--UMB Validate Adjuster can create Claim for loss location as 'Recreational vehicle' for different garaging address
 
   Scenario: Validate All forms will be verified in the following states: New Business, Endorsement, Claims, Renewal transactions

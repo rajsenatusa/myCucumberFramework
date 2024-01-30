@@ -14,7 +14,7 @@ Feature: RC-1854: 2024 Rate Changes- FIGA: AIB - 1/1/2024
     And User enters effective date "<EffectiveDate>"
     And User enters state
     And User clicks VOL AIB policy
-    And User enters Producer Code
+    And User enters Producer Code for <mtr3625>
     And User clicks AIB Prior Carrier
     And User enters Prior Policy Expiration Date
     And User selects Have you had 6 months of continuous boat insurance
