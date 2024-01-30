@@ -2,6 +2,7 @@ package aii.steps;
 
 import org.junit.Assert;
 import aii.utils.CommonMethods;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 public class VOLUMB_FIGA extends CommonMethods {
@@ -35,6 +36,12 @@ public class VOLUMB_FIGA extends CommonMethods {
 		String expected = "0.0100";
 		String actual = dashboard.fIGA2024UMBWorksheets.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
+		wait(1);
+	}
+	@And("User enters Producer Code for <mtr3646>")
+	public void User_enters_Producer_Code_for_mtr3646() {
+		policyChevron.txtProducerCodeSel.sendKeys("AG1730A1");
+		click(dwellingChevron.btnSave);
 		wait(1);
 	}
 

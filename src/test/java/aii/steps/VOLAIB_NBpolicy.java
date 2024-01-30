@@ -53,7 +53,7 @@ public class VOLAIB_NBpolicy extends CommonMethods {
 
 	@When("User selects liability coverage on quote screen")
 	public void user_selects_liability_coverage_on_quote_screen() {
-
+		wait(3);
 		selectDropdownText(golfcartChevron.ddLiabilityCovType, ConfigsReader.getProperty("boatingliability"));
 		wait(6);
 		selectDropdownText(golfcartChevron.ddBodilyInjuryPerson, ConfigsReader.getProperty("bodilyinjuryboat"));

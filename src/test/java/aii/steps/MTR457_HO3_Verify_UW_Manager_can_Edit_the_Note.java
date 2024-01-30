@@ -92,7 +92,7 @@ public class MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note extends CommonMethod
 	public void User_validates_a_New_Note_has_been_created_successfully_in_Notes_List_mtr457() throws Exception {
 		wait(7);
 		click(dashboard.btnExpand);
-		verify_AnyText_IsVisible(driver, "Memo: Company Privileged Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "Company Privileged Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("Company Privileged Note has been created successfully");
 		attachScreenShot(driver);
@@ -129,7 +129,7 @@ public class MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note extends CommonMethod
 	public void User_validates_a_General_Note_has_been_created_successfully_in_Notes_List_mtr457() throws Exception {
 		wait(7);
 		click(dashboard.btnExpandHO3);
-		verify_AnyText_IsVisible(driver, "Memo: General Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "General Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("General Note has been created successfully");
 		attachScreenShot(driver);

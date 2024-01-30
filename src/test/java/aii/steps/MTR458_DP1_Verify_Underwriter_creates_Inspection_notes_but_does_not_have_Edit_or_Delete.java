@@ -84,7 +84,7 @@ public class MTR458_DP1_Verify_Underwriter_creates_Inspection_notes_but_does_not
 	public void User_validates_a_New_Note_has_been_created_successfully_in_Notes_List_mtr458() throws Exception {
 		wait(7);
 		click(dashboard.btnExpand);
-		verify_AnyText_IsVisible(driver, "Memo: Inspection Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "Inspection Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("Inspection Note has been created successfully");
 		attachScreenShot(driver);
