@@ -9,14 +9,14 @@
 #	2. Underwriting Approval referral is triggered
 #	3. Agent cannot bind NB without Underwriting Approval
 	
-# User: AG8166
+# User: AG1730
 
 
 @regression @tc16767 @umbregression @hotfixUMB
 Feature: TC 16767--UMB Agent Basic Policy App Validations 'Validate UW Questions trigger approval when needed'
 
   Scenario: Validate Selecting Yes to ineligible questions to Underwriting Questions will require Underwriting Approval
-    Given User login to Spin as Standard Agent 2
+    Given User login to Spin as Standard Agent
     When User starts transaction as a new customer
     And User enters all required information on policy information screen
     And User enters HO4 product selection information and current date as effective date
@@ -75,7 +75,7 @@ Feature: TC 16767--UMB Agent Basic Policy App Validations 'Validate UW Questions
     And User validates expected error messages on policy tile and submitter issues tile with UW manager role
     And User approves application
     And User signs out
-    And User login to Spin as Standard Agent 2
+    And User login to Spin as Standard Agent
     And User searches for the application <tc16767>
     And User validates issue messages under submitter issues tile
     Then User issues policy and close unnecessary tabs and completes test <tc16767>

@@ -13,7 +13,7 @@ Feature: MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note
     And User starts transaction as a new customer
     And User enters all required information on policy information screen
     And User enters HO3 product selection information and current date as effective date
-    And User enters all required information on HO3 quote screen
+    And User enters all required information on HO3 quote screen <mtr457>
     And User enters all required information on HO3 dwelling screen
     And User enters all required information on HO3 review screen
     And User creates HO3 application

@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -19,7 +21,10 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.UnhandledAlertException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import aii.utils.CommonMethods;
@@ -233,6 +238,152 @@ public class AgentProfileSetup extends CommonMethods {
 		}
 
 	}
+//-----------------------------------------oooooooooooooo-----------------------------------------------------------------------
+
+	private void editRNIfEmpty(String ProductLine) {
+		List<String> renlExpDatesBeforeEdit = new ArrayList<>();
+
+		// Store expiration dates before edit
+		List<WebElement> renlExpDateElements = driver.findElements(By.xpath("//td[contains(text(),'" + ProductLine
+				+ "')]/following-sibling::td[contains(@id, 'RenewalExpirationDt')]"));
+		for (WebElement RnexpirationDateElement : renlExpDateElements) {
+			try {
+				String expirationDate = RnexpirationDateElement.getText();
+				renlExpDatesBeforeEdit.add(expirationDate);
+			} catch (StaleElementReferenceException e) {
+				renlExpDateElements = driver.findElements(By.xpath("//td[contains(text(),'" + ProductLine
+						+ "')]/following-sibling::td[contains(@id, 'RenewalExpirationDt')]"));
+			}
+		}
+
+		// Edit RenewalExpirationDt if empty
+		if (!renlExpDateElements.isEmpty()) {
+			for (WebElement RnexpirationDateElement : renlExpDateElements) {
+				try {
+					String expirationDate = RnexpirationDateElement.getText();
+
+					// Check if the expiration date is empty
+					if (expirationDate == null || expirationDate.trim().isEmpty() || expirationDate.isBlank()) {
+						// Your existing code to perform edits
+						// Dynamic XPath based on ProductLine
+						// Navigate to the parent row
+						WebElement parentRow = RnexpirationDateElement.findElement(By.xpath("./ancestor::tr"));
+
+						// Find the edit link within that row based on the product line
+						WebElement editLink = parentRow
+								.findElement(By.xpath(".//a[contains(@id, 'Product_" + ProductLine + "_FL_Edit')]"));
+						Actions actions = new Actions(driver);
+						actions.moveToElement(editLink).click().build().perform();
+						sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
+						click(driver.findElement(By.id("Save")));
+						wait(1);
+						continue;
+					}
+				} catch (StaleElementReferenceException e) {
+					renlExpDateElements = driver.findElements(By.xpath("//td[contains(text(),'" + ProductLine
+							+ "')]/following-sibling::td[contains(@id, 'RenewalExpirationDt')]"));
+				}
+			}
+		}
+		// Check for changes after edit
+		List<String> renlExpDatesAfterEdit = new ArrayList<>();
+		for (WebElement RnexpirationDateElement : renlExpDateElements) {
+			try {
+				String expirationDate = RnexpirationDateElement.getText();
+				renlExpDatesAfterEdit.add(expirationDate);
+			} catch (StaleElementReferenceException e) {
+				renlExpDateElements = driver.findElements(By.xpath("//td[contains(text(),'" + ProductLine
+						+ "')]/following-sibling::td[contains(@id, 'RenewalExpirationDt')]"));
+			}
+		}
+
+		// Compare before and after for RenewalExpirationDt
+		if (!renlExpDatesBeforeEdit.isEmpty() && renlExpDatesBeforeEdit.size() == renlExpDatesAfterEdit.size()) {
+			for (int i = 0; i < renlExpDatesBeforeEdit.size(); i++) {
+				String beforeEdit = renlExpDatesBeforeEdit.get(i);
+				String afterEdit = renlExpDatesAfterEdit.get(i);
+
+				if (!beforeEdit.equals(afterEdit)) {
+					System.out.println("RenewalExpirationDt updated successfully.");
+				}
+			}
+		} else {
+			System.out.println("Lists for RenewalExpirationDt are empty or have different sizes. Unable to compare.");
+		}
+	}
+
+	private void editNBIfEmpty(String ProductLine) {
+		List<String> nbExpDatesBeforeEdit = new ArrayList<>();
+
+		// Store expiration dates before edit
+		List<WebElement> nbExpDateElements = driver.findElements(By.xpath("//td[contains(text(),'" + ProductLine
+				+ "')]/following-sibling::td[contains(@id, 'NewExpirationDt')]"));
+
+		for (WebElement NbexpirationDateElement : nbExpDateElements) {
+			try {
+				String expirationDate = NbexpirationDateElement.getText();
+				nbExpDatesBeforeEdit.add(expirationDate);
+			} catch (StaleElementReferenceException e) {
+				nbExpDateElements = driver.findElements(By.xpath("//td[contains(text(),'" + ProductLine
+						+ "')]/following-sibling::td[contains(@id, 'NewExpirationDt')]"));
+			}
+		}
+
+		// Edit NewExpirationDt if empty
+		if (!nbExpDateElements.isEmpty()) {
+			for (WebElement NbexpirationDateElement : nbExpDateElements) {
+				try {
+					String expirationDate = NbexpirationDateElement.getText();
+
+					// Check if the expiration date is empty
+					if (expirationDate == null || expirationDate.trim().isEmpty() || expirationDate.isBlank()) {
+						// Your existing code to perform edits
+						// Navigate to the parent row
+						WebElement parentRow = NbexpirationDateElement.findElement(By.xpath("./ancestor::tr"));
+
+						// Find the edit link within that row based on the product line
+						WebElement editLink = parentRow
+								.findElement(By.xpath(".//a[contains(@id, 'Product_" + ProductLine + "_FL_Edit')]"));
+
+						Actions actions = new Actions(driver);
+						actions.moveToElement(editLink).click().build().perform();
+						sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
+						click(driver.findElement(By.id("Save")));
+						wait(1);
+						continue;
+					}
+				} catch (StaleElementReferenceException e) {
+					nbExpDateElements = driver.findElements(By.xpath("//td[contains(text(),'" + ProductLine
+							+ "')]/following-sibling::td[contains(@id, 'NewExpirationDt')]"));
+				}
+			}
+		}
+		// Check for changes after edit
+		List<String> nbExpDatesAfterEdit = new ArrayList<>();
+		for (WebElement NbexpirationDateElement : nbExpDateElements) {
+			try {
+				String expirationDate = NbexpirationDateElement.getText();
+				nbExpDatesAfterEdit.add(expirationDate);
+			} catch (StaleElementReferenceException e) {
+				nbExpDateElements = driver.findElements(By.xpath("//td[contains(text(),'" + ProductLine
+						+ "')]/following-sibling::td[contains(@id, 'NewExpirationDt')]"));
+			}
+		}
+
+		// Compare before and after
+		if (!nbExpDatesBeforeEdit.isEmpty() && nbExpDatesBeforeEdit.size() == nbExpDatesAfterEdit.size()) {
+			for (int i = 0; i < nbExpDatesBeforeEdit.size(); i++) {
+				String beforeEdit = nbExpDatesBeforeEdit.get(i);
+				String afterEdit = nbExpDatesAfterEdit.get(i);
+
+				if (!beforeEdit.equals(afterEdit)) {
+					System.out.println("NewExpirationDt updated successfully.");
+				}
+			}
+		} else {
+			System.out.println("Lists are empty or have different sizes. Unable to compare.");
+		}
+	}
 
 	@Then("User edits Agent Commissions with passing information from excel {string} sheet")
 	public void User_edits_Agent_Commisions_with_passing_information_from_excel_sheet(String ProducerCode)
@@ -278,11 +429,10 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// GOC
 					// edit current rate expiration dates
-					click(driver.findElement(By.id("Product_GOC_FL_Edit")));
-					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
-					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
-					click(driver.findElement(By.id("Save")));
-					wait(1);
+
+					editNBIfEmpty("GOC");
+					editRNIfEmpty("GOC");
+
 					// adding new commmission rates
 					click(driver.findElement(By.id("AddProduct")));
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "GOC");
@@ -298,11 +448,9 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// AIB
 					// edit current rate expiration dates
-					click(driver.findElement(By.id("Product_AIB_FL_Edit")));
-					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
-					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
-					click(driver.findElement(By.id("Save")));
-					wait(1);
+					editNBIfEmpty("AIB");
+					editRNIfEmpty("AIB");
+
 					// adding new commmission rates
 					click(driver.findElement(By.id("AddProduct")));
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AIB");
@@ -318,14 +466,12 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// AGR
 					// edit current rate expiration dates
-					click(driver.findElement(By.id("Product_AGR_FL_Edit"))); 
-					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
-					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
-					click(driver.findElement(By.id("Save")));
-					wait(1);
+					editNBIfEmpty("AGR");
+					editRNIfEmpty("AGR");
+
 					// adding new commmission rates
 					click(driver.findElement(By.id("AddProduct")));
-					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGR"); 																																																	
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGR");
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
 					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
@@ -338,14 +484,12 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// AGM
 					// edit current rate expiration dates
-					click(driver.findElement(By.id("Product_AGM_FL_Edit")));
-					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
-					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
-					click(driver.findElement(By.id("Save")));
-					wait(1);
+					editNBIfEmpty("AGM");
+					editRNIfEmpty("AGM");
+
 					// adding new commmission rates
 					click(driver.findElement(By.id("AddProduct")));
-					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGM");																						
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGM");
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
 					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
@@ -358,14 +502,12 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// AGH
 					// edit current rate expiration dates
-					click(driver.findElement(By.id("Product_AGH_FL_Edit"))); 
-					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
-					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
-					click(driver.findElement(By.id("Save")));
-					wait(1);
+					editNBIfEmpty("AGH");
+					editRNIfEmpty("AGH");
+
 					// adding new commmission rates
 					click(driver.findElement(By.id("AddProduct")));
-					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGH"); 
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGH");
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
 					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
@@ -378,14 +520,12 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// AGD3
 					// edit current rate expiration dates
-					click(driver.findElement(By.id("Product_AGD3_FL_Edit"))); 
-					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
-					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
-					click(driver.findElement(By.id("Save")));
-					wait(1);
+					editNBIfEmpty("AGD3");
+					editRNIfEmpty("AGD3");
+
 					// adding new commmission rates
 					click(driver.findElement(By.id("AddProduct")));
-					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGD3"); 
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGD3");
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
 					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
@@ -398,14 +538,12 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// AGD1
 					// edit current rate expiration dates
-					click(driver.findElement(By.id("Product_AGD1_FL_Edit"))); 
-					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
-					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
-					click(driver.findElement(By.id("Save")));
-					wait(1);
+					editNBIfEmpty("AGD1");
+					editRNIfEmpty("AGD1");
+
 					// adding new commmission rates
 					click(driver.findElement(By.id("AddProduct")));
-					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGD1"); 
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGD1");
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
 					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
@@ -418,14 +556,12 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// AGC
 					// edit current rate expiration dates
-					click(driver.findElement(By.id("Product_AGC_FL_Edit"))); 
-					sendText(driver.findElement(By.id("LicensedProduct.NewExpirationDt")), "02/01/2024");
-					sendText(driver.findElement(By.id("LicensedProduct.RenewalExpirationDt")), "02/01/2024");
-					click(driver.findElement(By.id("Save")));
-					wait(1);
+					editNBIfEmpty("AGC");
+					editRNIfEmpty("AGC");
+
 					// adding new commmission rates
 					click(driver.findElement(By.id("AddProduct")));
-					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGC"); 
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), "AGC");
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					sendText(driver.findElement(By.id("LicensedProduct.EffectiveDt")), "02/01/2024");
 					sendText(driver.findElement(By.id("LicensedProduct.CommissionNewPct")), "12");
@@ -435,13 +571,13 @@ public class AgentProfileSetup extends CommonMethods {
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					click(driver.findElement(By.id("Save")));
 					wait(1);
-					
+
 					click(driver.findElement(By.id("Return")));
 					wait(1);
 
 					// Making outcome report
-					FileOutputStream fws = new FileOutputStream(new File(System.getProperty("user.dir")
-							+ "\\git\\AutomationCucumber2023\\test-output\\UserResults.xlsx"));
+					FileOutputStream fws = new FileOutputStream(
+							new File("C:\\Users\\CYavas\\git\\AutomationCucumber2023\\test-output\\UserResults.xlsx"));
 					XSSFCell ProdCode = sheet1.getRow(j).createCell(0);
 					XSSFCell resultcell = sheet1.getRow(j).createCell(1);
 					XSSFCell timecell = sheet1.getRow(j).createCell(2);
@@ -451,9 +587,6 @@ public class AgentProfileSetup extends CommonMethods {
 					timecell.setCellValue(String.valueOf(timestamp));
 					wb.write(fws);
 					System.out.println(UID1 + " Agent Commissions Rates Updated Successfully");
-
-					// driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
-					// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 				} catch (FileNotFoundException e) {
 					System.out.println(" File not available");

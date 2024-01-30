@@ -81,7 +81,7 @@ public class MTR352_HO3_ValidatePolicyHolderNotice_NB_END extends CommonMethods 
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_mtr352() {
 		// Quote Dwelling information was filled here
 		sendText(dwellingChevron.txtYearConstruction, "2023");
-		selectDropdownText(dwellingChevron.bCEG, "3");
+		selectDropdownText(dwellingChevron.bCEG, "Non-Participating");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
