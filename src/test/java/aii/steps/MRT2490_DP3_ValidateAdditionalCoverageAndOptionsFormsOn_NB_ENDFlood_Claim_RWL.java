@@ -1209,11 +1209,12 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP WDX 12 18Water Damage Exclusion ");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "AIIC DP3 OC 12 18Outline of your Dwelling Policy");
 		PdfComparator.verifyFormData(driver, NBApp_Page, "OIR B1 1670Checklist of Coverage");
-		PdfComparator.verifyFormData(driver, NBApp_Page, "OIR B1 1655");
+		
 
 		NBApp_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBApp_Form, 3, 0, 0, 690, 720);
 		PdfComparator.verifyFormData(driver, NBApp_Page2, "AIIC NCR 08 19Notice of Consumer Reports Ordered and");
 		PdfComparator.verifyFormData(driver, NBApp_Page2, "AIIC SKSR 11 14");
+		PdfComparator.verifyFormData(driver, NBApp_Page2, "OIR B1 1655");
 	}
 
 	@When("User clicks New Business Package Link and validates form versions <mtr2490>")
@@ -1772,9 +1773,10 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, EndDec_Page,
 				"AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page, "DP 04 73 07 88Limited Theft Coverage");
-		PdfComparator.verifyFormData(driver, EndDec_Page, "AIIC DP LA 07 15Loss Assessment Property Coverage");
+		
 
 		EndDec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + EndPackage_Form, 3, 30, 80, 560, 190);
+		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP LA 07 15Loss Assessment Property Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP OL 07 15Ordinance or Law Coverage");
 		PdfComparator.verifyFormData(driver, EndDec_Page2, "AIIC DP LWD 12 18Limited Water Damages");
 		PdfComparator.verifyFormData(driver, EndDec_Page2,
@@ -1935,9 +1937,10 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, RwlDec_Page,
 				"AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page, "DP 04 73 07 88Limited Theft Coverage");
-		PdfComparator.verifyFormData(driver, RwlDec_Page, "AIIC DP LA 07 15Loss Assessment Property Coverage");
+		
 
 		RwlDec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + RwlDec_Form, 11, 30, 80, 590, 170);
+		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP LA 07 15Loss Assessment Property Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP OL 07 15Ordinance or Law Coverage");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2, "AIIC DP LWD 12 18Limited Water Damages");
 		PdfComparator.verifyFormData(driver, RwlDec_Page2,
@@ -2284,9 +2287,10 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page,
 				"AIIC DP LFC 07 15Limited Fungi, Mold, Wet or Dry Rot, or Bacteria Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "DP 04 73 07 88Limited Theft Coverage");
-		PdfComparator.verifyFormData(driver, Rwl2Dec_Page, "AIIC DP LA 07 15Loss Assessment Property Coverage");
+		
 
 		Rwl2Dec_Page2 = SmartPDFComparator2.getPDFtextByArea(FileLocation + Rwl2Dec_Form, 11, 30, 80, 590, 170);
+		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP LA 07 15Loss Assessment Property Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP OL 07 15Ordinance or Law Coverage");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2, "AIIC DP LWD 12 18Limited Water Damages");
 		PdfComparator.verifyFormData(driver, Rwl2Dec_Page2,

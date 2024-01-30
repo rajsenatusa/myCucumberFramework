@@ -50,6 +50,9 @@ public class UserLookupElements extends CommonMethods {
 	@FindBy (id= "OverrideRole_0")
 	public WebElement lnkOverride;
 	
+	@FindBy (id= "OverrideRole_1")
+	public WebElement lnkOverride1;
+	
 	@FindBy (id= "UserRoleAttrValue_2_1")
 	public WebElement txtDaysAllowedPayPlan;
 	
