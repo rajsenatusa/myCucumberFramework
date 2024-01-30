@@ -53,10 +53,10 @@ public class MTR461_TODP1_Verify_Underwriter_creates_High_Priority_Inspection_no
 	@When("User Searchs for Policy Number for <mtr461>")
 	public void User_searches_for_Policy_Number_for_mtr461() {
 		wait(3);
-		driver.findElement(By.id("ToolbarSearchText")).sendKeys(policyNum);		
-//		sendText(dashboard.txtSearchBar, policyNum);
-		driver.findElement(By.id("ToolbarSearch")).click();
-//		click(dashboard.search);
+//		driver.findElement(By.id("ToolbarSearchText")).sendKeys(policyNum);		
+		sendText(dashboard.txtSearchBar, policyNum);
+//		driver.findElement(By.id("ToolbarSearch")).click();
+		click(dashboard.search);
 		wait(3);
 	}
 
@@ -89,14 +89,14 @@ public class MTR461_TODP1_Verify_Underwriter_creates_High_Priority_Inspection_no
 		wait(3);
 //		click(dashboard.btnExpandDP1);
 		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]/i")).click();
-		verify_AnyText_IsVisible(driver, "Memo: A High Priority Inspection Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "A High Priority Inspection Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("A High Priority Inspection Note has been created successfully");
 		attachScreenShot(driver);
 		wait(3);
 //		click(dashboard.btnExpandGeneralNote);
 		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[4]/td[1]/i")).click();
-		verify_AnyText_IsVisible(driver, "Memo: General Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "General Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("General Note has been created successfully");
 		attachScreenShot(driver);
@@ -108,14 +108,14 @@ public class MTR461_TODP1_Verify_Underwriter_creates_High_Priority_Inspection_no
 		wait(5);
 //		click(dashboard.btnExpandDP1);
 		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]/i")).click();
-		verify_AnyText_IsVisible(driver, "Memo: A High Priority Inspection Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "A High Priority Inspection Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("A High Priority Inspection Note has been created successfully");
 		attachScreenShot(driver);
 		wait(5);
 //		click(dashboard.btnExpandGeneralNote);
 		driver.findElement(By.xpath("//*[@id=\"NotesList\"]/div/table/tbody/tr[4]/td[1]/i")).click();
-		verify_AnyText_IsVisible(driver, "Memo: General Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "General Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("General Note has been created successfully");
 		attachScreenShot(driver);

@@ -96,7 +96,7 @@ public class MTR459_MHO3_Verify_as_an_Underwriter_has_the_ability_to_create_High
 	public void User_validates_a_New_Note_has_been_created_successfully_in_Notes_List() throws Exception {
 		wait(7);
 		click(dashboard.btnExpand);
-		verify_AnyText_IsVisible(driver, "Memo: Company Privileged Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "Company Privileged Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("Company Privileged Note has been created successfully");
 		attachScreenShot(driver);
@@ -105,7 +105,7 @@ public class MTR459_MHO3_Verify_as_an_Underwriter_has_the_ability_to_create_High
 	public void User_validates_Agent_is_not_able_to_see_Company_Privileged_Note_that_was_created_by_Underwriter() throws Exception {
 		wait(7);
 		click(dashboard.btnExpand);
-		verify_AnyText_NotVisible(driver, "Memo: Company Privileged Note that was entered by Underwriter");
+		verify_AnyText_NotVisible(driver, "Company Privileged Note that was entered by Underwriter");
 		Hooks.scenario.log("Agent is not able to see Company Privileged Note that was created by Underwriter");
 	}
 	@And("User enters Months Occupied for MHO3")

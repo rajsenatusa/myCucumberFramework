@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
+import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -52,6 +53,24 @@ public class MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note extends CommonMethod
 		click(dashboard.search);
 		wait(3);
 	}
+	@When("User enters all required information on HO3 quote screen <mtr457>")
+	public void user_enters_all_required_information_on_ho3_quote_screen_mtr457() {
+		// Quote Policy Chevron information was filled here
+
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("previouscarrier"));
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
+		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
+		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
+		selectDropdownText(policyChevron.ddInsuredReside, "No");
+		wait(1);
+		click(policyChevron.btnNext);
+	}
 
 	@When("User creates a New Note for <mtr457>")
 	public void User_creates_a_New_Note_for_mtr457() throws Exception {
@@ -73,7 +92,7 @@ public class MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note extends CommonMethod
 	public void User_validates_a_New_Note_has_been_created_successfully_in_Notes_List_mtr457() throws Exception {
 		wait(7);
 		click(dashboard.btnExpand);
-		verify_AnyText_IsVisible(driver, "Memo: Company Privileged Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "Company Privileged Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("Company Privileged Note has been created successfully");
 		attachScreenShot(driver);
@@ -110,7 +129,7 @@ public class MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note extends CommonMethod
 	public void User_validates_a_General_Note_has_been_created_successfully_in_Notes_List_mtr457() throws Exception {
 		wait(7);
 		click(dashboard.btnExpandHO3);
-		verify_AnyText_IsVisible(driver, "Memo: General Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "General Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("General Note has been created successfully");
 		attachScreenShot(driver);

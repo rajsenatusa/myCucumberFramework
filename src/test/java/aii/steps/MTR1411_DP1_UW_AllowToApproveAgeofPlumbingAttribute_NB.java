@@ -119,7 +119,11 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 			e.printStackTrace();
 		}
 	}
-
+	@When("User clicks Override Link on Underwriter Role <mtr1411>")
+	public void user_clicks_override_link_on_uw_standard_MTR1411() {
+		click(userLookup.lnkOverride1);
+		wait(3);
+	}
 	@And("User clicks Submit for Approval button")
 	public void user_clicks_submit_for_approval_button() throws Exception {
 		sendText(closeoutChevron.txtWorkflowComments, "testtesttesttes");
@@ -137,7 +141,7 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 
 	@When("User override Underwriters 'Allow to Approve Age of Plumbing' as no")
 	public void user_override_uw_allow_to_approve_age_of_plumbing() {
-		sendText(driver.findElement(By.id("UserRoleAttrValue_7_98")), "No");
+		sendText(driver.findElement(By.id("UserRoleAttrValue_7_97")), "No");
 		click(driver.findElement(By.id("Save")));
 		wait(3);
 	}
@@ -172,7 +176,7 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 
 	@When("User override Underwriters 'Allow to Approve Age of Plumbing' as yes")
 	public void user_override_uw_allow_to_approve_age_of_plumbing_as_yes() {
-		sendText(driver.findElement(By.id("UserRoleAttrValue_7_98")), "Yes");
+		sendText(driver.findElement(By.id("UserRoleAttrValue_7_97")), "Yes");
 		click(driver.findElement(By.id("Save")));
 		wait(3);
 	}
