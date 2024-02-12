@@ -14,7 +14,7 @@ Feature: MTR-460 TOMHO_Verify Underwriter creates High Priority General notes
     And User enters all required information on policy information screen
     And User enters product selection information for TOMHO and current date
     And User enters all required information on TOMHO quote screen
-    And User enters all required information on TOMHO dwelling screen
+    And User enters all required information on TOMHO dwelling screen <mtr460>
     And User enters all required information on TOMHO review screen
     And User creates TOMHO application
     And User clicks special options chevron

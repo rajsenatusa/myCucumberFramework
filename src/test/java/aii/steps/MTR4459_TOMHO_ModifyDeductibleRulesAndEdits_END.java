@@ -62,7 +62,7 @@ public class MTR4459_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "33");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
-		sendText(dwellingChevron.txtCoverageA, "75000");
+		sendText(driver.findElement(By.id("Building.CovALimit")), "75000");
 		click(dwellingChevron.rbWindHailExc);
 		selectDropdownText(dwellingChevron.ddAttachedStructures, "No");
 		wait(2);

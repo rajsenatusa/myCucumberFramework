@@ -12,7 +12,7 @@
   
 # User: AG1730
 
-@regression @tc16758 @dp1regression
+@regression @tc16758 @dp1regression 
 Feature:  TC 16758--DP1 Agent Basic Policy App Validations 'Validate UW Questions trigger approval when needed'
 
   Scenario: TC16758_DP1_ValidateUWQuestionsTriggerApprovalwhenNeeded
@@ -58,9 +58,13 @@ Feature:  TC 16758--DP1 Agent Basic Policy App Validations 'Validate UW Question
     And User takes note of the application for <tc16758>
     And User clicks submit for approval button for <tc16758>
     And User signs out
-    And User login to Spin as Underwriter Clerk
+    And User login to Spin as Underwriter
     And User searches for the application <tc16758>
     And User validates all expected issue messages <tc16758>
+    And User submits for approval as UW <tc16758>
+    And User signs out
+    And User login to Spin as Underwriter Clerk
+    And User searches for the application <tc16758>
     And User approves application
     And User signs out
     Then User login to Spin as Standard Agent

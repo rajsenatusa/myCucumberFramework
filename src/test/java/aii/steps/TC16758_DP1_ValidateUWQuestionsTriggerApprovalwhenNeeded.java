@@ -826,6 +826,11 @@ public class TC16758_DP1_ValidateUWQuestionsTriggerApprovalwhenNeeded extends Co
 		click(dashboard.search);
 		wait(3);
 	}
+	@When("User submits for approval as UW <tc16758>")
+	public void user_clicks_submit_for_approval_button_as_UW_tc16758() {
+		click(closeoutChevron.btnSubmitApproval);
+		wait(2);
+	}
 	@When("User validates all expected issue messages <tc16758>")
 	public void User_validates_all_expected_issue_messages_tc16758() throws Exception {
 		verify_AnyText_IsVisible(driver, "Personal Liability not available when child and/or adult day care on premises");

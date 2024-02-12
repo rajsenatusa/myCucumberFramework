@@ -43,7 +43,7 @@ Feature: MTR589--HO3, Standard Agent, NB Water Loss over 5,000 , WDE, WDL, UW ap
     And User validates 'Risks with open losses are ineligible for coverage' text is visible
     And User clicks submit for approval button
     And User signs out
-    And User login to Spin as Underwriter Clerk
+    And User login to Spin as Underwriter
     And User searches for the application <mtr589>
     And User approves application
     And User signs out

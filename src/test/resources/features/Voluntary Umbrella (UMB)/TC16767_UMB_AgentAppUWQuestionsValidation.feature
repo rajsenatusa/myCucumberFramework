@@ -12,7 +12,7 @@
 # User: AG1730
 
 
-@regression @tc16767 @umbregression @hotfixUMB
+@regression @tc16767 @umbregression 
 Feature: TC 16767--UMB Agent Basic Policy App Validations 'Validate UW Questions trigger approval when needed'
 
   Scenario: Validate Selecting Yes to ineligible questions to Underwriting Questions will require Underwriting Approval
