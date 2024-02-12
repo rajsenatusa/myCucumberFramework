@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/11/2023 
 
-@regression @mtr360 @ho4regression
+@regression @mtr360 @ho4regression 
 Feature: TC 16851--HO4 Agent AllowPayPlanChange
 
   

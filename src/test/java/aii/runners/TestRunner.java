@@ -20,13 +20,15 @@ import io.cucumber.junit.CucumberOptions;
 		
 		
 		// tags can do the same thing groups on TestNG do
-		
-		
+
+
+
 		tags = "",
-		
-		
-		
-		
+
+
+
+
+
 		
 		// it provides the output console to more readable
 		monochrome = true,

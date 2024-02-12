@@ -121,7 +121,7 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 	}
 	@When("User clicks Override Link on Underwriter Role <mtr1411>")
 	public void user_clicks_override_link_on_uw_standard_MTR1411() {
-		click(userLookup.lnkOverride1);
+		click(userLookup.lnkOverride);
 		wait(3);
 	}
 	@And("User clicks Submit for Approval button")
