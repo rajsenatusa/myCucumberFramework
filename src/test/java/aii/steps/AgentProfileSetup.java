@@ -264,8 +264,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// Check if the expiration date is empty
 					if (expirationDate == null || expirationDate.trim().isEmpty() || expirationDate.isBlank()) {
-						// Your existing code to perform edits
-						// Dynamic XPath based on ProductLine
+					
 						// Navigate to the parent row
 						WebElement parentRow = RnexpirationDateElement.findElement(By.xpath("./ancestor::tr"));
 
@@ -337,7 +336,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// Check if the expiration date is empty
 					if (expirationDate == null || expirationDate.trim().isEmpty() || expirationDate.isBlank()) {
-						// Your existing code to perform edits
+				
 						// Navigate to the parent row
 						WebElement parentRow = NbexpirationDateElement.findElement(By.xpath("./ancestor::tr"));
 
