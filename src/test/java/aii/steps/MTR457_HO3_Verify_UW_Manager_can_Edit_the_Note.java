@@ -139,7 +139,7 @@ public class MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note extends CommonMethod
 	public void User_verifies_that_Agent_can_see_General_Note() throws Exception {
 		wait(7);
 		click(dashboard.btnExpandHO3);
-		verify_AnyText_IsVisible(driver, "Memo: General Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "General Note that was entered by Underwriter");
 		Hooks.scenario.log("New General Note displayed successfully!");
 		Hooks.scenario.log("General Note displayed by Agent");
 		attachScreenShot(driver);

@@ -22,7 +22,7 @@ import io.cucumber.junit.CucumberOptions;
 		// tags can do the same thing groups on TestNG do
 
 
-		tags = "@commisionupdate",
+		tags = "@mtr463",
 
 
 
@@ -32,7 +32,8 @@ import io.cucumber.junit.CucumberOptions;
 		monochrome = true,
 
 		plugin = {
-				// prints the gherkin steps into the console
+				// prints the gherkin steps into the consoleC:\Users\mcemek\git\AutomationCucumber2023\target\RenewalDeclaration02_02_2024_12_22_10.pdf
+				
 				"pretty",
 				// creates a basic html report in the target folder
 				"html:target/cucumber-default-report.html",

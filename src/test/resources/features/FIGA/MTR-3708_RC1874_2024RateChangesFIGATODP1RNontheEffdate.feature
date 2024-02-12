@@ -2,7 +2,7 @@
 @FIGA-TODP1 @FIGA2024
 Feature: RC-1874: 2024 Rate Changes- FIGA: TO DP1 - 1/1/2024
 
-  @FIGA2024-TODP1-1 @FIGA2024
+  @FIGA2024-TODP1-1 @FIGA2024 @regressionFEB
   Scenario Outline: MTR-3708: RC-1874 - 2024 Rate Changes - FIGA: TO DP1 - RN on the Eff date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

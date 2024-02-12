@@ -7,7 +7,7 @@
   
  # Expected results- Loss Assessment should listed in the forms
 
-@regression @tc35559 @mtr4583 @dp3regression
+@regression @tc35559 @mtr4583 @dp3regression @dp3regressionFEB
 Feature: MTR4583-Validate User Story 6625:Loss Assessment
 
   Scenario: Validate Loss Assessment should listed in the forms

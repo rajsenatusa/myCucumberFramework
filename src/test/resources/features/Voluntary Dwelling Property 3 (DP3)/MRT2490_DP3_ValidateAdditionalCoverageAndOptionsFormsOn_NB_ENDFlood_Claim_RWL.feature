@@ -16,7 +16,7 @@
 
 #NOTE: IT's failing once adding flood coverage. There is a defect created on 12/04/23 (MRT-35)
 
-@regression @tc16598 @mtr2490 @dp3regression
+@regression @tc16598 @mtr2490 @dp3regression @dp3regressionFEB
 Feature: TC 16598--DP3 UWMgr NB End (FLOOD) RN (2) and Claim Forms Basic w/ ALL additional/optional coverages
 
   Scenario: All forms will be verified in the following states

@@ -2,7 +2,7 @@
 @FIGA-VOLMHO3 @FIGA
 Feature: RC-1849: 2024 Rate Changes- FIGA: VOL MHO - 1/1/2024
 
-  @FIGA2024-VOLMHO3-1 @FIGA2024
+  @FIGA2024-VOLMHO3-1 @FIGA2024 @regressionFEB
   Scenario Outline: MTR-3151: RC-1849, 2024 Rate Changes: FL Annual FIGA Rate Changes - VOL MHO - NB = Eff. Date+ Flat Endorsement
     Given User navigates to Model
     And User login to Spin as Admin Agent

@@ -104,7 +104,13 @@ public class BaseClass {
 		case "production":
 			System.out.println("Opening Production Environment");
 			driver.get(ConfigsReader.getProperty("production"));
-
+			break;
+			
+		case "uat":
+			System.out.println("Opening UAT Environment");
+			driver.get(ConfigsReader.getProperty("uat"));
+			break;
+			
 		default:
 			throw new RuntimeException("Environment has not been found!!! Environment: " + environment);
 		}
