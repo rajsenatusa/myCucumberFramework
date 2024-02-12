@@ -16,7 +16,7 @@
   
  # User: Gallopadmin
 
-@regression @tc16720 @MTR4461 @tomhoregression
+@regression @tc16720 @MTR4461 @tomhoregression @tomhoregressionFEB
 Feature: MTR4461-TOMHO3, UWMgr: End (Wind/Hail Excl) , Claim RN(2) Forms: NOC Assignment Agreement Notice
 
   Scenario: Validate that NOC form attached accordingly as per renewal 

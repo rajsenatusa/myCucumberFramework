@@ -2,7 +2,7 @@
 @FIGA-AIB
 Feature: RC-1854: 2024 Rate Changes- FIGA: AIB - 1/1/2024
 
-  @FIGA2024-AIB-1 @FIGA2024
+  @FIGA2024-AIB-1 @FIGA2024 @regressionFEB
   Scenario Outline: MTR-3625: RC-1854, 2024 Rate Changes - FIGA: AIB - NB on the Eff date
     Given User navigates to Model
     And User login to Spin as Admin Agent

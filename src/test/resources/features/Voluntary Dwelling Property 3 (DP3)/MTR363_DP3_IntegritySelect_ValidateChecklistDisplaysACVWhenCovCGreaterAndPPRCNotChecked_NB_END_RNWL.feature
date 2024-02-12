@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/07/2023
 
-@regression @mtr363 @dp3regression
+@regression @mtr363 @dp3regression @dp3regressionFEB
 Feature: MTR363--Admin, NB, END, RNWL Validate Checklist form displays Personal Property Coverage as
   ACV For Integrity Select on NB when Cov-C larger than 0 and Personal Property Replacement cost is unchecked and NA on RNWL
 

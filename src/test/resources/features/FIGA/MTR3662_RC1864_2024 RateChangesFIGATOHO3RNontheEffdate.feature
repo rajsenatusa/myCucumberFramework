@@ -2,7 +2,7 @@
 @FIGA-TOHO3 
 Feature: RC-1864: 2024 Rate Changes- FIGA: TO HO3 - 1/1/2024
 
-  @FIGA2024-TOHO3-1 @FIGA2024
+  @FIGA2024-TOHO3-1 @FIGA2024 @regressionFEB
   Scenario Outline: MTR-3662: RC-1864 - 2024 Rate Changes - FIGA: TO HO3 - RN on the Eff date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

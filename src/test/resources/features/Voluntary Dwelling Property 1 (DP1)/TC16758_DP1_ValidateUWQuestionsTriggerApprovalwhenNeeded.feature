@@ -2,19 +2,19 @@
 # created on 12/21/2023
 
 # TEST CASE KNUMBER & TITLE: TC 16758--DP1 Agent Basic Policy App Validations 'Validate UW Questions trigger approval when needed'
-# PRECONDITIONS (IF ANY): 
+# PRECONDITIONS (IF ANY):
 # HIGH LEVEL STEPS OF TEST SCRIPT:  Selecting "Yes" for all Underwriting Questions
-# 
+#
 # EXPECTED RESULTS: Selecting "Yes" to Underwriting Questions will produce the following...
-#						1. Child Questions are generated 
+#						1. Child Questions are generated
 #						2. Underwriting Approval referral is triggered
-#						3. Agent cannot bind NB without Underwriting Approval 
-  
+#						3. Agent cannot bind NB without Underwriting Approval
+
 # User: AG1730
 
 @regression @tc16758 @dp1regression 
 Feature:  TC 16758--DP1 Agent Basic Policy App Validations 'Validate UW Questions trigger approval when needed'
-
+  
   Scenario: TC16758_DP1_ValidateUWQuestionsTriggerApprovalwhenNeeded
     Given User login to Spin as Standard Agent
     When User starts transaction as a new customer
@@ -24,7 +24,7 @@ Feature:  TC 16758--DP1 Agent Basic Policy App Validations 'Validate UW Question
     And User enters all required information on DP1 dwelling screen <tc16758>
     And User enters all required information on DP1 review screen
     And User creates DP1 application
-    And User answers all DP1 UW questions as no and validates 'Risk is ineligible for coverage due to occupancy' message 
+    And User answers all DP1 UW questions as no and validates 'Risk is ineligible for coverage due to occupancy' message
     And User answers DP1 UW Question 1 as Yes and validates expected issue messages
     And User answers DP1 UW Question 2 as Yes and validates expected issue messages
     And User answers DP1 UW Question 3 as Yes and validates expected issue messages
@@ -53,7 +53,7 @@ Feature:  TC 16758--DP1 Agent Basic Policy App Validations 'Validate UW Question
     And User answers DP1 UW Question 26 as Yes and validates expected issue messages
     And User answers DP1 UW Question 27 as Yes and validates expected issue messages
     And User answers DP1 UW Question 28 as Yes and validates expected issue messages
-    And User answers DP1 all UW Questions as Yes and validates expected issue messages 
+    And User answers DP1 all UW Questions as Yes and validates expected issue messages
     And User sets roof material finalizes transactions and validates expected issue messages
     And User takes note of the application for <tc16758>
     And User clicks submit for approval button for <tc16758>
@@ -70,8 +70,3 @@ Feature:  TC 16758--DP1 Agent Basic Policy App Validations 'Validate UW Question
     Then User login to Spin as Standard Agent
     And User searches for the application <tc16758>
     And User issues policy and close unnecessary tabs and completes test <tc16758>
-    
-    
-    
-    
-    

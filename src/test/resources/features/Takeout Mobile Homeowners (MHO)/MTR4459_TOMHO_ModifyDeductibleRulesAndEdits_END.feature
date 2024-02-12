@@ -13,7 +13,7 @@
   
 # User: Admin, Agent
 
-@regression @tc33769 @MTR4459 @tomhoregression
+@regression @tc33769 @MTR4459 @tomhoregression @tomhoregressionFEB
 Feature: MTR4459-TO MHO AF: RULES - Modify Deductible Rules and Edits
 
   Scenario: As an Agent endorse the policy prior to RN effective Date, On RN Effective Date, After RN Effective Date UW Approval 

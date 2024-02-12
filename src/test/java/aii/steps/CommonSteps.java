@@ -919,11 +919,11 @@ public class CommonSteps extends CommonMethods {
 	@Given("User signs out")
 	public void user_signs_out() {
 		wait(2);
-		driver.findElement(By.id("UserMenu")).click();
-//		click(dashboard.btnUserMenu);
+//		driver.findElement(By.id("UserMenu")).click();
+		click(dashboard.btnUserMenu);
 		wait(1);
-		driver.findElement(By.id("SignOutInMenu")).click();
-//		click(dashboard.btnSignOut);
+//		driver.findElement(By.id("SignOutInMenu")).click();
+		click(dashboard.btnSignOut);
 		wait(2);
 		Hooks.scenario.log("Sign out was clicked");
 	}
