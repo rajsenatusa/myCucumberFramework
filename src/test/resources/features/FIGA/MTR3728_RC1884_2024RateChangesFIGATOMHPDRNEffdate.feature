@@ -2,7 +2,7 @@
 @FIGA-TOMHPD 
 Feature: RC-1884: 2024 Rate Changes- FIGA: TO MHPD - 1/1/2024
 
-  @FIGA2024-TOMHPD-1 @FIGA2024
+  @FIGA2024-TOMHPD-1 @FIGA2024 @regressionFEB
   Scenario Outline: MTR-3728: RC-1884 - 2024 Rate Changes - FIGA: TO MHPD - RN on the Eff date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

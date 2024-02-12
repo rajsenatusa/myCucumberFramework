@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/07/2023
 
-@regression @mtr364 @dp3regression
+@regression @mtr364 @dp3regression @dp3regressionFEB
 Feature: MTR364 - U/I Mandatory Mediation-Arbitration Coverage discount on NB and require UW Approval when adding on END with 30 days
  NB for Owner Occupied; Basic Policy and END to Change discount
 

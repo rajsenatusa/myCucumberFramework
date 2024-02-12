@@ -141,7 +141,7 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 
 	@When("User override Underwriters 'Allow to Approve Age of Plumbing' as no")
 	public void user_override_uw_allow_to_approve_age_of_plumbing() {
-		sendText(driver.findElement(By.id("UserRoleAttrValue_7_97")), "No");
+		sendText(driver.findElement(By.id("UserRoleAttrValue_7_98")), "No");
 		click(driver.findElement(By.id("Save")));
 		wait(3);
 	}

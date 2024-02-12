@@ -10,16 +10,17 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		// we can specify which feature/features to run
 		features = "src/test/resources/features/",
-
+		
 		// we can specify where the code for the above feature files is located
 		glue = "aii.steps",
-
+		
 		// if true, it does not run the java classes. Only checks the feature files
 		// if they are glued to some java code
 		dryRun = false,
-
-
+		
+		
 		// tags can do the same thing groups on TestNG do
+
 
 
 		tags = "",
@@ -27,10 +28,11 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
+
 		
 		// it provides the output console to more readable
 		monochrome = true,
-
+		
 		plugin = {
 				// prints the gherkin steps into the console
 				"pretty",
@@ -41,7 +43,7 @@ import io.cucumber.junit.CucumberOptions;
 				// creates an extent report in target/SparkReport folder
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }
 
-)
+		)
 
 public class TestRunner {
 
