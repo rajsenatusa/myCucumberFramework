@@ -15,6 +15,7 @@
 ## Form prints in the correct order as per FL HO3 Forms Matrix
   
 ## User: Standard Agent AG1730, underwriter1, admin
+## updated on 02/05/2024 due to user access level. Agent is able to issue policy without approval
 
 
 @regression @mtr971 @ho3regression @gu
@@ -33,15 +34,15 @@ Feature: MTR971--HO3, Verify the updated Voluntary HO3: Homeowners Policy Declar
     And User answers all underwriting questions for VOL HO3
 		And User completes required information on dwelling chevron <mtr971>
     And User clicks Finalize button <mtr971>
-    And User takes note of the application for <mtr971>
-    And User clicks submit for approval button
-    And User signs out
-    And User login to Spin as Underwriter
-    And User searches for the application <mtr971>
-    And User approves application
-    And User signs out
-    And User login to Spin as Standard Agent
-    And User searches for the application <mtr971>   
+    #And User takes note of the application for <mtr971>
+    #And User clicks submit for approval button
+    #And User signs out
+    #And User login to Spin as Underwriter
+    #And User searches for the application <mtr971>
+    #And User approves application
+    #And User signs out
+    #And User login to Spin as Standard Agent
+    #And User searches for the application <mtr971>   
     And User issues policy
     And User validates that HO3 policy has been created successfully and takes note of the policy number <mtr971>
     And User searches for the policy number <mtr971>

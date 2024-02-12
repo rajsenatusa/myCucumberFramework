@@ -11,7 +11,7 @@ import aii.utils.ConfigsReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class MTR4468_DP3_ValidationOnBasicQuoteUICharacteristics extends CommonMethods {
+public class TC16647_DP3_ValidationOnBasicQuoteUICharacteristics extends CommonMethods {
 
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();

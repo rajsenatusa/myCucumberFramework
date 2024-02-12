@@ -68,7 +68,7 @@ public class UserLookupElements extends CommonMethods {
 	@FindBy (xpath= "//tbody/tr[755]/td[2]")
 	public WebElement txtAllowPayPlanChangeAnswer;
 	
-	@FindBy(id= "UserRoleAttrValue_7_302")
+	@FindBy(id= "UserRoleAttrValue_7_303")
 	public WebElement txtAllowedToAddGolfEndorsement;
 	
 	@FindBy(id= "UserRoleAttrValue_8_146")

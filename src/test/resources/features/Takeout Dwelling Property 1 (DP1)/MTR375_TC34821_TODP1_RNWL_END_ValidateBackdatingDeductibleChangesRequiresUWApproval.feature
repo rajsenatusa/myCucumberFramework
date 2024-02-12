@@ -15,7 +15,7 @@
   
 ## User: AG1730
 
-@regression @mtr375 @todp1regression
+@regression @mtr375 @todp1regression 
 Feature: TC 34821--TO DP1: RULES - Backdating Deductible Changes Prior to, On, and After RN Effective Date
 
   Scenario: Validate a change to coverage(s) with an Effective Date in the past fires the error
@@ -70,7 +70,7 @@ Feature: TC 34821--TO DP1: RULES - Backdating Deductible Changes Prior to, On, a
 		And User finalizes transaction and verify changes are visible on closeout screen and clicks submit for approval and takes note of app number
 		And User clicks submit for approval button 
 		And User signs out    
-		And User login to Spin as Underwriter Clerk    
+		And User login to Spin as Underwriter    
 		And User changes system date to renewal date plus 1 day    
 		And User searches for the application <mtr375>    
 		And User approves application    

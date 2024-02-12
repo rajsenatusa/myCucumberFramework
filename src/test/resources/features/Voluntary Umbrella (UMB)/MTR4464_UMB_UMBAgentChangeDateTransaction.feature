@@ -12,7 +12,7 @@
 ## User: AG1730
 
 
-@regression @tc16804 @MTR4464 @umbregression @hotfixUMB
+@regression @tc16804 @MTR4464 @umbregression
 Feature: MTR4464 UMB, Agent, Change Date Transaction 
 
   Scenario: Validate Agent is able to complete change date transaction to 60 days without UW approval
