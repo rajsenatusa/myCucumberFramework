@@ -101,7 +101,8 @@ public class VOLHO3policy extends CommonMethods {
 		}
 		getPolicyNumber(driver);
 		getInForcePremium(driver);
-
+		Hooks.scenario.log("New Business HO3 policy has been created successfully");
+		attachScreenShot(driver);
 	}
 
 }

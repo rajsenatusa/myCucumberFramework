@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import aii.utils.CommonMethods;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -128,6 +129,13 @@ public class MTR463_SC_HO3_Verify_Underwriter_has_the_ability_to_create_High_Pri
 		Hooks.scenario.log("Inspection Note edited by Underwriter Manager");
 		attachScreenShot(driver);
 
+	}
+	@Given("User login to Spin as SC Standard Agent")
+	public void user_login_to_spin_as_standard_agent() throws Throwable {
+		sendText(login.username, ConfigsReader.getProperty("scusername"));
+		sendText(login.password, ConfigsReader.getProperty("password"));
+		click(login.btnSignIn);
+		wait(1);
 	}
 }
 

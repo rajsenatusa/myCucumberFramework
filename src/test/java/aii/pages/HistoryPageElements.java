@@ -56,6 +56,11 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "Tab_History")
 	public WebElement btnHistoryChevron;
 	
+	@FindBy(id= "TransactionLongDescription")
+	public WebElement descriptionbox;
+	
+	
+	
 	public HistoryPageElements() {
 		
 		PageFactory.initElements(driver, this);
