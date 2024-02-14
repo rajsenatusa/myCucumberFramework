@@ -284,6 +284,13 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "DeleteLink_Policy_1")
 	public WebElement deleteLink;
 	
+	@FindBy(id= "Cancel")
+	public WebElement btnCancel;
+	
+	@FindBy(id= "TransactionLongDescription")
+	public WebElement description;
+	
+	
 	 
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);

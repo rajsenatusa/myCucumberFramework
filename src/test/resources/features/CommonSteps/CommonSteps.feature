@@ -10,6 +10,7 @@ Feature: Common Transactions and Steps
     Given User enters Quote Information as effective date with "days" days difference and state "state" and "CarrierGroup" Insurance Carrier group
     Given User selects the entity as "Entity"
     Given User login to Spin as Standard Agent
+    Given User login to Spin as SC Standard Agent
     Given User login to Spin as Admin Agent
     Given User login to Spin as Underwriter
     Given User enters a valid username
@@ -201,5 +202,8 @@ Feature: Common Transactions and Steps
     And User verifies that Edit or Delete links are displayed
     Then User verifies that Underwriter Manager can Edit and Save General Note
     Then User verifies that Edit or Delete links are displayed
-    
-    
+    And User selects Cancellation
+    And User selects Cancellation Notice
+    And User selects Cancellation Type as Company
+    And User sets the effective date as after 30 days from the current date and validates error messages
+    And User sets the effective date as before 1 day from the current date and validates error messages
