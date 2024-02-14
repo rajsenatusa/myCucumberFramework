@@ -141,7 +141,7 @@ public class MTR167_Cancel_a_policy_SHO3 extends CommonMethods{
 		wait(2);
 	}
 	@And("User selects Non-Payment of Premium due to NSF as reason <mtr167>")
-	public void User_selects_property_nonpayment_as_reason_mtr397() {
+	public void User_selects_property_nonpayment_as_reason_mtr167() {
 		selectDropdownText(historyChevron.ddReason, "Non-Payment of Premium due to NSF");
 		wait(2);
 		click(historyChevron.btnAdd);
