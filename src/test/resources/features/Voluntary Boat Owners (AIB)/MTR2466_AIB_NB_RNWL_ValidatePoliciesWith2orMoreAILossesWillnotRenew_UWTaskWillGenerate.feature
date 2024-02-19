@@ -8,7 +8,7 @@
  # User: adjuster1 admin 
 
 
-@regression @mtr2466 @aibregression
+@regression @mtr2466 @aibregression 
 Feature: MTR2466--AIB Validate boat policies with 2 or more AI claims will not renew and UW task will be generated
 
   Scenario: Validating boat policies with 2 or more AI Claims do not renew and UW task will be created

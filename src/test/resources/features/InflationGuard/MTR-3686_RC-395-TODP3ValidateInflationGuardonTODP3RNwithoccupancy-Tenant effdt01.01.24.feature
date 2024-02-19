@@ -2,7 +2,7 @@
 @RN_Policy_TODP3InflationGuard
 Feature: RC-395: 2024 Rate Changes- Inflation Guard: TO DP3- 01/01/2024
 
-  @RN_Policy_TODP3InflationGuard-1 @InflationGuard2024
+  @RN_Policy_TODP3InflationGuard-1 @InflationGuard2024 @AII-Inflation
   Scenario Outline: MTR-3686: RC-395 -TO DP3 Validate Inflation Guard on TO DP3 RN with occupancy - Tenant  eff dt 01/01/24
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

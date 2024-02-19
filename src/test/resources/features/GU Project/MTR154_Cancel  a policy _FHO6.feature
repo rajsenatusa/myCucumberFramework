@@ -5,7 +5,7 @@
 ## HIGH LEVEL STEPS OF TEST SCRIPT:  In the Scenario Below
 ## EXPECTED RESULTS: Cancellation should process
 ## User: Underwriter
-@regression @mtr154 @gu
+@regression @mtr154
 Feature: MTR154-VOL HO6, Verify Underwriter is able to Cancel policy
 
   Scenario: Validate Cancellation should process with UW user
@@ -29,11 +29,20 @@ Feature: MTR154-VOL HO6, Verify Underwriter is able to Cancel policy
     And User selects Cancellation Type as Insured <mtr154>
     And User selects Property Sold as reason <mtr154>
     And User sets the effective date as before 1 day from the current date and validates error message <mtr154>
-    And User searches for the policy number <mtr154>
     And User clicks Start Transaction
     And User selects Cancellation
     And User selects Cancellation Type as Insured
     And User selects Property Sold as reason <mtr154>
-    And User sets the effective date as after 30 days from the current date and validates messages
+    And User sets the effective date as after 30 days from the current date and validates messages <mtr154>
+    And User validates Policy Status displayed as Canceled <mtr154>
     And User clicks Policy File Chevron <mtr154>
     Then User validates Cancellation Confirmation form listed and validates form <mtr154>
+    
+    
+     
+    
+    
+    
+    
+    
+    
