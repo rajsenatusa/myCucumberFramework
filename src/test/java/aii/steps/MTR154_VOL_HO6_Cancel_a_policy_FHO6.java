@@ -76,7 +76,7 @@ public class MTR154_VOL_HO6_Cancel_a_policy_FHO6 extends CommonMethods {
 		}
 		wait(5);
 		getPolicyNumber(driver);
-		
+
 		getInForcePremium(driver);
 		getInForcePremiumFees(driver);
 
@@ -100,6 +100,7 @@ public class MTR154_VOL_HO6_Cancel_a_policy_FHO6 extends CommonMethods {
 		click(dashboard.search);
 		wait(3);
 	}
+
 	@And("User selects Cancellation Type as Insured <mtr154>")
 	public void User_selects_cancellation_type_as_Insured_mtr154() {
 		selectDropdownText(historyChevron.ddCancellationType, "Insured");
@@ -113,11 +114,12 @@ public class MTR154_VOL_HO6_Cancel_a_policy_FHO6 extends CommonMethods {
 		click(historyChevron.btnAdd);
 		wait(2);
 	}
+
 	@And("User sets the effective date as before 1 day from the current date and validates error message <mtr154>")
 	public void User_sets_the_effective_date_as_before_1_days_from_the_current_date_and_validates_error_messages_mtr154()
 			throws Exception {
-		
-		sendText(driver.findElement(By.id("TransactionEffectiveDt")),dtf.format(currentDate.minusDays(1)));
+
+		sendText(driver.findElement(By.id("TransactionEffectiveDt")), dtf.format(currentDate.minusDays(1)));
 		wait(3);
 		click(historyChevron.descriptionbox);
 		selectDropdownText(historyChevron.ddCancelType, "Pro-Rate");
@@ -126,16 +128,19 @@ public class MTR154_VOL_HO6_Cancel_a_policy_FHO6 extends CommonMethods {
 		verify_AnyfirstText_IsDisplayed(driver, "Transaction Date must be within the policy term");
 		attachScreenShot(driver);
 		wait(2);
-		
+		click(driver.findElement(By.id("Cancel")));
+		wait(2);
+
 	}
+
 	@And("User sets the effective date as after 30 days from the current date and validates messages <mtr154>")
 	public void User_sets_the_effective_date_after_30_days_from_the_current_date_and_validates_error_messages_mtr154()
 			throws Exception {
-	
+
 		sendText(driver.findElement(By.id("TransactionEffectiveDt")), dtf.format(currentDate.plusDays(30)));
+		clickTab(driver.findElement(By.id("CancelTypeCd")));
 		selectDropdownText(historyChevron.ddCancelType, "Pro-Rate");
 		wait(2);
-		click(dashboard.btnStart);
 		click(dashboard.btnStart);
 		wait(3);
 		verify_AnyfirstText_IsDisplayed(driver, "Closeout");
@@ -144,17 +149,18 @@ public class MTR154_VOL_HO6_Cancel_a_policy_FHO6 extends CommonMethods {
 		verify_AnyfirstText_IsDisplayed(driver, "Process");
 		verify_AnyfirstText_IsDisplayed(driver, "Preview Output");
 		verify_AnyfirstText_IsDisplayed(driver, "Modify Application");
-		wait(2);
+		wait(8);
 		click(dashboard.btnProcess);
-	
+
 	}
+
 	@And("User validates Policy Status displayed as Canceled <mtr154>")
-	public void User_validates_Policy_Status_displayed_as_Canceled_mtr154()
-			throws Exception {
+	public void User_validates_Policy_Status_displayed_as_Canceled_mtr154() throws Exception {
 		verify_AnyfirstText_IsDisplayed(driver, "Cancelled");
 		Hooks.scenario.log("Policy Cancel Completed!");
 		attachScreenShot(driver);
 	}
+
 	@When("User clicks Policy File Chevron <mtr154>")
 	public void user_clicks_policy_file_chevron_mtr154() throws Exception {
 		wait(2);
@@ -163,8 +169,7 @@ public class MTR154_VOL_HO6_Cancel_a_policy_FHO6 extends CommonMethods {
 	}
 
 	@Then("User validates Cancellation Confirmation form listed and validates form <mtr154>")
-	public void user_validates_Cancellation_Confirmation_form_listed_and_validates_form_mtr154()
-			throws Exception {
+	public void user_validates_Cancellation_Confirmation_form_listed_and_validates_form_mtr154() throws Exception {
 		clickOnAnyLink(driver, "Cancellation Confirmation");
 		wait(8);
 		switchToWindow(driver, "STFile&File");
@@ -174,11 +179,11 @@ public class MTR154_VOL_HO6_Cancel_a_policy_FHO6 extends CommonMethods {
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + CancellationConfirmForm);
 		wait(10);
-		CanConForm_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + CancellationConfirmForm, 1,
-				0, 0, 800, 800);
+		CanConForm_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + CancellationConfirmForm, 1, 0, 0, 800,
+				800);
 		PdfComparator.verifyFormData(driver, CanConForm_Version, "AIIC CX 11 14");
-		CanConForm_Name = SmartPDFComparator2.getPDFtextByArea(FileLocation + CancellationConfirmForm, 1, 0,
-				0, 800, 800);
+		CanConForm_Name = SmartPDFComparator2.getPDFtextByArea(FileLocation + CancellationConfirmForm, 1, 0, 0, 800,
+				800);
 		PdfComparator.verifyFormData(driver, CanConForm_Name, "CANCELLATION CONFIRMATION");
 		Hooks.scenario.log("Test Case Completed!");
 	}
