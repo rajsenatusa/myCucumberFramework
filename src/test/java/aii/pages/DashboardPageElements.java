@@ -290,6 +290,12 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "TransactionLongDescription")
 	public WebElement description;
 	
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnExpandHO6;
+	
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnExpandGeneralHO6;
+	
 	
 	 
 	public DashboardPageElements() {

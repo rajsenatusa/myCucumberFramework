@@ -2,7 +2,7 @@
 @RN_Policy_TOHO3InflationGuard
 Feature: RC-396: 2024 Rate Changes- Inflation Guard: TO HO3- 01/01/2024
 
-  @RN_Policy_TOHO3InflationGuard-1 @InflationGuard2024
+  @RN_Policy_TOHO3InflationGuard-1 @InflationGuard2024 @AII-Inflation
   Scenario Outline: MTR-3818: RC-396 -Validate Inflation Guard on TO HO3 RN  Select occupancy - Owner  eff dt 01/01/24
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer

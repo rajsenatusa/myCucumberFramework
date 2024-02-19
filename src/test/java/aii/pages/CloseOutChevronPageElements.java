@@ -95,6 +95,13 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(id= "MakeChanges")
 	public WebElement btnModifyApplication;
 	
+	@FindBy(id= "ViewWorkflowComments")
+	public WebElement btnViewWorkflowComments;
+	
+	
+	
+	
+	
 	
 	public CloseOutChevronPageElements() {
 		

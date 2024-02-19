@@ -205,5 +205,7 @@ Feature: Common Transactions and Steps
     And User selects Cancellation
     And User selects Cancellation Notice
     And User selects Cancellation Type as Company
-    And User sets the effective date as after 30 days from the current date and validates error messages
-    And User sets the effective date as before 1 day from the current date and validates error messages
+    And User sets the effective date as after 30 days from the current date and validates messages <mtr154>
+    And User sets the effective date as before 1 day from the current date and validates error message <mtr154>
+    And User takes note of the application number <mtr4934>
+    And User clicks View Workflow Comments
