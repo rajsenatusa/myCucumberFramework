@@ -13,7 +13,7 @@
 ## User: Underwriter1, AG1777A1 
 
 
-@regression @mtr4724 @scregression @im
+@regression @mtr4724 @scregression @im @gu
 Feature: MTR4724--SC HO3, IM425 : SC NB Validate UW User can able to overide address on SC Policy
 
   Scenario: Validate UW is able to override address on SC NB HO3 policy

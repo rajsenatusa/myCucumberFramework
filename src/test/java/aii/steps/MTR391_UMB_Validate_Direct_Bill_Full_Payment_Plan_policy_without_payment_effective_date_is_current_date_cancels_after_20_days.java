@@ -148,7 +148,8 @@ public class MTR391_UMB_Validate_Direct_Bill_Full_Payment_Plan_policy_without_pa
 		selectDropdownText(umbrellaChevron.ddTypeOfPolicy, "Property and all included exposures");
 		wait(1);
 		sendText(umbrellaChevron.txtUnderlyingPolicyNumber, HO3policyNum);
-		wait(5);
+		wait(2);
+		clickTab(driver.findElement(By.id("UnderlyingExposureType")));
 		selectDropdownText(umbrellaChevron.ddSelectPolicyWithAI, "Yes");
 		wait(1);
 		selectDropdownText(driver.findElement(By.id("UnderlyingExposureType")),"Primary Residence");
