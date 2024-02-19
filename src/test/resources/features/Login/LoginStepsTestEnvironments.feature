@@ -60,7 +60,7 @@ Feature: Login Functionality Testing for all Test Environments
 
   Scenario Outline: Valid Login with different Users
     Given User navigates to the spin website
-    When Login with valid "<username>" and "<password>"
+    When User logins with valid "<username>" and "<password>"
     And User clicks on the signin button
     Then User validates that logged in successfully
     And User quits the browser

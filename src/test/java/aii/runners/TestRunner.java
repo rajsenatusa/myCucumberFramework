@@ -23,7 +23,9 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-		tags = "@gu",
+
+		tags = "@mtr971",
+
 
 
 
