@@ -826,12 +826,12 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 			wait(5);
 		}
 		clickonAnyButton(driver, "AIICDPHD_View");
-		Thread.sleep(7000);
+		wait(10);
 		switchToWindow(driver, "aiic-dp-hd-0715");
 		hdform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + hdform);
-		wait(10);
+		wait(20);
 		hdform_Data = PdfComparator.getPDFData(FileLocation + hdform);
 		PdfComparator.verifyPDFText(driver, hdform_Data, "AIIC DP HD 07 15");
 		PdfComparator.verifyPDFText(driver, hdform_Data, "CALENDAR YEAR HURRICANE DEDUCTIBLE");
@@ -846,7 +846,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		hcpform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + hcpform);
-		wait(10);
+		wait(15);
 		hcpform_Data = PdfComparator.getPDFData(FileLocation + hcpform);
 		PdfComparator.verifyPDFText(driver, hcpform_Data, "AIIC DP HCP 09 17");
 		PdfComparator.verifyPDFText(driver, hcpform_Data, "HOME CYBER PROTECTION COVERAGE");
@@ -862,7 +862,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		hspslform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + hspslform);
-		wait(10);
+		wait(15);
 		hspslform_Data = PdfComparator.getPDFData(FileLocation + hspslform);
 		PdfComparator.verifyPDFText(driver, hspslform_Data, "AIIC DP3 HSPSL 07 15");
 		PdfComparator.verifyPDFText(driver, hspslform_Data, "HOME SYSTEMS PROTECTION & SERVICE LINE COVERAGE");
@@ -877,7 +877,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		irform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + irform);
-		wait(10);
+		wait(15);
 		irform_Data = PdfComparator.getPDFData(FileLocation + irform);
 		PdfComparator.verifyPDFText(driver, irform_Data, "AIIC DP3 IR 07 15");
 		PdfComparator.verifyPDFText(driver, irform_Data, "IDENTITY RECOVERY COVERAGE");
@@ -901,7 +901,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		cpsform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + cpsform);
-		wait(10);
+		wait(15);
 		cpsform_Data = PdfComparator.getPDFData(FileLocation + cpsform);
 		PdfComparator.verifyPDFText(driver, cpsform_Data, "AIIC DP CPS 07 15");
 		PdfComparator.verifyPDFText(driver, cpsform_Data, "LIMITED CARPORT(S), POOL CAGE(S) AND SCREEN");
@@ -926,7 +926,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		lfcform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + lfcform);
-		wait(10);
+		wait(15);
 		lfcform_Data = PdfComparator.getPDFData(FileLocation + lfcform);
 		PdfComparator.verifyPDFText(driver, lfcform_Data, "AIIC DP LFC 07 15");
 		PdfComparator.verifyPDFText(driver, lfcform_Data, "WET OR DRY ROT, OR BACTERIA");
@@ -941,7 +941,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		ltcform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + ltcform);
-		wait(10);
+		wait(15);
 		ltcform_Data = PdfComparator.getPDFData(FileLocation + ltcform);
 		PdfComparator.verifyPDFText(driver, ltcform_Data, "DP 04 73 07 88");
 		PdfComparator.verifyPDFText(driver, ltcform_Data, "LIMITED THEFT COVERAGE");
@@ -956,7 +956,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		laform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + laform);
-		wait(10);
+		wait(15);
 		laform_Data = PdfComparator.getPDFData(FileLocation + laform);
 		PdfComparator.verifyPDFText(driver, laform_Data, "AIIC DP LA 07 15");
 		PdfComparator.verifyPDFText(driver, laform_Data, "LOSS ASSESSMENT PROPERTY COVERAGE");
@@ -971,7 +971,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		olform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + olform);
-		wait(10);
+		wait(15);
 		olform_Data = PdfComparator.getPDFData(FileLocation + olform);
 		PdfComparator.verifyPDFText(driver, olform_Data, "AIIC DP OL 07 15");
 		PdfComparator.verifyPDFText(driver, olform_Data, "ORDINANCE OR LAW COVERAGE");
@@ -986,7 +986,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		lwdform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + lwdform);
-		wait(10);
+		wait(15);
 		lwdform_Data = PdfComparator.getPDFData(FileLocation + lwdform);
 		PdfComparator.verifyPDFText(driver, lwdform_Data, "AIIC DP LWD 12 18");
 		PdfComparator.verifyPDFText(driver, lwdform_Data, "LIMITED WATER DAMAGE COVERAGE");
@@ -1001,7 +1001,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		rccform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + rccform);
-		wait(10);
+		wait(15);
 		rccform_Data = PdfComparator.getPDFData(FileLocation + rccform);
 		PdfComparator.verifyPDFText(driver, rccform_Data, "AIIC DP RCC 07 15");
 		PdfComparator.verifyPDFText(driver, rccform_Data, "PERSONAL PROPERTY REPLACEMENT COST COVERAGE");
@@ -1016,7 +1016,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 		skform = PdfComparator.getPdfName(driver);
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + skform);
-		wait(10);
+		wait(15);
 		skform_Data = PdfComparator.getPDFData(FileLocation + skform);
 		PdfComparator.verifyPDFText(driver, skform_Data, "AIIC DP SK 07 15");
 		PdfComparator.verifyPDFText(driver, skform_Data, "SINKHOLE LOSS COVERAGE");

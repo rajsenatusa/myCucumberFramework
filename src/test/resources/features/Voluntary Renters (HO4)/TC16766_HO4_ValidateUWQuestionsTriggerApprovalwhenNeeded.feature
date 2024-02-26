@@ -12,7 +12,7 @@
   
 # User: AG1730
 
-@regression @tc16766 @ho4regression
+@regression @tc16766 @ho4regression 
 Feature:  TC 16766--HO4 Agent Basic Policy App Validations 'Validate UW Questions trigger approval when needed'
 
   Scenario: TC16766_HO4_ValidateUWQuestionsTriggerApprovalwhenNeeded

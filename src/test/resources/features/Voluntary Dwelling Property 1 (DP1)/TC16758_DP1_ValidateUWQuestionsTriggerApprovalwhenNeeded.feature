@@ -12,7 +12,7 @@
 
 # User: AG1730
 
-@regression @tc16758 @dp1regression 
+@regression @tc16758 @dp1regression
 Feature:  TC 16758--DP1 Agent Basic Policy App Validations 'Validate UW Questions trigger approval when needed'
   
   Scenario: TC16758_DP1_ValidateUWQuestionsTriggerApprovalwhenNeeded

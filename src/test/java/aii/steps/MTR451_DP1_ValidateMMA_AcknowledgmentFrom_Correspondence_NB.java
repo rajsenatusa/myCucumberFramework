@@ -82,7 +82,7 @@ public class MTR451_DP1_ValidateMMA_AcknowledgmentFrom_Correspondence_NB extends
 		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
 		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
 		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
-		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		//selectDropdownText(policyChevron.ddShortTermRental, "No");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);

@@ -478,7 +478,7 @@ public class MTR1446_UMB_ValidateAdditionalCoverageFormsOn_NB_ENDExcessInsuredAn
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + tlcform);
 
-		wait(8);
+		wait(10);
 		tlcform_Data = PdfComparator.getPDFData(FileLocation + tlcform);
 		PdfComparator.verifyPDFText(driver, tlcform_Data, "AIIC UMB TL 06 16");
 		PdfComparator.verifyPDFText(driver, tlcform_Data, "TRAMPOLINE LIABILITY EXCLUSION");
