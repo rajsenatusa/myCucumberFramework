@@ -73,7 +73,7 @@ public class MTR393_TODP3_ValidateOpenCompanyCancellationCompletionAppliestoRene
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "04");
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
-		selectDropdownText(dwellingChevron.ddNumberofUnits, "2");
+		//selectDropdownText(dwellingChevron.ddNumberofUnits, "2");
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "5");
 		wait(2);
 		click(dwellingChevron.btnSave);

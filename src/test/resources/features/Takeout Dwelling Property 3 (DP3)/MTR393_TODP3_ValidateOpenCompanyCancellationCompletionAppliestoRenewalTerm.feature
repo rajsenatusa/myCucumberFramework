@@ -8,7 +8,7 @@
  
  ## User: Jlowe
  
-@regression @mtr393 @todp3regression
+@regression @mtr393 @todp3regression @AIItodp3
 Feature: TC 35243--UW, TODP3, Validate when open Company cancellation is completed that it also applies the cancellation to the renewal term
 
   Scenario: Validate when the open cancellation is completed that it also applies the cancellation to the renewal term

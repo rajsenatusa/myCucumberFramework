@@ -11,7 +11,7 @@
 ## EXPECTED RESULTS: Task will not be generated on RNWL on 06/22/2022  will be generated on END and referring to UW Clerk group
 ## User: Gallopadmin
 
-@regression @mtr1430 @ho3regression
+@regression @mtr1430 @ho3regression 
 Feature: TC 38470--Mandatory Mediation-Arbitration Acknowledgment - HO3 - NB After 04/22/2022 review task will not display on NB and will display on END
 
   Scenario: Validate that Task will not be generated on RNWL on 06/22/2022  will be generated on END and referring to UW Clerk group

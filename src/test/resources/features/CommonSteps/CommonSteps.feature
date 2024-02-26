@@ -209,3 +209,4 @@ Feature: Common Transactions and Steps
     And User sets the effective date as before 1 day from the current date and validates error message <mtr154>
     And User takes note of the application number <mtr4934>
     And User clicks View Workflow Comments
+    And User clicks View Notes

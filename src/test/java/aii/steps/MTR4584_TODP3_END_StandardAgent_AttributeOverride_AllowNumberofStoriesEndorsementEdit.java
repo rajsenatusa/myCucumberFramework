@@ -77,7 +77,7 @@ public class MTR4584_TODP3_END_StandardAgent_AttributeOverride_AllowNumberofStor
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "06");
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
-		selectDropdownText(dwellingChevron.ddNumberofUnits, "2");
+		//selectDropdownText(dwellingChevron.ddNumberofUnits, "2");
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "41");
 		wait(2);
 		click(dwellingChevron.btnSave);

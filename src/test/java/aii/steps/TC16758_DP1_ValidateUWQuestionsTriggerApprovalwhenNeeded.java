@@ -50,7 +50,7 @@ public class TC16758_DP1_ValidateUWQuestionsTriggerApprovalwhenNeeded extends Co
 		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
 		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
 		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
-		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		//selectDropdownText(policyChevron.ddShortTermRental, "No");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);

@@ -11,7 +11,7 @@
 #User: AG1730
 
 
-@regression @tc16762 @ho6regression
+@regression @tc16762 @ho6regression @AIIho6
 Feature: TC 16762--HO6 Agent App Validations "Validate UW questions trigger approval when needed"
 
   Scenario: TC16762_HO6_ValidateUWQuestionsTriggerApprovalwhenNeeded

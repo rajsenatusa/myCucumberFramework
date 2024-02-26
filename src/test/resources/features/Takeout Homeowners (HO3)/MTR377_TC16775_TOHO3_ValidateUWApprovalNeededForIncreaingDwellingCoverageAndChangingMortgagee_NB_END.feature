@@ -11,7 +11,7 @@
 
 ## The test cases is pending resolution with defect IS 578
 
-@regression @mtr377 @toho3regression
+@regression @mtr377 @toho3regression @AIIto
 Feature: MTR377--TOHO3, Agent, END TX, Increase CovA, Change Deductible, Additional Interests, UW Approval
 
   Scenario: Validate Underwriting Manager approval is required Approval messages trigger on CloseOut screen

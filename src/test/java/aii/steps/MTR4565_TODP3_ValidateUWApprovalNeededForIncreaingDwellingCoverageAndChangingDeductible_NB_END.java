@@ -77,7 +77,7 @@ public class MTR4565_TODP3_ValidateUWApprovalNeededForIncreaingDwellingCoverageA
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "06");
 		selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
-		selectDropdownText(dwellingChevron.ddNumberofUnits, ConfigsReader.getProperty("numberofunits"));
+		//selectDropdownText(dwellingChevron.ddNumberofUnits, ConfigsReader.getProperty("numberofunits"));
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "41");
 		wait(2);
 		click(dwellingChevron.btnSave);

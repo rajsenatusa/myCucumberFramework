@@ -13,7 +13,7 @@
  # User: AG1730
 
 
-@regression @tc16879 @ho6regression
+@regression @tc16879 @ho6regression @AIIho6
 Feature: TC 16879--HO6 Standard Agent, NB, Occupancy Owner, DTC  Distance to Coast  Capacity testing
 
   Scenario: Validate that HO6 policy in Manatee County, agent gets information message Cannot issue due to limited catastrophic capacity
