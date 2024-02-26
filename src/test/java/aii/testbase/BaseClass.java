@@ -28,12 +28,12 @@ public class BaseClass {
 		switch (ConfigsReader.getProperty("browser").toLowerCase()) {
 
 		case "chrome":
-			WebDriverManager.chromedriver().clearDriverCache().setup();
-			WebDriverManager.chromedriver().clearResolutionCache().setup();
+			
 			ChromeOptions option = new ChromeOptions();
 			option.addArguments("--remote-allow-origins=*");
-
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().clearDriverCache().setup();
+//			WebDriverManager.chromedriver().clearResolutionCache().setup();
+//			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(option);
 			break;
 		case "firefox":

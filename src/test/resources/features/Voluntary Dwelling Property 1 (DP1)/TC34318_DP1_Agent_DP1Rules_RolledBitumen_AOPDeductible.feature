@@ -9,7 +9,7 @@
  # EXPECTED RESULTS: 
  # User: AG1730
  
-@tc34318 @regression @dp1regression @dp1regressionFEB
+@tc34318 @regression @dp1regression 
 Feature: TC 34318--DP1 RULES, UI Agent Rolled BItumen, AOP Deductible
 
   Scenario: Validating DP1 rule on UI with Rolled Bitumen Roof Type and AOP deductible

@@ -48,7 +48,7 @@ public class MTR1411_DP1_UW_AllowToApproveAgeofPlumbingAttribute_NB extends Comm
 		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
 		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
 		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
-		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		//selectDropdownText(policyChevron.ddShortTermRental, "No");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);
