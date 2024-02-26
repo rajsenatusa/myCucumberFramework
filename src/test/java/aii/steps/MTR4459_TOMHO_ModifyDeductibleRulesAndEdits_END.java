@@ -63,7 +63,7 @@ public class MTR4459_TOMHO_ModifyDeductibleRulesAndEdits_END extends CommonMetho
 		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "33");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		sendText(driver.findElement(By.id("Building.CovALimit")), "75000");
-		click(dwellingChevron.rbWindHailExc);
+//		click(dwellingChevron.rbWindHailExc);
 		selectDropdownText(dwellingChevron.ddAttachedStructures, "No");
 		wait(2);
 		selectDropdownText(dwellingChevron.ddDeductibleAllPerils, "$2,500");

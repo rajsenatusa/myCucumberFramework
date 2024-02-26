@@ -59,6 +59,12 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "TransactionLongDescription")
 	public WebElement descriptionbox;
 	
+	@FindBy(id= "ViewAll")
+	public WebElement btnViewAll;
+	
+	
+	
+	
 	
 	
 	public HistoryPageElements() {

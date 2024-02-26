@@ -14,7 +14,7 @@
  # User: Admin, Agent
 
 
-@regression @tc33726 @tomhpdregression @mtr4727 @tomhpdregressionFEB
+@regression @tc33726 @tomhpdregression @mtr4727 @tomhpdregressionFEB @AIIto
 Feature: MTR4727-TO MHPD AF: RULES - Modify Deductible Rules and Edits
 
   Scenario: Validate As an Agent endorse the policy prior to RN effective Date, On RN Effective Date, After RN Effective Date & UW Approval
