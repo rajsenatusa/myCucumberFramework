@@ -85,7 +85,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 	public void User_validates_the_Submit_for_Approval_messages()
 			throws Exception {
 		verify_AnyfirstText_IsDisplayed(driver, "Owner Occupied risks that are occupied 0 to 3 months per year are ineligible for coverage under the HO3 policy form.");
-		verify_AnyfirstText_IsDisplayed(driver, "Coverage A is High Value Dwelling limit that will require underwriting review.");
+		verify_AnyfirstText_IsDisplayed(driver, "Risks with no prior insurance require underwriting approval.");
 		wait(5);
 		attachScreenShot(driver);
 		wait(2);
@@ -94,7 +94,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 	@Then("User validates the Application is submitted for approval")
 	public void User_validates_the_Application_is_submitted_for_approval()
 			throws Exception {
-		verify_AnyfirstText_IsDisplayed(driver, "New Business AP-06937931 has been submitted for approval.");
+		verify_AnyfirstText_IsDisplayed(driver, "The application has been submitted for approval.");
 		wait(3);
 		attachScreenShot(driver);
 		wait(2);
@@ -106,7 +106,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		verify_AnyfirstText_IsDisplayed(driver, "Owner Occupied risks that are occupied 0 to 3 months per year are ineligible for coverage under the HO3 policy form.");
 		attachScreenShot(driver);
 		wait(2);
-		verify_AnyfirstText_IsDisplayed(driver, "Coverage A is High Value Dwelling limit that will require underwriting review.");
+		verify_AnyfirstText_IsDisplayed(driver, "Risks with no prior insurance require underwriting approval.");
 		wait(3);
 		attachScreenShot(driver);
 		wait(2);

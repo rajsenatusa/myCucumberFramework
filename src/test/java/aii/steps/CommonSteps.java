@@ -937,6 +937,10 @@ public class CommonSteps extends CommonMethods {
 	@Given("User approves the application or transaction")
 	public void user_approves_the_app_tx() throws Exception {
 		click(closeoutChevron.btnApprove);
+		
+		Hooks.scenario.log("The application has been approved successfully");
+		verify_AnyfirstText_IsDisplayed(driver, "The application has been approved");
+		
 	}
 
 	@Given("User search for the app or transaction or policy")

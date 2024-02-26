@@ -8,7 +8,7 @@
  # User: AG1730
 
 
-@regression @tc35236 @ho6regression
+@regression @tc35236 @ho6regression @AIIho6
 Feature: TC 35236--UW, HO6, Validate when open Company cancellation is completed that it also applies the cancellation to the renewal term
 
   Scenario: Validate that once the open cancellation is completed that it also applies the cancellation to the renewal term

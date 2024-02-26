@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/16/2023
 
-@regression @mtr1442 @mho3regression
+@regression @mtr1442 @mho3regression @AIImho3
 Feature: TR 8630--US 9453 :VOL MHO - Modify Inflation Guard - RN effective After 9/19/2022 HVH Cov A 500k
 
   Scenario: Validate Coverages will increase by 25%

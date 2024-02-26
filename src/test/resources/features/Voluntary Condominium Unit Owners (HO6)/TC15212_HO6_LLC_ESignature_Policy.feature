@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/08/2023
 
-@regression @tc15212 @ho6regression
+@regression @tc15212 @ho6regression @AIIho6
 Feature: TC 15212--Vol HO6 - Creating HO6 Application LLC w/eSignature
 
   Scenario: Validate that valid user role, create a HO6 NB (LLC) with selecting Esignature on CloseOut Screen

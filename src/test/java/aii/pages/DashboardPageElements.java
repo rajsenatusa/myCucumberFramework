@@ -296,6 +296,22 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[1]/i")
 	public WebElement btnExpandGeneralHO6;
 	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement btnExpandHO6WC;
+	            
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[4]/td[1]/i")
+	public WebElement btnExpandHO6WC2;
+	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[6]/td[1]/i")
+	public WebElement btnExpandHO6WC3;
+	
+	
+	
+	
+	
+	
+	//*[@id="NotesList"]/div/table/tbody/tr[2]/td[1]/i
+	
 	
 	 
 	public DashboardPageElements() {
