@@ -8,6 +8,12 @@ Feature: Agent Profile Setup
     Given User login to Spin as Admin Agent
 		Then User creates Agent Profiles with passing information from excel "Agent" sheet
 		
+		
+	@agentonboardingsetup
+  Scenario: Validate Agent Onboarding Successfully have been added to desired environment
+    Given User login to Spin as Admin Agent
+		Then User adds Agent Onboarding details with passing information from excel "Agent" sheet
+		
 	
 	@commisionupdate	
 	Scenario: Validate Agent Commission Rates for selected producers from excel list have been updated in desired environment
