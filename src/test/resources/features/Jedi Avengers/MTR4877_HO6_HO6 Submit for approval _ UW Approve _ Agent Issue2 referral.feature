@@ -3,12 +3,12 @@
 #TEST CASE NUMBER & TITLE: JA-147-MTR-4877-HO6 -Submit for approval > UW Approve > Agent Issue-2 referral
 #Precondition: Create a HO6 policy.
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
-#EXPECTED RESULTS: Only the new UW referral should be displayed, persisted UW referral should not trigger
+#EXPECTED RESULTS: UW referral should be displayed by Agant
 #User: Standard Agent, Underwriter
 @regression @mtr4877 @ja
 Feature: MTR4877_HO6_Verify_Notes are displayed correctly by Agent
 
-  Scenario: Verify_Underwriter_approvals the application_and_Notes are displayed correctly by agent
+  Scenario: Verify_Underwriter_approvals the application_and_referrals are displayed correctly by the agent
     Given User login to Spin as Standard Agent
     When User starts transaction as a new customer
     And User enters all required information on policy information screen

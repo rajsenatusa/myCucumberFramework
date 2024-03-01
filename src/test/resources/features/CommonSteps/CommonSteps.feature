@@ -182,6 +182,8 @@ Feature: Common Transactions and Steps
     And User enters Sprinkler System
     And User enters Roof Shape
     And User enters SWR
+    And User clicks Flood Coverage as Yes and enters required fields
+    And User clicks Flood Coverage
     And User clicks Flood Coverage
     And User selects Flood Coverage Deductible
     And User selects Flood Foundation Type
@@ -210,3 +212,5 @@ Feature: Common Transactions and Steps
     And User takes note of the application number <mtr4934>
     And User clicks View Workflow Comments
     And User clicks View Notes
+    And User enters HO3 product selection information and current date as effective date
+    And User enters product selection information for TOHO3 and sets effective date as current date
