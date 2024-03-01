@@ -10,6 +10,7 @@ import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class VOLHO3_NB_Policy extends CommonMethods {
 
@@ -253,6 +254,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddFireAlarm, FireAlarm);
 		wait(1);
 	}
+
 	@And("User enters Fire Alarm")
 	public void User_enters_Fire_Alarm() {
 		wait(1);
@@ -266,6 +268,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddSprinklerSystem, SprinklerSystem);
 		wait(1);
 	}
+
 	@And("User enters Sprinkler System")
 	public void User_enters_Sprinkler_System() {
 		wait(1);
@@ -295,6 +298,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_enters_Roof_Shape(String RoofShape) {
 		selectDropdownText(dwellingChevron.ddRoofShape, RoofShape);
 	}
+
 	@And("User enters Roof Shape")
 	public void User_enters_Roof_Shape() {
 		selectDropdownText(dwellingChevron.ddRoofShape, "HIP ");
@@ -305,10 +309,28 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddSecondaryWaterResistance, SWR);
 		wait(1);
 	}
+
 	@And("User enters SWR")
 	public void User_enters_SWR() {
 		selectDropdownText(dwellingChevron.ddSecondaryWaterResistance, "Yes");
 		wait(1);
+	}
+
+	@When("User clicks Flood Coverage as Yes and enters required fields")
+	public void User_clicks_Flood_Coverage_as_Yes_and_enters_required_fields() {
+		selectDropdownText(dwellingChevron.ddFloodCoverage, "Yes");
+		wait(5);
+		dwellingChevron.txtFloodDwellingCovA.clear();
+		wait(1);
+		dwellingChevron.btnSave.click();
+		wait(1);
+		dwellingChevron.txtFloodDwellingCovA.sendKeys("3100000");
+		selectDropdownText(dwellingChevron.ddFloodFoundationType, "Slab");
+		selectDropdownText(dwellingChevron.ddFloodZoneOverride, "X");
+		dwellingChevron.btnSave.click();
+		wait(3);
+		click(dwellingChevron.btnNext);
+
 	}
 
 	@And("User clicks Flood Coverage {string}")
@@ -316,6 +338,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddFloodCoverage, FloodCoverage);
 		wait(5);
 	}
+
 	@And("User clicks Flood Coverage")
 	public void User_clicks_Flood_Coverage() {
 		selectDropdownText(dwellingChevron.ddFloodCoverage, "X");
@@ -340,6 +363,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddFloodCovADed, FloodCoverageDeductible);
 		wait(1);
 	}
+
 	@And("User selects Flood Coverage Deductible")
 	public void User_selects_Flood_Coverage_Deductible() {
 		wait(1);
@@ -367,6 +391,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		wait(1);
 		selectDropdownText(dwellingChevron.ddFloodFoundationType, FloodFoundationType);
 	}
+
 	@And("User selects Flood Foundation Type")
 	public void User_selects_Flood_Foundation_Type() {
 		wait(1);
@@ -379,6 +404,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 		selectDropdownText(dwellingChevron.ddFloodZoneOverride, FloodZoneOverride);
 		dwellingChevron.btnSave.click();
 	}
+
 	@And("User selects Flood Zone Override")
 	public void User_selects_Flood_Zone_Override() {
 		wait(1);
@@ -396,6 +422,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_selects_Preferred_Risk_Status(String PreferredRiskStatus) {
 		selectDropdownText(dwellingChevron.txtFloodPreferredStatus, PreferredRiskStatus);
 	}
+
 	@And("User selects Preferred Risk Status")
 	public void User_selects_Preferred_Risk_Status() {
 		selectDropdownText(dwellingChevron.txtFloodPreferredStatus, "Yes");
@@ -405,6 +432,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_selects_SFHA_Override(String SFHAOverride) {
 		selectDropdownText(dwellingChevron.ddFloodSFHAOverride, SFHAOverride);
 	}
+
 	@And("User selects SFHA Override")
 	public void User_selects_SFHA_Override() {
 		selectDropdownText(dwellingChevron.ddFloodSFHAOverride, "No");
@@ -414,6 +442,7 @@ public class VOLHO3_NB_Policy extends CommonMethods {
 	public void User_selects_Elevated_Risk_Discount(String ElevatedRiskDiscount) {
 		selectDropdownText(dwellingChevron.ddElevatedRiskDiscount, ElevatedRiskDiscount);
 	}
+
 	@And("User selects Elevated Risk Discount")
 	public void User_selects_Elevated_Risk_Discount() {
 		selectDropdownText(dwellingChevron.ddElevatedRiskDiscount, "Yes");
