@@ -19,7 +19,7 @@ Feature: RC-395: 2024 Rate Changes- Inflation Guard: TO DP3- 01/01/2024
     And User selects Distance to Hydrant "<DistanceHydrant>"
     And User selects Protection Class "<ProtectionClass>"
     And User selects Dwelling Type "<DwellingType>"
-    And User selects Number of Units "<NumberOfUnits>"
+    #And User selects Number of Units "<NumberOfUnits>"
     And User selects Building Territory List "<TerritoryList>"
     And User clicks Save
     And User selects Quality Grade "<QualityGrade>"
