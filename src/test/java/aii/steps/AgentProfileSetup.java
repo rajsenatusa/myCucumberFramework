@@ -21,8 +21,6 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
 import aii.utils.CommonMethods;
 import io.cucumber.java.en.Then;
 
@@ -33,7 +31,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 		// Reading Input from an Excel document
 		FileInputStream fis = new FileInputStream(new File(
-				"\\C:\\Users\\CYavas\\git\\AutomationCucumber2023\\src\\test\\resources\\testddata\\User Setup Template.xls"));
+				System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\ProducerSetup.xlsx"));
 
 		try (XSSFWorkbook wb = new XSSFWorkbook(fis)) {
 			XSSFSheet sheet1 = wb.getSheetAt(0);
@@ -88,13 +86,13 @@ public class AgentProfileSetup extends CommonMethods {
 
 					XSSFCell state = row.getCell(16);
 					String stateStr = state.getRichStringCellValue().getString();
-					driver.findElement(By.id("UserInfoWorkAddr.StateProvCd")).sendKeys(stateStr);
+					selectDropdownText(driver.findElement(By.id("UserInfoWorkAddr.StateProvCd")), stateStr);
 
 					XSSFCell zipCode = row.getCell(17);
 					String zipStr = zipCode.getRichStringCellValue().getString();
 					driver.findElement(By.id("UserInfoWorkAddr.PostalCode")).sendKeys(zipStr);
 
-					driver.findElement(By.id("UserInfoPhoneOne.PhoneName")).sendKeys("Business");
+					selectDropdownText(driver.findElement(By.id("UserInfoPhoneOne.PhoneName")), "Business");
 
 					XSSFCell phoneNumber = row.getCell(20);
 					String phoneNumberStr = phoneNumber.getRichStringCellValue().getString();
@@ -119,13 +117,13 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("ProviderNumber")).sendKeys(UCode1);
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-
-					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-					Thread.sleep(2000);
+//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
+//
+//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
+//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
+//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//					Thread.sleep(2000);
 
 					driver.findElement(By.id("AddProviderSecurity")).click();
 
@@ -134,15 +132,15 @@ public class AgentProfileSetup extends CommonMethods {
 					Thread.sleep(2000);
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 
-					driver.findElement(By.id("AddProviderSecurity")).click();
-					driver.findElement(By.id("ProviderSecurity.ProviderSecurityCd")).sendKeys("AG9034");
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
+//					driver.findElement(By.id("AddProviderSecurity")).click();
+//					driver.findElement(By.id("ProviderSecurity.ProviderSecurityCd")).sendKeys("AG9034");
+//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 
 					driver.findElement(By.id("AddRole")).click();
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
-					driver.findElement(By.id("UserRole.AuthorityRoleIdRef")).sendKeys("PolicyAgentStandard");
+					selectDropdownText(driver.findElement(By.id("UserRole.AuthorityRoleIdRef")), "PolicyAgentStandard");
 					driver.findElement(By.id("UserRole.StartDt")).sendKeys("1/1/1901");
 					driver.findElement(By.id("UserRole.EndDt")).sendKeys("12/31/9999");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
@@ -173,7 +171,8 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("AddTaskGroup")).click();
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 					System.out.println("Creating Producer ID " + UCode1);
-					new Select(driver.findElement(By.id("UserTaskGroup.TaskGroupCd"))).selectByValue(UCode1);
+					selectDropdownText(driver.findElement(By.id("UserTaskGroup.TaskGroupCd")), UCode1);
+					// new Select(driver.findElement(By.id("UserTaskGroup.TaskGroupCd"))).selectByValue(UCode1);
 					// driver.findElement(By.id("UserTaskGroup.TaskGroupCd")).sendKeys("Producer :
 					// USAA Insurance Agency, Inc");
 					driver.findElement(By.id("UserTaskGroup.StartDt")).sendKeys("1/1/1901");
@@ -189,7 +188,7 @@ public class AgentProfileSetup extends CommonMethods {
 					Alert alert = driver.switchTo().alert();
 					alert.accept();
 					FileOutputStream fws = new FileOutputStream(
-							new File("\\C:\\Users\\CYavas\\AI Automation\\UserIDResults.xls"));
+							new File("\\C:\\Users\\CYavas\\git\\AutomationCucumber2023\\test-output\\UserProfileSetupResults.xlsx"));
 					XSSFCell loginid = sheet1.getRow(j).createCell(0);
 					XSSFCell pwd = sheet1.getRow(j).createCell(1);
 					XSSFCell resultcell = sheet1.getRow(j).createCell(2);
@@ -625,7 +624,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 		// Reading Input from an Excel document
 		FileInputStream fis = new FileInputStream(new File(
-				"\\C:\\Users\\CYavas\\git\\AutomationCucumber2023\\src\\test\\resources\\testddata\\User Setup Template.xls"));
+				System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\UserOnboarding.xlsx"));
 		try (XSSFWorkbook wbook = new XSSFWorkbook(fis)) {
 			XSSFSheet sheet1 = wbook.getSheetAt(0);
 
@@ -644,17 +643,17 @@ public class AgentProfileSetup extends CommonMethods {
 					System.out.println("Onboarding Producer code" + PCode);
 					String Producercode = PCode.getRichStringCellValue().getString();
 					driver.findElement(By.id("Provider.ProviderNumber")).sendKeys(Producercode);
-					driver.findElement(By.id("ProducerTypeCd")).sendKeys("Agent");
+					selectDropdownText(driver.findElement(By.id("ProducerTypeCd")), "Agent");
 
 					driver.findElement(By.id("ProducerAgency")).sendKeys("AG9032");
-					driver.findElement(By.id("AgentLevel")).sendKeys("Standard");
-					driver.findElement(By.id("Provider.StatusCd")).sendKeys("Active");
+					selectDropdownText(driver.findElement(By.id("AgentLevel")), "Take Out");
+					selectDropdownText(driver.findElement(By.id("Provider.StatusCd")), "Active");
 
 					driver.findElement(By.id("Provider.StatusDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("AppointedDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("AgencyPartnerProducerCd")).sendKeys("");
 
-					driver.findElement(By.id("ProviderTaxInfo.LegalEntityCd")).sendKeys("Corporation");
+					selectDropdownText(driver.findElement(By.id("ProviderTaxInfo.LegalEntityCd")), "Corporation");
 
 					driver.findElement(By.id("ProviderName.CommercialName")).sendKeys("Elite Insurance Group Inc.");
 					driver.findElement(By.id("ProviderName.GivenName")).sendKeys("Jeff Sadler");
@@ -677,7 +676,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// HSSFCell Sstate=row.getCell(i+20);
 					// String SState1 = Sstate.getRichStringCellValue().getString();
-					driver.findElement(By.id("ProviderStreetAddr.StateProvCd")).sendKeys("Texas");
+					selectDropdownText(driver.findElement(By.id("ProviderStreetAddr.StateProvCd")), "Texas");
 
 					// System.out.println("entering address"+SState1);
 
@@ -700,7 +699,7 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("ProviderBillingAddr.Addr1")).sendKeys("2200 1st Ave S.");
 					driver.findElement(By.id("ProviderBillingAddr.Addr2")).sendKeys("Suite 300");
 					driver.findElement(By.id("ProviderBillingAddr.City")).sendKeys("Seattle");
-					driver.findElement(By.id("ProviderBillingAddr.StateProvCd")).sendKeys("Washington");
+					selectDropdownText(driver.findElement(By.id("ProviderBillingAddr.StateProvCd")), "Washington");
 					driver.findElement(By.id("ProviderBillingAddr.PostalCode")).sendKeys("98134");
 					// Copy Billing Address
 					// driver.findElement(By.id("CopyAddress")).click();
@@ -712,30 +711,30 @@ public class AgentProfileSetup extends CommonMethods {
 					wait(1);
 
 					// Contact Section
-					driver.findElement(By.id("ProviderPrimaryPhone.PhoneName")).sendKeys("Business");
+					selectDropdownText(driver.findElement(By.id("ProviderPrimaryPhone.PhoneName")), "Business");
 					driver.findElement(By.id("ProviderPrimaryPhone.PhoneNumber")).sendKeys("(812) 345-8075");
 					// driver.findElement(By.id("ProviderFax.PhoneNumber")).sendKeys("1234567898");
 
-					driver.findElement(By.id("Provider.PreferredDeliveryMethod")).sendKeys("Email");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
+					selectDropdownText(driver.findElement(By.id("Provider.PreferredDeliveryMethod")), "Email");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
 					driver.findElement(By.id("TerritorySalesManager")).sendKeys("Jkowalski");
-					driver.findElement(By.id("DirectPortalInd")).sendKeys("No");
+					selectDropdownText(driver.findElement(By.id("DirectPortalInd")), "No");
 
 					// Accounting Information
 					driver.findElement(By.id("AcctName.CommercialName")).clear();
 					driver.findElement(By.id("AcctName.CommercialName")).sendKeys("Elite Insurance Group Inc.");
 					// driver.findElement(By.id("AcctName.CommercialName2")).sendKeys("Cordero
 					// Bowleg");
-					driver.findElement(By.id("PayToCd")).sendKeys("Agency");
-					driver.findElement(By.id("Provider.CombinePaymentInd")).sendKeys("Yes");
-					driver.findElement(By.id("Provider.PaymentPreferenceCd")).sendKeys("Check");
+					selectDropdownText(driver.findElement(By.id("PayToCd")), "Agency");
+					selectDropdownText(driver.findElement(By.id("Provider.CombinePaymentInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("Provider.PaymentPreferenceCd")), "Check");
 
 					// driver.findElement(By.id("CopyBillingAddress")).click();
 
 					driver.findElement(By.id("AcctMailingAddr.Addr1")).sendKeys("2701 Brown Trail");
 					driver.findElement(By.id("AcctMailingAddr.Addr2")).sendKeys("Suite 300");
 					driver.findElement(By.id("AcctMailingAddr.City")).sendKeys("Bedford");
-					driver.findElement(By.id("AcctMailingAddr.StateProvCd")).sendKeys("Texas");
+					selectDropdownText(driver.findElement(By.id("AcctMailingAddr.StateProvCd")), "Texas");
 					driver.findElement(By.id("AcctMailingAddr.PostalCode")).sendKeys("76021");
 
 					driver.findElement(By.id("AcctMailingAddr.addrVerifyImg")).click();
@@ -744,11 +743,11 @@ public class AgentProfileSetup extends CommonMethods {
 					Thread.sleep(2000);
 
 					// Tax Information
-					driver.findElement(By.id("AcctTaxInfo.Required1099Ind")).sendKeys("Yes");
-					driver.findElement(By.id("AcctTaxInfo.TaxIdTypeCd")).sendKeys("FEIN");
+					selectDropdownText(driver.findElement(By.id("AcctTaxInfo.Required1099Ind")), "Yes");
+					selectDropdownText(driver.findElement(By.id("AcctTaxInfo.TaxIdTypeCd")), "FEIN");
 					driver.findElement(By.id("TaxId")).sendKeys("74-2879196");
-					driver.findElement(By.id("AcctTaxInfo.ReceivedW9Ind")).sendKeys("Yes");
-					driver.findElement(By.id("AcctTaxInfo.WithholdingExemptInd")).sendKeys("Yes");
+					selectDropdownText(driver.findElement(By.id("AcctTaxInfo.ReceivedW9Ind")), "Yes");
+					selectDropdownText(driver.findElement(By.id("AcctTaxInfo.WithholdingExemptInd")), "Yes");
 
 					//
 
@@ -761,7 +760,7 @@ public class AgentProfileSetup extends CommonMethods {
 					XSSFCell CCname = row.getCell(i + 64);
 					String CCname1 = CCname.getRichStringCellValue().getString();
 					driver.findElement(By.id("ContactName.CommercialName")).sendKeys(CCname1);
-					driver.findElement(By.id("Contact.ContactTypeCd")).sendKeys("Management");
+					selectDropdownText(driver.findElement(By.id("Contact.ContactTypeCd")), "Management");
 					driver.findElement(By.id("ContactPerson.PositionTitle")).sendKeys("Principal");
 					driver.findElement(By.id("ContactAddr.Addr1")).clear();
 					driver.findElement(By.id("ContactAddr.Addr1")).sendKeys("2703 Brown Trail");
@@ -770,22 +769,22 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("ContactAddr.City")).clear();
 					driver.findElement(By.id("ContactAddr.City")).sendKeys("Bedford");
 					// driver.findElement(By.id("ContactAddr.StateProvCd")).clear();
-					driver.findElement(By.id("ContactAddr.StateProvCd")).sendKeys("Texas");
+					selectDropdownText(driver.findElement(By.id("ContactAddr.StateProvCd")), "Texas");
 					driver.findElement(By.id("ContactAddr.PostalCode")).clear();
 					driver.findElement(By.id("ContactAddr.PostalCode")).sendKeys("76021-4103");
-					driver.findElement(By.id("ContactPhonePrimary.PhoneName")).sendKeys("Business");
+					selectDropdownText(driver.findElement(By.id("ContactPhonePrimary.PhoneName")), "Business");
 					driver.findElement(By.id("ContactPhonePrimary.PhoneNumber")).sendKeys("(812) 345-8075");
 
 					XSSFCell Cemail = row.getCell(i + 75);
 					String Cemail1 = Cemail.getRichStringCellValue().getString();
 					driver.findElement(By.id("ContactEmail.EmailAddr")).sendKeys(Cemail1);
-					driver.findElement(By.id("Contact.PreferredDeliveryMethod")).sendKeys("Email");
+					selectDropdownText(driver.findElement(By.id("Contact.PreferredDeliveryMethod")), "Email");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 
 					// AddState
 					driver.findElement(By.id("AddState")).click();
-					driver.findElement(By.id("StateInfo.StateCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("StateInfo.StateCd")), "Florida");
 					driver.findElement(By.id("StateInfo.AppointedDt")).sendKeys("3/1/2022");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
@@ -796,56 +795,57 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell stprod = row.getCell(i + 85);
 					String stprod1 = stprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(stprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), stprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
+					
 					// Addproduct2
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell snprod = row.getCell(i + 96);
 					String snprod1 = snprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(snprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), snprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 					// Addproduct3
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell thprod = row.getCell(i + 107);
 					String thprod1 = thprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(thprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), thprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 					// Addproduct4
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell fthprod = row.getCell(i + 118);
 					String fthprod1 = fthprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(fthprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), fthprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 					// Return to Main screen
@@ -853,42 +853,42 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell ffthprod = row.getCell(i + 129);
 					String ffthprod1 = ffthprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(ffthprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), ffthprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 					// Addproduct6
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell sthprod = row.getCell(i + 140);
 					String sthprod1 = sthprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(sthprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), sthprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 					// Addproduct7
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell sethprod = row.getCell(i + 151);
 					String sethprod1 = sethprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(sethprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), sethprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 
@@ -896,14 +896,14 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell eifthprod = row.getCell(i + 162);
 					String eifthprod1 = eifthprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(eifthprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), eifthprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 
@@ -911,14 +911,14 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("AddProduct")).click();
 					XSSFCell nifthprod = row.getCell(i + 173);
 					String nifthprod1 = nifthprod.getRichStringCellValue().getString();
-					driver.findElement(By.id("LicensedProduct.LicenseClassCd")).sendKeys(nifthprod1);
-					driver.findElement(By.id("LicensedProduct.StateProvCd")).sendKeys("Florida");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), nifthprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
 					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/1/2022");
 					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("12.00%");
 					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("10.00%");
-					driver.findElement(By.id("TaskGroup")).sendKeys("Underwriting");
-					driver.findElement(By.id("LicensedProduct.CommissionPayInd")).sendKeys("Yes");
-					driver.findElement(By.id("LicensedProduct.CommissionPayRule")).sendKeys("Written");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 
