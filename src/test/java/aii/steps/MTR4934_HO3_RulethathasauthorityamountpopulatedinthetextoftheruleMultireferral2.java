@@ -105,11 +105,23 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		wait(2);
 
 	}
-	@Given("User approves the application or transaction <mtr4934>")
-	public void user_approves_the_app_tx_mtr4934() throws Exception {
+	@Given("User clicks approve button <mtr4934>")
+	public void User_clicks_approve_button_mtr4934() throws Exception {
+		wait(2);
 		click(closeoutChevron.btnSubmitApproval);
-		Hooks.scenario.log("The application has been approved successfully");
-		verify_AnyfirstText_IsDisplayed(driver, "The application has been approved");
+		attachScreenShot(driver);
+		wait(2);
+		
+	}
+	@Given("User clicks approve button as UW manager <mtr4934>")
+	public void User_clicks_approve_button_as_UW_managermtr4934() throws Exception {
+		click(closeoutChevron.btnApprove);
+		attachScreenShot(driver);
+		click(dashboard.btnUserMenu);
+		wait(1);
+		click(dashboard.btnSignOut);
+		wait(2);
+		Hooks.scenario.log("Sign out was clicked");
 		
 	}
 	@Then("User validates the Application is submitted for approval")
