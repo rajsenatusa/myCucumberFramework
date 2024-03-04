@@ -162,7 +162,7 @@ public class VOLHO6RateChange extends CommonMethods {
 	@Then("User validates HO6 Coverage A increases by 10 percent")
 	public void User_validates_HO6_Coverage_A_increases_by_10_percent() {
 
-		String expected = "$191,000";
+		String expected = "$194,000";
 		String actual = dwellingChevron.HO63CovA.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -189,7 +189,7 @@ public class VOLHO6RateChange extends CommonMethods {
 	@Then("User validates HO6 Ordinance or Law increases off of Coverage A inflated limit amount of 10 percentage")
 	public void User_validates_HO6_Ordinance_or_Law_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percentage() {
 
-		String expected = "$95,500";
+		String expected = "$97,000";
 		String actual = dwellingChevron.HO63OrdOrLaw.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -198,7 +198,7 @@ public class VOLHO6RateChange extends CommonMethods {
 	@Then("User validates HO6 Coverage A on Coverages List")
 	public void User_validates_HO6_Coverage_A_on_Coverages_List() {
 
-		String expected = "191,000";
+		String expected = "194,000";
 		String actual = dwellingChevron.HO6CoverageListCovA.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -223,7 +223,7 @@ public class VOLHO6RateChange extends CommonMethods {
 	@Then("User validates HO6 Ordinance or Law on Coverages List")
 	public void User_validates_HO6_Ordinance_or_Law_on_Coverages_List() {
 
-		String expected = "95,500";
+		String expected = "97,000";
 		String actual = dwellingChevron.HO6CoverageListORD.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 	}

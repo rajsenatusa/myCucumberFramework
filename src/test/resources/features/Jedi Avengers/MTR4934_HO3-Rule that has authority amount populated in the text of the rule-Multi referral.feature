@@ -7,7 +7,7 @@
 #User: Standard Agent, Underwriter, UW Manager
 @regression @mtr4934 @ja
 Feature: MTR4934_HO3_Verify_Multi referral_can_display_by_Agent
-
+#Homeowners - Maximum Coverage A Allowed: 2999000 (Change in the user management for Underwriter1)
   Scenario: Verify_Underwriter_and_UW_Manager_approved_the referrals_than_Agent_can_display_the_referrals
     Given User login to Spin as Standard Agent
     And User starts transaction as a new customer
@@ -27,7 +27,7 @@ Feature: MTR4934_HO3_Verify_Multi referral_can_display_by_Agent
     Given User login to Spin as Underwriter
     And User Searchs for Application Number for <mtr4934>
     Then User validates the Submitter Issues <mtr4934>
-    And User approves the application or transaction <mtr4934>
+    And User clicks approve button <mtr4934>
     And User signs out
     And User login to Spin as Underwriter Clerk
     And User Searchs for Application Number for <mtr4934>
