@@ -45,7 +45,7 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 	@And("User checks Capacity Rule has been set to Capacity is of 10 mi to less than 15 mi is set for DP1 DP3 HO3 MHO3 and adds capacity in case it has not been set")
 	public void user_checks_Capacity_Rule_has_been_set_to_Capacity_is_of_10_mi_toless_than_15_mi_is_set_for_dp1_dp3_ho3_mho3() throws Exception {
 		String ProductLine = "DP1";
-
+		wait(3);
 		try {
 			if (driver.findElement(By.xpath("//*[contains(text(),'10 mi to less than 15 mi')]")).isDisplayed()) {
 				Hooks.scenario.log("capacity is visible");
@@ -67,7 +67,7 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 							System.out.println("Capacity is of 10 mi to less than 15 mi is set for DP1 product");
 							click(driver.findElement(By.id("UserMenu"))); // signout
 							click(driver.findElement(By.id("SignOutInMenu")));
-							wait(3);
+							wait(5);
 						} else {
 							Hooks.scenario.log("Capacity is of 10 mi to less than 15 mi is not set for DP1 product");
 							System.out.println("Capacity is of 10 mi to less than 15 mi is not set for DP1 product");
