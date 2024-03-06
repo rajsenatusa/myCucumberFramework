@@ -13,7 +13,7 @@
 ## User: jbarnes, AG1730A1 
 
 
-@regression @mtr155
+@regression @mtr155 @gu
 Feature: MTR155--VOL HO4, Verify Underwriter is able to Cancel policy  Non-Pay & Pro-rate
 
   Scenario: Validate Cancellation should process with UW user

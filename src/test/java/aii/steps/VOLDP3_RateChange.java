@@ -199,7 +199,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	public void User_validates_VOL_DP3_10_percentage_in_RN_Declaration_Package() throws Exception {
 //		switchToWindow(driver, "STFile&File");
 
-		wait(5);
+		wait(8);
 
 		mainWindow = driver.getWindowHandle();
 		WebDriver popup = null;

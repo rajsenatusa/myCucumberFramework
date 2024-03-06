@@ -214,5 +214,47 @@ public class MTR4877_HO6_Submitforapproval_UW_Approve_Agent_Issue_2_referral ext
 		attachScreenShot(driver);
 		wait(5);
 	}
+	@When("User answers all underwriting questions for HO6 <mtr4877>")
+	public void user_answers_all_underwriting_questions_for_ho6_mtr4877() throws Exception {
+
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question1, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question2, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question3, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho6Question4, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question5, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question6, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question7, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho6Question8, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question9, "Yes");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question11, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho6Question12, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question13, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question14, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question15, "Yes");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question17, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question18, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question19, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho6Question19, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question21, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho6Question21, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question23, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question24, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question25, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question26, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question27, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question28, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question29, "No");
+
+		CommonMethods.wait(1);
+		CommonMethods.click(uwquestionsChevron.nextButtonUw);
+
+		// Application Dwelling information was filled here
+
+		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
+		selectDropdownText(dwellingChevron.ddNumberOfStories, ConfigsReader.getProperty("numberofstories"));
+		selectDropdownText(dwellingChevron.ddStoryOfUnit, ConfigsReader.getProperty("storyofunit"));
+		wait(2);
+
+	}
 
 }

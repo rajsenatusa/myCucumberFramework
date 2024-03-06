@@ -19,7 +19,7 @@
   
 ## User: Admin
 
-@regression @mtr391 @umbregression
+@regression @mtr391 @umbregression @gu 
 Feature: MTR391--UMB Validate Direct Bill Full Payment Plan policy without payment, effective date is current date, cancels after 20 days
 
   Scenario: Validate Direct Bill Policy without Payment cancels on day 20

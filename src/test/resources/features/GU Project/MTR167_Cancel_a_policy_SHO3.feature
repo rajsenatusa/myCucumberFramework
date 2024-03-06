@@ -13,7 +13,7 @@
 ## User: Admin, AG1777A1 
 
 
-@regression @mtr167 @scregression @gu
+@regression @mtr167 @scregression @gu 
 Feature: MTR167--SC HO3, Verify Underwriter is able to Cancel policy Non-Pay & Flat rate
 
   Scenario: Validate Cancellation should process with UW user
