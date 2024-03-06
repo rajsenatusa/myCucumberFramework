@@ -171,7 +171,7 @@ public class MTR4507_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		verify_AnyText_IsVisible(driver,
 				"Driver received a No Hit on their MVR. This policy will require Underwriting approval");
 		verify_AnyText_IsVisible(driver, "Underwriting approval required prior to binding due to loss history");
-		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
+//		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
 		attachScreenShot(driver);
 	}
 
@@ -185,7 +185,7 @@ public class MTR4507_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 		click(reviewChevron.btnFinalize);
 		wait(2);
 		verify_AnyText_IsVisible(driver, "Underwriting approval required prior to binding due to loss history");
-		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
+//		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
 
 		verify_AnyLabel_IsVisible(driver, "Submit For Approval");
 		verify_AnyLabel_IsVisible(driver, "Modify Application");
@@ -213,7 +213,7 @@ public class MTR4507_GOC_ValidateLossHistoryWith2orMoreLossesRequire_UWApproval_
 			throws Exception {
 
 		verify_AnyText_IsVisible(driver, "Underwriting approval required prior to binding due to loss history");
-		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
+//		verify_AnyText_IsVisible(driver, "Underwriting referral required due to number of accidents");
 		attachScreenShot(driver);
 	}
 

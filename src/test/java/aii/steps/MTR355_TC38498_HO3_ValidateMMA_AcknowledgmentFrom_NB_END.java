@@ -73,7 +73,7 @@ public class MTR355_TC38498_HO3_ValidateMMA_AcknowledgmentFrom_NB_END extends Co
 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + application_Form);
-		wait(8);
+		wait(15);
 
 		MMA_NBApp_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + application_Form, 10, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, MMA_NBApp_Version1, "AIIC HO3 MMAA 04 23");

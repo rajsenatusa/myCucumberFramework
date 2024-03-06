@@ -27,11 +27,11 @@ import io.cucumber.java.en.Then;
 public class AgentProfileSetup extends CommonMethods {
 
 	@Then("User creates Agent Profiles with passing information from excel {string} sheet")
-	public void User_creates_Agent_Profiles_with_passing_information_from_excel_sheet(String Agent) throws Exception {
+	public void User_creates_Agent_Profiles_with_passing_information_from_excel_sheet(String AgentUserProfile) throws Exception {
 
 		// Reading Input from an Excel document
 		FileInputStream fis = new FileInputStream(new File(
-				System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\ProducerSetup.xlsx"));
+				System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\UserOnboarding.xlsx"));
 
 		try (XSSFWorkbook wb = new XSSFWorkbook(fis)) {
 			XSSFSheet sheet1 = wb.getSheetAt(0);
@@ -637,7 +637,7 @@ public class AgentProfileSetup extends CommonMethods {
 				try {
 					driver.findElement(By.id("NewProducer")).click();
 					XSSFRow row = sheet1.getRow(j);
-					int i = 0;
+					int i = 5;
 
 					XSSFCell PCode = row.getCell(i);
 					System.out.println("Onboarding Producer code" + PCode);
@@ -645,7 +645,7 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("Provider.ProviderNumber")).sendKeys(Producercode);
 					selectDropdownText(driver.findElement(By.id("ProducerTypeCd")), "Agent");
 
-					driver.findElement(By.id("ProducerAgency")).sendKeys("AG9032");
+					driver.findElement(By.id("ProducerAgency")).sendKeys("AG8160");
 					selectDropdownText(driver.findElement(By.id("AgentLevel")), "Take Out");
 					selectDropdownText(driver.findElement(By.id("Provider.StatusCd")), "Active");
 
@@ -793,7 +793,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// Addproduct1
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell stprod = row.getCell(i + 85);
+					XSSFCell stprod = row.getCell(i + 100);
 					String stprod1 = stprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), stprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -808,7 +808,7 @@ public class AgentProfileSetup extends CommonMethods {
 					
 					// Addproduct2
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell snprod = row.getCell(i + 96);
+					XSSFCell snprod = row.getCell(i + 111);
 					String snprod1 = snprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), snprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -822,7 +822,7 @@ public class AgentProfileSetup extends CommonMethods {
 					wait(1);
 					// Addproduct3
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell thprod = row.getCell(i + 107);
+					XSSFCell thprod = row.getCell(i + 122);
 					String thprod1 = thprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), thprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -836,7 +836,7 @@ public class AgentProfileSetup extends CommonMethods {
 					wait(1);
 					// Addproduct4
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell fthprod = row.getCell(i + 118);
+					XSSFCell fthprod = row.getCell(i + 133);
 					String fthprod1 = fthprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), fthprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -851,7 +851,7 @@ public class AgentProfileSetup extends CommonMethods {
 					// Return to Main screen
 					// Addproduct5
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell ffthprod = row.getCell(i + 129);
+					XSSFCell ffthprod = row.getCell(i + 144);
 					String ffthprod1 = ffthprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), ffthprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -865,7 +865,7 @@ public class AgentProfileSetup extends CommonMethods {
 					wait(1);
 					// Addproduct6
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell sthprod = row.getCell(i + 140);
+					XSSFCell sthprod = row.getCell(i + 155);
 					String sthprod1 = sthprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), sthprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -879,7 +879,7 @@ public class AgentProfileSetup extends CommonMethods {
 					wait(1);
 					// Addproduct7
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell sethprod = row.getCell(i + 151);
+					XSSFCell sethprod = row.getCell(i + 166);
 					String sethprod1 = sethprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), sethprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -894,7 +894,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// Addproduct8
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell eifthprod = row.getCell(i + 162);
+					XSSFCell eifthprod = row.getCell(i + 177);
 					String eifthprod1 = eifthprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), eifthprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -909,7 +909,7 @@ public class AgentProfileSetup extends CommonMethods {
 
 					// Addproduct9
 					driver.findElement(By.id("AddProduct")).click();
-					XSSFCell nifthprod = row.getCell(i + 173);
+					XSSFCell nifthprod = row.getCell(i + 188);
 					String nifthprod1 = nifthprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), nifthprod1);
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
@@ -927,7 +927,7 @@ public class AgentProfileSetup extends CommonMethods {
 					XSSFCell ProdCode = sheet1.getRow(j).createCell(0);
 					XSSFCell resultcell = sheet1.getRow(j).createCell(1);
 					XSSFCell timecell = sheet1.getRow(j).createCell(2);
-					ProdCode.setCellValue(Producercode);
+					ProdCode.setCellValue(PCode.getRichStringCellValue());
 					resultcell.setCellValue("Success");
 					LocalDateTime timestamp = LocalDateTime.now();
 					timecell.setCellValue(String.valueOf(timestamp));

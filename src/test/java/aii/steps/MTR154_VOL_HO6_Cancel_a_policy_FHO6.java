@@ -46,7 +46,7 @@ public class MTR154_VOL_HO6_Cancel_a_policy_FHO6 extends CommonMethods {
 		wait(3);
 		click(policyChevron.btnSave);
 		wait(2);
-		sendText(policyChevron.txtPreviousPolicyExpDate, ConfigsReader.getProperty("previouspolicyexpdate"));
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));

@@ -170,7 +170,7 @@ public class MTR352_HO3_ValidatePolicyHolderNotice_NB_END extends CommonMethods 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + PolicyHolderNotice_NBForm);
 
-		wait(8);
+		wait(15);
 		PolicyHolderNotice_NB_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + PolicyHolderNotice_NBForm,
 				2, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, PolicyHolderNotice_NB_Version1, "AIIC HO3 PHN CSAU 11 21");

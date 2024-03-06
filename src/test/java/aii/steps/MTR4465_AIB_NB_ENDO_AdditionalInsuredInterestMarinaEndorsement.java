@@ -531,8 +531,8 @@ public class MTR4465_AIB_NB_ENDO_AdditionalInsuredInterestMarinaEndorsement exte
 				"Additional Interest - Marina does not have an active interest in one or more boats");
 	}
 
-	@When("User finalizes transaction and validates marina does not have active interest message has been displayed")
-	public void user_finalizes_transaction_and_validates_marina_Doesnot_have_active_interest_message_has_been_displayed()
+	@When("User finalizes transaction and validates marina does not have active interest message has NOT been displayed")
+	public void user_finalizes_transaction_and_validates_marina_Doesnot_have_active_interest_message_has_NOT_been_displayed()
 			throws Exception {
 		click(reviewChevron.btnFinalize);
 		wait(3);

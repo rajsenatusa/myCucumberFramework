@@ -6,7 +6,7 @@
 ##  and placement
 ## User:AG1730
 
-@regression @mtr352 @ho3regression
+@regression @mtr352 @ho3regression 
 Feature: TC36506 : US8592 - FORM: Policyholder Notice AIIC HO3 PHN CSAU 11 21 - HO3 - NB on 04/22/2022 and displays on END
 
   Scenario: Validate the Policyholder Notice form AIIC HO3 PHN CSAU 11 21 is included with the NB, RN package

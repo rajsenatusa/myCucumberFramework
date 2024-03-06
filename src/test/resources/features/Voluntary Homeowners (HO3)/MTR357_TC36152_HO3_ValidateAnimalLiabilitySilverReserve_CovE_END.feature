@@ -13,7 +13,7 @@
   
 ## User:AG1730
 
-@regression @mtr357 @ho3regression
+@regression @mtr357 @ho3regression 
 Feature: TC36152-HO3 Validate Animal Liability SilverReserve CovE END
 
   Scenario: Validate the Animal Liability selections available based on the Coverage E Liability Limit selected

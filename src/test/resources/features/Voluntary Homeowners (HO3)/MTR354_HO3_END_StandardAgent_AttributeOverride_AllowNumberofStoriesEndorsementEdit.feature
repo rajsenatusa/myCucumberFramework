@@ -13,7 +13,7 @@
   
  ## User: AG1730
 
-@regression @mtr354 @ho3regression 
+@regression @mtr354 @ho3regression
 Feature: TC 34437--HO3, Agent, 'Allow Number of Stories Endorsement Edit'
 
   Scenario: Validate Agent Allow Number of Stories Endorsement Edit
