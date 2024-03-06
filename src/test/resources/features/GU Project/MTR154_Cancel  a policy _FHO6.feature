@@ -5,7 +5,7 @@
 ## HIGH LEVEL STEPS OF TEST SCRIPT:  In the Scenario Below
 ## EXPECTED RESULTS: Cancellation should process
 ## User: Underwriter
-@regression @mtr154
+@regression @mtr154 @gu 
 Feature: MTR154-VOL HO6, Verify Underwriter is able to Cancel policy
 
   Scenario: Validate Cancellation should process with UW user

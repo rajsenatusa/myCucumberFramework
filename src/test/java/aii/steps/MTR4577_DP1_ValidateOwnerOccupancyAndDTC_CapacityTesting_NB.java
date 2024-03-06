@@ -215,16 +215,29 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 		try {
 			clickOKDailogButton(driver);
 			Thread.sleep(500);
-
+			sendText(dwellingChevron.txtYearConstruction, "2020");
+			sendText(dwellingChevron.txtSquareFeet, "1500");
 			selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
 			wait(1);
+			selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
+			click(dwellingChevron.btnCalculate);
+			wait(4);
+			click(dwellingChevron.btnSave);
+			wait(2);
 			sendText(driver.findElement(By.id("CovALimit")), "200000");
 			selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
 			selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
 			click(dwellingChevron.btnSave);
 		} catch (InterruptedException e) {
+			sendText(dwellingChevron.txtYearConstruction, "2020");
+			sendText(dwellingChevron.txtSquareFeet, "1500");
 			selectDropdownText(dwellingChevron.ddDwellingType, "Single Family");
 			wait(1);
+			selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
+			click(dwellingChevron.btnCalculate);
+			wait(4);
+			click(dwellingChevron.btnSave);
+			wait(2);
 			sendText(driver.findElement(By.id("CovALimit")), "200000");
 			selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
 			selectDropdownText(dwellingChevron.ddMediationArbitDp1, "No");
@@ -246,9 +259,15 @@ public class MTR4577_DP1_ValidateOwnerOccupancyAndDTC_CapacityTesting_NB extends
 	@And("User checks application dwelling screen validates error message and finalizes transaction <mtr4577>")
 	public void user_checks_application_dwelling_screen_validates_error_messageand_finalizes_transaction_mtr4577() throws Exception {
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "3 Tab Composition Shingle");
+		selectDropdownText(dwellingChevron.ddNumberOfStories, "1");
 		click(dwellingChevron.btnSave);
 		wait(2);
 		verify_AnyText_IsVisible(driver, "Cannot issue due to limited catastrophic capacity [Distance to Coast which exceeds a minimum of 10 mi to less than 15 mi requires underwriting review] ");
+		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
+		click(dwellingChevron.btnCalculate);
+		wait(4);
+		click(dwellingChevron.btnSave);
+		wait(2);
 		click(dwellingChevron.btnNext);
 		wait(2);
 		click(reviewChevron.btnFinalize);

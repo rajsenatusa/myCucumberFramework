@@ -50,6 +50,34 @@ public class MTR463_SC_HO3_Verify_Underwriter_has_the_ability_to_create_High_Pri
 		wait(2);
 		click(product.btnContinue);		
 	}
+	
+	@When("User enters all required information on SC HO3 quote screen <mtr463>")
+	public void user_enters_all_required_information_on_sc_ho3_quote_screen_mtr463() {
+		// Quote Policy Chevron information was filled here
+
+		sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("scproducerselection"));
+		wait(3);
+		click(dwellingChevron.btnSave);
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("scpreviouscarrier"));
+		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
+		selectDropdownText(policyChevron.ddNewPurchase, "Yes");
+		selectDropdownText(policyChevron.ddMaritalStatus, "Single");
+		wait(2);
+		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
+		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
+		wait(2);
+		click(policyChevron.btnNoEmailRadio);
+		selectDropdownText(policyChevron.ddResidentSmokers, "No");
+		selectDropdownText(policyChevron.ddNumberAdultResident, "1");
+		selectDropdownText(policyChevron.ddNumberChildrenResident, "0");
+
+		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
+		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
+		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
+		wait(1);
+		click(dwellingChevron.btnSave);
+		click(policyChevron.btnNext);
+	}
 	@When("User creates an Inspection Note for <mtr463>")
 	public void User_creates_an_Inspection_Note_for_mtr463() throws Exception {
 //		selectDropdownText(dashboard.ddNoteTemplate, "Inspection Note");

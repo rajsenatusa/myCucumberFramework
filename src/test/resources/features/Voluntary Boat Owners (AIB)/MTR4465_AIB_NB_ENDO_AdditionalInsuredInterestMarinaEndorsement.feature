@@ -14,7 +14,7 @@
 # User: AG1730, gallopadmin
 
 
-@regression @tc34248 @mtr4465 @aibregression
+@regression @tc34248 @mtr4465 @aibregression 
 Feature: MTR4465-US4178:FORM: Marina As Additional Insured - Regression Test Case
 
   Scenario: Validating that the UI has the updates the additional Interest page so the Marina endorsement can be added
@@ -77,7 +77,7 @@ Feature: MTR4465-US4178:FORM: Marina As Additional Insured - Regression Test Cas
 		And User selects endorsement date as previous endorsement date plus 15 days <tc34248>
 		And User clicks Additional Interest Chevron <tc34248>
 		And User validates 'Additional Interest - Marina does not have an active interest in one or more boats' message not visible
-		And User finalizes transaction and validates marina does not have active interest message has been displayed
+		And User finalizes transaction and validates marina does not have active interest message has NOT been displayed
 		Then User process endorsement and completes test <tc34248>
 		
 		

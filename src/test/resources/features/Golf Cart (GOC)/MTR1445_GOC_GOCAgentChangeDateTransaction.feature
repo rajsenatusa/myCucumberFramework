@@ -11,7 +11,7 @@
 ## 5. Issue NB as Agent
 
 
-@regression @mtr1445 @gocregression
+@regression @mtr1445 @gocregression 
 Feature: MTR1445: GOC, Agent, Change Date Transaction 
 
   Scenario: Validate Agent is not able to complete change date transaction after 60 days without UW approval

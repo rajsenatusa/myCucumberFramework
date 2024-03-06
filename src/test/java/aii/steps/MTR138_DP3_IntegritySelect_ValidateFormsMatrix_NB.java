@@ -736,7 +736,7 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates water backup and sump discharge form version")
 	public void user_validates_water_backup_and_sump_form_version() throws Exception {
-		WBU_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 72, 0, 0, 600, 750);
+		WBU_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 71, 0, 0, 600, 750);
 		PdfComparator.verifyFormData(driver, WBU_Version, "AIIC DP3 WBU 09 21");
 
 		WBU_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
