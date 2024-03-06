@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/15/2023
 
-@regression @mtr253 @dp1regression 
+@regression @mtr253 @dp1regression @AIIdp1
 Feature: TC 35197--VOL DP1 Claims UI: Tracking for claims in which customer was alerted to roof loss by a contractor/roofer
 
   Scenario: Create a claim that is reported by Insured/Contractor to validate screen flow

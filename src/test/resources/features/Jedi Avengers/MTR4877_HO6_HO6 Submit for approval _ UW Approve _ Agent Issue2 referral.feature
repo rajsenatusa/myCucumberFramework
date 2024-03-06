@@ -18,7 +18,7 @@ Feature: MTR4877_HO6_Verify_Notes are displayed correctly by Agent
     And User enters all required information on HO6 review screen
     And User creates HO6 application
     And User takes note of the application number <mtr4877>
-    And User answers all underwriting questions for HO6
+    And User answers all underwriting questions for HO6 <mtr4877>
     And User checks application dwelling screen and finalizes transaction
     Then User validates the Submit for Approval messages
     And User submits the application for UW approval
