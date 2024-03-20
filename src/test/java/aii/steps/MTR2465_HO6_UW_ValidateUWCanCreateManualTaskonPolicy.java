@@ -30,7 +30,7 @@ public class MTR2465_HO6_UW_ValidateUWCanCreateManualTaskonPolicy extends Common
 		sendText(product.txtEffectiveDate, dtf.format(currentDate));
 		selectDropdown(product.ddStateSelection, 1);
 		selectDropdown(product.ddCarrierSelection, 1);
-		wait(2);
+		wait(1);
 		click(product.btnContinue);
 		click(product.btnProductSelectionHo6);
 	}

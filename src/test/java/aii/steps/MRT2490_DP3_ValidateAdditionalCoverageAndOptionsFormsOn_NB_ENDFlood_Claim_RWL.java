@@ -1515,7 +1515,7 @@ public class MRT2490_DP3_ValidateAdditionalCoverageAndOptionsFormsOn_NB_ENDFlood
 	@When("User adds flood coverage")
 	public void user_adds_flood_coverage() throws Exception {
 		selectDropdownText(driver.findElement(By.id("Building.FloodCoverage")), "Yes");
-		wait(1);
+		wait(10);
 		selectDropdownText(driver.findElement(By.id("Building.FloodFoundationType")), "Slab");
 		click(dwellingChevron.btnSave);
 		wait(3);
