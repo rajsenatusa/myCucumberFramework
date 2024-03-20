@@ -7,19 +7,27 @@
 #User: Standard Agent, Underwriter, UW Manager
 @regression @mtr4934 @ja
 Feature: MTR4934_HO3_Verify_Multi referral_can_display_by_Agent
-#Homeowners - Maximum Coverage A Allowed: 2999000 (Change in the user management for Underwriter1)
+
   Scenario: Verify_Underwriter_and_UW_Manager_approved_the referrals_than_Agent_can_display_the_referrals
     Given User login to Spin as Standard Agent
-    And User starts transaction as a new customer
+    When User starts transaction as a new customer
     And User enters all required information on policy information screen
     And User enters HO3 product selection information and current date as effective date
     And User enters all required information on HO3 quote screen <mtr4934>
     And User enters all required information on HO3 dwelling screen <mtr4934>
     And User enters all required information on HO3 review screen
     And User creates HO3 application
-    And User takes note of the application number <mtr4934>
     And User answers all underwriting questions for HO3
     And User checks application dwelling screen and finalizes transaction
+    And User click issues new business and verifies the NB policy
+    And User clicks Start Transaction
+    And User clicks EN Transaction Selection
+    And User enters EN Effective Date <mtr4934>
+    And User changes Months Occupied as 0 to 3 Months
+    And User clicks Dwelling chevron
+    And User changes Coverage A Dwelling as 600000 <mtr4934>
+    And User clicks Finalize button
+    And User takes note of the application number <mtr4934>
     Then User validates the Submit for Approval messages <mtr4934>
     And User submits the application for UW approval
     Then User validates the Application is submitted for approval
@@ -35,7 +43,7 @@ Feature: MTR4934_HO3_Verify_Multi referral_can_display_by_Agent
     And User signs out
     Given User login to Spin as Standard Agent
     And User Searchs for Application Number for <mtr4934>
-    And User click issues new business and verifies the NB policy
+    And User clicks Endorse Policy button <mtr4934>
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
     And User enters EN Effective Date <mtr4934>

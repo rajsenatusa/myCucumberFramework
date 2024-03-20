@@ -205,12 +205,40 @@ Feature: Common Transactions and Steps
     Then User verifies that Underwriter Manager can Edit and Save General Note
     Then User verifies that Edit or Delete links are displayed
     And User selects Cancellation
+    And User selects Cancellation Type as Insured <mtr219>
+    And User selects Property Sold as reason <mtr154>
+    And User sets the effective date as after 2 months from the current date
+    And User clicks Process <mtr219>
+    Then User validates that TOMHPD policy has been canceled successfully
+    And User selects Cancellation
     And User selects Cancellation Notice
     And User selects Cancellation Type as Company
     And User sets the effective date as after 30 days from the current date and validates messages <mtr154>
     And User sets the effective date as before 1 day from the current date and validates error message <mtr154>
     And User takes note of the application number <mtr4934>
     And User clicks View Workflow Comments
+    And User clicks Start Transaction
+    And User selects Cancellation
+    And User selects Cancellation Type as Insured <mtr154>
+    And User selects Property Sold as reason <mtr154>
+    And User sets the effective date as before 1 day from the current date and validates error message <mtr154>
+    And User clicks Start Transaction
+    And User clicks Start Transaction <mtr219>
     And User clicks View Notes
     And User enters HO3 product selection information and current date as effective date
     And User enters product selection information for TOHO3 and sets effective date as current date
+    And User enters DP3 product selection information and current date as effective date
+    And User changes Months Occupied as 0 to 3 Months
+    And User changes Coverage C Personal Property as 200000
+    And User clicks Endorse Policy button
+    And User takes note of the policy number
+    And User clicks More button then Take Ownership
+    And User selects Reinstatement
+    And User clicks New Business Package link
+    And User clicks Renewal Decleration link
+    And User enters Coverage A Dwelling as 550000
+    And User validates that HO3 quote has been created successfully <mtr5218>
+    And User enters effective date as 03.21.2024
+    And User clicks Policy Chevron
+    And User clicks Change Pay Plan
+    And User changes system date to current date <mtr522>

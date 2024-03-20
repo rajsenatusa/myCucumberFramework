@@ -116,6 +116,9 @@ public class GolfcartChevronPageElements extends CommonMethods {
 	@FindBy(id= "VehicleGarageAddr.StateProvCd")
 	public WebElement ddGarageAddState;
 	
+	@FindBy(id= "Wizard_GolfCart")
+	public WebElement lnkGolfCartChevron;
+	
 	public GolfcartChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);

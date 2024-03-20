@@ -55,9 +55,9 @@ public class VOLDP3policy extends CommonMethods {
 		wait(2);
 		sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
 		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
-		selectDropdownText(dwellingChevron.ddMediationArbitDp1, ConfigsReader.getProperty("mediation"));
+//		selectDropdownText(dwellingChevron.ddMediationArbitDp1, ConfigsReader.getProperty("mediation"));
 		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
-		selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
+//		selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
 		click(dwellingChevron.btnCalculate);
 		wait(4);
 		click(dwellingChevron.btnSave);
@@ -108,6 +108,7 @@ public class VOLDP3policy extends CommonMethods {
 		} else {
 			System.out.println("Test failed!");
 		}
+		attachScreenShot(driver);
 		closeUnnecessaryTabs();
 	}
 

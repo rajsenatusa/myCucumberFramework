@@ -564,6 +564,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "TransactionEffectiveDt")
 	public WebElement transactionEffectiveDt;
 	
+	@FindBy(id= "Delete")
+	public WebElement btnDelete;
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);
