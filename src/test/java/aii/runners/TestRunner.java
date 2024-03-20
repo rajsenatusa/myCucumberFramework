@@ -24,7 +24,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-		tags = "@FIGA2024",
+		tags = "",
 
 
 
