@@ -37,7 +37,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		click(policyChevron.btnNoEmailRadio);
 		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
 		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
-		selectDropdownText(policyChevron.ddMonthsOccupied, "0 to 3 Months");
+		selectDropdownText(policyChevron.ddMonthsOccupied, "9 to 12 Months");
 		selectDropdownText(policyChevron.ddInsuredReside, "No");
 		wait(1);
 		click(policyChevron.btnNext);
@@ -58,7 +58,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		click(dwellingChevron.btnCalculate);
 		wait(4);
 		click(dwellingChevron.btnSave);
-		dwellingChevron.txtCoverageA.sendKeys("3000000");
+		dwellingChevron.txtCoverageA.sendKeys("300000");
 		wait(1);
 		selectDropdownText(dwellingChevron.ddSecuredCommunity, "None");
 		wait(1);
@@ -99,7 +99,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 	public void User_validates_the_Submit_for_Approval_messages_mtr4934()
 			throws Exception {
 		verify_AnyfirstText_IsDisplayed(driver, "Owner Occupied risks that are occupied 0 to 3 months per year are ineligible for coverage under the HO3 policy form.");
-		verify_AnyfirstText_IsDisplayed(driver, "Coverage A is High Value Dwelling limit that will require underwriting review.");
+		verify_AnyfirstText_IsDisplayed(driver, "Coverage A change cannot exceed $100,000 Must be Approved");
 		wait(5);
 		attachScreenShot(driver);
 		wait(2);
@@ -151,7 +151,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		verify_AnyfirstText_IsDisplayed(driver, "Owner Occupied risks that are occupied 0 to 3 months per year are ineligible for coverage under the HO3 policy form.");
 		attachScreenShot(driver);
 		wait(2);
-		verify_AnyfirstText_IsDisplayed(driver, "Coverage A is High Value Dwelling limit that will require underwriting review.");
+		verify_AnyfirstText_IsDisplayed(driver, "Coverage A change cannot exceed $100,000 Must be Approved");
 		wait(3);
 		attachScreenShot(driver);
 		wait(2);
@@ -175,6 +175,20 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		click(dashboard.btnStart);
 		click(dashboard.btnStart);
 	}
+	@And("User changes Coverage A Dwelling as 600000 <mtr4934>")
+	public void User_changes_Coverage_A_Dwelling_as_600000_mtr4934() {
+		sendText(dwellingChevron.txtCoverageA,"600000");
+		
+		
+	}
+	@And("User clicks Endorse Policy button <mtr4934>")
+	public void User_clicks_Endorse_Policy_button_mtr4934() throws Exception {
+		wait(2);
+		closeoutChevron.btnProcess.click();
+		driver.switchTo().defaultContent();
+		attachScreenShot(driver);
+		wait(2);
+	}
 	@Then("User validates a New Notes have been created successfully in View Notes <mtr4877>")
 	public void User_validates_a_New_Notes_have_been_created_successfully_in_View_Notes_mtr4877() throws Exception {
 		wait(5);
@@ -197,23 +211,27 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 	}
 	@Then("User verifies third persisted referral notes are displayed in Notes List <mtr4877>")
 	public void User_verifies_third_persisted_referral_notes_are_displayed_in_Notes_List_mtr4877() throws Exception {
+		
 		wait(5);
-		click(dashboard.btnExpandHO6WC2);
+		click(dashboard.btnExpandHO6WC);
 		verify_AnyfirstText_IsDisplayed(driver,
 				"The following approvals are persisted:\r\n"
-				+ "Coverage A is High Value Dwelling limit that will require underwriting review.");
+				+ "Coverage A change cannot exceed $100,000 Must be Approved (Building.CovALimit=600000, TriggerRuleIf=AnyChange)");
+		wait(5);
+		click(dashboard.btnExpandHO6WC2);
+		verify_AnyfirstText_IsDisplayed(driver, " The following approvals are persisted:\r\n"
+				+ "Coverage A change cannot exceed $50,000 Must be Approved (Building.CovALimit=600000, TriggerRuleIf=AnyChange)\r\n"
+				+ "Owner Occupied risks that are occupied 0 to 3 months per year are ineligible for coverage under the HO3 policy form.\r\n"
+				+ "Change in Hurricane Deductible may only be changed at renewal (Building.HurricaneDeductible=2, TriggerRuleIf=AnyChange)");
 		wait(5);
 		click(dashboard.btnExpandHO6WC3);
-		verify_AnyfirstText_IsDisplayed(driver, "The following approvals are persisted:\r\n"
-				+ "Owner Occupied risks that are occupied 0 to 3 months per year are ineligible for coverage under the HO3 policy form.");
-		wait(5);
-		click(dashboard.btnExpandHO3VN4);
-		verify_AnyfirstText_IsDisplayed(driver, " test");
+		verify_AnyfirstText_IsDisplayed(driver, "Underwriting approval required for " + AppNum);
 
 		Hooks.scenario.log("New Notes have been created successfully!");
 		attachScreenShot(driver);
 		wait(5);
-	}
+				
+		}
 	@Then("User verifies EN HO3 policy has been created successfully <mtr4934>")
 	public void User_verifies_EN_HO3_policy_has_been_created_successfully_mtr4934() throws Exception {
 		wait(10);
