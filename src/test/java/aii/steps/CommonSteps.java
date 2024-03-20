@@ -138,9 +138,9 @@ public class CommonSteps extends CommonMethods {
 
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
-		wait(4);
+		wait(1);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(3);
+		wait(1);
 		waitForClickability(driver.findElement(By.id("Menu_Policy_NewCustomerAndQuote")));
 		driver.findElement(By.id("Menu_Policy_NewCustomerAndQuote")).click();
 		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
@@ -377,6 +377,12 @@ public class CommonSteps extends CommonMethods {
 	public void user_selects_Non_Renewal() throws Exception {
 
 		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal");
+		click(dashboard.btnSelect);
+		wait(2);
+	}	@Given("User selects Non Renewal Rescind")
+	public void user_selects_Non_Renewal_Rescind() throws Exception {
+
+		selectDropdownText(dashboard.ddSelectTransaction, "Non-Renewal Rescind");
 		click(dashboard.btnSelect);
 		wait(2);
 	}

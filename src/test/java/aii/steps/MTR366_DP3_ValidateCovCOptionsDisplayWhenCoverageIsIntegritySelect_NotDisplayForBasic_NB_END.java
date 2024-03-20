@@ -132,6 +132,7 @@ public class MTR366_DP3_ValidateCovCOptionsDisplayWhenCoverageIsIntegritySelect_
 	@When("User changes Coverage A to <300.000> and validates text box for Cov C should display the value amount that equates to the percentage selected of Cov-A and should be disabled")
 	public void user_changes_coverage_a_to_300000_and_validates_text_box_for_covc() throws Exception {
 		sendText(dwellingChevron.txtCoverageA, "300000");
+		click(dwellingChevron.btnSave);
 		wait(2);
 		verifyAnyDisabledFieldsValue(driver, "CovCLimit", "$75,000");
 		wait(2);

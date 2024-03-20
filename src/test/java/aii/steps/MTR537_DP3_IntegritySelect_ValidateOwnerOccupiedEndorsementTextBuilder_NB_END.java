@@ -99,7 +99,7 @@ public class MTR537_DP3_IntegritySelect_ValidateOwnerOccupiedEndorsementTextBuil
 		wait(3);
 		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
 		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
-		selectDropdownText(policyChevron.ddShortTermRental, "Yes");
+//		selectDropdownText(policyChevron.ddShortTermRental, "Yes");
 		click(dwellingChevron.btnSave);
 		wait(3);
 		click(policyChevron.btnNext);

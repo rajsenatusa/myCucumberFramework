@@ -147,6 +147,7 @@ public class CommonMethods extends PageInitializer {
 	/**
 	 * This method accepts an Alert and handles NoAlertPresentException if no alert
 	 * is present.
+	 * @param driver 
 	 * 
 	 */
 	public static void acceptAlert() {
