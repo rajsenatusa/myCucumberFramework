@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: Validate, System should process the Reinstatement without any  lapse
 #User:admin, underwriter
-@regression @mtr222 @gu
+@regression @mtr222 @gu  
 Feature: MTR-222_Reinstate a policy _ HO4
 
   Scenario: Validate, Underwriter can process the Reinstatement
@@ -33,4 +33,4 @@ Feature: MTR-222_Reinstate a policy _ HO4
     And User Searchs for Policy Number for <mtr222>
     Then User validates that HO4 policy has been canceled successfully
     And User clicks Start Transaction
-    And User selects Reinstatement <mtr219>
+    And User selects Reinstatement and validates <mtr219>

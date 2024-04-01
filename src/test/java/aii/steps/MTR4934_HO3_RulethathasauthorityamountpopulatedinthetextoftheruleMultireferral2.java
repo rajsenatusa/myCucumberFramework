@@ -39,11 +39,13 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		selectDropdownText(policyChevron.ddInsuredReside, "No");
 		wait(1);
 		click(policyChevron.btnNext);
+		wait(2);
 	
 	}
 	@When("User enters all required information on HO3 dwelling screen <mtr4934>")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_mtr4934() {
 		// Quote Dwelling information was filled here
+		wait(2);
 		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
 		sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
 		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
@@ -80,6 +82,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 	public void User_searches_for_Application_Number_for_mtr4934() {
 		wait(3);
 		sendText(dashboard.txtSearchBar, AppNum);
+		wait(3);
 		click(dashboard.search);
 		wait(3);
 	}

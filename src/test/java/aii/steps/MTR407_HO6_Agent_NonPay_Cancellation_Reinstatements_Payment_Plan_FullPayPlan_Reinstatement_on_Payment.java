@@ -30,6 +30,8 @@ public class MTR407_HO6_Agent_NonPay_Cancellation_Reinstatements_Payment_Plan_Fu
 	static String CC_Version;
 	static String CC_Name;
 
+	
+		
 	@When("User enters all required information on policy information screen <mtr407>")
 	public void user_enters_all_required_information_on_policy_information_screen_mtr407() {
 

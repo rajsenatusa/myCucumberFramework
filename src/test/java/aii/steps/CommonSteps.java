@@ -161,15 +161,17 @@ public class CommonSteps extends CommonMethods {
 	}
 
 	@When("User clicks Review Chevron")
-	public void user_clicks_review_chevron() {
+	public void user_clicks_review_chevron() throws Exception {
 		click(reviewChevron.btnReview);
 		wait(3);
+		attachScreenShot(driver);
 	}
 
 	@When("User clicks History Chevron")
-	public void User_clicks_History_Chevron() {
+	public void User_clicks_History_Chevron() throws Exception {
 		click(reviewChevron.btnHistory);
 		wait(3);
+		attachScreenShot(driver);
 	}
 
 	@When("User clicks Premium Info Chevron")
@@ -914,6 +916,8 @@ public class CommonSteps extends CommonMethods {
 		app_Tx_Policy_Claim_Num = getApplicationNumber(driver);
 		sendText(closeoutChevron.txtWorkflowComments, "Underwriting approval required for " + app_Tx_Policy_Claim_Num);
 		submitForApprovalWithDialog();
+		attachScreenShot(driver);
+		wait(2);
 	}
 
 	@Given("User submits the application for UW manager approval")

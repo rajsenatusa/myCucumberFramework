@@ -44,6 +44,7 @@ Feature: Common Transactions and Steps
     And User fills all the "DP3" product UW questions
     And User submits the application for UW approval
     And User submits the application for UW manager approval
+    Then User validates the Application is submitted for approval
     And User signs out
     And User quits the browser
     And User renews policy "policyNum" to next term through manual transaction
@@ -66,6 +67,10 @@ Feature: Common Transactions and Steps
     #And User clicks Next on PolPolicyicy Chevron
     And User clicks Review Chevron
     And User clicks Worksheets chevron
+    And User clicks Billing Chevron
+    And User clicks Additional Interests chevron
+    And User clicks Add Additional Interest button
+    And User enters Additional Interest Detail
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -225,6 +230,7 @@ Feature: Common Transactions and Steps
     And User clicks Start Transaction
     And User clicks Start Transaction <mtr219>
     And User clicks View Notes
+    Then User validates View Notes
     And User enters HO3 product selection information and current date as effective date
     And User enters product selection information for TOHO3 and sets effective date as current date
     And User enters DP3 product selection information and current date as effective date
@@ -241,4 +247,23 @@ Feature: Common Transactions and Steps
     And User enters effective date as 03.21.2024
     And User clicks Policy Chevron
     And User clicks Change Pay Plan
+    Then User validates messages in Issues
     And User changes system date to current date <mtr522>
+    And User changes system date to current date minus 1 day <mtr551>
+    And User gets next action date and changes system date as next 3 days <mtr522>
+    And User selects endorsement date as system date plus 3 days
+    And User selects endorsement date as system date plus 30 days
+    And User selects Pay Plan Type as Automated Credit Card
+    And User changes Pay Plan to <8 Payment Plan> <mtr522>
+    And User clicks Endore button
+    And User clicks Finalize button
+     And User clicks Save button
+    And User clicks Endore Policy button
+    And User changes system date to current date
+    And User selects Rewrite-New
+     And User selects Rewrite-Renewal
+    And User clicks Home Cyber Protection
+    And User clicks Forms chevron
+    And User clicks Tasks chevron
+    
+     And User issues policy and makes payment with credit card

@@ -19,7 +19,7 @@ Feature: MTR4932_DP3_Verify_Multi referral_can_display_by_Agent
     And User creates DP3 application
     And User answers all underwriting questions for DP3
     And User checks application dwelling screen and finalizes transaction
-    And User issues policy
+    And User issues policy <mtr4934>
     Then User validates that DP3 policy has been created successfully
     And User clicks Start Transaction
     And User clicks EN Transaction Selection

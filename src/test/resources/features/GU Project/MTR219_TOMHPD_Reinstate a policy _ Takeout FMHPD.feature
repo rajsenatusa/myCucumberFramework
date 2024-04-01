@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: Validate, System should process the Reinstatement without any  lapse
 #User:admin, underwriter
-@regression @mtr219 @gu
+@regression @mtr219 @gu  
 Feature: MTR-219_Reinstate a policy _ Takeout FMHPD
 
   Scenario: Validate, Underwriter can process the Reinstatement
@@ -34,4 +34,4 @@ Feature: MTR-219_Reinstate a policy _ Takeout FMHPD
     And User Searchs for Policy Number for <mtr219>
     Then User validates that TOMHPD policy has been canceled successfully
     And User clicks Start Transaction
-    And User selects Reinstatement <mtr219>
+    And User selects Reinstatement and validates <mtr219>
