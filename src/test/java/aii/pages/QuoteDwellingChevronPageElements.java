@@ -567,6 +567,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Delete")
 	public WebElement btnDelete;
 	
+	@FindBy(id= "CovALimit")
+	public WebElement txtCovALimitDp1;
+	
 	public QuoteDwellingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);

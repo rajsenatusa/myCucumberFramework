@@ -50,6 +50,7 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("Menu_Admin")).click();
 					driver.findElement(By.id("Menu_Admin_UserManagement")).click();
 					driver.findElement(By.id("AddUser")).click();
+					wait(1);
 					XSSFRow row = sheet1.getRow(j);
 					// int i=0;
 
@@ -89,8 +90,6 @@ public class AgentProfileSetup extends CommonMethods {
 					String cityStr = city.getRichStringCellValue().getString();
 					driver.findElement(By.id("UserInfoWorkAddr.City")).sendKeys(cityStr);
 
-//					XSSFCell state = row.getCell(16);
-//					String stateStr = state.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("UserInfoWorkAddr.StateProvCd")), "Florida");
 
 					XSSFCell zipCode = row.getCell(16);
@@ -111,8 +110,6 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 					driver.findElement(By.id("UserInfoWorkAddr.addrVerifyImg")).click();
 					Thread.sleep(2000);
-					// driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-					// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 					driver.findElement(By.id("ChangePassword")).sendKeys("!Pass1234");
 					driver.findElement(By.id("ConfirmPassword")).sendKeys("!Pass1234");
@@ -123,25 +120,7 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("ProviderNumber")).sendKeys(UCode1);
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-//
-//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//					Thread.sleep(2000);
 
-//					driver.findElement(By.id("AddProviderSecurity")).click();
-//
-//					driver.findElement(By.id("ProviderSecurity.ProviderSecurityCd")).sendKeys(UCode1);
-//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//					Thread.sleep(2000);
-//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-
-//					driver.findElement(By.id("AddProviderSecurity")).click();
-//					driver.findElement(By.id("ProviderSecurity.ProviderSecurityCd")).sendKeys("AG9034");
-//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 
 					driver.findElement(By.id("AddRole")).click();
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -152,26 +131,6 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
-//					// over riding features
-//					driver.findElement(By.id("OverrideRole_0")).click();
-//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//
-//					driver.findElement(By.id("UserRoleAttrValue_5_8")).sendKeys("No");
-//					driver.findElement(By.id("UserRoleAttrStartDt_5_8")).sendKeys("1/1/1901");
-//					driver.findElement(By.id("UserRoleAttrEndDt_5_8")).sendKeys("12/31/9999");
-//
-//					driver.findElement(By.id("UserRoleAttrValue_8_4")).sendKeys("Always");
-//					driver.findElement(By.id("UserRoleAttrStartDt_8_4")).sendKeys("1/1/1901");
-//					driver.findElement(By.id("UserRoleAttrEndDt_8_4")).sendKeys("12/31/9999");
-//
-//					driver.findElement(By.id("UserRoleAttrValue_8_42")).sendKeys("Always");
-//					driver.findElement(By.id("UserRoleAttrStartDt_8_42")).sendKeys("1/1/1901");
-//					driver.findElement(By.id("UserRoleAttrEndDt_8_42")).sendKeys("12/31/9999");
-//
-//					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//
-//					driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
 
 					// AddTaskGroup
 					driver.findElement(By.id("AddTaskGroup")).click();
@@ -189,9 +148,7 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 					driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//					// String ConfirmMessage= driver.switchTo().alert().getText();
-//					Alert alert = driver.switchTo().alert();
-//					alert.accept();
+
 					FileOutputStream fws = new FileOutputStream(
 							new File("\\C:\\Users\\CYavas\\git\\AutomationCucumber2023\\test-output\\UserProfileSetupResults.xlsx"));
 					XSSFCell loginid = sheet1.getRow(j).createCell(0);
@@ -700,12 +657,7 @@ public class AgentProfileSetup extends CommonMethods {
 						XSSFCell Scity=row.getCell(i+18);
 						String Scity1 = Scity.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("ProviderStreetAddr.City")),Scity1);
-
-						// HSSFCell Sstate=row.getCell(i+20);
-						// String SState1 = Sstate.getRichStringCellValue().getString();
 						selectDropdownText(driver.findElement(By.id("ProviderStreetAddr.StateProvCd")), "Florida");
-
-						// System.out.println("entering address"+SState1);
 
 						XSSFCell Szip=row.getCell(i+21);
 						String Szip1 = new DataFormatter().formatCellValue(Szip);
@@ -713,24 +665,10 @@ public class AgentProfileSetup extends CommonMethods {
 						System.out.println("entering address"+Szip1);
 	
 						driver.findElement(By.id("ProviderStreetAddr.PostalCode")).sendKeys(Szip1);
-//						sendText(driver.findElement(By.id("ProviderStreetAddr.PostalCode")), Szip1);
-						
-
-						// HSSFCell Scountry=row.getCell(i+22);
-						// String Scounty1 = Scountry.getRichStringCellValue().getString();
-						// driver.findElement(By.id("ProviderStreetAddr.RegionCd")).sendKeys("United
-						// States");
-						// Country is automatically detected by SPIN
-
 						driver.findElement(By.id("ProviderStreetAddr.addrVerifyImg")).click();
 						wait(1);
 						System.out.println("Add1 Address Updated");
 						Thread.sleep(2000);
-//						driver.findElement(By.id("ProviderBillingAddr.Addr1")).sendKeys("2200 1st Ave S.");
-//						driver.findElement(By.id("ProviderBillingAddr.Addr2")).sendKeys("Suite 300");
-//						driver.findElement(By.id("ProviderBillingAddr.City")).sendKeys("Seattle");
-//						selectDropdownText(driver.findElement(By.id("ProviderBillingAddr.StateProvCd")), "Washington");
-//						driver.findElement(By.id("ProviderBillingAddr.PostalCode")).sendKeys("98134");
 						
 						// Copy Billing Address
 						driver.findElement(By.id("CopyAddress")).click();
@@ -865,6 +803,7 @@ public class AgentProfileSetup extends CommonMethods {
 						// Licensed Product Class List
 
 						// Addproduct1 (AIH)
+						// check if product lines for is blank or not --usually master producers does not have product lines setup. It is builded for those master producers
 						
 						XSSFCell stprod = row.getCell(i + 85);
 						if (stprod == null || stprod.getCellType() == CellType.BLANK) {
@@ -873,43 +812,43 @@ public class AgentProfileSetup extends CommonMethods {
 							//Service Portal Feature Overrides
 							click(driver.findElement(By.id("OverrideFeatures")));
 							wait(1);
-							XSSFCell BillingPhone = row.getCell(i+139);
+							XSSFCell BillingPhone = row.getCell(i+150);
 							String BillingPhoneNr = BillingPhone.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_0")), BillingPhoneNr);
 							
-							XSSFCell BillingEmail = row.getCell(i+140);
+							XSSFCell BillingEmail = row.getCell(i+151);
 							String BillingEmailValue = BillingEmail.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_1")), BillingEmailValue);
 							
-							XSSFCell ClaimsPhone = row.getCell(i+142);
+							XSSFCell ClaimsPhone = row.getCell(i+153);
 							String ClaimsPhoneNr = ClaimsPhone.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_2")), ClaimsPhoneNr);
 							
-							XSSFCell ClaimsEmail = row.getCell(i+143);
+							XSSFCell ClaimsEmail = row.getCell(i+154);
 							String ClaimsEmailValue = ClaimsEmail.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_3")), ClaimsEmailValue);
 							
-							XSSFCell CoveragePhone = row.getCell(i+145);
+							XSSFCell CoveragePhone = row.getCell(i+156);
 							String CoveragePhoneNr = CoveragePhone.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_4")), CoveragePhoneNr);
 							
-							XSSFCell CoverageEmail = row.getCell(i+146);
+							XSSFCell CoverageEmail = row.getCell(i+157);
 							String CoverageEmailValue = CoverageEmail.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_5")), CoverageEmailValue);
 							
-							XSSFCell AddressPhone = row.getCell(i+148);
+							XSSFCell AddressPhone = row.getCell(i+159);
 							String AddressPhoneNr = AddressPhone.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_6")), AddressPhoneNr);
 							
-							XSSFCell AddressEmail = row.getCell(i+149);
+							XSSFCell AddressEmail = row.getCell(i+160);
 							String AddressEmailValue = AddressEmail.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_7")), AddressEmailValue);
 							
-							XSSFCell ContactPhone = row.getCell(i+151);
+							XSSFCell ContactPhone = row.getCell(i+162);
 							String ContactPhoneNr = ContactPhone.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_8")), ContactPhoneNr);
 							
-							XSSFCell ContactEmail = row.getCell(i+152);
+							XSSFCell ContactEmail = row.getCell(i+163);
 							String ContactEmailValue = ContactEmail.getRichStringCellValue().getString();
 							sendText(driver.findElement(By.id("OverriddenContact_9")), ContactEmailValue);
 							
@@ -932,7 +871,8 @@ public class AgentProfileSetup extends CommonMethods {
 
 				        }
 						else {
-						//Add product 1 (
+						//if product lines fields have been filed in excel sheet, script will go ahead and add necessary product lines with rates.
+						//Add product 1 (AIH)
 						driver.findElement(By.id("AddProduct")).click();
 						String stprod1 = stprod.getRichStringCellValue().getString();
 						selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), stprod1);
@@ -1038,48 +978,77 @@ public class AgentProfileSetup extends CommonMethods {
 						driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 						wait(1);
 						}
+						
+						// Addproduct5(ADM)
+						
+						XSSFCell admprod = row.getCell(i + 129);
+						if (admprod == null || admprod.getCellType() == CellType.BLANK) {
+				            System.out.println("Skipping product part for row " + j + " as product information is blank");
+				           
+				        }
+						else {
+						driver.findElement(By.id("AddProduct")).click();
+						String admprod1 = admprod.getRichStringCellValue().getString();
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), admprod1);
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+						driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/15/2024");
+						driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("8.00%");
+						driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("8.00%");
+						selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CtAccreditedBuilder")), "No");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CtInsuranceScore")), "Not Applicable");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CtPriorCarrierLosses")), "Yes");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CtFireAlarmDefault")), "None");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CtBurglarAlarmDefault")), "None");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CtReservePackageDefault")), "Basic");
+						selectDropdownText(driver.findElement(By.id("LicensedProduct.CtAgentOutput")), "No");
+						driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
+						wait(1);
+						}
 						// Return to Main screen
 						
 						//Service Portal Feature Overrides
 						click(driver.findElement(By.id("OverrideFeatures")));
 						wait(1);
-						XSSFCell BillingPhone = row.getCell(i+139);
+						XSSFCell BillingPhone = row.getCell(i+150);
 						String BillingPhoneNr = BillingPhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_0")), BillingPhoneNr);
 						
-						XSSFCell BillingEmail = row.getCell(i+140);
+						XSSFCell BillingEmail = row.getCell(i+151);
 						String BillingEmailValue = BillingEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_1")), BillingEmailValue);
 						
-						XSSFCell ClaimsPhone = row.getCell(i+142);
+						XSSFCell ClaimsPhone = row.getCell(i+153);
 						String ClaimsPhoneNr = ClaimsPhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_2")), ClaimsPhoneNr);
 						
-						XSSFCell ClaimsEmail = row.getCell(i+143);
+						XSSFCell ClaimsEmail = row.getCell(i+154);
 						String ClaimsEmailValue = ClaimsEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_3")), ClaimsEmailValue);
 						
-						XSSFCell CoveragePhone = row.getCell(i+145);
+						XSSFCell CoveragePhone = row.getCell(i+156);
 						String CoveragePhoneNr = CoveragePhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_4")), CoveragePhoneNr);
 						
-						XSSFCell CoverageEmail = row.getCell(i+146);
+						XSSFCell CoverageEmail = row.getCell(i+157);
 						String CoverageEmailValue = CoverageEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_5")), CoverageEmailValue);
 						
-						XSSFCell AddressPhone = row.getCell(i+148);
+						XSSFCell AddressPhone = row.getCell(i+159);
 						String AddressPhoneNr = AddressPhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_6")), AddressPhoneNr);
 						
-						XSSFCell AddressEmail = row.getCell(i+149);
+						XSSFCell AddressEmail = row.getCell(i+160);
 						String AddressEmailValue = AddressEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_7")), AddressEmailValue);
 						
-						XSSFCell ContactPhone = row.getCell(i+151);
+						XSSFCell ContactPhone = row.getCell(i+162);
 						String ContactPhoneNr = ContactPhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_8")), ContactPhoneNr);
 						
-						XSSFCell ContactEmail = row.getCell(i+152);
+						XSSFCell ContactEmail = row.getCell(i+163);
 						String ContactEmailValue = ContactEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_9")), ContactEmailValue);
 						
@@ -1103,6 +1072,7 @@ public class AgentProfileSetup extends CommonMethods {
 			        }
 					
 					else {
+					// if producer agency field is not blank, code will go ahead and run below script (producer agency field is blank for master producers since they do not have one level step above producer
 					String ProducerAgency = PAgency.getRichStringCellValue().getString();
 					
 					sendText(driver.findElement(By.id("ProducerAgency")),ProducerAgency);
@@ -1142,33 +1112,17 @@ public class AgentProfileSetup extends CommonMethods {
 					String Scity1 = Scity.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("ProviderStreetAddr.City")),Scity1);
 
-					// HSSFCell Sstate=row.getCell(i+20);
-					// String SState1 = Sstate.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("ProviderStreetAddr.StateProvCd")), "Florida");
-
-					// System.out.println("entering address"+SState1);
 
 					XSSFCell Szip=row.getCell(i+21);
 					String Szip1 = new DataFormatter().formatCellValue(Szip);
 					System.out.println("entering address"+Szip1);
 					sendText(driver.findElement(By.id("ProviderStreetAddr.PostalCode")), Szip1);
-					
-
-					// HSSFCell Scountry=row.getCell(i+22);
-					// String Scounty1 = Scountry.getRichStringCellValue().getString();
-					// driver.findElement(By.id("ProviderStreetAddr.RegionCd")).sendKeys("United
-					// States");
-					// Country is automatically detected by SPIN
 
 					driver.findElement(By.id("ProviderStreetAddr.addrVerifyImg")).click();
 					wait(1);
 					System.out.println("Add1 Address Updated");
 					Thread.sleep(2000);
-//					driver.findElement(By.id("ProviderBillingAddr.Addr1")).sendKeys("2200 1st Ave S.");
-//					driver.findElement(By.id("ProviderBillingAddr.Addr2")).sendKeys("Suite 300");
-//					driver.findElement(By.id("ProviderBillingAddr.City")).sendKeys("Seattle");
-//					selectDropdownText(driver.findElement(By.id("ProviderBillingAddr.StateProvCd")), "Washington");
-//					driver.findElement(By.id("ProviderBillingAddr.PostalCode")).sendKeys("98134");
 					
 					// Copy Billing Address
 					driver.findElement(By.id("CopyAddress")).click();
@@ -1308,43 +1262,43 @@ public class AgentProfileSetup extends CommonMethods {
 			            click(driver.findElement(By.id("Return")));
 						click(driver.findElement(By.id("OverrideFeatures")));
 						wait(1);
-						XSSFCell BillingPhone = row.getCell(i+139);
+						XSSFCell BillingPhone = row.getCell(i+150);
 						String BillingPhoneNr = BillingPhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_0")), BillingPhoneNr);
 						
-						XSSFCell BillingEmail = row.getCell(i+140);
+						XSSFCell BillingEmail = row.getCell(i+151);
 						String BillingEmailValue = BillingEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_1")), BillingEmailValue);
 						
-						XSSFCell ClaimsPhone = row.getCell(i+142);
+						XSSFCell ClaimsPhone = row.getCell(i+153);
 						String ClaimsPhoneNr = ClaimsPhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_2")), ClaimsPhoneNr);
 						
-						XSSFCell ClaimsEmail = row.getCell(i+143);
+						XSSFCell ClaimsEmail = row.getCell(i+154);
 						String ClaimsEmailValue = ClaimsEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_3")), ClaimsEmailValue);
 						
-						XSSFCell CoveragePhone = row.getCell(i+145);
+						XSSFCell CoveragePhone = row.getCell(i+156);
 						String CoveragePhoneNr = CoveragePhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_4")), CoveragePhoneNr);
 						
-						XSSFCell CoverageEmail = row.getCell(i+146);
+						XSSFCell CoverageEmail = row.getCell(i+157);
 						String CoverageEmailValue = CoverageEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_5")), CoverageEmailValue);
 						
-						XSSFCell AddressPhone = row.getCell(i+148);
+						XSSFCell AddressPhone = row.getCell(i+159);
 						String AddressPhoneNr = AddressPhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_6")), AddressPhoneNr);
 						
-						XSSFCell AddressEmail = row.getCell(i+149);
+						XSSFCell AddressEmail = row.getCell(i+160);
 						String AddressEmailValue = AddressEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_7")), AddressEmailValue);
 						
-						XSSFCell ContactPhone = row.getCell(i+151);
+						XSSFCell ContactPhone = row.getCell(i+162);
 						String ContactPhoneNr = ContactPhone.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_8")), ContactPhoneNr);
 						
-						XSSFCell ContactEmail = row.getCell(i+152);
+						XSSFCell ContactEmail = row.getCell(i+163);
 						String ContactEmailValue = ContactEmail.getRichStringCellValue().getString();
 						sendText(driver.findElement(By.id("OverriddenContact_9")), ContactEmailValue);
 						
@@ -1364,12 +1318,10 @@ public class AgentProfileSetup extends CommonMethods {
 
 						driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
 						wait(1);
-//
-//						driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
-//						wait(1);
 
 			        }
 					else {
+					// Addproduct1 (AIH)
 					driver.findElement(By.id("AddProduct")).click();
 					String stprod1 = stprod.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), stprod1);
@@ -1475,48 +1427,77 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(1);
 					}
+					
+					// Addproduct5(ADM)
+					
+					XSSFCell admprod = row.getCell(i + 129);
+					if (admprod == null || admprod.getCellType() == CellType.BLANK) {
+			            System.out.println("Skipping product part for row " + j + " as product information is blank");
+			           
+			        }
+					else {
+					driver.findElement(By.id("AddProduct")).click();
+					String admprod1 = admprod.getRichStringCellValue().getString();
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.LicenseClassCd")), admprod1);
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.StateProvCd")), "Florida");
+					driver.findElement(By.id("LicensedProduct.EffectiveDt")).sendKeys("3/15/2024");
+					driver.findElement(By.id("LicensedProduct.CommissionNewPct")).sendKeys("8.00%");
+					driver.findElement(By.id("LicensedProduct.CommissionRenewalPct")).sendKeys("8.00%");
+					selectDropdownText(driver.findElement(By.id("TaskGroup")), "Underwriting");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayInd")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CommissionPayRule")), "Written");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CtAccreditedBuilder")), "No");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CtInsuranceScore")), "Not Applicable");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CtPriorCarrierLosses")), "Yes");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CtFireAlarmDefault")), "None");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CtBurglarAlarmDefault")), "None");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CtReservePackageDefault")), "Basic");
+					selectDropdownText(driver.findElement(By.id("LicensedProduct.CtAgentOutput")), "No");
+					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
+					wait(1);
+					}
 					// Return to Main screen
 					
 					//Service Portal Feature Overrides
 					click(driver.findElement(By.id("OverrideFeatures")));
 					wait(1);
-					XSSFCell BillingPhone = row.getCell(i+139);
+					XSSFCell BillingPhone = row.getCell(i+150);
 					String BillingPhoneNr = BillingPhone.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_0")), BillingPhoneNr);
 					
-					XSSFCell BillingEmail = row.getCell(i+140);
+					XSSFCell BillingEmail = row.getCell(i+151);
 					String BillingEmailValue = BillingEmail.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_1")), BillingEmailValue);
 					
-					XSSFCell ClaimsPhone = row.getCell(i+142);
+					XSSFCell ClaimsPhone = row.getCell(i+153);
 					String ClaimsPhoneNr = ClaimsPhone.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_2")), ClaimsPhoneNr);
 					
-					XSSFCell ClaimsEmail = row.getCell(i+143);
+					XSSFCell ClaimsEmail = row.getCell(i+154);
 					String ClaimsEmailValue = ClaimsEmail.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_3")), ClaimsEmailValue);
 					
-					XSSFCell CoveragePhone = row.getCell(i+145);
+					XSSFCell CoveragePhone = row.getCell(i+156);
 					String CoveragePhoneNr = CoveragePhone.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_4")), CoveragePhoneNr);
 					
-					XSSFCell CoverageEmail = row.getCell(i+146);
+					XSSFCell CoverageEmail = row.getCell(i+157);
 					String CoverageEmailValue = CoverageEmail.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_5")), CoverageEmailValue);
 					
-					XSSFCell AddressPhone = row.getCell(i+148);
+					XSSFCell AddressPhone = row.getCell(i+159);
 					String AddressPhoneNr = AddressPhone.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_6")), AddressPhoneNr);
 					
-					XSSFCell AddressEmail = row.getCell(i+149);
+					XSSFCell AddressEmail = row.getCell(i+160);
 					String AddressEmailValue = AddressEmail.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_7")), AddressEmailValue);
 					
-					XSSFCell ContactPhone = row.getCell(i+151);
+					XSSFCell ContactPhone = row.getCell(i+162);
 					String ContactPhoneNr = ContactPhone.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_8")), ContactPhoneNr);
 					
-					XSSFCell ContactEmail = row.getCell(i+152);
+					XSSFCell ContactEmail = row.getCell(i+163);
 					String ContactEmailValue = ContactEmail.getRichStringCellValue().getString();
 					sendText(driver.findElement(By.id("OverriddenContact_9")), ContactEmailValue);
 					
@@ -1537,32 +1518,8 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
 					wait(1);
 
-			}  //else
-					
-//				catch (FileNotFoundException e) {
-//					System.out.println(" File not available");
-//					// String result1="Excel file not available";
-//					continue;
+			}  
 
-//				} catch (IOException e) {
-//					System.out.println("Pending Transaction");
-//					// String result1="Pending Transaction";
-//					continue;
-//
-//				} catch (NoSuchElementException exception) {
-//					System.out.println("Element not found exception");
-//					// String result1="Pending Transaction";
-//					continue;
-//				} catch (UnhandledAlertException e) {
-//					System.out.println("unhandled alert");
-//					Alert alert = driver.switchTo().alert();
-//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//					alert.accept();
-//					driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
-//					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//					alert.accept();
-//					continue;
-//				}
 			}
 		}
 
