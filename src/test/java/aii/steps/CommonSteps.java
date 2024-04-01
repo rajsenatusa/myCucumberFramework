@@ -957,7 +957,10 @@ public class CommonSteps extends CommonMethods {
 		click(dashboard.search);
 		wait(1);
 	}
-
+	@Given("User clicks Modify Application button")
+	public void user_clicks_Modify_Application_button() {
+		click(closeoutChevron.btnModifyApplication);
+	}
 	@Given("User reports loss on policy with effective of {string}")
 	public void user_reports_loss_policy_with_effective_of(String days) {
 		changeDate(days);
