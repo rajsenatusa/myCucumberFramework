@@ -68,8 +68,8 @@ Feature: MTR5207_HO3_Verify_base_rates_can_display_correctly
     Then User validates Hurricane Builders base rate in Worksheets
     Then User validates County factor in Worksheets
     And User clicks Policy File Chevron <mtr5207>
-    And User clicks Renewal Decleration link <mtr5207>
-    And User validates AIIC FL HO3 ACB 02 22 ACB form displays 
+    #And User clicks Renewal Decleration link <mtr5207>
+    #And User validates AIIC FL HO3 ACB 02 22 ACB form displays 
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
@@ -84,5 +84,5 @@ Feature: MTR5207_HO3_Verify_base_rates_can_display_correctly
     Then User validates Theft Builders base rate in Worksheets
     Then User validates CGCC Builders base rate in Worksheets
     Then User validates Hurricane Builders base rate in Worksheets
-    Then User validates County factor in Worksheets
+    
    

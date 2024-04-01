@@ -567,8 +567,17 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "Delete")
 	public WebElement btnDelete;
 	
+
+	@FindBy(id= "Wizard_AdditionalInterests")
+	public WebElement AdditionalInterests;
+	
 	@FindBy(id= "CovALimit")
-	public WebElement txtCovALimitDp1;
+	public WebElement CovALimit;
+	
+	
+	
+	
+
 	
 	public QuoteDwellingChevronPageElements() {
 		

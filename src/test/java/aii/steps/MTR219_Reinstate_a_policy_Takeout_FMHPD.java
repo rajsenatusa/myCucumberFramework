@@ -3,10 +3,7 @@ package aii.steps;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import aii.utils.CommonMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -98,8 +95,8 @@ public class MTR219_Reinstate_a_policy_Takeout_FMHPD extends CommonMethods {
 		click(closeoutChevron.btnProcess);
 	}
 
-	@Given("User selects Reinstatement <mtr219>")
-	public void User_selects_Reinstatement_mtr219() throws Exception {
+	@Given("User selects Reinstatement and validates <mtr219>")
+	public void User_selects_Reinstatement_and_validates_mtr219() throws Exception {
 
 //		startTransaction();
 		selectDropdownText(dashboard.ddSelectTransaction, "Reinstatement");

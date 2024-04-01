@@ -62,9 +62,7 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "ViewAll")
 	public WebElement btnViewAll;
 	
-	
-	
-	
+	 
 	
 	
 	public HistoryPageElements() {

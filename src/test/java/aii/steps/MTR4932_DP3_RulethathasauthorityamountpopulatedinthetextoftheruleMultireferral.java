@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
@@ -161,6 +160,7 @@ public class MTR4932_DP3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 	public void User_searches_for_Application_Number_for_mtr4934() {
 		wait(3);
 		sendText(dashboard.txtSearchBar, AppNum);
+		wait(3);
 		click(dashboard.search);
 		wait(3);
 	}
@@ -203,6 +203,14 @@ public class MTR4932_DP3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		Hooks.scenario.log("New Notes have been created successfully!");
 		attachScreenShot(driver);
 		wait(5);
+	}
+	@Given("User issues policy <mtr4934>")
+	public void user_issues_policy_mtr4934() {
+
+		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
+		wait(4);
+		click(closeoutChevron.btnIssueNB);
+		wait(15);
 	}
 	 
 }	

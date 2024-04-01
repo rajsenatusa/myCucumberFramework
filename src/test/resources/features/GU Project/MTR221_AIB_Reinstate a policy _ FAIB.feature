@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: Validate, System should process the Reinstatement without any  lapse
 #User:agent, underwriter
-@regression @mtr221 @gu
+@regression @mtr221 @gu  
 Feature: MTR-221_Reinstate a policy _ FAIB
 
   Scenario: Validate, Underwriter can process the Reinstatement
@@ -35,4 +35,4 @@ Feature: MTR-221_Reinstate a policy _ FAIB
     And User Searchs for Policy Number for <mtr221>
     Then User validates that AIB policy has been canceled successfully
     And User clicks Start Transaction
-    And User selects Reinstatement <mtr219>
+    And User selects Reinstatement and validates <mtr219>
