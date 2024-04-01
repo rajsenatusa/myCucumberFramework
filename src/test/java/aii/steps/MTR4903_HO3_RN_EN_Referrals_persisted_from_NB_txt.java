@@ -5,10 +5,10 @@ import java.time.format.DateTimeFormatter;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 
 import aii.utils.CommonMethods;
-import aii.utils.ConfigsReader;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -63,7 +63,9 @@ public class MTR4903_HO3_RN_EN_Referrals_persisted_from_NB_txt extends CommonMet
 
 	@And("User clicks Finalize for <mtr4903>")
 	public void User_clicks_Finaliz_for_mtr4903() {
+		wait(2);
 		reviewChevron.btnFinalize.click();
+		wait(2);
 		reviewChevron.btnProcess.click();
 		wait(2);
 	}

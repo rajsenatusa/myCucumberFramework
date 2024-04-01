@@ -26,6 +26,45 @@ public class AdditionalInterestPageElements extends CommonMethods{
 	@FindBy(id= "AI.EscrowInd")
 	public WebElement ddEscrow;
 	
+	@FindBy(id= "Save")
+	public WebElement Save;
+	
+	@FindBy(id= "AI.InterestName")
+	public WebElement txtInterestName;
+	
+	@FindBy(id= "AIName.IndexName")
+	public WebElement txtIndexName;
+	
+	@FindBy(id= "AIMailingAddr.Addr1")
+	public WebElement txtMailingAddr;
+	
+	@FindBy(id= "AIMailingAddr.City")
+	public WebElement txtMailingAddrCity;
+	
+	@FindBy(id= "AIMailingAddr.StateProvCd")
+	public WebElement txtMailingAddrState;
+	
+	@FindBy(id= "AIMailingAddr.PostalCode")
+	public WebElement txtMailingAddrPostalCode;
+	
+	@FindBy(id= "AIMailingAddr.RegionCd")
+	public WebElement txtMailingAddrRegion;
+	
+	@FindBy(id= "AIMailingAddr.addrVerifyImg")
+	public WebElement addrVerify;
+	
+	@FindBy(id= "AIList_1_Delete")
+	public WebElement linkDelete;
+	
+	@FindBy(id= "dialogOK")
+	public WebElement dialogOK;
+	
+	
+	
+	
+	
+	
+	
 	
 	public AdditionalInterestPageElements() {
 		

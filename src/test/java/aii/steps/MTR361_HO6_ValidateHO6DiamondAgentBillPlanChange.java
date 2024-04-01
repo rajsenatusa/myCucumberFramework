@@ -153,6 +153,7 @@ public class MTR361_HO6_ValidateHO6DiamondAgentBillPlanChange extends CommonMeth
 	public void user_clicks_billing_chevron() throws Exception {
 		click(driver.findElement(By.id("Tab_Billing")));
 		wait(3);
+		attachScreenShot(driver);
 	}
 
 	@When("User takes note of the next action date and run daily jobs")

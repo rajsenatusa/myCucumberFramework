@@ -2,11 +2,10 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
 
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
@@ -14,7 +13,7 @@ import aii.utils.ConfigsReader;
 import aii.utils.PdfComparator;
 import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -112,8 +111,9 @@ public class MTR5207_HO3_Verify_base_rates_can_display_correctly extends CommonM
 
 		selectDropdownText(closeoutChevron.ddPaymentType, ConfigsReader.getProperty("paymenttype"));
 		click(closeoutChevron.btnIssueNB);
+		wait(3);
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
-
+		wait(3);
 		if (validate.getText().equalsIgnoreCase("New Business")) {
 			System.out.println("HO3 NB policy has been created successfully");
 		} else {
@@ -215,7 +215,9 @@ public class MTR5207_HO3_Verify_base_rates_can_display_correctly extends CommonM
 
 	@Then("User validates CGCC Builders base rate in Worksheets")
 	public void User_validates_CGCC_Builders_base_rate_in_Worksheets() throws Exception {
+		wait(1);
 		scrollToElement(worksheetsChevron.HO3CGCCBasePremium);
+		wait(1);
 		click(worksheetsChevron.HO3CGCCBasePremium);
 		wait(1);
 
@@ -267,19 +269,20 @@ public class MTR5207_HO3_Verify_base_rates_can_display_correctly extends CommonM
 
 		switchToWindow(driver, "STFile&File");
 
-		wait(5);
+		wait(15);
 
 		NewBusiness_Form = PdfComparator.makePdf(driver, "New_Businnes_Declaration.pdf");
 
 		// Save the pdf in local driver
+		wait(15);
 		PdfComparator.SavePdfForm(driver, FileLocation + NewBusiness_Form);
 
-		wait(11);
+		wait(30);
 
 		NewBusinnForm = SmartPDFComparator2.getPDFtextByArea(FileLocation + NewBusiness_Form, 42, 0, 0, 800, 800);
 		PdfComparator.verifyFormData(driver, NewBusinnForm, "ACCREDITED BUILDER PROGRAM ENDORSEMENT");
 		attachScreenShot(driver);
-		wait(1);
+		wait(15);
 		driver.switchTo().defaultContent();
 
 	}

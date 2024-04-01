@@ -17,7 +17,9 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 	}
 
 	@And("User clicks Start Transaction")
-	public void User_clicks_Start_Transaction() {		
+	public void User_clicks_Start_Transaction() throws Exception {		
+		attachScreenShot(driver);
+		wait(1);
 		wait(1);
 		click(dashboard.btnStartTransaction);
 		wait(1);

@@ -4,12 +4,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
-import aii.utils.ConfigsReader;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
+
 import io.cucumber.java.en.When;
 
 public class MTR4875_User_Management_Requests_Roles_and_Attributes_Adding_Builder_user_role_manually_to_A2_agent extends CommonMethods {
