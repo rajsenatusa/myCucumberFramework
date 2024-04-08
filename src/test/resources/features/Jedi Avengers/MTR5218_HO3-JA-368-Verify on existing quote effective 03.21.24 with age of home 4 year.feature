@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: Builders base rate changed for Water_nW, FireLightning, Liability, Other,Weather, Theft,CGCC, Hurricane correctly when effective date change (03/21/2024)
 #User: Standard Agent, Admin
-@regression @mtr5218 @ja
+@regression @mtr5218 @ja2 @ja
 Feature: MTR5218_HO3_Verify_base_rates_can_display_correctly after effective date change (03/21/2024)
 
   Scenario: Verify_Admin_Agent_can_display_Builders_base_rate_correctly

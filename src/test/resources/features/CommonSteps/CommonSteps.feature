@@ -113,6 +113,7 @@ Feature: Common Transactions and Steps
     And User clicks Entity Type
     And User selects HO3 Pay Plan Type
     And User clicks Endorse button
+    And User checks Modify Application button
     And User clicks Endorse Policy button
     And User clicks Review Chevron
     And User clicks Underwriting Chevron
@@ -236,7 +237,6 @@ Feature: Common Transactions and Steps
     And User enters DP3 product selection information and current date as effective date
     And User changes Months Occupied as 0 to 3 Months
     And User changes Coverage C Personal Property as 200000
-    And User clicks Endorse Policy button
     And User takes note of the policy number
     And User clicks More button then Take Ownership
     And User selects Reinstatement
@@ -265,5 +265,20 @@ Feature: Common Transactions and Steps
     And User clicks Home Cyber Protection
     And User clicks Forms chevron
     And User clicks Tasks chevron
-    
-     And User issues policy and makes payment with credit card
+    And User issues policy and makes payment with credit card
+    And User validates 'Approve' is not visible on closeout screen
+    And User validates 'Submit for Approval' is visible on closeout screen
+    And User clicks Override Link on Underwriter Role <mtr592>
+     And User override Underwriters 'Allow to Approve Age of Plumbing' as yes
+     And User validates 'Issue New Business' is visible on closeout screen
+    And User validates 'Approve' is visible on closeout screen
+    And User validates 'Submit For Approval' is not visible on closeout screen
+    And User checks Modify Application button
+    And User enters a new DOB in Insured Information
+    And User checks Modify Application button
+    And User enters a new DOB in Insured Information
+   Then User validates 'Structures Rented to Others Requires Underwriting Approval' is not visible on closeout screen
+   And User clicks Structures Rented to Others link
+    And User selects Limited Fungi, Mold, Wet or Dry Rot, or Bacteria
+    Then User verifies four triggered referrals
+     And User clicks plus sign View Notes

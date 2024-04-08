@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: UW referral should be displayed by Agant
 #User: Standard Agent, Underwriter
-@regression @mtr4877 @ja
+@regression @mtr4877 @ja1 @ja
 Feature: MTR4877_HO6_Verify_Notes are displayed correctly by Agent
 
   Scenario: Verify_Underwriter_approvals the application_and_referrals are displayed correctly by the agent
