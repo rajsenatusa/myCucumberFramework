@@ -116,7 +116,7 @@ public class MTR531_Verify_DP1_policy_Agent_can_perform_END_TX_Increase_CovA_Cha
 	}
 	@When("User increases CovA, selects deductible all perils as 2500, select hurricane ded as 5 <mtr531>")
 	public void user_increases_CovA_mtr531() throws Exception {
-		sendText(dwellingChevron.txtCovALimitDp1, "650000");
+		sendText(dwellingChevron.CovALimit, "650000");
 		selectDropdownText(dwellingChevron.ddDeductibleAllPerils, "$2,500");
 		selectDropdownText(dwellingChevron.ddHurricaneDeductible, "5%");
 		click(dwellingChevron.btnSave);
