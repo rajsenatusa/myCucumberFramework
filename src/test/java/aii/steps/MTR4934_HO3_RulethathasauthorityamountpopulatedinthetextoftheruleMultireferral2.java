@@ -58,6 +58,7 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		click(dwellingChevron.btnCalculate);
 		wait(4);
 		click(dwellingChevron.btnSave);
+		dwellingChevron.txtCoverageA.clear();
 		dwellingChevron.txtCoverageA.sendKeys("300000");
 		wait(1);
 		selectDropdownText(dwellingChevron.ddSecuredCommunity, "None");
@@ -130,8 +131,6 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 			throws Exception {
 		verify_AnyfirstText_IsDisplayed(driver, "The application has been submitted for approval.");
 		wait(3);
-		attachScreenShot(driver);
-		wait(2);
 
 	}
 	@Then("User validates the Submitter Issues")
@@ -178,9 +177,8 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 	}
 	@And("User changes Coverage A Dwelling as 600000 <mtr4934>")
 	public void User_changes_Coverage_A_Dwelling_as_600000_mtr4934() {
+		dwellingChevron.txtCoverageA.clear();
 		sendText(dwellingChevron.txtCoverageA,"600000");
-		
-		
 	}
 	@And("User clicks Endorse Policy button <mtr4934>")
 	public void User_clicks_Endorse_Policy_button_mtr4934() throws Exception {
@@ -210,13 +208,13 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		switchToWindow(driver, "innovation#");
 
 	}
+
 	@Then("User verifies third persisted referral notes are displayed in Notes List <mtr4877>")
 	public void User_verifies_third_persisted_referral_notes_are_displayed_in_Notes_List_mtr4877() throws Exception {
-		
+
 		wait(5);
 		click(dashboard.btnExpandHO6WC);
-		verify_AnyfirstText_IsDisplayed(driver,
-				"The following approvals are persisted:\r\n"
+		verify_AnyfirstText_IsDisplayed(driver, "The following approvals are persisted:\r\n"
 				+ "Coverage A change cannot exceed $100,000 Must be Approved (Building.CovALimit=600000, TriggerRuleIf=AnyChange)");
 		wait(5);
 		click(dashboard.btnExpandHO6WC2);
@@ -231,8 +229,8 @@ public class MTR4934_HO3_RulethathasauthorityamountpopulatedinthetextoftheruleMu
 		Hooks.scenario.log("New Notes have been created successfully!");
 		attachScreenShot(driver);
 		wait(5);
-				
-		}
+
+	}
 	@Then("User verifies EN HO3 policy has been created successfully <mtr4934>")
 	public void User_verifies_EN_HO3_policy_has_been_created_successfully_mtr4934() throws Exception {
 		wait(10);

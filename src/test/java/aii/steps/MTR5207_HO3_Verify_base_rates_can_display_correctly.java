@@ -2,10 +2,10 @@ package aii.steps;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+import java.util.Iterator;
 
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
@@ -266,7 +266,8 @@ public class MTR5207_HO3_Verify_base_rates_can_display_correctly extends CommonM
 
 	@When("User validates AIIC FL HO3 ACB 02 22 ACB form displays")
 	public void User_validates_AIIC_FL_HO3_ACB_02_22_ACB_form_displays() throws Exception {
-
+		wait(15);
+		
 		switchToWindow(driver, "STFile&File");
 
 		wait(15);
@@ -274,7 +275,7 @@ public class MTR5207_HO3_Verify_base_rates_can_display_correctly extends CommonM
 		NewBusiness_Form = PdfComparator.makePdf(driver, "New_Businnes_Declaration.pdf");
 
 		// Save the pdf in local driver
-		wait(15);
+		wait(30);
 		PdfComparator.SavePdfForm(driver, FileLocation + NewBusiness_Form);
 
 		wait(30);
@@ -284,7 +285,7 @@ public class MTR5207_HO3_Verify_base_rates_can_display_correctly extends CommonM
 		attachScreenShot(driver);
 		wait(15);
 		driver.switchTo().defaultContent();
-
+		
 	}
 
 	@And("User enters Coverage A Dwelling as 550000")

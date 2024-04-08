@@ -104,12 +104,21 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[1]/td[1]/i")
 	public WebElement btnIconExpand; 
 	
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnIconExpandSecond; 
+	
 	@FindBy(xpath= "//*[@id=\"PolicyNotesList\"]/div/table/tbody/tr[2]/td[1]/i")
 	public WebElement btnIconExpandWorkflow; 
 	
+
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnIconExpandThird; 
+	 
+
 	@FindBy(id= "Reject")
 	public WebElement btnReject;
 	
+
 	 
 	
 	public CloseOutChevronPageElements() {

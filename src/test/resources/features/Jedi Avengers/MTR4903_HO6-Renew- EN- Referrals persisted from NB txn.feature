@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: The referrals were approved by UW and UW manager. UW referral should be displayed by Agent on RN
 #User: Standard Agent, Underwriter, UW Manager
-@regression @mtr4903 @ja
+@regression @mtr4903 @ja2 @ja
 Feature: MTR4903_HO6-Renew- EN- Referrals persisted from NB txn
 
   Scenario: Verify_Underwriter_and_UW_Manager_approved_the referrals_than_Agent_can_display_the_referrals on RN
