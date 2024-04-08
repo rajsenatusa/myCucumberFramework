@@ -107,8 +107,8 @@ public class CloseOutChevronPageElements extends CommonMethods {
 	@FindBy(xpath= "//*[@id=\"PolicyNotesList\"]/div/table/tbody/tr[2]/td[1]/i")
 	public WebElement btnIconExpandWorkflow; 
 	
-	
-	
+	@FindBy(id= "Reject")
+	public WebElement btnReject;
 	
 	 
 	

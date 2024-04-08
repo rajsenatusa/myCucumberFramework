@@ -135,6 +135,13 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
+	@Given("User login to Spin as South Carolina Agent")
+	public void user_login_to_spin_as_SouthCarolineagent() {
+		sendText(login.username, ConfigsReader.getProperty("scagentusername"));
+		sendText(login.password, ConfigsReader.getProperty("scagentpassword"));
+		click(login.btnSignIn);
+		wait(3);
+	}
 
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
@@ -397,7 +404,12 @@ public class CommonSteps extends CommonMethods {
 		click(closeoutChevron.btnIssueNB);
 		wait(5);
 	}
-
+	@Given("User rejects application")
+	public void user_rejects_application() {
+		
+		click(closeoutChevron.btnReject);
+		wait(5);
+	}
 	@Given("User navigates to policyfile screen")
 	public void user_navigates_to_policyfile_screen() {
 

@@ -62,7 +62,8 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "ViewAll")
 	public WebElement btnViewAll;
 	
-	 
+	@FindBy(id= "QuickAction_NewQuote_Holder")
+	public WebElement btnNewQuote;
 	
 	
 	public HistoryPageElements() {
