@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: Builders base rate should be displayed for Water_nW, FireLightning, Liability, Other,Weather, Theft,CGCC, Hurricane correctly. County factor should be displayed correctly
 #User: Standard Agent, Admin
-@regression @mtr5207 @ja
+@regression @mtr5207 @ja3 @ja
 Feature: MTR5207_HO3_Verify_base_rates_can_display_correctly
 
   Scenario: Verify_Admin_Agent_can_display_Builders_base_rate_correctly

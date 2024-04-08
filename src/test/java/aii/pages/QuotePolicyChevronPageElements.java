@@ -183,7 +183,12 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	public WebElement btnChangeProduct; 
 	
 	@FindBy(id= "dialogOK")
-	public WebElement btnOK; 
+	public WebElement btnOK;
+	
+	@FindBy(id= "Closeout")
+	public WebElement btnFinalize; 
+	
+	
 	
 	
 	public QuotePolicyChevronPageElements() {

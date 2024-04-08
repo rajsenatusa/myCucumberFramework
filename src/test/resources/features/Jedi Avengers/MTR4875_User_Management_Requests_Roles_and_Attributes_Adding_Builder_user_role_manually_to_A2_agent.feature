@@ -8,7 +8,7 @@
 # Homeowners - Maximum Coverage A Change Allowed:Yes, ISO Location Return Override:Yes, ISO Location Return Override:Yes, ISO Location Return Override:Yes
 
 # User: AG8134, Admin Agent
-@mtr4875 @regression @ja
+@mtr4875 @regression @ja1 @ja
 Feature: MTR4875-Validate Standard Agent can edit and modify Roles and Attributes
 
   Scenario: Validate that standard agent allowed to edit and modify the Roles and Attributes
