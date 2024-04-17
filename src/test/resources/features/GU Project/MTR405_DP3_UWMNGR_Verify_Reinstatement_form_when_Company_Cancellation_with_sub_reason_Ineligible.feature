@@ -13,7 +13,7 @@
 ## User: UW Manager(jbarnes), Standard Agent (AG1730A1)
 
 
-@regression @mtr405 @dp3regression @gu
+@regression @mtr405 @dp3regression @gu 
 Feature: MTR405--DP3 - UWMNGR - Verify Reinstatement form when Company Cancellation with sub reason Ineligible
 
   Scenario: Validate that Policy is Cancelled & and reinstated and correct Reinstatement form is attaching to Policy File and Forms Chevron     

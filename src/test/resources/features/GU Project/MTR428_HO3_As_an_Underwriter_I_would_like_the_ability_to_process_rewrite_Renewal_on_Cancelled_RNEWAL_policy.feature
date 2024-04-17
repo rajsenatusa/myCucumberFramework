@@ -12,7 +12,7 @@
 ## EXPECTED RESULTS: Validate that HO3 Policy is cancelled and UW can able to rewrite-renewal the cancelled Policy
 ## User: Standard Agent, jbarnes(UW)
 
-@regression @mtr428 @ho3regression @gu
+@regression @mtr428 @ho3regression @gu 
 Feature: MTR428_HO3-As an Underwriter, I would like the ability to process rewrite-Renewal on Cancelled RNEWAL policy
 
   Scenario: Validate that HO3 Policy is cancelled and UW can able to rewrite-renewal the cancelled Policy
@@ -46,7 +46,7 @@ Feature: MTR428_HO3-As an Underwriter, I would like the ability to process rewri
     And User increases Coverage A by 10000 <mtr428>
     And User clicks Review Chevron and select full payment plan and finalize rewrite renewal transaction <mtr428>
     And User completes rewrite renewal transaction and validates policy transaction status <mtr428>
-    Then User clicks Policy File Chevron
+    Then User clicks Policy File Chevron <mtr428>
     And User validates "Renewal Declaration" form is visible and completes test <mtr428>
     
     

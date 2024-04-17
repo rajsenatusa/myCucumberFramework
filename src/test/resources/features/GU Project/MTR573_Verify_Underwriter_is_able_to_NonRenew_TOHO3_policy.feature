@@ -15,7 +15,7 @@
 ## This test covers MTR-573 and MTR-574
 
 
-@regression @mtr573
+@regression @mtr573 @gu 
 Feature: MTR573-MTR574-TO HO3, Verify Underwriter is able to Non-Renew policy
 
   Scenario: Validate Non Renewal should process with UW user

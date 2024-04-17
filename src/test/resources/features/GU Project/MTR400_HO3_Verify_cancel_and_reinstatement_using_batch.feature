@@ -17,7 +17,7 @@
 ## User: Admin, Standard Agent (AG1730A1)
 
 
-@regression @mtr400 @ho3regression @gu
+@regression @mtr400 @ho3regression @gu 
 Feature: MTR400--HO3- Verify cancel and reinstatement using batch
 
   Scenario: Validate that Policy is Cancelled & and reinstated and correct Reinstatement form is attaching to Policy File   

@@ -38,7 +38,12 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
+	@When("User changes system date to current date <mtr353>")
+	public void User_changes_system_date_to_current_date_mtr353() throws Exception {
 
+		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate));
+
+	}
 	@When("User enters all required information on HO3 quote screen <mtr353>")
 	public void user_enters_all_required_information_on_ho3_quote_screen_mtr353() {
 		// Quote Policy Chevron information was filled here
@@ -67,7 +72,7 @@ public class MTR353_HO3_ValidateMMACoverageDiscountCannotbeAddedafter31days_Canb
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
 		selectDropdownText(dwellingChevron.ddQualityGrade, "Economy");
-		selectDropdownText(dwellingChevron.bCEG, "3");
+//		selectDropdownText(dwellingChevron.bCEG, "98");
 		sendText(dwellingChevron.txtRoofMaterialUpdate, "2023");
 		click(dwellingChevron.rbBasicPackage);
 		selectDropdownText(dwellingChevron.ddRoofMetarial, "Architectural Composition Shingle");

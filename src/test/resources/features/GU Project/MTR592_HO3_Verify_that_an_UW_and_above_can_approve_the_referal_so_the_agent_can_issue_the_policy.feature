@@ -19,7 +19,7 @@
 
 
 
-@mtr592 @regression @ho3regression @gu
+@mtr592 @regression @ho3regression @gu 
 Feature: MTR592-HO3-Verify that an UW and above can approve the referal so the agent can issue the policy
 
   Scenario: Validate that homes where the age of home is greater than 20 years and the age of plumbing is greater than 20 years display the message

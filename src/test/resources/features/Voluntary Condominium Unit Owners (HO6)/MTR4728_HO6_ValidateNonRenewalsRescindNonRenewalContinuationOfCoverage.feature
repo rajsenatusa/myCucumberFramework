@@ -9,7 +9,7 @@
 #User: UW
 
 
-@regression @tc16890 @mtr4728 @ho6regression @AIIho6
+@regression @tc16890 @mtr4728 @ho6regression 
 Feature: MTR4728-HO6 - UW - Non-Renewals and Rescind Non-Renewal (124 & 125 Days from Expiration)
 
   Scenario: MTR4728_HO6_ValidateNonRenewalsRescindNonRenewalContinuationOfCoverage

@@ -158,6 +158,12 @@ public class MTR428_HO3_As_an_Underwriter_I_would_like_the_ability_to_process_re
 		click(driver.findElement(By.id("Wizard_Risks")));
 		wait(3);
 	}
+	@When("User clicks Policy File Chevron <mtr428>")
+	public void user_clicks_policy_file_chevronmtr428() throws Exception {
+		wait(2);
+		click(policyFileChevron.btnPolicyFilePage);
+		wait(5);
+	}
 	@And("User increases Coverage A by 10000 <mtr428>")
 	public void User_increases_Coverage_A_By_10000_mtr428() {
 		sendText(dwellingChevron.txtCoverageA, "410000");
@@ -183,7 +189,7 @@ public class MTR428_HO3_As_an_Underwriter_I_would_like_the_ability_to_process_re
 	}
 	@When("User validates \"Renewal Declaration\" form is visible and completes test <mtr428>")
 	public void user_validates_renewal_dec_form_is_visible_on_mtr428() throws Exception {
-		verify_AnyText_IsVisible(driver, "Renewal Declaration");
+		verify_AnyLink_IsVisible(driver, "Renewal Declaration");
 		Hooks.scenario.log("Test Case Completed!");
 	}
 }

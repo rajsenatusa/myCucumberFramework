@@ -12,7 +12,7 @@
 ## User: AG1730
 
 
-@regression @tc16765 @aibregression
+@regression @tc16765 @aibregression 
 Feature: TC 16765--AIB Agent Basic Policy App Validations 'Validate UW Questions trigger approval when needed'
 
   Scenario: Validate Selecting Yes to Underwriting Questions will require Underwriting Approval

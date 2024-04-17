@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/14/2023
 
-@regression @mtr404 @dp1regression @AIIdp1
+@regression @mtr404 @dp1regression 
 Feature: TC 16870--DP1 - UWMNGR - Company Cancellation - Reason Property Ineligible - Reinstatement form_AIIC RI 11 14
 
   Scenario: Validate Policy is Cancelled & on reinstatement correct Reinstatement form is attaching to Policy File

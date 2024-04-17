@@ -17,7 +17,7 @@
 ## User: Admin, Standard Sales Agent (AG1730A1)
 
 
-@regression @mtr548 @todp3regression @gu
+@regression @mtr548 @todp3regression @gu 
 Feature: MTR548--TODP3 Verify Agent can override Number of Stories attribute
 
   Scenario: Validate As a Sales Agent, I would like the ability to update/endorse a policy

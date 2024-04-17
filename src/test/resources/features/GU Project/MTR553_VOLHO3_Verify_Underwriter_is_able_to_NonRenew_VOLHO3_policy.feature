@@ -11,7 +11,7 @@
 ## EXPECTED RESULTS: Non Renewal should process
 ## User: underwriter1, Admin
 ## This test covers MTR-553 and MTR-554
-@regression @mtr553 @gu
+@regression @mtr553 @gu 
 Feature: MTR553-MTR554-VOL HO3, Verify Underwriter is able to Non-Renew policy
 
   Scenario: Validate Non Renewal should process with UW user

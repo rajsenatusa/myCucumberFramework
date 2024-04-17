@@ -8,7 +8,7 @@
 ## EXPECTED RESULTS: UW no approval required for agent while Change Date Transaction 
 
 
-@regression @tc16825 @MTR4462 @aibregression
+@regression @tc16825 @MTR4462 @aibregression 
 Feature: MTR4462-AIB, Agent, Change Date Transaction- 30 DAYS
 
   Scenario: Validate agent can issue NB policy without UW approval when changing date to 30 days

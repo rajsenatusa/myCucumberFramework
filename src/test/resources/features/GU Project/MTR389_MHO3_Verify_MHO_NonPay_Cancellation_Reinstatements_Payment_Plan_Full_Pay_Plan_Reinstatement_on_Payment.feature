@@ -17,7 +17,7 @@
   
 ## User: Admin
 
-@regression @mtr389 @mho3regression @gu
+@regression @mtr389 @mho3regression @gu 
 Feature: MTR389--VOL MHO3 Verify MHO- NonPay Cancellation/Reinstatements - Payment Plan - Full Pay Plan - Reinstatement on Payment
 
   Scenario: Validate Reinstatement form is seen from the Forms List

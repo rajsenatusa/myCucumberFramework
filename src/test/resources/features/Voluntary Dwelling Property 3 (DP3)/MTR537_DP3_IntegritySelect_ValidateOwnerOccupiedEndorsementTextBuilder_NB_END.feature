@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/02/2023
 
-@regression @tc35721 @mtr537 @dp3regression
+@regression @tc35721 @mtr537 @dp3regression 
 Feature: TC 35721-MTR537-DP3, Validate Owner Occupied NB Endorsement- NB INTEGRITY SELECT Text Builder
 
   Scenario: As an Agent, Create Integrity Select Policy, once issued, endorse to 

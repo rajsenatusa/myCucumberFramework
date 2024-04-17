@@ -6,7 +6,7 @@
 #EXPECTED RESULTS: Underwriter can create Inspection Note & Priviliged Note with Agent Task with Urgent Priority SC HO3. Agent. UW manager can edit the Inspection Note.
 #User: Underwriter, SC Standard Agent, Underwriter Clerk
 
-@regression @mtr463 @scregression @gu @MAR
+@regression @mtr463 @scregression @gu 
 
 Feature: MTR463-SC HO3, Verify Underwriter has the ability to create High Priority Notes
 
