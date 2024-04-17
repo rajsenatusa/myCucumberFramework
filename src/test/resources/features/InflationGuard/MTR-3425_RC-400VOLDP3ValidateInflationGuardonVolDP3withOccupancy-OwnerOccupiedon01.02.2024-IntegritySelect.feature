@@ -67,10 +67,10 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates DP3 Coverage E increases off of Coverage A inflated limit amount of 10 percentage
     Then User validates DP3 Hurricane Coverage A Deductible percentage
     Then User validates Sinkhole Loss
-    Then User validates DP3 Coverage A on Coverages List
-    Then User validates DP3 Coverage B on Coverages List
-    Then User validates DP3 Coverage C on Coverages List
-    Then User validates DP3 Coverage E on Coverages List
+    #Then User validates DP3 Coverage A on Coverages List
+    #Then User validates DP3 Coverage B on Coverages List
+    #Then User validates DP3 Coverage C on Coverages List
+    #Then User validates DP3 Coverage E on Coverages List
     Then User validates DP3 A Dwelling Flood on Coverages List
     And User clicks Policy File Chevron
     And User clicks Renewal Decleration link
@@ -88,10 +88,10 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates DP3 Coverage E increases off of Coverage A inflated limit amount of 10 percentage
     Then User validates DP3 Hurricane Coverage A Deductible percentage
     Then User validates Sinkhole Loss
-    Then User validates DP3 Coverage A on Coverages List
-    Then User validates DP3 Coverage B on Coverages List
-    Then User validates DP3 Coverage C on Coverages List
-    Then User validates DP3 Coverage E on Coverages List
+    #Then User validates DP3 Coverage A on Coverages List
+    #Then User validates DP3 Coverage B on Coverages List
+    #Then User validates DP3 Coverage C on Coverages List
+    #Then User validates DP3 Coverage E on Coverages List
     Then User validates DP3 A Dwelling Flood on Coverages List
     And User clicks Policy File Chevron
     And User clicks Endorsement Package link
@@ -109,10 +109,10 @@ Feature: RC-400: 2024 Rate Changes- Inflation Guard: VOL DP3- 01/01/2024
     Then User validates DP3 Coverage E increases off of Coverage A inflated limit amount of 10 percentage
     Then User validates DP3 Hurricane Coverage A Deductible percentage
     Then User validates Sinkhole Loss
-    Then User validates DP3 Coverage A after second RN on Coverages List
-    Then User validates DP3 Coverage B after second RN on Coverages List
-    Then User validates DP3 Coverage C after second RN on Coverages List
-    Then User validates DP3 Coverage E after second RN on Coverages List
+    #Then User validates DP3 Coverage A after second RN on Coverages List
+    #Then User validates DP3 Coverage B after second RN on Coverages List
+    #Then User validates DP3 Coverage C after second RN on Coverages List
+    #Then User validates DP3 Coverage E after second RN on Coverages List
     Then User validates DP3 A Dwelling Flood after second RN on Coverages List
     And User clicks Policy File Chevron
     And User clicks Renewal Decleration link

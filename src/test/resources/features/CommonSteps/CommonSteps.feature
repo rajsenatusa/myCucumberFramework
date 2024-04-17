@@ -13,6 +13,7 @@ Feature: Common Transactions and Steps
     Given User login to Spin as SC Standard Agent
     Given User login to Spin as Admin Agent
     Given User login to Spin as Underwriter
+    Given User login to Spin as Adjuster
     Given User enters a valid username
     Given User enters a valid password
     Given User clicks on the signin button
@@ -257,11 +258,11 @@ Feature: Common Transactions and Steps
     And User changes Pay Plan to <8 Payment Plan> <mtr522>
     And User clicks Endore button
     And User clicks Finalize button
-     And User clicks Save button
+    And User clicks Save button
     And User clicks Endore Policy button
     And User changes system date to current date
     And User selects Rewrite-New
-     And User selects Rewrite-Renewal
+    And User selects Rewrite-Renewal
     And User clicks Home Cyber Protection
     And User clicks Forms chevron
     And User clicks Tasks chevron
@@ -269,16 +270,17 @@ Feature: Common Transactions and Steps
     And User validates 'Approve' is not visible on closeout screen
     And User validates 'Submit for Approval' is visible on closeout screen
     And User clicks Override Link on Underwriter Role <mtr592>
-     And User override Underwriters 'Allow to Approve Age of Plumbing' as yes
-     And User validates 'Issue New Business' is visible on closeout screen
+    And User override Underwriters 'Allow to Approve Age of Plumbing' as yes
+    And User validates 'Issue New Business' is visible on closeout screen
     And User validates 'Approve' is visible on closeout screen
     And User validates 'Submit For Approval' is not visible on closeout screen
     And User checks Modify Application button
     And User enters a new DOB in Insured Information
     And User checks Modify Application button
     And User enters a new DOB in Insured Information
-   Then User validates 'Structures Rented to Others Requires Underwriting Approval' is not visible on closeout screen
-   And User clicks Structures Rented to Others link
+    Then User validates 'Structures Rented to Others Requires Underwriting Approval' is not visible on closeout screen
+    And User clicks Structures Rented to Others link
     And User selects Limited Fungi, Mold, Wet or Dry Rot, or Bacteria
     Then User verifies four triggered referrals
-     And User clicks plus sign View Notes
+    And User clicks plus sign View Notes
+    And Use clicks Report Loss

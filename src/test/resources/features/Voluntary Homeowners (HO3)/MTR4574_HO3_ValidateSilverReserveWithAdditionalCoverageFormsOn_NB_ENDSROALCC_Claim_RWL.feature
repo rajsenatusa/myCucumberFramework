@@ -13,7 +13,7 @@
   
 ## User: Underwriter1
 
-@regression @mtr4574 @ho3regression
+@regression @mtr4574 @ho3regression @ho3APRIL
 Feature: MTR4574-HO3 UW NB END (SRO & ALCC) Claim RN(2) Forms Silver Reserve with all additional Optional coverages
 
   Scenario: Validate All forms will be verified in the following states

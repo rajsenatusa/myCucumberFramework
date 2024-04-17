@@ -8,7 +8,7 @@
   
  ## User:AG1730
 
-@regression @mtr353 @ho3regression
+@regression @mtr353 @ho3regression @ho3APRIL
 Feature: TC38454 HO3 Validate MMA Coverage Discount on NB And Endorsement
 
   Scenario: Validate MMA Coverage Discount on NB And Endorsement

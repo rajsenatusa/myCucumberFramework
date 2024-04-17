@@ -115,6 +115,7 @@ public class MTR4563_MHO_NB_ValidateAgentCannotIssueNBforRolledBitumenAndRoofGre
 		Thread.sleep(1000);
 		appPremium = driver.findElement(By.id("Full_QuoteAppSummary_PremWithTaxesFeesAmt")).getText().toString();
 		expectedValue_foundValue(driver, "$0.00", appPremium);
+		wait(5);
 	}
 	@When("User searches previously created application for <mtr4563>")
 	public void user_searches_previously_created_application_for_mtr4563() throws Exception {

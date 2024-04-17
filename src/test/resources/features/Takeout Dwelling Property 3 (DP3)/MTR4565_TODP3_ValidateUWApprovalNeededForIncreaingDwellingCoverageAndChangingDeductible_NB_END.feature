@@ -9,7 +9,7 @@
   
  # User: AG1730
 
-@regression @tc16781 @MTR4565 @todp3regression
+@regression @tc16781 @MTR4565 @todp3regression @AIItodp3
 Feature: MTR4565-TODP3, Agent, END TX, Increase CovA, Change Deductible, UW MGR Approval
 
   Scenario: Validate that Underwriter approval is required Approval messages trigger on CloseOut screen
