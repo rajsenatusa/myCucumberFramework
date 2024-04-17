@@ -119,22 +119,21 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("ProviderNumber")).clear();
 					driver.findElement(By.id("ProviderNumber")).sendKeys(UCode1);
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-
+					wait(2);
 
 					driver.findElement(By.id("AddRole")).click();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+					wait(2);
 
 					selectDropdownText(driver.findElement(By.id("UserRole.AuthorityRoleIdRef")), "Policy Agent Limited");
 					driver.findElement(By.id("UserRole.StartDt")).sendKeys("1/1/1901");
 					driver.findElement(By.id("UserRole.EndDt")).sendKeys("12/31/9999");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+					wait(2);
 
 
 					// AddTaskGroup
 					driver.findElement(By.id("AddTaskGroup")).click();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+					wait(2);
 					XSSFCell taskGrID = row.getCell(36);
 					String taskGroupID = taskGrID.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("UserTaskGroup.TaskGroupCd")), taskGroupID);
@@ -142,12 +141,12 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("UserTaskGroup.StartDt")).sendKeys("1/1/1901");
 					driver.findElement(By.id("UserTaskGroup.EndDt")).sendKeys("12/31/9999");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+					wait(2);
 
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 					driver.findElement(By.xpath("//*[@id=\"Return\"]")).click();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+					wait(2);
 
 					FileOutputStream fws = new FileOutputStream(
 							new File("\\C:\\Users\\CYavas\\git\\AutomationCucumber2023\\test-output\\UserProfileSetupResults.xlsx"));

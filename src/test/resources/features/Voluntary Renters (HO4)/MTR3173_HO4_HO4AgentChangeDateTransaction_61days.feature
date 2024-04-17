@@ -10,7 +10,7 @@
 ## 4. Submit for approval
 ## 5. Issue NB as Agent
 
-@regression @mtr3173 @ho4regression
+@regression @mtr3173 @ho4regression 
 Feature: MTR3172 HO4 HO4 Agent Change Date Transaction 61 DAYS
 
   Scenario: Validate Agent is not able to complete change date transaction over 60 days

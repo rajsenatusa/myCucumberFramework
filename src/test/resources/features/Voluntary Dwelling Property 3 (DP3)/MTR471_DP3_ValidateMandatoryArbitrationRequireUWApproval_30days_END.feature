@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/03/2023
 
-@regression @mtr471 @dp3regression
+@regression @mtr471 @dp3regression 
 Feature: US8684 - U/I Mandatory Mediation-Arbitration Coverage discount on and require UW Approval when adding on END with 30 days
  NB for Owner Occupied; Basic Policy and END to Change discount
 

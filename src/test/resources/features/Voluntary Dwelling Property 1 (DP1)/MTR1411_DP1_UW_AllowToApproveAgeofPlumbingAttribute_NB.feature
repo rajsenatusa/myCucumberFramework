@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/14/2023
 
-@regression @mtr1411 @dp1regression @AIIdp1
+@regression @mtr1411 @dp1regression
 Feature: TC 34253--DP1, UW, Approvals 'Allow to Approve Age of Plumbing attribute'
 
   Scenario: Validate that Uw can approve the application when Allow to Approve Age of Plumbing attribute = Yes

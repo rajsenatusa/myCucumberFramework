@@ -13,7 +13,7 @@
 ## EXPECTED RESULTS: Validate that DP1 policy , Agent can perform, END TX, Increase CovA, Change Deductible, Change 1st Mortgagee, UW Approval
 ## User: Standard Agent, Underwriter1
 
-@regression @mtr531 @dp1regression @gu
+@regression @mtr531 @dp1regression @gu 
 Feature: MTR531--Verify DP1 policy , Agent can perform, END TX, Increase CovA, Change Deductible, Change 1st Mortgagee, UW Approval
 
   Scenario: Validate that DP1 policy , Agent can perform, END TX, Increase CovA, Change Deductible, Change 1st Mortgagee, UW Approval

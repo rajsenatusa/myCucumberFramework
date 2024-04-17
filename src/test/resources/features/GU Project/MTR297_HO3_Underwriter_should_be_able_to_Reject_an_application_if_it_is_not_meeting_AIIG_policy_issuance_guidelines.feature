@@ -11,7 +11,7 @@
 
 ## TEST CASE STEPS MODIFIED REGARDING CAPACITY RULE CHANGE 
 
-@regression @mtr297 @ho3regression @gu
+@regression @mtr297 @ho3regression @gu 
 Feature: MTR-297--HO3, Underwriter should be able to Reject an application if it is not meeting AIIG policy issuance guidelines
 
   Scenario: Validate As an Underwriter, Reject an Application which doesn’t meet our standards for Prior Losses

@@ -5,7 +5,7 @@
 ## HIGH LEVEL STEPS OF TEST SCRIPT:  In the Scenario Below
 ## EXPECTED RESULTS: Non-Renewal Notice displays
 ## User: Underwriter
-@regression @mtr584 @gu
+@regression @mtr584 @gu 
 Feature: MTR584--SC HO3, Verify Non-Renewal Notice in Policy File
 
   Scenario: Verify Non-Renewal Notice

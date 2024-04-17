@@ -12,7 +12,7 @@
 ## EXPECTED RESULTS: Policy showing new transaction as Non Renewal Request Stop tx
 
 
-@regression @mtr411 @ho3cregression @gu
+@regression @mtr411 @ho3cregression @gu 
 Feature: MTR411--HO3 Verify Reinstate of Non Renewal policy using Rescind transaction
 
   Scenario: Validate Policy showing new transaction as Non Renewal Request Stop tx

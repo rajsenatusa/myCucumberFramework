@@ -34,6 +34,7 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 		selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
 		wait(1);
 		click(dashboard.btnSelect);
+		wait(1);
 		click(dashboard.btnStart);
 	}
 

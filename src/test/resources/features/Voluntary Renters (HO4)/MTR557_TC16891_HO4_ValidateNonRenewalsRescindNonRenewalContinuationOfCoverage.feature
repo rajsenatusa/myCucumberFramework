@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/11/2023
 
-@regression @mtr557 @ho4regression @AIIho4
+@regression @mtr557 @ho4regression @Aprilho4
 Feature: TC 16891--HO4 - UW - Non-Renewals and Rescind Non-Renewal ( 124 & 125 Days from Expiration), Continuation of Coverage form
 
   Scenario: Validate that UW can Non Renew a policy upto 125 day from Policy Expiration Date
