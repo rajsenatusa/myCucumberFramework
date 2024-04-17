@@ -1,7 +1,7 @@
 #Author: Can Yavas
 ##created on 08/03/2023
 
-@regression @tc38733 @mtr367 @dp3regression
+@regression @tc38733 @mtr367 @dp3regression 
 Feature: TC 38733-MTR367-US8828 - Integrity Select - Form - Owner Occupied Endorsement 
  AIIC DP3 OO 04 23- DP3 -Owner Occupied and Endorse to Integrity Select
 

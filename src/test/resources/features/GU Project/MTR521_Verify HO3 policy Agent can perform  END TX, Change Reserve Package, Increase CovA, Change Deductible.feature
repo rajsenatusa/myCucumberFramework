@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: Select "Gold Reserve" fo Reserve Package*Increase A-Dwelling* by $60,000 Select "$2,000" for Deductible (AOP)* Select "4%" for the Deductible (Hurricane)* Select "$2,000" for Wind/Hail Deductible (Other than Hurricane)*
 #EXPECTED RESULTS: Policy is sent to UW approval and endorsed by agent
 #User: Standard Agent, UW
-@regression @mtr521 @gu
+@regression @mtr521 @gu 
 Feature: MTR521 HO3 Policy can be endorsed by agent after UW approval
 
   Scenario: Validate HO3 Policy is endorsed with Gold Reserve, A-Dwelling, Deductible (AOP), Deductible (Hurricane), Wind/Hail Deductible and Additional Interest changes by agent after UW approvel

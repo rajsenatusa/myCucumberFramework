@@ -12,7 +12,7 @@
 ## EXPECTED RESULTS: Validate that Dp3 Policy is cancelled and UW can able to rewrite-renewal the cancelled Policy
 ## User: Standard Agent, jbarnes(UW)
 
-@regression @mtr435 @dp3regression @gu
+@regression @mtr435 @dp3regression @gu 
 Feature: MTR435_DP3-As an Underwriter, I would like the ability to process rewrite-Renewal on Cancelled RNEWAL policy
 
   Scenario: Validate that Dp3 Policy is cancelled and UW can able to rewrite-renewal the cancelled Policy

@@ -11,9 +11,9 @@ Feature: MTR458_DP1_Verify_Underwriter_creates_Inspection_notes_but_does_not_hav
   Scenario: Verify_Underwriter_creates_Inspection_notes_but_does_not_have_Edit_or_Delete
     Given User login to Spin as Standard Agent
     When User starts transaction as a new customer
-    And User enters all required information on policy information screen
-    And User enters DP1 product selection information and current date as effective date
-    And User enters all required information on DP1 quote screen
+    And User enters all required information on policy information screen <mtr458>
+    And User enters DP1 product selection information and current date as effective date <mtr458>
+    And User enters all required information on DP1 quote screen <mtr458>
     And User enters all required information on DP1 dwelling screen
     And User enters all required information on DP1 review screen
     And User creates DP1 application

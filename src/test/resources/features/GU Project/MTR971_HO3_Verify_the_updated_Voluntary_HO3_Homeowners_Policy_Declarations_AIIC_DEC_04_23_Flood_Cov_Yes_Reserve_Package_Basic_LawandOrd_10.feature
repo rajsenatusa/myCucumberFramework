@@ -18,7 +18,7 @@
 ## updated on 02/05/2024 due to user access level. Agent is able to issue policy without approval
 
 
-@regression @mtr971 @ho3regression @gu
+@regression @mtr971 @ho3regression @gu 
 Feature: MTR971--HO3, Verify the updated Voluntary HO3: Homeowners Policy Declarations AIIC DEC 04 23
 
   Scenario: Validate FORM content and formatting match clean copies attached to the US AIIC DEC 04 23 displays on  bottom of all pages

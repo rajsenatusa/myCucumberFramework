@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT:  In the Scenario Below
 #EXPECTED RESULTS: UW can able to Rewrite - New the cancelled Policy and add new coverage
 #User:UW
-@regression @mtr432 @gu
+@regression @mtr432 @gu 
 Feature: UW can able to Rewrite - New the cancelled Policy, add new coverage and see Greeting Letter
 
   Scenario: Verify DP1 NB Policy is cancelled and UW can able to rewrite the cancelled Policy

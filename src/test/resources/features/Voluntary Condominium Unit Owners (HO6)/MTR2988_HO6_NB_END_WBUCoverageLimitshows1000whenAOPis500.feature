@@ -7,7 +7,7 @@
 #EXPECTED RESULTS: Policy with WBU Coverage where the AOP is 500 shows a 1,000 WBU deductible in the Coverage List
 #of the Dwelling page.
 #User: Aallen
-@regression @mtr2988
+@regression @mtr2988 
 Feature: MTR2988--IM-318 : HO6 NB END Validate WBU Coverage when the AOP is 500 shows $1,000 limit
 
   Scenario: MTR2988_HO6_NB_END_WBUCoverageLimitshows1000whenAOPis500

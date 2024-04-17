@@ -12,7 +12,7 @@
 ## EXPECTED RESULTS: Validate that HO6 Policy is cancelled and UW can able to rewrite-renewal the cancelled Policy
 ## User: Standard Agent, jbarnes(UW)
 
-@regression @mtr431 @ho6regression @gu
+@regression @mtr431 @ho6regression @gu 
 Feature: MTR431_HO6-As an Underwriter, I would like the ability to process rewrite-Renewal on Cancelled RNEWAL policy
 
   Scenario: Validate that HO6 Policy is cancelled and UW can able to rewrite-renewal the cancelled Policy

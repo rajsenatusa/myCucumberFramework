@@ -16,7 +16,7 @@
 ## User: Admin, Standard Sales Agent (AG1730A1), Underwriter
 
 
-@regression @mtr549 @toho3regression @gu
+@regression @mtr549 @toho3regression @gu 
 Feature: MTR549--Verify TOHO3 policy, Agent can perform END TX, Increase CovA, Change Deductible, Additional Interests, UW Approval
 
   Scenario: Validate Agent can perform END TX, Increase CovA, Change Deductible, Additional Interests with the help of UW Approval
