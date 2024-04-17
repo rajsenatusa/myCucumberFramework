@@ -69,7 +69,7 @@ Feature: RC-402: 2024 Rate Changes- Inflation Guard: VOL HO4- 01/01/2024
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
-    And User clicks Save
+    #And User clicks Save
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron

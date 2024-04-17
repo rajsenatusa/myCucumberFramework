@@ -15,7 +15,7 @@
   
 ## User: AG1730
 
-@regression @mtr375 @todp1regression
+@regression @mtr375 @todp1regression @AIItodp1
 Feature: TC 34821--TO DP1: RULES - Backdating Deductible Changes Prior to, On, and After RN Effective Date
 
   Scenario: Validate a change to coverage(s) with an Effective Date in the past fires the error

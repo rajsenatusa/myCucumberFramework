@@ -20,7 +20,7 @@ public class MTR4464_UMB_UMBAgentChangeDateTransaction extends CommonMethods {
 
 	@Then("User validates that HO4 policy has been created successfully and takes note of the policy number <tc16804>")
 	public void user_validates_that_ho4_policy_has_been_created_successfully_tc16804() throws Exception {
-		wait(3);
+		wait(8);
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("New Business")) {

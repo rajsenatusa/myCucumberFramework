@@ -10,7 +10,7 @@
 ## 4. Submit for approval
 ## 5. Issue NB as Agent
 
-@regression @mtr3172 @ho4regression @AIIho4
+@regression @mtr3172 @ho4regression  
 Feature: MTR3172 HO4 HO4 Agent Change Date Transaction 30 DAYS
 
   Scenario: Validate Agent is not able to complete change date transaction after 30 days without UW approval

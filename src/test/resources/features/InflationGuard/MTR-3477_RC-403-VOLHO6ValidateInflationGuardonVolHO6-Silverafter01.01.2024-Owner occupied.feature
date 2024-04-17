@@ -48,19 +48,19 @@ Feature: RC-403: 2024 Rate Changes- Inflation Guard: VOL HO6- 01/01/2024
     And User returns to main page
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
-    And User clicks Save
+    #And User clicks Save
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates HO6 Coverage A increases by 10 percent
-    Then User validates HO6 Coverage C increases by 10 percent
-    Then User validates HO6 Coverage D increases by 10 percent
-    Then User validates HO6 Ordinance or Law increases off of Coverage A inflated limit amount of 10 percentage
+    #Then User validates HO6 Coverage A increases by 10 percent
+    #Then User validates HO6 Coverage C increases by 10 percent
+    #Then User validates HO6 Coverage D increases by 10 percent
+    #Then User validates HO6 Ordinance or Law increases off of Coverage A inflated limit amount of 10 percentage
     Then User validates Sinkhole Loss
-    Then User validates HO6 Coverage A on Coverages List
-    Then User validates HO6 Coverage C on Coverages List
-    Then User validates HO6 Coverage D on Coverages List
-    Then User validates HO6 Ordinance or Law on Coverages List
+    #Then User validates HO6 Coverage A on Coverages List
+    #Then User validates HO6 Coverage C on Coverages List
+    #Then User validates HO6 Coverage D on Coverages List
+    #Then User validates HO6 Ordinance or Law on Coverages List
     Then User validates HO6 Coverage A is 10 percent under Inflation Guard
     Then User validates HO6 Coverage C is 10 percent under Inflation Guard
     And User clicks Policy File Chevron

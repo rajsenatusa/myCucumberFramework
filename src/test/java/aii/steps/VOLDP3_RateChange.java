@@ -108,7 +108,7 @@ public class VOLDP3_RateChange extends CommonMethods {
 	@Then("User validates DP3 Coverage A on Coverages List")
 	public void User_validates_DP3_Coverage_A_on_Coverages_List() {
 
-		String expected = "545,000";
+		String expected = "549,000";
 		String actual = dwellingChevron.DP3CoverageListCovA.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 

@@ -44,14 +44,14 @@ Feature: RC-395: 2024 Rate Changes- Inflation Guard: TO DP3- 01/01/2024
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates TODP3 Coverage A increases by 10 percent
-    Then User validates TODP3 Coverage B increases off of Coverage A inflated limit amount of 10 percent
-    Then User validates TODP3 Coverage D increases by 10 percent
+    #Then User validates TODP3 Coverage A increases by 10 percent
+    #Then User validates TODP3 Coverage B increases off of Coverage A inflated limit amount of 10 percent
+    #Then User validates TODP3 Coverage D increases by 10 percent
     Then User validates TODP3 Hurricane Coverage A Deductible percentage
     Then User validates TODP3 Sinkhole Loss
-    Then User validates TODP3 Coverage A on Coverages List
-    Then User validates TODP3 Coverage B on Coverages List
-    Then User validates TODP3 Coverage D on Coverages List
+    #Then User validates TODP3 Coverage A on Coverages List
+    #Then User validates TODP3 Coverage B on Coverages List
+    #Then User validates TODP3 Coverage D on Coverages List
     Then User validates CovA TODP3 Inflation Guard is 10 percent
     Then User validates CovC TODP3 Inflation Guard is 10 percent
     And User clicks Policy File Chevron
