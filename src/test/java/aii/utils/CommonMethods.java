@@ -248,6 +248,19 @@ public class CommonMethods extends PageInitializer {
 	}
 
 	/**
+	 * This method switches to a default content from a frame
+	 * 
+	 * @param element
+	 */
+	public static void switchToDefault() {
+		try {
+
+			driver.switchTo().defaultContent();
+		} catch (NoSuchFrameException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
 	 * This method switches focus to a child window.
 	 * 
 	 */
@@ -1439,7 +1452,26 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+	/**
+	 * This method checks any desired label value with expected value
+	 * 
+	 */
+	public static boolean verify_AnyLabel_IsNotVisible(WebDriver driver, String text) throws Exception {
 
+		try {
+			if (driver.findElement(By.xpath("//*[contains(text(), '" + text + "')]")).isDisplayed()) {
+				Hooks.scenario.log("Is NOT visible: " + text);
+				return false;
+			}
+			return false;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is NOT visible: " + text);
+			wait(5);
+			return true;
+		}
+
+	}
 	/**
 	 * This method checks any desired text value is not visible
 	 * 
