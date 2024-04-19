@@ -35,6 +35,24 @@ public class LossNoticeInformationPageElements extends CommonMethods {
 	@FindBy(id= "Claim.CQFireFireOriginate")
 	public WebElement lstFireOriginate;
 	
+	@FindBy(id= "Claim.CQHailHomeDamaged")
+	public WebElement hailHomeDamaged;
+	
+	@FindBy(id= "Claim.CQHailSoftMetalDmg")
+	public WebElement hailSoftMetalDmg;
+	
+	@FindBy(id= "Claim.Description")
+	public WebElement claimDescription;
+	
+	@FindBy(id= "Complete")
+	public WebElement complete;
+	
+	@FindBy(id= "Claim.DamagedInd")
+	public WebElement claimDamagedInd;
+	
+	
+	
+	
 	public LossNoticeInformationPageElements() {
 		
 		PageFactory.initElements(driver, this);
