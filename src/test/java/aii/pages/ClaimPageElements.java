@@ -179,6 +179,24 @@ public class ClaimPageElements extends CommonMethods{
 	@FindBy(id= "Reserve_CovC_COVCSUB_Indemnity")
 	public WebElement txtCovCPersonalPropertyScheduledItemLimit;
 	
+	@FindBy(id= "Claim.WeatherRelatedInd")
+	public WebElement ddWeatherRelatedInd;
+	
+	@FindBy(id= "Wizard_Overview")
+	public WebElement lnkOverviewTab;
+	
+	@FindBy(id= "WorkflowComments")
+	public WebElement txtWorkflowComments;
+	
+	@FindBy(id= "SubmitForApproval")
+	public WebElement btnSubmitForApproval;
+	
+	@FindBy(id= "Approve")
+	public WebElement btnApprove;
+	
+	@FindBy(id= "Tab_Documents")
+	public WebElement lnkClaimFileChevron;
+	
 	public ClaimPageElements() {
 		PageFactory.initElements(driver, this);
 	}	
