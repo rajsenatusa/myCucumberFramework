@@ -29,6 +29,21 @@ public class CorrespondancePageElements extends CommonMethods{
 	@FindBy(id= "ProcessCorrespondence")
 	public WebElement btnProcessCorrespondence;
 	
+	@FindBy(id= "Tab_Correspondence")
+	public WebElement correspondence;
+	
+	@FindBy(id= "OutputItem_1_Description")
+	public WebElement outputItem1Description;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public CorrespondancePageElements() {
 		PageFactory.initElements(driver, this);	
