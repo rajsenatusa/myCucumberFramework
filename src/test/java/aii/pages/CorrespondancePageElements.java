@@ -28,6 +28,9 @@ public class CorrespondancePageElements extends CommonMethods{
 	
 	@FindBy(id= "ProcessCorrespondence")
 	public WebElement btnProcessCorrespondence;
+		
+	@FindBy(id= "OutputItem_1_Description")
+	public WebElement outputItem1Description;
 	
 	@FindBy(id= "Tab_Correspondence")
 	public WebElement lnkCorrespondenceTab;
@@ -43,6 +46,8 @@ public class CorrespondancePageElements extends CommonMethods{
 	
 	@FindBy(id= "PreviewCorrespondence_0")
 	public WebElement btnPreviewCorrespondenceFirst;
+	
+	
 	
 	public CorrespondancePageElements() {
 		PageFactory.initElements(driver, this);	

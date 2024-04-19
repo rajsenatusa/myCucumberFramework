@@ -283,4 +283,11 @@ Feature: Common Transactions and Steps
     And User selects Limited Fungi, Mold, Wet or Dry Rot, or Bacteria
     Then User verifies four triggered referrals
     And User clicks plus sign View Notes
-    And Use clicks Report Loss
+    And User clicks Report Loss 
+    And User sets Loss Date as current date
+    And User enters all required Loss Notice Information for Hail
+    And User clicks Complete button
+    Then User verifies the loss location is set to insured location
+    Then User verifies the Authority information
+   And User clicks Correspondence
+    And User selecks Correspondence Form as 'Restitution Letter to Law Enforcement'

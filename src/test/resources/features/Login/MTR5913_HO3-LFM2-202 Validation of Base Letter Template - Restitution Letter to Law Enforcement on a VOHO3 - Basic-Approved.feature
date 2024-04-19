@@ -1,9 +1,9 @@
 # Author: Mustafa Cemek
-# created on 04/16/2024
+# created on 04/17/2024
 #TEST CASE NUMBER & TITLE: MTR-5913-LFM2-202 Validation of Base Letter Template - Restitution Letter to Law Enforcement on a VOHO3 - Basic-Approved
 #Precondition: Create a HO3 policy.
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
-#EXPECTED RESULTS: Builders base rate should be displayed for Water_nW, FireLightning, Liability, Other,Weather, Theft,CGCC, Hurricane correctly. County factor should be displayed correctly
+#EXPECTED RESULTS: User should be able to create, view, Edit/Enter to the Restitution Letter to Law Enforcement Form
 #User: Standard Agent, 		Adjuster1
 @regression @mtr5913 @lfm
 Feature: MTR5913_Verify User is able to create "Restitution Letter to Law Enforcement" on a VOL HO3 claim and submitted Claim File
@@ -23,5 +23,18 @@ Feature: MTR5913_Verify User is able to create "Restitution Letter to Law Enforc
     And User signs out
     Given User login to Spin as Adjuster
     And User Searchs for Policy Number <mtr5913>
-    And Use clicks Report Loss
-     And User sets Loss Date as after 30 days from the current
+    And User clicks Report Loss
+    And User sets Loss Date as current date
+    And User enters all required Loss Notice Information for Hail
+    And User clicks Complete button
+    Then User verifies the loss location is set to insured location
+    Then User verifies the Authority information
+    And Use enters Assigned Adjuster as Shannan Triplett
+    And User clicks Correspondence
+    And User selecks Correspondence Form as 'Restitution Letter to Law Enforcement'
+    Then User verifies the fields can Edit and Enter
+    And User clicks Process Correspondence
+    And User clicks Claim File
+    Then User verifies 'Interactive Restitution Law Enforcement Letter' in Claim File
+    And User clicks on 'Interactive Restitution Law Enforcement Letter'
+    Then User verifies 'Interactive Restitution Law Enforcement Letter' displays

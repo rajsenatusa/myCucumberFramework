@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
 import aii.utils.PdfComparator;
