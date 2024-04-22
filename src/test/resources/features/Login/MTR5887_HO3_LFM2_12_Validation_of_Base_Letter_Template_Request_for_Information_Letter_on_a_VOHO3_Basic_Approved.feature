@@ -26,7 +26,7 @@ Feature: MTR-5887 HO3 LFM2-12 Validation of Base Letter Template - Request for I
     And User login to Spin as Adjuster
     And User changes system date to current date <mtr5887>
     And User Searchs for Policy Number <mtr5887>
-    And Use clicks Report Loss
+    And User clicks Report Loss
     And User sets Loss Date as current date <mtr5887>
     And User fills all required information on claim notice screen and selects freezing as loss cause <mtr5887> 
     And User clicks Claim Overview Chevron <mtr5887>

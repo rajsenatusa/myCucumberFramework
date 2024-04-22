@@ -26,7 +26,7 @@ Feature: MTR-5865 HO3 LFM2-2 Validation of Base Letter Template - Appraisal Reje
     And User login to Spin as Adjuster
     And User changes system date to current date <mtr5865>
     And User Searchs for Policy Number <mtr5865>
-    And Use clicks Report Loss
+    And User clicks Report Loss
     And User sets Loss Date as current date <mtr5865>
     And User fills all required information on claim notice screen and selects freezing as loss cause <mtr5865> 
     And User clicks Claim Overview Chevron <mtr5865>
