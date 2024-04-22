@@ -2574,6 +2574,22 @@ public class CommonMethods extends PageInitializer {
 			return false;
 		}
 	}
+	public static boolean verify_AnyfirstText_IsNOTDisplayed(WebDriver driver, String text) throws Exception {
+		try {
+			if (driver.findElement(By.xpath("(//*[text()='" + text + "'])[1]")).isDisplayed()) {
+				Hooks.scenario.log("Is NOT visible: " + text);
+				attachScreenShot(driver);
+				return false;
+			}
+			return false;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is NOT visible: " + text);
+			wait(5);
+			attachScreenShot(driver);
+			return true;
+		}
+	}
 
 	public static void getAnyDropDownOptions(WebDriver driver, String field) throws Exception {
 		try {

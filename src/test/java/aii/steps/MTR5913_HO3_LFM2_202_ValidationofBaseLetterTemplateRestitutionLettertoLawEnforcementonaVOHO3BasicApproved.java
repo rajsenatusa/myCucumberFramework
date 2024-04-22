@@ -184,7 +184,7 @@ public class MTR5913_HO3_LFM2_202_ValidationofBaseLetterTemplateRestitutionLette
 	@When("User clicks Correspondence")
 	public void User_clicks_Correspondence() {
 		wait(1);
-		click(correspondance.correspondence);
+		click(correspondance.lnkCorrespondenceTab);
 		wait(1);
 	}
 
