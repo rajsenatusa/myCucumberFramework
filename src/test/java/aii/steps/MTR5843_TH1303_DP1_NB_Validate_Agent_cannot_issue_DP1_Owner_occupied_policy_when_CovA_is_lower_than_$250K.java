@@ -70,7 +70,7 @@ public class MTR5843_TH1303_DP1_NB_Validate_Agent_cannot_issue_DP1_Owner_occupie
 		// click(dwellingChevron.btnNext);
 	}
 	@When("User validates error message 'Cannot issue due to limited catastrophic capacity [Coverage A Minimum which exceeds a minimum of $250,000 requires underwriting review] ' has been displayed <mtr5843>")
-	public void user_enters_flood_covA_larger_than_dwellingCovA_and_validates_error_message() throws Exception {
+	public void user_validates_error_message_mtr5843() throws Exception {
 		wait(3);
 		verify_AnyText_IsVisible(driver, "Cannot issue due to limited catastrophic capacity [Coverage A Minimum which exceeds a minimum of $250,000 requires underwriting review] ");
 		click(dwellingChevron.btnNext);
