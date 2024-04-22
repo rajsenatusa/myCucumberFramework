@@ -579,6 +579,9 @@ public class QuoteDwellingChevronPageElements extends CommonMethods {
 	@FindBy(id= "ItemDesc")
 	public WebElement itemDesc;
 	
+	@FindBy(id= "Building.RoofSettlement")
+	public WebElement ddRoofSettlement;
+	
 	
 	public QuoteDwellingChevronPageElements() {
 		

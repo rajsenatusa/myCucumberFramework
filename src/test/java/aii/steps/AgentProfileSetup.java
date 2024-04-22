@@ -124,8 +124,8 @@ public class AgentProfileSetup extends CommonMethods {
 					driver.findElement(By.id("AddRole")).click();
 					wait(2);
 
-					selectDropdownText(driver.findElement(By.id("UserRole.AuthorityRoleIdRef")), "Policy Agent Limited");
-					driver.findElement(By.id("UserRole.StartDt")).sendKeys("1/1/1901");
+					selectDropdownText(driver.findElement(By.id("UserRole.AuthorityRoleIdRef")), "Policy Agent Gold or Diamond");
+					driver.findElement(By.id("UserRole.StartDt")).sendKeys("4/12/2024");
 					driver.findElement(By.id("UserRole.EndDt")).sendKeys("12/31/9999");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(2);
@@ -138,7 +138,7 @@ public class AgentProfileSetup extends CommonMethods {
 					String taskGroupID = taskGrID.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("UserTaskGroup.TaskGroupCd")), taskGroupID);
 				
-					driver.findElement(By.id("UserTaskGroup.StartDt")).sendKeys("1/1/1901");
+					driver.findElement(By.id("UserTaskGroup.StartDt")).sendKeys("4/12/2024");
 					driver.findElement(By.id("UserTaskGroup.EndDt")).sendKeys("12/31/9999");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(2);
@@ -621,11 +621,11 @@ public class AgentProfileSetup extends CommonMethods {
 //			            String ProducerAgency = PAgency.getRichStringCellValue().getString();
 						
 //						sendText(driver.findElement(By.id("ProducerAgency")),ProducerAgency);
-						selectDropdownText(driver.findElement(By.id("AgentLevel")), "Take Out");
+						selectDropdownText(driver.findElement(By.id("AgentLevel")), "Gold");
 						selectDropdownText(driver.findElement(By.id("Provider.StatusCd")), "Active");
 
-						driver.findElement(By.id("Provider.StatusDt")).sendKeys("3/1/2024");
-						driver.findElement(By.id("AppointedDt")).sendKeys("3/1/2024");
+						driver.findElement(By.id("Provider.StatusDt")).sendKeys("4/12/2024");
+						driver.findElement(By.id("AppointedDt")).sendKeys("4/12/2024");
 						driver.findElement(By.id("AgencyPartnerProducerCd")).sendKeys("");
 
 						XSSFCell BType = row.getCell(i+9);
@@ -1075,11 +1075,11 @@ public class AgentProfileSetup extends CommonMethods {
 					String ProducerAgency = PAgency.getRichStringCellValue().getString();
 					
 					sendText(driver.findElement(By.id("ProducerAgency")),ProducerAgency);
-					selectDropdownText(driver.findElement(By.id("AgentLevel")), "Take Out");
+					selectDropdownText(driver.findElement(By.id("AgentLevel")), "Gold");
 					selectDropdownText(driver.findElement(By.id("Provider.StatusCd")), "Active");
 
-					driver.findElement(By.id("Provider.StatusDt")).sendKeys("3/1/2024");
-					driver.findElement(By.id("AppointedDt")).sendKeys("3/1/2024");
+					driver.findElement(By.id("Provider.StatusDt")).sendKeys("4/12/2024");
+					driver.findElement(By.id("AppointedDt")).sendKeys("4/12/2024");
 					driver.findElement(By.id("AgencyPartnerProducerCd")).sendKeys("");
 
 					XSSFCell BType = row.getCell(i+9);
