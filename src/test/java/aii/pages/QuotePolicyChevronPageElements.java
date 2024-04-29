@@ -188,6 +188,28 @@ public class QuotePolicyChevronPageElements extends CommonMethods {
 	@FindBy(id= "Closeout")
 	public WebElement btnFinalize; 
 	
+	@FindBy(id= "InsuredResidentAddr.PreDirectional")
+	public WebElement insuredResidentAddrPreDirectional;
+	
+	@FindBy(id= "InsuredResidentAddr.verifyStatusImg")
+	public WebElement insuredResidentAddrVerifyStatusImgl;
+	
+	@FindBy(id= "CopyAddress")
+	public WebElement copyAddress; 
+	
+	@FindBy(xpath= "//*[@id=\"InsuredInformation\"]/table[11]/tbody/tr[1]/td[2]/a")
+	public WebElement copyToBillAddress; 
+	
+	@FindBy(id= "Insured.InsuranceScoreEstimate")
+	public WebElement insuranceScoreEstimate; 
+	
+	@FindBy(id= "InsuredName.OtherGivenName")
+	public WebElement insuredMiddleName; 
+	
+	
+	
+	
+	
 	
 	
 	

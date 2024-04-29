@@ -147,7 +147,7 @@ public class CommonSteps extends CommonMethods {
 	public void user_starts_transaction_as_a_new_customer() {
 		wait(1);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(1);
+		wait(2);
 		waitForClickability(driver.findElement(By.id("Menu_Policy_NewCustomerAndQuote")));
 		driver.findElement(By.id("Menu_Policy_NewCustomerAndQuote")).click();
 		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));

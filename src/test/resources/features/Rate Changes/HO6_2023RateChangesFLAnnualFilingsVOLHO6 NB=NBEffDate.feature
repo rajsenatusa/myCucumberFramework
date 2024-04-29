@@ -4,8 +4,8 @@ Feature: RC-5: 2023 Rate Changes- FL Annual Filings: VOL HO6
 
   Background: 
     Given User navigates to Model
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
+    And User enters a valid user name "mcemek"
+    And User enters a valid password "April@2024!"
     And User clicks on the login button
     When User hovers over quote and policy
     And User clicks new custemer and quote
@@ -55,7 +55,7 @@ Feature: RC-5: 2023 Rate Changes- FL Annual Filings: VOL HO6
 
     Examples: Test Data
       | username | password  | FloodCoverage | FloodPersonalProperty | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount | RoofMaterial                      |
-      | mcemek   | Jan@2024! | Yes           | $10,000               | $500                    | Basement            | B                 | No                  | No           | No                   | Architectural Composition Shingle |
+      | mcemek   | April@2024! | Yes           | $10,000               | $500                    | Basement            | B                 | No                  | No           | No                   | Architectural Composition Shingle |
 
   @RateChangeHO6-2
   Scenario Outline: Rate Change-2023 HO6-Flood Rate Zone D and Foundation Slab
