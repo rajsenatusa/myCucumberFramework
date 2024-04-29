@@ -65,6 +65,18 @@ public class HistoryPageElements extends CommonMethods {
 	@FindBy(id= "QuickAction_NewQuote_Holder")
 	public WebElement btnNewQuote;
 	
+	@FindBy(id= "TransactionCd")
+	public WebElement startTransaction;
+	
+	@FindBy(id= "History_1_1")
+	public WebElement history1_1;
+	
+	@FindBy(id= "History_2_2_TransactionCd")
+	public WebElement txtEndorsement3;
+	
+	
+	
+	
 	
 	public HistoryPageElements() {
 		

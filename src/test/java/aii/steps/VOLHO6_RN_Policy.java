@@ -7,10 +7,11 @@ import io.cucumber.java.en.Then;
 public class VOLHO6_RN_Policy extends CommonMethods {
 
 	@Then("User verifies RN HO6 policy has been created successfully")
-	public void User_verifies_RN_HO3_policy_has_been_created_successfully() {
+	public void User_verifies_RN_HO3_policy_has_been_created_successfully() throws Exception {
 		String expected = "Renewal";
 		String actual = historyChevron.txtRenewal.getText();
 		Assert.assertEquals("Test failed!", expected, actual);
+		attachScreenShot(driver);
 	}
 
 	@Then("User verifies HO6 RN Water NonWeather Base Rate")

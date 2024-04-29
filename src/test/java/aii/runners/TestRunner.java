@@ -24,8 +24,10 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
+		
 
-		tags = "@agentprofilesetup",
+
+		tags = "@mtr342",
 
 
 

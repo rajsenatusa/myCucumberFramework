@@ -283,11 +283,21 @@ Feature: Common Transactions and Steps
     And User selects Limited Fungi, Mold, Wet or Dry Rot, or Bacteria
     Then User verifies four triggered referrals
     And User clicks plus sign View Notes
-    And User clicks Report Loss 
+    And User clicks Report Loss
     And User sets Loss Date as current date
     And User enters all required Loss Notice Information for Hail
     And User clicks Complete button
     Then User verifies the loss location is set to insured location
     Then User verifies the Authority information
-   And User clicks Correspondence
+    And User clicks Correspondence
     And User selecks Correspondence Form as 'Restitution Letter to Law Enforcement'
+    And User enters HO6 Dwelling Address "<DwellingAddress>"
+    And User enters HO6 Dwelling Zip "<DwellingZip>"
+    And User enters effective date "<EffectiveDate>"
+    And User enters state "<State>"
+    And User clicks Water Damage Exclusion
+    And User clicks Water Damage Limited
+    And User Searchs Policy
+    And User selects Reinstatement and validates <mtr219>
+    And User clicks Change Date Transaction Selection
+    And User enters 05.24.2024 as new effective date <mtr6089>

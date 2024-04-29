@@ -142,12 +142,18 @@ public class CommonSteps extends CommonMethods {
 		click(login.btnSignIn);
 		wait(3);
 	}
-
+	@Given("User login to Spin as Georgia Agent")
+	public void user_login_to_spin_as_Georgiaagent() {
+		sendText(login.username, ConfigsReader.getProperty("gaagentusername"));
+		sendText(login.password, ConfigsReader.getProperty("gaagentpassword"));
+		click(login.btnSignIn);
+		wait(3);
+	}
 	@Given("User starts transaction as a new customer")
 	public void user_starts_transaction_as_a_new_customer() {
 		wait(1);
 		moveToElement(driver.findElement(By.id("Menu_Policy")));
-		wait(1);
+		wait(2);
 		waitForClickability(driver.findElement(By.id("Menu_Policy_NewCustomerAndQuote")));
 		driver.findElement(By.id("Menu_Policy_NewCustomerAndQuote")).click();
 		WebElement element = driver.findElement(By.id("Customer.EntityTypeCd"));
