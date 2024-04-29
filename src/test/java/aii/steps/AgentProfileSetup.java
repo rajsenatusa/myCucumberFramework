@@ -1,16 +1,11 @@
 package aii.steps;
 
 import java.io.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -25,6 +20,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import aii.utils.CommonMethods;
 import io.cucumber.java.en.Then;
+import java.io.FileInputStream;
 
 public class AgentProfileSetup extends CommonMethods {
 
@@ -125,10 +121,11 @@ public class AgentProfileSetup extends CommonMethods {
 					wait(2);
 
 					selectDropdownText(driver.findElement(By.id("UserRole.AuthorityRoleIdRef")), "Policy Agent Gold or Diamond");
-					driver.findElement(By.id("UserRole.StartDt")).sendKeys("4/12/2024");
-					driver.findElement(By.id("UserRole.EndDt")).sendKeys("12/31/9999");
-					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(2);
+					sendText(driver.findElement(By.id("UserRole.StartDt")),"4/12/2024");
+//					driver.findElement(By.id("UserRole.EndDt")).sendKeys("12/31/9999");
+					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
+					wait(4);
 
 
 					// AddTaskGroup
@@ -138,8 +135,8 @@ public class AgentProfileSetup extends CommonMethods {
 					String taskGroupID = taskGrID.getRichStringCellValue().getString();
 					selectDropdownText(driver.findElement(By.id("UserTaskGroup.TaskGroupCd")), taskGroupID);
 				
-					driver.findElement(By.id("UserTaskGroup.StartDt")).sendKeys("4/12/2024");
-					driver.findElement(By.id("UserTaskGroup.EndDt")).sendKeys("12/31/9999");
+					sendText(driver.findElement(By.id("UserTaskGroup.StartDt")), "4/12/2024");
+//					driver.findElement(By.id("UserTaskGroup.EndDt")).sendKeys("12/31/9999");
 					driver.findElement(By.xpath("//*[@id=\"Save\"]")).click();
 					wait(2);
 
