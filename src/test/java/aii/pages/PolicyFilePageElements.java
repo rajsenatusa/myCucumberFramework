@@ -48,6 +48,8 @@ public class PolicyFilePageElements extends CommonMethods {
 	@FindBy(xpath= "//*[@id=\"Draggable_00000_00000\"]/table/tbody/tr[1]")
 	public WebElement HO4NewBussinessPackageLink;
 	
+	 
+	
 	
 	
 	public PolicyFilePageElements() {

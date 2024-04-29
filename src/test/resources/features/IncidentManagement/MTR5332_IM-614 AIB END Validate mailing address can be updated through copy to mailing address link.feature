@@ -43,3 +43,6 @@ Feature: MTR5332--IIM-614 : AIB END Validate mailing address can be updated thro
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
     And User selects endorsement date as system date plus 30 days
+    And User modifies Location address as '12 Needle Cast Ln, 32461'
+    Then User verifies modified Mailing Address and Billing Address
+    And User clicks Endorse Policy button
