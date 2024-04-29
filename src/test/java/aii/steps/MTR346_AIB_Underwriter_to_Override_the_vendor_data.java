@@ -8,29 +8,26 @@ import org.openqa.selenium.WebElement;
 
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class MTR5331_IM614_AIB_Validate_policy_cannot_be_issued_wo_filling_UW_questions extends CommonMethods{
-	
+public class MTR346_AIB_Underwriter_to_Override_the_vendor_data extends CommonMethods{
+
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 	static LocalDateTime currentDate = LocalDateTime.now();
 	static String policyNum;
 	
-	@When("User changes system date to current date <mtr5331>")
-	public void user_changes_system_date_to_current_date_mtr5331() throws Exception {
-		ChangeAdminDate_NotInbox(driver, dtf.format(currentDate));
-	}
-	@When("User enters all required information on policy information screen <mtr5331>")
-	public void user_enters_all_required_information_on_policy_information_screen_mtr5331() {
+	@When("User enters all required information on policy information screen <mtr346>")
+	public void user_enters_all_required_information_on_policy_information_screen_mtr346() {
 
 		// quote level information was filled here
 		sendText(quote.txtFirstName, ConfigsReader.getProperty("firstname"));
 		sendText(quote.txtLastName, ConfigsReader.getProperty("lastname"));
 		sendText(quote.txtBirthDate, ConfigsReader.getProperty("birthdate"));
 		click(quote.txtSearchName);
-		sendText(quote.txtAddress, "11216 SW PEMBROKE DR");
-		sendText(quote.txtZipCode, "34987");
+		sendText(quote.txtAddress, "1163 Oak Bluff Dr");
+		sendText(quote.txtZipCode, "33837");
 		wait(2);
 		click(quote.btnVerifyAddress);
 		wait(2);
@@ -39,14 +36,20 @@ public class MTR5331_IM614_AIB_Validate_policy_cannot_be_issued_wo_filling_UW_qu
 		click(quote.btnSaveAndQuote);
 		wait(2);
 	}
-	@When("User enters all required information on AIB quote screen for <mtr5331>")
-	public void user_enters_all_required_information_on_aib_quote_screen_for_mtr5331() {
+	@And("User enters Producer <mtr346>")
+	public void User_enters_Producer_mtr346() {
+		policyChevron.txtProducerCodeSel.sendKeys("AG1730A1");
+		click(dwellingChevron.btnSave);
+		wait(1);
+	}
+	@When("User enters all required information on AIB quote screen for <mtr346>")
+	public void user_enters_all_required_information_on_aib_quote_screen_for_mtr346() {
 
-		selectDropdownText(policyChevron.ddPreviousCarrier, "Geico");
+		selectDropdownText(policyChevron.ddPreviousCarrier, ConfigsReader.getProperty("priorcarrieraib"));
 		sendText(policyChevron.txtPreviousPolicyExpDate, dtf.format(currentDate));
 		selectDropdownText(policyChevron.ddCoverage6MonthsInd, "Yes");
 		selectDropdownText(policyChevron.ddGaraged6MonthsInd, "Yes");
-		selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
+		selectDropdown(policyChevron.ddInsuranceScoreDd, 5);
 		sendText(policyChevron.txtPhoneNumber, ConfigsReader.getProperty("phonenumber"));
 		selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 		wait(2);
@@ -58,8 +61,8 @@ public class MTR5331_IM614_AIB_Validate_policy_cannot_be_issued_wo_filling_UW_qu
 		click(policyChevron.btnNext);
 		wait(3);
 	}
-	@When("User selects liability coverage on quote screen for <mtr5331>")
-	public void user_selects_liability_coverage_on_quote_screen_for_mtr5331() {
+	@When("User selects liability coverage on quote screen for <mtr346>")
+	public void user_selects_liability_coverage_on_quote_screen_for_mtr346() {
 
 		selectDropdownText(golfcartChevron.ddLiabilityCovType, "Split Limits");
 		wait(6);
@@ -75,25 +78,25 @@ public class MTR5331_IM614_AIB_Validate_policy_cannot_be_issued_wo_filling_UW_qu
 		click(dwellingChevron.btnNext);
 		wait(3);
 	}
-	@When("User adds operator information on quote screen <mtr5331>")
-	public void user_adds_operator_information_on_quote_screen_mtr5331() {
+	@When("User adds operator information on quote screen <mtr346>")
+	public void user_adds_operator_information_on_quote_screen_mtr346() {
 		click(aibChevron.btnAddOperator);
 		wait(3);
 		selectDropdownText(golfcartChevron.ddDriverMaritalStatus, "Single");
 		selectDropdownText(golfcartChevron.ddDriverLicenseInd, "Yes");
-		selectDropdownText(aibChevron.ddLicenseState, "Alabama");
-		sendText(aibChevron.txtLicenseNumber, "t120100849500");
+		selectDropdownText(aibChevron.ddLicenseState, "Florida");
+		sendText(aibChevron.txtLicenseNumber, "Y123101952915");
 		selectDropdownText(aibChevron.ddBoatExperience, "4");
 		selectDropdownText(golfcartChevron.ddDriverTrainingInd, "No");
 		wait(3);
 		click(golfcartChevron.btnNextGocScreen);
 	}
-	@When("User enters all required information on AIB boat dwelling screen for <mtr5331>")
-	public void user_enters_all_required_information_on_aib_boat_dwelling_screen_for_mtr5331() {
+	@When("User enters all required information on AIB boat dwelling screen for <mtr346>")
+	public void user_enters_all_required_information_on_aib_boat_dwelling_screen_for_mtr346() {
 
 		click(aibChevron.btnAddBoat);
 		wait(3);
-		sendText(aibChevron.txtBoatYear, "2021");
+		sendText(aibChevron.txtBoatYear, "2019");
 		sendText(aibChevron.txtBoatHinNumber, "1548799652");
 		selectDropdownText(aibChevron.ddBoatMake, "Bayliner");
 		sendText(aibChevron.txtBoatModel, "Testing");
@@ -112,7 +115,7 @@ public class MTR5331_IM614_AIB_Validate_policy_cannot_be_issued_wo_filling_UW_qu
 		selectDropdownText(aibChevron.ddNumberOfEngines, "1");
 		wait(2);
 		selectDropdownText(aibChevron.ddBoatHp, "76 - 100");
-		sendText(aibChevron.txtBoatEngine1Year, "2021");
+		sendText(aibChevron.txtBoatEngine1Year, "2019");
 		sendText(aibChevron.txtBoatEngineMake, "Engine");
 		sendText(aibChevron.txtBoatEngine1Hp, "85");
 		selectDropdownText(aibChevron.ddTrailerCoverage, "None");
@@ -124,39 +127,53 @@ public class MTR5331_IM614_AIB_Validate_policy_cannot_be_issued_wo_filling_UW_qu
 		click(reviewChevron.btnReview);
 		wait(3);
 	}
-	@When("User clicks Policy Chevron <mtr5331>")
-	public void user_clicks_policy_chevron_mtr5331() throws Exception {
-		click(policyChevron.btnPolicyChevronLink);
+	@When("User clicks Order Data Report and validates Dropdown Selections <mtr346>")
+	public void user_clicks_Order_Data_Report_and_validates_Dd_Selections_mtr346() throws Exception {
+ 
+		click(dataReportsChevron.btnOrderDataReport);
 		wait(2);
+		String [] ddReportTypes= {"Select...","CLUE Personal Auto","Insurance Score","LexisNexis MVR"};
+		verifyAnyDropDownOptions(driver, ddReportTypes, "DataReportRequest.TemplateIdRef");
 	}
-	@When("User modify address and copies to mailing and billing address fields")
-	public void user_modify_address_mtr5331() throws Exception {
-		sendText(quote.txtAddressNumber,"12 Needle Cast Ln");
-		sendText(quote.txtPostalCode, "32461");
-		click(quote.btnVerifyAddress2);
+	@When("User selects Insurance Score Report and click order <mtr346>")
+	public void user_selects_InsuranceScore_Report_and_orders_mtr346() {
+ 
+		selectDropdownText(dataReportsChevron.ddDataReportSel, "Insurance Score");
 		wait(2);
-		click(driver.findElement(By.linkText("Copy to Mailing Address")));
-		driver.findElement(By.linkText("Copy to Billing Address"));
-		click(dwellingChevron.btnSave);
-		wait(2);
+		click(dataReportsChevron.btnSelect);
+		wait(1);
+		click(dataReportsChevron.btnOrder);
+		wait(6);
 	}
-	@When("User finalizes transaction and validates 'Complete all required Underwriting Questions with an asterisk. fix...' message <mtr5331>")
-	public void user_finalizes_transaction_and_validates_issue_message_mtr5331() throws Exception {
-		click(reviewChevron.btnFinalize);
-		wait(2);
-		verify_AnyfirstText_IsDisplayed(driver, "Complete all required Underwriting Questions with an asterisk (*). ");
+	@When("User validates A new report generated and added in Data Reports In Process Data Reports <mtr346>")
+	public void user_validates_A_New_report_Generated_and_added_in_Data_reports_in_process_data_reports_mtr346() throws Exception {
+ 
+		verify_AnyText_IsVisible(driver, "Insurance Score");
+		verify_AnyText_IsVisible(driver, "Received");
+		attachScreenShot(driver);
 	}
-	@When("User enters all required information on AIB review screen <mtr5331>")
-	public void user_enters_all_required_information_on_aib_review_screen_mtr5331() {
-		selectDropdownText(reviewChevron.ddPayPlan, ConfigsReader.getProperty("payplan"));
-		wait(4);
-		click(reviewChevron.btnFullPaymentRadio);
-		wait(3);
-		selectDropdownText(reviewChevron.ddOrderInsScore, "No");
-		wait(3);
+	@When("User should be able to see the data received from Report on quote <mtr346>")
+	public void user_should_be_able_to_see_the_data_received_from_report_on_quote_mtr346() throws Exception {
+ 
+		WebElement genericError = driver.findElement(By.id("GenericBusinessError"));
+		if (genericError.isDisplayed()) {
+			Hooks.scenario.log("Insurance Score Data Report applied to the policy");
+			attachScreenShot(driver);
+		}
+		else {
+			Hooks.scenario.log("Insurance Score Data Report did not apply to the policy, Test FAILS!");
+			attachScreenShot(driver);
+		}
 	}
-	@Then("User issues policy and close unnecessary tabs and completes test <mtr5331>")
-	public void user_issues_policy_and_close_unnecessary_tabs_completes_test_mtr5331() throws Exception {
+	@When("User validates application should be able to see the data received from Report. In Process Data Reports <mtr346>")
+	public void user_validates_application_should_be_able_to_see_the_data_received_from_report_in_process_data_reports_mtr346() throws Exception {
+ 
+		verify_AnyText_IsVisible(driver, "Insurance Score");
+		verify_AnyText_IsVisible(driver, "Applied");
+		attachScreenShot(driver);
+	}
+	@Then("User issues policy and close unnecessary tabs and completes test <mtr346>")
+	public void user_issues_policy_and_close_unnecessary_tabs_mtr346() throws Exception {
 		selectDropdownText(closeoutChevron.ddPaymentType, "None");
 		wait(4);
 		click(closeoutChevron.btnIssueNB);
@@ -172,7 +189,16 @@ public class MTR5331_IM614_AIB_Validate_policy_cannot_be_issued_wo_filling_UW_qu
 		getPolicyNumber(driver);
 		getInForcePremium(driver);
 		getInForcePremiumFees(driver);
-		
+
 		Hooks.scenario.log("Test Case Completed!");
+	}
+	@And("User answers all underwriting questions for AIB <mtr346>")
+	public void user_answers_all_underwriting_questions_for_aib_mtr346() throws Exception {
+
+		click(driver.findElement(By.id("Wizard_Underwriting")));
+		wait(2);
+		fillBoat_UWQuestions();
+		wait(2);
+		click(uwquestionsChevron.nextButtonUw);
 	}
 }

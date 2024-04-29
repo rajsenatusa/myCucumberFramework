@@ -310,8 +310,24 @@ public class UwQuestionsPageElements extends CommonMethods {
 	
 	@FindBy(id= "selectDropdownText(uwquestionsChevron.ho3Question26,")
 	public WebElement selectDropdownText26; 
-	 
 	
+	@FindBy(id= "Question_PriorWeatherLosses")
+	public WebElement gauwquestion6;
+	
+	@FindBy(id= "Question_TitleHold")
+	public WebElement gauwquestion8;
+	 
+	@FindBy(id= "Question_PitBullMix")
+	public WebElement gauwquestion11;
+	
+	@FindBy(id= "Question_HomeRental")
+	public WebElement gauwquestion16;
+	
+	@FindBy(id= "Question_RoofManufacturer")
+	public WebElement gauwquestion27;
+	
+	@FindBy(id= "Question_ElectronicDocuments")
+	public WebElement gauwquestion28;
 	
 	public UwQuestionsPageElements() {
 		

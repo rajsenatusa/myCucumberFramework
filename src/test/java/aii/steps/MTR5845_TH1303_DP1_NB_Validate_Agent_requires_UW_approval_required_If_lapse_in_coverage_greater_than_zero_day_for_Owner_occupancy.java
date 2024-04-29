@@ -34,6 +34,7 @@ public class MTR5845_TH1303_DP1_NB_Validate_Agent_requires_UW_approval_required_
 		click(quote.btnCopyToBillAddress);
 		click(quote.btnSaveAndQuote);
 		wait(2);
+		
 	}
 	@When("User enters all required information on DP1 quote screen with current date minus 1 day as prior policy date <mtr5845>")
 	public void user_enters_all_required_information_on_dp1_quote_screen_with_current_date_minus1day_as_prior_policy_date_mtr5845() {

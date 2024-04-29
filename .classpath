@@ -28,7 +28,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-9">
 		<attributes>
-			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -37,14 +36,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/smartPDFcomparator2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/slf4j-api-1.7.30.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/pdfcomparator1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/config-1.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/logback-classic-1.2.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/logback-core-1.2.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/fontbox-2.0.20.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mcemek/Desktop/Cucumber/Jar CAN/pdfbox-2.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/config-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/fontbox-2.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/logback-classic-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/logback-core-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/pdfbox-2.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/pdfcomparator1.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="C:/EclipseInstallation/neededd jars/jars/smartPDFcomparator2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

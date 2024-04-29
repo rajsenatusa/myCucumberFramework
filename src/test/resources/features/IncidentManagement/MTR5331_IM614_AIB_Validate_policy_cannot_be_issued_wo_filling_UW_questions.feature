@@ -13,7 +13,6 @@
 ## 2. Confirming that users are not allowed to proceed without answering the UW questions. 
 ## User: Standard Agent
 
-##PS: This fix has not been deployed to model and production. Planning to deploy April release. Please follow up before putting inside regression suite
 
 @regression @mtr5331 @aibregression @im
 Feature: MTR5331--IM-614 : AIB Validate policy cannot be issued w/o filling UW questions
