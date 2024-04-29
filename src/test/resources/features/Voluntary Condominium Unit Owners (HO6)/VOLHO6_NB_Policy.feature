@@ -50,5 +50,30 @@ Feature: New Business Policy VOL HO6
     Then User verifies NB HO6 policy has been created successfully
 
     Examples: Test Data
-      | username | password | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mkoziel  | password | 08/05/2023    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | username | password    | EffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | mcemek   | April@2024! | 05/05/2024    | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+
+  @NBVOLHO6
+  Scenario Outline: Rate Change-2023 HO6-Flood Rate Zone X and Foundation Basement
+    Given User navigates to Model
+    Given User login to Spin as Admin Agent
+    When User starts transaction as a new customer
+    And User enters all required information on policy information screen <mtr6082>
+    And User enters HO6 Dwelling Address "<DwellingAddress>"
+    And User enters HO6 Dwelling Zip "<DwellingZip>"
+    And User enters HO6 product selection information and '05.24.2024' as effective date
+    And User enters all required information on HO6 quote screen <mtr6082>
+    And User enters all required information on HO6 dwelling screen
+    And User enters all required information on HO6 review screen
+    And User creates HO6 application
+    And User answers all underwriting questions for HO6
+    And User checks application dwelling screen and finalizes transaction
+    And User issues policy
+    Then User validates that HO6 policy has been created successfully
+    And User clicks Worksheets chevron
+    Then User verifies HO6 Non-Hurricane Base Rate
+    Then User verifies HO6 Hurricane Base Rate
+
+    Examples: Test Data
+      | DwellingAddress   | DwellingZip |
+      | 1163 Oak Bluff Dr |       33837 |

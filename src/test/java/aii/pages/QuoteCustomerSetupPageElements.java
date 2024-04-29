@@ -128,6 +128,11 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy(id= "CustomerLookupAddr.PostalCode")
 	public WebElement customerLookupAddrPostalCode;
 	
+	@FindBy(id= "InsuredResidentAddr.PreDirectional")
+	public WebElement insuredResidentAddrPreDirectional;
+	
+	 
+	
 	
 	
 	

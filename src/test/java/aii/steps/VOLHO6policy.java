@@ -52,6 +52,7 @@ public class VOLHO6policy extends CommonMethods {
 	@When("User enters all required information on HO6 dwelling screen")
 	public void user_enters_all_required_information_on_ho6_dwelling_screen() {
 
+				
 		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
 		wait(2);
 		sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
@@ -110,7 +111,7 @@ public class VOLHO6policy extends CommonMethods {
 		
 		getInForcePremium(driver);
 		getInForcePremiumFees(driver);
-
+		attachScreenShot(driver);
 		// Close unnecessary tabs
 		closeUnnecessaryTabs();
 	}

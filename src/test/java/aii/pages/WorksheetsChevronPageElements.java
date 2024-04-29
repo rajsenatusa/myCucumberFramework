@@ -263,14 +263,34 @@ public class WorksheetsChevronPageElements extends CommonMethods {
 	@FindBy(xpath="//*[@id=\"rowCovCovArea06\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
 	public WebElement HO3CGCCBasePremium;
 	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea00\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement HO6NHRBaseClick;
+	
+	@FindBy(id="CovA01")
+	public WebElement HO6NHRBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")                
+	public WebElement HO6HRBaseClick;
+	
+	@FindBy(id="CovA01")
+	public WebElement HO6HRBasePremium;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea10\"]/tbody/tr/td/div/table/tbody/tr[25]/td[1]/i")                
+	public WebElement HO6WaterDamageExcludedClick;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea10\"]/tbody/tr/td/div/table/tbody/tr[28]/td[4]")
+	public WebElement HO6WaterDamageExcluded;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[3]/td[4]")
+	public WebElement HO6HR;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea01\"]/tbody/tr/td/div/table/tbody/tr[2]/td[1]/i")                
+	public WebElement HO6HRClick;
+	
+	@FindBy(xpath="//*[@id=\"rowCovCovArea10\"]/tbody/tr/td/div/table/tbody/tr[29]/td[4]")
+	public WebElement HO6WaterDamageLimited;
+	
 	 
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
