@@ -1,6 +1,5 @@
 package aii.steps;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -137,6 +136,7 @@ public class VOLHO4policy extends CommonMethods {
 				String monthsoccp = dataMap.get("Months");
 				String yearcons = dataMap.get("ConstYear");
 				String coveragec = dataMap.get("CoverageC");
+				String producerCode = dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -163,6 +163,10 @@ public class VOLHO4policy extends CommonMethods {
 				click(product.btnProductSelectionHo4);
 
 				// quote
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
+				wait(3);
+				click(dwellingChevron.btnSave);
+				wait(2);
 				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
 				selectDropdownText(policyChevron.ddMobileHomeInd, "No");
@@ -236,14 +240,7 @@ public class VOLHO4policy extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

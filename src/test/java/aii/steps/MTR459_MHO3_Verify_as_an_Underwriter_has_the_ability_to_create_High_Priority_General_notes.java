@@ -1,17 +1,8 @@
 package aii.steps;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import aii.utils.CommonMethods;
-import aii.utils.ConfigsReader;
-import aii.utils.PdfComparator;
-import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -71,8 +62,9 @@ public class MTR459_MHO3_Verify_as_an_Underwriter_has_the_ability_to_create_High
 	}
 
 	@When("User clicks Add Note button")
-	public void User_clicks_Add_Note_button() {
-		click(dashboard.addNote);
+	public void User_clicks_Add_Note_button() {		
+		driver.findElement(By.id("AddNote")).click();
+//		click(dashboard.addNote);
 		wait(1);
 	}
 
@@ -95,7 +87,7 @@ public class MTR459_MHO3_Verify_as_an_Underwriter_has_the_ability_to_create_High
 	public void User_validates_a_New_Note_has_been_created_successfully_in_Notes_List() throws Exception {
 		wait(7);
 		click(dashboard.btnExpand);
-		verify_AnyText_IsVisible(driver, "Memo: Company Privileged Note that was entered by Underwriter");
+		verify_AnyText_IsVisible(driver, "Company Privileged Note that was entered by Underwriter");
 		Hooks.scenario.log("New Note has been created successfully!");
 		Hooks.scenario.log("Company Privileged Note has been created successfully");
 		attachScreenShot(driver);
@@ -104,7 +96,7 @@ public class MTR459_MHO3_Verify_as_an_Underwriter_has_the_ability_to_create_High
 	public void User_validates_Agent_is_not_able_to_see_Company_Privileged_Note_that_was_created_by_Underwriter() throws Exception {
 		wait(7);
 		click(dashboard.btnExpand);
-		verify_AnyText_NotVisible(driver, "Memo: Company Privileged Note that was entered by Underwriter");
+		verify_AnyText_NotVisible(driver, "Company Privileged Note that was entered by Underwriter");
 		Hooks.scenario.log("Agent is not able to see Company Privileged Note that was created by Underwriter");
 	}
 	@And("User enters Months Occupied for MHO3")

@@ -1,7 +1,6 @@
 package aii.utils;
 
 import java.awt.*;
-import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -147,6 +146,7 @@ public class CommonMethods extends PageInitializer {
 	/**
 	 * This method accepts an Alert and handles NoAlertPresentException if no alert
 	 * is present.
+	 * @param driver 
 	 * 
 	 */
 	public static void acceptAlert() {
@@ -247,6 +247,19 @@ public class CommonMethods extends PageInitializer {
 		}
 	}
 
+	/**
+	 * This method switches to a default content from a frame
+	 * 
+	 * @param element
+	 */
+	public static void switchToDefault() {
+		try {
+
+			driver.switchTo().defaultContent();
+		} catch (NoSuchFrameException e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * This method switches focus to a child window.
 	 * 
@@ -1139,6 +1152,44 @@ public class CommonMethods extends PageInitializer {
 		CommonMethods.wait(1);
 		CommonMethods.click(uwquestionsChevron.nextButtonUw);
 	}
+	
+	public static void fillHO5_UWQuestions() throws Exception {
+
+		// HO3 Underwriting Questions Chevron was filled here
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question1, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question2, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question3, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question5, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question6, "0");
+		CommonMethods.selectDropdownText(uwquestionsChevron.gauwquestion6, "0");
+		CommonMethods.selectDropdownText(uwquestionsChevron.scHo3Question6, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.gauwquestion8, "Yes");
+//		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question10, "Yes");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question12, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.gauwquestion11, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question13, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question14, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question17, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question15, "Yes");
+		CommonMethods.selectDropdownText(uwquestionsChevron.gauwquestion16, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question18, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question20, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question21, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho6Question21, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question23, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question25, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question26, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question27, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question28, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.ho3Question29, "No");
+		CommonMethods.selectDropdownText(uwquestionsChevron.gauwquestion27, "No");
+//		CommonMethods.selectDropdownText(uwquestionsChevron.gauwquestion28, "No");
+		
+		CommonMethods.wait(1);
+
+		CommonMethods.click(dwellingChevron.btnNext);
+
+	}
 
 	public static void check_CCDisclosure() {
 
@@ -1439,7 +1490,26 @@ public class CommonMethods extends PageInitializer {
 		}
 
 	}
+	/**
+	 * This method checks any desired label value with expected value
+	 * 
+	 */
+	public static boolean verify_AnyLabel_IsNotVisible(WebDriver driver, String text) throws Exception {
 
+		try {
+			if (driver.findElement(By.xpath("//*[contains(text(), '" + text + "')]")).isDisplayed()) {
+				Hooks.scenario.log("Is NOT visible: " + text);
+				return false;
+			}
+			return false;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is NOT visible: " + text);
+			wait(5);
+			return true;
+		}
+
+	}
 	/**
 	 * This method checks any desired text value is not visible
 	 * 
@@ -2408,7 +2478,20 @@ public class CommonMethods extends PageInitializer {
 		}
 		return action;
 	}
-	
+
+	public static String getMinimumAmountReinstate(WebDriver driver) throws Exception {
+		String num = null;
+		try {
+			num = driver.findElement(By.id("MinAmountToReinstate_text")).getText().toString();
+			wait(4);
+			Hooks.scenario.log(" Minimum Amount to Reinstate : " + num);
+		} catch (Exception e) {
+			Hooks.scenario.log(num + " Minimum Amount to Reinstate : ");
+
+		}
+		return num;
+	}
+
 	public static String getPaymentPlan(WebDriver driver) throws Exception {
 		String payPlan = null;
 		try {
@@ -2527,6 +2610,22 @@ public class CommonMethods extends PageInitializer {
 			wait(5);
 			attachScreenShot(driver);
 			return false;
+		}
+	}
+	public static boolean verify_AnyfirstText_IsNOTDisplayed(WebDriver driver, String text) throws Exception {
+		try {
+			if (driver.findElement(By.xpath("(//*[text()='" + text + "'])[1]")).isDisplayed()) {
+				Hooks.scenario.log("Is NOT visible: " + text);
+				attachScreenShot(driver);
+				return false;
+			}
+			return false;
+
+		} catch (Exception e) {
+			Hooks.scenario.log("Is NOT visible: " + text);
+			wait(5);
+			attachScreenShot(driver);
+			return true;
 		}
 	}
 

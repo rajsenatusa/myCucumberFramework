@@ -23,6 +23,9 @@ public class PolicyFilePageElements extends CommonMethods {
 	@FindBy(linkText= "Renewal Declaration")
 	public WebElement btnRenewalDeclaration;
 	
+	@FindBy(linkText= "New Business Package")
+	public WebElement linkNewBusinessPackage;
+	
 	@FindBy(linkText= "Insured Renewal Declaration")
 	public WebElement insuredRenewalDeclaration;
 		
@@ -44,6 +47,8 @@ public class PolicyFilePageElements extends CommonMethods {
 	
 	@FindBy(xpath= "//*[@id=\"Draggable_00000_00000\"]/table/tbody/tr[1]")
 	public WebElement HO4NewBussinessPackageLink;
+	
+	 
 	
 	
 	

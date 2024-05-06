@@ -40,7 +40,7 @@ public class VOLDP1policy extends CommonMethods {
 		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytypedp1"));
 		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupieddp1"));
 		selectDropdownText(policyChevron.ddPropertyManaged, ConfigsReader.getProperty("propertymanaged"));
-		selectDropdownText(policyChevron.ddShortTermRental, ConfigsReader.getProperty("shorttermrental"));
+		//selectDropdownText(policyChevron.ddShortTermRental, ConfigsReader.getProperty("shorttermrental"));
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);
@@ -129,6 +129,7 @@ public class VOLDP1policy extends CommonMethods {
 				String yearcons = dataMap.get("ConstYear");
 				String roof = dataMap.get("RoofMat");
 				String quality = dataMap.get("Quality");
+				String producerCode= dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -157,9 +158,10 @@ public class VOLDP1policy extends CommonMethods {
 				// quote
 				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
-//				sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
-//				click(dwellingChevron.btnSave);
-//				wait(3);
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
+				wait(2);
+				click(dwellingChevron.btnSave);
+				wait(3);
 				sendText(policyChevron.txtPhoneNumber, phone);
 				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 				wait(2);

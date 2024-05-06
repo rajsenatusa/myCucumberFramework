@@ -11,7 +11,7 @@
   
 ## User: Admin, Agent
  
-@regression @mtr1414 @tomhpdregression
+@regression @mtr1414 @tomhpdregression @AIItomhpd
 Feature: TC 33703--TO MHPD - UI / RULES: Add Rolled/Bitumen roof material
 
   Scenario: Validate Rolled/Bitumen is added to the Roof Material selection and displays in order indicated 

@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT:  In the Scenario Below
 #EXPECTED RESULTS: FORM content and formatting match clean copies attached to the AIIC HO4 DEC 04 23 displays on  bottom of all pages. Validate AIIC HO4 DEC 04 23 form is as expected.
 #User:admin
-@regression @mtr916 @gu
+@regression @mtr916 @gu 
 Feature: MTR-916_HO4_Renters Policy Declarations AIIC HO4 DEC 04 23
 
   Scenario: Validate AIIC HO4 DEC 04 23 form content and formatting match clean copies

@@ -171,7 +171,7 @@ public class MTR363_DP3_IntegritySelect_ValidateChecklistDisplaysACVWhenCovCGrea
 	@When("User clicks Renewal Decleration link")
 	public void user_clicks_renewal_decleration_link() throws Exception {
 		click(policyFileChevron.btnRenewalDeclaration);
-		wait(33);
+		wait(3);
 	}
 
 	@When("User clicks Endorsement Package link")

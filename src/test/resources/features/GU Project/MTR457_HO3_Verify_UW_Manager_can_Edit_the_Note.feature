@@ -5,7 +5,7 @@
 #HIGH LEVEL STEPS OF TEST SCRIPT: In the Scenario Below
 #EXPECTED RESULTS: Underwriter has the ability to create Company Privileged Note. Edit or Delete buttons not displays for UW. Agent is not able to see Company Privileged Note that was created. Agent is not able to see Company Privileged Note that was created. UW Manager can Edit the note
 #User:Underwriter, UW Manager
-@regression @mtr457 @gu
+@regression @mtr457 @gu 
 Feature: MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note
 
   Scenario: Verify_Underwriter_creates_and_UW_Manager_can_Edit_the_note
@@ -13,7 +13,7 @@ Feature: MTR457_HO3_Verify_UW_Manager_can_Edit_the_Note
     And User starts transaction as a new customer
     And User enters all required information on policy information screen
     And User enters HO3 product selection information and current date as effective date
-    And User enters all required information on HO3 quote screen
+    And User enters all required information on HO3 quote screen <mtr457>
     And User enters all required information on HO3 dwelling screen
     And User enters all required information on HO3 review screen
     And User creates HO3 application

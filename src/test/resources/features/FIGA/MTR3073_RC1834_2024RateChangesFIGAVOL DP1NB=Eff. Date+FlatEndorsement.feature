@@ -2,7 +2,7 @@
 @FIGA-VOLDP1
 Feature: RC-1834: 2024 Rate Changes- FIGA: VOL DP1 - 1/1/2024
 
-  @FIGA2024-VOLDP1-1 @FIGA2024
+  @FIGA2024-VOLDP1-1 @FIGA2024 @regressionFEB
   Scenario Outline: MTR-3073: RC-1834: 2024 Rate Changes- FIGA: VOL DP1 - NB = Eff. Date+ Flat Endorsement
     Given User navigates to Model
     And User login to Spin as Admin Agent

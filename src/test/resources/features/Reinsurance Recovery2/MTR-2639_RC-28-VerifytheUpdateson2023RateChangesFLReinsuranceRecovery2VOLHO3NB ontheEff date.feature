@@ -2,8 +2,32 @@
 @NB_Policy_VOLHO3Reinsurance
 Feature: RC-28: 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO3
 
-  @NB_Policy_VOLHO3Reinsurance-11 @ReinsuranceRecovery
+  @NB_Policy_VOLHO3Reinsurance-11 @ReinsuranceRecovery @mtr2639
   Scenario Outline: MTR-2639: RC-28-Verify the Updates on 2023 Rate Changes- FL Reinsurance Recovery 2: VOL HO3 - NB on the Eff date
+    
+     #Given User login to Spin as Admin Agent
+    #When User starts transaction as a new customer
+    #And User enters all required information on policy information screen
+    #And User enters HO3 product selection information and current date as effective date <mtr153>
+    #And User enters all required information on HO3 quote screen <mtr153>
+    #And User enters all required information on HO3 dwelling screen
+    #And User enters all required information on HO3 review screen
+    #And User creates HO3 application
+    #And User answers all underwriting questions for HO3
+    #And User checks application dwelling screen and finalizes transaction
+    #And User issues policy
+    #Then User validates that HO3 policy has been created successfully
+    #
+    #And User returns to main page
+    #And User clicks Worksheets chevron
+    #And User clicks Fire or Lightning Base Premium
+    #Then User verifies VOL HO3 Fire or Lightning Base Rate
+    #And User clicks  Weather Base Premium
+    #Then User verifies VOL HO3 Weather Base Rate
+    #And User clicks VOL HO3 Hurricane Base Premium
+    #Then User verifies VOL HO3 Hurricane Base Rate
+    
+    
     Given User navigates to Model
     And User login to Spin as Admin Agent
     And User hovers over quote and policy

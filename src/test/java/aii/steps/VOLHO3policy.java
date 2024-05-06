@@ -43,6 +43,7 @@ public class VOLHO3policy extends CommonMethods {
 		// Quote Dwelling information was filled here
 		sendText(dwellingChevron.txtYearConstruction, ConfigsReader.getProperty("yearconstruction"));
 		sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
+		wait(2);
 		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
 		selectDropdownText(dwellingChevron.ddMediationArbit, ConfigsReader.getProperty("mediation"));
 		wait(2);
@@ -101,7 +102,8 @@ public class VOLHO3policy extends CommonMethods {
 		}
 		getPolicyNumber(driver);
 		getInForcePremium(driver);
-
+		Hooks.scenario.log("New Business HO3 policy has been created successfully");
+		attachScreenShot(driver);
 	}
 
 }

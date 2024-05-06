@@ -104,6 +104,18 @@ public class QuoteReviewPageElements extends CommonMethods {
 	@FindBy(id= "Tab_Notes")
 	public WebElement btnNotes;
 	
+	@FindBy(id= "BasicPolicy.PayPlanCd_18")
+	public WebElement btnPayPlan4;
+	
+	@FindBy(id= "QuickEndorsement")
+	public WebElement btnEndorse;
+	
+	@FindBy(id= "Wizard_Forms")
+	public WebElement Forms;
+	
+	@FindBy(id= "Tab_Tasks")
+	public WebElement Tasks;
+	
 	
 	
 	

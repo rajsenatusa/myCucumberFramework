@@ -14,20 +14,50 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	@FindBy (id= "CustomerName.Surname")
 	public WebElement txtLastName;
 	
+	@FindBy (id= "InsuredName.GivenName")
+	public WebElement txtGivenName;
+	
+	@FindBy (id= "InsuredName.Surname")
+	public WebElement txtSurname;
+	
+	@FindBy (id= "InsuredPersonal.BirthDt")
+	public WebElement txtPersonalBirthDt;
+	
 	@FindBy (id= "CustomerPersonal.BirthDt")
 	public WebElement txtBirthDate;
 	
 	@FindBy (id= "CustomerName.CommercialName")
 	public WebElement txtSearchName;
 	
+	@FindBy (id= "ResetCommercialName")
+	public WebElement btnReset;
+	
 	@FindBy (id= "CustomerLookupAddr.PrimaryNumber")
 	public WebElement txtAddress;
+	
+	@FindBy (id= "InsuredResidentAddr.PrimaryNumber")
+	public WebElement txtAddressNumber;
+	
+	@FindBy (id= "InsuredResidentAddr.StreetName")
+	public WebElement txtStreet;
+	
+	@FindBy (id= "InsuredResidentAddr.City")
+	public WebElement txtCity;
+	
+	@FindBy (id= "InsuredResidentAddrCountyFillIn")
+	public WebElement txtCounty;
 		
 	@FindBy (id= "CustomerLookupAddr.PostalCode")
 	public WebElement txtZipCode;
 	
+	@FindBy (id= "InsuredResidentAddr.PostalCode")
+	public WebElement txtPostalCode;
+	
 	@FindBy (id= "CustomerLookupAddr.addrVerifyImg")
 	public WebElement btnVerifyAddress;
+	
+	@FindBy (id= "InsuredResidentAddr.addrVerifyImg")
+	public WebElement btnVerifyAddress2;
 	
 	@FindBy (id= "DefaultAddress")
 	public WebElement btnCopyToMailAddress;
@@ -97,6 +127,11 @@ public class QuoteCustomerSetupPageElements extends CommonMethods {
 	
 	@FindBy(id= "CustomerLookupAddr.PostalCode")
 	public WebElement customerLookupAddrPostalCode;
+	
+	@FindBy(id= "InsuredResidentAddr.PreDirectional")
+	public WebElement insuredResidentAddrPreDirectional;
+	
+	 
 	
 	
 	

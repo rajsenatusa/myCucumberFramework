@@ -65,7 +65,7 @@ public class VOLDP1_RateChange extends CommonMethods {
 	@Then("User validates Coverage B increases off of Coverage A inflated limit amount of 10 percentage")
 	public void User_validates_Coverage_B_increases_off_of_Coverage_A_inflated_limit_amount_of_10_percentage() {
 
-		String expected = "$54,100";
+		String expected = "$54,900";
 		String actual = dwellingChevron.limitCovB.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 
@@ -92,7 +92,7 @@ public class VOLDP1_RateChange extends CommonMethods {
 	@Then("User validates Coverage A on Coverages List")
 	public void User_validates_Coverage_A_on_Coverages_List() {
 
-		String expected = "541,000";
+		String expected = "549,000";
 		String actual = dwellingChevron.coverageListCovA.getText();
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 

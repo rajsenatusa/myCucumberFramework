@@ -111,7 +111,7 @@ public class TC16741_DP1_ValidateErrorMessagesonQuoteLeveUICharacteristics exten
 		selectDropdownText(policyChevron.ddMonthsOccupied, "Monthly, rented a total of 5 times or less each year");
 		selectDropdownText(policyChevron.ddPropertyManaged, "No");
 		selectDropdownText(driver.findElement(By.id("OwnerLT100MilesAwayInd")), "No");
-		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		//selectDropdownText(policyChevron.ddShortTermRental, "No");
 		wait(1);
 		click(dwellingChevron.btnSave);
 		wait(3);

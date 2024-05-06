@@ -10,7 +10,7 @@
 ## EXPECTED RESULTS: Policy is Cancelled & on reinstatement correct Reinstatement form is attaching to Policy File
 
 
-@regression @mtr334 @gocregression
+@regression @mtr334 @gocregression  
 Feature: TC 16872--GOC - UWMGR - Company Cancellation - Reason -Substantial change in risk - Reinstatement form AIIC GOC RI 12 16
 
   Scenario: Validate Policy is Cancelled on reinstatement correct Reinstatement form is attaching to Policy File

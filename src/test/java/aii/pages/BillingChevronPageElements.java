@@ -14,6 +14,40 @@ public class BillingChevronPageElements extends CommonMethods{
 	@FindBy(id="_ChangePayPlan")
 	public WebElement lnkChangePayPlan;
 	
+	@FindBy(id="BasicPolicy.PayPlanFilterTypeCd")
+	public WebElement PayPlanFilterType;
+	
+	@FindBy(id="BasicPolicy.PaymentDay")
+	public WebElement PaymentDay;
+	
+	@FindBy(id="EnterCreditCardDetails")
+	public WebElement btnCreditCardDetails;
+	
+	@FindBy(id="CreditCardPrompCheckBox")
+	public WebElement CreditCardPrompCheckBox;
+	
+	@FindBy(id="CreditCardPromptDivOk")
+	public WebElement CreditCardPromptDivOk;
+	
+	@FindBy(id="Process")
+	public WebElement ProcessBtn;
+	
+	@FindBy(id="BasicPolicy.PayPlanFilterTypeCd")
+	public WebElement PayPlanFilter;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 public BillingChevronPageElements() {
 		
 		PageFactory.initElements(driver, this);

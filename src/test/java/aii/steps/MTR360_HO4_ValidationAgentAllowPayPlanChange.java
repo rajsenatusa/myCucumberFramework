@@ -74,7 +74,7 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	}
 	@When("User clicks User Management Tab")
 	public void user_clicks_user_management_tab() {
-
+		wait(2);
 		click(dashboard.btnUserManagement);
 		wait(2);
 	}
@@ -131,7 +131,7 @@ public class MTR360_HO4_ValidationAgentAllowPayPlanChange extends CommonMethods 
 	@When("User clicks save")
 	public void user_clicks_save() {
 		click(userLookup.btnSave);
-		waitImp(10);
+		waitImp(5);
 	}
 
 	@When("User enters HO4 product selection information and current day as effective date")

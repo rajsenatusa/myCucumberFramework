@@ -9,9 +9,9 @@
 ## User: AG1529
   
 ## Note: Please login with gallopadmin and remove Catestropic threashold limit and add it after execution
-## TEST CASE STEPS MODIFIED ON 09/19/2023 REGARDING CAPACITY RULE CHANGE AND APLUS DATA REPORTING ISSUE 
+## Test Case in Ineffective. Needs to be updated with new water loss history address. Removed from regression. 
 
-@regression @mtr589 @ho3regression
+@regression @mtr589  
 Feature: MTR589--HO3, Standard Agent, NB Water Loss over 5,000 , WDE, WDL, UW approval required
 
   Scenario: Validate Agent is not able to bind without Underwriting approval due to open water loss
@@ -43,7 +43,7 @@ Feature: MTR589--HO3, Standard Agent, NB Water Loss over 5,000 , WDE, WDL, UW ap
     And User validates 'Risks with open losses are ineligible for coverage' text is visible
     And User clicks submit for approval button
     And User signs out
-    And User login to Spin as Underwriter Clerk
+    And User login to Spin as Underwriter
     And User searches for the application <mtr589>
     And User approves application
     And User signs out

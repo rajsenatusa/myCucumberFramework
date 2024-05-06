@@ -60,7 +60,7 @@ public class MTR397_DP1_Verify_Cancelled_policy_unable_to_edit_after_cancellatio
 		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
 		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
 		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
-		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		//selectDropdownText(policyChevron.ddShortTermRental, "No");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);

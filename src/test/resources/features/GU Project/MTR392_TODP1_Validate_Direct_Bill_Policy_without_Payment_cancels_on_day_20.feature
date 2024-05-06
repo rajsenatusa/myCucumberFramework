@@ -15,7 +15,7 @@
   
 ## User: Admin
 
-@regression @mtr392 @todp1regression @gu
+@regression @mtr392 @todp1regression @gu 
 Feature: MTR392--TO DP1: Validate Direct Bill Policy without Payment cancels on day 20
 
   Scenario: Validate Direct Bill Policy without Payment cancels on day 20

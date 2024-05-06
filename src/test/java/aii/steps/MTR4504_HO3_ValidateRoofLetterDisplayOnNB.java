@@ -70,8 +70,8 @@ public class MTR4504_HO3_ValidateRoofLetterDisplayOnNB extends CommonMethods {
 	@When("User enters all required information on HO3 dwelling screen <tc36657>")
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_tc36657() {
 		// Quote Dwelling information was filled here
-		sendText(dwellingChevron.txtYearConstruction, "2023");
-		selectDropdownText(dwellingChevron.bCEG, "3");
+		sendText(dwellingChevron.txtYearConstruction, "2024");
+//		selectDropdownText(dwellingChevron.bCEG, "3");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
@@ -106,7 +106,7 @@ public class MTR4504_HO3_ValidateRoofLetterDisplayOnNB extends CommonMethods {
 	public void user_validates_that_ho3_policy_has_been_created_successfully_and_takes_note_of_the_policy_number_tc36657()
 			throws Exception {
 
-		waitImp(5);
+		wait(5);
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("New Business")) {

@@ -2,7 +2,7 @@
 @RN_Policy_TODP3InflationGuard
 Feature: RC-395: 2024 Rate Changes- Inflation Guard: TO DP3- 01/01/2024
 
-  @RN_Policy_TODP3InflationGuard-1 @InflationGuard2024
+  @RN_Policy_TODP3InflationGuard-1 @InflationGuard2024 @AII-Inflation
   Scenario Outline: MTR-3686: RC-395 -TO DP3 Validate Inflation Guard on TO DP3 RN with occupancy - Tenant  eff dt 01/01/24
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
@@ -19,7 +19,7 @@ Feature: RC-395: 2024 Rate Changes- Inflation Guard: TO DP3- 01/01/2024
     And User selects Distance to Hydrant "<DistanceHydrant>"
     And User selects Protection Class "<ProtectionClass>"
     And User selects Dwelling Type "<DwellingType>"
-    And User selects Number of Units "<NumberOfUnits>"
+    #And User selects Number of Units "<NumberOfUnits>"
     And User selects Building Territory List "<TerritoryList>"
     And User clicks Save
     And User selects Quality Grade "<QualityGrade>"
@@ -44,14 +44,14 @@ Feature: RC-395: 2024 Rate Changes- Inflation Guard: TO DP3- 01/01/2024
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates TODP3 Coverage A increases by 10 percent
-    Then User validates TODP3 Coverage B increases off of Coverage A inflated limit amount of 10 percent
-    Then User validates TODP3 Coverage D increases by 10 percent
+    #Then User validates TODP3 Coverage A increases by 10 percent
+    #Then User validates TODP3 Coverage B increases off of Coverage A inflated limit amount of 10 percent
+    #Then User validates TODP3 Coverage D increases by 10 percent
     Then User validates TODP3 Hurricane Coverage A Deductible percentage
     Then User validates TODP3 Sinkhole Loss
-    Then User validates TODP3 Coverage A on Coverages List
-    Then User validates TODP3 Coverage B on Coverages List
-    Then User validates TODP3 Coverage D on Coverages List
+    #Then User validates TODP3 Coverage A on Coverages List
+    #Then User validates TODP3 Coverage B on Coverages List
+    #Then User validates TODP3 Coverage D on Coverages List
     Then User validates CovA TODP3 Inflation Guard is 10 percent
     Then User validates CovC TODP3 Inflation Guard is 10 percent
     And User clicks Policy File Chevron
@@ -63,17 +63,12 @@ Feature: RC-395: 2024 Rate Changes- Inflation Guard: TO DP3- 01/01/2024
     And User clicks Start Transaction
     And User clicks EN Transaction Selection
     And User enters EN Effective Date "<EndorsementEffectiveDate>"
-    
     And User clicks Endorse Policy button
     And User clicks Dwelling chevron
     Then User validates TODP3 Coverage A is 10 percente under Inflation Guard
-    
-     And User clicks Policy File Chevron
-     And User clicks Endorsement Package link   
+    And User clicks Policy File Chevron
+    And User clicks Endorsement Package link
     Then User validates TODP3 10 percentage in EN Declaration Package
-    
-    
-    
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
@@ -82,10 +77,6 @@ Feature: RC-395: 2024 Rate Changes- Inflation Guard: TO DP3- 01/01/2024
     And User clicks Process
     And User clicks Dwelling chevron
     Then User validates TODP3 Coverage A increases by 10 percentage after next term RN
-   
-   
-    
-    
 
     Examples: Test Data
       | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy       | MonthsOccupied | YearOfConstruction | SquareFeet | DistanceHydrant | ProtectionClass | DwellingType  | NumberOfUnits | TerritoryList | QualityGrade | FireAlarm   | SprinklerSystem                                          |

@@ -81,7 +81,7 @@ public class MTR352_HO3_ValidatePolicyHolderNotice_NB_END extends CommonMethods 
 	public void user_enters_all_required_information_on_ho3_dwelling_screen_mtr352() {
 		// Quote Dwelling information was filled here
 		sendText(dwellingChevron.txtYearConstruction, "2023");
-		selectDropdownText(dwellingChevron.bCEG, "3");
+		selectDropdownText(dwellingChevron.bCEG, "Non-Participating");
 		sendText(dwellingChevron.txtSquareFeet, "1500");
 		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
 		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
@@ -170,7 +170,7 @@ public class MTR352_HO3_ValidatePolicyHolderNotice_NB_END extends CommonMethods 
 		// Save the pdf in local driver
 		PdfComparator.SavePdfForm(driver, FileLocation + PolicyHolderNotice_NBForm);
 
-		wait(8);
+		wait(15);
 		PolicyHolderNotice_NB_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + PolicyHolderNotice_NBForm,
 				2, 400, 0, 200, 50);
 		PdfComparator.verifyFormData(driver, PolicyHolderNotice_NB_Version1, "AIIC HO3 PHN CSAU 11 21");

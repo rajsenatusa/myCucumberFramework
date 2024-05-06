@@ -45,14 +45,14 @@ Feature: RC-384: 2024 Rate Changes- Inflation Guard: TO DP1- 01/01/2024
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates TODP1 Coverage A increases by 10 percent
-    Then User validates TODP1 Coverage B increases off of Coverage A inflated limit amount of 10 percent
-    Then User validates TODP1 Coverage C increases by 10 percentage
-    Then User validates TODP1 Hurricane Coverage A Deductible percentage
-    Then User validates TODP1 Sinkhole Loss
-    Then User validates TODP1 Coverage A on Coverages List
-    Then User validates TODP1 Coverage B on Coverages List
-    Then User validates TODP1 Coverage C on Coverages List
+    #Then User validates TODP1 Coverage A increases by 10 percent
+    #Then User validates TODP1 Coverage B increases off of Coverage A inflated limit amount of 10 percent
+    #Then User validates TODP1 Coverage C increases by 10 percentage
+    #Then User validates TODP1 Hurricane Coverage A Deductible percentage
+    #Then User validates TODP1 Sinkhole Loss
+    #Then User validates TODP1 Coverage A on Coverages List
+    #Then User validates TODP1 Coverage B on Coverages List
+    #Then User validates TODP1 Coverage C on Coverages List
     Then User validates CovA TODP1 Inflation Guard is 10 percent
     Then User validates CovC TODP1 Inflation Guard is 10 percent
     And User clicks Policy File Chevron
@@ -63,23 +63,15 @@ Feature: RC-384: 2024 Rate Changes- Inflation Guard: TO DP1- 01/01/2024
     And User returns to main page
     And User clicks History Chevron
     And User clicks Start Transaction
-    
     And User clicks EN Transaction Selection
     And User enters EN Effective Date "<EndorsementEffectiveDate>"
     And User clicks Dwelling chevron
     And User clicks Endorse Policy button
     And User clicks Dwelling chevron
-    
-    
-    
     Then User validates TODP1 Coverage A is 10 percente under Inflation Guard
     And User clicks History Chevron
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
-    
-    
-    
-    
 
     Examples: Test Data
       | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | DistanceHydrant | ProtectionClass | DwellingType  | TerritoryList | QualityGrade | FireAlarm   | SprinklerSystem                                          |

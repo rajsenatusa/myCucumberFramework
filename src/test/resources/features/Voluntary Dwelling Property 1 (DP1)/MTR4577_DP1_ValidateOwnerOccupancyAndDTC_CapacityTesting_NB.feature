@@ -14,7 +14,7 @@
 # User: AG1730, jbarnes, Gallopadmin
 
 
-@regression @mtr4577 @dp1regression
+@regression @mtr4577 @dp1regression @AIIdp1
 Feature: TC 16882-MTR4577-DP1 Standard Agent, NB, Occupancy Owner, DTC Distance to Coast, Capacity testing
 
   Scenario: Validate or DP1 policy in Manatee County, agent gets information message Cannot issue due to limited catastrophic capacity

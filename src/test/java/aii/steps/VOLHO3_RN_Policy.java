@@ -17,28 +17,37 @@ public class VOLHO3_RN_Policy extends CommonMethods {
 	}
 
 	@And("User clicks Start Transaction")
-	public void User_clicks_Start_Transaction() {		
+	public void User_clicks_Start_Transaction() throws Exception {		
+		attachScreenShot(driver);
+		wait(1);
 		wait(1);
 		click(dashboard.btnStartTransaction);
 		wait(1);
+		
+//		startTransaction();
+		
 		
 	}
 
 	@And("User clicks RN Transaction Selection")
 	public void User_clicks_RN_Transaction_Selection() {
-		selectDropdownText(dashboard.ddSelectTransaction, "Renewal");
 		wait(1);
+		selectDropdownText(historyChevron.startTransaction, "Renewal");
+		wait(2);
 		click(dashboard.btnSelect);
+		wait(1);
 		click(dashboard.btnStart);
 	}
 
 	@Then("User verifies RN HO3 policy has been created successfully")
-	public void User_verifies_RN_HO3_policy_has_been_created_successfully() {
+	public void User_verifies_RN_HO3_policy_has_been_created_successfully() throws Exception {
 		wait(1);
 		String expected = "Renewal";
 		String actual = historyChevron.txtRenewal.getText();
 		Assert.assertEquals("Test failed!", expected, actual);
 		wait(1);
+		attachScreenShot(driver);
+		
 	}
 
 	@Then("User verifies HO3 RN Water NonWeather Base Rate")

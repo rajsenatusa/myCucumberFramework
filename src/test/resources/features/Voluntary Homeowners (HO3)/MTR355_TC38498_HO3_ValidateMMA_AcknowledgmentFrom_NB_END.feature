@@ -14,7 +14,7 @@
    
   ## User:AG1730
 
-  @regression @mtr355 @ho3regression
+  @regression @mtr355 @ho3regression 
   Feature: TC38498 : US8582 - FORM: Mandatory Mediation-Arbitration Acknowledgment
   
   Scenario: MTR 355 Validate HO3 MMA AcknowledgmentFrom on NB and END

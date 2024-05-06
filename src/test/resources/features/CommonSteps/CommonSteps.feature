@@ -10,8 +10,10 @@ Feature: Common Transactions and Steps
     Given User enters Quote Information as effective date with "days" days difference and state "state" and "CarrierGroup" Insurance Carrier group
     Given User selects the entity as "Entity"
     Given User login to Spin as Standard Agent
+    Given User login to Spin as SC Standard Agent
     Given User login to Spin as Admin Agent
     Given User login to Spin as Underwriter
+    Given User login to Spin as Adjuster
     Given User enters a valid username
     Given User enters a valid password
     Given User clicks on the signin button
@@ -43,6 +45,7 @@ Feature: Common Transactions and Steps
     And User fills all the "DP3" product UW questions
     And User submits the application for UW approval
     And User submits the application for UW manager approval
+    Then User validates the Application is submitted for approval
     And User signs out
     And User quits the browser
     And User renews policy "policyNum" to next term through manual transaction
@@ -65,6 +68,10 @@ Feature: Common Transactions and Steps
     #And User clicks Next on PolPolicyicy Chevron
     And User clicks Review Chevron
     And User clicks Worksheets chevron
+    And User clicks Billing Chevron
+    And User clicks Additional Interests chevron
+    And User clicks Add Additional Interest button
+    And User enters Additional Interest Detail
     And User enters Construction Type "<ConstructionType>"
     And User enters Occupancy "<Occupancy>"
     And User enters Months Occupied "<MonthsOccupied>"
@@ -107,6 +114,7 @@ Feature: Common Transactions and Steps
     And User clicks Entity Type
     And User selects HO3 Pay Plan Type
     And User clicks Endorse button
+    And User checks Modify Application button
     And User clicks Endorse Policy button
     And User clicks Review Chevron
     And User clicks Underwriting Chevron
@@ -179,8 +187,10 @@ Feature: Common Transactions and Steps
     And User enters Number of stories
     And User enters Fire Alarm
     And User enters Sprinkler System
-    And User enters Roof Shape  
+    And User enters Roof Shape
     And User enters SWR
+    And User clicks Flood Coverage as Yes and enters required fields
+    And User clicks Flood Coverage
     And User clicks Flood Coverage
     And User selects Flood Coverage Deductible
     And User selects Flood Foundation Type
@@ -193,8 +203,101 @@ Feature: Common Transactions and Steps
     And User verifies that no Edit or Delete links are displayed
     Then User verifies that Agent cannot see Company Privileged Note
     And User login to Spin as Underwriter Clerk
-    And User creates a General Note 
+    And User creates a General Note
+    And User creates an Inspection Note
     Then User verifies that Agent can see General Note
     And User enters product selection information for TOMHO and current date
-   
-    
+    Then User validates Inspection and General Notes have been created successfully in Notes List
+    And User verifies that Edit or Delete links are displayed
+    Then User verifies that Underwriter Manager can Edit and Save General Note
+    Then User verifies that Edit or Delete links are displayed
+    And User selects Cancellation
+    And User selects Cancellation Type as Insured <mtr219>
+    And User selects Property Sold as reason <mtr154>
+    And User sets the effective date as after 2 months from the current date
+    And User clicks Process <mtr219>
+    Then User validates that TOMHPD policy has been canceled successfully
+    And User selects Cancellation
+    And User selects Cancellation Notice
+    And User selects Cancellation Type as Company
+    And User sets the effective date as after 30 days from the current date and validates messages <mtr154>
+    And User sets the effective date as before 1 day from the current date and validates error message <mtr154>
+    And User takes note of the application number <mtr4934>
+    And User clicks View Workflow Comments
+    And User clicks Start Transaction
+    And User selects Cancellation
+    And User selects Cancellation Type as Insured <mtr154>
+    And User selects Property Sold as reason <mtr154>
+    And User sets the effective date as before 1 day from the current date and validates error message <mtr154>
+    And User clicks Start Transaction
+    And User clicks Start Transaction <mtr219>
+    And User clicks View Notes
+    Then User validates View Notes
+    And User enters HO3 product selection information and current date as effective date
+    And User enters product selection information for TOHO3 and sets effective date as current date
+    And User enters DP3 product selection information and current date as effective date
+    And User changes Months Occupied as 0 to 3 Months
+    And User changes Coverage C Personal Property as 200000
+    And User takes note of the policy number
+    And User clicks More button then Take Ownership
+    And User selects Reinstatement
+    And User clicks New Business Package link
+    And User clicks Renewal Decleration link
+    And User enters Coverage A Dwelling as 550000
+    And User validates that HO3 quote has been created successfully <mtr5218>
+    And User enters effective date as 03.21.2024
+    And User clicks Policy Chevron
+    And User clicks Change Pay Plan
+    Then User validates messages in Issues
+    And User changes system date to current date <mtr522>
+    And User changes system date to current date minus 1 day <mtr551>
+    And User gets next action date and changes system date as next 3 days <mtr522>
+    And User selects endorsement date as system date plus 3 days
+    And User selects endorsement date as system date plus 30 days
+    And User selects Pay Plan Type as Automated Credit Card
+    And User changes Pay Plan to <8 Payment Plan> <mtr522>
+    And User clicks Endore button
+    And User clicks Finalize button
+    And User clicks Save button
+    And User clicks Endore Policy button
+    And User changes system date to current date
+    And User selects Rewrite-New
+    And User selects Rewrite-Renewal
+    And User clicks Home Cyber Protection
+    And User clicks Forms chevron
+    And User clicks Tasks chevron
+    And User issues policy and makes payment with credit card
+    And User validates 'Approve' is not visible on closeout screen
+    And User validates 'Submit for Approval' is visible on closeout screen
+    And User clicks Override Link on Underwriter Role <mtr592>
+    And User override Underwriters 'Allow to Approve Age of Plumbing' as yes
+    And User validates 'Issue New Business' is visible on closeout screen
+    And User validates 'Approve' is visible on closeout screen
+    And User validates 'Submit For Approval' is not visible on closeout screen
+    And User checks Modify Application button
+    And User enters a new DOB in Insured Information
+    And User checks Modify Application button
+    And User enters a new DOB in Insured Information
+    Then User validates 'Structures Rented to Others Requires Underwriting Approval' is not visible on closeout screen
+    And User clicks Structures Rented to Others link
+    And User selects Limited Fungi, Mold, Wet or Dry Rot, or Bacteria
+    Then User verifies four triggered referrals
+    And User clicks plus sign View Notes
+    And User clicks Report Loss
+    And User sets Loss Date as current date
+    And User enters all required Loss Notice Information for Hail
+    And User clicks Complete button
+    Then User verifies the loss location is set to insured location
+    Then User verifies the Authority information
+    And User clicks Correspondence
+    And User selecks Correspondence Form as 'Restitution Letter to Law Enforcement'
+    And User enters HO6 Dwelling Address "<DwellingAddress>"
+    And User enters HO6 Dwelling Zip "<DwellingZip>"
+    And User enters effective date "<EffectiveDate>"
+    And User enters state "<State>"
+    And User clicks Water Damage Exclusion
+    And User clicks Water Damage Limited
+    And User Searchs Policy
+    And User selects Reinstatement and validates <mtr219>
+    And User clicks Change Date Transaction Selection
+    And User enters 05.24.2024 as new effective date <mtr6089>

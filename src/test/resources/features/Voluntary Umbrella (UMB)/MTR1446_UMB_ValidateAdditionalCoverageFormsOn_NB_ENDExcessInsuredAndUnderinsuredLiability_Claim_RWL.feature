@@ -12,7 +12,7 @@
 ## Claims
 ## Renewal transactions
 
-@regression @mtr1446 @umbregression
+@regression @mtr1446 @umbregression @AIIumb
 Feature: TC 16602--UMB UWMgr NB End (add Excess Uninsured and Underinsured Liability Limit) RN (2) and Claim Forms
 
   Scenario: Validate All forms will be verified in the following states: New Business, Endorsement, Claims, Renewal transactions

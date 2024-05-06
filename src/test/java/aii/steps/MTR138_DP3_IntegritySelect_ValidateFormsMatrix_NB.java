@@ -487,9 +487,9 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 RP 09 21");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 WBU 09 21");
 		PdfComparator.verifyFormData(driver, NBDec_Page, "AIIC DP3 OC 12 18Outline of your Dwelling Policy");
-
+		PdfComparator.verifyFormData(driver, NBDec_Page, "OIR B1 1670Checklist of Coverage");
+		
 		NBDec2_Page = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 11, 0, 0, 600, 750);
-		PdfComparator.verifyFormData(driver, NBDec2_Page, "OIR B1 1670Checklist of Coverage");
 		PdfComparator.verifyFormData(driver, NBDec2_Page,
 				"OIR B1 1655Notice of Premium Discounts for Hurricane Loss Mitigation");
 		PdfComparator.verifyFormData(driver, NBDec2_Page, "AIIC NCR 08 19");
@@ -557,10 +557,10 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates policy jacket form version")
 	public void user_validates_policy_jacket_form_version() throws Exception {
-		NBPolJacket_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 15, 470, 35, 250,
+		NBPolJacket_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 14, 470, 35, 250,
 				50);
 		PdfComparator.verifyFormData(driver, NBPolJacket_Version1, "AIIC PJ 05 19");
-		NBPolJacket_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 15, 70, 740, 250, 50);
+		NBPolJacket_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 14, 70, 740, 250, 50);
 		PdfComparator.verifyFormData(driver, NBPolJacket_Version, "AIIC PJ 05 19");
 
 		NBPolJacket_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -569,9 +569,9 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates AIIC DP3 IDX 07 15 form version")
 	public void user_validates_AIICDP3IDX0715_form_version() throws Exception {
-		NBIDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 16, 470, 35, 150, 50);
+		NBIDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 15, 470, 35, 150, 50);
 		PdfComparator.verifyFormData(driver, NBIDX_Version, "AIIC DP3 IDX 07 15");
-		NBIDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 16, 25, 740, 150, 50);
+		NBIDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 15, 25, 740, 150, 50);
 		PdfComparator.verifyFormData(driver, NBIDX_Version1, "AIIC DP3 IDX 07 15");
 
 		NBIDX_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -579,7 +579,7 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates DP 00 03 07 88 form version")
 	public void user_validates_DP00030788_form_version() throws Exception {
-		DP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 17, 40, 750, 120, 30);
+		DP3Special_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 16, 40, 750, 120, 30);
 		PdfComparator.verifyFormData(driver, DP3Special_Version, "DP 00 03 07 88");
 	}
 
@@ -622,9 +622,9 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates additional insured form version")
 	public void user_validates_additional_insured_form_version() throws Exception {
-		HSPSL_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 55, 440, 25, 120, 40);
+		HSPSL_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 54, 440, 25, 120, 40);
 		PdfComparator.verifyFormData(driver, HSPSL_Version, "AIIC DP INSD 07 15");
-		HSPSL_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 55, 60, 740, 120, 40);
+		HSPSL_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 54, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, HSPSL_Version1, "AIIC DP INSD 07 15");
 
 		HSPSL_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -633,7 +633,7 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates AIIC INST 11 14 form version")
 	public void user_validates_AIICINST1114_form_version() throws Exception {
-		NBIR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 56, 440, 30, 120, 40);
+		NBIR_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 55, 440, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, NBIR_Version, "AIIC INST 11 14");
 
 		NBIR_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -642,9 +642,9 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates Limited Carport, Pool Cage and Screen Enclosure Coverage form version")
 	public void user_validates_limited_carport_pool_screen_form_version() throws Exception {
-		Carpool_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 57, 450, 25, 150, 40);
+		Carpool_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 56, 450, 25, 150, 40);
 		PdfComparator.verifyFormData(driver, Carpool_Version, "AIIC DP INSL 07 15");
-		Carpool_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 57, 60, 740, 120, 40);
+		Carpool_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 56, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Carpool_Version1, "AIIC DP INSL 07 15");
 
 		Carpool_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -653,7 +653,7 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates Animal Liability Coverage form version")
 	public void user_validates_animal_liability_form_version() throws Exception {
-		Theft_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 58, 460, 30, 120, 40);
+		Theft_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 57, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Theft_Version, "AIIC DP AL 11 21");
 
 		Theft_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -675,17 +675,17 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates AIIC DP LFC 07 15 form version")
 	public void user_validates_AIICDPLFC0715_form_version() throws Exception {
-		Fungi_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 61, 460, 30, 120, 40);
+		Fungi_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 60, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Fungi_Version, "AIIC DP LFC 07 15");
-		Fungi_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 61, 60, 740, 120, 40);
+		Fungi_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 60, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Fungi_Version1, "AIIC DP LFC 07 15");
 	}
 
 	@When("User validates loss assessment form version")
 	public void user_validates_loss_assessment_form_version() throws Exception {
-		Loss_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 62, 460, 30, 120, 40);
+		Loss_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 61, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Loss_Version, "AIIC DP LA 07 15");
-		Loss_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 62, 60, 740, 120, 30);
+		Loss_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 61, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Loss_Version1, "AIIC DP LA 07 15");
 
 		Loss_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -694,9 +694,9 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates ordinance or law coverage form version")
 	public void user_validates_ordinance_or_law_coverage_form_version() throws Exception {
-		Ordinance_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 63, 460, 30, 120, 40);
+		Ordinance_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 62, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Ordinance_Version, "AIIC DP OL 07 15");
-		Ordinance_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 63, 60, 740, 120, 30);
+		Ordinance_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 62, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Ordinance_Version1, "AIIC DP OL 07 15");
 
 		Ordinance_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -714,9 +714,9 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates personal injury coverage form version")
 	public void user_validates_personal_injury_coverage_form_version() throws Exception {
-		Sinkhole_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 70, 460, 30, 120, 40);
+		Sinkhole_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 69, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Sinkhole_Version, "AIIC DP3 PNJ 09 21");
-		Sinkhole_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 70, 60, 740, 120, 30);
+		Sinkhole_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 69, 60, 740, 120, 30);
 		PdfComparator.verifyFormData(driver, Sinkhole_Version1, "AIIC DP3 PNJ 09 21");
 
 		Sinkhole_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -725,9 +725,9 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates refrigerated property coverage form version")
 	public void user_validates_refrigerated_property_coverage_form_version() throws Exception {
-		WDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 71, 450, 40, 120, 40);
+		WDX_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 70, 450, 40, 120, 40);
 		PdfComparator.verifyFormData(driver, WDX_Version, "AIIC DP3 RP 09 21");
-		WDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 71, 40, 740, 150, 40);
+		WDX_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 70, 40, 740, 150, 40);
 		PdfComparator.verifyFormData(driver, WDX_Version1, "AIIC DP3 RP 09 21");
 
 		WDX_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -736,7 +736,7 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates water backup and sump discharge form version")
 	public void user_validates_water_backup_and_sump_form_version() throws Exception {
-		WBU_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 72, 0, 0, 600, 750);
+		WBU_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 71, 0, 0, 600, 750);
 		PdfComparator.verifyFormData(driver, WBU_Version, "AIIC DP3 WBU 09 21");
 
 		WBU_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);
@@ -745,9 +745,9 @@ public class MTR138_DP3_IntegritySelect_ValidateFormsMatrix_NB extends CommonMet
 
 	@When("User validates outline of your dwelling policy form version")
 	public void user_validates_outline_of_your_dwelling_policy_form_version() throws Exception {
-		Outline_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 73, 460, 30, 120, 40);
+		Outline_Version = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 72, 460, 30, 120, 40);
 		PdfComparator.verifyFormData(driver, Outline_Version, "AIIC DP3 OC 12 18");
-		Outline_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 73, 60, 740, 120, 40);
+		Outline_Version1 = SmartPDFComparator2.getPDFtextByArea(FileLocation + NBPackage_Form, 72, 60, 740, 120, 40);
 		PdfComparator.verifyFormData(driver, Outline_Version1, "AIIC DP3 OC 12 18");
 
 		Outline_Name = PdfComparator.getPDFData(FileLocation + NBPackage_Form);

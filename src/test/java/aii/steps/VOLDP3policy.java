@@ -55,7 +55,7 @@ public class VOLDP3policy extends CommonMethods {
 		wait(2);
 		sendText(dwellingChevron.txtSquareFeet, ConfigsReader.getProperty("squarefeet"));
 		selectDropdownText(dwellingChevron.ddRoofMetarial, ConfigsReader.getProperty("roofmetarial"));
-		selectDropdownText(dwellingChevron.ddMediationArbitDp1, ConfigsReader.getProperty("mediation"));
+//		selectDropdownText(dwellingChevron.ddMediationArbitDp1, ConfigsReader.getProperty("mediation"));
 		selectDropdownText(dwellingChevron.ddDwellingType, ConfigsReader.getProperty("dwellingtype"));
 		selectDropdownText(dwellingChevron.ddQualityGrade, ConfigsReader.getProperty("qualitygrade"));
 		click(dwellingChevron.btnCalculate);
@@ -108,6 +108,7 @@ public class VOLDP3policy extends CommonMethods {
 		} else {
 			System.out.println("Test failed!");
 		}
+		attachScreenShot(driver);
 		closeUnnecessaryTabs();
 	}
 
@@ -158,6 +159,7 @@ public class VOLDP3policy extends CommonMethods {
 				String yearcons = dataMap.get("ConstYear");
 				String roof = dataMap.get("RoofMat");
 				String quality = dataMap.get("Quality");
+				String producerCode = dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -187,9 +189,9 @@ public class VOLDP3policy extends CommonMethods {
 				selectDropdownText(policyChevron.ddPreviousCarrier, previousCarr);
 				sendText(policyChevron.txtPreviousPolicyExpDate, previousExp);
 				selectDropdown(policyChevron.ddInsuranceScoreDd, 3);
-//				sendText(policyChevron.txtProducerCodeSel, "AG1730A1");
-//				click(dwellingChevron.btnSave);
-//				wait(3);
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
+				click(dwellingChevron.btnSave);
+				wait(3);
 				sendText(policyChevron.txtPhoneNumber, phone);
 				selectDropdownText(policyChevron.ddPhoneNumberType, ConfigsReader.getProperty("phonetype"));
 				wait(2);

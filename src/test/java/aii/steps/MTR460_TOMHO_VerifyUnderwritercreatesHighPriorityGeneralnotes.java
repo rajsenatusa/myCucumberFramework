@@ -1,19 +1,10 @@
 package aii.steps;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import aii.utils.CommonMethods;
 import aii.utils.ConfigsReader;
-import aii.utils.PdfComparator;
-import capgemini.smartPDFcomparator.SmartPDFComparator2;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MTR460_TOMHO_VerifyUnderwritercreatesHighPriorityGeneralnotes extends CommonMethods {
@@ -56,6 +47,22 @@ public class MTR460_TOMHO_VerifyUnderwritercreatesHighPriorityGeneralnotes exten
 		click(dashboard.search);
 		wait(3);
 	}
+	@When("User enters all required information on TOMHO dwelling screen <mtr460>")
+	public void user_enters_all_required_information_on_tomho_dwelling_screen_MTR460() {
+		// Quote Dwelling information was filled here
+		sendText(dwellingChevron.txtYearConstruction, "2024");
+		selectDropdownText(dwellingChevron.ddBuildingTerritoryList, "5");
+		selectDropdownText(dwellingChevron.ddDistanceToHydrant, "<= 1,000 Feet");
+		selectDropdownText(dwellingChevron.ddAttachedStructures, "No");
+		selectDropdownText(dwellingChevron.ddProtectionClass, "03");
+		wait(2);
+		sendText(dwellingChevron.txtCoverageA, ConfigsReader.getProperty("tocoverageA"));
+		wait(3);
+		click(dwellingChevron.btnSave);
+		wait(3);
+		click(dwellingChevron.btnNext);
+		wait(3);
+	}
 
 	@When("User creates a New Note for <mtr460>")
 	public void User_creates_a_New_Note_for_mtr460() throws Exception {
@@ -73,4 +80,8 @@ public class MTR460_TOMHO_VerifyUnderwritercreatesHighPriorityGeneralnotes exten
 
 	}
 
+	
+	
+	
+	
 }

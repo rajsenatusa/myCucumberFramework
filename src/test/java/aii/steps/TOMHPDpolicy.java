@@ -1,6 +1,5 @@
 package aii.steps;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -106,7 +105,7 @@ public class TOMHPDpolicy extends CommonMethods {
 	}
 
 	@Then("User validates that TOMHPD policy has been created successfully")
-	public void user_validates_that_tomhpd_policy_has_been_created_successfully() {
+	public void user_validates_that_tomhpd_policy_has_been_created_successfully() throws Exception {
 		WebElement validate = driver.findElement(By.id("History_1_1_TransactionCd"));
 
 		if (validate.getText().equalsIgnoreCase("Renewal")) {
@@ -114,7 +113,7 @@ public class TOMHPDpolicy extends CommonMethods {
 		} else {
 			System.out.println("Test failed!");
 		}
-
+		attachScreenShot(driver);
 	}
 
 	@Then("User creates TOMHPD policy with passing information from excel {string} sheet")
@@ -139,6 +138,7 @@ public class TOMHPDpolicy extends CommonMethods {
 				String occupancy = dataMap.get("Occupancy");
 				String monthsOccupied = dataMap.get("Months");
 				String yearConstruction = dataMap.get("ConstYear");
+				String producerCode = dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -165,7 +165,7 @@ public class TOMHPDpolicy extends CommonMethods {
 				click(product.btnProductSelectionTomhpd);
 
 				// Quote Policy Chevron information was filled here
-				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
 				wait(3);
 				click(dwellingChevron.btnSave);
 				wait(2);
@@ -250,14 +250,7 @@ public class TOMHPDpolicy extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

@@ -50,7 +50,7 @@ public class TC16758_DP1_ValidateUWQuestionsTriggerApprovalwhenNeeded extends Co
 		selectDropdownText(policyChevron.ddOccupancy, "Tenant Occupied");
 		selectDropdownText(policyChevron.ddMonthsOccupied, "Annual");
 		selectDropdownText(policyChevron.ddPropertyManaged, "Yes");
-		selectDropdownText(policyChevron.ddShortTermRental, "No");
+		//selectDropdownText(policyChevron.ddShortTermRental, "No");
 		wait(1);
 		click(policyChevron.btnNext);
 		wait(3);
@@ -825,6 +825,11 @@ public class TC16758_DP1_ValidateUWQuestionsTriggerApprovalwhenNeeded extends Co
 		sendText(dashboard.txtSearchBar, AppNum);
 		click(dashboard.search);
 		wait(3);
+	}
+	@When("User submits for approval as UW <tc16758>")
+	public void user_clicks_submit_for_approval_button_as_UW_tc16758() {
+		click(closeoutChevron.btnSubmitApproval);
+		wait(2);
 	}
 	@When("User validates all expected issue messages <tc16758>")
 	public void User_validates_all_expected_issue_messages_tc16758() throws Exception {

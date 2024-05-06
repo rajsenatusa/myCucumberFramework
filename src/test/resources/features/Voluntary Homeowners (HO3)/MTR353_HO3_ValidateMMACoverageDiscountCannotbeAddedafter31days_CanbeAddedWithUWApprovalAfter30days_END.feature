@@ -8,11 +8,12 @@
   
  ## User:AG1730
 
-@regression @mtr353 @ho3regression
+@regression @mtr353 @ho3regression @ho3APRIL
 Feature: TC38454 HO3 Validate MMA Coverage Discount on NB And Endorsement
 
   Scenario: Validate MMA Coverage Discount on NB And Endorsement
     Given User login to Spin as Standard Agent
+    And User changes system date to current date <mtr353>
 		When User starts transaction as a new customer
     And User enters all required information on policy information screen <mtr353>
     And User enters HO3 product selection information and current date as effective date
@@ -44,6 +45,7 @@ Feature: TC38454 HO3 Validate MMA Coverage Discount on NB And Endorsement
     And User clicks submit for approval button
     And User signs out
     And User login to Spin as Underwriter
+    And User changes system date to current date <mtr353>
     And User searches for the application <mtr353>
     And User approves application
     And User signs out

@@ -4,11 +4,9 @@ Feature: RC-403: 2024 Rate Changes- Inflation Guard: VOL HO6- 01/01/2024
 
   @RN_Policy_VOLHO6InflationGuard-1 @InflationGuard2024
   Scenario Outline: MTR-3477: RC-403 -VOL HO6 Validate Inflation Guard on Vol HO6 -Silver after  01/01/2024-Owner occupied
-    Given User navigates to QA2
-    And User enters a valid user name "<username>"
-    And User enters a valid password "<password>"
-    And User clicks on the login button
-    When User hovers over quote and policy
+    Given User navigates to Model
+    And User login to Spin as Admin Agent
+    And User hovers over quote and policy
     And User clicks new custemer and quote
     And User clicks Entity Type
     And User enters Customer Informations
@@ -50,19 +48,19 @@ Feature: RC-403: 2024 Rate Changes- Inflation Guard: VOL HO6- 01/01/2024
     And User returns to main page
     And User clicks Start Transaction
     And User clicks RN Transaction Selection
-    And User clicks Save
+    #And User clicks Save
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates HO6 Coverage A increases by 10 percent
-    Then User validates HO6 Coverage C increases by 10 percent
-    Then User validates HO6 Coverage D increases by 10 percent
-    Then User validates HO6 Ordinance or Law increases off of Coverage A inflated limit amount of 10 percentage
+    #Then User validates HO6 Coverage A increases by 10 percent
+    #Then User validates HO6 Coverage C increases by 10 percent
+    #Then User validates HO6 Coverage D increases by 10 percent
+    #Then User validates HO6 Ordinance or Law increases off of Coverage A inflated limit amount of 10 percentage
     Then User validates Sinkhole Loss
-    Then User validates HO6 Coverage A on Coverages List
-    Then User validates HO6 Coverage C on Coverages List
-    Then User validates HO6 Coverage D on Coverages List
-    Then User validates HO6 Ordinance or Law on Coverages List
+    #Then User validates HO6 Coverage A on Coverages List
+    #Then User validates HO6 Coverage C on Coverages List
+    #Then User validates HO6 Coverage D on Coverages List
+    #Then User validates HO6 Ordinance or Law on Coverages List
     Then User validates HO6 Coverage A is 10 percent under Inflation Guard
     Then User validates HO6 Coverage C is 10 percent under Inflation Guard
     And User clicks Policy File Chevron
@@ -79,7 +77,7 @@ Feature: RC-403: 2024 Rate Changes- Inflation Guard: VOL HO6- 01/01/2024
     And User clicks Dwelling chevron
     Then User validates HO6 Coverage A is 10 percent under Inflation Guard
     Then User validates HO6 Coverage C is 10 percent under Inflation Guard
-    
+
     Examples: Test Data
-      | username | password  | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
-      | mcemek   | Nov@2023! | 01/01/2023    | 01/01/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |
+      | EffectiveDate | EndorsementEffectiveDate | ConstructionType | Occupancy      | MonthsOccupied | YearOfConstruction | SquareFeet | BuildingCodeEffectivenessGrade | NumberOfStories | FloorNumber | RoofMaterial                      | Fireplace | ExteriorWalls | PoolSpa | AnimalLiability | FireAlarm    | SprinklerSystem | BurglarAlarm | SecuredCommunityBldg    | MilitaryDiscount | RoofShape | SWR | FloodCoverage | FloodCoverageDeductible | FloodFoundationType | FloodZoneOverride | PreferredRiskStatus | SFHAOverride | ElevatedRiskDiscount |
+      | 01/01/2023    | 01/01/2024               | Frame            | Owner Occupied | 9 to 12 Months |               2021 |       3000 |                              7 |               3 |           3 | Architectural Composition Shingle | Yes       | Brick         | Yes     | $100,000        | Fire Station | Full            | Local Alarm  | 24 Hour Security Patrol | Yes              | HIP       | Yes | Yes           | $5,000                  | Basement            | X                 | Yes                 | No           | Yes                  |

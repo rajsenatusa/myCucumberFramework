@@ -14,7 +14,7 @@
   
  # User: Gallopadmin
 
-@regression @mtr467 @ho3regression
+@regression @mtr467 @ho3regression @ho3APRIL
 Feature: TC 38456--UI Task - Mandatory Mediation-Arbitration Acknowledgment - HO3 - RNWL
 
   Scenario: Task will not be generated on RNWL on 06/22/2022  will be generated on END and referring to UW Clerk group

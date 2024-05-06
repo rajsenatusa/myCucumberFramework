@@ -1,6 +1,5 @@
 package aii.steps;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -164,6 +163,7 @@ public class VOLUMBpolicy extends CommonMethods {
 				String umbliabilitycoverage = dataMap.get("LiabilityCoverage");
 				String uninsuredlimit = dataMap.get("UninsuredLimit");
 				String numberofauto = dataMap.get("NumberOfAuto");
+				String producerCode = dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -190,8 +190,8 @@ public class VOLUMBpolicy extends CommonMethods {
 				click(product.btnProductSelectionUmb);
 
 				// Quote Policy Chevron information was filled here
-				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
-				wait(5);
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
+				wait(2);
 				click(dwellingChevron.btnSave);
 				wait(3);
 				clickTab(policyChevron.ddPolicyWrittenAiig);
@@ -255,14 +255,7 @@ public class VOLUMBpolicy extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

@@ -21,7 +21,7 @@ Feature: RC-22: 2023 Rate Changes- FL Reinsurance Recovery: TO DP3
     And User selects Distance to Hydrant "<DistanceHydrant>"
     And User selects Protection Class "<ProtectionClass>"
     And User selects Dwelling Type "<DwellingType>"
-    And User selects Number of Units "<NumberOfUnits>"
+    #And User selects Number of Units "<NumberOfUnits>"
     And User selects Building Territory List "<TerritoryList>"
     And User clicks Windstorm or Hail Exclusion box
     And User clicks Save

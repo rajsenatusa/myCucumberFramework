@@ -28,10 +28,12 @@ public class BaseClass {
 		switch (ConfigsReader.getProperty("browser").toLowerCase()) {
 
 		case "chrome":
+			
 			ChromeOptions option = new ChromeOptions();
 			option.addArguments("--remote-allow-origins=*");
-
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().clearDriverCache().setup();
+//			WebDriverManager.chromedriver().clearResolutionCache().setup();
+//			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(option);
 			break;
 		case "firefox":
@@ -100,7 +102,17 @@ public class BaseClass {
 			System.out.println("Opening QA7 environment...");
 			driver.get(ConfigsReader.getProperty("urlqa7"));
 			break;
-
+			
+		case "production":
+			System.out.println("Opening Production Environment");
+			driver.get(ConfigsReader.getProperty("production"));
+			break;
+			
+		case "uat":
+			System.out.println("Opening UAT Environment");
+			driver.get(ConfigsReader.getProperty("uat"));
+			break;
+			
 		default:
 			throw new RuntimeException("Environment has not been found!!! Environment: " + environment);
 		}

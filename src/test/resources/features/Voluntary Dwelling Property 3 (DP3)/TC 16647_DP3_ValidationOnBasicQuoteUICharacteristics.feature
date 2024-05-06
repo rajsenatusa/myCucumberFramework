@@ -9,8 +9,8 @@
   
  # User: AG1730
 
-@regression @tc16647 @MTR4468 @dp3regression
-Feature: MTR4468 DP3 Agent NB UI Basic Quote Mode UI Validations
+@regression @tc16647 @dp3regression
+Feature: TC16647 DP3 Agent NB UI Basic Quote Mode UI Validations
 
   Scenario: Validate Quote is created while validating UI
     Given User login to Spin as Admin Agent

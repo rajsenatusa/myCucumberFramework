@@ -278,13 +278,56 @@ public class DashboardPageElements extends CommonMethods {
 	@FindBy(id= "SaveNote")
 	public WebElement saveNote;
 	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[4]/td[1]/i")
+	public WebElement btnExpandGeneralNote;
 	
+	@FindBy(id= "DeleteLink_Policy_1")
+	public WebElement deleteLink;
+	
+	@FindBy(id= "Cancel")
+	public WebElement btnCancel;
+	
+	@FindBy(id= "TransactionLongDescription")
+	public WebElement description;
+	
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[2]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnExpandHO6;
+	
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnExpandGeneralHO6;
+	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[2]/td[1]/i")
+	public WebElement btnExpandHO6WC;
+	            
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[4]/td[1]/i")
+	public WebElement btnExpandHO6WC2;
+	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[6]/td[1]/i")
+	public WebElement btnExpandHO6WC3;
+	
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[3]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnExpandHO3VN;
+	
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnExpandHO3VN2;
+	
+	@FindBy(xpath= "//*[@id=\"ViewNotes\"]/div[2]/table/tbody/tr[5]/td/table/tbody/tr[1]/td[1]/i")
+	public WebElement btnExpandHO3VN3;
+	
+	@FindBy(xpath= "//*[@id=\"NotesList\"]/div/table/tbody/tr[8]/td[1]/i")                
+	public WebElement btnExpandHO3VN4; 
+	
+	 
+	 
+	//*[@id="NotesList"]/div/table/tbody/tr[4]/td[1]/i
 	
 	
 	 
-	
+	 
 	public DashboardPageElements() {
 		PageFactory.initElements(driver, this);
-		
 	}
+	 
+		
+	
 }

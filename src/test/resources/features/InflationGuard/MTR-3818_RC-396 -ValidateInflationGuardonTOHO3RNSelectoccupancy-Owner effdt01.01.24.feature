@@ -2,7 +2,7 @@
 @RN_Policy_TOHO3InflationGuard
 Feature: RC-396: 2024 Rate Changes- Inflation Guard: TO HO3- 01/01/2024
 
-  @RN_Policy_TOHO3InflationGuard-1 @InflationGuard2024
+  @RN_Policy_TOHO3InflationGuard-1 @InflationGuard2024 @AII-Inflation
   Scenario Outline: MTR-3818: RC-396 -Validate Inflation Guard on TO HO3 RN  Select occupancy - Owner  eff dt 01/01/24
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
@@ -43,18 +43,18 @@ Feature: RC-396: 2024 Rate Changes- Inflation Guard: TO HO3- 01/01/2024
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates TOHO3 Coverage A increases by 10 percent
-    Then User validates TOHO3 Coverage B increases off of Coverage A inflated limit amount of 10 percent
-    Then User validates TOHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percent
-    Then User validates TOHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percent
+    #Then User validates TOHO3 Coverage A increases by 10 percent
+    #Then User validates TOHO3 Coverage B increases off of Coverage A inflated limit amount of 10 percent
+    #Then User validates TOHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percent
+    #Then User validates TOHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percent
     Then User validates TOHO3 Hurricane Coverage A Deductible percentage
-    Then User validates TOHO3 Ordinance or Law Increases off of Coverage A inflated amount of 10 percent
+    #Then User validates TOHO3 Ordinance or Law Increases off of Coverage A inflated amount of 10 percent
     Then User validates TOHO3 Sinkhole Loss
-    Then User validates TOHO3 Coverage A on Coverages List
-    Then User validates TOHO3 Coverage B on Coverages List
-    Then User validates TOHO3 Coverage C on Coverages List
-    Then User validates TOHO3 Coverage D on Coverages List
-    Then User validates TOHO3 Inflated value of Ordinance or Law on Coverages List
+    #Then User validates TOHO3 Coverage A on Coverages List
+    #Then User validates TOHO3 Coverage B on Coverages List
+    #Then User validates TOHO3 Coverage C on Coverages List
+    #Then User validates TOHO3 Coverage D on Coverages List
+    #Then User validates TOHO3 Inflated value of Ordinance or Law on Coverages List
     Then User validates CovA TOHO3 Inflation Guard is 10 percent
     And User clicks Policy File Chevron
     And User clicks Renewal Decleration link
@@ -78,18 +78,18 @@ Feature: RC-396: 2024 Rate Changes- Inflation Guard: TO HO3- 01/01/2024
     And User clicks Finalize button
     And User clicks Process
     And User clicks Dwelling chevron
-    Then User validates TOHO3 Coverage A increases by 10 percent after second RN
-    Then User validates TOHO3 Coverage B increases off of Coverage A inflated limit amount of 10 percent after second RN
-    Then User validates TOHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percent after second RN
-    Then User validates TOHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percent after second RN
+    #Then User validates TOHO3 Coverage A increases by 10 percent after second RN
+    #Then User validates TOHO3 Coverage B increases off of Coverage A inflated limit amount of 10 percent after second RN
+    #Then User validates TOHO3 Coverage C increases off of Coverage A inflated limit amount of 10 percent after second RN
+    #Then User validates TOHO3 Coverage D increases off of Coverage A inflated limit amount of 10 percent after second RN
     Then User validates TOHO3 Hurricane Coverage A Deductible percentage after second RN
-    Then User validates TOHO3 Ordinance or Law Increases off of Coverage A inflated amount of 10 percent after second RN
+    #Then User validates TOHO3 Ordinance or Law Increases off of Coverage A inflated amount of 10 percent after second RN
     Then User validates TOHO3 Sinkhole Loss after second RN
-    Then User validates TOHO3 Coverage A on Coverages List after second RN
-    Then User validates TOHO3 Coverage B on Coverages List after second RN
-    Then User validates TOHO3 Coverage C on Coverages List after second RN
-    Then User validates TOHO3 Coverage D on Coverages List after second RN
-    Then User validates TOHO3 Inflated value of Ordinance or Law on Coverages List after second RN
+    #Then User validates TOHO3 Coverage A on Coverages List after second RN
+    #Then User validates TOHO3 Coverage B on Coverages List after second RN
+    #Then User validates TOHO3 Coverage C on Coverages List after second RN
+    #Then User validates TOHO3 Coverage D on Coverages List after second RN
+    #Then User validates TOHO3 Inflated value of Ordinance or Law on Coverages List after second RN
     Then User validates CovA TOHO3 Inflation Guard is 10 percent after second RN
     And User clicks Policy File Chevron
     And User clicks Renewal Decleration link

@@ -2,7 +2,7 @@
 @FIGA-TODP3 
 Feature: RC-1869: 2024 Rate Changes- FIGA: TO DP3 - 1/1/2024
 
-  @FIGA2024-TODP3-1 @FIGA2024
+  @FIGA2024-TODP3-1 @FIGA2024 @regressionFEB
   Scenario Outline: MTR-3698: RC-1869 - 2024 Rate Changes - FIGA: TO DP3 - RN on the Eff date
     Given User login to Spin as Admin Agent
     When User starts transaction as a new customer
@@ -20,7 +20,7 @@ Feature: RC-1869: 2024 Rate Changes- FIGA: TO DP3 - 1/1/2024
     And User selects Distance to Hydrant "<DistanceHydrant>"
     And User selects Protection Class "<ProtectionClass>"
     And User selects Dwelling Type "<DwellingType>"
-    And User selects Number of Units "<NumberOfUnits>"
+    #And User selects Number of Units "<NumberOfUnits>"
     And User selects Building Territory List "<TerritoryList>"
     And User clicks Save
     And User selects Quality Grade "<QualityGrade>"
@@ -37,7 +37,7 @@ Feature: RC-1869: 2024 Rate Changes- FIGA: TO DP3 - 1/1/2024
     And User clicks Worksheets chevron
    Then User validates 2024 FIGA TODP3  rate in Worksheets
     And User clicks Premium Info Chevron
-    Then User validates 2024 FIGA TODP3  rate in Premium Info
+    Then User validates 2024 FIGA TODP3 rate in Premium Info
     And User clicks Review Chevron
     Then User validates 2024 FIGA TODP3  rate in Review
     And User clicks History chevron
@@ -49,7 +49,7 @@ Feature: RC-1869: 2024 Rate Changes- FIGA: TO DP3 - 1/1/2024
     And User clicks Worksheets chevron
     Then User validates 2024 FIGA TODP3  rate in Worksheets
     And User clicks Premium Info Chevron
-    Then User validates 2024 FIGA TODP3  rate in Premium Info
+    Then User validates 2024 FIGA TODP3 rate in Premium Info
     And User clicks Review Chevron
     Then User validates 2024 FIGA TODP3  rate in Review
 

@@ -18,7 +18,7 @@
 ## User: Standard Agent 
 
 
-@regression @mtr397 @dp1regression @gu
+@regression @mtr397 @dp1regression @gu 
 Feature: MTR397--VOL DP1, Verify Cancelled policy unable to edit after cancellation
 
   Scenario: Validate User able to see an error message saying that The current transaction is out of sequence

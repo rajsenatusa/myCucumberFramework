@@ -1,6 +1,9 @@
 package aii.steps;
 
-import java.util.ArrayList;
+
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +17,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TODP1policy extends CommonMethods {
+	static LocalDateTime currentDate = LocalDateTime.now();
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyy");
 
 	@When("User enters product selection information for TODP1 and effective date")
 	public void user_enters_product_selection_information_for_todp1_and_effective_date() {
@@ -25,6 +30,18 @@ public class TODP1policy extends CommonMethods {
 		wait(2);
 		click(product.btnContinue);
 		click(product.btnProductSelectionTodp1);
+	}
+
+	@When("User enters product selection information for TODP1 and current date")
+	public void user_enters_product_selection_information_for_toDP1_and_current_date() {
+		// product selection information was filled here
+		sendText(product.txtEffectiveDate, dtf.format(currentDate));
+		wait(1);
+		selectDropdown(product.ddStateSelection, 1);
+		selectDropdown(product.ddCarrierSelection, 1);
+		wait(2);
+		click(product.btnContinue);
+		click(product.btnProductSelectionTomho);
 	}
 
 	@When("User enters product selection information for TODP1 and {string}")
@@ -52,7 +69,9 @@ public class TODP1policy extends CommonMethods {
 		wait(2);
 		click(policyChevron.btnNoEmailRadio);
 		selectDropdownText(policyChevron.ddConstructionType, ConfigsReader.getProperty("constructiontype"));
+		wait(3);
 		selectDropdownText(policyChevron.ddOccupancy, ConfigsReader.getProperty("occupancytype"));
+		wait(3);
 		selectDropdownText(policyChevron.ddMonthsOccupied, ConfigsReader.getProperty("monthsoccupied"));
 		wait(1);
 		click(policyChevron.btnNext);
@@ -181,6 +200,7 @@ public class TODP1policy extends CommonMethods {
 				String monthsOccupied = dataMap.get("Months");
 				String yearConstruction = dataMap.get("ConstYear");
 				String qualityGrade = dataMap.get("Quality");
+				String producerCode = dataMap.get("Producer");
 
 				sendText(quote.txtFirstName, firstName);
 				sendText(quote.txtLastName, lastName);
@@ -207,7 +227,7 @@ public class TODP1policy extends CommonMethods {
 				click(product.btnProductSelectionTodp1);
 
 				// Quote Policy Chevron information was filled here
-				sendText(policyChevron.txtProducerCodeSel, ConfigsReader.getProperty("producerselection"));
+				sendText(policyChevron.txtProducerCodeSel, producerCode);
 				wait(3);
 				click(dwellingChevron.btnSave);
 				wait(2);
@@ -289,14 +309,7 @@ public class TODP1policy extends CommonMethods {
 				getPolicyNumber(driver);
 
 				// Close unnecessary tabs
-				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-				for (int i = tabs.size() - 1; i > 0; i--) {
-					driver.switchTo().window(tabs.get(i));
-					driver.close();
-				}
-
-				// Switch back to the main page
-				driver.switchTo().window(tabs.get(0));
+				closeUnnecessaryTabs();
 
 				click(dashboard.btnUserMenu);
 				click(dashboard.btnSignOut);

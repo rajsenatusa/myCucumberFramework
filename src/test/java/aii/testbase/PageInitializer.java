@@ -9,6 +9,7 @@ import aii.pages.ClaimPageElements;
 import aii.pages.CloseOutChevronPageElements;
 import aii.pages.CorrespondancePageElements;
 import aii.pages.DashboardPageElements;
+import aii.pages.DataReportsChevronPageElements;
 import aii.pages.FormsPageElements;
 import aii.pages.GolfcartChevronPageElements;
 import aii.pages.HistoryPageElements;
@@ -59,6 +60,7 @@ public class PageInitializer extends BaseClass {
 	public static ClaimPageElements claim;
 	public static CorrespondancePageElements correspondance;
 	public static AttachmentsPageElements attachmentsChevron;
+	public static DataReportsChevronPageElements dataReportsChevron;
 
 	public static void initialize() {
 		login = new LoginPageElements();
@@ -89,6 +91,7 @@ public class PageInitializer extends BaseClass {
 		claim = new ClaimPageElements();
 		correspondance = new CorrespondancePageElements();
 		attachmentsChevron = new AttachmentsPageElements();
+		dataReportsChevron = new DataReportsChevronPageElements();
 	}
 
 }

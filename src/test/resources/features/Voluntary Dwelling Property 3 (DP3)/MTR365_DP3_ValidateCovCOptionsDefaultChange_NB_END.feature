@@ -1,7 +1,7 @@
 #Author: Can Yavas
 #created on 08/03/2023
 
-@regression @tc38508 @mtr365 @dp3regression
+@regression @tc38508 @mtr365 @dp3regression 
 Feature: TC 38508-MTR365-US8830 - DP3 U/I - Owner Occupied Package - Coverage C default change - Endorse (Change Occupancy)
 
   Scenario: Validate Cov-C options list will display on NB for Integrity Select package when 

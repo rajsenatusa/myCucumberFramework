@@ -30,7 +30,7 @@ Feature: TC 34253--DP1, UW, Approvals 'Allow to Approve Age of Plumbing attribut
     And User searches Underwriter
     And User clicks Search button
     And User scrolls to User Roles List
-    And User clicks Override Link on Policy Agent Standard
+    And User clicks Override Link on Underwriter Role <mtr1411>
     And User override Underwriters 'Allow to Approve Age of Plumbing' as no
     And User signs out
     And User login to Spin as Underwriter
@@ -47,7 +47,7 @@ Feature: TC 34253--DP1, UW, Approvals 'Allow to Approve Age of Plumbing attribut
     And User searches Underwriter
     And User clicks Search button
     And User scrolls to User Roles List
-    And User clicks Override Link on Policy Agent Standard
+    And User clicks Override Link on Underwriter Role <mtr1411>
     And User override Underwriters 'Allow to Approve Age of Plumbing' as yes
     And User signs out
     And User login to Spin as Underwriter

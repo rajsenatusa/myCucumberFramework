@@ -2,6 +2,7 @@ package aii.steps;
 
 import org.junit.Assert;
 import aii.utils.CommonMethods;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 public class VOLAIB_FIGA extends CommonMethods {
@@ -53,4 +54,11 @@ public class VOLAIB_FIGA extends CommonMethods {
 		Assert.assertEquals("The value DOES NOT match!", expected, actual);
 		wait(1);
 	}
+	@And("User enters Producer Code for <mtr3625>")
+	public void User_enters_Producer_Code_for_mtr3625() {
+		policyChevron.txtProducerCodeSel.sendKeys("AG0098A1");
+		click(dwellingChevron.btnSave);
+		wait(1);
+	}
+	
 }

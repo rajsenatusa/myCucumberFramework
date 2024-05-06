@@ -44,10 +44,12 @@ public class VOLDP3_EN_Policy extends CommonMethods {
 	}
 
 	@And("User clicks Endorse Policy button")
-	public void User_clicks_Endorse_Policy_button() {
+	public void User_clicks_Endorse_Policy_button() throws Exception {
+		wait(2);
 		reviewChevron.btnFinalize.click();
 		closeoutChevron.btnEndorsePolicy.click();
-		wait(2);
+		wait(7);
+		attachScreenShot(driver);		
 	}
 
 	@Then("User verifies EN DP3 policy has been created successfully")
